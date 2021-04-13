@@ -31,11 +31,6 @@ export default function Header() {
                     <Logo />
                     <HeaderSearchLg />
                     <nav className="navbar navbar-expand-lg navbar-dark bg-transparent py-0">
-                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
                         <NavLargScreen />
                     </nav>
                 </div>
@@ -52,7 +47,7 @@ export default function Header() {
                                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                                         aria-label="Toggle navigation" onClick={hideSearchIcon}>
-                                        <span className="navbar-toggler-icon"></span>
+                                        {showSearchIcon ? <span className="navbar-toggler-icon"></span> : <span><i className="fas fa-times text-white"></i></span>}
                                     </button>
                                 </nav>
                                 <Logo />
@@ -64,8 +59,6 @@ export default function Header() {
                                 ? <i className="fas fa-times text-white"></i>
                                 : <i className="fa fa-search text-white"></i>)
                         }
-
-
                     </button>
                 </div>
                 <div className="container">
