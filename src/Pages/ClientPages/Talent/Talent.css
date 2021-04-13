@@ -9,9 +9,14 @@
     font-weight: 600;
     color: black;
 }
+.nav-tabs .nav-link:hover
+{
+    text-decoration: none;
+}
 .nav-tabs .active
 {
     border: none !important;
     border-bottom: 4px solid #37A000 !important;
     color: #37A000 !important;
+    text-decoration: none;
 }
