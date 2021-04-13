@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import HeaderSearchSm from '../../SharedComponents/HeaderSearchSm/HeaderSearchSm';
+import { Link } from 'react-router-dom';
 
 
 export default function NavSmallScreen() {
@@ -59,29 +60,26 @@ export default function NavSmallScreen() {
                         <a className="nav-link active dropdown-toggle mt-2 pt-3 border-top-cn" href="#"
                             id="navbarDropdownMenuLink" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            Find Work
+                            Jobs
                             <i className="fa fa-sort-down text-white float-end"></i>
                         </a>
                         <ul className="dropdown-menu sub-drop-cn" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a className="dropdown-item" href="#">Find Work</a></li>
-                            <li><a className="dropdown-item" href="#">Saved Jobs</a></li>
-                            <li><a className="dropdown-item" href="#">Proposals</a></li>
-                            <li><a className="dropdown-item" href="#">Profile</a></li>
-                            <li><a className="dropdown-item" href="#">My Stats</a></li>
-                            <li><a className="dropdown-item" href="#">Upwork Readiness Test</a></li>
-                            <li><a className="dropdown-item" href="#">My Project Dashboard</a></li>
+                            <li><Link className="dropdown-item" to="/home">My Jobs</Link></li>
+                            <li><Link className="dropdown-item" to="/all-job-posts">All Jobs Posts</Link></li>
+                            <li><Link className="dropdown-item" to="/all-contracts">All Contracts</Link></li>
+                            <li><Link className="dropdown-item" to="/bring-your-own-talent">Bring Your Own Talent</Link></li>
+                            <li><Link className="dropdown-item" to="/post-job">Post a Job</Link></li>
                         </ul>
                     </li>
                     <li className="dropdown px-3">
                         <a className="nav-link dropdown-toggle mt-2 pt-3 border-top-cn" href="#" id="navbarDropdownMenuLink"
                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            My Jobs
+                            Talent
                             <i className="fa fa-sort-down text-white float-end"></i>
                         </a>
                         <ul className="dropdown-menu sub-drop-cn" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a className="dropdown-item" href="#">My Jobs</a></li>
-                            <li><a className="dropdown-item" href="#">All Contracts</a></li>
-                            <li><a className="dropdown-item" href="#">Work Diary</a></li>
+                            <li><Link className="dropdown-item" to="/my-hires">My Hires</Link></li>
+                            <li><Link className="dropdown-item" to="/saved-talent">Saved Talent</Link></li>
                         </ul>
                     </li>
                     <li className="dropdown px-3">
@@ -90,13 +88,30 @@ export default function NavSmallScreen() {
                             Reports
                             <i className="fa fa-sort-down text-white float-end"></i>
                         </a>
-                        <ul className="dropdown-menu sub-drop-cn" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a className="dropdown-item" href="#">Overview</a></li>
-                            <li><a className="dropdown-item" href="#">My Reports</a></li>
-                            <li><a className="dropdown-item" href="#">Lifetime Billings by Client</a></li>
-                            <li><a className="dropdown-item" href="#">Connects History</a></li>
-                            <li><a className="dropdown-item" href="#">Transaction History</a></li>
-                            <li><a className="dropdown-item" href="#">Certificate of Earnings</a></li>
+                        <ul class="dropdown-menu sub-drop-cn" aria-labelledby="navbarDropdownMenuLink">
+                            <li class="fw-bold py-1 text-light" style={{ marginLeft: "-15px" }}>FINANCIALS</li>
+                            <li><a class="dropdown-item ps-3" href="#">Transactions</a></li>
+                            <li class="border-top-cn fw-bold py-1 text-light" style={{ marginLeft: "-15px" }}>
+                                MORE REPORTS
+                                <div>
+                                    <div class="text-center mt-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 145 130" width="80" height="80" role="img">
+                                            <g fill="#e0e0e0">
+                                                <path d="M103.5 96.6H90.9l4.4 28h12.6zM41.5 96.6h12.6l-4.4 28H37.1z"></path>
+                                            </g>
+                                            <path d="M140.8 91.1H4.2c-.6 0-1-.4-1-1V6.4c0-.6.4-1 1-1h136.6c.6 0 1 .4 1 1v83.7c0 .5-.4 1-1 1z" fill="#1d4354" class="report-board"></path>
+                                            <path d="M32 67.3c-.2 0-.5-.1-.6-.3-.4-.4-.4-.9 0-1.3l27.5-28.5c.3-.3.8-.4 1.1-.1l25.5 15.5 23.2-23.2c.4-.4.9-.4 1.3 0s.4.9 0 1.3L86.3 54.4c-.3.3-.8.4-1.1.1L59.6 39.1l-27 28c-.1.1-.4.2-.6.2z" fill="#fff"></path>
+                                            <circle cx="109.4" cy="30.1" fill="#6fda44" r="5.6"></circle>
+                                            <circle cx="84.6" cy="52.6" fill="#6fda44" r="5.6"></circle>
+                                            <circle cx="59.8" cy="38.6" fill="#6fda44" r="5.6"></circle>
+                                            <circle cx="32" cy="66.4" fill="#6fda44" r="5.6"></circle>
+                                            <path d="M143.5 98.4H1.5c-.6 0-1-.4-1-1V85.5c0-.6.4-11-1h142c.6 0 1 .4 1 1v11.9c0 .6-.4 1-1 1z" fill="#6fda44"></path>
+                                        </svg>
+                                    </div>
+                                    <p class="fw-normal p-3">Access premium reports such as hourly timesheets, team budgets, weekly summaries and more when you upgrade.</p>
+                                    <a href="" style={{ color: "#6fda44" }} class="d-block text-center mb-3">Learn More</a>
+                                </div>
+                            </li>
                         </ul>
                     </li>
                     <li className="nav-item px-3">
