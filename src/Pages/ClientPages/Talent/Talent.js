@@ -1,6 +1,6 @@
 import React from 'react'
 import "./Talent.css"
-import { Link, Route, BrowserRouter as Router, Switch, NavLink } from 'react-router-dom'
+import { Route, BrowserRouter as Router, Switch, NavLink } from 'react-router-dom'
 import MyHires from "../../../Components/ClientComponents/MyHiresComponent/MyHires"
 import Saved from "../../../Components/ClientComponents/SavedComponent/Saved"
 
