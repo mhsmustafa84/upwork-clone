@@ -11,7 +11,7 @@ export default function Talent() {
             <div className="container px-5 ">
             <div className="row tab-talent-CN">
             <Router>
-                <ul className="nav nav-tabs pt-3 mt-2">
+                <ul className="nav nav-tabs pt-3">
                     <li className="nav-item mx-2">
                         <NavLink className="nav-link" exact activeClassName="active" to="/ab/profiles/search/" >Search</NavLink>
                     </li>
