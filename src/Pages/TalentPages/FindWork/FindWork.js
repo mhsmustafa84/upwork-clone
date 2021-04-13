@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function AllJobPosts() {
+export default function FindWork() {
     return (
         <div>
-            <h1>ssdsds</h1>
+            <h1>Find work</h1>
         </div>
     )
 }

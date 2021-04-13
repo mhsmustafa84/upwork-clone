@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function AllJobPosts() {
+export default function Messages() {
     return (
         <div>
-            <h1>ssdsds</h1>
+            <h1>Messages</h1>
         </div>
     )
 }
