@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link, Route, BrowserRouter as Router, Switch } from 'react-router-dom'
+import "./Talent.css"
+import { Link, Route, BrowserRouter as Router, Switch, NavLink } from 'react-router-dom'
 import MyHires from "../../../Components/ClientComponents/MyHiresComponent/MyHires"
 import Saved from "../../../Components/ClientComponents/SavedComponent/Saved"
 
@@ -7,20 +8,18 @@ import Saved from "../../../Components/ClientComponents/SavedComponent/Saved"
 export default function Talent() {
     return (
         <div>
-            <div className="container">
+            <div className="container px-5 ">
+            <div className="row tab-talent-CN">
             <Router>
-                <ul className="nav nav-tabs">
-                    <li className="nav-item">
-                        <Link className="nav-link active" to="/ab/profiles/search/" >Search</Link>
-                        {/* <a className="nav-link active" aria-current="page" href="#">Active</a> */}
+                <ul className="nav nav-tabs pt-3 mt-2">
+                    <li className="nav-item mx-2">
+                        <NavLink className="nav-link" exact activeClassName="active" to="/ab/profiles/search/" >Search</NavLink>
                     </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/ab/profiles/search/hires" >My Hires</Link>
-                        {/* <a className="nav-link" href="#">Link</a> */}
+                    <li className="nav-item mx-2">
+                        <NavLink className="nav-link" exact activeClassName="active" to="/ab/profiles/search/hires" >My Hires</NavLink>
                     </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/ab/profiles/search/saved" >Saved</Link>
-                        {/* <a className="nav-link" href="#">Link</a> */}
+                    <li className="nav-item mx-2">
+                        <NavLink className="nav-link" exact activeClassName="active" to="/ab/profiles/search/saved" >Saved</NavLink>
                     </li>
                 </ul>
            
@@ -29,6 +28,7 @@ export default function Talent() {
                     <Route path="/ab/profiles/search/saved" exact component={Saved} />
                 </Switch>
             </Router>
+            </div>
             </div>
         </div>
     )
