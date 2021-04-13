@@ -1,9 +1,6 @@
-import React from 'react'
+import React from "react";
+import HomeLayout from "../../../Components/ClientComponents/HomeLayout/HomeLayout";
 
 export default function Jobs() {
-    return (
-        <div>
-           jobs 
-        </div>
-    )
+  return <HomeLayout />;
 }
