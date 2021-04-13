@@ -7,7 +7,7 @@
     border: none;
     font-size: 15px;
     font-weight: 600;
-    color: black;
+    color: black !important;
 }
 .nav-tabs .nav-link:hover
 {
