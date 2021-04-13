@@ -5,7 +5,8 @@ import {
     Route,
     Link
   } from "react-router-dom";
-
+import Saved from "../Components/ClientComponents/SavedComponent/Saved"
+import MyHires from "../Components/ClientComponents/MyHiresComponent/MyHires"
 
 export default function ClientRoutes() {
     return (
@@ -13,7 +14,8 @@ export default function ClientRoutes() {
         <Router>
             <Switch>
                 <Route/>
-                {/* <Route path="/saved" component={Saved}/> */}
+                <Route path="/hires" exact component={MyHires}/>
+                <Route path="/saved" exact component={Saved}/>
             </Switch>
         </Router>
         </>
