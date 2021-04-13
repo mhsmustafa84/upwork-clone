@@ -365,18 +365,23 @@ a:active {
   text-overflow: ellipsis;
 }
 .topic {
-  font-size: 0.7em;
+  font-size: 0.75em;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   position: absolute;
-  left: 84px;
-  right: 0;
-  top: 39px;
+  left: 74px;
+  right: 30px;
+  top: 29px;
   font-weight: 400 !important;
   margin-right: 10px;
   line-height: 16px;
   cursor: pointer;
+}
+.smallmsg {
+  position: relative;
+  top: 1em;
+  font-size: 0.8em;
 }
 
 /* ===================Chat style===================== */
@@ -449,8 +454,8 @@ a:active {
   width: 10px;
   background-color: #4cd137;
   border-radius: 50%;
-  bottom: 2.8em;
-  right: 9.5em;
+  bottom: 3.2em;
+  right: 3em;
   border: 1.5px solid white;
 }
 .offline {
