@@ -14,8 +14,8 @@ export default function ClientRoutes() {
         <Router>
             <Switch>
                 <Route/>
-                <Route path="/hires" exact component={MyHires}/>
-                <Route path="/saved" exact component={Saved}/>
+                <Route path="/ab/profiles/search/hires" exact component={MyHires}/>
+                <Route path="/ab/profiles/search/saved" exact component={Saved}/>
             </Switch>
         </Router>
         </>
