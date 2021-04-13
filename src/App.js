@@ -1,23 +1,17 @@
 /* eslint-disable no-unused-vars */
-import { BrowserRouter } from 'react-router-dom';
-import './App.css';
-import LayOut from './LayOut/LayOut';
-import Header from './Components/ClientComponents/Header/Header';
-// import Footer from './Components/SharedComponents/Footer/Footer';
-// import Headers from './Components/TalentComponents/Header/Header';
-
+import { BrowserRouter } from "react-router-dom";
+import "./App.css";
+import "../src/assets/Style/style.css";
+import LayOut from "./LayOut/LayOut";
 
 function App() {
-    return (
-        <div className="App">
-            <BrowserRouter>
-                <Header />
-                <LayOut />
-                {/* <Footer /> */}
-                {/* <Headers /> */}
-            </BrowserRouter>
-        </div>
-    );
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <LayOut />
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;
