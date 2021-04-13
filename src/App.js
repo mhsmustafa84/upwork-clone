@@ -1,10 +1,10 @@
-import './App.css';
-import Client from './LayOut/Client';
+import "./App.css";
+import Client from "./LayOut/Client";
 
 function App() {
   return (
     <div className="App">
-      <Client/>
+      <Client />
     </div>
   );
 }

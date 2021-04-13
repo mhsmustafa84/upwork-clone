@@ -1,0 +1,12 @@
+@import url(//db.onlinewebfonts.com/c/3def92f7b2ad644bd382798ecc8ca4c7?family=Canela);
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 74%;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
