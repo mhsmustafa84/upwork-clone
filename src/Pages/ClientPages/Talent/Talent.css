@@ -1,6 +1,10 @@
-.tab-talent-CN , .tab-talent-CN  .nav
+.tab-talent-CN 
 {
     border: solid 1px #E0E0E0
+}
+.tab-talent-CN  .nav
+{
+    border-bottom: solid 1px #E0E0E0
 }
 .nav-tabs .nav-link
 {
