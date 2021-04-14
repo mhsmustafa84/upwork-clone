@@ -1,11 +1,8 @@
 import React from "react";
-import Footer from "../../../Components/SharedComponents/Footer/Footer";
-import Header from "../../../Components/TalentComponents/Header/Header";
 
 export default function WorkDiary() {
   return (
     <>
-      <Header />
       <div className=" bg-gray">
         <div className="container">
           <div className="row">
@@ -25,7 +22,6 @@ export default function WorkDiary() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }
