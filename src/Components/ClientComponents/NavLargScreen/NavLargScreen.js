@@ -22,13 +22,13 @@ export default function NavLargScreen() {
                         </ul>
                     </li>
                     <li className="nav-item">
-                        <NavLink className="nav-link" to="/my-jobs">
+                        <NavLink className="nav-link" to="/talent">
                             Talent
                         </NavLink>
                         <ul className="dropdown-menu">
                             <div className="nav-dd-cn"></div>
-                            <li><Link className="dropdown-item" to="/my-hires">My Hires</Link></li>
-                            <li><Link className="dropdown-item" to="/saved-talent">Saved Talent</Link></li>
+                            <li><Link className="dropdown-item" to="/talent/my-hires">My Hires</Link></li>
+                            <li><Link className="dropdown-item" to="/talent/saved-talent">Saved Talent</Link></li>
                         </ul>
                     </li>
                     <li className="nav-item">
