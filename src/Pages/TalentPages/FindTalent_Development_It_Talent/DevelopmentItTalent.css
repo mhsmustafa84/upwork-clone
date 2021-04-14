@@ -1,4 +1,7 @@
-
+body {
+  font-family: "Sawarabi Gothic", sans-serif;
+  overflow-x: hidden;
+}
 a {
     color: #079b36;
   }

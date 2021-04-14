@@ -8,6 +8,7 @@ import talentMainSectionFillDevIT from '../../../images/talent_main-section-Fill
 import talentMainSectionArticle2MobileDevIT from '../../../images/talent-main-section-article2-mobile-Dev-IT.png'
 import ArticleCard from '../../../Components/TalentComponents/ArticleCard/ArticleCard'
 import BusinessTrusted from '../../../Components/TalentComponents/BusinessTrusted/BusinessTrusted'
+import TrustedRemote from '../../../Components/TalentComponents/TrustedRemote/TrustedRemote'
 
 export default function DevelopmentItTalent() {
     return (
@@ -31,9 +32,10 @@ export default function DevelopmentItTalent() {
                     </div>
                 </div>
                 
-                
+
                     <BusinessTrusted />
 
+                    <TrustedRemote />
             </section>
 
         </div>
