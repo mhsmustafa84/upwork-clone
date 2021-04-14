@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import apple from "../../../assets/svg/apple.svg";
 import micro from "../../../assets/svg/Microsoft_logo.svg";
@@ -8,6 +9,7 @@ import bissell from "../../../assets/svg/bissell.svg";
 import coty from "../../../assets/svg/Coty_logo.svg";
 
 export default function SignUpTemp() {
+  console.log(apple);
   return (
     <>
       <div className="container-fluid bg-upwork-dark">
