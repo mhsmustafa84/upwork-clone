@@ -1,12 +1,12 @@
 import './App.css';
 import Client from './LayOut/Client';
-import Talent from './Pages/ClientPages/Talent/Talent';
+import DevelopmentItTalent from './Pages/TalentPages/FindTalent_Development_It_Talent/DevelopmentItTalent';
 
 function App() {
   return (
     <div className="App">
       {/* <Client/> */}
-      <Talent />
+        <DevelopmentItTalent />
     </div>
   );
 }
