@@ -398,7 +398,7 @@ export default function HomeLayout() {
                 <div class="card-body">
                   <h5 class="card-title">Web Design</h5>
                   <p class="card-text">You think you might like help</p>
-                  <a href="#" class="btn btn-primary ">
+                  <a href="#" class="btn bg-upwork ">
                     learn More
                   </a>
                 </div>

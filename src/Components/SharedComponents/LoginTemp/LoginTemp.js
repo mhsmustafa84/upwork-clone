@@ -37,9 +37,14 @@ export default function LoginTemp() {
                       src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
                     />
                   </div>
-                  <p className="btn-text ">
-                    <center>Sign in with google</center>
-                  </p>
+                  <div className="text-justify ">
+                    <p
+                      class="text-center text-white"
+                      style={{ paddingTop: ".3em" }}
+                    >
+                      Sign in with google
+                    </p>
+                  </div>
                 </div>
                 <div className="mb-5 d-grid gap-2 col-8 mx-auto mt-3 border border-dark rounded">
                   <button className="btn bg-light " type="button">
@@ -50,7 +55,9 @@ export default function LoginTemp() {
                 </div>
                 <hr />
                 <div>
-                  <div className="separator mt-4 col-8 mx-auto">New to Upwork?</div>
+                  <div className="separator mt-4 col-8 mx-auto">
+                    New to Upwork?
+                  </div>
                   <div className="d-grid gap-2 col-md-5 col-sm-10 mx-auto mt-3   rounded mb-5">
                     <button className="btn signup" type="button">
                       Sign Up
