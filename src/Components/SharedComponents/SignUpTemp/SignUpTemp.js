@@ -27,7 +27,12 @@ export default function SignUpTemp() {
                   />
                 </div>
                 <div className="text-justify ">
-                  <p className="text-center text-white">Continue with Google</p>
+                  <p
+                    className="text-center text-white"
+                    style={{ paddingTop: ".3em" }}
+                  >
+                    Continue with Google
+                  </p>
                 </div>
               </div>
               <div className="mb-5 d-grid gap-2 col-8 mx-auto mt-3 border border-dark rounded">

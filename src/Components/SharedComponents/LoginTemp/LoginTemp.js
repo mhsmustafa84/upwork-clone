@@ -36,9 +36,14 @@ export default function LoginTemp() {
                       src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
                     />
                   </div>
-                  <p class="btn-text ">
-                    <center>Sign in with google</center>
-                  </p>
+                  <div className="text-justify ">
+                    <p
+                      class="text-center text-white"
+                      style={{ paddingTop: ".3em" }}
+                    >
+                      Sign in with google
+                    </p>
+                  </div>
                 </div>
                 <div class="mb-5 d-grid gap-2 col-8 mx-auto mt-3 border border-dark rounded">
                   <button class="btn bg-light " type="button">

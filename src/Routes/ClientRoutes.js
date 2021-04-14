@@ -8,6 +8,7 @@ export default function ClientRoutes() {
   return (
     <>
       <Switch>
+        <Route path="/home" exact component={Jobs} />
         <Route path="/" exact component={Jobs} />
         <Route path="/login" exact component={Login} />
         <Route path="/signup" exact component={SignUp} />

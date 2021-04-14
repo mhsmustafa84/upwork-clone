@@ -6,6 +6,7 @@ export default function LayOut() {
   return (
     <>
       <ClientRoutes />
+      {/* <TalentRoutes /> */}
     </>
   );
 }

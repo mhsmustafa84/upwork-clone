@@ -417,7 +417,7 @@ a:active {
 }
 
 .active {
-  background-color: rgba(0, 0, 0, 0.3);
+  /* background-color: rgba(0, 0, 0, 0.3); */
 }
 .user_img {
   height: 70px;
