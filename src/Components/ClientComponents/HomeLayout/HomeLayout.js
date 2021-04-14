@@ -1,3 +1,7 @@
+/* eslint-disable no-script-url */
+/* eslint-disable react/jsx-no-target-blank */
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import "./HomeLayout.css";
 import j1 from "../../../assets/svg/jobs1.svg";

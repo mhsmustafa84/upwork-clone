@@ -78,8 +78,8 @@ export default function NavSmallScreen() {
                             <i className="fa fa-sort-down text-white float-end"></i>
                         </a>
                         <ul className="dropdown-menu sub-drop-cn" aria-labelledby="navbarDropdownMenuLink">
-                            <li><Link className="dropdown-item" to="/my-hires">My Hires</Link></li>
-                            <li><Link className="dropdown-item" to="/saved-talent">Saved Talent</Link></li>
+                            <li><Link className="dropdown-item" to="/talent/my-hires">My Hires</Link></li>
+                            <li><Link className="dropdown-item" to="/talent/saved-talent">Saved Talent</Link></li>
                         </ul>
                     </li>
                     <li className="dropdown px-3">
@@ -115,7 +115,7 @@ export default function NavSmallScreen() {
                         </ul>
                     </li>
                     <li className="nav-item px-3">
-                        <a className="nav-link mt-2 pt-3 border-top-cn" href="#">Messages</a>
+                        <Link className="nav-link mt-2 pt-3 border-top-cn" to="messages">Messages</Link>
                     </li>
                     <li className="nav-item px-3">
                         <a className="nav-link mt-2 pt-3 border-top-cn" href="#">
@@ -131,8 +131,8 @@ export default function NavSmallScreen() {
                     </li>
                     <li className="nav-item px-3">
                         <a className="nav-link mt-2 pt-3 border-top-cn" href="#">
-                            Direct Contracts
-                            <i className="far fa-paper-plane float-end" style={{ transform: "scaleX(-1)" }}></i>
+                            Invite a Coworker
+                        <i class="fas fa-user-plus float-end" style={{ transform: "scaleX(-1)" }}></i>
                         </a>
                     </li>
                     <li className="nav-item">

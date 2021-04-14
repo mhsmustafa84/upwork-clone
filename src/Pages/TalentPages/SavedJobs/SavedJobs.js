@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Talent() {
+export default function SavedJobs() {
     return (
         <>
-            <h1>Talent</h1>
+            <h1>Saved Jobs</h1>
         </>
     )
 }
