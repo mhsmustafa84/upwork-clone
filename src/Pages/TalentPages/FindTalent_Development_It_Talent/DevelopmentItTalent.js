@@ -12,6 +12,7 @@ import TrustedRemote from '../../../Components/TalentComponents/TrustedRemote/Tr
 import BrowseBuyProjects from '../../../Components/TalentComponents/BrowseBuyProjects/BrowseBuyProjects'
 import GetStarted from '../../../Components/TalentComponents/GetStarted/GetStarted'
 import PlayingField from '../../../Components/TalentComponents/PlayingField/PlayingField'
+import ProjectExamples from '../../../Components/TalentComponents/ProjectExamples/ProjectExamples'
 
 
 export default function DevelopmentItTalent() {
@@ -41,6 +42,7 @@ export default function DevelopmentItTalent() {
                     <BrowseBuyProjects />
                     <GetStarted />
                     <PlayingField />
+                    <ProjectExamples />
             </section>
 
         </div>
