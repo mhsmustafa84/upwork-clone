@@ -1,4 +1,5 @@
 import React from 'react'
+<<<<<<< HEAD
 import "./Talent.css"
 import { Route, BrowserRouter as Router, Switch, NavLink } from 'react-router-dom'
 import MyHires from "../../../Components/ClientComponents/MyHiresComponent/MyHires"
@@ -31,5 +32,13 @@ export default function Talent() {
             </div>
             </div>
         </div>
+=======
+
+export default function Talent() {
+    return (
+        <>
+            <h1>Talent</h1>
+        </>
+>>>>>>> 07766385d263f291f8800329db90b86ca71ff6bc
     )
 }

@@ -3,7 +3,7 @@ import React from 'react'
 export default function PostJob() {
     return (
         <div>
-            Postjop
+            <h1>Post a job</h1>
         </div>
     )
 }
