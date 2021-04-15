@@ -1,0 +1,36 @@
+h1
+{
+    font-family: "Unna", serif;
+    letter-spacing: 1px;
+}
+#body-header-bg-ID {
+    background-color: #1d4354;
+    position: relative;
+  }
+  #body-header-ID h1 {
+    color: white;
+  }
+  #body-header-ID p {
+    color: white;
+    font-weight: 500;
+  }
+  #header-btn-1 {
+    background-color: #079b36;
+    color: white;
+  }
+  #header-btn-2 {
+    background-color: white;
+    color: #079b36;
+  }
+  #header-svg-1-ID {
+    top: 30px;
+    right: 520px;
+  }
+  #header-svg-2-ID {
+    bottom: 145px;
+    right: 14vw;
+  }
+  #header-man-ID,
+  #header-text-ID {
+    z-index: 3;
+  }

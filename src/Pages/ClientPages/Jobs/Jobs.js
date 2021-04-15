@@ -6,9 +6,7 @@ import Footer from "../../../Components/SharedComponents/Footer/Footer";
 export default function Jobs() {
   return (
     <>
-      <Header />
       <HomeLayout />
-      <Footer />
     </>
   );
 }

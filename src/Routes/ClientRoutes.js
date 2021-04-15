@@ -32,7 +32,7 @@ export default function ClientRoutes() {
           component={BringYourTalent}
         />
         <Route path="/post-job" exact component={PostJob} />
-        <Route path="/talent" exact component={Talent} />
+        <Route path="/ab/profiles/search/hires" exact component={Talent} />
         <Route path="/talent/my-hires" exact component={Talent} />
         <Route path="/talent/saved-talent" exact component={Talent} />
         <Route path="/billing-history" exact component={Reports} />

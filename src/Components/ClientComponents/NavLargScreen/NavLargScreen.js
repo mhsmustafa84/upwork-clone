@@ -41,7 +41,7 @@ export default function NavLargScreen() {
             </ul>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" to="/talent">
+            <NavLink className="nav-link" to="/ab/profiles/search/hires">
               Talent
             </NavLink>
             <ul className="dropdown-menu">
