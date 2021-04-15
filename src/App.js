@@ -1,12 +1,12 @@
 import './App.css';
 import Client from './LayOut/Client';
-import DevelopmentItTalent from './Pages/TalentPages/FindTalent_Development_It_Talent/DevelopmentItTalent';
+import FindFreelancingJob from './Pages/TalentPages/FindFreelancingJob/FindFreelancingJob';
 
 function App() {
   return (
     <div className="App">
       {/* <Client/> */}
-        <DevelopmentItTalent />
+      <FindFreelancingJob />
     </div>
   );
 }
