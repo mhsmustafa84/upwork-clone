@@ -15,6 +15,7 @@ import PlayingField from '../../../Components/TalentComponents/PlayingField/Play
 import ProjectExamples from '../../../Components/TalentComponents/ProjectExamples/ProjectExamples'
 import Flexera from '../../../Components/TalentComponents/Flexera/Flexera'
 import Questions from '../../../Components/TalentComponents/Questions/Questions'
+import FindSkills from '../../../Components/TalentComponents/FindSkills/FindSkills'
 
 
 export default function DevelopmentItTalent() {
@@ -47,6 +48,7 @@ export default function DevelopmentItTalent() {
                     <ProjectExamples />
                     <Flexera />
                     <Questions />
+                    <FindSkills />
             </section>
 
         </div>
