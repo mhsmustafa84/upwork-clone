@@ -12,12 +12,14 @@ import BringYourTalent from "./../Pages/ClientPages/BringYourTalent/BringYourTal
 import PostJob from "./../Pages/ClientPages/PostJop/PostJob";
 import Talent from "./../Pages/ClientPages/Talent/Talent";
 import Reports from "./../Pages/ClientPages/Reports/Reports";
+import PageNotFound from "../Pages/Page Not Found/PageNotFound";
 
 export default function ClientRoutes() {
   return (
     <>
       <Header />
       <Switch>
+        <Route path="/" exact component={Jobs} />
         <Route path="/home" exact component={Jobs} />
         <Route path="/login" exact component={Login} />
         <Route path="/signup" exact component={SignUp} />
@@ -34,6 +36,7 @@ export default function ClientRoutes() {
         <Route path="/talent/my-hires" exact component={Talent} />
         <Route path="/talent/saved-talent" exact component={Talent} />
         <Route path="/billing-history" exact component={Reports} />
+        <Route path="**" exact component={PageNotFound} />
       </Switch>
       <Footer />
     </>
