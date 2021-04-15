@@ -13,6 +13,7 @@ import BrowseBuyProjects from '../../../Components/TalentComponents/BrowseBuyPro
 import GetStarted from '../../../Components/TalentComponents/GetStarted/GetStarted'
 import PlayingField from '../../../Components/TalentComponents/PlayingField/PlayingField'
 import ProjectExamples from '../../../Components/TalentComponents/ProjectExamples/ProjectExamples'
+import Flexera from '../../../Components/TalentComponents/Flexera/Flexera'
 
 
 export default function DevelopmentItTalent() {
@@ -43,6 +44,7 @@ export default function DevelopmentItTalent() {
                     <GetStarted />
                     <PlayingField />
                     <ProjectExamples />
+                    <Flexera />
             </section>
 
         </div>

@@ -1,5 +1,4 @@
 import React from 'react'
-import './ProjectExample.css'
 import talentMainSectionClientUseUpworkDevIT from '../../../images/talent-main-section-client-use-upwork-Dev-IT.png'
 import talentMainSectionClientDeveloperDev from '../../../images/talent_main-section-client-developer-Dev-IT.jpeg'
 
