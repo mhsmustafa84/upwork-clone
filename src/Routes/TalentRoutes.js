@@ -12,6 +12,7 @@ import MyStats from "./../Pages/TalentPages/MyStats/MyStats";
 import MyJobs from "./../Pages/TalentPages/MyJobs/MyJobs";
 import AllContracts from "./../Pages/TalentPages/AllContracts/AllContracts";
 import WorkDiary from "./../Pages/TalentPages/WorkDiary/WorkDiary";
+import PageNotFound from "../Pages/Page Not Found/PageNotFound";
 
 export default function TalentRoutes() {
   return (
@@ -28,6 +29,7 @@ export default function TalentRoutes() {
         <Route path="/work-diary" exact component={WorkDiary} />
         <Route path="/overview" exact component={Reports} />
         <Route path="/messages" exact component={Messages} />
+        <Route path="**" exact component={PageNotFound} />
       </Switch>
       <Footer />
     </>
