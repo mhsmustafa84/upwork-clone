@@ -9,6 +9,7 @@ import talentMainSectionArticle2MobileDevIT from '../../../images/talent-main-se
 import ArticleCard from '../../../Components/TalentComponents/ArticleCard/ArticleCard'
 import BusinessTrusted from '../../../Components/TalentComponents/BusinessTrusted/BusinessTrusted'
 import TrustedRemote from '../../../Components/TalentComponents/TrustedRemote/TrustedRemote'
+import BrowseBuyProjects from '../../../Components/TalentComponents/BrowseBuyProjects/BrowseBuyProjects'
 
 export default function DevelopmentItTalent() {
     return (
@@ -36,6 +37,7 @@ export default function DevelopmentItTalent() {
                     <BusinessTrusted />
 
                     <TrustedRemote />
+                    <BrowseBuyProjects />
             </section>
 
         </div>
