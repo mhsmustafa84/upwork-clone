@@ -1,7 +1,6 @@
 import React from 'react'
 import talentMainSectionVideoPreviewDevIT from '../../../images/talent_main-section-video-preview-Dev-IT.jpeg'
-import VID from '../../../videos/VID-20210318-WA0020.mp4'
-
+import VID from '../../../assets/videos/VID-20210318-WA0020.mp4'
 export default function GetStarted() {
     return (
         <div>
