@@ -10,6 +10,7 @@ import ArticleCard from '../../../Components/TalentComponents/ArticleCard/Articl
 import BusinessTrusted from '../../../Components/TalentComponents/BusinessTrusted/BusinessTrusted'
 import TrustedRemote from '../../../Components/TalentComponents/TrustedRemote/TrustedRemote'
 import BrowseBuyProjects from '../../../Components/TalentComponents/BrowseBuyProjects/BrowseBuyProjects'
+import GetStarted from '../../../Components/TalentComponents/GetStarted/GetStarted'
 
 export default function DevelopmentItTalent() {
     return (
@@ -32,12 +33,11 @@ export default function DevelopmentItTalent() {
                         <img className="w-50 mx-auto d-block" id="mobile-articles-image-ID" src={talentMainSectionArticle2MobileDevIT} alt='' />
                     </div>
                 </div>
-                
-
+    
                     <BusinessTrusted />
-
                     <TrustedRemote />
                     <BrowseBuyProjects />
+                    <GetStarted />
             </section>
 
         </div>
