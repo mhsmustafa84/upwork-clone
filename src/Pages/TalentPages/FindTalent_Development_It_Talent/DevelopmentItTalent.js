@@ -14,6 +14,7 @@ import GetStarted from '../../../Components/TalentComponents/GetStarted/GetStart
 import PlayingField from '../../../Components/TalentComponents/PlayingField/PlayingField'
 import ProjectExamples from '../../../Components/TalentComponents/ProjectExamples/ProjectExamples'
 import Flexera from '../../../Components/TalentComponents/Flexera/Flexera'
+import Questions from '../../../Components/TalentComponents/Questions/Questions'
 
 
 export default function DevelopmentItTalent() {
@@ -45,6 +46,7 @@ export default function DevelopmentItTalent() {
                     <PlayingField />
                     <ProjectExamples />
                     <Flexera />
+                    <Questions />
             </section>
 
         </div>
