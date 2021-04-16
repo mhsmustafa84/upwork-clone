@@ -9,8 +9,8 @@ export default function LayOut() {
     <>
       {/* <Login /> */}
       {/* <SignUp /> */}
-      <ClientRoutes />
-      {/* <TalentRoutes /> */}
+      {/* <ClientRoutes /> */}
+      <TalentRoutes />
     </>
   );
 }
