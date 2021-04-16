@@ -2,7 +2,6 @@
 import React from 'react'
 
 export default function HeaderSearchSm(props) {
-    console.log(props);
     return (
         <>
             <form className="d-flex mt-1">
@@ -62,7 +61,7 @@ export default function HeaderSearchSm(props) {
                 {
                     props.bg
                         ? <input className="form-control ps-4 py-1 border-0 text-white bg-transparent shadow-none" type="search" placeholder="Search" aria-label="Search" />
-                        : <input className="form-control ps-4 py-1 border-0 text-white search-input-cn" type="search" placeholder="Search" aria-label="Search" />
+                        : <input className="form-control ps-4 py-1 border-0 text-white search-input-cnn" type="search" placeholder="Search" aria-label="Search" />
                 }
             </form>
         </>

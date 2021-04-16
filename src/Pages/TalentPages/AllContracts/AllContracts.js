@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import DateContract from "../../../Components/TalentComponents/DateContract/DateContract";
 import OneContract from "../../../Components/TalentComponents/OneContract/OneContract";
@@ -6,21 +7,21 @@ import SearchContract from "../../../Components/TalentComponents/SearchContract/
 export default function AllContracts() {
   return (
     <>
-      <div class=" bg-gray">
-        <div class="container">
-          <div class="row">
-            <h4 class="col-12 mt-5">Contracts</h4>
-            <div class="card mt-4">
-              <div class="card-header bg-white p-3">
+      <div className=" bg-gray">
+        <div className="container">
+          <div className="row">
+            <h4 className="col-12 mt-5">Contracts</h4>
+            <div className="card mt-4 mb-5">
+              <div className="card-header bg-white p-3">
                 <SearchContract />
               </div>
-              <div class="card-body row">
-                <div class="col-12  mb-3">
-                  <small>Sort By</small>
+              <div className="card-body row">
+                <div className="col-12  mb-3">
+                  <small className="me-3">Sort By</small>
                   <DateContract />
                   <button
                     type="button"
-                    className="mx-auto btn btn-light btn-sm border-gray"
+                    className="mx-auto btn btn-light btn-circle border-gray ms-3"
                   >
                     <svg
                       style={{ marginLeft: 0 }}
@@ -28,7 +29,7 @@ export default function AllContracts() {
                       width={17}
                       height={17}
                       fill="#37a000"
-                      className="bi bi-arrow-down-up d-block "
+                      className="bi bi-arrow-down-up d-block mx-auto "
                       viewBox="0 0 19 16"
                     >
                       <path
@@ -42,7 +43,7 @@ export default function AllContracts() {
                       />
                     </svg>
                   </button>
-                  <span>3 total</span>
+                  <span className="mx-3">3 total</span>
                   <>
                     <div className="form-check form-check-inline d-none-md">
                       <input
@@ -75,7 +76,7 @@ export default function AllContracts() {
                   </>
                 </div>
                 <hr />
-                <div class="col-12 card-list">
+                <div className="col-12 card-list">
                   <OneContract />
                 </div>
               </div>

@@ -66,7 +66,7 @@ export default function HeaderSearchLg() {
                     </ul>
                 </div>
                 <input
-                    className="form-control ms-1 ps-5 py-1 border-0 text-white search-input-cn"
+                    className="form-control ms-1 ps-5 py-1 border-0 text-white search-input-cnn"
                     type="search"
                     placeholder="Search"
                     aria-label="Search"

@@ -8,6 +8,7 @@ import j1 from "../../../assets/svg/jobs1.svg";
 import j2 from "../../../assets/svg/jobs2.svg";
 import j3 from "../../../assets/svg/jobs3.svg";
 import j4 from "../../../assets/svg/jobs4.svg";
+import { Link } from "react-router-dom";
 import s1 from "../../../assets/img/jobslide1.jpg";
 import s2 from "../../../assets/img/jobslide2.jpg";
 import s3 from "../../../assets/img/jobslide2.jpg";
@@ -34,7 +35,7 @@ export default function HomeLayout() {
                 >
                   <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"
                   />
                 </svg>
@@ -196,11 +197,11 @@ export default function HomeLayout() {
                     <img src={j1} width="150em" />
                   </div>
                   <div className="col-6">
-                    <div class="media-body">
-                      <h4 class="m-0-top-bottom">
+                    <div className="media-body">
+                      <h4 className="m-0-top-bottom">
                         1. Post a job to get free quotes
                       </h4>
-                      <p class="m-xs-top-bottom">
+                      <p className="m-xs-top-bottom">
                         Write a clear, detailed description of your job to share
                         with qualified freelancers. Start receiving proposals in
                         less than 24 hours.
@@ -221,11 +222,11 @@ export default function HomeLayout() {
                     <img src={j2} width="150em" />
                   </div>
                   <div className="col-6">
-                    <div class="media-body">
-                      <h4 class="m-0-top-bottom">
+                    <div className="media-body">
+                      <h4 className="m-0-top-bottom">
                         2. Evaluate freelancers and hire
                       </h4>
-                      <p class="m-xs-top-bottom">
+                      <p className="m-xs-top-bottom">
                         Review proposals or invite qualified freelancers to your
                         project. Quickly chat live or video call with favorites,
                         and offer a contract to the best match.
@@ -248,7 +249,7 @@ export default function HomeLayout() {
                         Prepare to interview freelancers
                       </a>
                       <contact-talent-specialist data-talent-specialist-url="urls.upworkPlus.talentSpecialist">
-                        <div class="ng-hide" data-ng-show="isEnabled">
+                        <div className="ng-hide" data-ng-show="isEnabled">
                           <a href="javascript:" data-ng-click="triggerModal()">
                             Contact your Talent Specialist
                           </a>
@@ -262,9 +263,9 @@ export default function HomeLayout() {
                     <img src={j3} width="150em" />
                   </div>
                   <div className="col-6">
-                    <div class="media-body">
-                      <h4 class="m-0-top-bottom">3. Work together</h4>
-                      <p class="m-xs-top-bottom">
+                    <div className="media-body">
+                      <h4 className="m-0-top-bottom">3. Work together</h4>
+                      <p className="m-xs-top-bottom">
                         Use
                         <a
                           href="https://www.upwork.com/hiring/for-clients/upwork-messages-your-one-stop-collaboration-tool/"
@@ -300,11 +301,11 @@ export default function HomeLayout() {
                     <img src={j4} width="150em" />
                   </div>
                   <div className="col-6">
-                    <div class="media-body">
-                      <h4 class="m-0-top-bottom">
+                    <div className="media-body">
+                      <h4 className="m-0-top-bottom">
                         4. Pay and invoice through Upwork
                       </h4>
-                      <p class="m-xs-top-bottom">
+                      <p className="m-xs-top-bottom">
                         Get invoices and make payments after reviewing time
                         billed or approving milestones. With
                         <a
@@ -347,58 +348,58 @@ export default function HomeLayout() {
           </div>
           <div className="col d-none d-lg-block">
             <div className="my-lg-1">
-              <button className="btn bg-upwork">Post a job</button>
+              <Link to="/post-job" className="btn bg-upwork">Post a job</Link>
             </div>
 
             <div className="my-3">
-              <div class="card">
-                <div class="" alt="...">
+              <div className="card">
+                <div className="" alt="...">
                   <div
                     id="carouselExampleControls"
-                    class="carousel slide"
+                    className="carousel slide"
                     data-bs-ride="carousel"
                   >
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img src={s1} class="d-block w-100" alt="..." />
+                    <div className="carousel-inner">
+                      <div className="carousel-item active">
+                        <img src={s1} className="d-block w-100" alt="..." />
                       </div>
-                      <div class="carousel-item">
-                        <img src={s2} class="d-block w-100" alt="..." />
+                      <div className="carousel-item">
+                        <img src={s2} className="d-block w-100" alt="..." />
                       </div>
-                      <div class="carousel-item">
-                        <img src={s3} class="d-block w-100" alt="..." />
+                      <div className="carousel-item">
+                        <img src={s3} className="d-block w-100" alt="..." />
                       </div>
                     </div>
                     <button
-                      class="carousel-control-prev"
+                      className="carousel-control-prev"
                       type="button"
                       data-bs-target="#carouselExampleControls"
                       data-bs-slide="prev"
                     >
                       <span
-                        class="carousel-control-prev-icon"
+                        className="carousel-control-prev-icon"
                         aria-hidden="true"
                       ></span>
-                      <span class="visually-hidden">Previous</span>
+                      <span className="visually-hidden">Previous</span>
                     </button>
                     <button
-                      class="carousel-control-next"
+                      className="carousel-control-next"
                       type="button"
                       data-bs-target="#carouselExampleControls"
                       data-bs-slide="next"
                     >
                       <span
-                        class="carousel-control-next-icon"
+                        className="carousel-control-next-icon"
                         aria-hidden="true"
                       ></span>
-                      <span class="visually-hidden">Next</span>
+                      <span className="visually-hidden">Next</span>
                     </button>
                   </div>
                 </div>
-                <div class="card-body">
-                  <h5 class="card-title">Web Design</h5>
-                  <p class="card-text">You think you might like help</p>
-                  <a href="#" class="btn bg-upwork ">
+                <div className="card-body">
+                  <h5 className="card-title">Web Design</h5>
+                  <p className="card-text">You think you might like help</p>
+                  <a href="#" className="btn bg-upwork ">
                     learn More
                   </a>
                 </div>
