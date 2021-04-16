@@ -12,29 +12,30 @@ import MyStats from "./../Pages/TalentPages/MyStats/MyStats";
 import MyJobs from "./../Pages/TalentPages/MyJobs/MyJobs";
 import AllContracts from "./../Pages/TalentPages/AllContracts/AllContracts";
 import WorkDiary from "./../Pages/TalentPages/WorkDiary/WorkDiary";
+// import PageNotFound from "../Pages/Page Not Found/PageNotFound";
 
 export default function TalentRoutes() {
 
-    const { pathname } = useLocation();
-    const { push } = useHistory();
-    pathname === "/" && push("/find-work");
+  const { pathname } = useLocation();
+  const { push } = useHistory();
+  pathname === "/" && push("/find-work");
 
-    return (
-        <>
-            <Header />
-            <Switch>
-                <Route path="/find-work" exact component={FindWork} />
-                <Route path="/saved-jobs" exact component={SavedJobs} />
-                <Route path="/proposals" exact component={Proposals} />
-                <Route path="/profile" exact component={Profile} />
-                <Route path="/my-stats" exact component={MyStats} />
-                <Route path="/my-jobs" exact component={MyJobs} />
-                <Route path="/all-contract" exact component={AllContracts} />
-                <Route path="/work-diary" exact component={WorkDiary} />
-                <Route path="/overview" exact component={Reports} />
-                <Route path="/t/messages" exact component={Messages} />
-            </Switch>
-            <Footer />
-        </>
-    );
+  return (
+    <>
+      <Header />
+      <Switch>
+        <Route path="/find-work" exact component={FindWork} />
+        <Route path="/saved-jobs" exact component={SavedJobs} />
+        <Route path="/proposals" exact component={Proposals} />
+        <Route path="/profile" exact component={Profile} />
+        <Route path="/my-stats" exact component={MyStats} />
+        <Route path="/my-jobs" exact component={MyJobs} />
+        <Route path="/all-contract" exact component={AllContracts} />
+        <Route path="/work-diary" exact component={WorkDiary} />
+        <Route path="/overview" exact component={Reports} />
+        <Route path="/t/messages" exact component={Messages} />
+      </Switch>
+      <Footer />
+    </>
+  );
 }

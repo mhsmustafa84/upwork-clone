@@ -10,6 +10,7 @@ import BringYourTalent from "./../Pages/ClientPages/BringYourTalent/BringYourTal
 import PostJob from "./../Pages/ClientPages/PostJop/PostJob";
 import Talent from "./../Pages/ClientPages/Talent/Talent";
 import Reports from "./../Pages/ClientPages/Reports/Reports";
+// import PageNotFound from "../Pages/Page Not Found/PageNotFound";
 
 export default function ClientRoutes() {
 

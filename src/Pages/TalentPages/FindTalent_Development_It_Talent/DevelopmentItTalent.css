@@ -1,0 +1,30 @@
+body {
+  font-family: "Sawarabi Gothic", sans-serif;
+  overflow-x: hidden;
+}
+a {
+    color: #079b36;
+  }
+#articles-ID,
+    #mobile-articles-ID {
+      z-index: 2;
+      top: -85px;
+    }
+#left-bg-article-image-ID {
+    left: 10px;
+    top: 130px;
+    z-index: -1;
+  }
+
+  #right-bg-article-image-ID {
+    right: 50px;
+    top: 115px;
+    z-index: -1;
+  }
+
+  #article-section-ID {
+    height: 150px;
+  }
+  #mobile-articles-image-ID {
+    min-width: 300px;
+  }
