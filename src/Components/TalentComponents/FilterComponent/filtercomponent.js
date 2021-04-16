@@ -1,12 +1,12 @@
 import React from "react";
 
-export default function FillterComponent(props) {
+export default function Fillter({ headers }) {
   return (
     <div>
       <p>
         <button
           id="filterbtn"
-          className="btn -btn-default border rounded"
+          className="btn -btn-default border rounded-border rounded mt-2"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#collapseExample"
@@ -23,31 +23,31 @@ export default function FillterComponent(props) {
           >
             <path d="M11.91 2.48a3.18 3.18 0 00-6 0H0v2h5.86a3.18 3.18 0 006.05 0H14v-2zM5.39 7.32a3.2 3.2 0 00-3.1 2.45H0v2h2.45a3.2 3.2 0 005.88 0H14v-2H8.49a3.2 3.2 0 00-3.1-2.45z"></path>
           </svg>
-          <span>filter</span>
+          <span>Filter</span>
         </button>
       </p>
       <div className="collapse" id="collapseExample">
         <form action="#">
           <div class="row">
-            <div id="col1" className="col-md-3 col-sm-12 mb-5 ">
+            <div id="col1" className="col-md-2 col-sm-12 mb-5 me-3 ">
               <div className="dropdown text-start">
                 <button
-                  className="btn btn-default dropdown-toggle"
+                  className="btn btn-default dropdown-toggle me-2 mb-3 border rounded-border fw-bold"
                   type="button"
                   id="dropdownMenuButton2"
                   data-bs-toggle="dropdown"
-                  aria-expanded="false"
+                   aria-expanded="false"
                 >
                   search by transaction
                 </button>
                 <ul
-                  className="dropdown-menu "
+                  className="dropdown-menu fw-bold "
                   aria-labelledby="dropdownMenuButton2"
                   //   style={{ width: "100%" }}
                 >
                   <li>
                     <i
-                      class="fas fa-search"
+                      className="fas fa-search"
                       style={{
                         position: "absolute",
                         paddingTop: "10px",
@@ -62,47 +62,47 @@ export default function FillterComponent(props) {
                       className="form-control"
                     />
                   </li>
-                  <li>
+                  <li className="fw-bold">
                     <a className="dropdown-item " link to="#">
                       All Transactions
                     </a>
                   </li>
-                  <li>
+                  <li className="fw-bold">
                     <a className="dropdown-item" link to="#">
                       All Credits
                     </a>
                   </li>
-                  <li>
+                  <li className="fw-bold">
                     <a className="dropdown-item" link to="#">
                       All debits
                     </a>
                   </li>
-                  <li>
+                  <li className="fw-bold">
                     <a className="dropdown-item" link to="#">
                       Hourly
                     </a>
                   </li>
-                  <li>
+                  <li className="fw-bold">
                     <a className="dropdown-item" link to="#">
                       Fixed Price
                     </a>
                   </li>
-                  <li>
+                  <li className="fw-bold">
                     <a className="dropdown-item" link to="#">
                       Bonus
                     </a>
                   </li>
-                  <li>
+                  <li className="fw-bold">
                     <a className="dropdown-item" link to="#">
                       adjestment
                     </a>
                   </li>
-                  <li>
+                  <li className="fw-bold">
                     <a className="dropdown-item" link to="#">
                       adjestment
                     </a>
                   </li>
-                  <li>
+                  <li className="fw-bold">
                     <a className="dropdown-item" link to="#">
                       Expense
                     </a>
@@ -111,24 +111,24 @@ export default function FillterComponent(props) {
               </div>
             </div>
 
-            <div id="col2" className="col-md-4 col-sm-12 mb-5 ">
+            <div id="col2" className="col-md-4 ms-3 col-sm-12 mb-5  ">
               <div className="dropdown text-start ">
                 <button
-                  className="btn btn-default dropdown-toggle"
+                  className="btn btn-default dropdown-toggle border rounded-border fw-bold ms-2 "
                   type="button"
-                  id="dropdownMenuButton2"
+                  id="dropdownMenuButton"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  {{ props }}
+                  {headers}
                   {/* search by clients */}
                   {/* search by freelancers */}
                 </button>
                 <ul
                   className="dropdown-menu "
-                  aria-labelledby="dropdownMenuButton2"
+                  aria-labelledby="dropdownMenuButton"
                 >
-                  <li>
+                  <li >
                     <i
                       class="fas fa-search"
                       style={{
@@ -145,7 +145,7 @@ export default function FillterComponent(props) {
                     />
                   </li>
 
-                  <li>
+                  <li className="fw-bold">
                     <a className="dropdown-item " link to="#">
                       All clients
                     </a>
@@ -156,6 +156,7 @@ export default function FillterComponent(props) {
             <div id="col3" className="col-md-5 col-sm-12 mb-5 "></div>
           </div>
         </form>
+      
       </div>
     </div>
   );
