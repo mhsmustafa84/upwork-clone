@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import DateContract from "../../../Components/TalentComponents/DateContract/DateContract";
 import OneContract from "../../../Components/TalentComponents/OneContract/OneContract";
@@ -6,16 +7,16 @@ import SearchContract from "../../../Components/TalentComponents/SearchContract/
 export default function AllContracts() {
   return (
     <>
-      <div class=" bg-gray">
-        <div class="container">
-          <div class="row">
-            <h4 class="col-12 mt-5">Contracts</h4>
-            <div class="card mt-4">
-              <div class="card-header bg-white p-3">
+      <div className=" bg-gray">
+        <div className="container">
+          <div className="row">
+            <h4 className="col-12 mt-5">Contracts</h4>
+            <div className="card mt-4">
+              <div className="card-header bg-white p-3">
                 <SearchContract />
               </div>
-              <div class="card-body row">
-                <div class="col-12  mb-3">
+              <div className="card-body row">
+                <div className="col-12  mb-3">
                   <small>Sort By</small>
                   <DateContract />
                   <button
@@ -75,7 +76,7 @@ export default function AllContracts() {
                   </>
                 </div>
                 <hr />
-                <div class="col-12 card-list">
+                <div className="col-12 card-list">
                   <OneContract />
                 </div>
               </div>

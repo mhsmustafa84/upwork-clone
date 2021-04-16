@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
+import { Link } from "react-router-dom";
 import apple from "../../../assets/svg/apple.svg";
 
 export default function LoginTemp() {
@@ -39,7 +40,7 @@ export default function LoginTemp() {
                   </div>
                   <div className="text-justify ">
                     <p
-                      class="text-center text-white"
+                      className="text-center text-white"
                       style={{ paddingTop: ".3em" }}
                     >
                       Sign in with google
@@ -59,9 +60,9 @@ export default function LoginTemp() {
                     New to Upwork?
                   </div>
                   <div className="d-grid gap-2 col-md-5 col-sm-10 mx-auto mt-3   rounded mb-5">
-                    <button className="btn signup" type="button">
+                    <Link className="btn signup" to="/sign-up">
                       Sign Up
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </form>

@@ -1,13 +1,24 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
+import { changeLayout } from './../../../Store/actions/changeLayout';
 
 export default function NavLargScreen() {
+
+    let layOut = useSelector((state) => state.layOut);
+    const dispatch = useDispatch();
+
+    const changeLayOut = () => {
+        layOut = "client";
+        dispatch(changeLayout(layOut));
+    }
+
     return (
         <>
             <div className="navbar-expand" id="navbarNav-id">
                 <ul className="navbar-nav">
-                    <li className="nav-item">
+                    <li className="nav-item hov-cn">
                         <NavLink className="nav-link" to="/find-work">
                             Find Work
                         </NavLink>
@@ -18,11 +29,9 @@ export default function NavLargScreen() {
                             <li><Link className="dropdown-item" to="/proposals">Proposals</Link></li>
                             <li><Link className="dropdown-item" to="/profile">Profile</Link></li>
                             <li><Link className="dropdown-item" to="/my-stats">My Stats</Link></li>
-                            {/* <li><a className="dropdown-item" href="#">Upwork Readiness Test</a></li>
-                            <li><a className="dropdown-item" href="#">My Project Dashboard</a></li> */}
                         </ul>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item hov-cn">
                         <NavLink className="nav-link" to="/my-jobs">
                             My Jobs
                         </NavLink>
@@ -33,7 +42,7 @@ export default function NavLargScreen() {
                             <li><Link className="dropdown-item" to="/work-diary">Work Diary</Link></li>
                         </ul>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item hov-cn">
                         <NavLink className="nav-link" to="/overview">
                             Reports
                         </NavLink>
@@ -48,7 +57,7 @@ export default function NavLargScreen() {
                         </ul>
                     </li>
                     <li className="nav-item me-5">
-                        <NavLink className="nav-link" to="messages">Messages</NavLink>
+                        <NavLink className="nav-link" to="/t/messages">Messages</NavLink>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="#"><i className="fas fa-question fs-5"></i></a>
@@ -81,7 +90,7 @@ export default function NavLargScreen() {
                                 </div>
                             </li>
                             <li>
-                                <Link className="dropdown-item px-4" to="#">
+                                <Link className="dropdown-item px-4" to="/find-work">
                                     <div className="d-flex align-items-center">
                                         <span style={{ marginLeft: "-5px" }}>
                                             <i className="fa fa-user-circle fs-3"></i>
@@ -94,7 +103,7 @@ export default function NavLargScreen() {
                                 </Link>
                             </li>
                             <li>
-                                <Link className="dropdown-item px-4 mb-1" to="#">
+                                <Link className="dropdown-item px-4 mb-1" onClick={changeLayOut} to="/home">
                                     <div className="d-flex align-items-center">
                                         <span style={{ marginLeft: "-5px" }}>
                                             <i className="fa fa-user-circle fs-3"></i>

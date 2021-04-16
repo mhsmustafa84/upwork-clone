@@ -2,7 +2,7 @@ import React from "react";
 
 export default function MesssagesContent() {
   return (
-    <div class="card bg-white mt-2">
+    <div className="card bg-white mt-2">
       <div className="mesgs">
         <div className="msg_history">
           <div className="incoming_msg">
@@ -68,11 +68,11 @@ export default function MesssagesContent() {
           </div>
         </div>
 
-        <div class="type_msg">
-          <div class="input_msg_write">
-            <input type="text" class="write_msg" placeholder="Type a message" />
-            <button class="msg_send_btn" type="button">
-              <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+        <div className="type_msg">
+          <div className="input_msg_write">
+            <input type="text" className="write_msg" placeholder="Type a message" />
+            <button className="msg_send_btn" type="button">
+              <i className="fa fa-paper-plane-o" aria-hidden="true"></i>
             </button>
           </div>
         </div>

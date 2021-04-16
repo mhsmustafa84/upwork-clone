@@ -9,7 +9,6 @@ import bissell from "../../../assets/svg/bissell.svg";
 import coty from "../../../assets/svg/Coty_logo.svg";
 
 export default function SignUpTemp() {
-  console.log(apple);
   return (
     <>
       <div className="container-fluid bg-upwork-dark">

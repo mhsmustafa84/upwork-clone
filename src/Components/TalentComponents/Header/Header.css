@@ -7,14 +7,14 @@
   color: #6fda44;
 }
 
-.search-input-cn {
+.search-input-cnn2 {
   height: 38px;
   background-color: #2b5468;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
 }
 
-.search-input-cn:focus {
+.search-input-cnn2:focus {
   background-color: #2b5468;
   box-shadow: unset;
 }
@@ -136,7 +136,7 @@ nav ul ul {
 #nav-reports-id li {
   font-size: 13px;
 }
-.nav-item:hover .dropdown-menu {
+.nav-item.hov-cn:hover .dropdown-menu {
   display: block;
 }
 /* -----------end navbar style-------------- */

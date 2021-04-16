@@ -23,6 +23,7 @@
   border-radius: 2px;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
 }
+
 .google-btn .google-icon-wrapper {
   position: absolute;
   margin-top: 1px;
@@ -32,6 +33,7 @@
   border-radius: 4px;
   background-color: #fff;
 }
+
 .google-btn .google-icon {
   position: absolute;
   margin-top: 11px;
@@ -48,9 +50,11 @@
   font-family: "Roboto";
   text-align: center;
 }
+
 .google-btn:hover {
   box-shadow: 0 0 6px #4285f4;
 }
+
 .google-btn:active {
   background: #1669f2;
 }
@@ -59,6 +63,7 @@
 .hitbtn-class {
   height: 40px;
 }
+
 .bg-upwork {
   background-color: #37a000;
   color: white;
@@ -167,8 +172,8 @@ input[type="email"]:focus,
 input[type="search"]:focus,
 input[type="email"]:hover,
 input[type="search"]:hover {
-  border-color: #37a000;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 2px #37a000;
+  /* border-color: #37a000; */
+  /* box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 2px #37a000; */
   outline: 0 none;
 }
 .dangericon {
@@ -190,7 +195,7 @@ input[type="search"]:hover {
   margin-left: 1%;
 }
 input[type="search"]:focus {
-  width: 50%;
+  /* width: 50%; */
 }
 small {
   font-size: 12px;
@@ -259,7 +264,7 @@ a:hover,
 a:focus,
 a:active {
   color: #008329;
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 .btn-circle.btn-sm {
   width: 30px;
