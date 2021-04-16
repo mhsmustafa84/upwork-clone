@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import Logo from './../Logo/Logo';
+import Logo from '../../SharedComponents/Logo/Logo';
 
 export default function LoginHeader() {
 
