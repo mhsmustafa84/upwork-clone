@@ -6,11 +6,11 @@ export default function Messages() {
   return (
     <>
       <div className="container-fluid">
-        <div class="row">
-          <aside class="col-3 d-none-md">
+        <div className="row">
+          <aside className="col-3 d-none-md">
             <MessagesLeftSide />
           </aside>
-          <div class="col-sm-12 col-md-9 mx-auto">
+          <div className="col-sm-12 col-md-9 mx-auto">
             <MesssagesContent />
           </div>
         </div>

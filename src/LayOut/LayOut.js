@@ -1,16 +1,22 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
-import Login from "../Pages/Login/Login";
-import SignUp from "../Pages/SignUp/SignUp";
+import { useSelector } from "react-redux";
+import BeforeLoginRoutes from "../Routes/BeforeLoginRoutes";
 import ClientRoutes from "../Routes/ClientRoutes";
 import TalentRoutes from "./../Routes/TalentRoutes";
 
 export default function LayOut() {
-  return (
-    <>
-      {/* <Login /> */}
-      {/* <SignUp /> */}
-      <ClientRoutes />
-      {/* <TalentRoutes /> */}
-    </>
-  );
+
+    let layOut = useSelector((state) => state.layOut);
+
+    return (
+        <>
+            {
+                layOut === "talent"
+                    ? <TalentRoutes />
+                    : <ClientRoutes />
+            }
+            {/* <BeforeLoginRoutes /> */}
+        </>
+    );
 }

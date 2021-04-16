@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useLocation, useHistory } from "react-router-dom";
 import FindWork from "./../Pages/TalentPages/FindWork/FindWork";
 import Reports from "./../Pages/ClientPages/Reports/Reports";
 import Messages from "./../Pages/TalentPages/Messages/Messages";
@@ -12,9 +12,15 @@ import MyStats from "./../Pages/TalentPages/MyStats/MyStats";
 import MyJobs from "./../Pages/TalentPages/MyJobs/MyJobs";
 import AllContracts from "./../Pages/TalentPages/AllContracts/AllContracts";
 import WorkDiary from "./../Pages/TalentPages/WorkDiary/WorkDiary";
-import PageNotFound from "../Pages/Page Not Found/PageNotFound";
+// import PageNotFound from "../Pages/Page Not Found/PageNotFound";
+import PageNotFound from './../Pages/Page Not Found/PageNotFound';
 
 export default function TalentRoutes() {
+
+  const { pathname } = useLocation();
+  const { push } = useHistory();
+  pathname === "/" && push("/find-work");
+
   return (
     <>
       <Header />
@@ -28,8 +34,8 @@ export default function TalentRoutes() {
         <Route path="/all-contract" exact component={AllContracts} />
         <Route path="/work-diary" exact component={WorkDiary} />
         <Route path="/overview" exact component={Reports} />
-        <Route path="/messages" exact component={Messages} />
-        <Route path="**" exact component={PageNotFound} />
+        <Route path="/t/messages" exact component={Messages} />
+        <Route path="**" component={PageNotFound} />
       </Switch>
       <Footer />
     </>

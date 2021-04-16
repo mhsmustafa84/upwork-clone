@@ -1,9 +1,21 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import HeaderSearchSm from '../../SharedComponents/HeaderSearchSm/HeaderSearchSm';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeLayout } from '../../../Store/actions/changeLayout';
 
 
 export default function NavSmallScreen() {
+
+    let layOut = useSelector((state) => state.layOut);
+    const dispatch = useDispatch();
+
+    const changeLayOut = () => {
+        layOut = "client";
+        dispatch(changeLayout(layOut));
+    }
+
     return (
         <>
             <div className="collapse d-lg-none" id="navbarNavDropdown">
@@ -32,7 +44,7 @@ export default function NavSmallScreen() {
                                 </div>
                             </li>
                             <li>
-                                <a className="dropdown-item px-4" href="#">
+                                <Link className="dropdown-item px-4" href="/find-work">
                                     <div className="d-flex align-items-center">
                                         <span style={{ marginLeft: "-5px" }}><i className="fa fa-user-circle fs-3"></i></span>
                                         <div className="acc-cn ms-2">
@@ -40,10 +52,10 @@ export default function NavSmallScreen() {
                                             <p>Freelancer</p>
                                         </div>
                                     </div>
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a className="dropdown-item px-4 mb-1" href="#">
+                                <Link className="dropdown-item px-4 mb-1" to="/home" onClick={changeLayOut}>
                                     <div className="d-flex align-items-center">
                                         <span style={{ marginLeft: "-5px" }}><i className="fa fa-user-circle fs-3"></i></span>
                                         <div className="acc-cn ms-2">
@@ -51,7 +63,7 @@ export default function NavSmallScreen() {
                                             <p>Client</p>
                                         </div>
                                     </div>
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </li>
@@ -100,7 +112,7 @@ export default function NavSmallScreen() {
                         </ul>
                     </li>
                     <li className="nav-item px-3">
-                        <a className="nav-link mt-2 pt-3 border-top-cn" href="#">Messages</a>
+                        <Link className="nav-link mt-2 pt-3 border-top-cn" to="/t/messages">Messages</Link>
                     </li>
                     <li className="nav-item px-3">
                         <a className="nav-link mt-2 pt-3 border-top-cn" href="#">
