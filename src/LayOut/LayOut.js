@@ -6,17 +6,12 @@ import ClientRoutes from "../Routes/ClientRoutes";
 import TalentRoutes from "./../Routes/TalentRoutes";
 
 export default function LayOut() {
+  let layOut = useSelector((state) => state.layOut);
 
-    let layOut = useSelector((state) => state.layOut);
-
-    return (
-        <>
-            {
-                layOut === "talent"
-                    ? <TalentRoutes />
-                    : <ClientRoutes />
-            }
-            {/* <BeforeLoginRoutes /> */}
-        </>
-    );
+  return (
+    <>
+      {/* {layOut === "talent" ? <TalentRoutes /> : <ClientRoutes />} */}
+      <BeforeLoginRoutes />
+    </>
+  );
 }
