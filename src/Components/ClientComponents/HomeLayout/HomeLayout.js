@@ -8,9 +8,9 @@ import j1 from "../../../assets/svg/jobs1.svg";
 import j2 from "../../../assets/svg/jobs2.svg";
 import j3 from "../../../assets/svg/jobs3.svg";
 import j4 from "../../../assets/svg/jobs4.svg";
-import s1 from "../../../assets/Img/jobslide1.jpg";
-import s2 from "../../../assets/Img/jobslide2.jpg";
-import s3 from "../../../assets/Img/jobslide2.jpg";
+import s1 from "../../../assets/img/jobslide1.jpg";
+import s2 from "../../../assets/img/jobslide2.jpg";
+import s3 from "../../../assets/img/jobslide2.jpg";
 
 export default function HomeLayout() {
   return (
