@@ -1,0 +1,26 @@
+.tab-talent-CN 
+{
+    border: solid 1px #E0E0E0
+}
+.tab-talent-CN  .nav
+{
+    border-bottom: solid 1px #E0E0E0
+}
+.nav-tabs .nav-link
+{
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    color: black !important;
+}
+.nav-tabs .nav-link:hover
+{
+    text-decoration: none;
+}
+.nav-tabs .active
+{
+    border: none !important;
+    border-bottom: 4px solid #37A000 !important;
+    color: #37A000 !important;
+    text-decoration: none;
+}

@@ -3,7 +3,7 @@ import React from 'react'
 export default function AllContract() {
     return (
         <div>
-            allContract
+            <h1>allContract</h1>
         </div>
     )
 }

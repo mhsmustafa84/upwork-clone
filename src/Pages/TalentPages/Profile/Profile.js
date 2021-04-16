@@ -1,6 +1,6 @@
 import React from "react";
 import AddandeditExperience from "../../../Components/TalentComponents/AddandeditExperience/AddandeditExperiences";
-import AddandeditEmployementHistory from './../../../Components/TalentComponents/Addeditemploymenthistory/Addeditemployementhistory';
+import AddandeditEmployementHistory from "./../../../Components/TalentComponents/Addeditemploymenthistory/Addeditemployementhistory";
 export default function Profile() {
   return (
     <>
@@ -9,7 +9,6 @@ export default function Profile() {
           __html:
             "\n    @import url(//db.onlinewebfonts.com/c/3def92f7b2ad644bd382798ecc8ca4c7?family=Canela);\n    @media (min-width: 1200px) {\n        .container {\n            max-width: 74%;\n        }\n    }\n\n    * {\n        margin: 0;\n        padding: 0;\n        \n\n    }\n    body{\n        background-color: #f1f2f4;\n\n    }\n",
         }}
-
       />
       <AddandeditEmployementHistory />
       <AddandeditExperience />
