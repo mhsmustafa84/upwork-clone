@@ -1,3 +1,5 @@
+/* eslint-disable no-script-url */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 
 export default function OneContract() {
@@ -16,7 +18,6 @@ export default function OneContract() {
       >
         <div className="row ng-scope">
           <div className="col-lg-4 col-md-5 col-xs-10 qa-wm-fl-cl-tile d-flex flex-direction-column justify-content-space-between">
-            {/* ngInclude: */}
             <ng-include
               src="'Resources/public/js/app/template/vendor/tile.html'"
               className="ng-scope"
@@ -40,7 +41,6 @@ export default function OneContract() {
                     </a>
                   </p>
                 </div>
-                {/* ngIf: contract.catalogProject */}
               </div>
               <div className="row qa-wm-fl-cl-client m-sm-bottom ng-scope">
                 <div className="col-xs-6">
@@ -52,39 +52,30 @@ export default function OneContract() {
                   incen
                 </div>
               </div>
-              {/* ngIf: !contract.isOffer */}
               <div
                 className="row qa-wm-fl-cl-dates ng-scope"
                 data-ng-if="!contract.isOffer"
               >
                 <div className="col-xs-12">
-                  {/* ngIf: vm.notCatalogDependent(contract); */}
                   <small
                     data-ng-if="vm.notCatalogDependent(contract);"
                     className="text-muted ng-scope"
                   >
                     <span className="ng-binding">Feb 3</span>-
-                    {/* ngIf: contract.agreementEnd */}
                     <span
                       data-ng-if="contract.agreementEnd"
                       className="ng-binding ng-scope"
                     >
                       Feb 4
                     </span>
-                    {/* end ngIf: contract.agreementEnd */}
-                    {/* ngIf: !contract.agreementEnd */}
+
                   </small>
-                  {/* end ngIf: vm.notCatalogDependent(contract); */}
-                  {/* ngIf: !contract.isOffer && contract.isPending */}
                 </div>
                 <div className="d-md-none m-md-top-bottom" />
               </div>
-              {/* end ngIf: !contract.isOffer */}
             </ng-include>
           </div>
           <div className="col-xs-2 d-md-none text-right">
-            {/* ngIf: !contract.payroll || !vm.config.payrollFeatureEnabled */}
-            {/* ngInclude: */}
             <ng-include
               data-ng-if="!contract.payroll || !vm.config.payrollFeatureEnabled"
               src="'Resources/public/js/app/template/vendor/menu.html'"
@@ -138,10 +129,6 @@ export default function OneContract() {
                             </button>
                           </up-c-dropdown-toggle>
                           <ul className="dropdown-menu transition-content text-left sc-up-c-dropdown">
-                            {/* ngIf: vm.data.disputes[contract.contractRid] && contract.isHourly */}
-                            {/* ngIf: vm.data.disputes[contract.contractRid] && !contract.isHourly */}
-                            {/* ngIf: !vm.shouldBlockWorkSubmit(contract) && contract.isActive && !contract.isHourly && info.isLoaded && info.milestone.state != 'paid' */}
-                            {/* ngIf: contract.isHourly && (contract.isActive || contract.isPaused) */}
                             <up-c-dropdown-item
                               role="listitem"
                               className="hydrated"
@@ -171,14 +158,11 @@ export default function OneContract() {
                                 Send a message
                               </a>
                             </up-c-dropdown-item>
-                            {/* ngIf: (!contract.agencyTeamOrgRid || vm.config.isAgencyView) && (contract.escrowRefundStatus == vm.config.escrowRefundStatuses.requested || contract.escrowRefundStatus == vm.config.escrowRefundStatuses.notApproved) */}
-                            {/* ngIf: !contract.isOffer && (!contract.agencyTeamOrgRid || vm.config.isAgencyView) && (!contract.isPtc || vm.config.isPTCContractProposalsEnabled) */}
                             <up-c-dropdown-item
                               data-ng-if="!contract.isOffer && (!contract.agencyTeamOrgRid || vm.config.isAgencyView) && (!contract.isPtc || vm.config.isPTCContractProposalsEnabled)"
                               className="ng-scope hydrated"
                               role="listitem"
                             >
-                              {/* ngIf: !vm.data.contractProposals[contract.agreementRid] */}
                               <a
                                 data-ng-if="!vm.data.contractProposals[contract.agreementRid]"
                                 target="_self"
@@ -189,11 +173,7 @@ export default function OneContract() {
                               >
                                 Propose new contract
                               </a>
-                              {/* end ngIf: !vm.data.contractProposals[contract.agreementRid] */}
-                              {/* ngIf: vm.data.contractProposals[contract.agreementRid] */}
                             </up-c-dropdown-item>
-                            {/* end ngIf: !contract.isOffer && (!contract.agencyTeamOrgRid || vm.config.isAgencyView) && (!contract.isPtc || vm.config.isPTCContractProposalsEnabled) */}
-                            {/* ngIf: !contract.catalogProject && !contract.isOffer && (vm.config.isAgencyView || !contract.agencyTeamOrgRid) && contract.isActive && !contract.isHourly */}
                           </ul>
                         </div>
                       </up-c-transition>
@@ -209,10 +189,7 @@ export default function OneContract() {
                   <up-c-fullscreen className="sc-up-c-dropdown hydrated"></up-c-fullscreen>
                 </div>
               </up-c-dropdown>
-              {/* end ngIf: !contract.isOffer && vm.data.info[contract.agreementRid].isLoaded */}
             </ng-include>
-            {/* end ngIf: !contract.payroll || !vm.config.payrollFeatureEnabled */}
-            {/* ngIf: contract.payroll && vm.config.payrollFeatureEnabled */}
           </div>
           <div className="col-lg-7 col-md-6 col-xs-12 d-flex flex-direction-column justify-content-space-between">
             <div className="row">
@@ -220,59 +197,40 @@ export default function OneContract() {
                 className="col-xs-6 qa-wm-fl-cl-terms col-xs-12"
                 data-ng-class="{'col-xs-12': !contract.agencyTeamName}"
               >
-                {/* ngIf: contract.isOffer */}
-                {/* ngIf: !contract.isOffer */}
-                {/* ngInclude: */}
                 <ng-include
                   data-ng-if="!contract.isOffer"
                   src="'Resources/public/js/app/template/vendor/contract.html'"
                   className="ng-scope"
                 >
-                  {/* hourly */}
-                  {/* ngIf: contract.isHourly && vm.data.info[contract.agreementRid].isLoaded */}
                   <div
                     data-ng-if="contract.isHourly && vm.data.info[contract.agreementRid].isLoaded"
                     data-ng-init="info = vm.data.info[contract.agreementRid];"
                     className="ng-scope"
                   >
-                    {/* ngIf: info.hourly_charge_rate */}
                     <div
                       data-ng-if="info.hourly_charge_rate"
                       className="ng-scope"
                     >
                       <strong className="ng-binding">$280.00</strong>/hr
                     </div>
-                    {/* end ngIf: info.hourly_charge_rate */}
-                    {/* ngIf: info.limit > -1 */}
                     <div
                       data-ng-if="info.limit > -1"
                       className="ng-binding ng-scope"
                     >
                       5 max hrs/wk
                     </div>
-                    {/* end ngIf: info.limit > -1 */}
-                    {/* ngIf: info.weeklyStipend > 0 */}
                   </div>
-                  {/* end ngIf: contract.isHourly && vm.data.info[contract.agreementRid].isLoaded */}
-                  {/* fixed */}
-                  {/* ngIf: !contract.isHourly && vm.data.info[contract.agreementRid].isLoaded */}
-                  {/* closed */}
-                  {/* ngIf: contract.isEnded */}
                   <p
                     data-ng-if="contract.isEnded"
                     className="m-0-top-bottom ng-binding ng-scope"
                   >
                     Completed Feb 4
                   </p>
-                  {/* end ngIf: contract.isEnded */}
-                  {/* ngIf: vm.data.info[contract.agreementRid].isLoaded */}
                   <div
                     data-ng-if="vm.data.info[contract.agreementRid].isLoaded"
                     data-ng-init="feedback = vm.data.info[contract.agreementRid].feedback"
                     className="ng-scope"
                   >
-                    {/* ngIf: feedback.score == 0 && feedback.isReadOnly == '0' && !feedback.isNoStarted */}
-                    {/* ngIf: feedback.score > 0 */}
                     <p
                       className="m-0-top-bottom ng-scope"
                       data-ng-if="feedback.score > 0"
@@ -348,24 +306,13 @@ export default function OneContract() {
                       </svg>
                     </div>
                     <p />
-                    {/* end ngIf: feedback.score > 0 */}
-                    {/* ngIf: feedback.score == 0 && feedback.isReadOnly == '1' */}
                   </div>
-                  {/* end ngIf: vm.data.info[contract.agreementRid].isLoaded */}
-                  {/* ngIf: !vm.data.info[contract.agreementRid].isLoaded */}
                 </ng-include>
-                {/* end ngIf: !contract.isOffer */}
               </div>
-              {/* ngIf: contract.agencyTeamName */}
             </div>
             <div className="row qa-wm-fl-cl-state">
               <div className="col-xs-12 m-sm-top">
-                {/* ngIf: !contract.payroll && contract.isPaused */}
-                {/* ngIf: vm.data.disputes[contract.contractRid] */}
-                {/* ngIf: !contract.isEnded && vm.data.clientTeams[contract.teamOrgRid] && !vm.data.clientTeams[contract.teamOrgRid]['isVerified'] */}
-                {/* ngIf: !contract.isEnded && !contract.isOffer && vm.data.clientTeams[contract.teamOrgRid] && vm.data.clientTeams[contract.teamOrgRid]['isSuspended'] */}
               </div>
-              {/* ngIf: !contract.isOffer && vm.data.clientTeams[contract.teamOrgRid] && vm.data.clientTeams[contract.teamOrgRid].isMovedOutsideUpwork */}
             </div>
           </div>
           <div className="col-lg-1 col-md-1 d-none d-md-inline">
@@ -399,11 +346,9 @@ export default function OneContract() {
             className="mcfb-underlay"
             data-ng-click="buttonsController.stopEvent($event)"
           >
-            {/* ngIf: buttonsController.canBeShown */}
           </div>
         </growth-mid-contract-raise-buttons>
       </div>
-      {/* end ngIf: contract.isHourly */}
     </section>
   );
 }

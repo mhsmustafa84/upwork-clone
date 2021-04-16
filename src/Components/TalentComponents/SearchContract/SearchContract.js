@@ -17,7 +17,7 @@ export default function SearchContract() {
       </span>
       <input
         type="search"
-        className="form-control"
+        className="form-control shadow-none"
         placeholder="Search contract, client, or team name"
         aria-label="Input group example"
         aria-describedby="basic-addon1"
