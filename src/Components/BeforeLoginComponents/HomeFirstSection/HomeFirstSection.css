@@ -8,10 +8,14 @@
   color: #1d4354;
 }
 
-.fs-btns-cn button:first-child {
+.fs-btns-cn {
   background-color: #37a000;
   color: white;
   box-shadow: none;
+}
+.fs-btns-cn:hover {
+  color: white !important;
+  background-color: #008329;
 }
 
 .fs-btns-cn button:last-child {

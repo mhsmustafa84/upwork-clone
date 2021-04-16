@@ -11,6 +11,7 @@ import PostJob from "./../Pages/ClientPages/PostJop/PostJob";
 import Talent from "./../Pages/ClientPages/Talent/Talent";
 import Reports from "./../Pages/ClientPages/Reports/Reports";
 // import PageNotFound from "../Pages/Page Not Found/PageNotFound";
+import PageNotFound from './../Pages/Page Not Found/PageNotFound';
 
 export default function ClientRoutes() {
 
@@ -28,10 +29,9 @@ export default function ClientRoutes() {
                 <Route path="/all-contracts" exact component={AllContract} />
                 <Route path="/bring-your-own-talent" exactcomponent={BringYourTalent} />
                 <Route path="/post-job" component={PostJob} />
-                <Route path="/talent" exact component={Talent} />
-                <Route path="/talent/my-hires" exact component={Talent} />
-                <Route path="/talent/saved-talent" exact component={Talent} />
+                <Route path="/talent" component={Talent} />
                 <Route path="/billing-history" exact component={Reports} />
+                <Route path="**" component={PageNotFound} />
             </Switch>
             <Footer />
         </>

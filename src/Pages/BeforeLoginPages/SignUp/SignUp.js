@@ -1,7 +1,7 @@
 import React from "react";
 import LoginHeader from "../../../Components/SharedComponents/LoginHeader/LoginHeader";
-import SignupFooter from "../../../Components/SharedComponents/SignupFooter/SignupFooter";
-import SignUpTemp from "../../../Components/SharedComponents/SignUpTemp/SignUpTemp";
+import SignupFooter from "../../../Components/BeforeLoginComponents/SignupFooter/SignupFooter";
+import SignUpTemp from "../../../Components/BeforeLoginComponents/SignUpTemp/SignUpTemp";
 
 export default function SignUp() {
   return (

@@ -165,7 +165,7 @@ input[type="email"]:focus {
 }
 input[type="search"] {
   border-left: 0ch;
-  padding: 0;
+  /* padding: 0; */
 }
 
 input[type="email"]:focus,
@@ -266,7 +266,7 @@ a:active {
   color: #008329;
   /* text-decoration: underline; */
 }
-.btn-circle.btn-sm {
+.btn-circle {
   width: 30px;
   height: 30px;
   padding: 6px 0px;
@@ -394,10 +394,9 @@ a:active {
   overflow-y: auto;
 }
 .type_msg {
-  background-color: rgba(0, 0, 0, 0.3) !important;
-  border: 0 !important;
-  color: white !important;
-  height: 60px !important;
+  /* border: 0 !important; */
+  color: black !important;
+  /* height: 60px !important; */
   overflow-y: auto;
 }
 .type_msg:focus {

@@ -139,6 +139,12 @@ nav ul ul {
 .nav-item.hov-cn:hover .dropdown-menu {
   display: block;
 }
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: #f1f2f4;
+  color: #212529;
+}
 /* -----------end navbar style-------------- */
 
 /* start media query */

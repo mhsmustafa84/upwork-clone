@@ -2,14 +2,14 @@ import React from "react";
 
 export default function MesssagesContent() {
   return (
-    <div className="card bg-white mt-2">
+    <div className="card bg-white mt-2 mb-5">
       <div className="mesgs">
         <div className="msg_history">
           <div className="incoming_msg">
             <div className="incoming_msg_img">
               {" "}
               <img
-                src="https://ptetutorials.com/images/user-profile.png"
+                src="https://ptetutorials.com/assets/img/user-profile.png"
                 alt="sunil"
               />{" "}
             </div>
@@ -30,7 +30,7 @@ export default function MesssagesContent() {
             <div className="incoming_msg_img">
               {" "}
               <img
-                src="https://ptetutorials.com/images/user-profile.png"
+                src="https://ptetutorials.com/assets/img/user-profile.png"
                 alt="sunil"
               />{" "}
             </div>
@@ -51,7 +51,7 @@ export default function MesssagesContent() {
             <div className="incoming_msg_img">
               {" "}
               <img
-                src="https://ptetutorials.com/images/user-profile.png"
+                src="https://ptetutorials.com/assets/img/user-profile.png"
                 alt="sunil"
               />{" "}
             </div>
@@ -70,7 +70,7 @@ export default function MesssagesContent() {
 
         <div className="type_msg">
           <div className="input_msg_write">
-            <input type="text" className="write_msg" placeholder="Type a message" />
+            <input type="text" className="form-control write_msg" placeholder="Type a message" />
             <button className="msg_send_btn" type="button">
               <i className="fa fa-paper-plane-o" aria-hidden="true"></i>
             </button>

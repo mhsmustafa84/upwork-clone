@@ -11,17 +11,17 @@ export default function AllContracts() {
         <div className="container">
           <div className="row">
             <h4 className="col-12 mt-5">Contracts</h4>
-            <div className="card mt-4">
+            <div className="card mt-4 mb-5">
               <div className="card-header bg-white p-3">
                 <SearchContract />
               </div>
               <div className="card-body row">
                 <div className="col-12  mb-3">
-                  <small>Sort By</small>
+                  <small className="me-3">Sort By</small>
                   <DateContract />
                   <button
                     type="button"
-                    className="mx-auto btn btn-light btn-sm border-gray"
+                    className="mx-auto btn btn-light btn-circle border-gray ms-3"
                   >
                     <svg
                       style={{ marginLeft: 0 }}
@@ -29,7 +29,7 @@ export default function AllContracts() {
                       width={17}
                       height={17}
                       fill="#37a000"
-                      className="bi bi-arrow-down-up d-block "
+                      className="bi bi-arrow-down-up d-block mx-auto "
                       viewBox="0 0 19 16"
                     >
                       <path
@@ -43,7 +43,7 @@ export default function AllContracts() {
                       />
                     </svg>
                   </button>
-                  <span>3 total</span>
+                  <span className="mx-3">3 total</span>
                   <>
                     <div className="form-check form-check-inline d-none-md">
                       <input
