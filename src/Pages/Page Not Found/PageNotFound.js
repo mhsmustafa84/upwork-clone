@@ -63,15 +63,8 @@ export default function PageNotFound() {
               This page doesn't exist.
             </h2>
             <p class="text-muted m-sm-bottom">
-              Please{" "}
-              <a
-                onClick={() => {
-                  history.goBack();
-                }}
-              >
-                return
-              </a>{" "}
-              to the previous page or visit <a href="/">Upwork.com</a>
+              Please <a href="javascript:window.history.back()">return</a> to
+              the previous page or visit <a href="/">Upwork.com</a>
             </p>
             <small class="text-muted">Error 404 (OS)</small>
           </div>
