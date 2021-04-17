@@ -143,6 +143,7 @@ nav ul ul {
 .dropdown-item.active,
 .dropdown-item:active {
   color: #212529;
+  background-color: rgba(185, 185, 185, 0.333);
 }
 /* -----------end navbar style-------------- */
 

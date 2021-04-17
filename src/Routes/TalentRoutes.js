@@ -1,6 +1,5 @@
 import React from "react";
 import { Switch, Route, useLocation, useHistory } from "react-router-dom";
-import Reports from "./../Pages/ClientPages/Reports/Reports";
 import Messages from "./../Pages/TalentPages/Messages/Messages";
 import Header from "./../Components/TalentComponents/Header/Header";
 import Footer from "./../Components/SharedComponents/Footer/Footer";
@@ -12,8 +11,14 @@ import MyJobs from "./../Pages/TalentPages/MyJobs/MyJobs";
 import AllContracts from "./../Pages/TalentPages/AllContracts/AllContracts";
 import WorkDiary from "./../Pages/TalentPages/WorkDiary/WorkDiary";
 import PageNotFound from "./../Pages/Page Not Found/PageNotFound";
+import Reports from "../Pages/TalentPages/Reports/MyReports/MyReports";
+import OverviewReports from "../Pages/TalentPages/Reports/OverviewReports/OverviewReports";
+import BillingByClients from "../Pages/TalentPages/Reports/Billingbyclient/BillingByClients";
+import ConnectsHistory from "../Pages/TalentPages/Reports/ConnectsHistory/ConnectsHistory";
+import BuyConnects from "../Pages/TalentPages/Reports/BuyConnects/BuyConnects";
 import HomeTalent from "../Pages/TalentPages/HomeTalent/HomeTalent";
 import JobDetailsTalent from "../Pages/TalentPages/JobDetailsTalent/JobDetailsTalent";
+import TransactionHistory from "../Pages/TalentPages/Reports/TransactionHistory/TransactionHistory";
 
 export default function TalentRoutes() {
   const { pathname } = useLocation();
