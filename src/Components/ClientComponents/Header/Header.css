@@ -12,6 +12,10 @@
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
 }
+/* .dropdown-item.active,
+.dropdown-item:active {
+  background-color: ;
+} */
 
 .search-input-cnn:focus {
   background-color: #2b5468;
