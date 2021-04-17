@@ -1,0 +1,26 @@
+.paging {
+    overflow: hidden;
+  
+
+  }
+  
+  .paging li a {
+    float: left;
+    display: block;
+    color: rgb(82, 80, 80);
+    text-align: center;
+    padding:  7px;
+    text-decoration: none;
+    font-size: 17px;
+    border-bottom: 3px solid transparent;
+  }
+  
+ .paging li a:hover {
+    border-bottom: 3px solid #157347;
+    color: #157347;
+  }
+  
+  .paging li a.active {
+    border-bottom: 3px solid #157347;
+    color: #157347;
+  }

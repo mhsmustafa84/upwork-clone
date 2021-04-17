@@ -10,9 +10,8 @@ import BringYourTalent from "./../Pages/ClientPages/BringYourTalent/BringYourTal
 import PostJob from "./../Pages/ClientPages/PostJop/PostJob";
 import Talent from "./../Pages/ClientPages/Talent/Talent";
 import Reports from "./../Pages/ClientPages/Reports/Reports";
-// import PageNotFound from "../Pages/Page Not Found/PageNotFound";
 import PageNotFound from "./../Pages/Page Not Found/PageNotFound";
-import Settings from "./../Pages/ClientPages/Client Settings/Settings";
+import ReviewProposals from "../Pages/ClientPages/ReviewProposals/ReviewProposals";
 
 export default function ClientRoutes() {
   const { pathname } = useLocation();
@@ -30,8 +29,8 @@ export default function ClientRoutes() {
         <Route path="/bring-your-own-talent" exactcomponent={BringYourTalent} />
         <Route path="/post-job" component={PostJob} />
         <Route path="/talent" component={Talent} />
+        <Route path="/review-proposal" component={ReviewProposals} />
         <Route path="/billing-history" exact component={Reports} />
-        <Route path="/c/settings" exact component={Settings} />
         <Route path="**" component={PageNotFound} />
       </Switch>
       <Footer />

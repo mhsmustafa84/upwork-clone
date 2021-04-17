@@ -214,7 +214,7 @@ export default function NavLargScreen() {
                 </div>
               </li>
               <li>
-                <Link
+                <NavLink
                   className="dropdown-item px-4"
                   to="/find-work"
                   onClick={changeLayOut}
@@ -228,10 +228,10 @@ export default function NavLargScreen() {
                       <p>Freelancer</p>
                     </div>
                   </div>
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link className="dropdown-item px-4 mb-1" to="/home">
+                <NavLink Link className="dropdown-item px-4 mb-1" to="/home">
                   <div className="d-flex align-items-center">
                     <span style={{ marginLeft: "-5px" }}>
                       <i className="fa fa-user-circle fs-3"></i>
@@ -241,15 +241,15 @@ export default function NavLargScreen() {
                       <p>Client</p>
                     </div>
                   </div>
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link className="dropdown-item px-4" to="/c/settings">
+                <a className="dropdown-item px-4" href="#">
                   <span>
                     <i className="fa fa-cog"></i>
                   </span>
                   <span className="ps-2">Settings</span>
-                </Link>
+                </a>
               </li>
               <li>
                 <a className="dropdown-item px-4" href="#">
