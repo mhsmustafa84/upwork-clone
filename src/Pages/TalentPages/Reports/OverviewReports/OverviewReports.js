@@ -5,19 +5,24 @@ import {
   Route,
   Link,
   NavLink,
+  useLocation,
+  useHistory,
 } from "react-router-dom";
 import Available from "../../../../Components/TalentComponents/Available/Available";
 import InReview from "../../../../Components/TalentComponents/InReviewComponent/InReview";
 import Pending from "../../../../Components/TalentComponents/Pending/pending";
 import WorkinProgress from "../../../../Components/TalentComponents/WorkinProgress/WorkinProgress";
 export default function OverviewReports() {
+  const { pathname } = useLocation();
+  const { push } = useHistory();
+  pathname === "/overview" && push("/overview/work-in-progress");
   return (
     <Router>
       <>
         <style
           dangerouslySetInnerHTML={{
             __html:
-              "\n        @import url(//db.onlinewebfonts.com/c/3def92f7b2ad644bd382798ecc8ca4c7?family=Canela);\n\n        @media (min-width: 1200px) {\n            .container {\n                max-width: 74%;\n            }\n        }\n\n        * {\n            margin: 0;\n            padding: 0;\n        }\n\n        .container .nav-tabs>li>a.active h4 {\n            color: #73bb44\n        }\n\n        .container .nav-tabs>li>a.active span {\n            color: #73bb44;\n            \n        }\n        .container .nav-tabs>li>a.active{\n            background-color:#f1f2f4;\n        }\n\n\n        .container .nav-tabs>li>a h4 {\n            color: black;\n        }\n\n        .container .nav-tabs>li>a span {\n            color: black;\n        }\n\n        .container .nav-tabs>li>a h1 {\n            color: black;\n        }\n        body{\n            background-color:#f1f2f4\n        }\n    ",
+              "\n        @import url(//db.onlinewebfonts.com/c/3def92f7b2ad644bd382798ecc8ca4c7?family=Canela);              .container .nav-tabs>li>a.active h4 {\n            color: #73bb44\n        }\n\n        .container .nav-tabs>li>a.active span {\n            color: #73bb44;\n            \n        }\n        .container .nav-tabs>li>a.active{\n            background-color:#f1f2f4;\n        }\n\n\n        .container .nav-tabs>li>a h4 {\n            color: black;\n        }\n\n        .container .nav-tabs>li>a span {\n            color: black;\n        }\n\n        .container .nav-tabs>li>a h1 {\n            color: black;\n        }\n        body{\n            background-color:#f1f2f4\n        }\n    ",
           }}
         />
 
@@ -34,7 +39,7 @@ export default function OverviewReports() {
               >
                 <NavLink
                   id="ex2-tab-1"
-                  to="/workinprogress"
+                  to="/overview/work-in-progress"
                   data-mdb-toggle="tab"
                   role="tab"
                   aria-controls="ex2-tabs-1"
@@ -67,7 +72,7 @@ export default function OverviewReports() {
                 <NavLink
                   id="ex2-tab-1"
                   data-mdb-toggle="tab"
-                  to="/inreview"
+                  to="/overview/in-review"
                   role="tab"
                   style={{ textDecoration: "none" }}
                 >
@@ -94,7 +99,7 @@ export default function OverviewReports() {
               <li className="nav-item" role="presentation">
                 <NavLink
                   id="ex2-tab-3"
-                  to="/topending"
+                  to="/overview/pending"
                   data-mdb-toggle="tab"
                   role="tab"
                   style={{ textDecoration: "none" }}
@@ -127,7 +132,7 @@ export default function OverviewReports() {
                 <NavLink
                   id="ex2-tab-4"
                   data-mdb-toggle="tab"
-                  to="/available"
+                  to="/overview/available"
                   role="tab"
                   style={{ textDecoration: "none" }}
                 >
@@ -159,16 +164,16 @@ export default function OverviewReports() {
       </>
 
       <switch>
-        <Route path="/workinprogress" exact>
+        <Route path="/overview/work-in-progress" exact>
           <WorkinProgress />
         </Route>
-        <Route path="/inreview" exact>
+        <Route path="/overview/in-review" exact>
           <InReview />
         </Route>
-        <Route path="/topending" exact>
+        <Route path="/overview/pending" exact>
           <Pending />
         </Route>
-        <Route path="/available" exact>
+        <Route path="/overview/available" exact>
           <Available />
         </Route>
       </switch>

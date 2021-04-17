@@ -20,18 +20,12 @@ export default function TransactionHistory() {
   // });
   return (
     <>
-      <style
-        dangerouslySetInnerHTML={{
-          __html:
-            "\n        @import url(//db.onlinewebfonts.com/c/3def92f7b2ad644bd382798ecc8ca4c7?family=Canela);\n\n        @media (min-width: 1200px) {\n            .container {\n                max-width: 74%;\n            }\n        }\n\n        * {\n            margin: 0;\n            padding: 0;\n        }\n\n        body{\n            background-color:#f1f2f4\n        }\n    ",
-        }}
-      />
-         <div className="W-100%">
-          <br />
-        </div>
-        <div className="W-100%">
-          <br />
-        </div>
+      <div className="W-100%">
+        <br />
+      </div>
+      <div className="W-100%">
+        <br />
+      </div>
       <div className="container mb-0">
         <div className="row">
           <h4 className="mb-2 mt-4">

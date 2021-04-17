@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import DropDownList from "../../../../Components/TalentComponents/DropDownList Component/DropDown";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 export default function ConnectsHistory() {
   const [dropdown, setDropdown] = useState({
     label: "Choose The Connects Types",
@@ -25,13 +25,6 @@ export default function ConnectsHistory() {
 
   return (
     <>
-      <style
-        dangerouslySetInnerHTML={{
-          __html:
-            "\n    @import url(//db.onlinewebfonts.com/c/3def92f7b2ad644bd382798ecc8ca4c7?family=Canela);\n    @media (min-width: 1200px) {\n        .container {\n            max-width: 74%;\n        }\n    }\n\n    * {\n        margin: 0;\n        padding: 0;\n        \n\n    }\n    body{\n        background-color: #f1f2f4;\n\n    }\n",
-        }}
-
-      />
       <div className="container card mt-5">
         <div className="row mb-sm-30 pt-3">
           <div className="col-sm-7 mb-3 ps-3 ">

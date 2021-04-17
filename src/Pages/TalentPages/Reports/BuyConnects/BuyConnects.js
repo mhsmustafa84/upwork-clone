@@ -16,13 +16,6 @@ export default function BuyConnects() {
   });
   return (
     <>
-      <style
-        dangerouslySetInnerHTML={{
-          __html:
-            '\n        @import url(//db.onlinewebfonts.com/c/3def92f7b2ad644bd382798ecc8ca4c7?family=Canela);\n    \n        @media (min-width: 1200px) {\n          .container {\n            max-width: 74%;\n          }\n        }\n    \n        * {\n          margin: 0;\n          padding: 0;\n        }\n    \n        body,\n        h4 {\n          font-family: "Gotham SSm", Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif,\n            "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",\n            "Noto Color Emoji";\n          font-weight: bold;\n          font-size: medium;\n          background-color: #f1f2f4;\n        }\n      ',
-        }}
-      />
-
       <section>
         <div className="W-100%">
           <br />

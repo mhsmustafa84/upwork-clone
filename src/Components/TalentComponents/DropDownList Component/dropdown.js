@@ -15,14 +15,6 @@ export default function DropDownList({ dropdowndata }) {
         <ul
           className="dropdown-menu ps-2 show border rounded-border "
           data-popper-placement="bottom-start"
-          data-popper-reference-hidden=""
-          data-popper-escaped=""
-          style={{
-            margin: "0px",
-            position: "absolute",
-            inset: "0px auto auto 0px",
-            transform: "translate(0px, 40px)",
-          }}
         >
           {dropdowndata.names.map((name, index) => {
             return (
