@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CustomButtonwithbackground from "../../../../Components/TalentComponents/CustomButtonwithBackground/CustomButton";
 import CustomButtonwithoutbackground from "../../../../Components/TalentComponents/CustomButtonwithoutbackground/CustomButton";
-import DropDownList from "../../../../Components/TalentComponents/DropDownList Component/DropDown";
+import DropDownList from "../../../../Components/TalentComponents/DropDownList Component/dropdown";
 
 export default function BuyConnects() {
   const [dropdown, setDropdown] = useState({

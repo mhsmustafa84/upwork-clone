@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import DropDownList from "../../../../Components/TalentComponents/DropDownList Component/DropDown";
+import DropDownList from "../../../../Components/TalentComponents/DropDownList Component/dropdown";
 import { Link } from "react-router-dom";
 export default function ConnectsHistory() {
   const [dropdown, setDropdown] = useState({

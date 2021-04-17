@@ -33,21 +33,21 @@ export default function NavLargScreen() {
                   Saved Jobs
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link className="dropdown-item" to="/proposals">
                   Proposals
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link className="dropdown-item" to="/profile">
                   Profile
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link className="dropdown-item" to="/my-stats">
                   My Stats
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </li>
           <li className="nav-item hov-cn">
@@ -123,12 +123,12 @@ export default function NavLargScreen() {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
+            <Link className="nav-link" to="/t/messages">
               <i
                 className="far fa-paper-plane fs-5"
                 style={{ transform: "scaleX(-1)" }}
               ></i>
-            </a>
+            </Link>
           </li>
           <li className="dropdown">
             <a

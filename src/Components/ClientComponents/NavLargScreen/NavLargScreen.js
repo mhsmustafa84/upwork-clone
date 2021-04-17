@@ -38,11 +38,11 @@ export default function NavLargScreen() {
                   All Contracts
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link className="dropdown-item" to="/bring-your-own-talent">
                   Bring Your Own Talent
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link className="dropdown-item" to="/post-job">
                   Post a Job
@@ -69,9 +69,9 @@ export default function NavLargScreen() {
             </ul>
           </li>
           <li className="nav-item hov-cn">
-            <NavLink className="nav-link" to="/billing-history">
+            <Link className="nav-link" to="/">
               Reports
-            </NavLink>
+            </Link>
             <ul
               id="reports-dd-id"
               className="dropdown-menu"
