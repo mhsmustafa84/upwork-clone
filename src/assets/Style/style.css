@@ -164,7 +164,7 @@ input[type="email"]:focus {
   border-right: 0ch;
 }
 input[type="search"] {
-  border-left: 0ch;
+  /* border-left: 0ch; */
   /* padding: 0; */
 }
 

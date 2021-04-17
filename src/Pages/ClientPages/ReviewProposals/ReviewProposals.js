@@ -4,9 +4,13 @@ import ReviewProposalsPageHeader from "../../../Components/ClientComponents/Revi
 
 export default function ReviewProposals() {
   return (
-    <div>
-      <ReviewProposalsPageHeader />
-      <ReviewProposalsCard/>
-     </div>
+    <>
+      <div className="container">
+        <div className="row border border-1 py-4  bg-white my-5">
+          <ReviewProposalsPageHeader />
+          <ReviewProposalsCard />
+        </div>
+      </div>
+    </>
   );
 }

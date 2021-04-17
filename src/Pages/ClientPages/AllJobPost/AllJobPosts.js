@@ -3,7 +3,6 @@ import SearchJobPosts from "./../../../Components/ClientComponents/SearchJobPost
 import JobPostsFilters from "./../../../Components/ClientComponents/JobPostsFilters/JobPostsFilters";
 import JobPostLi from "./../../../Components/ClientComponents/JobPostLi/JobPostLi";
 import JobPostingsPagination from "./../../../Components/ClientComponents/JobPostingsPagination/JobPostingsPagination";
-import MyJobs from "./../MyJobs/MyJobs";
 import JobPostsHeader from "../../../Components/ClientComponents/JobPostsHeader/JobPostsHeader";
 import ReviewProposals from "./../ReviewProposals/ReviewProposals";
 
@@ -26,9 +25,6 @@ export default function AllJobPosts() {
         </div>
         <div className="row border border-1 py-4  bg-white">
           <JobPostingsPagination />
-        </div>
-        <div className="row border border-1 py-4  bg-white">
-          <ReviewProposals />
         </div>
       </div>
     </div>

@@ -62,7 +62,7 @@ export default function RightSidebarTalentHome() {
         </span>
         <div className="progress" style={{ height: 5, display: "inline" }}>
           <div
-            className="progress-bar bg-success"
+            className="progress-bar bg-upwork"
             role="progressbar"
             style={{ width: "100%" }}
             aria-valuenow={25}
