@@ -5,7 +5,7 @@ import JobPostLi from "./../../../Components/ClientComponents/JobPostLi/JobPostL
 import JobPostingsPagination from "./../../../Components/ClientComponents/JobPostingsPagination/JobPostingsPagination";
 import MyJobs from "./../MyJobs/MyJobs";
 import JobPostsHeader from "../../../Components/ClientComponents/JobPostsHeader/JobPostsHeader";
-import ReviewProposals from './../ReviewProposals/ReviewProposals';
+import ReviewProposals from "./../ReviewProposals/ReviewProposals";
 
 export default function AllJobPosts() {
   return (
@@ -15,7 +15,10 @@ export default function AllJobPosts() {
         <div className="row border border-1 py-4  bg-white">
           <SearchJobPosts />
         </div>
-        <div className="row border border-1 py-4  bg-light collapse" id="collapseExample">
+        <div
+          className="row border border-1 py-4  bg-light collapse"
+          id="collapseExample"
+        >
           <JobPostsFilters />
         </div>
         <div className="row border border-1 py-4  bg-white">
@@ -25,7 +28,7 @@ export default function AllJobPosts() {
           <JobPostingsPagination />
         </div>
         <div className="row border border-1 py-4  bg-white">
-          <ReviewProposals/>
+          <ReviewProposals />
         </div>
       </div>
     </div>

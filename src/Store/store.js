@@ -4,6 +4,5 @@ import reducers from "./combineReducers";
 import thunk from "redux-thunk";
 
 
-const store = createStore(reducers, 
-composeWithDevTools(applyMiddleware(thunk)));
+const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)));
 export default store;
