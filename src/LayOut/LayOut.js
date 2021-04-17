@@ -10,8 +10,8 @@ export default function LayOut() {
 
   return (
     <>
-      {/* {layOut === "talent" ? <TalentRoutes /> : <ClientRoutes />} */}
-      <BeforeLoginRoutes />
+      {layOut === "talent" ? <TalentRoutes /> : <ClientRoutes />}
+      {/* <BeforeLoginRoutes /> */}
     </>
   );
 }

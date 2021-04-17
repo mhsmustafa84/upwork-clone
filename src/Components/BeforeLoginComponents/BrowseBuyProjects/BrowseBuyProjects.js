@@ -95,7 +95,7 @@ export default function BrowseBuyProjects() {
             </div>
             <div className="row" id="Browse-buy-projects-button-ID">
               <button
-                className="btn col-lg-2 col-12 mx-lg-0 mx-auto fw-bolder mb-3 btn-success"
+                className="btn col-lg-2 col-12 mx-lg-0 mx-auto fw-bolder mb-3 bg-upwork"
                 type="button"
               >
                 Learn more
