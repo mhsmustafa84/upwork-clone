@@ -50,7 +50,7 @@ export default function HomeLayout() {
               <div className="row align-items-center">
                 <div className="col-lg-9 pt-lg-3">
                   <a
-                    href=""
+                    href="#"
                     id="job-title-home-page "
                     className="link-dark job-title-hover"
                   >

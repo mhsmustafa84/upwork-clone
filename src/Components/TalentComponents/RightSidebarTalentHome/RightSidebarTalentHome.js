@@ -1,17 +1,29 @@
-import React from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/alt-text */
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { db } from "../../../firebase";
+import { userDataAction } from "../../../Store/actions/userData";
 
 export default function RightSidebarTalentHome() {
+  let user = useSelector((state) => state.userData);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(userDataAction());
+  }, []);
   return (
     <div className="col d-none d-lg-block">
       <div className="my-lg-1">
         <img
-          src="https://www.upwork.com/profile-portraits/c1YEmhSMesFOnUBuFrsYLXSpe1nxlEMZDf8TkNaSsH7RKccybWLkNBn9DoEXC4-tpu"
+          src={user.profilePhoto}
           alt
           className="rounded-circle d-inline"
-          width="30px"
-          height="30px"
+          width="50px"
+          height="50px"
         />
-        <h5 className="d-inline px-2">My Profile</h5>
+
+        <h6 className="d-inline ps-1">{`${user.firstName} ${user.lastName}`}</h6>
       </div>
       <div className="my-lg-1">
         <a href="#" className="advanced-search-link ">

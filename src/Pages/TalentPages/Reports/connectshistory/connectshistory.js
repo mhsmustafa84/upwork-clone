@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import DropDownList from "../../../../Components/TalentComponents/DropDownList Component/dropdown";
 import { Link } from "react-router-dom";
@@ -30,9 +31,9 @@ export default function ConnectsHistory() {
           <div className="col-sm-7 mb-3 ps-3 ">
             <h1 className="nowrap header--state-extra ">Connects History</h1>
           </div>
-          <div class=" text-end col-sm-5">
+          <div className=" text-end col-sm-5">
             <Link
-              class="btn btn-success"
+              className="btn btn-success"
               to="buyconnects"
               role="button"
               style={{
@@ -46,14 +47,14 @@ export default function ConnectsHistory() {
           </div>
         </div>
         <div className="row">
-          <div class="col-md-6 col-sm-12 mb-5">
-            <label class="mb-0 ps-5 mt-3 fw-bold">Connects Type</label>
-            <div class="dropdown ms-3 mt-3"></div>
+          <div className="col-md-6 col-sm-12 mb-5">
+            <label className="mb-0 ps-5 mt-3 fw-bold">Connects Type</label>
+            <div className="dropdown ms-3 mt-3"></div>
             <DropDownList dropdowndata={dropdown} />
           </div>
-          <div class="col-md-6 col-sm-12 mb-5">
-            <label class="mb-0 ps-5 mt-3 fw-bold">Date</label>
-            <div class="dropdown ms-3 mt-3"></div>
+          <div className="col-md-6 col-sm-12 mb-5">
+            <label className="mb-0 ps-5 mt-3 fw-bold">Date</label>
+            <div className="dropdown ms-3 mt-3"></div>
             <DropDownList dropdowndata={dropdown1} />
           </div>
         </div>

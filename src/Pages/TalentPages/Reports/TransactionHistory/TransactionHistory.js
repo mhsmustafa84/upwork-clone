@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import CustomButtonwithbackground from "../../../../Components/TalentComponents/CustomButtonwithBackground/CustomButton";
 import CustomButtonwithoutbackground from "../../../../Components/TalentComponents/CustomButtonwithoutbackground/CustomButton";
 import Date from "../../../../Components/TalentComponents/DateComponent/Date";
 import Fillter from "../../../../Components/TalentComponents/FilterComponent/filtercomponent";
-import TransactionTable from "../../../../Components/TalentComponents/TransactionTable/Transactiontable";
 
 export default function TransactionHistory() {
   // const [Tablesdata, setTablesdata] = useState({

@@ -1,11 +1,12 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import ImgWithActiveStatus from "./../../../Components/ClientComponents/ImgWithActiveStatus/ImgWithActiveStatus";
 
 
 export default function ReviewProposalsCard() {
-    return (
-        <div>
-             <div className="row border border-1">
+  return (
+    <div>
+      <div className="row border border-1">
         <div className="col-lg-1 pt-lg-3">
           <ImgWithActiveStatus />
         </div>
@@ -68,12 +69,12 @@ export default function ReviewProposalsCard() {
           </div>
         </div>
         <div className="col-1 py-3">
-          <button type="button" class="btn bg-white btn-outline-secondary">
+          <button type="button" className="btn bg-white btn-outline-secondary">
             <span className="text-success fw-bold">Messages</span>
           </button>
         </div>
         <div className="col-1 py-3">
-          <button type="button" class="btn btn-success px-5">
+          <button type="button" className="btn btn-success px-5">
             Hire
           </button>
         </div>
@@ -93,12 +94,12 @@ export default function ReviewProposalsCard() {
             wishes? Best wishes, Anna Dembov P.S. https://behance.net/annadembov
             https://www.linkedin.com/in<span id="dots">...</span>
             <span id="more">
-            /anna-dembov-91a32b1b3
+              /anna-dembov-91a32b1b3
             </span>
           </p>
         </div>
       </div>
-    
-        </div>
-    )
+
+    </div>
+  )
 }

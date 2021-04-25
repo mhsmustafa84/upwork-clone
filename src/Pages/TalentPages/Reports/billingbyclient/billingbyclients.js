@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 // import Table from "../../../../Components/TalentComponents/BillingbyclientsTable/billingbyclientstable";
 import CustomButtonwithoutbackground from "../../../../Components/TalentComponents/CustomButtonwithoutbackground/CustomButton";
 export default function BillingByClients() {

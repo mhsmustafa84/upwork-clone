@@ -1,8 +1,28 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import apple from "../../../assets/svg/apple.svg";
+import { signUpAction } from '../../../Store/actions/signUp';
 
 export default function SignupForm() {
+
+  const { push } = useHistory();
+  let user = useSelector((state) => state.signUpData);
+  const dispatch = useDispatch();
+
+
+  const getEmail = (e) => {
+    user.email = e.target.value;
+    dispatch(signUpAction(user));
+  }
+
+  const signUpContinue = () => {
+    push('/sign-up/details');
+  }
+
+
+
   return (
     <div className="col-sm-12 col-md-6 mx-auto">
       <div className="shadow-sm p-3 mb-5 bg-white rounded mx-auto mt-5 w-100 border">
@@ -39,20 +59,22 @@ export default function SignupForm() {
           <div className="form-group col-8 mx-auto mt-3">
             <input
               type="email"
+              name="email"
               className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Work email address"
+              onInput={getEmail}
             />
           </div>
           <div className="d-grid gap-2 col-8 mx-auto mt-3 hitbtn-class loginpcolor mb-4">
-            <Link
+            <button
               className="btn bg-upwork "
               type="button"
-              to="/sign-up/details"
+              onClick={signUpContinue}
             >
               Continue with Email
-            </Link>
+            </button>
           </div>
         </form>
       </div>

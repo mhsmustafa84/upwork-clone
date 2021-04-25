@@ -11,7 +11,7 @@ export default function DateContract() {
         aria-expanded="false"
       >
         Start date
-        <i class="fa fa-sort-down text-dark float-end"></i>
+        <i className="fa fa-sort-down text-dark float-end"></i>
       </button>
       <ul className="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
         <li>

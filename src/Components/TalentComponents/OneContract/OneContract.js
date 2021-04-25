@@ -24,7 +24,7 @@ export default function OneContract() {
             >
               <div className="row qa-wm-fl-cl-title ng-scope">
                 <div
-                  data-ng-class="{'col-xs-9' : contract.catalogProject, 'col-xs-12' : !contract.catalogProject}"
+                  data-ng-className="{'col-xs-9' : contract.catalogProject, 'col-xs-12' : !contract.catalogProject}"
                   className="col-xs-12"
                 >
                   <p className="m-0">
@@ -195,7 +195,7 @@ export default function OneContract() {
             <div className="row">
               <div
                 className="col-xs-6 qa-wm-fl-cl-terms col-xs-12"
-                data-ng-class="{'col-xs-12': !contract.agencyTeamName}"
+                data-ng-className="{'col-xs-12': !contract.agencyTeamName}"
               >
                 <ng-include
                   data-ng-if="!contract.isOffer"

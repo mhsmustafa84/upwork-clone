@@ -1,18 +1,25 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import { Link } from "react-router-dom";
-import JobDetailsTalent from "../../../Pages/TalentPages/JobDetailsTalent/JobDetailsTalent";
+import { useHistory } from "react-router-dom";
 
 export default function JobPostTalentHome() {
+
+  const { push } = useHistory();
+
+  const clickHandler = () => {
+    push("/job/");
+  }
+
   return (
     <div>
-      <Link to="/job/">
+      <div onClick={clickHandler}>
         <div className="list-group-item">
           <div className="row align-items-center">
             <div className="col-lg-9 pt-lg-3">
               <a
-                href
-                id="job-title-home-page "
-                className="link-dark job-title-hover "
+                href="#"
+                id="job-title-home-page"
+                className="link-dark job-title-hover"
               >
                 <p className="fw-bold ">Figma Prototype</p>
               </a>
@@ -30,7 +37,6 @@ export default function JobPostTalentHome() {
                   <i
                     className="far fa-heart"
                     aria-hidden="true"
-                    onclick="this.classList.toggle('fas')"
                   />
                 </button>
               </div>
@@ -98,7 +104,6 @@ export default function JobPostTalentHome() {
             </span>
             <span>
               <button
-                onclick="seemorebuttonFUNC()"
                 id="seemorebutton"
                 className="advanced-search-link "
               >
@@ -154,7 +159,7 @@ export default function JobPostTalentHome() {
           <p style={{ fontSize: "0.85em" }} className="my-lg-1 mb-lg-2">
             <span className="fw-bold " style={{ color: "#14bff4" }}>
               <i className="fas fa-check-circle primary" />
-              Payment verified  
+              Payment verified
             </span>
             <span className="text-muted">
               <span>
@@ -162,17 +167,17 @@ export default function JobPostTalentHome() {
                 <i className="fas fa-star" />
                 <i className="fas fa-star" />
                 <i className="fas fa-star" />
-                <i className="fas fa-star" /> 
+                <i className="fas fa-star" />
               </span>
               <span className="fw-bold "> $0</span>
-              <span> spent</span> 
+              <span> spent</span>
               <span className="fw-bold ">
                 <i className="fas fa-map-marker-alt" /> United States
               </span>
             </span>
           </p>
         </div>
-      </Link>
+      </div>
     </div>
   );
 }

@@ -1,9 +1,7 @@
 import React from "react";
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
-  Link,
   NavLink,
   useLocation,
   useHistory,
@@ -30,12 +28,12 @@ export default function OverviewReports() {
           <br />
         </div>
         <div className="container card">
-          <div class="row">
+          <div className="row">
             <ul className="nav nav-tabs nav-fill " id="ex1" role="tablist">
               <li
                 className="nav-item"
                 role="presentation"
-                // style={{ backgroundColor: "#f1f2f4" }}
+              // style={{ backgroundColor: "#f1f2f4" }}
               >
                 <NavLink
                   id="ex2-tab-1"

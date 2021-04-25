@@ -2,8 +2,8 @@ import React from "react";
 export default function OverviewTable({ overviewdate }) {
   return (
     <>
-      <div class="table-responsive">
-        <table class="table">
+      <div className="table-responsive">
+        <table className="table">
           <thead>
             {overviewdate.Dates.map((element, index) => {
               return (

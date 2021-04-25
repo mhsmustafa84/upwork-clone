@@ -1,5 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import Profile from "../../../Pages/TalentPages/Profile/Profile";
 export default function AddandeditEmployementHistory() {
   return (
     <>
@@ -156,61 +156,61 @@ export default function AddandeditEmployementHistory() {
                         month
                       </a>
                       <ul
-                        class="dropdown-menu"
+                        className="dropdown-menu"
                         aria-labelledby="dropdownMenuLink"
                       >
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             January
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             february
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             March
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             Apirl
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             May
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             June
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             July
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             August
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             October
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             November
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             Decemeber
                           </a>
                         </li>
@@ -231,61 +231,61 @@ export default function AddandeditEmployementHistory() {
                         year
                       </a>
                       <ul
-                        class="dropdown-menu"
+                        className="dropdown-menu"
                         aria-labelledby="dropdownMenuLink"
                       >
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             2021
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             2020
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             2019
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             2018
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             2017
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             2016
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             2015
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             2014
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             2013
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             2012
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             2011
                           </a>
                         </li>
@@ -308,61 +308,61 @@ export default function AddandeditEmployementHistory() {
                           month
                         </a>
                         <ul
-                          class="dropdown-menu"
+                          className="dropdown-menu"
                           aria-labelledby="dropdownMenuLink"
                         >
                           <li>
-                            <a class="dropdown-item" href="#">
+                            <a className="dropdown-item" href="#">
                               January
                             </a>
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#">
+                            <a className="dropdown-item" href="#">
                               february
                             </a>
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#">
+                            <a className="dropdown-item" href="#">
                               March
                             </a>
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#">
+                            <a className="dropdown-item" href="#">
                               Apirl
                             </a>
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#">
+                            <a className="dropdown-item" href="#">
                               May
                             </a>
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#">
+                            <a className="dropdown-item" href="#">
                               June
                             </a>
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#">
+                            <a className="dropdown-item" href="#">
                               July
                             </a>
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#">
+                            <a className="dropdown-item" href="#">
                               August
                             </a>
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#">
+                            <a className="dropdown-item" href="#">
                               October
                             </a>
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#">
+                            <a className="dropdown-item" href="#">
                               November
                             </a>
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#">
+                            <a className="dropdown-item" href="#">
                               Decemeber
                             </a>
                           </li>
@@ -383,61 +383,61 @@ export default function AddandeditEmployementHistory() {
                           year
                         </a>
                         <ul
-                          class="dropdown-menu"
+                          className="dropdown-menu"
                           aria-labelledby="dropdownMenuLink"
                         >
                           <li>
-                            <a class="dropdown-item" href="#">
+                            <a className="dropdown-item" href="#">
                               2021
                             </a>
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#">
+                            <a className="dropdown-item" href="#">
                               2020
                             </a>
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#">
+                            <a className="dropdown-item" href="#">
                               2019
                             </a>
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#">
+                            <a className="dropdown-item" href="#">
                               2018
                             </a>
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#">
+                            <a className="dropdown-item" href="#">
                               2017
                             </a>
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#">
+                            <a className="dropdown-item" href="#">
                               2016
                             </a>
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#">
+                            <a className="dropdown-item" href="#">
                               2015
                             </a>
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#">
+                            <a className="dropdown-item" href="#">
                               2014
                             </a>
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#">
+                            <a className="dropdown-item" href="#">
                               2013
                             </a>
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#">
+                            <a className="dropdown-item" href="#">
                               2012
                             </a>
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#">
+                            <a className="dropdown-item" href="#">
                               2011
                             </a>
                           </li>
@@ -561,61 +561,61 @@ export default function AddandeditEmployementHistory() {
                         month
                       </a>
                       <ul
-                        class="dropdown-menu"
+                        className="dropdown-menu"
                         aria-labelledby="dropdownMenuLink"
                       >
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             January
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             february
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             March
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             Apirl
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             May
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             June
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             July
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             August
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             October
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             November
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             Decemeber
                           </a>
                         </li>
@@ -636,61 +636,61 @@ export default function AddandeditEmployementHistory() {
                         year
                       </a>
                       <ul
-                        class="dropdown-menu"
+                        className="dropdown-menu"
                         aria-labelledby="dropdownMenuLink"
                       >
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             2021
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             2020
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             2019
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             2018
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             2017
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             2016
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             2015
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             2014
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             2013
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             2012
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">
+                          <a className="dropdown-item" href="#">
                             2011
                           </a>
                         </li>

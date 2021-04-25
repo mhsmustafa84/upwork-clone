@@ -1,11 +1,75 @@
-import React from "react";
-import apple from "../../../assets/svg/apple.svg";
+/* eslint-disable react/jsx-no-target-blank */
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
+import firebaseApp from "../../../firebase";
+import createDocument from "../../../Network/Network";
 
 export default function SignUpSecondForm() {
+  var [errMessage, seterrMessage] = useState("");
+  const userEmail = useSelector((state) => state.signUpData.email);
+  const { push } = useHistory();
+  const [user, setuser] = useState({
+    email: userEmail,
+    firstName: "",
+    lastName: "",
+    password: "",
+    userType: "",
+    authID: "",
+  });
+
+  const getUserData = (e) => {
+    const val = e.target.value;
+    const name = e.target.name;
+    switch (name) {
+      case "firstName":
+        setuser({ ...user, firstName: val });
+        break;
+      case "lastName":
+        setuser({ ...user, lastName: val });
+        break;
+      case "password":
+        setuser({ ...user, password: val });
+        break;
+      case "userType":
+        setuser({ ...user, userType: val });
+        break;
+
+      default:
+        break;
+    }
+  };
+
+  const signUpComplete = () => {
+    console.log(user);
+    firebaseApp
+      .auth()
+      .createUserWithEmailAndPassword(user.email, user.password)
+      .then((res) => {
+        let updateUser = firebaseApp.auth().currentUser;
+        //debugger;
+        updateUser.updateProfile({ displayName: user.userType });
+
+        if (res.user) {
+          res.user.sendEmailVerification();
+        }
+        user.authID = res.user.uid;
+        setuser({ ...user, authID: user.authID });
+        console.log(user);
+        createDocument(user.userType, user);
+        // push("/email-verification");
+      })
+      .catch(err => {
+        seterrMessage(err.message);
+      });
+  };
+
   return (
     <div className="col-sm-12 col-md-6 mx-auto">
       <div className="shadow-sm p-3 mb-5 bg-white rounded mx-auto mt-5 w-100 border">
         <form>
+          <h5 className="text-danger text-center">{errMessage}</h5>
           <h4 className="text-center m-0">
             <span
               style={{
@@ -33,10 +97,12 @@ export default function SignUpSecondForm() {
               </span>
               <input
                 type="text"
+                name="firstName"
                 className="form-control  border-start-0"
                 placeholder="First Name"
                 aria-label="Input group example"
                 aria-describedby="basic-addon1"
+                onInput={getUserData}
               />
             </div>
             <div className="input-group col-6 w-50">
@@ -54,10 +120,12 @@ export default function SignUpSecondForm() {
               </span>
               <input
                 type="text"
+                name="lastName"
                 className="form-control  border-start-0"
                 placeholder="Last Name"
                 aria-label="Input group example"
                 aria-describedby="basic-addon1"
+                onInput={getUserData}
               />
             </div>
           </div>
@@ -68,18 +136,20 @@ export default function SignUpSecondForm() {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-lock-fill"
+                className="bi bi-lock-fill"
                 viewBox="0 0 16 16"
               >
                 <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z" />
               </svg>
             </span>
             <input
-              type="text"
+              type="password"
+              name="password"
               className="form-control  border-start-0"
               placeholder="Password"
               aria-label="Input group example"
               aria-describedby="basic-addon1"
+              onInput={getUserData}
             />
           </div>
           <div>
@@ -91,21 +161,25 @@ export default function SignUpSecondForm() {
             >
               <input
                 type="radio"
+                name="userType"
                 className="btn-check"
-                name="btnradio"
                 id="btnradio1"
                 autoComplete="off"
                 defaultChecked
+                value="client"
+                onInput={getUserData}
               />
               <label className="btn btn-outline-upwork" htmlFor="btnradio1">
                 Hire for a project
               </label>
               <input
                 type="radio"
+                name="userType"
                 className="btn-check"
-                name="btnradio"
                 id="btnradio2"
                 autoComplete="off"
+                value="talent"
+                onInput={getUserData}
               />
               <label className="btn btn-outline-upwork" htmlFor="btnradio2">
                 Work as a freelancer
@@ -151,9 +225,14 @@ export default function SignUpSecondForm() {
           </div>
 
           <div className="d-grid gap-2 col-8 mx-auto mt-3 hitbtn-class loginpcolor mb-4">
-            <button className="btn bg-upwork " type="button">
+            <Link
+              className="btn bg-upwork "
+              type="button"
+              onClick={signUpComplete}
+              to="/email-verification"
+            >
               Continue with Email
-            </button>
+            </Link>
           </div>
         </form>
       </div>

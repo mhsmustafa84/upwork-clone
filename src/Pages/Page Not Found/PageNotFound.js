@@ -59,14 +59,14 @@ export default function PageNotFound() {
               <circle cx="65" cy="75.2" fill="#fff" r=".5"></circle>
               <circle cx="68.1" cy="74.3" fill="#fff" r=".5"></circle>
             </svg>
-            <h2 class="m-lg-top m-md-bottom text-muted">
+            <h2 className="m-lg-top m-md-bottom text-muted">
               This page doesn't exist.
             </h2>
-            <p class="text-muted m-sm-bottom">
+            <p className="text-muted m-sm-bottom">
               Please <a href="javascript:window.history.back()">return</a> to
               the previous page or visit <a href="/">Upwork.com</a>
             </p>
-            <small class="text-muted">Error 404 (OS)</small>
+            <small className="text-muted">Error 404 (OS)</small>
           </div>
         </div>
       </div>

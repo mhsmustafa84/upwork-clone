@@ -25,7 +25,7 @@ export default function Verification() {
       />
 
       <div className="container card mt-3 mb-3">
-        <div class="row mt-3">
+        <div className="row mt-3">
           <div className="col-md-6">
             <h5 className=" ps-3 fw-bold">Two-step verification options</h5>
           </div>
@@ -37,7 +37,7 @@ export default function Verification() {
         </div>
 
         <hr />
-        <div class="row mt-3">
+        <div className="row mt-3">
           <div className="col-md-6">
             <h5 className=" ps-3 fw-bold ">
               Authenticator app code <small>(Recommended)</small>{" "}
@@ -52,7 +52,7 @@ export default function Verification() {
           </small>
         </div>
         <hr />
-        <div class="row">
+        <div className="row">
           <div className="col-md-6">
             <h5 className=" ps-3 fw-bold">Mobile app prompt </h5>
           </div>
@@ -65,7 +65,7 @@ export default function Verification() {
         </div>
 
         <hr />
-        <div class="row">
+        <div className="row">
           <div className="col-md-6">
             <h5 className=" ps-3 fw-bold">Text message </h5>
           </div>
@@ -82,10 +82,10 @@ export default function Verification() {
           <div className="col-md-6">
             <h5 className=" ps-3 fw-bold">Authenticator app code </h5>
           </div>
-          <div class="col-md-6 d-flex justify-content-end">
+          <div className="col-md-6 d-flex justify-content-end">
             <button
               type="button"
-              class="btn btn-default me-2 d-flex justify-content-center border rounded-circle"
+              className="btn btn-default me-2 d-flex justify-content-center border rounded-circle"
               style={{
                 width: "30px",
                 height: "30px",
@@ -97,7 +97,7 @@ export default function Verification() {
               data-bs-target="#exampleModal4"
             >
               <div>
-                <i class="fas fa-pen"></i>
+                <i className="fas fa-pen"></i>
               </div>
             </button>
           </div>
@@ -109,28 +109,28 @@ export default function Verification() {
       </div>
 
       <div
-        class="modal fade"
+        className="modal fade"
         id="exampleModal4"
         tabindex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">
                 Security question
               </h5>
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               <form>
-                <div class=" mb-3">
+                <div className=" mb-3">
                   <label
                     for="exampleFormControlInput1"
                     className="form-label fw-bold"
@@ -154,7 +154,7 @@ export default function Verification() {
                   />
                   <hr />
                 </div>
-                <div class=" row mb-3 mt-3">
+                <div className=" row mb-3 mt-3">
                   <h5 className="fw-bold"> New Question</h5>
                   <DropDownList dropdowndata={dropdown} />
                 </div>
@@ -190,7 +190,7 @@ export default function Verification() {
                 </div>
               </form>
             </div>
-            <div class="modal-footer">
+            <div className="modal-footer">
               <CustomButtonwithbackground headers="cancel" />
               <CustomButtonwithoutbackground headers="save" />
             </div>

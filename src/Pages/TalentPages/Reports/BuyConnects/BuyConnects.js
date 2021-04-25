@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import CustomButtonwithbackground from "../../../../Components/TalentComponents/CustomButtonwithBackground/CustomButton";
 import CustomButtonwithoutbackground from "../../../../Components/TalentComponents/CustomButtonwithoutbackground/CustomButton";

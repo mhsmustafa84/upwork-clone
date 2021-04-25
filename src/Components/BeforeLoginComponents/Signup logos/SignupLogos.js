@@ -5,7 +5,6 @@ import General from "../../../assets/svg/General_Electric_logo.svg";
 import automattic from "../../../assets/svg/automattic.svg";
 import bissell from "../../../assets/svg/bissell.svg";
 import coty from "../../../assets/svg/Coty_logo.svg";
-import SignupForm from "../Signup Form/SignupForm";
 
 export default function SignupLogos() {
   return (

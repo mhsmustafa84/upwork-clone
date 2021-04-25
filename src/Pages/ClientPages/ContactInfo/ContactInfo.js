@@ -13,13 +13,13 @@ export default function AccountInfo() {
 
       <div className="container card mt-2 mb-2">
         <div className="row">
-          <div class="col-md-6 ">
+          <div className="col-md-6 ">
             <h5 className="mt-3">Account</h5>
           </div>
-          <div class="col-md-6 d-flex justify-content-end">
+          <div className="col-md-6 d-flex justify-content-end">
             <button
               type="button"
-              class="btn btn-default me-2  mt-3 d-flex justify-content-center border rounded-circle"
+              className="btn btn-default me-2  mt-3 d-flex justify-content-center border rounded-circle"
               style={{
                 width: "30px",
                 height: "30px",
@@ -31,14 +31,14 @@ export default function AccountInfo() {
               data-bs-target="#exampleModal1"
             >
               <div>
-                <i class="fas fa-pen"></i>
+                <i className="fas fa-pen"></i>
               </div>
             </button>
           </div>
         </div>
         <hr />
 
-        <img src="" class="rounded float-start" alt=""></img>
+        <img src="" className="rounded float-start" alt=""></img>
         <hr />
         <h4>
           {" "}
@@ -60,13 +60,13 @@ export default function AccountInfo() {
 
       <div className="container card mt-2 mb-2">
         <div className="row">
-          <div class="col-md-6">
+          <div className="col-md-6">
             <h5 className="ps-3 mt-3 ">Company Contacts</h5>
           </div>
-          <div class="col-md-6 d-flex justify-content-end">
+          <div className="col-md-6 d-flex justify-content-end">
             <button
               type="button"
-              class="btn btn-default me-2  mt-3 d-flex justify-content-center border rounded-circle"
+              className="btn btn-default me-2  mt-3 d-flex justify-content-center border rounded-circle"
               style={{
                 width: "30px",
                 height: "30px",
@@ -78,7 +78,7 @@ export default function AccountInfo() {
               data-bs-target="#exampleModal2"
             >
               <div>
-                <i class="fas fa-pen"></i>
+                <i className="fas fa-pen"></i>
               </div>
             </button>
           </div>
@@ -114,7 +114,7 @@ export default function AccountInfo() {
             {" "}
             <button
               type="button"
-              class="btn btn-link"
+              className="btn btn-link"
               href="#"
               style={{ color: "#008329" }}
             >
@@ -157,7 +157,7 @@ export default function AccountInfo() {
           <div className="col-md-9 col-sm-9 mb-3">
             <button
               type="button"
-              class="btn btn-link"
+              className="btn btn-link"
               href="#"
               style={{ color: "#008329" }}
             >
