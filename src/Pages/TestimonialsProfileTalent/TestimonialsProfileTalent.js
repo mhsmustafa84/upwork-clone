@@ -1,6 +1,7 @@
+
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-export default function AddandeditEmployementHistory() {
+export default function TestimonialsProfileTalent() {
   return (
     <>
       <style
@@ -12,7 +13,8 @@ export default function AddandeditEmployementHistory() {
       <div className="container card mb-3 mt-5">
         <div className="row mt-3">
           <div className="col">
-            <h2 className="mb-3">Employment history</h2>
+            <h2 className="mb-0">Testimonials</h2>
+            <h6 className="mb-3">Endorsements from past clients</h6>
           </div>
           <div className="col d-flex justify-content-end">
             <button
@@ -37,19 +39,10 @@ export default function AddandeditEmployementHistory() {
           <div className="row">
             {/*  employment skills */}
             <div className="col-md-6">
-              <h5>web designer in ITI</h5>
-              <p style={{ fontFamily: "Gotham SSm" }} className="mb-0">
-                September 2020 - Present
+              <h5>Romany Mounir</h5>
+              <p style={{ fontFamily: "Gotham SSm" }} className="mb-3">
+                He was a great freelancer to work with
               </p>
-              <p style={{ fontFamily: "Gotham SSm" }} className="mb-0">
-                Lorem web designer{" "}
-              </p>
-              <button
-                className="btn btn-link mb-3 border rounded-border"
-                style={{ textDecoration: "none", color: "#008329" }}
-              >
-                more
-              </button>
             </div>
             {/* icons */}
             <div className="col-md-6 d-flex justify-content-end">

@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-export default function AddandeditEmployementHistory() {
+export default function CertificatProfileTalent() {
   return (
     <>
       <style
@@ -12,7 +12,7 @@ export default function AddandeditEmployementHistory() {
       <div className="container card mb-3 mt-5">
         <div className="row mt-3">
           <div className="col">
-            <h2 className="mb-3">Employment history</h2>
+            <h2 className="mb-3">Certifications</h2>
           </div>
           <div className="col d-flex justify-content-end">
             <button
@@ -36,13 +36,28 @@ export default function AddandeditEmployementHistory() {
           <hr />
           <div className="row">
             {/*  employment skills */}
+            <div className="col-md-3">
+              <img
+              style={{marginBottom: '100px'}}
+                data-v-8e540bb6
+                src="https://assets.static-upwork.com/images/certification/logos/high/graphic-design.png"
+                alt=""
+              />{" "}
+            </div>
             <div className="col-md-6">
-              <h5>web designer in ITI</h5>
-              <p style={{ fontFamily: "Gotham SSm" }} className="mb-0">
-                September 2020 - Present
+              <h5>Upwork Skill Certification - Graphic Design</h5>
+              <p className="mb-0 fw-bold">UPWORK</p>
+              <p style={{ fontFamily: "Gotham SSm" }} className="mb-0 text-muted">
+              Issued February 2021
               </p>
               <p style={{ fontFamily: "Gotham SSm" }} className="mb-0">
-                Lorem web designer{" "}
+                Certified talent demonstrate proficiency in graphic design
+                through portfolio reviews which look for stellar layouts, a
+                distinctive style, and clear visual concepts. Their work
+                showcases the use of typography, photography, and illustration
+                to effectively communicate ideas. The portfolio reviews were
+                conducted by a panel of 2 or more graphic design experts who
+                evaluate sample wor
               </p>
               <button
                 className="btn btn-link mb-3 border rounded-border"
@@ -52,24 +67,7 @@ export default function AddandeditEmployementHistory() {
               </button>
             </div>
             {/* icons */}
-            <div className="col-md-6 d-flex justify-content-end">
-              <button
-                type="button"
-                className="btn btn-default me-2 d-flex justify-content-center border rounded-circle"
-                style={{
-                  width: 30,
-                  height: 30,
-                  textAlign: "center",
-                  paddingTop: 3,
-                  paddingBottom: 3,
-                }}
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal13"
-              >
-                <div>
-                  <i className="fas fa-pen" />
-                </div>
-              </button>
+            <div className="col-md-3 d-flex justify-content-end">
               <button
                 type="button"
                 className="btn btn-default d-flex justify-content-center border rounded-circle mb-3"
