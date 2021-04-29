@@ -1,21 +1,49 @@
+import firebaseApp, { db } from "../firebase";
 
-//////==DEMO====////////
-// import axios from "axios";
+// Create New Document
+const createDocument = (collectionName, data) => {
+  db.collection(collectionName)
+    .add(data)
+    .then((res) => {
+      console.log("collection added with id: " + res.id);
+      localStorage.setItem("docID", res.id);
+    })
+    .catch((error) => console.log(error));
+};
 
-// // export const axiosinastance= axios.create({
-// //     baseURL:"/......API URL..../"
-// // })
+// Update User Data
+export const updateUserData = (collectionName, newData) => {
+  db.collection(collectionName)
+    .get()
+    .then((allDocs) => {
+      allDocs.forEach((doc) => {
+        if (doc.data().authID === firebaseApp.auth().currentUser.uid) {
+          db.collection(collectionName)
+            .doc(doc.id)
+            .update(newData)
+            .then(() => console.log("user data updated"))
+            .catch(() => console.log("fail to update user data"));
+        }
+      });
+    });
+};
 
-//===Interceptors===///
+// Update Job
+export const updateJob = (newData, docID) => {
+  db.collection("job")
+    .get()
+    .then((allDocs) => {
+      allDocs.forEach((doc) => {
+        if (doc.id === docID) {
+          console.log(doc.id);
+          db.collection("job")
+            .doc(doc.id)
+            .update(newData)
+            .then(() => console.log("job updated"))
+            .catch(() => console.log("fail to update job"));
+        }
+      });
+    });
+};
 
-// axiosinastance.interceptors.request.use(function (config) {
-//     // Do something before request is sent
-//     return config;
-//     }, function (error) {
-//     // Do something with request error
-//     return Promise.reject(error);
-//     });
-
-////==End of dem===/////
-
-
+export default createDocument;

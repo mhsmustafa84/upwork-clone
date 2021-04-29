@@ -48,7 +48,7 @@ export default function JobPostsFilters() {
                   id="flexCheckDefault"
                 />
                 <label className="form-check-label" htmlFor="flexCheckDefault">
-                 All
+                  All
                 </label>
               </div>
             </td>
@@ -77,7 +77,7 @@ export default function JobPostsFilters() {
                   id="flexRadioDefault1"
                 />
                 <label className="form-check-label" htmlFor="flexRadioDefault1">
-                 Invite-only
+                  Invite-only
                 </label>
               </div>
             </td>
@@ -152,8 +152,8 @@ export default function JobPostsFilters() {
           </tr>
         </tbody>
       </table>
-      <button type="button" class="btn btn-success">
-              Close Filters
+      <button type="button" className="btn btn-success">
+        Close Filters
             </button>
     </div>
   );

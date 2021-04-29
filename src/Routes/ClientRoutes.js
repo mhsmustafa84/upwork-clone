@@ -12,6 +12,7 @@ import Talent from "./../Pages/ClientPages/Talent/Talent";
 import Reports from "./../Pages/ClientPages/Reports/Reports";
 import PageNotFound from "./../Pages/Page Not Found/PageNotFound";
 import ReviewProposals from "../Pages/ClientPages/ReviewProposals/ReviewProposals";
+import EmailVerified from "../Components/SharedComponents/EmailVerified/EmailVerified";
 
 export default function ClientRoutes() {
   const { pathname } = useLocation();
@@ -27,6 +28,7 @@ export default function ClientRoutes() {
         <Route path="/all-job-posts" exact component={AllJobPosts} />
         <Route path="/all-contracts" exact component={AllContract} />
         <Route path="/bring-your-own-talent" exactcomponent={BringYourTalent} />
+        <Route path="/email-verification" component={EmailVerified} />
         <Route path="/post-job" component={PostJob} />
         <Route path="/talent" component={Talent} />
         <Route path="/review-proposal" component={ReviewProposals} />

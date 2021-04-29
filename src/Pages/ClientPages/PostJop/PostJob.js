@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Switch, Route } from 'react-router-dom';
 import './PostJob.css'
 import PostJobAside from '../../../Components/ClientComponents/PostJobAside/PostJobAside'
@@ -13,6 +13,13 @@ import PostJobGetStarted from './../../../Components/ClientComponents/PostJobGet
 
 export default function PostJob() {
 
+    let [start, setStart] = useState(false);
+
+    const isStart = () => {
+        start = true;
+        setStart(start);
+    }
+
     return (
         <section className="sec-bg-cn p-4">
             <div className="container">
@@ -22,7 +29,9 @@ export default function PostJob() {
                     </div>
                     <div className="col-lg-9">
                         <Switch>
-                            <Route path="/post-job" exact component={PostJobGetStarted} />
+                            <Route path="/post-job" exact>
+                                <PostJobGetStarted start={start} isStart={isStart} />
+                            </Route>
                             <Route path="/post-job/title" exact component={PostJobTitle} />
                             <Route path="/post-job/description" exact component={PostJobDescription} />
                             <Route path="/post-job/details" exact component={PostJobDetails} />

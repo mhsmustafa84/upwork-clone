@@ -4,7 +4,6 @@ import JobPostsFilters from "./../../../Components/ClientComponents/JobPostsFilt
 import JobPostLi from "./../../../Components/ClientComponents/JobPostLi/JobPostLi";
 import JobPostingsPagination from "./../../../Components/ClientComponents/JobPostingsPagination/JobPostingsPagination";
 import JobPostsHeader from "../../../Components/ClientComponents/JobPostsHeader/JobPostsHeader";
-import ReviewProposals from "./../ReviewProposals/ReviewProposals";
 
 export default function AllJobPosts() {
   return (

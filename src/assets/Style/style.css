@@ -26,7 +26,7 @@
 
 .google-btn .google-icon-wrapper {
   position: absolute;
-  margin-top: 1px;
+  margin-top: 1.2px;
   margin-left: 1px;
   width: 38px;
   height: 38px;
@@ -154,8 +154,8 @@ hr {
 }
 input[type="email"] {
   transition: all 0.2s;
-  padding: 1%;
-  border-radius: 8px;
+  /* padding: 1%; */
+  /* border-radius: 8px; */
 }
 input[type="email"]:focus {
   background: rgba(240, 240, 240, 0.349);

@@ -1,16 +1,25 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, NavLink } from "react-router-dom";
-import { changeLayout } from "../../../Store/actions/changeLayout";
+// import { useDispatch, useSelector } from "react-redux";
+import { Link, NavLink, useHistory } from "react-router-dom";
+import firebaseApp from "../../../firebase";
+// import { changeLayout } from "../../../Store/actions/changeLayout";
 
 export default function NavLargScreen() {
-  let layOut = useSelector((state) => state.layOut);
-  const dispatch = useDispatch();
+  const { push } = useHistory();
 
-  const changeLayOut = () => {
-    layOut = "talent";
-    dispatch(changeLayout(layOut));
+  const logout = () => {
+    firebaseApp
+      .auth()
+      .signOut()
+      .then((res) => {
+        console.log(res);
+        push("/login");
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
 
   return (
@@ -38,11 +47,11 @@ export default function NavLargScreen() {
                   All Contracts
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link className="dropdown-item" to="/bring-your-own-talent">
                   Bring Your Own Talent
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link className="dropdown-item" to="/post-job">
                   Post a Job
@@ -69,9 +78,9 @@ export default function NavLargScreen() {
             </ul>
           </li>
           <li className="nav-item hov-cn">
-            <NavLink className="nav-link" to="/billing-history">
+            <Link className="nav-link" to="/">
               Reports
-            </NavLink>
+            </Link>
             <ul
               id="reports-dd-id"
               className="dropdown-menu"
@@ -137,7 +146,7 @@ export default function NavLargScreen() {
                     budgets, weekly summaries and more when you upgrade.
                   </p>
                   <a
-                    href=""
+                    href="#"
                     style={{ color: "#6fda44" }}
                     className="d-block text-center mb-3"
                   >
@@ -217,7 +226,7 @@ export default function NavLargScreen() {
                 <NavLink
                   className="dropdown-item px-4"
                   to="/find-work"
-                  onClick={changeLayOut}
+                  // onClick={changeLayOut}
                 >
                   <div className="d-flex align-items-center">
                     <span style={{ marginLeft: "-5px" }}>
@@ -251,7 +260,7 @@ export default function NavLargScreen() {
                   <span className="ps-2">Settings</span>
                 </a>
               </li>
-              <li>
+              <li onClick={logout}>
                 <a className="dropdown-item px-4" href="#">
                   <span>
                     <i className="fas fa-sign-out-alt"></i>

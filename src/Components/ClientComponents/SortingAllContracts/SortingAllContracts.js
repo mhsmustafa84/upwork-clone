@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 
 export default function SortingAllContracts() {
@@ -58,7 +59,7 @@ export default function SortingAllContracts() {
           </svg>
         </button>
         <span className="mx-2">0 </span><span> total</span>
-       
+
         <a type="button" className="float-end text-success">
           <svg
             xmlns="http://www.w3.org/2000/svg"

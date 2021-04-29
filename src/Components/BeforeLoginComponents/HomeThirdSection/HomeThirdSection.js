@@ -16,7 +16,7 @@ export default function HomeThirdSection() {
                 <div className="row justify-content-evenly">
                     <div className="col-md-4 col-sm-12">
                         <div className="shadow my-4 ss-box-cn position-relative">
-                            <a className="d-inline-block p-5" href="">
+                            <a className="d-inline-block p-5" href="#">
                                 <h3>Find a project to work on</h3>
                                 <p className="mb-5 pb-5">Talent Marketplace</p>
                                 <div className="position-absolute py-3 px-4 fs-2">
@@ -27,7 +27,7 @@ export default function HomeThirdSection() {
                     </div>
                     <div className="col-md-4 col-sm-12">
                         <div className="shadow my-4 ss-box-cn position-relative">
-                            <a className="d-inline-block p-5" href="">
+                            <a className="d-inline-block p-5" href="#">
                                 <h3>Sell a prefefined project</h3>
                                 <p className="mb-5 pb-5">Project Catalog</p>
                                 <div className="position-absolute py-3 px-4 fs-2">
