@@ -1,10 +1,10 @@
-import React from 'react'
-import HomeLayout from './../../../Components/TalentComponents/HomeLayout/HomeLayout';
+import React from "react";
+import HomeLayout from "./../../../Components/TalentComponents/HomeLayout/HomeLayout";
 
 export default function HomeTalent() {
-    return (
-        <div>
-            <HomeLayout/>
-        </div>
-    )
+  return (
+    <div className="bg-gray">
+      <HomeLayout />
+    </div>
+  );
 }
