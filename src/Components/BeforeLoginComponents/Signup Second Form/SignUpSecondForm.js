@@ -10,6 +10,10 @@ export default function SignUpSecondForm() {
   var [errMessage, seterrMessage] = useState("");
   const userEmail = useSelector((state) => state.signUpData.email);
   const { push } = useHistory();
+  const [PasswordError, setPasswordErrorr] = useState(null);
+  const [dis, setdis] = useState(true);
+  
+
   const [user, setuser] = useState({
     email: userEmail,
     firstName: "",
@@ -39,6 +43,17 @@ export default function SignUpSecondForm() {
       default:
         break;
     }
+    setPasswordErrorr(
+      e.target.value == ""
+        ? "This is Requir"
+        : e.target.value.length < 8
+        ? "Password Shoul be More 8 Character"
+        : null
+    );
+    setdis(
+      e.target.value == ""?true:false
+    )
+
   };
 
   const signUpComplete = () => {
@@ -129,6 +144,7 @@ export default function SignUpSecondForm() {
               />
             </div>
           </div>
+          <span className='text-danger'>{PasswordError}</span>
           <div className="input-group pt-3">
             <span className="input-group-text bg-white" id="basic-addon1">
               <svg
@@ -224,16 +240,17 @@ export default function SignUpSecondForm() {
             </label>
           </div>
 
-          <div className="d-grid gap-2 col-8 mx-auto mt-3 hitbtn-class loginpcolor mb-4">
-            <Link
+         <Link to="/email-verification" ><div className="d-grid gap-2 col-8 mx-auto mt-3 hitbtn-class loginpcolor mb-4">
+            <button
               className="btn bg-upwork "
               type="button"
+              disabled={dis}
               onClick={signUpComplete}
-              to="/email-verification"
+              
             >
               Continue with Email
-            </Link>
-          </div>
+            </button>
+          </div> </Link>
         </form>
       </div>
     </div>

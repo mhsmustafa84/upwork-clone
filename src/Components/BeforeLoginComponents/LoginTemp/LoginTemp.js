@@ -6,7 +6,9 @@ import { useState } from "react";
 
 export default function LoginTemp() {
   const [user, setUser] = useState({ email: "", password: "" });
-
+  const [emailError, setEmailErorr] = useState(null);
+  const [PasswordError, setPasswordErrorr] = useState(null);
+  const [dis, setdis] = useState(true);
   const getUserData = (e) => {
     const val = e.target.value;
     const name = e.target.name;
@@ -26,6 +28,17 @@ export default function LoginTemp() {
       default:
         break;
     }
+    setEmailErorr(
+      e.target.value==""?"*Email required": !e.target.value.match(/^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/)
+      ? "*Please inter Valid Email":null
+    )
+    // setPasswordErrorr(
+    //   e.target.value == ""
+    //     ? "*This is Requir"
+    //     : e.target.value.length < 8
+    //     ? "*Password Shoul be More 8 Character"
+    //     : null
+    // )
   };
 
   const login = () => {
@@ -74,20 +87,22 @@ export default function LoginTemp() {
               </h5>
               <form>
                 <div className="form-group col-8 mx-auto mt-3">
+                <span className="text-danger">{emailError}</span>
                   <input
                     type="email"
                     name="email"
-                    className="form-control shadow-none"
+                    className={`form-control shadow-none ${ emailError?"border-danger":""}`}
                     aria-describedby="emailHelp"
                     placeholder="Username or Email"
                     onInput={getUserData}
                   />
                 </div>
                 <div className="form-group col-8 mx-auto mt-3">
+                <span className="text-danger">{PasswordError}</span>
                   <input
                     type="password"
                     name="password"
-                    className="form-control shadow-none"
+                    className={`form-control shadow-none ${ PasswordError?"border-danger":""}`}
                     aria-describedby="emailHelp"
                     placeholder="Password"
                     onInput={getUserData}
