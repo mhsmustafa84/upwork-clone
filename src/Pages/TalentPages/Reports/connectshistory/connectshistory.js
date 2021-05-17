@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable */
 import React, { useState } from "react";
 import DropDownList from "../../../../Components/TalentComponents/DropDownList Component/dropdown";
 import { Link } from "react-router-dom";

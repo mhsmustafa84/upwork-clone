@@ -1,23 +1,26 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { db } from "../../../firebase";
-import { userDataAction } from "../../../Store/actions/userData";
+import { Link } from "react-router-dom";
+import { talentDataAction } from "../../../Store/actions/talentData";
 
 export default function RightSidebarTalentHome() {
-  let user = useSelector((state) => state.userData);
 
+  const user = useSelector(state => state.talentData);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(userDataAction());
+    dispatch(talentDataAction());
   }, []);
+
+
   return (
     <div className="col d-none d-lg-block">
       <div className="my-lg-1">
         <img
           src={user.profilePhoto}
-          alt
+          alt=""
           className="rounded-circle d-inline"
           width="50px"
           height="50px"
@@ -26,9 +29,9 @@ export default function RightSidebarTalentHome() {
         <h6 className="d-inline ps-1">{`${user.firstName} ${user.lastName}`}</h6>
       </div>
       <div className="my-lg-1">
-        <a href="#" className="advanced-search-link ">
+        <Link to="/profile" className="advanced-search-link ">
           <i className="fas fa-eye"> </i> View Profile
-        </a>
+        </Link>
       </div>
       <div className="my-lg-1 fw-bold">
         <p>Visibility</p>
@@ -69,7 +72,7 @@ export default function RightSidebarTalentHome() {
             >
               <i className="fas fa-pen" aria-hidden="true" />
             </button>
-          </span>{" "}
+          </span>
           Open to offers
         </span>
         <div className="progress" style={{ height: 5, display: "inline" }}>
@@ -81,7 +84,7 @@ export default function RightSidebarTalentHome() {
             aria-valuemin={0}
             aria-valuemax={100}
           >
-            <div className style={{ fontSize: "0.7em", display: "inline" }}>
+            <div style={{ fontSize: "0.7em", display: "inline" }}>
               100%
             </div>
           </div>
@@ -114,7 +117,7 @@ export default function RightSidebarTalentHome() {
             aria-current="true"
           >
             60 availabale connects
-          </a>{" "}
+          </a>
         </li>
         <li
           className="list-group-item sidebar-homebage-ul-li"

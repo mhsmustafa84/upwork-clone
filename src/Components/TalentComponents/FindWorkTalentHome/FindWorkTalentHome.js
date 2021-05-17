@@ -1,12 +1,11 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable */
 import React, { useState } from "react";
 import firebaseApp from "../../../firebase";
 
 export default function FindWorkTalentHome() {
   const [verify, setverify] = useState(false);
-  firebaseApp.auth().onAuthStateChanged((user) => {
+  firebaseApp.auth().onAuthStateChanged(user => {
     if (user) {
-      //console.log(user.emailVerified);
       var verf = user.emailVerified;
       setverify(verf);
     }
@@ -21,13 +20,13 @@ export default function FindWorkTalentHome() {
         <div className="col-8">
           {!verify && (
             <div
-              class="alert alert-warning alert-dismissible fade show"
+              className="alert alert-warning alert-dismissible fade show"
               role="alert"
             >
               <strong>Email Verification</strong> Your mail is not verified
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="alert"
                 aria-label="Close"
               ></button>

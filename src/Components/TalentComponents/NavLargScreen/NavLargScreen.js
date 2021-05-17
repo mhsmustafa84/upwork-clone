@@ -1,19 +1,10 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable */
 import React from "react";
-// import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import firebaseApp from "../../../firebase";
-// import { changeLayout } from "./../../../Store/actions/changeLayout";
 import { useHistory } from 'react-router-dom';
 
 export default function NavLargScreen() {
-  // let layOut = useSelector((state) => state.layOut);
-  // const dispatch = useDispatch();
-
-  // const changeLayOut = () => {
-  //   layOut = "client";
-  //   dispatch(changeLayout(layOut));
-  // };
 
   const { push } = useHistory();
 
@@ -123,7 +114,7 @@ export default function NavLargScreen() {
             </ul>
           </li>
           <li className="nav-item me-5">
-            <NavLink className="nav-link" to="/t/messages">
+            <NavLink className="nav-link" to="/messages">
               Messages
             </NavLink>
           </li>
@@ -138,7 +129,7 @@ export default function NavLargScreen() {
             </a>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/t/messages">
+            <Link className="nav-link" to="/messages">
               <i
                 className="far fa-paper-plane fs-5"
                 style={{ transform: "scaleX(-1)" }}

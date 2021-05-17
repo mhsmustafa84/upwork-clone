@@ -1,8 +1,9 @@
-/* eslint-disable no-script-url */
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable */
 import React from "react";
+import { useHistory } from "react-router";
 
 export default function PageNotFound() {
+  const { goBack } = useHistory();
   return (
     <>
       <div
@@ -63,7 +64,7 @@ export default function PageNotFound() {
               This page doesn't exist.
             </h2>
             <p className="text-muted m-sm-bottom">
-              Please <a href="javascript:window.history.back()">return</a> to
+              Please <button className="btn upw-c-cn p-0" onClick={goBack}>return</button> to
               the previous page or visit <a href="/">Upwork.com</a>
             </p>
             <small className="text-muted">Error 404 (OS)</small>

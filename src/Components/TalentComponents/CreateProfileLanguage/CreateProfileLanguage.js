@@ -22,7 +22,7 @@ export default function CreateProfileLanguage() {
       <div className="p-4 my-3">
         <p className="fw-bold">What is your English proficiency?</p>
         <select
-          class="form-select form-select-lg mb-3 shadow-none w-50"
+          className="form-select form-select-lg mb-3 shadow-none w-50"
           aria-label=".form-select-lg example"
           onChange={lang}
         >

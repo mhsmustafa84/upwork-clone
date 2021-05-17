@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { storage } from "../../../firebase";
+import { auth, storage } from "../../../firebase";
 import { updateUserData } from "../../../Network/Network";
 
 export default function CreateProfilePhoto() {
@@ -33,10 +33,11 @@ export default function CreateProfilePhoto() {
                     .ref("images")
                     .child(img.name)
                     .getDownloadURL()
-                    .then((URL) => {
+                    .then(URL => {
                         let imgu = URL;
                         setimgUrl(imgu);
                         URL && updateUserData("talent", { profilePhoto: URL });
+                        URL && auth.currentUser.updateProfile({ photoURL: URL });
                     });
             }
         );
@@ -52,7 +53,7 @@ export default function CreateProfilePhoto() {
                 <p>
                     Please upload a professional portrait that clearly shows your face.{" "}
                     <Link to="">
-                        <i class="fas fa-info-circle"></i>
+                        <i className="fas fa-info-circle"></i>
                     </Link>
                 </p>
                 <div className="w-25 text-center mt-5">
@@ -61,7 +62,7 @@ export default function CreateProfilePhoto() {
                         <img src={imgUrl} />
                     ) : (
                         <i
-                            class="fas fa-user-circle fa-7x"
+                            className="fas fa-user-circle fa-7x"
                             style={{ color: "#A0A0A0" }}
                         ></i>
                     )}
@@ -69,7 +70,7 @@ export default function CreateProfilePhoto() {
                 <input type="file" onChange={hndlChange} />
                 <button onClick={handlUpload}>upload</button>
                 <button className="btn border mt-4" style={{ color: "#37a000" }}>
-                    <i class="fas fa-plus me-3"></i>Add Profile Photo
+                    <i className="fas fa-plus me-3"></i>Add Profile Photo
                 </button>
             </div>
             <div className="px-4 my-3 pt-4 border-top d-flex justify-content-between">

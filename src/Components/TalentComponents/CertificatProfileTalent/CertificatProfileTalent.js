@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable */
 import React from "react";
 export default function CertificatProfileTalent() {
   return (
@@ -38,7 +38,7 @@ export default function CertificatProfileTalent() {
             {/*  employment skills */}
             <div className="col-md-3">
               <img
-              style={{marginBottom: '100px'}}
+                style={{ marginBottom: '100px' }}
                 data-v-8e540bb6
                 src="https://assets.static-upwork.com/images/certification/logos/high/graphic-design.png"
                 alt=""
@@ -48,7 +48,7 @@ export default function CertificatProfileTalent() {
               <h5>Upwork Skill Certification - Graphic Design</h5>
               <p className="mb-0 fw-bold">UPWORK</p>
               <p style={{ fontFamily: "Gotham SSm" }} className="mb-0 text-muted">
-              Issued February 2021
+                Issued February 2021
               </p>
               <p style={{ fontFamily: "Gotham SSm" }} className="mb-0">
                 Certified talent demonstrate proficiency in graphic design

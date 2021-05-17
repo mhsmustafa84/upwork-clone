@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route, useLocation, useHistory } from "react-router-dom";
-import Messages from "./../Pages/TalentPages/Messages/Messages";
+import Messages from "../Pages/Messages/Messages";
 import Header from "./../Components/TalentComponents/Header/Header";
 import Footer from "./../Components/SharedComponents/Footer/Footer";
 import SavedJobs from "./../Pages/TalentPages/SavedJobs/SavedJobs";
@@ -19,8 +19,8 @@ import BuyConnects from "../Pages/TalentPages/Reports/BuyConnects/BuyConnects";
 import HomeTalent from "../Pages/TalentPages/HomeTalent/HomeTalent";
 import JobDetailsTalent from "../Pages/TalentPages/JobDetailsTalent/JobDetailsTalent";
 import TransactionHistory from "../Pages/TalentPages/Reports/TransactionHistory/TransactionHistory";
-import EmailVerified from "../Components/SharedComponents/EmailVerified/EmailVerified";
 import CreateProfile from "../Pages/TalentPages/CreateProfile/CreateProfile";
+import EmailVerified from './../Pages/EmailVerification/EmailVerified';
 
 export default function TalentRoutes() {
   const { pathname } = useLocation();
@@ -47,12 +47,8 @@ export default function TalentRoutes() {
         <Route path="/life-time-billing" exact component={BillingByClients} />
         <Route path="/connects-history" exact component={ConnectsHistory} />
         <Route path="/buyconnects" exact component={BuyConnects} />
-        <Route
-          path="/transaction-history"
-          exact
-          component={TransactionHistory}
-        />
-        <Route path="/t/messages" exact component={Messages} />
+        <Route path="/transaction-history" exact component={TransactionHistory} />
+        <Route path="/messages" exact component={Messages} />
         <Route path="**" component={PageNotFound} />
       </Switch>
       <Footer />

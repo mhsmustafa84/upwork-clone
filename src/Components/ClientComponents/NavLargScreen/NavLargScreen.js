@@ -1,9 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-// import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink, useHistory } from "react-router-dom";
 import firebaseApp from "../../../firebase";
-// import { changeLayout } from "../../../Store/actions/changeLayout";
 
 export default function NavLargScreen() {
   const { push } = useHistory();
@@ -47,11 +45,6 @@ export default function NavLargScreen() {
                   All Contracts
                 </Link>
               </li>
-              {/* <li>
-                <Link className="dropdown-item" to="/bring-your-own-talent">
-                  Bring Your Own Talent
-                </Link>
-              </li> */}
               <li>
                 <Link className="dropdown-item" to="/post-job">
                   Post a Job
@@ -157,7 +150,7 @@ export default function NavLargScreen() {
             </ul>
           </li>
           <li className="nav-item me-5">
-            <NavLink className="nav-link" to="/c/messages">
+            <NavLink className="nav-link" to="/messages">
               Messages
             </NavLink>
           </li>
@@ -226,7 +219,7 @@ export default function NavLargScreen() {
                 <NavLink
                   className="dropdown-item px-4"
                   to="/find-work"
-                  // onClick={changeLayOut}
+                // onClick={changeLayOut}
                 >
                   <div className="d-flex align-items-center">
                     <span style={{ marginLeft: "-5px" }}>
@@ -240,7 +233,7 @@ export default function NavLargScreen() {
                 </NavLink>
               </li>
               <li>
-                <NavLink Link className="dropdown-item px-4 mb-1" to="/home">
+                <NavLink className="dropdown-item px-4 mb-1" to="/home">
                   <div className="d-flex align-items-center">
                     <span style={{ marginLeft: "-5px" }}>
                       <i className="fa fa-user-circle fs-3"></i>

@@ -1,7 +1,6 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable */
 import { BrowserRouter } from "react-router-dom";
 import "./App.css";
-import Channel from "./Components/ClientComponents/MessagesContent/Channel";
 import LayOut from "./LayOut/LayOut";
 
 function App() {
