@@ -1,6 +1,9 @@
 import { combineReducers } from 'redux';
 import { SignUpReducer } from './reducers/signUp';
-import { userDataReducer } from './reducers/userDataReducer';
+import { talentDataReducer } from './reducers/talentDataReducer';
+import { clientDataReducer } from './reducers/clientDataReducer';
+import { jobsDataReducer } from './reducers/jobsDataReducer';
+
 
 export default combineReducers({
     //The Key is your type;
@@ -8,6 +11,8 @@ export default combineReducers({
     // count:counterReducer,import { SignUpReducer } from './reducers/signUp';
 
     signUpData: SignUpReducer,
-    userData: userDataReducer
+    talentData: talentDataReducer,
+    clientData: clientDataReducer,
+    jobsData: jobsDataReducer,
 
 })

@@ -1,5 +1,5 @@
 /* eslint-disable no-script-url */
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable */
 import React from "react";
 
 export default function OneContract() {

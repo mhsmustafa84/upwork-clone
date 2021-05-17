@@ -1,22 +1,23 @@
 /* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable */
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { storage } from '../../../firebase';
 import { updateJob } from '../../../Network/Network';
 import './PostJobDescription.css'
+
 export default function PostJobDescription() {
 
-    let [job, setJob] = useState({ jobDecription: "", jobImages: [] });
+    let [job, setJob] = useState({ jobDescription: "", jobImages: [] });
 
     const getData = e => {
         const val = e.target.value;
         const name = e.target.name;
         const files = e.target.files;
         switch (name) {
-            case "decription":
-                job.jobDecription = val;
-                setJob({ ...job, jobDecription: job.jobDecription })
+            case "description":
+                job.jobDescription = val;
+                setJob({ ...job, jobDescription: job.jobDescription })
                 break;
             case "images":
                 if (files[0]) {
@@ -45,7 +46,7 @@ export default function PostJobDescription() {
     }
 
     const addData = () => {
-        setJob(job.jobDecription);
+        setJob(job.jobDescription);
         console.log(job);
         const id = localStorage.getItem("docID");
         console.log(id);
@@ -69,7 +70,7 @@ export default function PostJobDescription() {
                 </ul>
             </div>
             <div className="ps-4 pt-2 pe-4">
-                <textarea className="form-control shadow-none" name="decription" rows="8" onInput={getData}></textarea>
+                <textarea className="form-control shadow-none" name="description" rows="8" onInput={getData}></textarea>
                 <span className="float-end">0/5000 characters (minimum 50)</span>
             </div>
             <div className="mx-4 mt-5 py-2 pb-4">

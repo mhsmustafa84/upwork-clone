@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable */
 // import OverviewTable from "./../overviewreportstables/overviewreporttable";
 export default function WorkinProgress() {
   // const [Tablesdata, setTablesdata] = useState({

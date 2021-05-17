@@ -104,6 +104,7 @@ img {
 .incoming_msg_img {
   display: inline-block;
   width: 6%;
+  margin-top: -10px;
 }
 .received_msg {
   display: inline-block;
@@ -145,7 +146,7 @@ img {
 }
 .outgoing_msg {
   overflow: hidden;
-  margin: 26px 0 26px;
+  margin: 26px 0;
 }
 .sent_msg {
   float: right;
@@ -181,6 +182,9 @@ img {
   padding: 0 0 50px 0;
 }
 .msg_history {
-  height: 516px;
+  height: 445px;
   overflow-y: auto;
+}
+.incoming_msg {
+  margin: 26px 0;
 }

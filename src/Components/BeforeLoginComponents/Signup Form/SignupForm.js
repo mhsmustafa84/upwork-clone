@@ -9,19 +9,19 @@ export default function SignupForm() {
   const [emailError, setEmailErorr] = useState(null);
   const [dis, setdis] = useState(true);
   const { push } = useHistory();
-  let user = useSelector((state) => state.signUpData);
+  let user = useSelector(state => state.signUpData);
   const dispatch = useDispatch();
 
 
 
-  const getEmail = (e) => {
-    user.email = e.target.value;
+  const getEmail = ({ target }) => {
+    user.email = target.value;
     setEmailErorr(
-      e.target.value==""?"*Email required": !e.target.value.match(/^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/)
-      ? "Please inter Valid Email":null
+      target.value === "" ? "*Email required" : !target.value.match(/^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/)
+        ? "Please inter Valid Email" : null
     )
     setdis(
-      e.target.value==""?true:false
+      target.value === "" ? true : false
     )
     dispatch(signUpAction(user));
   }
@@ -78,9 +78,9 @@ export default function SignupForm() {
             />
           </div>
           <div className="d-grid gap-2 col-8 mx-auto mt-3 hitbtn-class loginpcolor mb-4">
-          
+
             <button
-            disabled={dis}
+              disabled={dis}
               className="btn bg-upwork "
               type="button"
               onClick={signUpContinue}

@@ -1,10 +1,27 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { auth } from "../../../firebase";
+import { jobsDataAction } from "../../../Store/actions/jobsData";
 
 export default function JobPostLi() {
+
+  const [myJobs, setMyJobs] = useState([]);
+
+  const allJobs = useSelector((state) => state.jobsData);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(jobsDataAction());
+    const arr = allJobs.filter(job => job.authID === auth.currentUser?.uid);
+    setMyJobs([...arr]);
+  }, []);
+
   return (
     <div>
+      {console.log(allJobs)}
+      {console.log(myJobs)}
       <Link to="/review-proposal">
         <div className="row">
           <div className="col-lg-5 col-md-6 col-sm-10 col-xs-9">

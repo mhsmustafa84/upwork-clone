@@ -7,10 +7,11 @@ import firebaseApp from './../../../firebase';
 export default function PostJobGetStarted(props) {
 
     let [job, setJob] = useState({ isNewPost: true, jobDuration: "" });
+    const id = localStorage.getItem("docID");
 
     const createJob = () => {
         props.isStart();
-        createDocument("job", { authID: firebaseApp.auth().currentUser.uid });
+        createDocument("job", { jobID: id, authID: firebaseApp.auth().currentUser.uid, postTime: "", status: "private" });
     }
 
     const getData = e => {
@@ -32,7 +33,6 @@ export default function PostJobGetStarted(props) {
 
     const addData = () => {
         console.log(job);
-        const id = localStorage.getItem("docID");
         console.log(id);
         updateJob({ jobDuration: job.jobDuration }, id);
     }

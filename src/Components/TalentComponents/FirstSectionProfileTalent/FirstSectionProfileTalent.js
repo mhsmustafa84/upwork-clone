@@ -1,34 +1,51 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import ImgWithActiveStatus from "./../../ClientComponents/ImgWithActiveStatus/ImgWithActiveStatus";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { talentDataAction } from "../../../Store/actions/talentData";
+import img from "../../../assets/img/icon-user.svg"
 
 export default function FirstSectionProfileTalent() {
+  const user = useSelector(state => state.talentData);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(talentDataAction());
+  }, []);
   return (
     <>
-      <style
-        dangerouslySetInnerHTML={{
-          __html:
-            "\n    @import url(//db.onlinewebfonts.com/c/3def92f7b2ad644bd382798ecc8ca4c7?family=Canela);\n     {\n        .container {\n             ;\n        }\n    }\n\n    * {\n        margin: 0;\n        padding: 0;\n        \n\n    }\n    body{\n        ;\n\n    }\n",
-        }}
-      />
       <div className="container card mb-3 mt-5">
         <div className="row mt-3">
           <div className="col-lg-1 pt-lg-3">
-            <ImgWithActiveStatus />
+            <div>
+              <img
+                alt=""
+                className="rounded-circle avatar vertical-align-middle m-0 avatar-sm avatar-responsive"
+                src={user.profilePhoto ? user.profilePhoto : img}
+              />
+              <span className="hotspotimg">
+                <span className="hotspotimg__btn"></span>
+              </span>
+            </div>
           </div>
           <div className="col-lg-4 pt-lg-3 mx-3">
             <a
-              href
+              href=""
               id="job-title-home-page "
               className="link-dark job-title-hover "
             >
-              <h2 className="fw-bold">Romany M.</h2>
+              <h2 className="fw-bold">{user.firstName + " "} {user.lastName}.</h2>
             </a>
-
-            <i class="fas fa-map-marker-alt">
-              <span> Sohag, Egypt – 8:41pm local time</span>
-            </i>
-
+            <div className={user.location && "fas fa-map-marker-alt"}>
+              <span>
+                {user.location &&
+                  <>
+                    user.location.city + ", "
+                  <strong>{user.location.country}– </strong>
+                  </>
+                }
+                {new Date().toLocaleTimeString()} local time
+              </span>
+            </div>
             <div className="row py-3">
               <div className="col">
                 <span>
@@ -56,73 +73,19 @@ export default function FirstSectionProfileTalent() {
           <div className="col py-3 mx-1 float-end ">
             <button
               type="button"
-              class="btn bg-white btn-outline-secondary  px-4  mx-3"
+              className="btn bg-white btn-outline-secondary  px-4  mx-3"
             >
               <span className="text-success fw-bold">See Public view</span>
             </button>
-            <button type="button" class="btn btn-success px-4  mx-3">
+            <button type="button" className="btn btn-success px-4  mx-3">
               Profile Settings
-            </button>
+          </button>
           </div>
 
           <hr />
           <div className="row my-3">
-            {/*  employment skills */}
             <div className="col-4 row border-end border-2 me-1">
-              <h3 className="col mx-0">View profile</h3>
-              <button
-                type="button"
-                className=" col-1 btn btn-default d-flex justify-content-center border rounded-circle"
-                style={{
-                  width: 30,
-                  height: 30,
-                  textAlign: "center",
-                  paddingTop: 3,
-                  paddingBottom: 3,
-                  marginRight: 150,
-                }}
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal13"
-              >
-                <div>
-                  <i className="fas fa-pen" />
-                </div>
-              </button>
-              <div className="">
-                <ul
-                  id="list-homepage"
-                  className="list-group sidebar-homebage-ul mb-lg-4"
-                >
-                  <li
-                    className="list-group-item sidebar-homebage-ul-li my-2 bg-white"
-                    aria-current="true"
-                  >
-                    <a
-                      href="#"
-                      className=" list-group-item-action sidebar-homebage-ul-li-aa activeside"
-                      aria-current="true"
-                    >
-                      Fullstack web development
-                    </a>
-                    <i class="fas fa-chevron-right float-end"></i>
-                  </li>
-                  <li
-                    className="list-group-item sidebar-homebage-ul-li my-2 bg-white"
-                    aria-current="true"
-                  >
-                    <a
-                      href="#"
-                      className=" list-group-item-action sidebar-homebage-ul-li-aa"
-                      aria-current="true"
-                    >
-                      All work
-                    </a>{" "}
-                    <i class="fas fa-chevron-right float-end "></i>
-                  </li>
-                </ul>
-              </div>
-              <hr />
-              <div className="row mb-3">
+              <div className="row">
                 <div className="col">
                   <div className="fw-bold fs-5">$30</div>
                   <div className="fs-6">Earnings</div>
@@ -150,67 +113,67 @@ export default function FirstSectionProfileTalent() {
                 <p>Military and occupational training 1975-1977</p>
                 <h5 className="fw-bold">
                   Toynbee Secondary School, Eastleigh, Hants, UK.
-                </h5>
+              </h5>
                 <p>1970-1975</p>
                 <ul className="list-unstyled">
-                    <li className="d-flex">
+                  <li className="d-flex">
+                    <div>
+                      <h5 className=" fw-bold">
+                        Information Technology Institute (Egypt)
+                      </h5>{" "}
                       <div>
-                        <h5 className=" fw-bold">
-                          Information Technology Institute (Egypt)
-                        </h5>{" "}
-                        <div>
-                          Introduction to software testing concepts &amp;
-                          techniques
-                        </div>{" "}
-                        <div className="text-muted">2020-2020</div>
+                        Introduction to software testing concepts &amp;
+                        techniques
                       </div>{" "}
-                     
-                    </li>
-                    <li className="d-flex">
+                      <div className="text-muted">2020-2020</div>
+                    </div>{" "}
+
+                  </li>
+                  <li className="d-flex">
+                    <div>
+                      <h5 className=" fw-bold">
+                        Information Technology Institute (Egypt)
+                      </h5>{" "}
+                      <div>Python Programming Basics</div>{" "}
+                      <div className="text-muted">2020-2020</div>
+                    </div>{" "}
+
+                  </li>
+                  <li className="d-flex">
+                    <div>
+                      <h5 className=" fw-bold">
+                        Information Technology Institute (Egypt)
+                      </h5>{" "}
+                      <div>Database fundamentals</div>{" "}
+                      <div className="text-muted">2020-2020</div>
+                    </div>{" "}
+
+                  </li>
+                  <li className="d-flex">
+                    <div>
+                      <h5 className=" fw-bold">
+                        computer science
+                      </h5>{" "}
                       <div>
-                        <h5 className=" fw-bold">
-                          Information Technology Institute (Egypt)
-                        </h5>{" "}
-                        <div>Python Programming Basics</div>{" "}
-                        <div className="text-muted">2020-2020</div>
+                        Bachelor of Computer Science (BCompSc), Designing and
+                        developing
                       </div>{" "}
-                      
-                    </li>
-                    <li className="d-flex">
-                      <div>
-                        <h5 className=" fw-bold">
-                          Information Technology Institute (Egypt)
-                        </h5>{" "}
-                        <div>Database fundamentals</div>{" "}
-                        <div className="text-muted">2020-2020</div>
-                      </div>{" "}
-                      
-                    </li>
-                    <li className="d-flex">
-                      <div>
-                        <h5 className=" fw-bold">
-                          computer science
-                        </h5>{" "}
-                        <div>
-                          Bachelor of Computer Science (BCompSc), Designing and
-                          developing
-                        </div>{" "}
-                        <div className="text-muted">2014-2018</div>
-                      </div>{" "}                  
-                    </li>{" "}
-                    {/**/}
-                  </ul>
-                
-                    
-                  </div>
-                
-                </div>
-             
+                      <div className="text-muted">2014-2018</div>
+                    </div>{" "}
+                  </li>{" "}
+                  {/**/}
+                </ul>
+
+
+              </div>
+
+            </div>
+
             <div className="col-6">
               <h4 className="fw-bold">
                 {" "}
-                Full Stack Web Developer | Graphic Designer | Video Editor
-              </h4>
+              Full Stack Web Developer | Graphic Designer | Video Editor
+            </h4>
               <p style={{ fontFamily: "Gotham SSm" }} className="mb-0 mt-4">
                 Looking for a certified freelancer by Upwork! You came to the
                 right person!! Design is a powerful tool of communication and
@@ -218,7 +181,7 @@ export default function FirstSectionProfileTalent() {
                 services which leads to better user experiences and happier
                 customers. I have experience for more than 7 years in different
                 fields of design.
-              </p>
+            </p>
               <p style={{ fontFamily: "Gotham SSm" }} className="mb-0">
                 Lorem web designer{" "}
               </p>
@@ -227,7 +190,7 @@ export default function FirstSectionProfileTalent() {
                 style={{ textDecoration: "none", color: "#008329" }}
               >
                 more
-              </button>
+            </button>
               <hr />
 
               <div className="row">
@@ -247,17 +210,17 @@ export default function FirstSectionProfileTalent() {
                   data-bs-target="#exampleModal13"
                 >
                   <div>
-                    <i class="fas fa-ellipsis-h"></i>{" "}
+                    <i className="fas fa-ellipsis-h"></i>{" "}
                   </div>
                 </button>
               </div>
               <hr />
               <div className="bg-white py-lg-1 px-4 row py-xs-5">
                 <div className="col-10 py-3">
-                  <a href className="advanced-search-link fw-bold">
+                  <a className="advanced-search-link fw-bold">
                     I'm looking for video, carousel and image advertising
                     creation with branding to make facebook ads
-                  </a>
+                </a>
                   <p className="my-3">
                     <svg
                       id="up-rs"
@@ -302,7 +265,7 @@ export default function FirstSectionProfileTalent() {
                     <span className="fw-bold"> 5.00</span>{" "}
                     <span className="text-muted">
                       Mar 22 2021 - April 21 2021
-                    </span>
+                  </span>
                   </p>
                   <div className="row mb-3">
                     <div className="col">
@@ -319,10 +282,10 @@ export default function FirstSectionProfileTalent() {
                 </div>
                 <hr />
                 <div className="col-10 py-3">
-                  <a href className="advanced-search-link fw-bold">
+                  <a className="advanced-search-link fw-bold">
                     I'm looking for video, carousel and image advertising
                     creation with branding to make facebook ads
-                  </a>
+                </a>
                   <p className="my-3">
                     <svg
                       id="up-rs"
@@ -367,7 +330,7 @@ export default function FirstSectionProfileTalent() {
                     <span className="fw-bold"> 5.00</span>{" "}
                     <span className="text-muted">
                       Mar 22 2021 - April 21 2021
-                    </span>
+                  </span>
                   </p>
                   <div className="row mb-3">
                     <div className="col">
@@ -400,7 +363,7 @@ export default function FirstSectionProfileTalent() {
                     data-bs-target="#exampleModal13"
                   >
                     <div>
-                      <i class="fas fa-ellipsis-h"></i>{" "}
+                      <i className="fas fa-ellipsis-h"></i>{" "}
                     </div>
                   </button>
                   <button
@@ -418,7 +381,7 @@ export default function FirstSectionProfileTalent() {
                     data-bs-target="#exampleModal13"
                   >
                     <div>
-                      <i class="fas fa-plus"></i>{" "}
+                      <i className="fas fa-plus"></i>{" "}
                     </div>
                   </button>
                   <button
@@ -436,7 +399,7 @@ export default function FirstSectionProfileTalent() {
                     data-bs-target="#exampleModal13"
                   >
                     <div>
-                      <i class="fas fa-retweet"></i>{" "}
+                      <i className="fas fa-retweet"></i>{" "}
                     </div>
                   </button>
                 </div>
@@ -490,7 +453,7 @@ export default function FirstSectionProfileTalent() {
                     data-bs-target="#exampleModal13"
                   >
                     <div>
-                      <i class="fas fa-pen"></i>{" "}
+                      <i className="fas fa-pen"></i>{" "}
                     </div>
                   </button>
                 </div>
@@ -500,79 +463,79 @@ export default function FirstSectionProfileTalent() {
                     className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
                   >
                     Training
-                  </button>
+                </button>
                   <button
                     type="button"
                     className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
                   >
                     Education
-                  </button>
+                </button>
                   <button
                     type="button"
                     className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
                   >
                     Marketing
-                  </button>
+                </button>
                   <button
                     type="button"
                     className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
                   >
                     PowerPoint
-                  </button>
+                </button>
                   <button
                     type="button"
                     className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
                   >
                     Html
-                  </button>
+                </button>
                   <button
                     type="button"
                     className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
                   >
                     Css
-                  </button>
+                </button>
                   <button
                     type="button"
                     className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
                   >
                     Marketing
-                  </button>
+                </button>
                   <button
                     type="button"
                     className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
                   >
                     PowerPoint
-                  </button>
+                </button>
                   <button
                     type="button"
                     className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
                   >
                     Html
-                  </button>
+                </button>
                   <button
                     type="button"
                     className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
                   >
                     Css
-                  </button>
+                </button>
                   <button
                     type="button"
                     className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
                   >
                     Marketing
-                  </button>
+                </button>
                   <button
                     type="button"
                     className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
                   >
                     PowerPoint
-                  </button>
+                </button>
                   <button
                     type="button"
                     className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
                   >
                     Html
-                  </button>
+                </button>
                 </div>
               </div>
             </div>
@@ -610,7 +573,7 @@ export default function FirstSectionProfileTalent() {
                 }}
               >
                 <div>
-                  <i class="fas fa-link    "></i>
+                  <i className="fas fa-link    "></i>
                 </div>
               </button>
               <hr />
@@ -633,7 +596,7 @@ export default function FirstSectionProfileTalent() {
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">
                 Add Employment
-              </h5>
+            </h5>
               <button
                 type="button"
                 className="btn-close"
@@ -649,7 +612,7 @@ export default function FirstSectionProfileTalent() {
                     className="form-label fw-bold"
                   >
                     Company
-                  </label>
+                </label>
                   <input
                     type="text"
                     className="form-control"
@@ -662,7 +625,7 @@ export default function FirstSectionProfileTalent() {
                     className="form-label fw-bold"
                   >
                     Title
-                  </label>
+                </label>
                   <input
                     type="text"
                     className="form-control"
@@ -683,7 +646,7 @@ export default function FirstSectionProfileTalent() {
                         aria-expanded="false"
                       >
                         month
-                      </a>
+                    </a>
                       <ul
                         className="dropdown-menu"
                         aria-labelledby="dropdownMenuLink"
@@ -691,57 +654,57 @@ export default function FirstSectionProfileTalent() {
                         <li>
                           <a className="dropdown-item" href="#">
                             January
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             february
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             March
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             Apirl
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             May
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             June
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             July
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             August
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             October
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             November
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             Decemeber
-                          </a>
+                        </a>
                         </li>
                       </ul>
                     </div>
@@ -758,7 +721,7 @@ export default function FirstSectionProfileTalent() {
                         aria-expanded="false"
                       >
                         year
-                      </a>
+                    </a>
                       <ul
                         className="dropdown-menu"
                         aria-labelledby="dropdownMenuLink"
@@ -766,57 +729,57 @@ export default function FirstSectionProfileTalent() {
                         <li>
                           <a className="dropdown-item" href="#">
                             2021
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2020
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2019
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2018
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2017
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2016
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2015
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2014
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2013
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2012
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2011
-                          </a>
+                        </a>
                         </li>
                       </ul>
                     </div>
@@ -835,7 +798,7 @@ export default function FirstSectionProfileTalent() {
                           aria-expanded="false"
                         >
                           month
-                        </a>
+                      </a>
                         <ul
                           className="dropdown-menu"
                           aria-labelledby="dropdownMenuLink"
@@ -843,57 +806,57 @@ export default function FirstSectionProfileTalent() {
                           <li>
                             <a className="dropdown-item" href="#">
                               January
-                            </a>
+                          </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               february
-                            </a>
+                          </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               March
-                            </a>
+                          </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               Apirl
-                            </a>
+                          </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               May
-                            </a>
+                          </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               June
-                            </a>
+                          </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               July
-                            </a>
+                          </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               August
-                            </a>
+                          </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               October
-                            </a>
+                          </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               November
-                            </a>
+                          </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               Decemeber
-                            </a>
+                          </a>
                           </li>
                         </ul>
                       </div>
@@ -910,7 +873,7 @@ export default function FirstSectionProfileTalent() {
                           aria-expanded="false"
                         >
                           year
-                        </a>
+                      </a>
                         <ul
                           className="dropdown-menu"
                           aria-labelledby="dropdownMenuLink"
@@ -918,57 +881,57 @@ export default function FirstSectionProfileTalent() {
                           <li>
                             <a className="dropdown-item" href="#">
                               2021
-                            </a>
+                          </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               2020
-                            </a>
+                          </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               2019
-                            </a>
+                          </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               2018
-                            </a>
+                          </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               2017
-                            </a>
+                          </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               2016
-                            </a>
+                          </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               2015
-                            </a>
+                          </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               2014
-                            </a>
+                          </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               2013
-                            </a>
+                          </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               2012
-                            </a>
+                          </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               2011
-                            </a>
+                          </a>
                           </li>
                         </ul>
                       </div>
@@ -982,8 +945,8 @@ export default function FirstSectionProfileTalent() {
                         value=""
                         aria-label="Checkbox for following text input"
                       />
-                      I currently worked here
-                    </div>
+                    I currently worked here
+                  </div>
                   </div>
                   <div className="mb-3">
                     <label
@@ -991,7 +954,7 @@ export default function FirstSectionProfileTalent() {
                       className="form-label"
                     >
                       Description
-                    </label>
+                  </label>
                     <textarea
                       className="form-control"
                       id="exampleFormControlTextarea1"
@@ -1014,7 +977,7 @@ export default function FirstSectionProfileTalent() {
                 }}
               >
                 Cancel
-              </button>
+            </button>
               <button
                 type="button"
                 className="btn btn-default border rounded-border"
@@ -1038,7 +1001,7 @@ export default function FirstSectionProfileTalent() {
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">
                 Edit Employment
-              </h5>
+            </h5>
               <button
                 type="button"
                 className="btn-close"
@@ -1054,7 +1017,7 @@ export default function FirstSectionProfileTalent() {
                     className="form-label fw-bold"
                   >
                     Company
-                  </label>
+                </label>
                   <input
                     type="text"
                     className="form-control"
@@ -1067,7 +1030,7 @@ export default function FirstSectionProfileTalent() {
                     className="form-label fw-bold"
                   >
                     Location
-                  </label>
+                </label>
                   <input
                     type="text"
                     className="form-control"
@@ -1088,7 +1051,7 @@ export default function FirstSectionProfileTalent() {
                         aria-expanded="false"
                       >
                         month
-                      </a>
+                    </a>
                       <ul
                         className="dropdown-menu"
                         aria-labelledby="dropdownMenuLink"
@@ -1096,57 +1059,57 @@ export default function FirstSectionProfileTalent() {
                         <li>
                           <a className="dropdown-item" href="#">
                             January
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             february
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             March
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             Apirl
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             May
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             June
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             July
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             August
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             October
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             November
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             Decemeber
-                          </a>
+                        </a>
                         </li>
                       </ul>
                     </div>
@@ -1163,7 +1126,7 @@ export default function FirstSectionProfileTalent() {
                         aria-expanded="false"
                       >
                         year
-                      </a>
+                    </a>
                       <ul
                         className="dropdown-menu"
                         aria-labelledby="dropdownMenuLink"
@@ -1171,57 +1134,57 @@ export default function FirstSectionProfileTalent() {
                         <li>
                           <a className="dropdown-item" href="#">
                             2021
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2020
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2019
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2018
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2017
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2016
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2015
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2014
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2013
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2012
-                          </a>
+                        </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2011
-                          </a>
+                        </a>
                         </li>
                       </ul>
                     </div>
@@ -1234,7 +1197,7 @@ export default function FirstSectionProfileTalent() {
                     className="form-label"
                   >
                     Description
-                  </label>
+                </label>
                   <textarea
                     className="form-control"
                     id="exampleFormControlTextarea1"
@@ -1256,7 +1219,7 @@ export default function FirstSectionProfileTalent() {
                 }}
               >
                 Cancel
-              </button>
+            </button>
               <button
                 type="button"
                 className="btn btn-default border rounded-border"
@@ -1266,7 +1229,6 @@ export default function FirstSectionProfileTalent() {
             </div>
           </div>
         </div>
-      </div>
-    </>
+      </div></>
   );
 }
