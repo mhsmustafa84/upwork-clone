@@ -5,7 +5,7 @@ import SignUp from "../Pages/BeforeLoginPages/SignUp/SignUp";
 import Login from "./../Pages/BeforeLoginPages/Login/Login";
 import FindFreelancingJob from "../Pages/BeforeLoginPages/FindFreelancingJob/FindFreelancingJob";
 import DevelopmentItTalent from "../Pages/BeforeLoginPages/FindTalent_Development_It_Talent/DevelopmentItTalent";
-import PageNotFoundBeforeLogin from "./../Pages/Page Not Found/PageNotFoundBeforeLogin";
+import PageNotFoundBeforeLogin from "./../Pages/PageNotFound/PageNotFoundBeforeLogin";
 import SignupDetails from "../Pages/BeforeLoginPages/SignUp Details/SignupDetails";
 
 export default function BeforeLoginRoutes() {

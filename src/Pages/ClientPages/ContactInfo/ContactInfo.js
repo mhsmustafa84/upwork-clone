@@ -1,16 +1,8 @@
 import React from "react";
 import CustomButtonwithbackground from "../../../Components/TalentComponents/CustomButtonwithBackground/CustomButton";
-import CustomButtonwithoutbackground from "../../../Components/TalentComponents/CustomButtonwithoutbackground/CustomButton";
 export default function AccountInfo() {
   return (
     <>
-      {/* <style
-        dangerouslySetInnerHTML={{
-          __html:
-            "\n    @import url(//db.onlinewebfonts.com/c/3def92f7b2ad644bd382798ecc8ca4c7?family=Canela);\n     {\n        .container {\n             ;\n        }\n    }\n\n    * {\n        margin: 0;\n        padding: 0;\n        \n\n    }\n    body{\n        ;\n\n    }\n",
-        }}
-      /> */}
-
       <div className="container card mt-2 mb-2">
         <div className="row">
           <div className="col-md-6 ">

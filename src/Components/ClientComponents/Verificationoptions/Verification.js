@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import ChangePassword from "../../../Components/ClientComponents/ChangePassword/ChangePassword";
 import CustomButtonwithbackground from "../../TalentComponents/CustomButtonwithBackground/CustomButton";
 import CustomButtonwithoutbackground from "./../../../Components/TalentComponents/CustomButtonwithoutbackground/CustomButton";
-import DropDownList from "./../../TalentComponents/DropDownList Component/DropDown";
+import DropDownList from "./../../TalentComponents/DropDownList Component/dropdown";
 export default function Verification() {
   const [dropdown, setDropdown] = useState({
     label: " choose the question ",
