@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable */
 import React from "react";
 
 export default function AllContractsBottomSection() {

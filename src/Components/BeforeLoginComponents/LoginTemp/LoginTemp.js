@@ -1,39 +1,60 @@
-/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable */
 import { Link } from "react-router-dom";
-import firebaseApp, { googleProvider } from "../../../firebase";
+import firebaseApp, { auth, googleProvider } from "../../../firebase";
 import apple from "../../../assets/svg/apple.svg";
 import { useState } from "react";
+import { useHistory } from 'react-router-dom';
 
 export default function LoginTemp() {
-  const [user, setUser] = useState({ email: "", password: "" });
 
-  const getUserData = (e) => {
-    const val = e.target.value;
+  const [user, setUser] = useState({ email: "", password: "" });
+  const [emailError, setEmailErorr] = useState("");
+  const [PasswordError, setPasswordErrorr] = useState("");
+  const { push } = useHistory();
+
+  const getUserData = e => {
     const name = e.target.name;
+    const val = e.target.value;
     switch (name) {
       case "email":
         setUser({
           ...user,
           email: val,
         });
+        setEmailErorr(
+          val === "" ? "*Email required" : !val.match(/^([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/)
+            ? "*Please inter Valid Email" : null
+        );
         break;
       case "password":
         setUser({
           ...user,
           password: val,
         });
+        setPasswordErrorr(
+          val === ""
+            ? "*This is Requir"
+            : val.length < 8
+              ? "*Password Shoul be More 8 Character"
+              : null
+        );
         break;
       default:
         break;
     }
   };
 
-  const login = () => {
-    firebaseApp
-      .auth()
-      .signInWithEmailAndPassword(user.email, user.password)
-      .then((user) => {
-        console.log(user);
+  const login = e => {
+    console.log(user);
+    e.preventDefault();
+    auth.signInWithEmailAndPassword(user.email, user.password)
+      .then(res => {
+        console.log(res);
+        if (res.user) {
+          console.log(res.user.displayName);
+          res.user.displayName === "talent" ?
+            push("/find-work") : push("/home");
+        }
       })
       .catch((error) => {
         console.log(error.message);
@@ -42,10 +63,10 @@ export default function LoginTemp() {
   };
 
   const googleLogin = () => {
-    firebaseApp
-      .auth()
+    auth
       .signInWithPopup(googleProvider)
-      .then((result) => {
+      .then(result => {
+        console.log(result.user.displayName);
         /** @type {firebaseApp.auth.OAuthCredential} */
         var credential = result.credential;
 
@@ -74,20 +95,22 @@ export default function LoginTemp() {
               </h5>
               <form>
                 <div className="form-group col-8 mx-auto mt-3">
+                  <span className="text-danger">{emailError}</span>
                   <input
                     type="email"
                     name="email"
-                    className="form-control shadow-none"
+                    className={`form-control shadow-none ${emailError ? "border-danger" : ""}`}
                     aria-describedby="emailHelp"
                     placeholder="Username or Email"
                     onInput={getUserData}
                   />
                 </div>
                 <div className="form-group col-8 mx-auto mt-3">
+                  <span className="text-danger">{PasswordError}</span>
                   <input
                     type="password"
                     name="password"
-                    className="form-control shadow-none"
+                    className={`form-control shadow-none ${PasswordError ? "border-danger" : ""}`}
                     aria-describedby="emailHelp"
                     placeholder="Password"
                     onInput={getUserData}
@@ -101,13 +124,13 @@ export default function LoginTemp() {
                   <Link to="">Forgot password?</Link>
                 </div>
                 <div className="d-grid gap-2 col-8 mx-auto mt-3 hitbtn-className loginpcolor">
-                  <Link
+                  <button
                     className="btn bg-upwork "
-                    to="/find-work"
                     onClick={login}
+                    disabled={PasswordError != null || emailError != null}
                   >
                     Login
-                  </Link>
+                  </button>
                 </div>
                 <div className="d-grid gap-2 col-8 mx-auto mt-3">
                   <Link to="" className="text-center">

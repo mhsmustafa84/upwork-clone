@@ -1,4 +1,4 @@
-export const userDataReducer = (state = {}, action) => {
+export const talentDataReducer = (state = {}, action) => {
     switch (action.type) {
         case "USER_DATA":
             return action.payload;

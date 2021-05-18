@@ -15,7 +15,7 @@
     "react-bootstrap-country-select": "^0.7.12",
     "react-copy-to-clipboard": "^5.0.3",
     "react-dom": "^17.0.2",
-    "react-firebase-hooks": "^3.0.3",
+    "react-firebase-hooks": "^3.0.4",
     "react-phone-number-input": "^3.1.19",
     "react-redux": "^7.2.3",
     "react-router-dom": "^5.2.0",

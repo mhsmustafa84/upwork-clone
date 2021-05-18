@@ -1,14 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { userDataAction } from "../../../Store/actions/userData";
+import { talentDataAction } from "../../../Store/actions/talentData";
 
 export default function LeftSidebarTalentHome() {
-  let user = useSelector((state) => state.userData);
-
+  const user = useSelector(state => state.talentData);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(userDataAction());
+    dispatch(talentDataAction());
   }, []);
   return (
     <div className="col d-none d-lg-block">
@@ -35,7 +35,7 @@ export default function LeftSidebarTalentHome() {
             aria-current="true"
           >
             Best Matches
-          </a>{" "}
+          </a>
           <span className="hotspot">
             <button className="hotspot__btn" />
           </span>
@@ -69,19 +69,6 @@ export default function LeftSidebarTalentHome() {
           >
             {user.jobCategory}
           </a>
-        </li>
-
-        <li
-          className="list-group-item sidebar-homebage-ul-li"
-          aria-current="true"
-        >
-          <a
-            href="#"
-            className=" list-group-item-action advanced-search-link"
-            aria-current="true"
-          >
-            Ecommerce Development
-          </a>{" "}
         </li>
       </ul>
       <span className="btn-group float-sm-start px-lg-1">

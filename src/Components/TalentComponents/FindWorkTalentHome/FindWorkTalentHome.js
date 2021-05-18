@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable */
 import React, { useState } from "react";
 import firebaseApp from "../../../firebase";
 import SearchBarJobsTalent from "../SearchBarJobsTalent/SearchBarJobsTalent";
@@ -6,9 +6,8 @@ import SearchBarJobsTalent from "../SearchBarJobsTalent/SearchBarJobsTalent";
 
 export default function FindWorkTalentHome() {
   const [verify, setverify] = useState(false);
-  firebaseApp.auth().onAuthStateChanged((user) => {
+  firebaseApp.auth().onAuthStateChanged(user => {
     if (user) {
-      //console.log(user.emailVerified);
       var verf = user.emailVerified;
       setverify(verf);
     }

@@ -41,13 +41,13 @@ export default function PostJobBudget() {
                     <p className="fw-bold mt-2">How would you like to pay your freelancer or agency?</p>
                     <div className="my-4 d-flex justify-content-between w-75" onInput={getData}>
                         <label className="border border-success rounded p-3 text-center w-50">
-                            <input type="radio" className="float-end" name="jobPaymentType" value="pay by the hour" />
+                            <input type="radio" className="float-end" name="jobPaymentType" value="Hourly" />
                             <div><i className="fas fa-stopwatch mt-4"></i></div>
                             <h6 className="my-3">Pay by the hour</h6>
                             <div>Pay hourly to easily scale up and down.</div>
                         </label>
                         <label className="border border-success rounded p-3 text-center mx-3 w-50">
-                            <input type="radio" className="float-end" name="jobPaymentType" value="pay a fixed price" />
+                            <input type="radio" className="float-end" name="jobPaymentType" value="Fixed Price" />
                             <div><i className="fas fa-file-invoice-dollar mt-4"></i></div>
                             <h6 className="my-3">Pay a fixed price</h6>
                             <div>Define payment before work begins and pay only when work is delivered.</div>
@@ -55,7 +55,7 @@ export default function PostJobBudget() {
                     </div>
                 </div>
                 {
-                    job.jobPaymentType === "pay a fixed price"
+                    job.jobPaymentType === "Fixed Price"
                         ? <div className="px-4 my-3">
                             <p className="fw-bold mt-2">Do you have a specific budget?</p>
                             <div className="me-5 mt-2 position-relative jd-inp-cn w-25">
@@ -65,7 +65,7 @@ export default function PostJobBudget() {
                                 <input className="form-control text-end shadow-none" onInput={getData} name="budget" type="number" placeholder="00.00" />
                             </div>
                         </div>
-                        : job.jobPaymentType === "pay by the hour"
+                        : job.jobPaymentType === "Hourly"
                         && <div className="px-4 my-3">
                             <p className="fw-bold mt-2">Set your own hourly rate</p>
                             <div className="me-5 mt-2 position-relative jd-inp-cn w-25">

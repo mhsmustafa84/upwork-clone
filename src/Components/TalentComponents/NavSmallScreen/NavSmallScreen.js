@@ -1,10 +1,9 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable */
 import React from "react";
 import HeaderSearchSm from "../../SharedComponents/HeaderSearchSm/HeaderSearchSm";
 import { Link, useHistory } from "react-router-dom";
 import firebaseApp from "../../../firebase";
-// import { useDispatch, useSelector } from 'react-redux';
-// import { changeLayout } from '../../../Store/actions/changeLayout';
+
 
 export default function NavSmallScreen() {
   const { push } = useHistory();
@@ -94,7 +93,7 @@ export default function NavSmallScreen() {
                 <Link
                   className="dropdown-item px-4 mb-1"
                   to="/home"
-                  // onClick={changeLayOut}
+                // onClick={changeLayOut}
                 >
                   <div className="d-flex align-items-center">
                     <span style={{ marginLeft: "-5px" }}>
@@ -244,7 +243,7 @@ export default function NavSmallScreen() {
             </ul>
           </li>
           <li className="nav-item px-3">
-            <Link className="nav-link mt-2 pt-3 border-top-cn" to="/t/messages">
+            <Link className="nav-link mt-2 pt-3 border-top-cn" to="/messages">
               Messages
             </Link>
           </li>

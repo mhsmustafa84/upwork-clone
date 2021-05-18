@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable */
 import React from 'react'
 import ExpertsCard from '../ExpertsCard/ExpertsCard'
 import talentMainSectionExperts1DevIT from '../../../assets/img/talent_main-section-experts1-Dev-IT.jpeg'

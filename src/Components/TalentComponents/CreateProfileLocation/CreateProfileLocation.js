@@ -6,38 +6,39 @@ import "react-bootstrap-country-select/dist/react-bootstrap-country-select.css";
 import { updateUserData } from "./../../../Network/Network";
 
 export default function CreateProfileLocation() {
-  let [country, setCountry] = useState();
-  const [locationData, setLocationData] = useState({
-    location: { country: "", city: "", street: "" },
-  });
+  let [country, setCountry] = useState("");
+  const [location, setLocation] = useState({ country: "", city: "", street: "" });
 
   const getData = (e) => {
     const val = e.target.value;
     const name = e.target.name;
-    console.log(locationData.location.country);
     switch (name) {
       case "city":
-        setLocationData({ location: { ...locationData.location, city: val } });
+        location.city = val;
+        setLocation({ ...location, city: location.city });
         break;
       case "street":
-        setLocationData({
-          location: { ...locationData.location, street: val },
-        });
+        location.street = val;
+        setLocation(
+          { ...location, street: location.street },
+        );
         break;
       default:
         break;
     }
+    if (country.name) {
+      setLocation(
+        {
+          ...location,
+          country: country.name,
+        }
+      );
+    }
   };
 
   const addData = () => {
-    locationData.location.country = country.name;
-    setLocationData({
-      location: {
-        ...locationData.location,
-        country: locationData.location.country,
-      },
-    });
-    updateUserData("talent", locationData);
+    updateUserData("talent", { location: { ...location } });
+    console.log(location);
   };
   return (
     <section className="bg-white border rounded mt-3 pt-4">
@@ -62,6 +63,7 @@ export default function CreateProfileLocation() {
             type="text"
             className="form-control"
             name="city"
+            autoComplete="disabled"
             onInput={getData}
           />
         </label>
@@ -71,6 +73,7 @@ export default function CreateProfileLocation() {
             type="text"
             className="form-control"
             name="street"
+            autoComplete="disabled"
             onInput={getData}
           />
         </label>

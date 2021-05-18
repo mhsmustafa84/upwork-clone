@@ -12,13 +12,11 @@ const firebaseApp = firebase.initializeApp({
   appId: "1:1063777536149:web:ac906c833922665c00739c",
   measurementId: "G-8BVMCH1W3X",
 });
-const myAuth = firebase.auth();
-const db = firebase.firestore();
-const storage = firebase.storage();
-//const dbRef = firebase.database().ref();
+const auth = firebaseApp.auth();
+const db = firebaseApp.firestore();
+const storage = firebaseApp.storage();
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 const appleProvider = new firebase.auth.OAuthProvider("apple.com");
-//const storage = firebaseApp.storage();
 
-export { myAuth, googleProvider, appleProvider, db, storage };
+export { auth, db, storage, googleProvider, appleProvider };
 export default firebaseApp;

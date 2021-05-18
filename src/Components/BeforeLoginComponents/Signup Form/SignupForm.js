@@ -1,19 +1,28 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import apple from "../../../assets/svg/apple.svg";
 import { signUpAction } from '../../../Store/actions/signUp';
 
 export default function SignupForm() {
-
+  const [emailError, setEmailErorr] = useState(null);
+  const [dis, setdis] = useState(true);
   const { push } = useHistory();
-  let user = useSelector((state) => state.signUpData);
+  let user = useSelector(state => state.signUpData);
   const dispatch = useDispatch();
 
 
-  const getEmail = (e) => {
-    user.email = e.target.value;
+
+  const getEmail = ({ target }) => {
+    user.email = target.value;
+    setEmailErorr(
+      target.value === "" ? "*Email required" : !target.value.match(/^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/)
+        ? "Please inter Valid Email" : null
+    )
+    setdis(
+      target.value === "" ? true : false
+    )
     dispatch(signUpAction(user));
   }
 
@@ -57,10 +66,11 @@ export default function SignupForm() {
         <div className="separator mt-3 col-8 mx-auto">or</div>
         <form>
           <div className="form-group col-8 mx-auto mt-3">
+            <span className='text-danger'>{emailError}</span>
             <input
               type="email"
               name="email"
-              className="form-control"
+              className="form-control mt-1"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Work email address"
@@ -68,7 +78,9 @@ export default function SignupForm() {
             />
           </div>
           <div className="d-grid gap-2 col-8 mx-auto mt-3 hitbtn-class loginpcolor mb-4">
+
             <button
+              disabled={dis}
               className="btn bg-upwork "
               type="button"
               onClick={signUpContinue}

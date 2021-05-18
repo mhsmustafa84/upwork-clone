@@ -1,20 +1,27 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import firebase from 'firebase/app';
 import { db } from '../../../firebase'
+import { updateJob } from '../../../Network/Network'
 import './PostJobReview.css'
 export default function PostJobReview() {
 
     let [job, setJob] = useState({})
 
     const id = localStorage.getItem("docID");
+
     useEffect(() => {
         db.collection("job").doc(id).get().then(doc => {
-            console.log(doc.data());
-            job = doc.data();
-            setJob(job);
+            setJob({ ...doc.data() });
+            console.log(job);
         }).catch(err => console.log(err));
-    }, [])
+    }, []);
+
+    const publishJob = () => {
+        updateJob({ postTime: firebase.firestore.Timestamp.now(), status: "public" }, id);
+        localStorage.removeItem("docID");
+    }
 
 
     // getCurrentPostJob(id).then(doc => {
@@ -28,7 +35,7 @@ export default function PostJobReview() {
             <section className=" bg-white border rounded mt-3">
                 <div className="ps-4 d-flex border-bottom justify-content-between align-items-center py-4">
                     <h4>Review and post</h4>
-                    <Link className="btn bg-upwork me-4 px-5" to="/">Post Job Now</Link>
+                    <Link className="btn bg-upwork me-4 px-5" to="/" onClick={publishJob}>Post Job Now</Link>
                 </div>
                 <div className="px-4 mt-4">
                     <h5>Title</h5>
@@ -51,7 +58,7 @@ export default function PostJobReview() {
                     <div>
                         <div className="my-4">
                             <h6>Description</h6>
-                            <p>{job.jobDecription}</p>
+                            <p>{job.jobDescription}</p>
                         </div>
                     </div>
                 </div>
@@ -118,11 +125,11 @@ export default function PostJobReview() {
                     </div>
                     <div className="my-5">
                         <h6>Add a personal message (optional)</h6>
-                        <textarea placeholder="Comma-separated emails" rows="5" class="form-control shadow-none"></textarea>
+                        <textarea placeholder="Comma-separated emails" rows="5" className="form-control shadow-none"></textarea>
                     </div>
                 </div>
                 <div className="ps-4 my-3 border-top pt-4">
-                    <Link className="btn bg-upwork me-4 px-5" to="/">Post Job Now</Link>
+                    <Link className="btn bg-upwork me-4 px-5" to="/" onClick={publishJob}>Post Job Now</Link>
                     <Link className="btn border text-success px-5" to="/home">Save & Exit</Link>
                 </div>
             </section>

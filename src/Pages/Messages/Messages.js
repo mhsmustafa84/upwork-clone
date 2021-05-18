@@ -1,7 +1,8 @@
 import React from "react";
-import '../../../assets/Style/style.css'
-import MesssagesContent from "../../../Components/ClientComponents/MessagesContent/MesssagesContent";
-import MessagesLeftSide from "../../../Components/ClientComponents/MesssagesLeftSide/MessagesLeftSide";
+import '../../assets/Style/style.css'
+import "./Messages.css";
+import MesssagesContent from "../../Components/SharedComponents/MessagesContent/MesssagesContent";
+import MessagesLeftSide from "../../Components/SharedComponents/MesssagesLeftSide/MessagesLeftSide"
 
 export default function Messages() {
     return (

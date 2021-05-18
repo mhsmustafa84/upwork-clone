@@ -1,28 +1,37 @@
-/* eslint-disable no-script-url */
-/* eslint-disable react/jsx-no-target-blank */
-/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+/* eslint-disable no-script-url */
+/* eslint-disable jsx-a11y/alt-text */
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { clientDataAction } from './../../../Store/actions/clientData';
 import "./HomeLayout.css";
 import j1 from "../../../assets/svg/jobs1.svg";
 import j2 from "../../../assets/svg/jobs2.svg";
 import j3 from "../../../assets/svg/jobs3.svg";
 import j4 from "../../../assets/svg/jobs4.svg";
-import { Link } from "react-router-dom";
 import s1 from "../../../assets/img/jobslide1.jpg";
 import s2 from "../../../assets/img/jobslide2.jpg";
 import s3 from "../../../assets/img/jobslide2.jpg";
 
 export default function HomeLayout() {
+
+  const user = useSelector(state => state.clientData);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(clientDataAction());
+  }, []);
+
   return (
     <>
       <div className="container-md container-fluid-sm my-lg-4">
         <div className="row">
           <div className="col-1 d-none d-lg-block">.</div>
           <div className="col-lg-8 col-xs-12">
-            <div className="row">
+            <div className="row my-3">
               <div className="col-4">
-                <h2>Ahmed Gamal</h2>
+                <h4>{user.firstName + " " + user.lastName}</h4>
               </div>
               <div className="col-2">
                 <svg
@@ -72,7 +81,6 @@ export default function HomeLayout() {
                       <i
                         className="far fa-heart"
                         aria-hidden="true"
-                        onclick="this.classNameList.toggle('fas')"
                       ></i>
                     </button>
                   </div>
@@ -142,7 +150,6 @@ export default function HomeLayout() {
                 </span>
                 <span>
                   <button
-                    onclick="seemorebuttonFUNC()"
                     id="seemorebutton"
                     className="advanced-search-link"
                   >
@@ -209,8 +216,7 @@ export default function HomeLayout() {
                       <a
                         href="https://www.upwork.com/hiring/writing-an-awesome-job-post/"
                         target="_blank"
-                        rel="noopener"
-                        data-ng-click="sbdEventLogger.clickHowItWorksViewExamples()"
+                        rel="noreferrer"
                       >
                         View great job post examples
                       </a>
@@ -234,8 +240,7 @@ export default function HomeLayout() {
                       <a
                         href="https://www.upwork.com/hiring/education/how-to-hire-freelancers/"
                         target="_blank"
-                        rel="noopener"
-                        data-ng-click="sbdEventLogger.clickHowItWorksReviewTips()"
+                        rel="noreferrer"
                       >
                         Review tips on finding talent
                       </a>
@@ -243,18 +248,15 @@ export default function HomeLayout() {
                       <a
                         href="https://www.upwork.com/hiring/startup/how-to-choose-and-interview-freelancer/"
                         target="_blank"
-                        rel="noopener"
-                        data-ng-click="sbdEventLogger.clickHowItWorksPrepareForInterview()"
+                        rel="noreferrer"
                       >
                         Prepare to interview freelancers
                       </a>
-                      <contact-talent-specialist data-talent-specialist-url="urls.upworkPlus.talentSpecialist">
-                        <div className="ng-hide" data-ng-show="isEnabled">
-                          <a href="javascript:" data-ng-click="triggerModal()">
-                            Contact your Talent Specialist
+                      <div className="ng-hide" >
+                        <a href="#" >
+                          Contact your Talent Specialist
                           </a>
-                        </div>
-                      </contact-talent-specialist>
+                      </div>
                     </div>
                   </div>
                 </li>
@@ -270,7 +272,7 @@ export default function HomeLayout() {
                         <a
                           href="https://www.upwork.com/hiring/for-clients/upwork-messages-your-one-stop-collaboration-tool/"
                           target="_blank"
-                          rel="noopener"
+                          rel="noreferrer"
                         >
                           Upwork Messages
                         </a>{" "}
@@ -279,7 +281,7 @@ export default function HomeLayout() {
                         <a
                           href="https://www.upwork.com/hiring/for-clients/whats-the-work-diary-and-why-to-use-it/"
                           target="_blank"
-                          rel="noopener"
+                          rel="noreferrer"
                         >
                           Work Diary
                         </a>{" "}
@@ -288,8 +290,7 @@ export default function HomeLayout() {
                       <a
                         href="https://www.upwork.com/i/trust-safety-mission//#/clients"
                         target="_blank"
-                        rel="noopener"
-                        data-ng-click="sbdEventLogger.clickHowItWorksSeeTips()"
+                        rel="noreferrer"
                       >
                         See tips for staying safe on Upwork
                       </a>
@@ -311,7 +312,7 @@ export default function HomeLayout() {
                         <a
                           href="https://www.upwork.com/hiring/for-clients/how-to-manage-your-first-project-with-upwork-payment-protection/"
                           target="_blank"
-                          rel="noopener"
+                          rel="noreferrer"
                         >
                           Upwork Payment Protection
                         </a>
@@ -320,8 +321,7 @@ export default function HomeLayout() {
                       <a
                         href="https://www.upwork.com/i/pricing/"
                         target="_blank"
-                        rel="noopener"
-                        data-ng-click="sbdEventLogger.clickHowItWorksLearnAboutPricing()"
+                        rel="noreferrer"
                       >
                         Learn about Upwork pricing
                       </a>
@@ -329,8 +329,7 @@ export default function HomeLayout() {
                       <a
                         href="https://www.upwork.com/hiring/startup/how-much-to-pay-freelancer/"
                         target="_blank"
-                        rel="noopener"
-                        data-ng-click="sbdEventLogger.clickHowItWorksDetermineHowMuchPay()"
+                        rel="noreferrer"
                       >
                         Determine how much to pay freelancers
                       </a>

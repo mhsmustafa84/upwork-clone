@@ -3,20 +3,22 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
-import firebaseApp from "../../../firebase";
-import createDocument from "../../../Network/Network";
+import { auth } from "../../../firebase";
+import { createDocumentWithId } from "../../../Network/Network";
 
 export default function SignUpSecondForm() {
-  var [errMessage, seterrMessage] = useState("");
+  let [errMessage, seterrMessage] = useState("");
   const userEmail = useSelector((state) => state.signUpData.email);
   const { push } = useHistory();
-  const [user, setuser] = useState({
+  const [PasswordError, setPasswordErrorr] = useState(null);
+  const [dis, setdis] = useState(true);
+
+  const [usr, setuser] = useState({
     email: userEmail,
     firstName: "",
     lastName: "",
     password: "",
     userType: "",
-    authID: "",
   });
 
   const getUserData = (e) => {
@@ -24,41 +26,72 @@ export default function SignUpSecondForm() {
     const name = e.target.name;
     switch (name) {
       case "firstName":
-        setuser({ ...user, firstName: val });
+        setuser({ ...usr, firstName: val });
         break;
       case "lastName":
-        setuser({ ...user, lastName: val });
+        setuser({ ...usr, lastName: val });
         break;
       case "password":
-        setuser({ ...user, password: val });
+        setuser({ ...usr, password: val });
         break;
       case "userType":
-        setuser({ ...user, userType: val });
+        setuser({ ...usr, userType: val });
         break;
-
       default:
         break;
     }
+    setPasswordErrorr(
+      val === ""
+        ? "This is Required"
+        : val.length < 8
+          ? "Password Shoul be More 8 Character"
+          : null
+    );
+    setdis(
+      e.target.value === "" ? true : false
+    )
   };
 
   const signUpComplete = () => {
-    console.log(user);
-    firebaseApp
-      .auth()
-      .createUserWithEmailAndPassword(user.email, user.password)
-      .then((res) => {
-        let updateUser = firebaseApp.auth().currentUser;
-        //debugger;
-        updateUser.updateProfile({ displayName: user.userType });
-
+    auth
+      .createUserWithEmailAndPassword(usr.email, usr.password)
+      .then(res => {
+        auth.currentUser.updateProfile({ displayName: usr.userType });
         if (res.user) {
           res.user.sendEmailVerification();
         }
-        user.authID = res.user.uid;
-        setuser({ ...user, authID: user.authID });
-        console.log(user);
-        createDocument(user.userType, user);
-        // push("/email-verification");
+        usr.authID = res.user.uid;
+        setuser({ ...usr, authID: usr.authID });
+        if (usr.userType === "talent") {
+          createDocumentWithId(
+            usr.userType,
+            {
+              ...usr,
+              totalJobs: 0,
+              totalEarnings: 0,
+              totalHours: 0,
+              badge: {
+                none: "",
+                risingTalent: "Rising Talent",
+                topRated: "Top Rated",
+                expert: "Expert-Vetted"
+              },
+              jobHistory: [],
+              employmentHistory: [],
+              education: [],
+              portfolio: [],
+              skills: [],
+              otherExperience: [],
+              connects: 20,
+              connectsHistory: [],
+              profileCompletion: 0,
+            },
+            auth.currentUser.uid
+          );
+        } else if (usr.userType === "client") {
+          createDocumentWithId(usr.userType, usr, auth.currentUser.uid);
+        }
+        push("/email-verification");
       })
       .catch(err => {
         seterrMessage(err.message);
@@ -129,6 +162,7 @@ export default function SignUpSecondForm() {
               />
             </div>
           </div>
+          <span className='text-danger'>{PasswordError}</span>
           <div className="input-group pt-3">
             <span className="input-group-text bg-white" id="basic-addon1">
               <svg
@@ -197,7 +231,7 @@ export default function SignUpSecondForm() {
               <p>
                 Yes, I understand and agree to the
                 <a
-                  data-v-c17031dc=""
+                  className="m-1"
                   href="https://www.upwork.com/legal#terms"
                   target="_blank"
                 >
@@ -205,35 +239,35 @@ export default function SignUpSecondForm() {
                 </a>
                 , including the
                 <a
-                  data-v-c17031dc=""
+                  className="m-1"
                   href="https://www.upwork.com/legal#useragreement"
                   target="_blank"
                 >
                   User Agreement
                 </a>
-                and{" "}
+                and
                 <a
-                  data-v-c17031dc=""
+                  className="m-1"
                   href="https://www.upwork.com/legal#privacy"
                   target="_blank"
                 >
                   Privacy Policy
                 </a>
-                .
               </p>
             </label>
           </div>
 
-          <div className="d-grid gap-2 col-8 mx-auto mt-3 hitbtn-class loginpcolor mb-4">
-            <Link
+          <Link to="/email-verification" ><div className="d-grid gap-2 col-8 mx-auto mt-3 hitbtn-class loginpcolor mb-4">
+            <button
               className="btn bg-upwork "
               type="button"
+              disabled={dis}
               onClick={signUpComplete}
-              to="/email-verification"
+
             >
               Continue with Email
-            </Link>
-          </div>
+            </button>
+          </div> </Link>
         </form>
       </div>
     </div>

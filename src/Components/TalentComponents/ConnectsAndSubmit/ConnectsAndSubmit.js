@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 
 export default function ConnectsAndSubmit() {
@@ -11,7 +12,7 @@ export default function ConnectsAndSubmit() {
           <i className="far fa-heart" aria-hidden="true" /> Save Job
         </button>
       </div>
-      <a href className="advanced-search-link">
+      <a href="#" className="advanced-search-link">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 14 14"
