@@ -2,7 +2,6 @@ import React from "react";
 import AddandeditExperience from "../../../Components/TalentComponents/AddandeditExperience/AddandeditExperiences";
 import AddandeditEmployementHistory from "./../../../Components/TalentComponents/Addeditemploymenthistory/Addeditemployementhistory";
 import CertificatProfileTalent from './../../../Components/TalentComponents/CertificatProfileTalent/CertificatProfileTalent';
-import TestimonialsProfileTalent from './../TestimonialsProfileTalent/TestimonialsProfileTalent';
 import FirstSectionProfileTalent from './../../../Components/TalentComponents/FirstSectionProfileTalent/FirstSectionProfileTalent';
 
 export default function Profile() {
@@ -15,7 +14,6 @@ export default function Profile() {
         }}
       />
       <FirstSectionProfileTalent/>
-      <TestimonialsProfileTalent/>
       <CertificatProfileTalent/>
       <AddandeditEmployementHistory />
       <AddandeditExperience />

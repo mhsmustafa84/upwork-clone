@@ -4,25 +4,25 @@ import './ReviewProposalsPageHeader.css';
 
 export default function ReviewProposalsPageHeader() {
   return (
-    <div className="row px-3  border-1">
+    <div className="bg-white pt-3 border border-1">
       <ul
         id="list-homepage"
-        className="navbar navbar-expand list-group-horizontal bg-white boder border-1 my-0 "
+        className="navbar navbar-expand bg-white my-0 "
       >
         <li
-          className="list-group-item sidebar-homebage-ul-li bg-white boder border-0"
+          className="list-group-item sidebar-homebage-ul-li bg-white border-0"
           aria-current="true"
         >
           <a
             href="#"
-            className=" list-group-item-action sidebar-homebage-ul-li-a bg-white activenavside "
+            className=" list-group-item-action sidebar-homebage-ul-li-a bg-white  activenavside "
             aria-current="true"
           >
             All Proposals ( <span>32</span> )
             </a>
         </li>
         <li
-          className="list-group-item sidebar-homebage-ul-li bg-white boder border-0"
+          className="list-group-item sidebar-homebage-ul-li bg-white border-0"
           aria-current="true"
         >
           <a
@@ -34,7 +34,7 @@ export default function ReviewProposalsPageHeader() {
             </a>
         </li>
         <li
-          className="list-group-item sidebar-homebage-ul-li bg-white boder border-0"
+          className="list-group-item sidebar-homebage-ul-li bg-white border-0"
           aria-current="true"
         >
           <a
@@ -46,7 +46,7 @@ export default function ReviewProposalsPageHeader() {
             </a>
         </li>
         <li
-          className="list-group-item sidebar-homebage-ul-li bg-white boder border-0"
+          className="list-group-item sidebar-homebage-ul-li bg-white border-0"
           aria-current="true"
         >
           <a

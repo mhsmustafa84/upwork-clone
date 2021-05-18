@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import firebaseApp from "../../../firebase";
+import SearchBarJobsTalent from "../SearchBarJobsTalent/SearchBarJobsTalent";
+
 
 export default function FindWorkTalentHome() {
   const [verify, setverify] = useState(false);
@@ -19,40 +21,7 @@ export default function FindWorkTalentHome() {
           <h3>Find Work</h3>
         </div>
         <div className="col-8">
-          {!verify && (
-            <div
-              class="alert alert-warning alert-dismissible fade show"
-              role="alert"
-            >
-              <strong>Email Verification</strong> Your mail is not verified
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="alert"
-                aria-label="Close"
-              ></button>
-            </div>
-          )}
-          <div className="col-8 input-group form-outline has-success">
-            <input
-              id="input"
-              type="search"
-              className="form-control text-dark bg-white btn-outline-success"
-              placeholder="Search For Jobs"
-            />
-            <button
-              id="search-button"
-              type="button"
-              className="btn bg-upwork bg-invert"
-            >
-              <i className="fas fa-search" />
-            </button>
-          </div>
-          <span>
-            <a href="#" className="advanced-search-link">
-              Advanced Search
-            </a>
-          </span>
+        <SearchBarJobsTalent/>
         </div>
         <div className="col"></div>
       </div>

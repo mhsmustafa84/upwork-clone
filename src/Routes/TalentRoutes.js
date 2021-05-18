@@ -21,6 +21,7 @@ import JobDetailsTalent from "../Pages/TalentPages/JobDetailsTalent/JobDetailsTa
 import TransactionHistory from "../Pages/TalentPages/Reports/TransactionHistory/TransactionHistory";
 import EmailVerified from "../Components/SharedComponents/EmailVerified/EmailVerified";
 import CreateProfile from "../Pages/TalentPages/CreateProfile/CreateProfile";
+import Search from "../Pages/TalentPages/Search/Search";
 
 export default function TalentRoutes() {
   const { pathname } = useLocation();
@@ -33,6 +34,7 @@ export default function TalentRoutes() {
       <Switch>
         <Route path="/create-profile" component={CreateProfile} />
         <Route path="/find-work" exact component={HomeTalent} />
+        <Route path="/Search" exact component={Search} />
         <Route path="/job/" exact component={JobDetailsTalent} />
         <Route path="/saved-jobs" exact component={SavedJobs} />
         <Route path="/proposals" exact component={Proposals} />
