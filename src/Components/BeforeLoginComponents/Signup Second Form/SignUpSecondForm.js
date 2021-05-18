@@ -7,11 +7,12 @@ import { auth } from "../../../firebase";
 import { createDocumentWithId } from "../../../Network/Network";
 
 export default function SignUpSecondForm() {
-  let [errMessage, seterrMessage] = useState("");
-  const userEmail = useSelector((state) => state.signUpData.email);
+
+  const [errorMessage, setErrorMessage] = useState("");
+  const [validate, setValidate] = useState({ firstName: "", lastName: "", password: "" });
+
+  const userEmail = useSelector(state => state.signUpData.email);
   const { push } = useHistory();
-  const [PasswordError, setPasswordErrorr] = useState(null);
-  const [dis, setdis] = useState(true);
 
   const [usr, setuser] = useState({
     email: userEmail,
@@ -27,12 +28,39 @@ export default function SignUpSecondForm() {
     switch (name) {
       case "firstName":
         setuser({ ...usr, firstName: val });
+        setValidate({
+          ...validate,
+          firstName:
+            val === ""
+              ? "First name is required"
+              : val.length < 3
+                ? "First name must more 2 character"
+                : null
+        });
         break;
       case "lastName":
         setuser({ ...usr, lastName: val });
+        setValidate({
+          ...validate,
+          lastName:
+            val === ""
+              ? "Last name is required"
+              : val.length < 3
+                ? "Last name must more 2 character"
+                : null
+        });
         break;
       case "password":
         setuser({ ...usr, password: val });
+        setValidate({
+          ...validate,
+          password:
+            val === ""
+              ? "Password is required"
+              : val.length < 8
+                ? "Password must be 8 character or more"
+                : null
+        });
         break;
       case "userType":
         setuser({ ...usr, userType: val });
@@ -40,61 +68,51 @@ export default function SignUpSecondForm() {
       default:
         break;
     }
-    setPasswordErrorr(
-      val === ""
-        ? "This is Required"
-        : val.length < 8
-          ? "Password Shoul be More 8 Character"
-          : null
-    );
-    setdis(
-      e.target.value === "" ? true : false
-    )
+
   };
 
   const signUpComplete = () => {
+    console.log(usr);
     auth
       .createUserWithEmailAndPassword(usr.email, usr.password)
       .then(res => {
-        auth.currentUser.updateProfile({ displayName: usr.userType });
         if (res.user) {
+          res.user.updateProfile({ displayName: usr.userType });
           res.user.sendEmailVerification();
-        }
-        usr.authID = res.user.uid;
-        setuser({ ...usr, authID: usr.authID });
-        if (usr.userType === "talent") {
-          createDocumentWithId(
-            usr.userType,
-            {
-              ...usr,
-              totalJobs: 0,
-              totalEarnings: 0,
-              totalHours: 0,
-              badge: {
-                none: "",
-                risingTalent: "Rising Talent",
-                topRated: "Top Rated",
-                expert: "Expert-Vetted"
+          if (usr.userType === "talent") {
+            createDocumentWithId(
+              usr.userType,
+              {
+                ...usr,
+                totalJobs: 0,
+                totalEarnings: 0,
+                totalHours: 0,
+                badge: {
+                  none: "",
+                  risingTalent: "Rising Talent",
+                  topRated: "Top Rated",
+                  expert: "Expert-Vetted"
+                },
+                jobHistory: [],
+                employmentHistory: [],
+                education: [],
+                portfolio: [],
+                skills: [],
+                otherExperience: [],
+                connects: 20,
+                connectsHistory: [],
+                profileCompletion: 0,
               },
-              jobHistory: [],
-              employmentHistory: [],
-              education: [],
-              portfolio: [],
-              skills: [],
-              otherExperience: [],
-              connects: 20,
-              connectsHistory: [],
-              profileCompletion: 0,
-            },
-            auth.currentUser.uid
-          );
-        } else if (usr.userType === "client") {
-          createDocumentWithId(usr.userType, usr, auth.currentUser.uid);
+              auth.currentUser.uid
+            );
+          } else if (usr.userType === "client") {
+            createDocumentWithId(usr.userType, usr, auth.currentUser.uid);
+          }
+          push("/email-verification");
         }
-        push("/email-verification");
       })
       .catch(err => {
-        seterrMessage(err.message);
+        setErrorMessage(err.message);
       });
   };
 
@@ -102,7 +120,7 @@ export default function SignUpSecondForm() {
     <div className="col-sm-12 col-md-6 mx-auto">
       <div className="shadow-sm p-3 mb-5 bg-white rounded mx-auto mt-5 w-100 border">
         <form>
-          <h5 className="text-danger text-center">{errMessage}</h5>
+          <h5 className="text-danger text-center">{errorMessage}</h5>
           <h4 className="text-center m-0">
             <span
               style={{
@@ -111,58 +129,64 @@ export default function SignUpSecondForm() {
                 fontSize: "1.3em",
               }}
             >
-              Complete your free account setup
             </span>
           </h4>
           <div className="row pt-3">
             <div className="input-group col-6 w-50">
-              <span className="input-group-text bg-white" id="basic-addon1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width={16}
-                  height={16}
-                  fill="currentColor"
-                  className="bi bi-person-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                </svg>
-              </span>
-              <input
-                type="text"
-                name="firstName"
-                className="form-control  border-start-0"
-                placeholder="First Name"
-                aria-label="Input group example"
-                aria-describedby="basic-addon1"
-                onInput={getUserData}
-              />
+              <div className="d-flex" style={{ alignItems: "baseline" }}>
+                <span className="input-group-text bg-white d-inline" id="basic-addon1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={16}
+                    height={16}
+                    fill="currentColor"
+                    className="bi bi-person-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                  </svg>
+                </span>
+                <input
+                  type="text"
+                  name="firstName"
+                  className="form-control  border-start-0 d-inline"
+                  placeholder="First Name"
+                  aria-label="Input group example"
+                  aria-describedby="basic-addon1"
+                  onInput={getUserData}
+                />
+              </div>
+              <p className='text-danger'>{validate.firstName}</p>
             </div>
             <div className="input-group col-6 w-50">
-              <span className="input-group-text bg-white" id="basic-addon1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width={16}
-                  height={16}
-                  fill="currentColor"
-                  className="bi bi-person-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                </svg>
-              </span>
-              <input
-                type="text"
-                name="lastName"
-                className="form-control  border-start-0"
-                placeholder="Last Name"
-                aria-label="Input group example"
-                aria-describedby="basic-addon1"
-                onInput={getUserData}
-              />
+              <div className="d-flex" style={{ alignItems: "baseline" }}>
+                <span className="input-group-text bg-white d-inline" id="basic-addon1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={16}
+                    height={16}
+                    fill="currentColor"
+                    className="bi bi-person-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                  </svg>
+                </span>
+                <input
+                  type="text"
+                  name="lastName"
+                  className="form-control border-start-0 d-inline"
+                  placeholder="Last Name"
+                  aria-label="Input group example"
+                  aria-describedby="basic-addon1"
+                  onInput={getUserData}
+                />
+              </div>
+              <p className='text-danger'>{validate.lastName}</p>
             </div>
           </div>
-          <span className='text-danger'>{PasswordError}</span>
+
+
           <div className="input-group pt-3">
             <span className="input-group-text bg-white" id="basic-addon1">
               <svg
@@ -186,6 +210,7 @@ export default function SignUpSecondForm() {
               onInput={getUserData}
             />
           </div>
+          <p className='text-danger'>{validate.password}</p>
           <div>
             <h3 className="text-center mt-3">i want to:</h3>
             <div
@@ -261,9 +286,8 @@ export default function SignUpSecondForm() {
             <button
               className="btn bg-upwork "
               type="button"
-              disabled={dis}
+              disabled={validate.password != null || validate.firstName || validate.lastName}
               onClick={signUpComplete}
-
             >
               Continue with Email
             </button>

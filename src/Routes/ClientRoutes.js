@@ -10,9 +10,10 @@ import BringYourTalent from "./../Pages/ClientPages/BringYourTalent/BringYourTal
 import PostJob from "./../Pages/ClientPages/PostJop/PostJob";
 import Talent from "./../Pages/ClientPages/Talent/Talent";
 import Reports from "./../Pages/ClientPages/Reports/Reports";
-import PageNotFound from "./../Pages/Page Not Found/PageNotFound";
+import PageNotFound from "./../Pages/PageNotFound/PageNotFound";
 import ReviewProposals from "../Pages/ClientPages/ReviewProposals/ReviewProposals";
 import EmailVerified from './../Pages/EmailVerification/EmailVerified';
+import TransactionHistory from "../Pages/TalentPages/Reports/TransactionHistory/TransactionHistory";
 
 export default function ClientRoutes() {
   const { pathname } = useLocation();
@@ -33,6 +34,7 @@ export default function ClientRoutes() {
         <Route path="/talent" component={Talent} />
         <Route path="/review-proposal" component={ReviewProposals} />
         <Route path="/billing-history" exact component={Reports} />
+        <Route path="/transaction-history" exact component={TransactionHistory} />
         <Route path="**" component={PageNotFound} />
       </Switch>
       <Footer />

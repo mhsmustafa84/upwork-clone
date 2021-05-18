@@ -200,9 +200,9 @@ export default function NavSmallScreen() {
                 FINANCIALS
               </li>
               <li>
-                <a className="dropdown-item ps-3" href="#">
+                <Link className="dropdown-item ps-3" to="/transaction-history">
                   Transactions
-                </a>
+                </Link>
               </li>
               <li
                 className="border-top-cn fw-bold py-1 text-light"

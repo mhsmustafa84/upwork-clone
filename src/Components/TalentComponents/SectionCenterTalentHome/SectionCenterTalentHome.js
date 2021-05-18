@@ -3,17 +3,19 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import HeadOfCenterSection from "./../HeadOfCenterSection/HeadOfCenterSection";
-import "./SectionCenterTalentHome.css";
 import { jobsDataAction } from "./../../../Store/actions/jobsData";
 import { Link } from "react-router-dom";
+import "./SectionCenterTalentHome.css";
 
 export default function SectionCenterTalentHome() {
+
   const jobs = useSelector((state) => state.jobsData);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(jobsDataAction());
     console.log(jobs);
   }, []);
+
   return (
     <div className="col-lg-8 col-xs-12">
       <HeadOfCenterSection />
@@ -22,7 +24,7 @@ export default function SectionCenterTalentHome() {
           <div className="list-group-item">
             <div className="row align-items-center">
               <div className="col-lg-9 pt-lg-2">
-                <Link to="/job" className="job-title-link fw-bold">
+                <Link to={`/job/${item.jobID}`} className="job-title-link fw-bold">
                   {item?.jobTitle}
                 </Link>
               </div>

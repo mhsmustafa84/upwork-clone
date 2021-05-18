@@ -10,7 +10,7 @@ import MyStats from "./../Pages/TalentPages/MyStats/MyStats";
 import MyJobs from "./../Pages/TalentPages/MyJobs/MyJobs";
 import AllContracts from "./../Pages/TalentPages/AllContracts/AllContracts";
 import WorkDiary from "./../Pages/TalentPages/WorkDiary/WorkDiary";
-import PageNotFound from "./../Pages/Page Not Found/PageNotFound";
+import PageNotFound from "./../Pages/PageNotFound/PageNotFound";
 import Reports from "../Pages/TalentPages/Reports/MyReports/MyReports";
 import OverviewReports from "../Pages/TalentPages/Reports/OverviewReports/OverviewReports";
 import BillingByClients from "../Pages/TalentPages/Reports/billingbyclient/billingbyclients";
@@ -33,7 +33,7 @@ export default function TalentRoutes() {
       <Switch>
         <Route path="/create-profile" component={CreateProfile} />
         <Route path="/find-work" exact component={HomeTalent} />
-        <Route path="/job/" exact component={JobDetailsTalent} />
+        <Route path="/job/:id" exact component={JobDetailsTalent} />
         <Route path="/saved-jobs" exact component={SavedJobs} />
         <Route path="/proposals" exact component={Proposals} />
         <Route path="/profile" exact component={Profile} />

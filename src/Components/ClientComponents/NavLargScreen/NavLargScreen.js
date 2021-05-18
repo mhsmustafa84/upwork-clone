@@ -71,7 +71,7 @@ export default function NavLargScreen() {
             </ul>
           </li>
           <li className="nav-item hov-cn">
-            <Link className="nav-link" to="/">
+            <Link className="nav-link" to="/transaction-history">
               Reports
             </Link>
             <ul
@@ -219,7 +219,6 @@ export default function NavLargScreen() {
                 <NavLink
                   className="dropdown-item px-4"
                   to="/find-work"
-                // onClick={changeLayOut}
                 >
                   <div className="d-flex align-items-center">
                     <span style={{ marginLeft: "-5px" }}>

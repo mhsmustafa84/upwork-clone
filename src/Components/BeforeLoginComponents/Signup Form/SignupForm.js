@@ -6,23 +6,18 @@ import apple from "../../../assets/svg/apple.svg";
 import { signUpAction } from '../../../Store/actions/signUp';
 
 export default function SignupForm() {
-  const [emailError, setEmailErorr] = useState(null);
-  const [dis, setdis] = useState(true);
+
+  const [emailError, setEmailErorr] = useState("");
   const { push } = useHistory();
   let user = useSelector(state => state.signUpData);
   const dispatch = useDispatch();
 
-
-
   const getEmail = ({ target }) => {
     user.email = target.value;
     setEmailErorr(
-      target.value === "" ? "*Email required" : !target.value.match(/^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/)
-        ? "Please inter Valid Email" : null
-    )
-    setdis(
-      target.value === "" ? true : false
-    )
+      target.value === "" ? "*Email is required" : !target.value.match(/^([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/)
+        ? "*Please enter a valid email" : null
+    );
     dispatch(signUpAction(user));
   }
 
@@ -80,7 +75,7 @@ export default function SignupForm() {
           <div className="d-grid gap-2 col-8 mx-auto mt-3 hitbtn-class loginpcolor mb-4">
 
             <button
-              disabled={dis}
+              disabled={emailError != null}
               className="btn bg-upwork "
               type="button"
               onClick={signUpContinue}
