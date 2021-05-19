@@ -1,28 +1,47 @@
-   const [progress, setprogress] = useState(0);
- (snapshot) => {
-        const progress = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
-        setprogress(progress);
-      },
-  const appleLogin = () => {
-    firebaseApp
-      .auth()
-      .signInWithPopup(appleProvider)
-      .then((result) => {
-        /** @type {firebase.auth.OAuthCredential} */
-        var credential = result.credential;
+talent side //
+(amany)
+	allcontract
+	reports
+	workdiary
+	jobdetails
+	myjobs
+	profile
+		
+//////////////////////
+(romany)
+	searh
+	create profile
 
-        // The signed-in user info.
-        var user = result.user;
 
-        // You can also get the Apple OAuth Access and ID Tokens.
-        var accessToken = credential.accessToken;
-        var idToken = credential.idToken;
 
-        // ...
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+/////////////////////
+(alaa)
+	savedJob
+	home(beforeLogin)
+	findTalent
+	findFreelancer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+client side
+//////////////////////////
+(amany)
+	billingPayment
+
