@@ -19,8 +19,9 @@ export default function SignUpSecondForm() {
     firstName: "",
     lastName: "",
     password: "",
-    userType: "",
+    userType: "client",
   });
+  console.log(usr.userType);
 
   const getUserData = (e) => {
     const val = e.target.value;

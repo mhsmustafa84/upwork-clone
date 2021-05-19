@@ -14,7 +14,7 @@ export default function LayOut() {
   const [usrType, setUsrType] = useState("");
 
   const getUserType = (collectionName) => {
-    console.log(collectionName);
+   // console.log(collectionName);
     if (collectionName) {
       const user = db.collection(collectionName).doc(auth.currentUser.uid).get();
       user.then(res => {
@@ -36,10 +36,11 @@ export default function LayOut() {
 
 
   if (usr) {
-    console.log(usrType)
+    //console.log(usrType)
     if (usrType === "talent" || usrType === "both") {
       return <TalentRoutes />
     } else if (usrType === "client") {
+      //debugger;
       return <ClientRoutes />
     } else {
       return <Loader />
