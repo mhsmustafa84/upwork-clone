@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import firebaseApp from "../../../firebase";
 import SearchBarJobsTalent from "../SearchBarJobsTalent/SearchBarJobsTalent";
@@ -8,6 +9,7 @@ import { langAction } from "../../../Store/actions/lang";
 import language from './FindWorkTalentHomeLocal';
 
 export default function FindWorkTalentHome() {
+  const { t } = useTranslation();
   const [local, setLoc] = useState({});
 
   let lang = useSelector(state => state.lang);

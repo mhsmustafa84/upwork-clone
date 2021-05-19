@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import store from "./Store/store";
-import { Provider } from "react-redux";
+import { Provider, useDispatch, useSelector } from "react-redux";
+import "./i18n";
+import i18next from 'i18next';
+import { langAction } from "./Store/actions/lang";
+
+
+const lang=localStorage.getItem("lang") || "en"
+//console.log(lang);
+i18next.changeLanguage(lang);
 
 ReactDOM.render(
     <React.StrictMode>

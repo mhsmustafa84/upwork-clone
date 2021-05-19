@@ -6,9 +6,10 @@ import HeadOfCenterSection from "./../HeadOfCenterSection/HeadOfCenterSection";
 import { jobsDataAction } from "./../../../Store/actions/jobsData";
 import { Link } from "react-router-dom";
 import "./SectionCenterTalentHome.css";
+import { useTranslation } from "react-i18next";
 
 export default function SectionCenterTalentHome() {
-
+  const { t } = useTranslation();
   const jobs = useSelector((state) => state.jobsData);
   const dispatch = useDispatch();
   useEffect(() => {
