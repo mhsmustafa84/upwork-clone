@@ -18,7 +18,7 @@ export default function Search() {
                 <div className="col d-none d-lg-block">
                     <h5 className="mb-lg-4 display-inline-block">Filter By</h5>
                     <hr />
-                    <h6 className="mb-lg-2 display-inline-block mt-lg-2">Category</h6>
+                    <h6 className="mb-lg-2 display-inline-block mt-lg-2 fw-bold">Category</h6>
                     <ul
                         className="list-group sidebar-homebage-ul mb-lg-3 "
                         style={{ fontSize: "0.9em" }}
@@ -36,10 +36,281 @@ export default function Search() {
                                 Ecommerce Development
           </a>{" "}
                         </li>
+                        <li
+                            className="list-group-item sidebar-homebage-ul-li"
+                            aria-current="true"
+                        >
+                            <a
+                                href="#"
+                                className=" list-group-item-action advanced-search-link"
+                                aria-current="true"
+                            >
+                                Ecommerce Development
+          </a>{" "}
+                        </li>
                     </ul>
+                    <hr />
+                    <h6 className="mb-lg-2 display-inline-block mt-lg-2 fw-bold">Freelancers needed</h6>
+                    <div>
+                        <div className="form-check py-2 my-0">
+                            <input
+                                className="form-check-input btn-outline-success"
+                                type="radio"
+                                name="flexRadioDefault"
+                                id="flexRadioDefault1"
+                            />
+                            <label className="form-check-label" htmlFor="flexRadioDefault1">
+                                All
+                </label>
+                        </div>
+                        <div className="form-check py-2 my-0">
+                            <input
+                                className="form-check-input btn-outline-success"
+                                type="radio"
+                                name="flexRadioDefault"
+                                id="flexRadioDefault1"
+                            />
+                            <label className="form-check-label" htmlFor="flexRadioDefault1">
+                                Single freelancer
+                </label>
+                        </div>
+                        <div className="form-check py-2 my-0">
+                            <input
+                                className="form-check-input btn-outline-success"
+                                type="radio"
+                                name="flexRadioDefault"
+                                id="flexRadioDefault1"
+                            />
+                            <label className="form-check-label" htmlFor="flexRadioDefault1">
+                                Multiple freelancers
+                </label>
+                        </div>
+                    </div>
+                    <hr />
+                    <h6 className="mb-lg-2 display-inline-block mt-lg-3 fw-bold">Experience level</h6>
+                    <div className="form-check py-2 my-0">
+                        <input
+                            className="form-check-input btn-outline-success"
+                            type="checkbox"
+                            defaultValue
+                            id="flexCheckDefault"
+                        />
+                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                            Entry Level
+                </label>
+                    </div>
+                    <div className="form-check py-2 my-0">
+                        <input
+                            className="form-check-input btn-outline-success"
+                            type="checkbox"
+                            defaultValue
+                            id="flexCheckDefault"
+                        />
+                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                            Intermediate
+                </label>
+                    </div>
+                    <div className="form-check py-2 my-0">
+                        <input
+                            className="form-check-input btn-outline-success"
+                            type="checkbox"
+                            defaultValue
+                            id="flexCheckDefault"
+                        />
+                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                            Expert
+                </label>
+                    </div>
+                    <hr />
 
+                    <h6 className="mb-lg-2 display-inline-block mt-lg-3 fw-bold">Job Type</h6>
+                    <div className="form-check py-2 my-0">
+                        <input
+                            className="form-check-input btn-outline-success"
+                            type="checkbox"
+                            defaultValue
+                            id="flexCheckDefault"
+                        />
+                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                            Hourly
+                </label>
+                    </div>
+                    <div className="form-check py-2 my-0">
+                        <input
+                            className="form-check-input btn-outline-success"
+                            type="checkbox"
+                            defaultValue
+                            id="flexCheckDefault"
+                        />
+                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                            Fixed-price
+                </label>
+                    </div>
+                    <hr />
+                    <h6 className="mb-lg-2 display-inline-block mt-lg-3 fw-bold">Number of Proposals</h6>
+                    <div className="form-check py-2 my-0">
+                        <input
+                            className="form-check-input btn-outline-success"
+                            type="checkbox"
+                            defaultValue
+                            id="flexCheckDefault"
+                        />
+                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                            Less than 5
+                </label>
+                    </div>
+                    <div className="form-check py-2 my-0">
+                        <input
+                            className="form-check-input btn-outline-success"
+                            type="checkbox"
+                            defaultValue
+                            id="flexCheckDefault"
+                        />
+                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                            5 to 10
+                </label>
+                    </div>
+                    <div className="form-check py-2 my-0">
+                        <input
+                            className="form-check-input btn-outline-success"
+                            type="checkbox"
+                            defaultValue
+                            id="flexCheckDefault"
+                        />
+                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                            10 to 15
+                </label>
+                    </div>
+                    <div className="form-check py-2 my-0">
+                        <input
+                            className="form-check-input btn-outline-success"
+                            type="checkbox"
+                            defaultValue
+                            id="flexCheckDefault"
+                        />
+                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                            15 to 20
+                </label>
+                    </div>
+                    <div className="form-check py-2 my-0">
+                        <input
+                            className="form-check-input btn-outline-success"
+                            type="checkbox"
+                            defaultValue
+                            id="flexCheckDefault"
+                        />
+                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                            20 to 50
+                </label>
+                    </div>
+                    <hr />
+                    <h6 className="mb-lg-2 display-inline-block mt-lg-3 fw-bold">Client Info</h6>
+                    <div className="form-check py-2 my-0">
+                        <input
+                            className="form-check-input btn-outline-success"
+                            type="checkbox"
+                            defaultValue
+                            id="flexCheckDefault"
+                        />
+                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                            My Previous Clients
+                </label>
+                    </div>
+                    <div className="form-check py-2 my-0">
+                        <input
+                            className="form-check-input btn-outline-success"
+                            type="checkbox"
+                            defaultValue
+                            id="flexCheckDefault"
+                        />
+                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                            Payment Verified
+                </label>
+                    </div>
+                    <hr />
+
+                    <h6 className="mb-lg-2 display-inline-block mt-lg-2 fw-bold">Client Location</h6>
+                    <div className="input-group rounded-3">
+                        <select
+                            className="form-select border border-secondary text-dark  btn-outline-light "
+                            id="inputGroupSelect01"
+                        >
+                            <option selected>Select Client Location</option>
+                            <option value={1}> Egypt</option>
+                            <option value={2}> USA</option>
+                        </select>
+                    </div>
+                
+                <h6 className="mb-lg-2 display-inline-block mt-lg-3 fw-bold">Project Length</h6>
+                <div className="form-check py-2 my-0">
+                    <input
+                        className="form-check-input btn-outline-success"
+                        type="checkbox"
+                        defaultValue
+                        id="flexCheckDefault"
+                    />
+                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                        Less than 1 month
+                </label>
                 </div>
-
+                <div className="form-check py-2 my-0">
+                    <input
+                        className="form-check-input btn-outline-success"
+                        type="checkbox"
+                        defaultValue
+                        id="flexCheckDefault"
+                    />
+                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                        1 to 3 months
+                </label>
+                </div>
+                <div className="form-check py-2 my-0">
+                    <input
+                        className="form-check-input btn-outline-success"
+                        type="checkbox"
+                        defaultValue
+                        id="flexCheckDefault"
+                    />
+                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                        3 to 6 months
+                </label>
+                </div>
+                <div className="form-check py-2 my-0">
+                    <input
+                        className="form-check-input btn-outline-success"
+                        type="checkbox"
+                        defaultValue
+                        id="flexCheckDefault"
+                    />
+                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                        More than 6 months
+                </label>
+                </div>
+                <hr />
+                <h6 className="mb-lg-2 display-inline-block mt-lg-3 fw-bold">Hours Per Week</h6>
+                <div className="form-check py-2 my-0">
+                    <input
+                        className="form-check-input btn-outline-success"
+                        type="checkbox"
+                        defaultValue
+                        id="flexCheckDefault"
+                    />
+                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                        Less than 30 hrs/week
+                </label>
+                </div>
+                <div className="form-check py-2 my-0">
+                    <input
+                        className="form-check-input btn-outline-success"
+                        type="checkbox"
+                        defaultValue
+                        id="flexCheckDefault"
+                    />
+                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                        More than 30 hrs/week
+                </label>
+                </div>
+                </div>
                 <div className="col-lg-10 col-xs-12">
                     <div>
                         <div>

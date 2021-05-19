@@ -1,11 +1,11 @@
 body{
-    background-color: #f1f2f4;
+    background-color: #f9f9f9;
 
 }
 
 
 .advanced-search-link {
-    color: #37a000;
+    color: #000;
     text-decoration: none;
 
 }
@@ -19,7 +19,7 @@ body{
 .sidebar-homebage-ul-li {
 
     text-decoration: none;
-    background-color: #f1f2f4;
+    background-color: #f9f9f9;
     border: none;
     padding: 5px 10px;
 }
@@ -29,14 +29,14 @@ body{
 .leftsidebar-homebage-ul-li-aa {
     color: black;
     text-decoration: unset;
-    background-color: #f1f2f4;
+    background-color: #f9f9f9;
     border: none;
 }
 
 .leftsidebar-homebage-ul-li-aa:hover {
     color: black;
     text-decoration: none;
-    background-color: #f1f2f4;
+    background-color: #f9f9f9;
     border: none;
 }
 
@@ -112,13 +112,13 @@ body{
 }
 
 .skills {
-    background-color: rgba(238, 238, 238, 0.877);
+    background-color: #f9f9f9;
     color: rgb(37, 37, 37);
     border: none;
 }
 
 .skills:hover {
-    background-color: rgba(212, 211, 211, 0.877);
+    background-color: #f9f9f9;
     color: rgb(37, 37, 37);
 
 }
