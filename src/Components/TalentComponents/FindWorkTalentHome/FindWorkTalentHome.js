@@ -1,8 +1,20 @@
 /* eslint-disable */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import firebaseApp from "../../../firebase";
+import { langAction } from "../../../Store/actions/lang";
+import language from './FindWorkTalentHomeLocal';
 
 export default function FindWorkTalentHome() {
+  const [local, setLoc] = useState({});
+
+  let lang = useSelector(state => state.lang);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(langAction(lang));
+    lang === "ar" ? setLoc(language.ar) : setLoc(language.en)
+  }, [lang]);
+
   const [verify, setverify] = useState(false);
   firebaseApp.auth().onAuthStateChanged(user => {
     if (user) {
@@ -12,10 +24,10 @@ export default function FindWorkTalentHome() {
   });
 
   return (
-    <div className="d-none d-lg-block">
+    <div className="d-none d-lg-block" >
       <div className="row my-lg-4">
         <div className="col">
-          <h3>Find Work</h3>
+          <h3>{local.FindWork}</h3>
         </div>
         <div className="col-8">
           {!verify && (

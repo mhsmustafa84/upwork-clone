@@ -22,7 +22,7 @@ export default function EmailVerified() {
       <h3 className="my-3">Verify your email to proceed</h3>
       <button className="btn bg-upwork" onClick={() => user.displayName === "talent" ? push("/create-profile") :push("/home")} disabled={verified}>
         {user.displayName === "talent" ? "Compelete your profile data" : "Post a job"}
-        Compelete your profile data
+        
       </button>
       <br />
     </div>
