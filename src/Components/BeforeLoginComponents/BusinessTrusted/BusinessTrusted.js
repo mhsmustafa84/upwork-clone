@@ -1,11 +1,11 @@
 import React from "react";
-import talentMainSectionLogoMicrosoftDevIT from "../../../assets/img/talent_main-section-logo-microsoft-Dev-IT.svg";
-import talentMainSectionLogoAirbnbDevIT from "../../../assets/img/talent_main-section-logo-airbnb-Dev-IT.svg";
-import talentMainSectionLogoGeDevIT from "../../../assets/img/talent_main-section-logo-ge-Dev-IT.svg";
-import talentMainSectionLogoAutomaticDevIT from "../../../assets/img/talent_main-section-logo-automatic-Dev-IT.svg";
-import talentMainSectionLogoBissellDevIT from "../../../assets/img/talent_main-section-logo-bissell-Dev-IT.svg";
-import talentMainSectionLogoCotyDevIT from "../../../assets/img/talent_main-section-logo-coty-Dev-IT.svg";
-import talentMainSectionLogoGoDaddyDevIT from "../../../assets/img/talent_main-section-logo-GoDaddy-Dev-IT.svg";
+import talentMainSectionLogoMicrosoftDevIT from "../../../assets/Img/talent_main-section-logo-microsoft-Dev-IT.svg";
+import talentMainSectionLogoAirbnbDevIT from "../../../assets/Img/talent_main-section-logo-airbnb-Dev-IT.svg";
+import talentMainSectionLogoGeDevIT from "../../../assets/Img/talent_main-section-logo-ge-Dev-IT.svg";
+import talentMainSectionLogoAutomaticDevIT from "../../../assets/Img/talent_main-section-logo-automatic-Dev-IT.svg";
+import talentMainSectionLogoBissellDevIT from "../../../assets/Img/talent_main-section-logo-bissell-Dev-IT.svg";
+import talentMainSectionLogoCotyDevIT from "../../../assets/Img/talent_main-section-logo-coty-Dev-IT.svg";
+import talentMainSectionLogoGoDaddyDevIT from "../../../assets/Img/talent_main-section-logo-GoDaddy-Dev-IT.svg";
 
 export default function BusinessTrusted() {
   return (

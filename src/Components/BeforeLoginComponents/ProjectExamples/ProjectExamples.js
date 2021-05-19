@@ -1,6 +1,6 @@
 import React from 'react'
-import talentMainSectionClientUseUpworkDevIT from '../../../assets/img/talent-main-section-client-use-upwork-Dev-IT.png'
-import talentMainSectionClientDeveloperDev from '../../../assets/img/talent_main-section-client-developer-Dev-IT.jpeg'
+import talentMainSectionClientUseUpworkDevIT from '../../../assets/Img/talent-main-section-client-use-upwork-Dev-IT.png'
+import talentMainSectionClientDeveloperDev from '../../../assets/Img/talent_main-section-client-developer-Dev-IT.jpeg'
 
 export default function ProjectExamples() {
   return (

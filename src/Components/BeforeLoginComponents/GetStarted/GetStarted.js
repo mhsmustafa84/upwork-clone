@@ -1,5 +1,5 @@
 import React from 'react'
-import talentMainSectionVideoPreviewDevIT from '../../../assets/img/talent_main-section-video-preview-Dev-IT.jpeg'
+import talentMainSectionVideoPreviewDevIT from '../../../assets/Img/talent_main-section-video-preview-Dev-IT.jpeg'
 import VID from '../../../assets/videos/VID-20210318-WA0020.mp4'
 export default function GetStarted() {
     return (

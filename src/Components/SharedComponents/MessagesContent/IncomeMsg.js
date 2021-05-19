@@ -1,4 +1,4 @@
-import img from '../../../assets/img/icon-user.svg'
+import img from '../../../assets/Img/icon-user.svg'
 
 export default function IncomeMsg({ msg }) {
     return (

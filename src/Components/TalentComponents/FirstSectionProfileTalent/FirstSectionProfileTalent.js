@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { talentDataAction } from "../../../Store/actions/talentData";
-import img from "../../../assets/img/icon-user.svg"
+import img from "../../../assets/Img/icon-user.svg"
 
 export default function FirstSectionProfileTalent() {
   const user = useSelector(state => state.talentData);

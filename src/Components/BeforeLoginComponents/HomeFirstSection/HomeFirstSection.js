@@ -6,8 +6,8 @@ import img2 from '../../../assets/svg/airbnb.0db5415.svg'
 import img3 from '../../../assets/svg/godaddy.d9459f1.svg'
 import img4 from '../../../assets/svg/ge.5a23edc.svg'
 import img5 from '../../../assets/svg/bissell.3861a37.svg'
-import img6 from '../../../assets/img/susan-desktop.webp'
-import img7 from '../../../assets/img/john-desktop.webp'
+import img6 from '../../../assets/Img/susan-desktop.webp'
+import img7 from '../../../assets/Img/john-desktop.webp'
 import { Link } from 'react-router-dom'
 
 export default function HomeFirstSection() {

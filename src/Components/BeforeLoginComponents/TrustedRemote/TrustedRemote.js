@@ -1,9 +1,9 @@
 /* eslint-disable */
 import React from 'react'
 import ExpertsCard from '../ExpertsCard/ExpertsCard'
-import talentMainSectionExperts1DevIT from '../../../assets/img/talent_main-section-experts1-Dev-IT.jpeg'
-import talentMainSectionExperts2DevIT from '../../../assets/img/talent_main-section-experts2-Dev-IT.jpeg'
-import talentMainSectionExperts3DevIT from '../../../assets/img/talent_main-section-experts3-Dev-IT.jpeg'
+import talentMainSectionExperts1DevIT from '../../../assets/Img/talent_main-section-experts1-Dev-IT.jpeg'
+import talentMainSectionExperts2DevIT from '../../../assets/Img/talent_main-section-experts2-Dev-IT.jpeg'
+import talentMainSectionExperts3DevIT from '../../../assets/Img/talent_main-section-experts3-Dev-IT.jpeg'
 import EvaluationCard from '../EvaluationCard/EvaluationCard'
 
 

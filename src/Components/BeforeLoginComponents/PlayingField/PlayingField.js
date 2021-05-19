@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react'
 import './PlayingField.css'
-import talentHeaderPlayingFieldDevIT from '../../../assets/img/talent-header-playing-field-Dev-IT.svg'
+import talentHeaderPlayingFieldDevIT from '../../../assets/Img/talent-header-playing-field-Dev-IT.svg'
 
 export default function PlayingField() {
   return (
