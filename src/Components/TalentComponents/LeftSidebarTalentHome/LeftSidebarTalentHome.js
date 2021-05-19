@@ -3,8 +3,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { talentDataAction } from "../../../Store/actions/talentData";
+import { useTranslation } from "react-i18next";
 
 export default function LeftSidebarTalentHome() {
+  const { t } = useTranslation();
   const user = useSelector(state => state.talentData);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -22,7 +24,8 @@ export default function LeftSidebarTalentHome() {
             className=" list-group-item-action sidebar-homebage-ul-li-aa activeside"
             aria-current="true"
           >
-            My Feed
+           
+            { t("My Feed") }
           </a>
         </li>
         <li
@@ -34,7 +37,8 @@ export default function LeftSidebarTalentHome() {
             className=" list-group-item-action sidebar-homebage-ul-li-aa"
             aria-current="true"
           >
-            Best Matches
+             { t("Best Matches") }
+           
           </a>
           <span className="hotspot">
             <button className="hotspot__btn" />
@@ -49,11 +53,14 @@ export default function LeftSidebarTalentHome() {
             className=" list-group-item-action sidebar-homebage-ul-li-aa"
             aria-current="true"
           >
-            Recommended
+            {t("Recommended")}
           </a>
         </li>
       </ul>
-      <h5 className="mb-lg-2 display-inline-block">My Categories</h5>
+      <h5 className="mb-lg-2 display-inline-block end">
+      {t("My Categories")}
+
+       </h5>
       <ul
         className="list-group sidebar-homebage-ul mb-lg-3 "
         style={{ fontSize: "0.9em" }}

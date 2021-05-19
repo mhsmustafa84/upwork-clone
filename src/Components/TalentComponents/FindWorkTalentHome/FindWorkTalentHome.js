@@ -1,11 +1,13 @@
 /* eslint-disable */
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import firebaseApp from "../../../firebase";
 import { langAction } from "../../../Store/actions/lang";
 import language from './FindWorkTalentHomeLocal';
 
 export default function FindWorkTalentHome() {
+  const { t } = useTranslation();
   const [local, setLoc] = useState({});
 
   let lang = useSelector(state => state.lang);
@@ -35,7 +37,7 @@ export default function FindWorkTalentHome() {
               className="alert alert-warning alert-dismissible fade show"
               role="alert"
             >
-              <strong>Email Verification</strong> Your mail is not verified
+              <strong>{t('Email Verification')}</strong>{t('Your mail is not verified')} 
               <button
                 type="button"
                 className="btn-close"
@@ -49,7 +51,7 @@ export default function FindWorkTalentHome() {
               id="input"
               type="search"
               className="form-control text-dark bg-white btn-outline-success"
-              placeholder="Search For Jobs"
+              placeholder={t("Search For Jobs")}
             />
             <button
               id="search-button"
@@ -59,11 +61,6 @@ export default function FindWorkTalentHome() {
               <i className="fas fa-search" />
             </button>
           </div>
-          <span>
-            <a href="#" className="advanced-search-link">
-              Advanced Search
-            </a>
-          </span>
         </div>
         <div className="col"></div>
       </div>

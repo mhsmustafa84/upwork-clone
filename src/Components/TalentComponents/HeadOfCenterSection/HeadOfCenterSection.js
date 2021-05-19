@@ -1,21 +1,23 @@
 /* eslint-disable */
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function HeadOfCenterSection() {
+  const { t } = useTranslation();
   return (
     <div>
       <div className="list-group-item my-lg-2  rounded text-center ">
         <h6>
           <a href="#" className="text-decoration-none link-success">
             {" "}
-            There are new jobs. Click to see them
+            {t("There are new jobs. Click to see them")}
           </a>
         </h6>
       </div>
       <div className="list-group-item py-lg-4">
         <h4>
-          {" "}
-          My Feed{" "}
+         
+          {t("My Feed")}
           <span>
             <div className="btn-group float-sm-end ">
               <button

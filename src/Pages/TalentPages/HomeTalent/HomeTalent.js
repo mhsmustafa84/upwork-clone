@@ -14,7 +14,7 @@ export default function HomeTalent() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(langAction(lang));
-  
+
   }, [lang]);
   return (
     <div className="bg-gray"dir={lang==='ar' ? 'rtl':'ltr'} >
