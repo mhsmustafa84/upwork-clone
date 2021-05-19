@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable */
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import Logo from '../../SharedComponents/Logo/Logo';

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from "react";
 
 export default function Fillter({ headers }) {
@@ -28,7 +29,7 @@ export default function Fillter({ headers }) {
       </p>
       <div className="collapse" id="collapseExample">
         <form action="#">
-          <div class="row">
+          <div className="row">
             <div id="col1" className="col-md-2 col-sm-12 mb-5 me-3 ">
               <div className="dropdown text-start">
                 <button
@@ -36,14 +37,14 @@ export default function Fillter({ headers }) {
                   type="button"
                   id="dropdownMenuButton2"
                   data-bs-toggle="dropdown"
-                   aria-expanded="false"
+                  aria-expanded="false"
                 >
                   search by transaction
                 </button>
                 <ul
                   className="dropdown-menu fw-bold "
                   aria-labelledby="dropdownMenuButton2"
-                  //   style={{ width: "100%" }}
+                //   style={{ width: "100%" }}
                 >
                   <li>
                     <i
@@ -130,7 +131,7 @@ export default function Fillter({ headers }) {
                 >
                   <li >
                     <i
-                      class="fas fa-search"
+                      className="fas fa-search"
                       style={{
                         position: "absolute",
                         paddingTop: "10px",
@@ -141,7 +142,7 @@ export default function Fillter({ headers }) {
                       type="search"
                       id="form1"
                       className="form-control"
-                      //   style={{ width: "100%" }}
+                    //   style={{ width: "100%" }}
                     />
                   </li>
 
@@ -156,7 +157,7 @@ export default function Fillter({ headers }) {
             <div id="col3" className="col-md-5 col-sm-12 mb-5 "></div>
           </div>
         </form>
-      
+
       </div>
     </div>
   );

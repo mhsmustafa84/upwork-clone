@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable */
 import React from "react";
 
 export default function SignupFooter() {
@@ -7,13 +7,13 @@ export default function SignupFooter() {
             <ul className="list-unstyled text-white">
                 <li> © 2015 - 2021 Upwork® Global Inc.</li>
                 <li>
-                    <a href="">About Us</a>
+                    <a href="#">About Us</a>
                 </li>
                 <li>
-                    <a href="">Feedback</a>
+                    <a href="#">Feedback</a>
                 </li>
                 <li>
-                    <a href="">Community</a>
+                    <a href="#">Community</a>
                 </li>
             </ul>
         </footer>

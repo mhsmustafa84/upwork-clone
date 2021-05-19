@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable */
 import React from "react";
 import DateContract from "../../../Components/TalentComponents/DateContract/DateContract";
 import OneContract from "../../../Components/TalentComponents/OneContract/OneContract";

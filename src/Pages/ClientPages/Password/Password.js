@@ -1,7 +1,6 @@
 import React from "react";
 import ChangePassword from "../../../Components/ClientComponents/ChangePassword/ChangePassword";
 import Verification from "../../../Components/ClientComponents/Verificationoptions/Verification";
-import CustomButtonwithoutbackground from "./../../../Components/TalentComponents/CustomButtonwithoutbackground/CustomButton";
 export default function Password() {
   return (
     <>

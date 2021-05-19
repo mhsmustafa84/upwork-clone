@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable */
 import React from "react";
 import Logo from "./../../SharedComponents/Logo/Logo";
 import HeaderSearchLg from "../../SharedComponents/HeaderSearchLg/HeaderSearchLg";
@@ -28,7 +28,7 @@ export default function Header() {
                 {/* Header in large screen */}
                 <div
                     id="nav-lg-id"
-                    className="container d-flex justify-content-center align-items-center"
+                    className="container d-flex justify-content-around align-items-center"
                 >
                     <Logo />
                     <HeaderSearchLg />

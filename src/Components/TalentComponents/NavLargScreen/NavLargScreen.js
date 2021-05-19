@@ -1,17 +1,23 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable */
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
-import { changeLayout } from "./../../../Store/actions/changeLayout";
+import firebaseApp from "../../../firebase";
+import { useHistory } from 'react-router-dom';
 
 export default function NavLargScreen() {
-  let layOut = useSelector((state) => state.layOut);
-  const dispatch = useDispatch();
 
-  const changeLayOut = () => {
-    layOut = "client";
-    dispatch(changeLayout(layOut));
-  };
+  const { push } = useHistory();
+
+  const logout = () => {
+    firebaseApp.auth().signOut()
+      .then((res) => {
+        console.log(res);
+        push("/login");
+        window.location.reload();
+      }).catch((error) => {
+        console.log(error.message);
+      })
+  }
 
   return (
     <>
@@ -33,21 +39,21 @@ export default function NavLargScreen() {
                   Saved Jobs
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link className="dropdown-item" to="/proposals">
                   Proposals
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link className="dropdown-item" to="/profile">
                   Profile
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link className="dropdown-item" to="/my-stats">
                   My Stats
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </li>
           <li className="nav-item hov-cn">
@@ -108,7 +114,7 @@ export default function NavLargScreen() {
             </ul>
           </li>
           <li className="nav-item me-5">
-            <NavLink className="nav-link" to="/t/messages">
+            <NavLink className="nav-link" to="/messages">
               Messages
             </NavLink>
           </li>
@@ -123,12 +129,12 @@ export default function NavLargScreen() {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
+            <Link className="nav-link" to="/messages">
               <i
                 className="far fa-paper-plane fs-5"
                 style={{ transform: "scaleX(-1)" }}
               ></i>
-            </a>
+            </Link>
           </li>
           <li className="dropdown">
             <a
@@ -192,7 +198,7 @@ export default function NavLargScreen() {
               <li>
                 <NavLink
                   className="dropdown-item px-4 mb-1"
-                  onClick={changeLayOut}
+                  // onClick={changeLayOut}
                   to="/home"
                 >
                   <div className="d-flex align-items-center">
@@ -215,12 +221,12 @@ export default function NavLargScreen() {
                 </Link>
               </li>
               <li>
-                <a className="dropdown-item px-4" href="#">
+                <button className="dropdown-item px-4" onClick={logout}>
                   <span>
                     <i className="fas fa-sign-out-alt"></i>
                   </span>
                   <span className="ps-2">Log Out</span>
-                </a>
+                </button>
               </li>
             </ul>
           </li>

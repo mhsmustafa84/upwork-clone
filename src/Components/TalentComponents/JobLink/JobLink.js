@@ -10,8 +10,7 @@ export default class JobLink extends Component {
       <div className="bg-white pb-lg-2 px-4 border border-1 row py-xs-5 ">
         <h5 className="py-lg-2">Job link</h5>
         <input
-          value={this.state.value}
-          onChange={({ target: { value } }) =>
+          onInput={({ target: { value } }) =>
             this.setState({ value, copied: false })
           }
           className="form-control my-3"
@@ -26,7 +25,6 @@ export default class JobLink extends Component {
           onCopy={() => this.setState({ copied: true })}
         >
           <button
-            href
             className="text-success fw-bold py-1 my-3 cursor-pointer bg-white border border-0 a"
           >
             Copy Link

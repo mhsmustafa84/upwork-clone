@@ -1,9 +1,24 @@
-import React from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { langAction } from "../../../../Store/actions/lang";
+import language from './MyReportLocal';
 
 export default function Reports() {
+
+  const [local, setLoc] = useState({});
+
+  let lang = useSelector(state => state.lang);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(langAction(lang));
+    lang === "ar" ? setLoc(language.ar) : setLoc(language.en)
+  }, [lang]);
+
   return (
-    <div className="MyReports">
+    <div className="MyReports" dir={lang === "ar" ? "rtl" : "ltr"}>
       <section>
         <div className="container">
           <div className="row mb-4">
@@ -17,7 +32,7 @@ export default function Reports() {
                   fontWeight: "700",
                 }}
               >
-                My Reports
+                {local.myReports}
               </h1>
             </div>
           </div>
@@ -33,7 +48,7 @@ export default function Reports() {
                 to="/weeklysummary"
                 style={{ textDecoration: "none", color: "#38a000" }}
               >
-                Weekly summary
+                {local.weekSummary}
               </Link>
             </h3>
           </div>
@@ -41,7 +56,7 @@ export default function Reports() {
             <div className="col-md-6">
               <p className="mb-0">
                 <i className="far fa-calendar-check me-2" />
-                <span>Current week</span>
+                <span>{local.currentWeek}</span>
               </p>
             </div>
             <div className="col-md-6 text-end">
@@ -59,10 +74,10 @@ export default function Reports() {
               <a
                 className="text-muted"
                 link
-                to="#"
+                href="#"
                 style={{ textDecoration: "none", color: "black" }}
               >
-                Weekly summary By Client
+                {local.WeeklySummaryByClient}
               </a>
             </h3>
           </div>
@@ -70,7 +85,7 @@ export default function Reports() {
             <div className="col-md-6">
               <p className="mb-0 text-muted">
                 <i className="far fa-calendar-check me-2" />
-                <span>Current week</span>
+                <span>{local.currentWeek}</span>
               </p>
             </div>
             <div className="col-md-6 text-end text-muted">

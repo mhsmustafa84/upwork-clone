@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable */
 import React, { useEffect, useState } from "react";
 import Logo from "./../../SharedComponents/Logo/Logo";
 import HeaderSearchLg from "../../SharedComponents/HeaderSearchLg/HeaderSearchLg";
@@ -27,7 +27,7 @@ export default function Header() {
             <header className="nav-bg-cn py-3">
 
                 {/* Header in large screen */}
-                <div id="nav-lg-id" className="container d-flex justify-content-center align-items-center">
+                <div id="nav-lg-id" className="container d-flex justify-content-around align-items-center">
                     <Logo />
                     <HeaderSearchLg />
                     <nav className="navbar navbar-expand-lg navbar-dark bg-transparent py-0">

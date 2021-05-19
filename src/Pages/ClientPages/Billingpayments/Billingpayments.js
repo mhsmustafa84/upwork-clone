@@ -61,10 +61,10 @@ export default function Billingpayments() {
           <div className="col-md-6">
             <h4 className="fw-bold pt-3 ps-3">Billing methods</h4>
           </div>
-          <div class="col-md-6 d-flex justify-content-end">
+          <div className="col-md-6 d-flex justify-content-end">
             <Link
               type="button"
-              class="btn btn-default me-2 d-flex justify-content-center border rounded-border"
+              className="btn btn-default me-2 d-flex justify-content-center border rounded-border"
               style={{
                 width: "30px",
                 height: "30px",

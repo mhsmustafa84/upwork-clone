@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react'
 import './PlayingField.css'
 import talentHeaderPlayingFieldDevIT from '../../../assets/img/talent-header-playing-field-Dev-IT.svg'

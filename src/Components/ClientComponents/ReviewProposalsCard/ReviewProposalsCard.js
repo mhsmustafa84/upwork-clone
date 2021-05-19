@@ -1,15 +1,16 @@
+/* eslint-disable */
 import React from 'react'
 import ImgWithActiveStatus from "./../../../Components/ClientComponents/ImgWithActiveStatus/ImgWithActiveStatus";
 
 
 export default function ReviewProposalsCard() {
-    return (
-        <div>
-             <div className="row border border-1">
-        <div className="col-lg-1 pt-lg-3">
+  return (
+    <div>
+      <div className="row border bg-white border-1">
+        <div className="col-1 pt-lg-3">
           <ImgWithActiveStatus />
         </div>
-        <div className="col-lg-6 pt-lg-3 mx-3">
+        <div className="col-lg-6 pt-lg-3 ">
           <a
             href
             id="job-title-home-page "
@@ -32,8 +33,8 @@ export default function ReviewProposalsCard() {
             </div>
           </div>
         </div>
-        <div className="col-lg-2 py-3">
-          <div className="btn-group float-sm-end px-lg-1">
+        <div className="col py-3">
+          <div className="btn-group float-end ">
             <button
               type="button"
               className="btn btn-light dropdown-toggle border border-1 rounded-circle collapsed"
@@ -49,7 +50,7 @@ export default function ReviewProposalsCard() {
               />
             </button>
           </div>
-          <div className="btn-group dropstart float-sm-end  px-lg-1">
+          <div className="btn-group float-start">
             <button
               type="button"
               className="btn btn-light dropdown-toggle border border-1 rounded-circle"
@@ -67,13 +68,13 @@ export default function ReviewProposalsCard() {
             </ul>
           </div>
         </div>
-        <div className="col-1 py-3">
-          <button type="button" class="btn bg-white btn-outline-secondary">
+        <div className="col py-3">
+          <button type="button" className="btn bg-white btn-outline-secondary">
             <span className="text-success fw-bold">Messages</span>
           </button>
         </div>
-        <div className="col-1 py-3">
-          <button type="button" class="btn btn-success px-5">
+        <div className="col py-3">
+          <button type="button" className="btn btn-success px-5">
             Hire
           </button>
         </div>
@@ -93,12 +94,12 @@ export default function ReviewProposalsCard() {
             wishes? Best wishes, Anna Dembov P.S. https://behance.net/annadembov
             https://www.linkedin.com/in<span id="dots">...</span>
             <span id="more">
-            /anna-dembov-91a32b1b3
+              /anna-dembov-91a32b1b3
             </span>
           </p>
         </div>
       </div>
-    
-        </div>
-    )
+
+    </div>
+  )
 }

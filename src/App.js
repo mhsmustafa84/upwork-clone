@@ -1,12 +1,13 @@
-/* eslint-disable no-unused-vars */
 import { BrowserRouter } from "react-router-dom";
-import "./App.css";
 import LayOut from "./LayOut/LayOut";
+import "./App.css";
+import LangButton from "./Components/SharedComponents/LangButton/LangButton";
 
 function App() {
   return (
     <>
       <BrowserRouter>
+        <LangButton />
         <LayOut />
       </BrowserRouter>
     </>

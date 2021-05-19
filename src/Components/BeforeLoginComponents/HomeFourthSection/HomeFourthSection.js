@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable */
 
 import React from "react";
 import "./HomeFourthSection.css";
@@ -65,66 +65,66 @@ export default function HomeFourthSection() {
           <div>
             <div className="text-center mt-4 mx-auto" style={{ width: "88%" }}>
               <span>
-                <a href="" className="ss-span-a-cn me-2">
+                <a href="#" className="ss-span-a-cn me-2">
                   Data Entry Specialists
                 </a>
               </span>
               <span>
-                <a href="" className="ss-span-a-cn me-2">
+                <a href="#" className="ss-span-a-cn me-2">
                   Video Editors
                 </a>
               </span>
               <span>
-                <a href="" className="ss-span-a-cn me-2">
+                <a href="#" className="ss-span-a-cn me-2">
                   Data Analyst
                 </a>
               </span>
               <span>
-                <a href="" className="ss-span-a-cn me-2">
+                <a href="#" className="ss-span-a-cn me-2">
                   Shopify Developer
                 </a>
               </span>
               <span>
-                <a href="" className="ss-span-a-cn me-2">
+                <a href="#" className="ss-span-a-cn me-2">
                   Ruby on Rails Developer
                 </a>
               </span>
               <span>
-                <a href="" className="ss-span-a-cn me-2">
+                <a href="#" className="ss-span-a-cn me-2">
                   Android Developer
                 </a>
               </span>
               <span>
-                <a href="" className="ss-span-a-cn me-2">
+                <a href="#" className="ss-span-a-cn me-2">
                   Bookkeeper
                 </a>
               </span>
               <span>
-                <a href="" className="ss-span-a-cn me-2">
+                <a href="#" className="ss-span-a-cn me-2">
                   Content Writer
                 </a>
               </span>
               <span>
-                <a href="" className="ss-span-a-cn me-2">
+                <a href="#" className="ss-span-a-cn me-2">
                   Copywriter
                 </a>
               </span>
               <span>
-                <a href="" className="ss-span-a-cn me-2">
+                <a href="#" className="ss-span-a-cn me-2">
                   Database Administrator
                 </a>
               </span>
               <span>
-                <a href="" className="ss-span-a-cn me-2">
+                <a href="#" className="ss-span-a-cn me-2">
                   Data Scientist
                 </a>
               </span>
               <span>
-                <a href="" className="ss-span-a-cn me-2">
+                <a href="#" className="ss-span-a-cn me-2">
                   Front-End Developer
                 </a>
               </span>
-              <a style={{ color: "#37a000" }} href="">
+              <a style={{ color: "#37a000" }} href="#">
                 <strong>See more</strong>
               </a>
             </div>

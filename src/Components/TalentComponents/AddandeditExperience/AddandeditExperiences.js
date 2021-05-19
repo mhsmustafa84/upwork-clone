@@ -8,8 +8,8 @@ export default function AddandeditExperience() {
             "\n    @import url(//db.onlinewebfonts.com/c/3def92f7b2ad644bd382798ecc8ca4c7?family=Canela);\n     {\n        .container {\n             ;\n        }\n    }\n\n    * {\n        margin: 0;\n        padding: 0;\n        \n\n    }\n    body{\n        ;\n\n    }\n",
         }}
       />
-      <div className="container card ">
-        <div className="row mt-2">
+      <div className="container card my-5">
+        <div className="row mt-3">
           <div className="col-md-8">
             <h2 className="mb-3">Other Experiences</h2>
           </div>

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react'
 import Question from '../Question/Question'
 
@@ -16,12 +17,12 @@ export default function Questions() {
                     </div>
                 </div>
                 <div className="col-xl-7 col-12 shadow-sm pb-5">
-                   <Question />
-                   <Question />
-                   <Question />
-                   <Question />
-                
-                
+                    <Question />
+                    <Question />
+                    <Question />
+                    <Question />
+
+
                 </div>
                 <div className="row">
                     <div className="col-xl-4">

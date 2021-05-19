@@ -1,10 +1,11 @@
+/* eslint-disable jsx-a11y/scope */
 import React from "react";
 
 export default function TransactionTable({ transactiondata }) {
   return (
     <>
-      <div class="table-responsive">
-        <table class="table">
+      <div className="table-responsive">
+        <table className="table">
           <thead>
             <tr>
               <th scope="col">DATE</th>
@@ -20,22 +21,22 @@ export default function TransactionTable({ transactiondata }) {
               return (
                 <>
                   <tr>
-                    <td scope="col" key={index}>
+                    <td key={index}>
                       {element.DATE}
                     </td>
-                    <td scope="col" key={index}>
+                    <td key={index}>
                       {element.TYPE}
                     </td>
                     <td colspan="2" key={index}>
                       {element.DESCRIPTION}
                     </td>
-                    <td scope="col" key={index}>
+                    <td key={index}>
                       {element.CLIENT}
                     </td>
-                    <td scope="col" key={index}>
+                    <td key={index}>
                       {element.AMOUNT}
                     </td>
-                    <td scope="col" key={index}>
+                    <td key={index}>
                       {element.REFID}
                     </td>
                   </tr>

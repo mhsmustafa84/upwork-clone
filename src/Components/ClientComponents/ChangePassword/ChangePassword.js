@@ -19,10 +19,10 @@ export default function ChangePassword() {
               <i className="fas fa-check-circle me-2"></i>Password has been set
             </p>
           </div>
-          <div class="col-md-6 d-flex justify-content-end">
+          <div className="col-md-6 d-flex justify-content-end">
             <button
               type="button"
-              class="btn btn-default me-2 d-flex justify-content-center border rounded-circle"
+              className="btn btn-default me-2 d-flex justify-content-center border rounded-circle"
               style={{
                 width: "30px",
                 height: "30px",
@@ -34,7 +34,7 @@ export default function ChangePassword() {
               data-bs-target="#exampleModal3"
             >
               <div>
-                <i class="fas fa-pen"></i>
+                <i className="fas fa-pen"></i>
               </div>
             </button>
           </div>
@@ -45,28 +45,28 @@ export default function ChangePassword() {
       </div>
 
       <div
-        class="modal fade"
+        className="modal fade"
         id="exampleModal3"
         tabindex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">
                 Change Password
               </h5>
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               <form>
-                <div class=" mb-3">
+                <div className=" mb-3">
                   <label
                     for="exampleFormControlInput1"
                     className="form-label fw-bold"
@@ -75,7 +75,7 @@ export default function ChangePassword() {
                   </label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="exampleFormControlInput1"
                     style={{ border: "1px solid #008329" }}
                   />
@@ -83,7 +83,7 @@ export default function ChangePassword() {
                     Tips for Creating a stronger password
                   </small>
                 </div>
-                <div class=" row mb-3 mt-3">
+                <div className=" row mb-3 mt-3">
                   <div className="col-md-6">
                     <label
                       for="exampleFormControlInput2"
@@ -106,7 +106,7 @@ export default function ChangePassword() {
                 </div>
                 <input
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   id="exampleFormControlInput1"
                 />
 
@@ -118,7 +118,7 @@ export default function ChangePassword() {
                 </label>
                 <input
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   id="exampleFormControlInput1"
                 />
                 <div className="input-group-text mt-2 bg-white">
@@ -134,7 +134,7 @@ export default function ChangePassword() {
                 </div>
               </form>
             </div>
-            <div class="modal-footer">
+            <div className="modal-footer">
               <CustomButtonwithbackground headers="cancel" />
               <CustomButtonwithoutbackground headers="save" />
             </div>
