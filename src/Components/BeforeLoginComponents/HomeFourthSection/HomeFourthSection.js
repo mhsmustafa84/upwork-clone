@@ -133,7 +133,7 @@ export default function HomeFourthSection() {
                 className="btn border shadow-none px-4 py-2 fs-5"
                 style={{ color: "#37a000" }}
               >
-                Browe all
+                Browse all
               </button>
             </div>
           </div>
