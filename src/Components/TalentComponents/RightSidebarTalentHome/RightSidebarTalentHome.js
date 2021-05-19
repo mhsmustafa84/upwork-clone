@@ -2,11 +2,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { talentDataAction } from "../../../Store/actions/talentData";
 
 export default function RightSidebarTalentHome() {
+const { t } = useTranslation();
+
 
   const user = useSelector(state => state.talentData);
   const dispatch = useDispatch();
@@ -30,15 +33,15 @@ export default function RightSidebarTalentHome() {
       </div>
       <div className="my-lg-1">
         <Link to="/profile" className="advanced-search-link ">
-          <i className="fas fa-eye"> </i> View Profile
+          <i className="fas fa-eye"> </i> {t("View Profile")}
         </Link>
       </div>
       <div className="my-lg-1 fw-bold">
-        <p>Visibility</p>
+        <p>{t("Visibility")}</p>
       </div>
       <div className="my-lg-1 ">
         <i className="fas fa-globe"> </i>
-        <span> Public</span>
+        <span> {t("Public")}</span>
         <span className="btn-group float-sm-end px-lg-1">
           <button
             type="button"
@@ -54,13 +57,12 @@ export default function RightSidebarTalentHome() {
       </div>
       <div className="my-3" />
       <div className="my-lg-1 fw-bold">
-        <p>Availability</p>
+        <p>{t("Availability")}</p>
       </div>
       <div className="my-lg-1">
         <i className="far fa-clock" />
         <span>
-          {" "}
-          As Needed -{" "}
+          As Needed 
           <span className="btn-group float-sm-end px-lg-1">
             <button
               type="button"
@@ -73,7 +75,6 @@ export default function RightSidebarTalentHome() {
               <i className="fas fa-pen" aria-hidden="true" />
             </button>
           </span>
-          Open to offers
         </span>
         <div className="progress" style={{ height: 5, display: "inline" }}>
           <div

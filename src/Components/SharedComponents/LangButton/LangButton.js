@@ -17,6 +17,7 @@ export default function LangButton() {
             : lang = "en";
         dispatch(langAction(lang));
         localStorage.setItem("lang", JSON.stringify(lang));
+        window.location.reload();
     }
 
     return (
