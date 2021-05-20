@@ -1,9 +1,9 @@
 const lang = {
     ar : {
         Getyourfreeaccount: "احصل على حسابك المجاني",
-        ContinuewithGoogle:"تواصل مع جوجل",
-        ContinuewithApple:"تواصل مع أبل",
-        ContinuewithEmail:"تواصل مع البريد الإلكتروني",
+        ContinuewithGoogle:"تابع باستخدام حساب جوجل",
+        ContinuewithApple:"تابع باستخدام حساب أبل",
+        ContinuewithEmail:"تابع باستخدام بريدك الإلكترونى",
     },
     en : {
         Getyourfreeaccount: "Get your free account",

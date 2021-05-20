@@ -1,7 +1,7 @@
 const lang = {
     ar: {
         Trustedby5Mbusinesses: "موثوق به من قبل أكثر من 5 ملايين شركة",
-        Morethan60kjobs: "يتم نشر أكثر من 60 ألف وظيفة على Upwork كل أسبوع",
+        Morethan60kjobs: "يتم نشر أكثر من 60 ألف وظيفة على ابورك كل أسبوع",
         Findwhatyourneed: "اعثر على ما تحتاجه",
         Choosefromspecializedfreelancers: "اختر من بين المستقلين المتخصصين والوكالات التي لديها أكثر من 5000 مهارة.",
         Posttodayhiretomorrow: "انشر اليوم ، وظف غدًا",

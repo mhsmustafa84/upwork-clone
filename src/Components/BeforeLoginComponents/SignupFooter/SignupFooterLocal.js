@@ -1,6 +1,6 @@
 const lang = {
     ar : {
-        UpworkGlobalInc: " © 2015 - 2021 Upwork® Global Inc.",
+        UpworkGlobalInc: " © 2015 - 2021 شركة ابورك العالمية",
         AboutUs:"معلومات عنا",
         Feedback:"تعليق",
         Community:"تواصل اجتماعي",

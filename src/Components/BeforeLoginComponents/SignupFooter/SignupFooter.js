@@ -1,19 +1,22 @@
 /* eslint-disable */
 import React from "react";
+import { useTranslation } from "react-i18next";  
+
 
 export default function SignupFooter() {
+    const { t }=useTranslation();
     return (
         <footer className="text-center">
             <ul className="list-unstyled text-white">
-                <li> © 2015 - 2021 Upwork® Global Inc.</li>
+                <li>{t("UpworkGlobalInc")}</li>
                 <li>
-                    <a href="#">About Us</a>
+                    <a href="#">{t("AboutUs")}</a>
                 </li>
                 <li>
-                    <a href="#">Feedback</a>
+                    <a href="#">{t("Feedback")}</a>
                 </li>
                 <li>
-                    <a href="#">Community</a>
+                    <a href="#">{t("Community")}</a>
                 </li>
             </ul>
         </footer>

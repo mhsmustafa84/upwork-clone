@@ -1,7 +1,9 @@
 /* eslint-disable */
 import React from "react";
 import "./HomeSecondSection.css";
+import { useTranslation } from "react-i18next";  
 export default function HomeSecondSection() {
+  const { t }=useTranslation();
   return (
     <section>
       <div className="container">
@@ -10,11 +12,10 @@ export default function HomeSecondSection() {
             <div className="fs-1 mt-4">
               <i className="fas fa-chevron-down scrol-d-icon-cn"></i>
             </div>
-            <p className="my-5 fw-bold ss-p-cn">FOR CLIENTS</p>
-            <h2 className="ss-h2-cn">Find talent your way</h2>
+            <p className="my-5 fw-bold ss-p-cn">{t("FORCLIENTS")}</p>
+            <h2 className="ss-h2-cn">{t("Findtalentyourway")}</h2>
             <p className="my-5 ss-p2-cn">
-              Develop trusted relationships and build your own virtual talent
-              bench for quick project turnarounds or big transformations.
+            {t("Developtrustedrelationships")}
             </p>
           </div>
         </div>
@@ -22,8 +23,8 @@ export default function HomeSecondSection() {
           <div className="col-md-4 col-sm-12">
             <div className="shadow my-4 ss-box-cn position-relative">
               <a className="d-inline-block p-5" href="#">
-                <h3>Post a job and hire a pro</h3>
-                <p className="mb-5 pb-5">Talent Marketplace</p>
+                <h3>{t("Postajobandhireapro")}</h3>
+                <p className="mb-5 pb-5">{t("TalentMarketplace")}</p>
                 <div className="position-absolute py-3 px-4 fs-2">
                   <i className="fas fa-arrow-right"></i>
                 </div>
@@ -33,8 +34,8 @@ export default function HomeSecondSection() {
           <div className="col-md-4 col-sm-12">
             <div className="shadow my-4 ss-box-cn position-relative">
               <a className="d-inline-block p-5" href="#">
-                <h3>Browse and buy projects</h3>
-                <p className="mb-5 pb-5">Project Catalog</p>
+                <h3>{t("Browseandbuyprojects")}</h3>
+                <p className="mb-5 pb-5">{t("ProjectCatalog")}</p>
                 <div className="position-absolute py-3 px-4 fs-2">
                   <i className="fas fa-arrow-right"></i>
                 </div>
@@ -44,8 +45,8 @@ export default function HomeSecondSection() {
           <div className="col-md-4 col-sm-12">
             <div className="shadow my-4 ss-box-cn position-relative">
               <a className="d-inline-block p-5" href="#">
-                <h3>Let us find the right talent</h3>
-                <p className="mb-5 pb-5">Talent Scout</p>
+                <h3>{t("Letusfindtherighttalent")}</h3>
+                <p className="mb-5 pb-5">{t("TalentScout")}</p>
                 <div className="position-absolute py-3 px-4 fs-2">
                   <i className="fas fa-arrow-right"></i>
                 </div>
@@ -53,9 +54,9 @@ export default function HomeSecondSection() {
             </div>
           </div>
           <p className="text-center my-3 fw-bold">
-            Need a solution for large organizations?{" "}
+          {t("Needasolutionforlargeorganizations")}{" "}
             <a href="#" className="text-success">
-              Enterprise Suite has you covered.
+            {t("EnterpriseSuitehasyoucovered")}
             </a>
           </p>
         </div>
@@ -64,37 +65,37 @@ export default function HomeSecondSection() {
             <ul>
               <li>
                 <a href="#" className="ss-ul-a-cn" style={{ color: "#6FDA44" }}>
-                  Development & IT
+                {t("DevelopmentIT")}
                 </a>
               </li>
               <li>
                 <a href="#" className="ss-ul-a-cn">
-                  Design & Creative
+                {t("DesignCreative")}
                 </a>
               </li>
               <li>
                 <a href="#" className="ss-ul-a-cn">
-                  Sales & Marketing
+                {t("SalesMarketing")}
                 </a>
               </li>
               <li>
                 <a href="#" className="ss-ul-a-cn">
-                  Writing
+                {t("Writing")}
                 </a>
               </li>
               <li>
                 <a href="#" className="ss-ul-a-cn">
-                  Customer Support
+                {t("CustomerSupport")}
                 </a>
               </li>
               <li>
                 <a href="#" className="ss-ul-a-cn">
-                  Accounting
+                {t("Accounting")}
                 </a>
               </li>
               <li>
                 <a href="#" className="ss-ul-a-cn" style={{ color: "#6FDA44" }}>
-                  See all catrgories
+                {t("Seeallcatrgories")}
                 </a>
               </li>
             </ul>
@@ -103,42 +104,42 @@ export default function HomeSecondSection() {
             <div className="ms-5 mt-4">
               <span>
                 <a href="#" className="ss-span-a-cn">
-                  AR/VR Development
+                {t("ARVRDevelopment")}
                 </a>
               </span>
               <span>
                 <a href="#" className="ss-span-a-cn">
-                  Automation Testing
+                {t("AutomationTesting")}
                 </a>
               </span>
               <span>
                 <a href="#" className="ss-span-a-cn">
-                  Back-End Development
+                {t("BackEndDevelopment")}
                 </a>
               </span>
               <span>
                 <a href="#" className="ss-span-a-cn">
-                  Business Applications Development
+                {t("BusinessApplicationsDevelopment")}
                 </a>
               </span>
               <span>
                 <a href="#" className="ss-span-a-cn">
-                  CMS Development
+                {t("CMSDevelopment")}
                 </a>
               </span>
               <span>
                 <a href="#" className="ss-span-a-cn">
-                  Cloud Engineering
+                {t("CloudEngineering")}
                 </a>
               </span>
               <span>
                 <a href="#" className="ss-span-a-cn">
-                  Coding Tutoring
+                {t("CodingTutoring")}
                 </a>
               </span>
               <span>
                 <a href="#" className="ss-span-a-cn">
-                  Database Administration
+                {t("DatabaseAdministration")}
                 </a>
               </span>
             </div>

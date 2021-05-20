@@ -5,9 +5,9 @@ const lang = {
         Forgotpassword:"هل نسيت كلمة السر؟",
         Login:"تسجيل الدخول",
         Notyou:"ليس انت؟",
-        Signinwithgoogle:" تسجيل الدخول مع جوجل",
-        signinwithapple:"تسجيل الدخول مع ابل",
-        NewToUpwork:"جديد في Upwork؟",
+        Signinwithgoogle:" تسجيل الدخول بواسطة حساب جوجل",
+        signinwithapple:"تسجيل الدخول بواسطة حساب ابل",
+        NewToUpwork:"جديد في ابورك؟",
         SignUp:"اشتراك"
     },
     en : {
