@@ -1,11 +1,20 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 /* eslint-disable */
 import React from "react";
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function AllContractsBottomSection() {
+  const { t } = useTranslation();
   return (
     <div className="text-center">
-      <svg className="py-4 mt-5" width="145px" role="img" viewBox="0 0 145 130" xmlns="http://www.w3.org/2000/svg">
+      <svg
+        className="py-4 mt-5"
+        width="145px"
+        role="img"
+        viewBox="0 0 145 130"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <circle cx="69.4" cy="65" fill="#1d4354" r="64.5"></circle>
         <path
           d="M7.6 83.4c7.9 26.6 32.6 46.1 61.8 46.1 29.2 0 53.9-19.4 61.8-46.1H7.6z"
@@ -47,18 +56,15 @@ export default function AllContractsBottomSection() {
           fill="#34ba08"
         ></path>
       </svg>
-      <h3>You haven't started any contracts yet.</h3>
+      <h3>{t("You haven't started any contracts yet.")}</h3>
       <h3>
-        // eslint-disable-next-line
+        <Link  to="/post-job" className="text-success">
+          {t("Post a job")}
+        </Link>
+        {t("or")}
         <a href="#" className="text-success">
-          Post a job
-        </a>{" "}
-        or{" "}
-        <a href="#" className="text-success">
-          {" "}
-          check out who's applied
-        </a>{" "}
-        to your existing job posts.
+          {t("check out who's applied to your existing job posts.")}
+        </a>
       </h3>
     </div>
   );

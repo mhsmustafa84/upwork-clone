@@ -1,7 +1,9 @@
-
 /* eslint-disable */
 import React from "react";
+import { useTranslation } from "react-i18next";
+
 export default function TestimonialsProfileTalent() {
+  const { t } = useTranslation();
   return (
     <>
       <style
@@ -13,7 +15,7 @@ export default function TestimonialsProfileTalent() {
       <div className="container card mb-3 mt-5">
         <div className="row mt-3">
           <div className="col">
-            <h2 className="mb-0">Testimonials</h2>
+            <h2 className="mb-0">{t("Testimonials")}</h2>
             <h6 className="mb-3">Endorsements from past clients</h6>
           </div>
           <div className="col d-flex justify-content-end">

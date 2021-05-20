@@ -3,11 +3,11 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import firebaseApp from "../../../firebase";
 import { useHistory } from 'react-router-dom';
+import LanguageList from "../../SharedComponents/LanguageBtn/LanguageList";
 
 export default function NavLargScreen() {
 
   const { push } = useHistory();
-
   const logout = () => {
     firebaseApp.auth().signOut()
       .then((res) => {
@@ -229,6 +229,9 @@ export default function NavLargScreen() {
                 </button>
               </li>
             </ul>
+          </li>
+          <li>
+              <LanguageList />
           </li>
         </ul>
       </div>

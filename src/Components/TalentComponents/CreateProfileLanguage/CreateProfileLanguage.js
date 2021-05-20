@@ -1,10 +1,18 @@
+import { add } from "date-fns";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { updateUserData } from "../../../Network/Network";
+import AddLanguage from "../AddLanguage/AddLanguge";
+import NewLang from "../NewLang/NewLang";
 
 export default function CreateProfileLanguage() {
   let [language, setlanguage] = useState("");
-
+  const [addlang, setaddlang] = useState(false);
+  const [languagesList, setlanguagesList] = useState([])
+  const toggleAddLang = () =>
+ {
+    setaddlang(!addlang)
+ }
   const lang = (e) => {
     // updateUserData("talent", { englishProficiency: e.target.value });
     language = e.target.value;
@@ -13,7 +21,13 @@ export default function CreateProfileLanguage() {
   const updateuser = () => {
     updateUserData("talent", { englishProficiency: language });
     console.log(language);
+    console.log(languagesList);
   };
+  const addlangToList = (newLang) =>
+  {
+      languagesList.push(newLang)
+      setlanguagesList(languagesList)
+  }
   return (
     <section className=" bg-white border rounded mt-3 pt-4">
       <div className="border-bottom ps-4 pb-3">
@@ -32,6 +46,12 @@ export default function CreateProfileLanguage() {
           <option value="Fluent">Fluent</option>
           <option value="Native">Native</option>
         </select>
+        {
+          addlang ?
+          <NewLang toggleAddLang = {toggleAddLang} addlangToList={addlangToList}/> :
+        <AddLanguage toggleAddLang = {toggleAddLang} languagesList={languagesList}/>
+        
+}
       </div>
       <div className="px-4 my-3 pt-4 border-top d-flex justify-content-between">
         <Link

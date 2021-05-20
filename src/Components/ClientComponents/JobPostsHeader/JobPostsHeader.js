@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function JobPostsHeader() {
   return (
@@ -18,9 +19,9 @@ export default function JobPostsHeader() {
 
         <div className="col-7"></div>
         <div className="col-2">
-          <button type="button" className="btn btn-success">
+          <Link  to="/post-job" className="btn bg-upwork">
             Post a New Job
-            </button>
+            </Link>
         </div>
       </div>
     </div>

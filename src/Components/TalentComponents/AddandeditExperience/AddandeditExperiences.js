@@ -1,5 +1,8 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+
 export default function AddandeditExperience() {
+  const { t } = useTranslation();
   return (
     <>
       <style
@@ -11,7 +14,7 @@ export default function AddandeditExperience() {
       <div className="container card my-5">
         <div className="row mt-3">
           <div className="col-md-8">
-            <h2 className="mb-3">Other Experiences</h2>
+            <h2 className="mb-3">{t("Other Experiences")}</h2>
           </div>
           <div className="col-md-4 d-flex justify-content-end ">
             <button
@@ -36,7 +39,7 @@ export default function AddandeditExperience() {
           <div className="row">
             {/* soft skills */}
             <div className="col-md-6">
-              <h5>Softskills</h5>
+              <h5>{t("Softskills")}</h5>
               <p style={{ fontFamily: "Gotham SSm" }} className="mb-0">
                 Trainee at Marketing with Amir (MWA) course (2019)
               </p>
@@ -51,7 +54,7 @@ export default function AddandeditExperience() {
                 className="btn btn-link border rounded-border mb-3"
                 style={{ textDecoration: "none", color: "#008329" }}
               >
-                more
+                {t("more")}
               </button>
             </div>
             {/* icons */}

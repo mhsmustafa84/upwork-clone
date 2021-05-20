@@ -1,6 +1,9 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function SearchJobPosts() {
+  const { t } = useTranslation();
+
   return (
     <div>
       <form className="row align-items-center">
@@ -10,10 +13,10 @@ export default function SearchJobPosts() {
               type="text"
               className="form-control btn-outline-success bg-white"
               id="SearchForJobPosts"
-              placeholder="Search iob postings"
+              placeholder={t("Search job postings")}
             />
             <div className="input-gruop-text">
-              <button type="button" className="btn btn-success ">
+              <button type="button" className="btn bg-upwork ">
                 <i className="fas fa-search" />
               </button>
             </div>
@@ -28,7 +31,7 @@ export default function SearchJobPosts() {
             aria-expanded="false"
             aria-controls="collapseExample"
           >
-            <i className="fas fa-filter" /> Filters
+            <i className="fas fa-filter" /> {t("Filters")}
           </button>
         </div>
       </form>

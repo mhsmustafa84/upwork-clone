@@ -8,12 +8,13 @@ import { useTranslation } from "react-i18next";
 
 
 export default function LoginTemp() {
-  const { t }=useTranslation();
 
   const [user, setUser] = useState({ email: "", password: "" });
   const [emailError, setEmailErorr] = useState("");
   const [PasswordError, setPasswordErrorr] = useState("");
   const { push } = useHistory();
+
+  const { t } = useTranslation();
 
   const getUserData = e => {
     const name = e.target.name;

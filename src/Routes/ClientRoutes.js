@@ -38,6 +38,7 @@ export default function ClientRoutes() {
         <Route path="/transaction-history" exact component={TransactionHistory} />
         <Route path="/searchclient" exact component={SearchClient} />
         <Route path="**" component={PageNotFound} />
+        {/* <Route path="**" component={PageNotFound} /> */}
       </Switch>
       <Footer />
     </>

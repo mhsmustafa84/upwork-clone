@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 import './SavedJobsHeader.css';
 import { useTranslation } from "react-i18next";
 import { Link, NavLink } from "react-router-dom";

@@ -6,6 +6,8 @@ import {
   useLocation,
   useHistory,
 } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 import Available from "../../../../Components/TalentComponents/Available/Available";
 import InReview from "../../../../Components/TalentComponents/InReviewComponent/InReview";
 import Pending from "../../../../Components/TalentComponents/Pending/pending";
@@ -14,13 +16,14 @@ export default function OverviewReports() {
   const { pathname } = useLocation();
   const { push } = useHistory();
   pathname === "/overview" && push("/overview/work-in-progress");
+  const { t } = useTranslation();
   return (
     <Router>
       <>
         <style
           dangerouslySetInnerHTML={{
             __html:
-              "\n        @import url(//db.onlinewebfonts.com/c/3def92f7b2ad644bd382798ecc8ca4c7?family=Canela);              .container .nav-tabs>li>a.active h4 {\n            color: #73bb44\n        }\n\n        .container .nav-tabs>li>a.active span {\n            color: #73bb44;\n            \n        }\n        .container .nav-tabs>li>a.active{\n            background-color:#f1f2f4;\n        }\n\n\n        .container .nav-tabs>li>a h4 {\n            color: black;\n        }\n\n        .container .nav-tabs>li>a span {\n            color: black;\n        }\n\n        .container .nav-tabs>li>a h1 {\n            color: black;\n        }\n        body{\n            background-color:#f1f2f4\n        }\n    ",
+              "\n @import url(//db.onlinewebfonts.com/c/3def92f7b2ad644bd382798ecc8ca4c7?family=Canela);              .container .nav-tabs>li>a.active h4 {\n            color: #73bb44\n        }\n\n        .container .nav-tabs>li>a.active span {\n            color: #73bb44;\n            \n        }\n        .container .nav-tabs>li>a.active{\n            background-color:#f1f2f4;\n        }\n\n\n        .container .nav-tabs>li>a h4 {\n            color: black;\n        }\n\n        .container .nav-tabs>li>a span {\n            color: black;\n        }\n\n        .container .nav-tabs>li>a h1 {\n            color: black;\n        }\n        body{\n            background-color:#f1f2f4\n        }\n    ",
           }}
         />
 
@@ -33,7 +36,7 @@ export default function OverviewReports() {
               <li
                 className="nav-item"
                 role="presentation"
-              // style={{ backgroundColor: "#f1f2f4" }}
+                // style={{ backgroundColor: "#f1f2f4" }}
               >
                 <NavLink
                   id="ex2-tab-1"
@@ -47,7 +50,7 @@ export default function OverviewReports() {
                   }}
                 >
                   <h4 className="nowrap m-0-bottom">
-                    Work in progress
+                    {t("Work in progress")}
                     <span className="m-0-left-right d-lg-inline">
                       <i
                         className="far fa-question-circle"
@@ -59,7 +62,7 @@ export default function OverviewReports() {
                     </span>
                   </h4>
                   <h1 className="m-xs-top-bottom nowrap ">
-                    <strong className="lead-lg">$0.00</strong>
+                    <strong className="lead-lg">{t("$0.00")}</strong>
                   </h1>
                   <p className="m-0-bottom text-muted nowrap d-none d-lg-block">
                     &nbsp;
@@ -75,7 +78,7 @@ export default function OverviewReports() {
                   style={{ textDecoration: "none" }}
                 >
                   <h4 className="nowrap m-0-bottom">
-                    In review
+                    {t("In review")}
                     <span className="m-0-left-right d-lg-inline">
                       <i
                         className="far fa-question-circle"
@@ -87,7 +90,7 @@ export default function OverviewReports() {
                     </span>
                   </h4>
                   <h1 className="m-xs-top-bottom nowrap ">
-                    <strong className="lead-lg">$0.00</strong>
+                    <strong className="lead-lg">{t("$0.00")}</strong>
                   </h1>
                   <p className="m-0-bottom text-muted nowrap d-lg-block">
                     &nbsp;
@@ -103,7 +106,7 @@ export default function OverviewReports() {
                   style={{ textDecoration: "none" }}
                 >
                   <h4 className="nowrap m-0-bottom">
-                    Pending
+                    {t("Pending")}
                     <span className="m-0-left-right  d-lg-inline">
                       <i
                         className="far fa-question-circle"
@@ -118,7 +121,7 @@ export default function OverviewReports() {
                     </span>
                   </h4>
                   <h1 className="m-xs-top-bottom nowrap ">
-                    <strong className="lead-lg">$0.00</strong>
+                    <strong className="lead-lg">{t("$0.00")}</strong>
                   </h1>
                   <p className="m-0-bottom text-muted nowrap d-lg-block">
                     &nbsp;
@@ -135,7 +138,7 @@ export default function OverviewReports() {
                   style={{ textDecoration: "none" }}
                 >
                   <h4 className="nowrap m-0-bottom">
-                    Available
+                    {t("Available")}
                     <span className="m-0-left-right  d-lg-inline">
                       <i
                         className="far fa-question-circle"
@@ -146,13 +149,13 @@ export default function OverviewReports() {
                     </span>
                   </h4>
                   <h1 className="m-xs-top-bottom nowrap ">
-                    <strong className="lead-lg">$0.00</strong>
+                    <strong className="lead-lg">{t("$0.00")}</strong>
                   </h1>
                   <p className="m-0-bottom text-muted nowrap d-lg-block">
                     &nbsp;
                   </p>
                   <p className="m-0-bottom text-muted nowrap d-lg-block">
-                    Last payment: $0.00
+                    {t("Last payment")} :$0.00
                   </p>
                 </NavLink>
               </li>

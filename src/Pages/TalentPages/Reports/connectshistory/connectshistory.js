@@ -33,7 +33,7 @@ export default function ConnectsHistory() {
           </div>
           <div className=" text-end col-sm-5">
             <Link
-              className="btn btn-success"
+              className="btn bg-upwork"
               to="buyconnects"
               role="button"
               style={{
