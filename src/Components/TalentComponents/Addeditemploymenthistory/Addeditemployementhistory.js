@@ -1,6 +1,9 @@
 /* eslint-disable */
 import React from "react";
+import { useTranslation } from "react-i18next";
+
 export default function AddandeditEmployementHistory() {
+  const { t } = useTranslation();
   return (
     <>
       <style
@@ -12,7 +15,7 @@ export default function AddandeditEmployementHistory() {
       <div className="container card mb-3 mt-5">
         <div className="row mt-3">
           <div className="col">
-            <h2 className="mb-3">Employment history</h2>
+            <h2 className="mb-3">{t("Employment history")}</h2>
           </div>
           <div className="col d-flex justify-content-end">
             <button
@@ -48,7 +51,7 @@ export default function AddandeditEmployementHistory() {
                 className="btn btn-link mb-3 border rounded-border"
                 style={{ textDecoration: "none", color: "#008329" }}
               >
-                more
+                {t("more")}
               </button>
             </div>
             {/* icons */}

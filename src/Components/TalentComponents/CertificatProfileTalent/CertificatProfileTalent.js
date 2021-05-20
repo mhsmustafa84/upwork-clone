@@ -1,6 +1,9 @@
 /* eslint-disable */
 import React from "react";
+import { useTranslation } from "react-i18next";
+
 export default function CertificatProfileTalent() {
+  const { t } = useTranslation();
   return (
     <>
       <style
@@ -12,7 +15,7 @@ export default function CertificatProfileTalent() {
       <div className="container card mb-3 mt-5">
         <div className="row mt-3">
           <div className="col">
-            <h2 className="mb-3">Certifications</h2>
+            <h2 className="mb-3">{t("Certifications")}</h2>
           </div>
           <div className="col d-flex justify-content-end">
             <button
@@ -38,7 +41,7 @@ export default function CertificatProfileTalent() {
             {/*  employment skills */}
             <div className="col-md-3">
               <img
-                style={{ marginBottom: '100px' }}
+                style={{ marginBottom: "100px" }}
                 data-v-8e540bb6
                 src="https://assets.static-upwork.com/images/certification/logos/high/graphic-design.png"
                 alt=""
@@ -47,7 +50,10 @@ export default function CertificatProfileTalent() {
             <div className="col-md-6">
               <h5>Upwork Skill Certification - Graphic Design</h5>
               <p className="mb-0 fw-bold">UPWORK</p>
-              <p style={{ fontFamily: "Gotham SSm" }} className="mb-0 text-muted">
+              <p
+                style={{ fontFamily: "Gotham SSm" }}
+                className="mb-0 text-muted"
+              >
                 Issued February 2021
               </p>
               <p style={{ fontFamily: "Gotham SSm" }} className="mb-0">
