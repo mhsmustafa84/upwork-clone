@@ -238,9 +238,29 @@
     "Fixed Price":"سعر ثابت",
     "mm/dd/yyyy":"شهر/يوم/سنه",
     "choose the date":"اختار التاريخ",
-    "go":"فلتر"
-    
-
-
-
+    "go":"فلتر",
+    "COMPANY": "شركة",
+    "InvestorRelations": "علاقات المستثمرين",
+    "Careers": "وظائف",
+    "UpworkFoundation": "مؤسسة ابورك",
+    "Press": "صحافة",
+    "TrustSafetySecurity": "الثقة والأمان والأمن",
+    "TermsofService": "شروط الخدمة",
+    "Accessibility": "إمكانية الوصول",
+    "RESOURCES": "مصادر",
+    "Resources": "موارد",
+    "CustomerStories": "قصص العملاء",
+    "BusinessResources": "موارد الأعمال",
+    "PayrollServices": "خدمات الرواتب",
+    "UpworkReviews": "مراجعات ابورك",
+    "BROWSE": "تصفح",
+    "FreelancersbySkill": "لحسابهم الخاص من قبل سكيل",
+    "FreelancersinUSA": "لحسابهم الخاص في الولايات المتحدة الأمريكية",
+    "FreelancersinUK": "لحسابهم الخاص في المملكة المتحدة",
+    "FreelancersinCanada": "لحسابهم الخاص في كندا",
+    "FreelancersinAustralia": "لحسابهم الخاص في أستراليا",
+    "JobsinUSA": "وظائف في الولايات المتحدة",
+    "FindJobs": "العثور على وظائف",
+    "Followus": "تابعنا",
+    "Mobileapp": "تطبيق الهاتف المحمول"
 }
