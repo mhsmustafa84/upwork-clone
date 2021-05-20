@@ -1,8 +1,8 @@
 import React from 'react'
 import './HeaderForDevItTalent.css'
-import talentHeaderDevIT from '../../../assets/Img/talent-header-Dev-IT.png'
-import talentHeaderBgSvg1DevIT from "../../../assets/Img/talent-header-bg-svg1-Dev-IT.svg"
-import talentHeaderBgSvg2DevIT from "../../../assets/Img/talent-header-bg-svg2-Dev-IT.svg"
+import talentHeaderDevIT from '../../../assets/img/talent-header-Dev-IT.png'
+import talentHeaderBgSvg1DevIT from "../../../assets/img/talent-header-bg-svg1-Dev-IT.svg"
+import talentHeaderBgSvg2DevIT from "../../../assets/img/talent-header-bg-svg2-Dev-IT.svg"
 
 export default function HeaderForDevItTalent() {
     return (

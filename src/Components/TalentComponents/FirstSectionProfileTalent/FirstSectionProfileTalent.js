@@ -3,14 +3,16 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { talentDataAction } from "../../../Store/actions/talentData";
-import img from "../../../assets/Img/icon-user.svg"
+import img from "../../../assets/img/icon-user.svg";
+import { useTranslation } from "react-i18next";
 
 export default function FirstSectionProfileTalent() {
-  const user = useSelector(state => state.talentData);
+  const user = useSelector((state) => state.talentData);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(talentDataAction());
   }, []);
+  const { t } = useTranslation();
   return (
     <>
       <div className="container card mb-3 mt-5">
@@ -33,17 +35,19 @@ export default function FirstSectionProfileTalent() {
               id="job-title-home-page "
               className="link-dark job-title-hover "
             >
-              <h2 className="fw-bold">{user.firstName + " "} {user.lastName}.</h2>
+              <h2 className="fw-bold">
+                {user.firstName + " "} {user.lastName}.
+              </h2>
             </a>
             <div className={user.location && "fas fa-map-marker-alt"}>
               <span>
-                {user.location &&
+                {user.location && (
                   <>
                     user.location.city + ", "
-                  <strong>{user.location.country}– </strong>
+                    <strong>{user.location.country}– </strong>
                   </>
-                }
-                {new Date().toLocaleTimeString()} local time
+                )}
+                {new Date().toLocaleTimeString()} {t("local time")}
               </span>
             </div>
             <div className="row py-3">
@@ -64,22 +68,16 @@ export default function FirstSectionProfileTalent() {
                     />
                   </svg>
                 </span>
-                <span className="text-primary"> RISING TALENT</span>
+                <span className="text-primary"> {t("RISING TALENT")}</span>
               </div>
             </div>
           </div>
           <div className="col-2"></div>
 
           <div className="col py-3 mx-1 float-end ">
-            <button
-              type="button"
-              className="btn bg-white btn-outline-secondary  px-4  mx-3"
-            >
-              <span className="text-success fw-bold">See Public view</span>
-            </button>
             <button type="button" className="btn btn-success px-4  mx-3">
-              Profile Settings
-          </button>
+              {t("Profile Settings")}
+            </button>
           </div>
 
           <hr />
@@ -88,32 +86,32 @@ export default function FirstSectionProfileTalent() {
               <div className="row">
                 <div className="col">
                   <div className="fw-bold fs-5">$30</div>
-                  <div className="fs-6">Earnings</div>
+                  <div className="fs-6">{t("Earnings")}</div>
                 </div>
                 <div className="col">
                   <div className="fw-bold fs-5">2</div>
-                  <div className="fs-6">Total Jobs</div>
+                  <div className="fs-6">{t("Total Jobs")}</div>
                 </div>
                 <div className="col">
                   <div className="fw-bold fs-5">10</div>
-                  <div className="fs-6">Total Hours</div>
+                  <div className="fs-6">{t("Total Hours")}</div>
                 </div>
               </div>
               <hr />
               <div>
-                <h5 className="fw-bold">Availability</h5>
+                <h5 className="fw-bold">{t("Availability")}</h5>
                 <h6 className="fw-bold">Available</h6>
                 <p>As Needed - Open to Offers</p>
-                <h5 className="fw-bold">Languages</h5>
+                <h5 className="fw-bold">{t("Languages")}</h5>
                 <span className="fw-bold fs-5">English:</span>
                 <span>Fluent</span>
 
-                <h5 className="fw-bold mt-3">Education</h5>
+                <h5 className="fw-bold mt-3">{t("Education")}</h5>
                 <h5 className="fw-bold">Army Apprentice College</h5>
                 <p>Military and occupational training 1975-1977</p>
                 <h5 className="fw-bold">
                   Toynbee Secondary School, Eastleigh, Hants, UK.
-              </h5>
+                </h5>
                 <p>1970-1975</p>
                 <ul className="list-unstyled">
                   <li className="d-flex">
@@ -127,7 +125,6 @@ export default function FirstSectionProfileTalent() {
                       </div>{" "}
                       <div className="text-muted">2020-2020</div>
                     </div>{" "}
-
                   </li>
                   <li className="d-flex">
                     <div>
@@ -137,7 +134,6 @@ export default function FirstSectionProfileTalent() {
                       <div>Python Programming Basics</div>{" "}
                       <div className="text-muted">2020-2020</div>
                     </div>{" "}
-
                   </li>
                   <li className="d-flex">
                     <div>
@@ -147,13 +143,10 @@ export default function FirstSectionProfileTalent() {
                       <div>Database fundamentals</div>{" "}
                       <div className="text-muted">2020-2020</div>
                     </div>{" "}
-
                   </li>
                   <li className="d-flex">
                     <div>
-                      <h5 className=" fw-bold">
-                        computer science
-                      </h5>{" "}
+                      <h5 className=" fw-bold">computer science</h5>{" "}
                       <div>
                         Bachelor of Computer Science (BCompSc), Designing and
                         developing
@@ -163,17 +156,14 @@ export default function FirstSectionProfileTalent() {
                   </li>{" "}
                   {/**/}
                 </ul>
-
-
               </div>
-
             </div>
 
             <div className="col-6">
               <h4 className="fw-bold">
                 {" "}
-              Full Stack Web Developer | Graphic Designer | Video Editor
-            </h4>
+                Full Stack Web Developer | Graphic Designer | Video Editor
+              </h4>
               <p style={{ fontFamily: "Gotham SSm" }} className="mb-0 mt-4">
                 Looking for a certified freelancer by Upwork! You came to the
                 right person!! Design is a powerful tool of communication and
@@ -181,7 +171,7 @@ export default function FirstSectionProfileTalent() {
                 services which leads to better user experiences and happier
                 customers. I have experience for more than 7 years in different
                 fields of design.
-            </p>
+              </p>
               <p style={{ fontFamily: "Gotham SSm" }} className="mb-0">
                 Lorem web designer{" "}
               </p>
@@ -189,12 +179,12 @@ export default function FirstSectionProfileTalent() {
                 className="btn btn-link mb-3 border rounded-border"
                 style={{ textDecoration: "none", color: "#008329" }}
               >
-                more
-            </button>
+                {t("more")}
+              </button>
               <hr />
 
               <div className="row">
-                <h3 className="col mx-0">Work History</h3>
+                <h3 className="col mx-0">{t("Work History")}</h3>
                 <button
                   type="button"
                   className=" col-1 btn btn-default d-flex justify-content-center border rounded-circle"
@@ -220,7 +210,7 @@ export default function FirstSectionProfileTalent() {
                   <a className="advanced-search-link fw-bold">
                     I'm looking for video, carousel and image advertising
                     creation with branding to make facebook ads
-                </a>
+                  </a>
                   <p className="my-3">
                     <svg
                       id="up-rs"
@@ -265,7 +255,7 @@ export default function FirstSectionProfileTalent() {
                     <span className="fw-bold"> 5.00</span>{" "}
                     <span className="text-muted">
                       Mar 22 2021 - April 21 2021
-                  </span>
+                    </span>
                   </p>
                   <div className="row mb-3">
                     <div className="col">
@@ -285,7 +275,7 @@ export default function FirstSectionProfileTalent() {
                   <a className="advanced-search-link fw-bold">
                     I'm looking for video, carousel and image advertising
                     creation with branding to make facebook ads
-                </a>
+                  </a>
                   <p className="my-3">
                     <svg
                       id="up-rs"
@@ -330,7 +320,7 @@ export default function FirstSectionProfileTalent() {
                     <span className="fw-bold"> 5.00</span>{" "}
                     <span className="text-muted">
                       Mar 22 2021 - April 21 2021
-                  </span>
+                    </span>
                   </p>
                   <div className="row mb-3">
                     <div className="col">
@@ -347,7 +337,7 @@ export default function FirstSectionProfileTalent() {
                 </div>
                 <hr />
                 <div className="row">
-                  <h3 className="col-4 mx-0">Portfolio</h3>
+                  <h3 className="col-4 mx-0">{t("Portfolio")}</h3>
                   <button
                     type="button"
                     className=" col-1 btn btn-default d-flex justify-content-center border rounded-circle"
@@ -437,7 +427,7 @@ export default function FirstSectionProfileTalent() {
                 </div>
                 <hr />
                 <div className="row">
-                  <h3 className="col mx-0">Skills</h3>
+                  <h3 className="col mx-0">{t("Skills")}</h3>
                   <button
                     type="button"
                     className=" col-1 btn btn-default d-flex justify-content-center border rounded-circle"
@@ -463,84 +453,84 @@ export default function FirstSectionProfileTalent() {
                     className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
                   >
                     Training
-                </button>
+                  </button>
                   <button
                     type="button"
                     className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
                   >
                     Education
-                </button>
+                  </button>
                   <button
                     type="button"
                     className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
                   >
                     Marketing
-                </button>
+                  </button>
                   <button
                     type="button"
                     className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
                   >
                     PowerPoint
-                </button>
+                  </button>
                   <button
                     type="button"
                     className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
                   >
                     Html
-                </button>
+                  </button>
                   <button
                     type="button"
                     className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
                   >
                     Css
-                </button>
+                  </button>
                   <button
                     type="button"
                     className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
                   >
                     Marketing
-                </button>
+                  </button>
                   <button
                     type="button"
                     className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
                   >
                     PowerPoint
-                </button>
+                  </button>
                   <button
                     type="button"
                     className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
                   >
                     Html
-                </button>
+                  </button>
                   <button
                     type="button"
                     className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
                   >
                     Css
-                </button>
+                  </button>
                   <button
                     type="button"
                     className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
                   >
                     Marketing
-                </button>
+                  </button>
                   <button
                     type="button"
                     className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
                   >
                     PowerPoint
-                </button>
+                  </button>
                   <button
                     type="button"
                     className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
                   >
                     Html
-                </button>
+                  </button>
                 </div>
               </div>
             </div>
 
-            <h5 className=" mt-4 fw-bold col"> $20/hr</h5>
+            <h5 className=" mt-4 fw-bold col"> {t("$20/hr")}</h5>
             {/* icons */}
 
             <div className="col d-flex justify-content-end">
@@ -596,7 +586,7 @@ export default function FirstSectionProfileTalent() {
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">
                 Add Employment
-            </h5>
+              </h5>
               <button
                 type="button"
                 className="btn-close"
@@ -612,7 +602,7 @@ export default function FirstSectionProfileTalent() {
                     className="form-label fw-bold"
                   >
                     Company
-                </label>
+                  </label>
                   <input
                     type="text"
                     className="form-control"
@@ -625,7 +615,7 @@ export default function FirstSectionProfileTalent() {
                     className="form-label fw-bold"
                   >
                     Title
-                </label>
+                  </label>
                   <input
                     type="text"
                     className="form-control"
@@ -646,7 +636,7 @@ export default function FirstSectionProfileTalent() {
                         aria-expanded="false"
                       >
                         month
-                    </a>
+                      </a>
                       <ul
                         className="dropdown-menu"
                         aria-labelledby="dropdownMenuLink"
@@ -654,57 +644,57 @@ export default function FirstSectionProfileTalent() {
                         <li>
                           <a className="dropdown-item" href="#">
                             January
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             february
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             March
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             Apirl
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             May
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             June
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             July
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             August
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             October
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             November
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             Decemeber
-                        </a>
+                          </a>
                         </li>
                       </ul>
                     </div>
@@ -721,7 +711,7 @@ export default function FirstSectionProfileTalent() {
                         aria-expanded="false"
                       >
                         year
-                    </a>
+                      </a>
                       <ul
                         className="dropdown-menu"
                         aria-labelledby="dropdownMenuLink"
@@ -729,57 +719,57 @@ export default function FirstSectionProfileTalent() {
                         <li>
                           <a className="dropdown-item" href="#">
                             2021
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2020
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2019
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2018
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2017
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2016
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2015
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2014
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2013
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2012
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2011
-                        </a>
+                          </a>
                         </li>
                       </ul>
                     </div>
@@ -798,7 +788,7 @@ export default function FirstSectionProfileTalent() {
                           aria-expanded="false"
                         >
                           month
-                      </a>
+                        </a>
                         <ul
                           className="dropdown-menu"
                           aria-labelledby="dropdownMenuLink"
@@ -806,57 +796,57 @@ export default function FirstSectionProfileTalent() {
                           <li>
                             <a className="dropdown-item" href="#">
                               January
-                          </a>
+                            </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               february
-                          </a>
+                            </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               March
-                          </a>
+                            </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               Apirl
-                          </a>
+                            </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               May
-                          </a>
+                            </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               June
-                          </a>
+                            </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               July
-                          </a>
+                            </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               August
-                          </a>
+                            </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               October
-                          </a>
+                            </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               November
-                          </a>
+                            </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               Decemeber
-                          </a>
+                            </a>
                           </li>
                         </ul>
                       </div>
@@ -873,7 +863,7 @@ export default function FirstSectionProfileTalent() {
                           aria-expanded="false"
                         >
                           year
-                      </a>
+                        </a>
                         <ul
                           className="dropdown-menu"
                           aria-labelledby="dropdownMenuLink"
@@ -881,57 +871,57 @@ export default function FirstSectionProfileTalent() {
                           <li>
                             <a className="dropdown-item" href="#">
                               2021
-                          </a>
+                            </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               2020
-                          </a>
+                            </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               2019
-                          </a>
+                            </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               2018
-                          </a>
+                            </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               2017
-                          </a>
+                            </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               2016
-                          </a>
+                            </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               2015
-                          </a>
+                            </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               2014
-                          </a>
+                            </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               2013
-                          </a>
+                            </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               2012
-                          </a>
+                            </a>
                           </li>
                           <li>
                             <a className="dropdown-item" href="#">
                               2011
-                          </a>
+                            </a>
                           </li>
                         </ul>
                       </div>
@@ -945,8 +935,8 @@ export default function FirstSectionProfileTalent() {
                         value=""
                         aria-label="Checkbox for following text input"
                       />
-                    I currently worked here
-                  </div>
+                      I currently worked here
+                    </div>
                   </div>
                   <div className="mb-3">
                     <label
@@ -954,7 +944,7 @@ export default function FirstSectionProfileTalent() {
                       className="form-label"
                     >
                       Description
-                  </label>
+                    </label>
                     <textarea
                       className="form-control"
                       id="exampleFormControlTextarea1"
@@ -977,7 +967,7 @@ export default function FirstSectionProfileTalent() {
                 }}
               >
                 Cancel
-            </button>
+              </button>
               <button
                 type="button"
                 className="btn btn-default border rounded-border"
@@ -1001,7 +991,7 @@ export default function FirstSectionProfileTalent() {
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">
                 Edit Employment
-            </h5>
+              </h5>
               <button
                 type="button"
                 className="btn-close"
@@ -1017,7 +1007,7 @@ export default function FirstSectionProfileTalent() {
                     className="form-label fw-bold"
                   >
                     Company
-                </label>
+                  </label>
                   <input
                     type="text"
                     className="form-control"
@@ -1030,7 +1020,7 @@ export default function FirstSectionProfileTalent() {
                     className="form-label fw-bold"
                   >
                     Location
-                </label>
+                  </label>
                   <input
                     type="text"
                     className="form-control"
@@ -1051,7 +1041,7 @@ export default function FirstSectionProfileTalent() {
                         aria-expanded="false"
                       >
                         month
-                    </a>
+                      </a>
                       <ul
                         className="dropdown-menu"
                         aria-labelledby="dropdownMenuLink"
@@ -1059,57 +1049,57 @@ export default function FirstSectionProfileTalent() {
                         <li>
                           <a className="dropdown-item" href="#">
                             January
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             february
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             March
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             Apirl
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             May
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             June
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             July
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             August
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             October
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             November
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             Decemeber
-                        </a>
+                          </a>
                         </li>
                       </ul>
                     </div>
@@ -1126,7 +1116,7 @@ export default function FirstSectionProfileTalent() {
                         aria-expanded="false"
                       >
                         year
-                    </a>
+                      </a>
                       <ul
                         className="dropdown-menu"
                         aria-labelledby="dropdownMenuLink"
@@ -1134,57 +1124,57 @@ export default function FirstSectionProfileTalent() {
                         <li>
                           <a className="dropdown-item" href="#">
                             2021
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2020
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2019
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2018
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2017
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2016
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2015
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2014
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2013
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2012
-                        </a>
+                          </a>
                         </li>
                         <li>
                           <a className="dropdown-item" href="#">
                             2011
-                        </a>
+                          </a>
                         </li>
                       </ul>
                     </div>
@@ -1197,7 +1187,7 @@ export default function FirstSectionProfileTalent() {
                     className="form-label"
                   >
                     Description
-                </label>
+                  </label>
                   <textarea
                     className="form-control"
                     id="exampleFormControlTextarea1"
@@ -1219,7 +1209,7 @@ export default function FirstSectionProfileTalent() {
                 }}
               >
                 Cancel
-            </button>
+              </button>
               <button
                 type="button"
                 className="btn btn-default border rounded-border"
@@ -1229,6 +1219,7 @@ export default function FirstSectionProfileTalent() {
             </div>
           </div>
         </div>
-      </div></>
+      </div>
+    </>
   );
 }

@@ -1,11 +1,9 @@
 talent side //
 (amany)
-	allcontract
-	reports
-	workdiary
-	jobdetails
-	myjobs
-	profile
+	allcontract(Include closed contracts)
+	reports()
+	jobdetails()
+	profile("See Public view")
 		
 //////////////////////
 (romany)
