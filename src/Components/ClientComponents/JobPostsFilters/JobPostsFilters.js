@@ -152,7 +152,7 @@ export default function JobPostsFilters() {
           </tr>
         </tbody>
       </table>
-      <button type="button" className="btn btn-success">
+      <button type="button" className="btn bg-upwork">
         Close Filters
             </button>
     </div>

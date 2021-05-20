@@ -1,16 +1,18 @@
 /* eslint-disable */
 import React from "react";
+import { useTranslation } from "react-i18next";
 import DateContract from "../../../Components/TalentComponents/DateContract/DateContract";
 import OneContract from "../../../Components/TalentComponents/OneContract/OneContract";
 import SearchContract from "../../../Components/TalentComponents/SearchContract/SearchContract";
 
 export default function AllContracts() {
+  const {t}=useTranslation();
   return (
     <>
       <div className=" bg-gray">
         <div className="container">
           <div className="row">
-            <h4 className="col-12 mt-5">Contracts</h4>
+            <h4 className="col-12 mt-5">{t("Contracts")}</h4>
             <div className="card mt-4 mb-5">
               <div className="card-header bg-white p-3">
                 <SearchContract />

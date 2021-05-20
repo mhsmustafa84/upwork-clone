@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 /* eslint-disable */
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function AllContractsBottomSection() {
   return (
@@ -50,9 +51,9 @@ export default function AllContractsBottomSection() {
       <h3>You haven't started any contracts yet.</h3>
       <h3>
         // eslint-disable-next-line
-        <a href="#" className="text-success">
+        <Link  to="/post-job" className="text-success">
           Post a job
-        </a>{" "}
+        </Link>{" "}
         or{" "}
         <a href="#" className="text-success">
           {" "}

@@ -61,7 +61,7 @@ export default function JobPostLi() {
             <div className="text-muted">Hired</div>
           </div>
           <div className="d-block col-sm-2 col-xs-3">
-            <button type="button" className="btn btn-success">
+            <button type="button" className="btn bg-upwork">
               View Proposals
             </button>
           </div>

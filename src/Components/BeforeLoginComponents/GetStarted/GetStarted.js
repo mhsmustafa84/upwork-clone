@@ -28,7 +28,7 @@ export default function GetStarted() {
                         </ul>
                     </div>
                     <div className="row mb-3 mx-1" id="get-started-button-ID">
-                        <button className="btn col-lg-6 col-12 mx-lg-0 mx-auto fw-bolder mb-3 btn-success" type="button">
+                        <button className="btn col-lg-6 col-12 mx-lg-0 mx-auto fw-bolder mb-3 bg-upwork" type="button">
                             Connect with Talent
       </button>
                     </div>

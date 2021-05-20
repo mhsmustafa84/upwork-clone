@@ -74,7 +74,7 @@ export default function ReviewProposalsCard() {
           </button>
         </div>
         <div className="col py-3">
-          <button type="button" className="btn btn-success px-5">
+          <button type="button" className="btn bg-upwork px-5">
             Hire
           </button>
         </div>

@@ -4,13 +4,18 @@ import firebaseApp, { auth, googleProvider } from "../../../firebase";
 import apple from "../../../assets/svg/apple.svg";
 import { useState } from "react";
 import { useHistory } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
+
 
 export default function LoginTemp() {
+  
 
   const [user, setUser] = useState({ email: "", password: "" });
   const [emailError, setEmailErorr] = useState("");
   const [PasswordError, setPasswordErrorr] = useState("");
   const { push } = useHistory();
+
+  const { t } = useTranslation();
 
   const getUserData = e => {
     const name = e.target.name;
@@ -90,7 +95,7 @@ export default function LoginTemp() {
             <div className="shadow-sm p-5 mb-5 bg-white rounded mx-auto mt-5 w-100  border ">
               <h5 data-v-904d5b16 className="text-center m-0">
                 <span data-v-733406b2 data-v-44072c38>
-                  Log in and get to work
+                {t("loginandget")}
                 </span>
               </h5>
               <form>

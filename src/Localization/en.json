@@ -15,7 +15,11 @@
     "Visibility":"Visibility",
     "Public":"Public",
     "Availability":"Availability",
-    "Proposals":"Proposals"
+    "Proposals":"Proposals",
+    "Contracts":"Contracts",
+    "Search contract"    :"Search contract, client, or team name",
+    "Job details":"Job details"
+    
     
 
 }

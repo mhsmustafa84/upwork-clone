@@ -1,6 +1,8 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function SearchContract() {
+  const {t}=useTranslation();
   return (
     <div className="input-group w-50">
       <span className="input-group-text bg-white" id="basic-addon1">
@@ -18,7 +20,7 @@ export default function SearchContract() {
       <input
         type="search"
         className="form-control shadow-none"
-        placeholder="Search contract, client, or team name"
+        placeholder={t("Search contract")}
         aria-label="Input group example"
         aria-describedby="basic-addon1"
       />

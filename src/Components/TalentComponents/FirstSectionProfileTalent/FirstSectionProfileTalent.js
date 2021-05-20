@@ -77,7 +77,7 @@ export default function FirstSectionProfileTalent() {
             >
               <span className="text-success fw-bold">See Public view</span>
             </button>
-            <button type="button" className="btn btn-success px-4  mx-3">
+            <button type="button" className="btn bg-upwork px-4  mx-3">
               Profile Settings
           </button>
           </div>

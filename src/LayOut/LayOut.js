@@ -25,24 +25,43 @@ export default function LayOut() {
 
   useEffect(() => {
     auth.onAuthStateChanged(user => {
+      //console.log(usrType,"up condition")
+
       if (user) {
         setUsr(user);
         getUserType(user.displayName);
       }
     });
+   //console.log(usrType,"out of cond")
   }, [])
-
-
-
-
+  
+  
+  // return(
+  //   <>
+  // {console.log(usrType)}
+  //   {
+  //   usr
+  //   ? usrType=='talent'
+  //    ?<TalentRoutes />
+  //    :<ClientRoutes />
+  //   : <BeforeLoginRoutes />
+    
+  //   } 
+  //   // </>
+  //   // C == 0 ? null            :
+  //   // V == r ? (g - b) / C     :
+  //   // V == g ? (b - r) / C + 2 :
+  //   //          (r - g) / C + 4 ;
+  // );
+  
   if (usr) {
-    //console.log(usrType)
-    if (usrType === "talent" || usrType === "both") {
+    if (usrType === "talent" ) {
       return <TalentRoutes />
     } else if (usrType === "client") {
       //debugger;
       return <ClientRoutes />
-    } else {
+      }
+     else {
       return <Loader />
     }
   } else {
