@@ -18,17 +18,22 @@ export default function DateContract() {
       <ul className="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
         <li>
           <button className="dropdown-item" type="button">
-            Action
+            {t("Start date")}
           </button>
         </li>
         <li>
           <button className="dropdown-item" type="button">
-            Another action
+            {t("End date")}
           </button>
         </li>
         <li>
           <button className="dropdown-item" type="button">
-            Something else here
+            {t("Client name")}
+          </button>
+        </li>
+        <li>
+          <button className="dropdown-item" type="button">
+            {t("Contract name")}
           </button>
         </li>
       </ul>

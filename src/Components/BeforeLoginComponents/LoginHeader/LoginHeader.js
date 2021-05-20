@@ -2,8 +2,11 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import Logo from '../../SharedComponents/Logo/Logo';
+import { useTranslation } from "react-i18next";  
+
 
 export default function LoginHeader() {
+    const { t }=useTranslation();
 
     const { pathname } = useLocation();
 
@@ -14,7 +17,7 @@ export default function LoginHeader() {
                 <div>
                     {
                         pathname === "/sign-up" &&
-                        <p className="text-white">Already have an account? <Link to="/login">Log In</Link></p>
+                        <p className="text-white">{t("Alreadyhaveanaccount")}<Link to="/login">{t("LogIn")}</Link></p>
                     }
                 </div>
             </div>

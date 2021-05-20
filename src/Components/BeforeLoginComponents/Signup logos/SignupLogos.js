@@ -5,14 +5,17 @@ import General from "../../../assets/svg/General_Electric_logo.svg";
 import automattic from "../../../assets/svg/automattic.svg";
 import bissell from "../../../assets/svg/bissell.svg";
 import coty from "../../../assets/svg/Coty_logo.svg";
+import { useTranslation } from "react-i18next";  
+
 
 export default function SignupLogos() {
+  const { t }=useTranslation();
   return (
     <>
       <div className="container ">
         <div className="row ">
           <div className="text-center h6 pb-10 m-0 mb-md-5 mt-3">
-            <p>Trusted by 5M+ businesses</p>
+            <p>{t("Trustedby5Mbusinesses")}</p>
           </div>
           <div className="logos d-flex pb-md-10 justify-content-between">
             <img src={micro} className="" width="146px" alt="" />
@@ -28,7 +31,7 @@ export default function SignupLogos() {
       <div className="container-fluid">
         <div className="row d-flex justify-content-evenly mb-4">
           <div className="text-center h6 pb-10 m-0 mb-md-5 mt-5 col-12">
-            <p>More than 60k jobs are posted on Upwork every week</p>
+            <p>{t("Morethan60kjobs")}</p>
           </div>
           <div className="col-sm-2 col-md-1">
             <svg viewBox="0 0 145 130" xmlns="http://www.w3.org/2000/svg">
@@ -119,10 +122,9 @@ export default function SignupLogos() {
             </svg>
           </div>
           <div className="col-sm-10 col-md-2">
-            <h6>Find what your need</h6>
+            <h6>{t("Findwhatyourneed")}</h6>
             <p className="font-2">
-              Choose from specialized freelancers and agencies with 5,000+
-              skills.
+            {t("Choosefromspecializedfreelancers")}
             </p>
           </div>
           <div className="col-sm-2 col-md-1">
@@ -158,9 +160,9 @@ export default function SignupLogos() {
             </svg>
           </div>
           <div className="col-sm-10 col-md-2">
-            <h6>Post today, hire tomorrow</h6>
+            <h6>{t("Posttodayhiretomorrow")}</h6>
             <p className="font-2">
-              Get custom quotes right away on terms you negotiate directly.
+            {t("Getcustomquotesrightaway")}
             </p>
           </div>
           <div className="col-sm-2 col-md-1">
@@ -213,9 +215,9 @@ export default function SignupLogos() {
             </svg>
           </div>
           <div className="col-sm-10 col-md-2">
-            <h6>Engage with confidence</h6>
+            <h6>{t("Engagewithconfidence")}</h6>
             <p className="font-2">
-              Only pay for work you authorize, with secure billing and invoices.
+            {t("Onlypayforworkyouauthorize")}
             </p>
           </div>
         </div>
