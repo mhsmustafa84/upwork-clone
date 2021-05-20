@@ -10,6 +10,7 @@ export default function JobDetailsTalent() {
   const { t }= useTranslation();
   const { id } = useParams();
   console.log(id);
+  const { t } = useTranslation();
   return (
     <div className="container-md container-fluid-sm my-lg-4 my-sm-4 py-xs-5">
       <div className="d-lg-block">

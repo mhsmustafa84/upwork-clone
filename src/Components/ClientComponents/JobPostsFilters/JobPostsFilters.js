@@ -1,16 +1,18 @@
 import React from "react";
-import "./JobPostsFilters.css"
+import "./JobPostsFilters.css";
+import { useTranslation } from "react-i18next";
 
 export default function JobPostsFilters() {
+  const { t } = useTranslation();
   return (
     <div>
       <table className="table table-borderless">
         <thead>
           <tr>
-            <th scope="col">Posted by</th>
-            <th scope="col">Visibility</th>
-            <th scope="col">Status</th>
-            <th scope="col">Type</th>
+            <th scope="col">{t("Posted by")}</th>
+            <th scope="col">{t("Visibility")}</th>
+            <th scope="col">{t("Status")}</th>
+            <th scope="col">{t("Type")}</th>
           </tr>
         </thead>
         <tbody>
@@ -21,8 +23,8 @@ export default function JobPostsFilters() {
                   className="form-select border border-secondary text-dark  btn-outline-light "
                   id="inputGroupSelect01"
                 >
-                  <option selected>All cowworkers</option>
-                  <option value={1}> Me</option>
+                  <option selected>{t("All cowworkers")}</option>
+                  <option value={1}> {t("Me")}</option>
                 </select>
               </div>
             </td>
@@ -35,7 +37,7 @@ export default function JobPostsFilters() {
                   id="flexRadioDefault1"
                 />
                 <label className="form-check-label" htmlFor="flexRadioDefault1">
-                  All
+                  {t("All")}
                 </label>
               </div>
             </td>
@@ -48,7 +50,7 @@ export default function JobPostsFilters() {
                   id="flexCheckDefault"
                 />
                 <label className="form-check-label" htmlFor="flexCheckDefault">
-                  All
+                  {t("All")}
                 </label>
               </div>
             </td>
@@ -61,7 +63,7 @@ export default function JobPostsFilters() {
                   id="flexRadioDefault1"
                 />
                 <label className="form-check-label" htmlFor="flexRadioDefault1">
-                  All
+                  {t("All")}
                 </label>
               </div>
             </td>
@@ -77,7 +79,7 @@ export default function JobPostsFilters() {
                   id="flexRadioDefault1"
                 />
                 <label className="form-check-label" htmlFor="flexRadioDefault1">
-                  Invite-only
+                  {t("Invite-only")}
                 </label>
               </div>
             </td>
@@ -90,7 +92,7 @@ export default function JobPostsFilters() {
                   id="flexCheckDefault"
                 />
                 <label className="form-check-label" htmlFor="flexCheckDefault">
-                  Drafts
+                  {t("Drafts")}
                 </label>
               </div>
             </td>
@@ -103,7 +105,7 @@ export default function JobPostsFilters() {
                   id="flexRadioDefault1"
                 />
                 <label className="form-check-label" htmlFor="flexRadioDefault1">
-                  Fixed-Price
+                  {t("Fixed-Price")}
                 </label>
               </div>
             </td>
@@ -119,7 +121,7 @@ export default function JobPostsFilters() {
                   id="flexRadioDefault1"
                 />
                 <label className="form-check-label" htmlFor="flexRadioDefault1">
-                  Public
+                  {t("Public")}
                 </label>
               </div>
             </td>
@@ -132,7 +134,7 @@ export default function JobPostsFilters() {
                   id="flexCheckDefault"
                 />
                 <label className="form-check-label" htmlFor="flexCheckDefault">
-                  Open
+                  {t("Open")}
                 </label>
               </div>
             </td>
@@ -145,16 +147,16 @@ export default function JobPostsFilters() {
                   id="flexRadioDefault1"
                 />
                 <label className="form-check-label" htmlFor="flexRadioDefault1">
-                  Hourly
+                  {t("Hourly")}
                 </label>
               </div>
             </td>
           </tr>
         </tbody>
       </table>
-      <button type="button" className="btn bg-upwork">
-        Close Filters
-            </button>
+      <button type="button" className="btn btn-success">
+        {t("Close Filters")}
+      </button>
     </div>
   );
 }

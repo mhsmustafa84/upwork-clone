@@ -5,8 +5,11 @@ import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import { auth } from "../../../firebase";
 import { createDocumentWithId } from "../../../Network/Network";
+import { useTranslation } from "react-i18next";  
+
 
 export default function SignUpSecondForm() {
+  const { t }=useTranslation();
 
   const [errorMessage, setErrorMessage] = useState("");
   const [validate, setValidate] = useState({ firstName: "", lastName: "", password: "" });
@@ -230,7 +233,7 @@ export default function SignUpSecondForm() {
                 onInput={getUserData}
               />
               <label className="btn btn-outline-upwork" htmlFor="btnradio1">
-                Hire for a project
+              {t("Hireforaproject")}
               </label>
               <input
                 type="radio"
@@ -242,7 +245,7 @@ export default function SignUpSecondForm() {
                 onInput={getUserData}
               />
               <label className="btn btn-outline-upwork" htmlFor="btnradio2">
-                Work as a freelancer
+              {t("Workasafreelancer")}
               </label>
             </div>
           </div>
@@ -255,7 +258,7 @@ export default function SignUpSecondForm() {
             />
             <label className="form-check-label" htmlFor="flexCheckDefault">
               <p>
-                Yes, I understand and agree to the
+              {t("YesIunderstandandagreetothe")}
                 <a
                   className="m-1"
                   href="https://www.upwork.com/legal#terms"
@@ -269,15 +272,15 @@ export default function SignUpSecondForm() {
                   href="https://www.upwork.com/legal#useragreement"
                   target="_blank"
                 >
-                  User Agreement
+                  {t("UserAgreement")}
                 </a>
-                and
+                {t("and")}
                 <a
                   className="m-1"
                   href="https://www.upwork.com/legal#privacy"
                   target="_blank"
                 >
-                  Privacy Policy
+                  {t("PrivacyPolicy")}
                 </a>
               </p>
             </label>
@@ -290,7 +293,7 @@ export default function SignUpSecondForm() {
               disabled={validate.password != null || validate.firstName || validate.lastName}
               onClick={signUpComplete}
             >
-              Continue with Email
+              {t("ContinuewithEmail")}
             </button>
           </div> </Link>
         </form>

@@ -1,6 +1,9 @@
 /* eslint-disable */
 import React from "react";
+import { useTranslation } from "react-i18next";
+
 export default function Date() {
+  const { t } = useTranslation();
   return (
     <div className="Date">
       <form action="#">
@@ -13,7 +16,7 @@ export default function Date() {
           aria-controls="collapseExample"
           style={{ width: "100%" }}
         >
-          mm/dd/yyyy
+          {t("mm/dd/yyyy")}
         </a>
         <div className="collapse" id="collapseExample2">
           <div className="dropdown2" style={{ width: "100%" }}>
@@ -39,7 +42,7 @@ export default function Date() {
                 height: "33px",
               }}
             >
-              go
+             {t("go")}
             </button>
             <button
               className="btn btn-default dropdown-toggle"
@@ -49,7 +52,7 @@ export default function Date() {
               aria-expanded="false"
               style={{ width: "80%" }}
             >
-              choose the date
+              {t("choose the date")}
             </button>
             <ul
               className="dropdown-menu "

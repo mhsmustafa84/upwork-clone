@@ -4,11 +4,11 @@ import firebaseApp, { auth, googleProvider } from "../../../firebase";
 import apple from "../../../assets/svg/apple.svg";
 import { useState } from "react";
 import { useHistory } from 'react-router-dom';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";  
 
 
 export default function LoginTemp() {
-  
+  const { t }=useTranslation();
 
   const [user, setUser] = useState({ email: "", password: "" });
   const [emailError, setEmailErorr] = useState("");
@@ -95,7 +95,7 @@ export default function LoginTemp() {
             <div className="shadow-sm p-5 mb-5 bg-white rounded mx-auto mt-5 w-100  border ">
               <h5 data-v-904d5b16 className="text-center m-0">
                 <span data-v-733406b2 data-v-44072c38>
-                {t("loginandget")}
+                {t("Loginandgettowork")}
                 </span>
               </h5>
               <form>
@@ -124,9 +124,9 @@ export default function LoginTemp() {
                 <div className="form-group col-8 mx-auto mt-3 d-flex justify-content-between">
                   <label>
                     <input type="checkbox" className="me-2" />
-                    Keep me logged in
+                    {t("Keepmeloggedin")}
                   </label>
-                  <Link to="">Forgot password?</Link>
+                  <Link to="">{t("Forgotpassword")}</Link>
                 </div>
                 <div className="d-grid gap-2 col-8 mx-auto mt-3 hitbtn-className loginpcolor">
                   <button
@@ -134,12 +134,12 @@ export default function LoginTemp() {
                     onClick={login}
                     disabled={PasswordError != null || emailError != null}
                   >
-                    Login
+                    {t("Login")}
                   </button>
                 </div>
                 <div className="d-grid gap-2 col-8 mx-auto mt-3">
                   <Link to="" className="text-center">
-                    Not you?
+                  {t("Notyou")}
                   </Link>
                 </div>
                 <div className="separator mt-4 col-8 mx-auto">or</div>
@@ -158,7 +158,7 @@ export default function LoginTemp() {
                       className="text-center text-white"
                       style={{ paddingTop: ".3em" }}
                     >
-                      Sign in with google
+                      {t("Signinwithgoogle")}
                     </p>
                   </div>
                 </div>
@@ -166,17 +166,17 @@ export default function LoginTemp() {
                   <button className="btn bg-light " type="button">
                     {" "}
                     <img src={apple} className="apple-icon" />
-                    sign in with apple
+                    {t("signinwithapple")}
                   </button>
                 </div>
                 <hr />
                 <div>
                   <div className="separator mt-4 col-8 mx-auto">
-                    New to Upwork?
+                  {t("NewToUpwork")}
                   </div>
                   <div className="d-grid gap-2 col-md-5 col-sm-10 mx-auto mt-3   rounded mb-5">
                     <Link className="btn signup" to="/sign-up">
-                      Sign Up
+                    {t("SignUp")}
                     </Link>
                   </div>
                 </div>
