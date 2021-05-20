@@ -8,9 +8,11 @@ import {
 } from "react-router-dom";
 import MyHires from "../../../Components/ClientComponents/MyHiresComponent/MyHires";
 import Saved from "../../../Components/ClientComponents/SavedComponent/Saved";
+import { useTranslation } from "react-i18next";  
+
 
 export default function Talent() {
-
+  const { t }=useTranslation();
   const { pathname } = useLocation();
   const { push } = useHistory();
   pathname === "/talent" && push("/talent/my-hires");
@@ -25,9 +27,9 @@ export default function Talent() {
                 className="nav-link"
                 exact
                 activeClassName="active"
-                to="/talent/search"
+                to="/searchclient"
               >
-                Search
+                {t("Search")}
                 </NavLink>
             </li>
             <li className="nav-item mx-2">
@@ -37,7 +39,7 @@ export default function Talent() {
                 activeClassName="active"
                 to="/talent/my-hires"
               >
-                My Hires
+                {t("MyHires")}
                 </NavLink>
             </li>
             <li className="nav-item mx-2">
@@ -47,7 +49,7 @@ export default function Talent() {
                 activeClassName="active"
                 to="/talent/saved-talent"
               >
-                Saved
+                {t("Saved")}
                 </NavLink>
             </li>
           </ul>

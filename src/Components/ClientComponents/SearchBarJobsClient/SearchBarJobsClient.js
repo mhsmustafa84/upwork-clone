@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 
 
 
-export default function SearchBarJobsTalent() {
+export default function SearchBarJobsClient() {
   const { t }=useTranslation();
     const [verify, setverify] = useState(false);
   firebaseApp.auth().onAuthStateChanged((user) => {
@@ -17,6 +17,7 @@ export default function SearchBarJobsTalent() {
   });
 
     return (
+
         <div>
           {!verify && (
             <div
@@ -39,7 +40,7 @@ export default function SearchBarJobsTalent() {
               className="form-control text-dark bg-white btn-outline-success"
               placeholder={t("Search For Jobs")}
             />
-             <Link to="/Search">
+             <Link to="/searchclient">
             <button
               id="search-button"
               type="button"

@@ -14,6 +14,7 @@ import PageNotFound from "./../Pages/PageNotFound/PageNotFound";
 import ReviewProposals from "../Pages/ClientPages/ReviewProposals/ReviewProposals";
 import EmailVerified from './../Pages/EmailVerification/EmailVerified';
 import TransactionHistory from "../Pages/TalentPages/Reports/TransactionHistory/TransactionHistory";
+import SearchClient from "../Pages/ClientPages/SearchClient/SearchClient";
 
 export default function ClientRoutes() {
   const { pathname } = useLocation();
@@ -35,6 +36,7 @@ export default function ClientRoutes() {
         <Route path="/review-proposal" component={ReviewProposals} />
         <Route path="/billing-history" exact component={Reports} />
         <Route path="/transaction-history" exact component={TransactionHistory} />
+        <Route path="/searchclient" exact component={SearchClient} />
         <Route path="**" component={PageNotFound} />
       </Switch>
       <Footer />

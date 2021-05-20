@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
-import SearchBarJobsTalent from "../../../Components/TalentComponents/SearchBarJobsTalent/SearchBarJobsTalent";
 // import ReviewProposalsCard from "../../../Components/ClientComponents/ReviewProposalsCard/ReviewProposalsCard";
 import SectionCenterTalentHome from "../../../Components/TalentComponents/SectionCenterTalentHome/SectionCenterTalentHome";
-import { Link, NavLink } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import SearchBarJobsClient from "../../../Components/ClientComponents/SearchBarJobsClient/SearchBarJobsClient";
 
-export default function Search() {
+export default function SearchClient() {
     const { t } = useTranslation();
     const { push } = useHistory();
 
@@ -325,7 +325,7 @@ export default function Search() {
                                     className="list-group-item sidebar-homebage-ul-li bg-white boder border-0"
                                     aria-current="true"
                                 >
-                                    <Link to="/Search">
+                                    <Link to="/searchclient">
                                         <a
                                             href="#"
                                             className=" list-group-item-action saved-homebage-ul-li-aa active activesidesaved bg-white"
@@ -338,7 +338,7 @@ export default function Search() {
                                     className="list-group-item sidebar-homebage-ul-li bg-white boder border-0"
                                     aria-current="true"
                                 >
-                                    <Link to="/saved-jobs">
+                                    <Link to="/talent/saved-talent">
                                     <a
                                         href="#"
                                         className=" list-group-item-action saved-homebage-ul-li-aa bg-white"
@@ -351,7 +351,7 @@ export default function Search() {
 
                         </div>
                         <div className="list-group-item py-lg-4">
-                            <SearchBarJobsTalent />
+                            <SearchBarJobsClient/>
                         </div>
                     </div>
                     <div className="row">

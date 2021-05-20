@@ -25,8 +25,8 @@ export default function LoginTemp() {
           email: val,
         });
         setEmailErorr(
-          val === "" ? "*Email required" : !val.match(/^([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/)
-            ? "*Please inter Valid Email" : null
+          val === "" ? t("Emailrequired") : !val.match(/^([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/)
+            ? t("PleaseinterValidEmail") : null
         );
         break;
       case "password":
@@ -36,9 +36,9 @@ export default function LoginTemp() {
         });
         setPasswordErrorr(
           val === ""
-            ? "*This is Requir"
+            ? t("ThisisRequired")
             : val.length < 8
-              ? "*Password Shoul be More 8 Character"
+              ? t("PasswordShouldbeMore8Character")
               : null
         );
         break;
@@ -94,6 +94,7 @@ export default function LoginTemp() {
               <h5 data-v-904d5b16 className="text-center m-0">
                 <span data-v-733406b2 data-v-44072c38>
                 {t("Loginandgettowork")}
+                
                 </span>
               </h5>
               <form>
@@ -104,7 +105,7 @@ export default function LoginTemp() {
                     name="email"
                     className={`form-control shadow-none ${emailError ? "border-danger" : ""}`}
                     aria-describedby="emailHelp"
-                    placeholder="Username or Email"
+                    placeholder={t("UsernameorEmail")}
                     onInput={getUserData}
                   />
                 </div>
@@ -115,7 +116,7 @@ export default function LoginTemp() {
                     name="password"
                     className={`form-control shadow-none ${PasswordError ? "border-danger" : ""}`}
                     aria-describedby="emailHelp"
-                    placeholder="Password"
+                    placeholder={t("Password")}
                     onInput={getUserData}
                   />
                 </div>

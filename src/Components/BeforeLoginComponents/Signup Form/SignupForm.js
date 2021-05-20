@@ -18,8 +18,8 @@ export default function SignupForm() {
   const getEmail = ({ target }) => {
     user.email = target.value;
     setEmailErorr(
-      target.value === "" ? "*Email is required" : !target.value.match(/^([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/)
-        ? "*Please enter a valid email" : null
+      target.value === "" ? t("Emailrequired") : !target.value.match(/^([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/)
+        ? t("PleaseinterValidEmail") : null
     );
     dispatch(signUpAction(user));
   }
@@ -71,7 +71,7 @@ export default function SignupForm() {
               className="form-control mt-1"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
-              placeholder="Work email address"
+              placeholder={t("Workemailaddress")}
               onInput={getEmail}
             />
           </div>
