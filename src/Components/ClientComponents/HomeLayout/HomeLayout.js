@@ -14,9 +14,10 @@ import j4 from "../../../assets/svg/jobs4.svg";
 import s1 from "../../../assets/Img/jobslide1.jpg";
 import s2 from "../../../assets/Img/jobslide2.jpg";
 import s3 from "../../../assets/Img/jobslide2.jpg";
+import { useTranslation } from "react-i18next";
 
 export default function HomeLayout() {
-
+const { t } = useTranslation();
   const user = useSelector(state => state.clientData);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -52,8 +53,8 @@ export default function HomeLayout() {
             </div>
 
             <div className="list-group-item py-lg-4">
-              <h4>My Postings</h4>
-              <a className="float-sm-end mt-0">All Posts</a>
+              <h4>{t("My Postings")}</h4>
+              <a className="float-sm-end mt-0">{t("All Posts")}</a>
             </div>
             <div className="list-group-item">
               <div className="row align-items-center">
@@ -112,14 +113,14 @@ export default function HomeLayout() {
               <p style={{ fontSize: "0.9em" }}>
                 <span className="text-muted">
                   <span className="fw-bold" id="contract-type">
-                    Fixed Price
+                    {t("Fixed Price")}
                   </span>
                   <span>-</span>
-                  <span id="experience-level">Expert</span>
+                  <span id="experience-level">{t("Expert")}</span>
                   <span>-</span>
-                  <span>Est. Budget:</span>
-                  <span id="client-budget">$200</span>- posted
-                  <span id="posting-time">4 Hours ago</span>
+                  <span>{t("Est. Budget")}:</span>
+                  <span id="client-budget">${t("200")}</span>- posted
+                  <span id="posting-time">{t("4 Hours ago")}</span>
                 </span>
               </p>
               <p id="job-description">
@@ -153,7 +154,7 @@ export default function HomeLayout() {
                     id="seemorebutton"
                     className="advanced-search-link"
                   >
-                    more
+                    {t("more")}
                   </button>
                 </span>
               </p>
@@ -196,7 +197,7 @@ export default function HomeLayout() {
             </div>
             <div className="card mt-5">
               <div className="card-body">
-                <h5 className="card-title">How it works</h5>
+                <h5 className="card-title">{t("How it works")}</h5>
               </div>
               <ul className="list-group list-group-flush">
                 <li className="list-group-item d-flex">
@@ -206,19 +207,17 @@ export default function HomeLayout() {
                   <div className="col-6">
                     <div className="media-body">
                       <h4 className="m-0-top-bottom">
-                        1. Post a job to get free quotes
+                       {t("1. Post a job to get free quotes")}
                       </h4>
                       <p className="m-xs-top-bottom">
-                        Write a clear, detailed description of your job to share
-                        with qualified freelancers. Start receiving proposals in
-                        less than 24 hours.
+                        {t("Write a clear, detailed description of your job to share with qualified freelancers. Start receiving proposals in less than 24 hours")}.
                       </p>
                       <a
                         href="https://www.upwork.com/hiring/writing-an-awesome-job-post/"
                         target="_blank"
                         rel="noreferrer"
                       >
-                        View great job post examples
+                        {t("View great job post examples")}
                       </a>
                     </div>
                   </div>
@@ -230,19 +229,17 @@ export default function HomeLayout() {
                   <div className="col-6">
                     <div className="media-body">
                       <h4 className="m-0-top-bottom">
-                        2. Evaluate freelancers and hire
+                        {t("2. Evaluate freelancers and hire")}
                       </h4>
                       <p className="m-xs-top-bottom">
-                        Review proposals or invite qualified freelancers to your
-                        project. Quickly chat live or video call with favorites,
-                        and offer a contract to the best match.
+                       {t("Review proposals or invite qualified freelancers to your project. Quickly chat live or video call with favorites, and offer a contract to the best match.")}
                       </p>
                       <a
                         href="https://www.upwork.com/hiring/education/how-to-hire-freelancers/"
                         target="_blank"
                         rel="noreferrer"
                       >
-                        Review tips on finding talent
+                       {t("Review tips on finding talent")}
                       </a>
                       <br />
                       <a
@@ -250,11 +247,11 @@ export default function HomeLayout() {
                         target="_blank"
                         rel="noreferrer"
                       >
-                        Prepare to interview freelancers
+                       {t("Prepare to interview freelancers")}
                       </a>
                       <div className="ng-hide" >
                         <a href="#" >
-                          Contact your Talent Specialist
+                          {t("Contact your Talent Specialist")}
                           </a>
                       </div>
                     </div>
@@ -266,33 +263,32 @@ export default function HomeLayout() {
                   </div>
                   <div className="col-6">
                     <div className="media-body">
-                      <h4 className="m-0-top-bottom">3. Work together</h4>
+                      <h4 className="m-0-top-bottom">{t("3. Work together")}</h4>
                       <p className="m-xs-top-bottom">
-                        Use
+                        {t("Use")}{" "}
                         <a
                           href="https://www.upwork.com/hiring/for-clients/upwork-messages-your-one-stop-collaboration-tool/"
                           target="_blank"
                           rel="noreferrer"
                         >
-                          Upwork Messages
+                          {t("Upwork Messages")}
                         </a>{" "}
-                        to securely chat, share files, and collaborate on
-                        projects. View progress against project goals with the
+                        {t("to securely chat, share files, and collaborate on projects. View progress against project goals with the")}
                         <a
                           href="https://www.upwork.com/hiring/for-clients/whats-the-work-diary-and-why-to-use-it/"
                           target="_blank"
                           rel="noreferrer"
-                        >
-                          Work Diary
+                        >{" "}
+                          {t("Work Diary")}
                         </a>{" "}
-                        tool.
+                        {t("tool")} .
                       </p>
                       <a
                         href="https://www.upwork.com/i/trust-safety-mission//#/clients"
                         target="_blank"
                         rel="noreferrer"
                       >
-                        See tips for staying safe on Upwork
+                        {t("See tips for staying safe on Upwork")}
                       </a>
                     </div>
                   </div>
@@ -304,26 +300,25 @@ export default function HomeLayout() {
                   <div className="col-6">
                     <div className="media-body">
                       <h4 className="m-0-top-bottom">
-                        4. Pay and invoice through Upwork
+                        {t("4. Pay and invoice through Upwork")}
                       </h4>
                       <p className="m-xs-top-bottom">
-                        Get invoices and make payments after reviewing time
-                        billed or approving milestones. With
+                        {t("Get invoices and make payments after reviewing time billed or approving milestones. With")}
                         <a
                           href="https://www.upwork.com/hiring/for-clients/how-to-manage-your-first-project-with-upwork-payment-protection/"
                           target="_blank"
                           rel="noreferrer"
                         >
-                          Upwork Payment Protection
+                          {t("Upwork Payment Protection")}
                         </a>
-                        , only pay for work you authorize.
+                        , {t("only pay for work you authorize")} .
                       </p>
                       <a
                         href="https://www.upwork.com/i/pricing/"
                         target="_blank"
                         rel="noreferrer"
                       >
-                        Learn about Upwork pricing
+                        {t("Learn about Upwork pricing")}
                       </a>
                       <br />
                       <a
@@ -331,23 +326,23 @@ export default function HomeLayout() {
                         target="_blank"
                         rel="noreferrer"
                       >
-                        Determine how much to pay freelancers
+                        {t("Determine how much to pay freelancers")}
                       </a>
                     </div>
                   </div>
                 </li>{" "}
               </ul>
               <div className="card-body">
-                <h4 className="card-link">Question?</h4>
+                <h4 className="card-link">{t("Question?")}</h4>
                 <p>
-                  Visit <a className="card-link">help center</a> to contact
+                  {t("Visit")} <a className="card-link">{t("help center")}</a> {t("to contact")}
                 </p>
               </div>
             </div>
           </div>
           <div className="col d-none d-lg-block">
             <div className="my-lg-1">
-              <Link to="/post-job" className="btn bg-upwork">Post a job</Link>
+              <Link to="/post-job" className="btn bg-upwork">{t("Post a job")}</Link>
             </div>
 
             <div className="my-3">
@@ -379,7 +374,7 @@ export default function HomeLayout() {
                         className="carousel-control-prev-icon"
                         aria-hidden="true"
                       ></span>
-                      <span className="visually-hidden">Previous</span>
+                      <span className="visually-hidden">{t("Previous")}</span>
                     </button>
                     <button
                       className="carousel-control-next"
@@ -391,15 +386,15 @@ export default function HomeLayout() {
                         className="carousel-control-next-icon"
                         aria-hidden="true"
                       ></span>
-                      <span className="visually-hidden">Next</span>
+                      <span className="visually-hidden">{t("Next")}</span>
                     </button>
                   </div>
                 </div>
                 <div className="card-body">
-                  <h5 className="card-title">Web Design</h5>
-                  <p className="card-text">You think you might like help</p>
+                  <h5 className="card-title">{t("Web Design")}</h5>
+                  <p className="card-text">{t("You think you might like help")}</p>
                   <a href="#" className="btn bg-upwork ">
-                    learn More
+                    {t("learn More")}
                   </a>
                 </div>
               </div>
@@ -418,7 +413,7 @@ export default function HomeLayout() {
                   className="list-group-item-action advanced-search-link"
                   aria-current="true"
                 >
-                  4 submitted proposals
+                  {t("4 submitted proposals")}
                 </a>
               </li>
               <li
@@ -430,7 +425,7 @@ export default function HomeLayout() {
                   className="list-group-item-action advanced-search-link"
                   aria-current="true"
                 >
-                  60 availabale connects
+                  {t("60 availabale connects")}
                 </a>
               </li>
               <li
@@ -442,8 +437,7 @@ export default function HomeLayout() {
                   className="list-group-item-action advanced-search-link"
                   aria-current="true"
                 >
-                  <i className="fas fa-stopwatch"></i> Track time with the
-                  desktop app
+                  <i className="fas fa-stopwatch"></i> {t("Track time with the desktop app")}
                 </a>
               </li>
             </ul>

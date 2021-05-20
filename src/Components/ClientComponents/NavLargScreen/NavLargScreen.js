@@ -1,9 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link, NavLink, useHistory } from "react-router-dom";
 import firebaseApp from "../../../firebase";
 
 export default function NavLargScreen() {
+  const { t } = useTranslation();
   const { push } = useHistory();
 
   const logout = () => {
@@ -26,53 +28,53 @@ export default function NavLargScreen() {
         <ul className="navbar-nav">
           <li className="nav-item hov-cn">
             <NavLink className="nav-link" to="/home">
-              Jobs
+              {t("Jobs")}
             </NavLink>
             <ul className="dropdown-menu">
               <div className="nav-dd-cn"></div>
               <li>
                 <Link className="dropdown-item" to="/home">
-                  My Jobs
+                  {t("My Jobs")}
                 </Link>
               </li>
               <li>
                 <Link className="dropdown-item" to="/all-job-posts">
-                  All Jobs Posts
+                  {t("All Jobs Posts")}
                 </Link>
               </li>
               <li>
                 <Link className="dropdown-item" to="/all-contracts">
-                  All Contracts
+                  {t("All Contracts")}
                 </Link>
               </li>
               <li>
                 <Link className="dropdown-item" to="/post-job">
-                  Post a Job
+                  {t("Post a Job")}
                 </Link>
               </li>
             </ul>
           </li>
           <li className="nav-item hov-cn">
             <NavLink className="nav-link" to="/talent">
-              Talent
+              {t("Talent")}
             </NavLink>
             <ul className="dropdown-menu">
               <div className="nav-dd-cn"></div>
               <li>
                 <Link className="dropdown-item" to="/talent/my-hires">
-                  My Hires
+                  {t("My Hires")}
                 </Link>
               </li>
               <li>
                 <Link className="dropdown-item" to="/talent/saved-talent">
-                  Saved Talent
+                  {t("Saved Talent")}
                 </Link>
               </li>
             </ul>
           </li>
           <li className="nav-item hov-cn">
             <Link className="nav-link" to="/transaction-history">
-              Reports
+              {t("Reports")}
             </Link>
             <ul
               id="reports-dd-id"
@@ -80,14 +82,14 @@ export default function NavLargScreen() {
               aria-labelledby="navbarDropdownMenuLink"
             >
               <div className="nav-dd-cn"></div>
-              <li className="fw-bold py-1 ms-3">FINANCIALS</li>
+              <li className="fw-bold py-1 ms-3">{t("FINANCIALS")}</li>
               <li>
                 <a className="dropdown-item ps-3" href="#">
-                  Transactions
+                  {t("Transactions")}
                 </a>
               </li>
               <li className="border-top-cn fw-bold py-1 ms-3">
-                MORE REPORTS
+                {t("MORE REPORTS")}
                 <div>
                   <div className="text-center mt-2">
                     <svg
@@ -135,15 +137,14 @@ export default function NavLargScreen() {
                     </svg>
                   </div>
                   <p className="fw-normal p-3">
-                    Access premium reports such as hourly timesheets, team
-                    budgets, weekly summaries and more when you upgrade.
+                    {t("Access premium reports such as hourly timesheets, team budgets, weekly summaries and more when you upgrade.")}
                   </p>
                   <a
                     href="#"
                     style={{ color: "#6fda44" }}
                     className="d-block text-center mb-3"
                   >
-                    Learn More
+                    {t("Learn More")}
                   </a>
                 </div>
               </li>
@@ -151,7 +152,7 @@ export default function NavLargScreen() {
           </li>
           <li className="nav-item me-5">
             <NavLink className="nav-link" to="/messages">
-              Messages
+              {t("Messages")}
             </NavLink>
           </li>
           <li className="nav-item">
@@ -207,11 +208,11 @@ export default function NavLargScreen() {
                   aria-label="Basic example"
                 >
                   <button type="button" className="btn">
-                    Online
+                    {t("Online")}
                   </button>
                   <span style={{ padding: "0 1px" }}></span>
                   <button type="button" className="btn">
-                    Invisible
+                    {t("Invisible")}
                   </button>
                 </div>
               </li>
@@ -225,8 +226,8 @@ export default function NavLargScreen() {
                       <i className="fa fa-user-circle fs-3"></i>
                     </span>
                     <div className="acc-cn ms-2">
-                      <p>Name</p>
-                      <p>Freelancer</p>
+                      <p>{t("Name")}</p>
+                      <p>{t("Freelancer")}</p>
                     </div>
                   </div>
                 </NavLink>
@@ -238,8 +239,8 @@ export default function NavLargScreen() {
                       <i className="fa fa-user-circle fs-3"></i>
                     </span>
                     <div className="acc-cn ms-2">
-                      <p>Name</p>
-                      <p>Client</p>
+                      <p>{t("Name")}</p>
+                      <p>{t("Client")}</p>
                     </div>
                   </div>
                 </NavLink>
@@ -249,7 +250,7 @@ export default function NavLargScreen() {
                   <span>
                     <i className="fa fa-cog"></i>
                   </span>
-                  <span className="ps-2">Settings</span>
+                  <span className="ps-2">{t("Settings")}</span>
                 </a>
               </li>
               <li onClick={logout}>
@@ -257,7 +258,7 @@ export default function NavLargScreen() {
                   <span>
                     <i className="fas fa-sign-out-alt"></i>
                   </span>
-                  <span className="ps-2">Log Out</span>
+                  <span className="ps-2">{t("Log Out")}</span>
                 </a>
               </li>
             </ul>
