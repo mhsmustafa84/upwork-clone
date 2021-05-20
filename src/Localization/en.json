@@ -378,5 +378,29 @@
     "JobsinUSA": "Jobs in USA",
     "FindJobs": "Find Jobs",
     "Followus": "Follow us",
-    "Mobileapp": "Mobile app"
+    "Mobileapp": "Mobile app",
+    "Emailrequired": "*Email required",
+    "PleaseinterValidEmail": "*Please Enter Valid Email",
+    "ThisisRequired": "*This is Required",
+    "PasswordShouldbeMore8Character": "*Password Should be More 8 Character",
+    "UsernameorEmail": "Username or Email",
+    "Password": "Password",
+    "Workemailaddress": "Work email address",
+    "Firstnameisrequired": "First name is required",
+    "Firstnamemusbemorethan2": "First name must be more than 2 character",
+    "Lastnameisrequired": "First name is required",
+    "Lastnamemusbemorethan2": "First name must be more than 2 character",
+    "FirstName": "First Name",
+    "LastName": "Last Name",
+    "Search": "Search",
+    "MyHires": "My Hires",
+    "Saved": "Saved",
+    "Youhaventhiredanyoneyet":"You haven't hired anyone yet",
+    "Searchforfreelancers":"Search for freelancers",
+    "whocanhelpyougetworkdone":"who can help you get work done.",
+    "Youhaventsavedanyoneyet" : "You haven’t saved anyone yet",
+    "Saveyourfavoritefreelancers" :"Save your favorite freelancers and agencies so you can easily work with them in the future.",
+    "AdvancedSearch":"Advanced Search"
+
+
 }

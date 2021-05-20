@@ -36,9 +36,9 @@ export default function SignUpSecondForm() {
           ...validate,
           firstName:
             val === ""
-              ? "First name is required"
+              ? t("Firstnameisrequired")
               : val.length < 3
-                ? "First name must more 2 character"
+                ? t("Firstnamemusbemorethan2")
                 : null
         });
         break;
@@ -48,9 +48,9 @@ export default function SignUpSecondForm() {
           ...validate,
           lastName:
             val === ""
-              ? "Last name is required"
+              ? t("Lastnameisrequired")
               : val.length < 3
-                ? "Last name must more 2 character"
+                ? t("Lastnamemusbemorethan2")
                 : null
         });
         break;
@@ -60,9 +60,9 @@ export default function SignUpSecondForm() {
           ...validate,
           password:
             val === ""
-              ? "Password is required"
+              ? t("ThisisRequired")
               : val.length < 8
-                ? "Password must be 8 character or more"
+                ? t("PasswordShouldbeMore8Character")
                 : null
         });
         break;
@@ -154,7 +154,7 @@ export default function SignUpSecondForm() {
                   type="text"
                   name="firstName"
                   className="form-control  border-start-0 d-inline"
-                  placeholder="First Name"
+                  placeholder={t("FirstName")}
                   aria-label="Input group example"
                   aria-describedby="basic-addon1"
                   onInput={getUserData}
@@ -180,7 +180,7 @@ export default function SignUpSecondForm() {
                   type="text"
                   name="lastName"
                   className="form-control border-start-0 d-inline"
-                  placeholder="Last Name"
+                  placeholder={t("LastName")}
                   aria-label="Input group example"
                   aria-describedby="basic-addon1"
                   onInput={getUserData}
@@ -208,7 +208,7 @@ export default function SignUpSecondForm() {
               type="password"
               name="password"
               className="form-control  border-start-0"
-              placeholder="Password"
+              placeholder={t("Password")}
               aria-label="Input group example"
               aria-describedby="basic-addon1"
               onInput={getUserData}

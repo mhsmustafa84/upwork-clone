@@ -18,10 +18,6 @@
     "Proposals":"العروض المقدمه",
     "loginandget": "تسجيل الدخول والحصول على وظيفة",
     "keepme": "البقاء تسجيل الدخول ",
-   
-       
-
-
     "SAVED JOBS(2)": "الوظائف المحفوظة (٢)",
     "Figma Prototype" : "نموذج فيجما ",
     "Est. Budget" : "الدخل",
@@ -381,5 +377,29 @@
     "JobsinUSA": "وظائف في الولايات المتحدة",
     "FindJobs": "العثور على وظائف",
     "Followus": "تابعنا",
-    "Mobileapp": "تطبيق الهاتف المحمول"
+    "Mobileapp": "تطبيق الهاتف المحمول",
+    "Emailrequired":"*البريد الالكترونى مطلوب",
+    "PleaseinterValidEmail":"*برجاء ادخال بريد الكترونى صحيح",
+    "ThisisRequired":"*هذا الحقل مطلوب",
+    "PasswordShouldbeMore8Character":"*كلمة السر يجب ان تكون اكثر من 8 حروف",
+    "UsernameorEmail":"اسم المستخدم او البريد الإلكترونى",
+    "Password":"كلمة السر",
+    "Workemailaddress":"البريد الإلكترونى الخاص بالعمل",
+    "Firstnameisrequired":"الاسم الاول مطلوب",
+    "Firstnamemusbemorethan2":"الاسم الأخير يجب أن يحتوى على أكثر من حرفين",
+    "Lastnameisrequired":"الاسم الاول مطلوب",
+    "Lastnamemusbemorethan2":"الااسم الأخير يجب أن يحتوى على أكثر من حرفين",
+    "FirstName":"الإسم الأول",
+    "LastName":"الإسم الأخير",
+    "MyHires": "توظيفاتى",
+    "Saved": "المحفوظ",
+    "Youhaventhiredanyoneyet":"لم تقم بتعيين أحد حتى الآن",
+    "Searchforfreelancers":"''ابحث عن العاملين لحسابهم الخاص ",
+    "whocanhelpyougetworkdone":"الذين يمكنهم مساعدتك في إنجاز العمل.",
+    "Youhaventsavedanyoneyet" : "لم تقم بحفظ أي شخص حتى الآن",
+    "Saveyourfavoritefreelancers" :"احفظ العاملين لحسابهم الخاص والوكالات المفضلة لديك حتى تتمكن من العمل معهم بسهولة في المستقبل.",
+    "AdvancedSearch":"بحث متقدم"
+
 }
+   
+
