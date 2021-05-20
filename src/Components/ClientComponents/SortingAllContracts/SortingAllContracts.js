@@ -1,11 +1,13 @@
 /* eslint-disable */
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function SortingAllContracts() {
+  const { t } = useTranslation();
   return (
     <div>
       <div className="col-12 mb-3">
-        <small className="fw-bold">Sort By</small>
+        <small className="fw-bold">{t("Sort By")}</small>
         <div className="btn-group btn-startdate col-4">
           <button
             type="button"
@@ -14,22 +16,27 @@ export default function SortingAllContracts() {
             data-bs-display="static"
             aria-expanded="false"
           >
-            Start date
+            {t("Start date")}
           </button>
           <ul className="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
             <li>
               <button className="dropdown-item" type="button">
-                Action
+                {t("Start date")}
               </button>
             </li>
             <li>
               <button className="dropdown-item" type="button">
-                Another action
+                {t("End date")}
               </button>
             </li>
             <li>
               <button className="dropdown-item" type="button">
-                Something else here
+                {t("Client name")}
+              </button>
+            </li>
+            <li>
+              <button className="dropdown-item" type="button">
+                {t("Contract name")}
               </button>
             </li>
           </ul>
@@ -58,7 +65,8 @@ export default function SortingAllContracts() {
             />
           </svg>
         </button>
-        <span className="mx-2">0 </span><span> total</span>
+        <span className="mx-2">0 </span>
+        <span>{t("total")}</span>
 
         <a type="button" className="float-end text-success">
           <svg
@@ -72,7 +80,7 @@ export default function SortingAllContracts() {
             <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
             <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
           </svg>
-          Download CSV
+          {t("Download csv")}
         </a>
       </div>
     </div>

@@ -1,5 +1,7 @@
 /* eslint-disable */
 // import OverviewTable from "./../overviewreportstables/overviewreporttable";
+import { useTranslation } from "react-i18next";
+
 export default function WorkinProgress() {
   // const [Tablesdata, setTablesdata] = useState({
   //   Dates: [
@@ -17,6 +19,7 @@ export default function WorkinProgress() {
   //     },
   //   ],
   // });
+  const { t } = useTranslation();
   return (
     <>
       <div className="container card mt-3">
@@ -30,9 +33,11 @@ export default function WorkinProgress() {
             to="#"
             style={{ textDecoration: "none", color: "#008329" }}
           >
-            When will I get paid{" "}
+            {t("When will I get paid")}
           </a>
-          <h5 className="mt-2 ms-2 mb-2">You have no work in progress</h5>
+          <h5 className="mt-2 ms-2 mb-2">
+            {t("You have no work in progress")}
+          </h5>
         </div>
         {/* <p className="text-end">
                   This Timesheet includes 0.00 hours in manual time

@@ -1,7 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
+import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function JobDescriptionJobDetails() {
+  const { t } = useTranslation();
   return (
     <div className="col-lg-9 col-xs-12  mt-lg-0">
       <div className="bg-white py-lg-4 px-4 border border-1 row py-sm-3 mt-lg-0 mt-sm-3 py-xs-5">
@@ -10,26 +12,22 @@ export default function JobDescriptionJobDetails() {
       <div className="bg-white py-lg-4 px-4 border border-1 row py-sm-3">
         <a href="#" className="advanced-search-link">
           Packaging Design
-                </a>
+        </a>
         <p className="text-muted">Posted 9 hours ago</p>
         <span>
-          <i
-            className="fas fa-street-view"
-            style={{ color: "#14bff4" }}
-          >
+          <i className="fas fa-street-view" style={{ color: "#14bff4" }}>
             {" "}
           </i>{" "}
-                  Worldwide
-                </span>
+          Worldwide
+        </span>
       </div>
       <div className="bg-white py-lg-4 px-4 border border-1 row py-xs-5">
         <p>
-          To design graphics of label for home care products i.e (
-          phenyl ,dish wash, toilet cleaner) . The registerd brand name
-          is Tiger magic.To design graphics of label for home care
-          products i.e ( phenyl ,dish wash, toilet cleaner) . The
-          registerd brand name is Tiger magic.
-                </p>
+          To design graphics of label for home care products i.e ( phenyl ,dish
+          wash, toilet cleaner) . The registerd brand name is Tiger magic.To
+          design graphics of label for home care products i.e ( phenyl ,dish
+          wash, toilet cleaner) . The registerd brand name is Tiger magic.
+        </p>
       </div>
       <ul className="bg-white py-lg-4 px-4 border border-1 row list-group list-group-horizontal py-sm-3 py-xs-5">
         {/**/}
@@ -51,7 +49,7 @@ export default function JobDescriptionJobDetails() {
           </div>{" "}
           <small className="text-muted">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed-price
-                  </small>
+          </small>
         </li>
         {/**/}
         <li className="col list-group-item border-0">
@@ -72,9 +70,8 @@ export default function JobDescriptionJobDetails() {
           </div>{" "}
           <small className="text-muted">
             <span className="d-none d-lg-inline">
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I am looking for a mix of
-              experience
-                    </span>{" "}
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I am looking for a mix of experience
+            </span>{" "}
             <span className="d-lg-none">Experience Level</span>
           </small>
         </li>
@@ -99,12 +96,11 @@ export default function JobDescriptionJobDetails() {
       </ul>
       <div className="bg-white py-lg-4 px-4 border border-1 row py-sm-3 py-xs-5">
         <span className="fw-bold">
-          Project type:{" "}
-          <span className="fw-normal">One time project</span>
+          {t("Project type")}: <span className="fw-normal">One time project</span>
         </span>
       </div>
       <div className="bg-white py-lg-4 px-4 border border-1 row pb-sm-3 py-xs-5">
-        <h5 className="fw-bold my-4">Skills and experties</h5>
+        <h5 className="fw-bold my-4">{t("Skills and experties")}</h5>
         <div className="col">
           <div className="fw-bold">Web Design languages</div>
           <button
@@ -112,40 +108,38 @@ export default function JobDescriptionJobDetails() {
             className="btn btn-secondary btn-sm rounded-pill skills"
           >
             HTML
-                  </button>
+          </button>
           <button
             type="button"
             className="btn btn-secondary btn-sm rounded-pill skills"
           >
             Css
-                  </button>
+          </button>
         </div>
         <div className="col">
-          <div className="fw-bold">
-            Website builders and CMS platforms
-                  </div>
+          <div className="fw-bold">Website builders and CMS platforms</div>
           <button
             type="button"
             className="btn btn-secondary btn-sm rounded-pill skills"
           >
             Wordpress
-                  </button>
+          </button>
           <button
             type="button"
             className="btn btn-secondary btn-sm rounded-pill skills"
           >
             shopify
-                  </button>
+          </button>
           <button
             type="button"
             className="btn btn-secondary btn-sm rounded-pill skills"
           >
             WIX
-                  </button>
+          </button>
         </div>
       </div>
       <div className="bg-white py-lg-2 py-md-4 px-4 border border-1 row py-xs-5">
-        <h5 className="fw-bold my-4">Activity on this job</h5>
+        <h5 className="fw-bold my-4">{t("Activity on this job")}</h5>
         <div>
           <p className="my-lg-1">
             <span className="text-muted">Proposals: </span>
@@ -159,8 +153,8 @@ export default function JobDescriptionJobDetails() {
             >
               <path d="M7 0a7 7 0 100 14A7 7 0 007 0zm3.017 4.981c0 1.57-1.128 2.278-2.52 2.52l-.131 1.03h-.96l-.251-2.015.059-.06c1.608-.06 2.327-.588 2.327-1.44v-.023c0-.72-.551-1.236-1.462-1.236-.804 0-1.464.36-2.064 1.008l-.9-.948c.72-.827 1.644-1.39 3-1.39 1.738 0 2.902.983 2.902 2.53v.024zm-3.958 6.284V9.598h1.606v1.667H6.059z"></path>
             </svg>{" "}
-                    Less than 5
-                  </p>
+            Less than 5
+          </p>
           <p className="my-lg-1">
             <span className="text-muted">Last viewed by client: </span>
             <svg
@@ -173,19 +167,19 @@ export default function JobDescriptionJobDetails() {
             >
               <path d="M7 0a7 7 0 100 14A7 7 0 007 0zm3.017 4.981c0 1.57-1.128 2.278-2.52 2.52l-.131 1.03h-.96l-.251-2.015.059-.06c1.608-.06 2.327-.588 2.327-1.44v-.023c0-.72-.551-1.236-1.462-1.236-.804 0-1.464.36-2.064 1.008l-.9-.948c.72-.827 1.644-1.39 3-1.39 1.738 0 2.902.983 2.902 2.53v.024zm-3.958 6.284V9.598h1.606v1.667H6.059z"></path>
             </svg>{" "}
-                    4 minutes ago
-                  </p>
+            4 minutes ago
+          </p>
           <p className="my-lg-1">
             <span className="text-muted">Interviewing: </span> 0
-                  </p>
+          </p>
           <p className="my-lg-1">
             <span className="text-muted">Invites sent: </span> 2
-                  </p>
+          </p>
           <p className="my-lg-1">
             <span className="text-muted">Unanswered invites : </span> 2
-                  </p>
+          </p>
         </div>
       </div>
     </div>
-  )
+  );
 }

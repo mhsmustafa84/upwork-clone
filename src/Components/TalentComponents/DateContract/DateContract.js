@@ -1,6 +1,8 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function DateContract() {
+  const { t } = useTranslation();
   return (
     <div className="btn-group btn-startdate w-25">
       <button
@@ -10,23 +12,28 @@ export default function DateContract() {
         data-bs-display="static"
         aria-expanded="false"
       >
-        Start date
+        {t("Start date")}
         <i className="fa fa-sort-down text-dark float-end"></i>
       </button>
       <ul className="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
         <li>
           <button className="dropdown-item" type="button">
-            Action
+            {t("Start date")}
           </button>
         </li>
         <li>
           <button className="dropdown-item" type="button">
-            Another action
+            {t("End date")}
           </button>
         </li>
         <li>
           <button className="dropdown-item" type="button">
-            Something else here
+            {t("Client name")}
+          </button>
+        </li>
+        <li>
+          <button className="dropdown-item" type="button">
+            {t("Contract name")}
           </button>
         </li>
       </ul>
