@@ -1,7 +1,9 @@
 /* eslint-disable */
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 import './SavedJobsHeader.css';
 export default function SavedJobsHeader() {
+  const { t } = useTranslation();
   return (
     <div>
       <ul
@@ -17,7 +19,7 @@ export default function SavedJobsHeader() {
             className=" list-group-item-action saved-homebage-ul-li-aa bg-white"
             aria-current="true"
           >
-            SEARCH
+            {t("SEARCH")}
               </a>
         </li>
         <li
@@ -29,7 +31,7 @@ export default function SavedJobsHeader() {
             className=" list-group-item-action saved-homebage-ul-li-aa active activesidesaved bg-white"
             aria-current="true"
           >
-            SAVED JOBS(2)
+            {t("SAVED JOBS(2)")}
               </a>
         </li>
       </ul>

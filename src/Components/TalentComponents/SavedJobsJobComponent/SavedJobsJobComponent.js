@@ -1,7 +1,8 @@
-/* eslint-disable */
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 
 export default function SavedJobsJobComponent() {
+   const { t } = useTranslation();
   return (
     <div className="list-group-item">
       <div className="row align-items-center">
@@ -11,7 +12,7 @@ export default function SavedJobsJobComponent() {
             id="job-title-home-page "
             className="link-dark job-title-hover "
           >
-            <p className="fw-bold ">Figma Prototype</p>
+            <p className="fw-bold ">{t ("Figma Prototype")}</p>
           </a>
         </div>
         <div className="col-lg-3">
@@ -58,14 +59,14 @@ export default function SavedJobsJobComponent() {
       <p style={{ fontSize: "0.9em" }}>
         <span className="text-muted">
           <span className="fw-bold " id="contract-type">
-            Fixed Price
+            {t("Fixed Price")}
             </span>
           <span>-</span>
-          <span id="experience-level">Expert</span>
+          <span id="experience-level">{t("Expert")}</span>
           <span>-</span>
-          <span>Est. Budget:</span>
-          <span id="client-budget">$200</span>- posted
-            <span id="posting-time"> 4 Hours ago</span>
+          <span>{t("Est. Budget")}:</span>
+          <span id="client-budget">${t("200")}</span>- {t("posted")}
+            <span id="posting-time"> {t("4 Hours ago")}</span>
         </span>
       </p>
       <p id="job-description">
@@ -98,7 +99,7 @@ export default function SavedJobsJobComponent() {
             id="seemorebutton"
             className="advanced-search-link "
           >
-            more
+            {t("more")}
             </button>
         </span>
       </p>
@@ -140,17 +141,17 @@ export default function SavedJobsJobComponent() {
         </button>
       <p style={{ fontSize: "0.9em" }} className="my-lg-1">
         <span className="text-muted">
-          <span>Proposals: </span>
-          <span className="fw-bold ">Less than </span>
+          <span>{t("Proposals")}: </span>
+          <span className="fw-bold ">{t("Less than")} </span>
           <span className="fw-bold " id="proposals-numbers">
-            5
+            {t("5")}
             </span>
         </span>
       </p>
       <p style={{ fontSize: "0.85em" }} className="my-lg-1 mb-lg-2">
         <span className="fw-bold " style={{ color: "#14bff4" }}>
           <i className="fas fa-check-circle primary" />
-            Payment verified
+            {t("Payment verified")}
           </span>
         <span className="text-muted">
           <span>
@@ -161,10 +162,10 @@ export default function SavedJobsJobComponent() {
             <i className="fas fa-star" />
 
           </span>
-          <span className="fw-bold "> $0</span>
-          <span> spent</span>
+          <span className="fw-bold "> ${t("0")}</span>
+          <span> {t("spent")}</span>
           <span className="fw-bold ">
-            <i className="fas fa-map-marker-alt" /> United States
+            <i className="fas fa-map-marker-alt" /> {t("United States")}
             </span>
         </span>
       </p>

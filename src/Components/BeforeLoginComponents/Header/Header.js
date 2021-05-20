@@ -1,9 +1,11 @@
 /* eslint-disable */
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import './Header.css'
 
 export default function Header() {
+    const { t } = useTranslation();
     return (
         <header className="py-3 fixed-top bg-white">
             <div className="container">
@@ -22,74 +24,74 @@ export default function Header() {
                                 <ul className="navbar-nav">
                                     <li className="nav-item dropdown">
                                         <a className="nav-link n-l-c-cn dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Find Talent
+                                            {t("Find Talent")}
                                         <i className="fa fa-sort-down ms-1"></i>
                                         </a>
                                         <ul id="find-talent-dd-id" className="dropdown-menu pb-4" aria-labelledby="navbarDropdownMenuLink">
                                             <ul className="mt-3 d-inline-block">
-                                                <span className="fw-bold">TYPE OF WORK</span>
-                                                <li><Link className="dropdown-item" to="dev-it">Development & IT</Link></li>
-                                                <li><a className="dropdown-item" href="#">Design & Creative</a></li>
-                                                <li><a className="dropdown-item" href="#">Sales & Marketing</a></li>
-                                                <li><a className="dropdown-item" href="#">Writing & Translation</a></li>
-                                                <li><a className="dropdown-item" href="#">Admin & Customer Support</a></li>
-                                                <li><a className="dropdown-item" href="#">Finance & Accounting</a></li>
-                                                <li><a className="dropdown-item" href="#">See all specializations</a></li>
+                                                <span className="fw-bold">{t("TYPE OF WORK")}</span>
+                                                <li><Link className="dropdown-item" to="dev-it">{t("Development & IT")}</Link></li>
+                                                <li><a className="dropdown-item" href="#">{t("Design & Creative")}</a></li>
+                                                <li><a className="dropdown-item" href="#">{t("Sales & Marketing")}</a></li>
+                                                <li><a className="dropdown-item" href="#">{t("Writing & Translation")}</a></li>
+                                                <li><a className="dropdown-item" href="#">{t("Admin & Customer Support")}</a></li>
+                                                <li><a className="dropdown-item" href="#">{t("Finance & Accounting")}</a></li>
+                                                <li><a className="dropdown-item" href="#">{t("See all specializations")}</a></li>
                                             </ul>
                                             <div className="mt-3 ms-5 ps-4 d-inline-block">
-                                                <span className="fw-bold">WAYS TO HIRE</span>
+                                                <span className="fw-bold">{t("WAYS TO HIRE")}</span>
                                                 <div className="d-flex mt-3 pb-5">
                                                     <div>
                                                         <a href="#">
-                                                            <p className="fw-bold">Talent Marketplace</p>
-                                                            <p className="">Post a job and get proposals</p>
+                                                            <p className="fw-bold">{t("Talent Marketplace")}</p>
+                                                            <p className="">{t("Post a job and get proposals")}</p>
                                                         </a>
                                                         <a href="#">
-                                                            <p className="fw-bold">Talent Scout</p>
-                                                            <p>Have us find you an expert</p>
+                                                            <p className="fw-bold">{t("Talent Scout")}</p>
+                                                            <p>{t("Have us find you an expert")}</p>
                                                         </a>
                                                     </div>
                                                     <div className="ms-5">
                                                         <a href="#">
-                                                            <p className="fw-bold">Talent Scout</p>
-                                                            <p className="">Have us find you an expert</p>
+                                                            <p className="fw-bold">{t("Talent Scout")}</p>
+                                                            <p className="">{t("Have us find you an expert")}</p>
                                                         </a>
                                                         <a href="#">
-                                                            <p className="fw-bold">Enterprise Suite</p>
-                                                            <p>Revamp the way you hire</p>
+                                                            <p className="fw-bold">{t("Enterprise Suite")}</p>
+                                                            <p>{t("Revamp the way you hire")}</p>
                                                         </a>
                                                     </div>
                                                 </div>
                                                 <div className="border-top mt-5 pt-4">
-                                                    <a href="#">Learn how to hire on Upwork<i className="fa fa-arrow-right ms-3 text-success"></i></a>
+                                                    <a href="#">{t("Learn how to hire on Upwork")}<i className="fa fa-arrow-right ms-3 text-success"></i></a>
                                                 </div>
                                             </div>
                                         </ul>
                                     </li>
                                     <li className="nav-item dropdown">
                                         <a className="nav-link n-l-c-cn dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Find Work
+                                            {t("Find Work")}
                                         <i className="fa fa-sort-down ms-1"></i>
                                         </a>
                                         <ul id="find-work-dd-id" className="dropdown-menu pb-4" aria-labelledby="navbarDropdownMenuLink">
                                             <div className="d-flex">
                                                 <ul className="mt-3 d-inline-block">
-                                                    <span className="fw-bold">TYPE OF WORK</span>
-                                                    <li><Link className="dropdown-item mt-3" to="freelance-jobs">Development & IT</Link></li>
-                                                    <li><a className="dropdown-item" href="#">Design & Creative</a></li>
-                                                    <li><a className="dropdown-item" href="#">Sales & Marketing</a></li>
-                                                    <li><a className="dropdown-item" href="#">Writing & Translation</a></li>
+                                                    <span className="fw-bold">{t("TYPE OF WORK")}</span>
+                                                    <li><Link className="dropdown-item mt-3" to="freelance-jobs">{t("Development & IT")}</Link></li>
+                                                    <li><a className="dropdown-item" href="#">{t("Design & Creative")}</a></li>
+                                                    <li><a className="dropdown-item" href="#">{t("Sales & Marketing")}</a></li>
+                                                    <li><a className="dropdown-item" href="#">{t("Writing & Translation")}</a></li>
                                                 </ul>
                                                 <ul className="d-inline-block ms-5">
-                                                    <li><a className="dropdown-item mt-5 pt-4" href="#">Admin & Customer Support</a></li>
-                                                    <li><a className="dropdown-item" href="#">Finance & Accounting</a></li>
-                                                    <li><a className="dropdown-item" href="#">See all specializations</a></li>
+                                                    <li><a className="dropdown-item mt-5 pt-4" href="#">{t("Admin & Customer Support")}</a></li>
+                                                    <li><a className="dropdown-item" href="#">{t("Finance & Accounting")}</a></li>
+                                                    <li><a className="dropdown-item" href="#">{t("See all specializations")}</a></li>
                                                 </ul>
                                             </div>
                                             <div className="mt-3 ps-4 d-inline-block">
                                                 <div className="border-top pt-3">
                                                     <a href="#">
-                                                        Learn how to get hired on Upwork
+                                                        {t("Learn how to get hired on Upwork")}
                                                     <i className="fa fa-arrow-right ms-3 text-success"></i>
                                                     </a>
                                                 </div>
@@ -98,14 +100,14 @@ export default function Header() {
                                     </li>
                                     <li className="nav-item dropdown">
                                         <a className="nav-link n-l-c-cn dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Why Upwork
+                                            {t("Why Upwork")}
                                         <i className="fa fa-sort-down ms-1"></i>
                                         </a>
                                         <ul id="why-work-dd-id" className="dropdown-menu mt-3" aria-labelledby="navbarDropdownMenuLink">
-                                            <li><a className="dropdown-item py-2 mt-3" href="#">SUccess Stories</a></li>
-                                            <li><a className="dropdown-item py-2" href="#">Reviews</a></li>
-                                            <li><a className="dropdown-item py-2" href="#">Learn</a></li>
-                                            <li><a className="dropdown-item py-2" href="#">Forums</a></li>
+                                            <li><a className="dropdown-item py-2 mt-3" href="#">{t("Success Stories")}</a></li>
+                                            <li><a className="dropdown-item py-2" href="#">{t("Reviews")}</a></li>
+                                            <li><a className="dropdown-item py-2" href="#">{t("Learn")}</a></li>
+                                            <li><a className="dropdown-item py-2" href="#">{t("Forums")}</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -126,8 +128,8 @@ export default function Header() {
                                         <div className="d-flex align-items-center">
                                             <span className="me-2 mb-3"><i className="fas fa-user fs-6"></i></span>
                                             <div className="acc-cn ms-2">
-                                                <p>Talent</p>
-                                                <p>Hire professionals and agencies</p>
+                                                <p>{t("Talent")}</p>
+                                                <p>{t("Hire professionals and agencies")}</p>
                                             </div>
                                         </div>
                                     </a>
@@ -135,9 +137,9 @@ export default function Header() {
                                         <div className="d-flex align-items-center">
                                             <span className="me-2 mb-3"><i className="fas fa-clipboard-list fs-6"></i></span>
                                             <div className="acc-cn ms-2">
-                                                <p>Projects <span id="search-type-projects-new" className="rounded-pill">NEW</span>
+                                                <p>{t("Projects ")}<span id="search-type-projects-new" className="rounded-pill">{t("NEW")}</span>
                                                 </p>
-                                                <p>Buy pre-defined projects</p>
+                                                <p>{t("Buy pre-defined projects")}</p>
                                             </div>
                                         </div>
                                     </a>
@@ -145,19 +147,19 @@ export default function Header() {
                                         <div className="d-flex align-items-center">
                                             <span className="me-2 mb-3"><i className="fas fa-briefcase fs-6"></i></span>
                                             <div className="acc-cn ms-2">
-                                                <p>Jobs</p>
-                                                <p>Apply to jobs posted by clients</p>
+                                                <p>{t("Jobs")}</p>
+                                                <p>{t("Apply to jobs posted by clients")}</p>
                                             </div>
                                         </div>
                                     </a>
                                 </ul>
                             </div>
-                            <input className="form-control ms-1 ps-5 py-1 search-inputt-cn" type="search" placeholder="Search" aria-label="Search" />
+                            <input className="form-control ms-1 ps-5 py-1 search-inputt-cn" type="search" placeholder={t("Search")} aria-label="Search" />
                         </form>
                         <div className="border-start ms-4 ps-2">
                             {/* <button className="btn login-btn-cn"></button> */}
-                            <Link className="btn login-btn-cn" to="/login">Log In</Link>
-                            <Link className="btn signup-btn-cn px-3 py-1" to="/sign-up">Sign Up</Link>
+                            <Link className="btn login-btn-cn" to="/login">{t("Log In")}</Link>
+                            <Link className="btn signup-btn-cn px-3 py-1" to="/sign-up">{t("Sign Up")}</Link>
                         </div>
                     </div>
                 </div>
@@ -165,12 +167,12 @@ export default function Header() {
             <div className="second-nav-cn pt-2 pb-1">
                 <div className="container">
                     <ul className="d-flex align-items-center ms-0 ps-0">
-                        <li><a href="#">Development & IT</a></li>
-                        <li><a href="#">Design & Creative</a></li>
-                        <li><a href="#">Sales & Marketing</a></li>
-                        <li><a href="#">Writing & Translation</a></li>
-                        <li><a href="#">Admin & Customer Support</a></li>
-                        <li><a href="#">Finance & Accounting</a></li>
+                        <li><a href="#">{t("Development & IT")}</a></li>
+                        <li><a href="#">{t("Design & Creative")}</a></li>
+                        <li><a href="#">{t("Sales & Marketing")}</a></li>
+                        <li><a href="#">{t("Writing & Translation")}</a></li>
+                        <li><a href="#">{t("Admin & Customer Support")}</a></li>
+                        <li><a href="#">{t("Finance & Accounting")}</a></li>
                     </ul>
                 </div>
             </div>
