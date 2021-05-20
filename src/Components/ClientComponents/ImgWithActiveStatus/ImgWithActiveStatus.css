@@ -7,10 +7,13 @@
   padding: 5px;
   z-index: 3;
 
-  /* so we can position the line */
-  position: relative;
-  bottom: 30px;
-  left: 80px;
+
+
+
+    /* so we can position the line */
+    position:relative;
+ bottom: 30px;
+    left:50px;
 }
 
 .hotspotimg__btn:hover {

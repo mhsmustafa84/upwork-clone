@@ -20,6 +20,7 @@ import HomeTalent from "../Pages/TalentPages/HomeTalent/HomeTalent";
 import JobDetailsTalent from "../Pages/TalentPages/JobDetailsTalent/JobDetailsTalent";
 import TransactionHistory from "../Pages/TalentPages/Reports/TransactionHistory/TransactionHistory";
 import CreateProfile from "../Pages/TalentPages/CreateProfile/CreateProfile";
+import Search from "../Pages/TalentPages/Search/Search";
 import EmailVerified from './../Pages/EmailVerification/EmailVerified';
 
 export default function TalentRoutes() {
@@ -33,6 +34,8 @@ export default function TalentRoutes() {
       <Switch>
         <Route path="/create-profile" component={CreateProfile} />
         <Route path="/find-work" exact component={HomeTalent} />
+        <Route path="/Search" exact component={Search} />
+        <Route path="/job/" exact component={JobDetailsTalent} />
         <Route path="/job/:id" exact component={JobDetailsTalent} />
         <Route path="/saved-jobs" exact component={SavedJobs} />
         <Route path="/proposals" exact component={Proposals} />
