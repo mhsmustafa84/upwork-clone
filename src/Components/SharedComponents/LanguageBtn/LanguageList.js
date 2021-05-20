@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import i18next from 'i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import i18next from 'i18next';
 import { langAction } from '../../../Store/actions/lang';
 
 

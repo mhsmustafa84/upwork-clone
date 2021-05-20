@@ -3,6 +3,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link, NavLink, useHistory } from "react-router-dom";
 import firebaseApp from "../../../firebase";
+import LanguageList from "../../SharedComponents/LanguageBtn/LanguageList";
 
 export default function NavLargScreen() {
   const { t } = useTranslation();
@@ -262,6 +263,9 @@ export default function NavLargScreen() {
                 </a>
               </li>
             </ul>
+          </li>
+          <li>
+          <LanguageList />
           </li>
         </ul>
       </div>
