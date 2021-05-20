@@ -2,6 +2,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import LanguageList from '../../SharedComponents/LanguageBtn/LanguageList';
 import './Header.css'
 
 export default function Header() {
@@ -156,10 +157,11 @@ export default function Header() {
                             </div>
                             <input className="form-control ms-1 ps-5 py-1 search-inputt-cn" type="search" placeholder={t("Search")} aria-label="Search" />
                         </form>
-                        <div className="border-start ms-4 ps-2">
+                        <div className="border-start ms-4 ps-2 d-flex">
                             {/* <button className="btn login-btn-cn"></button> */}
                             <Link className="btn login-btn-cn" to="/login">{t("Log In")}</Link>
-                            <Link className="btn signup-btn-cn px-3 py-1" to="/sign-up">{t("Sign Up")}</Link>
+                            <Link className="btn signup-btn-cn px-3 py-2" to="/sign-up">{t("Sign Up")}</Link>
+                            <LanguageList />
                         </div>
                     </div>
                 </div>
