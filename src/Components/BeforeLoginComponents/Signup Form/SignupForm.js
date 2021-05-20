@@ -4,8 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import apple from "../../../assets/svg/apple.svg";
 import { signUpAction } from '../../../Store/actions/signUp';
+import { useTranslation } from "react-i18next";  
+
 
 export default function SignupForm() {
+  const { t }=useTranslation();
 
   const [emailError, setEmailErorr] = useState("");
   const { push } = useHistory();
@@ -32,7 +35,7 @@ export default function SignupForm() {
       <div className="shadow-sm p-3 mb-5 bg-white rounded mx-auto mt-5 w-100 border">
         <h4 data-v-904d5b16 className="text-center m-0">
           <span style={{ fontFamily: "serif", fontWeight: "bold" }}>
-            Get your free account
+          {t("Getyourfreeaccount")}
           </span>
         </h4>
         <div className="google-btn  gap-2 mx-auto mt-3 rounded hitbtn-class">
@@ -47,7 +50,7 @@ export default function SignupForm() {
               className="text-center text-white"
               style={{ paddingTop: ".3em" }}
             >
-              Continue with Google
+              {t("ContinuewithGoogle")}
             </p>
           </div>
         </div>
@@ -55,7 +58,7 @@ export default function SignupForm() {
           <button className="btn bg-light " type="button">
             {" "}
             <img src={apple} className="apple-icon" />
-            Continue with Apple
+            {t("ContinuewithApple")}
           </button>
         </div>
         <div className="separator mt-3 col-8 mx-auto">or</div>
@@ -80,7 +83,7 @@ export default function SignupForm() {
               type="button"
               onClick={signUpContinue}
             >
-              Continue with Email
+              {t("ContinuewithEmail")}
             </button>
           </div>
         </form>
