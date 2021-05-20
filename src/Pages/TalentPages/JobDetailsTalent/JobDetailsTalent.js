@@ -7,6 +7,7 @@ import SimilarJobsOnUpwork from "./../../../Components/TalentComponents/SimilarJ
 import { useTranslation } from "react-i18next";
 
 export default function JobDetailsTalent() {
+  const { t }= useTranslation();
   const { id } = useParams();
   console.log(id);
   const { t } = useTranslation();

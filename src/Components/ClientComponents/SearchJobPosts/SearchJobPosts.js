@@ -16,7 +16,7 @@ export default function SearchJobPosts() {
               placeholder={t("Search job postings")}
             />
             <div className="input-gruop-text">
-              <button type="button" className="btn btn-success ">
+              <button type="button" className="btn bg-upwork ">
                 <i className="fas fa-search" />
               </button>
             </div>

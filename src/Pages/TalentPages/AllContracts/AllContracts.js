@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React from "react";
+import { useTranslation } from "react-i18next";
 import DateContract from "../../../Components/TalentComponents/DateContract/DateContract";
 import OneContract from "../../../Components/TalentComponents/OneContract/OneContract";
 import SearchContract from "../../../Components/TalentComponents/SearchContract/SearchContract";

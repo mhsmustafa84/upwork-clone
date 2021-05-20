@@ -35,7 +35,7 @@ export default function ClientRoutes() {
         <Route path="/review-proposal" component={ReviewProposals} />
         <Route path="/billing-history" exact component={Reports} />
         <Route path="/transaction-history" exact component={TransactionHistory} />
-        <Route path="**" component={PageNotFound} />
+        {/* <Route path="**" component={PageNotFound} /> */}
       </Switch>
       <Footer />
     </>

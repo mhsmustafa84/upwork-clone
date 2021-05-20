@@ -15,6 +15,8 @@ export default function LoginTemp() {
   const [PasswordError, setPasswordErrorr] = useState("");
   const { push } = useHistory();
 
+  const { t } = useTranslation();
+
   const getUserData = e => {
     const name = e.target.name;
     const val = e.target.value;

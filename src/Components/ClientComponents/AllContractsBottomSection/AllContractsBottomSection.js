@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 /* eslint-disable */
 import React from "react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 export default function AllContractsBottomSection() {
@@ -57,12 +58,11 @@ export default function AllContractsBottomSection() {
       </svg>
       <h3>{t("You haven't started any contracts yet.")}</h3>
       <h3>
-        <a href="#" className="text-success">
+        <Link  to="/post-job" className="text-success">
           {t("Post a job")}
-        </a>{" "}
-        {t("or")}{" "}
+        </Link>
+        {t("or")}
         <a href="#" className="text-success">
-          {" "}
           {t("check out who's applied to your existing job posts.")}
         </a>
       </h3>

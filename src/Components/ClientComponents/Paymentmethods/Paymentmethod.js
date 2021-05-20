@@ -122,7 +122,7 @@ export default function Paymentmethods() {
                           </div>
                           <div className="px-5 pay">
                             {" "}
-                            <button className="btn btn-success btn-block">
+                            <button className="btn bg-upwork btn-block">
                               Add card
                             </button>{" "}
                           </div>
