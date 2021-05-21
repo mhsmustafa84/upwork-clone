@@ -15,6 +15,8 @@ import s1 from "../../../assets/img/jobslide1.jpg";
 import s2 from "../../../assets/img/jobslide2.jpg";
 import s3 from "../../../assets/img/jobslide2.jpg";
 import { useTranslation } from "react-i18next";
+import firebaseApp from './../../../firebase';
+
 
 export default function HomeLayout() {
 const { t } = useTranslation();
@@ -23,6 +25,13 @@ const { t } = useTranslation();
   useEffect(() => {
     dispatch(clientDataAction());
   }, []);
+ firebaseApp.firestore()
+  .collection("jobs")
+  .doc("AcVq6BdfU0UbXkmRUdhZ")
+  .get()
+  .then((application) => {
+    console.log(application.data());
+  });
 
   return (
     <>

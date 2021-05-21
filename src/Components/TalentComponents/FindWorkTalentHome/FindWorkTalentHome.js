@@ -10,15 +10,14 @@ import language from './FindWorkTalentHomeLocal';
 
 export default function FindWorkTalentHome() {
   const { t } = useTranslation();
-  const [local, setLoc] = useState({});
+  // const [local, setLoc] = useState({});
 
-  let lang = useSelector(state => state.lang);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(langAction(lang));
-    lang === "ar" ? setLoc(language.ar) : setLoc(language.en)
-  }, [lang]);
-
+  // let lang = useSelector(state => state.lang);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(langAction(lang));
+  //   lang === "ar" ? setLoc(language.ar) : setLoc(language.en)
+  // }, [lang]);
   const [verify, setverify] = useState(false);
   firebaseApp.auth().onAuthStateChanged(user => {
     if (user) {
@@ -31,7 +30,7 @@ export default function FindWorkTalentHome() {
     <div className="d-none d-lg-block" >
       <div className="row my-lg-4">
         <div className="col">
-          <h3>{local.FindWork}</h3>
+          <h3>{t("FindWork")}</h3>
         </div>
         <div className="col-8">
         <SearchBarJobsTalent/>

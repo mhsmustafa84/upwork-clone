@@ -1,6 +1,6 @@
 import React,{ useState } from "react";
 import firebaseApp from "../../../firebase";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";  
 
 
@@ -23,7 +23,7 @@ export default function SearchBarJobsTalent() {
               class="alert alert-warning alert-dismissible fade show"
               role="alert"
             >
-              <strong>Email Verification</strong> Your mail is not verified
+              <strong>{t("Email Verification")}</strong> {t("Your mail is not verified")}
               <button
                 type="button"
                 class="btn-close"

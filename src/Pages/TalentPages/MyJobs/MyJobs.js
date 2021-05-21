@@ -1,17 +1,19 @@
 /* eslint-disable */
 import React from "react";
+import { useTranslation } from "react-i18next";
+
 
 export default function MyJobs() {
+  const { t } = useTranslation();
   return (
     <>
       <div className=" bg-gray">
         <div className="container">
           <div className="row">
             <div className="col-12 my-5 d-flex">
-              <h3 style={{ fontWeight: "bold" }}>My jobs</h3>
+              <h3 style={{ fontWeight: "bold" }}>{t("My jobs")}</h3>
               <h3 className="ms-auto bold">
-                {" "}
-                Earnings available now:
+                {t("Earnings available now")}:
                 <a href="#">$39.74</a>
               </h3>
             </div>
@@ -21,7 +23,7 @@ export default function MyJobs() {
                   <span className="circle">
                     <i className="fas fa-exclamation dangericon pt-2" />
                   </span>
-                  Currently you have no active jobs.
+                  {t("Currently you have no active jobs")}
                 </span>
               </div>
             </div>

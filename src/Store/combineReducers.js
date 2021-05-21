@@ -4,6 +4,7 @@ import { talentDataReducer } from './reducers/talentDataReducer';
 import { clientDataReducer } from './reducers/clientDataReducer';
 import { jobsDataReducer } from './reducers/jobsDataReducer';
 import { langReducer } from './reducers/langReducer';
+import { jobDataReducer } from './reducers/jobDataReducer';
 
 
 export default combineReducers({
@@ -16,5 +17,6 @@ export default combineReducers({
     clientData: clientDataReducer,
     jobsData: jobsDataReducer,
     lang: langReducer,
+    jobData:jobDataReducer,
 
 })

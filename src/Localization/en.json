@@ -392,7 +392,6 @@
     "Lastnamemusbemorethan2": "First name must be more than 2 character",
     "FirstName": "First Name",
     "LastName": "Last Name",
-    "Search": "Search",
     "MyHires": "My Hires",
     "Saved": "Saved",
     "Youhaventhiredanyoneyet":"You haven't hired anyone yet",
@@ -400,7 +399,9 @@
     "whocanhelpyougetworkdone":"who can help you get work done.",
     "Youhaventsavedanyoneyet" : "You haven’t saved anyone yet",
     "Saveyourfavoritefreelancers" :"Save your favorite freelancers and agencies so you can easily work with them in the future.",
-    "AdvancedSearch":"Advanced Search"
+    "AdvancedSearch":"Advanced Search",
+    "My jobs":"My jobs",
+    "Earnings available now":"Earnings available now"
 
 
 }
