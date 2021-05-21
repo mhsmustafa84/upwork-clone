@@ -1,15 +1,25 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
+import { jobsDataAction } from "../../../Store/actions/jobsData";
 
 export default function ConnectsAndSubmit() {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
+  const { id } = useParams();
+  const jobs = useSelector((state) => state.jobsData);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(jobsDataAction());
+  }, []);
+  console.log(id,"dasdasda");
   return (
     <div className="bg-white py-lg-4 px-4 border border-1 row py-sm-3">
       <div className="d-lg-grid gap-2  mx-auto d-none">
-        <button className="btn bg-upwork" type="button">
+        <Link to={`/job/apply/${id}`} className="btn bg-upwork" type="button">
           {t("Submit a proposal")}
-        </button>
+        </Link>
         <button className="btn btn-light border border-1 my-lg-2" type="button">
           <i className="far fa-heart" aria-hidden="true" /> {t("Save Job")}
         </button>

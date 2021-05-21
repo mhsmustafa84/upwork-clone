@@ -386,9 +386,13 @@
     "Lastnamemusbemorethan2": "First name must be more than 2 character",
     "FirstName": "First Name",
     "LastName": "Last Name",
-    "Search": "Search",
     "MyHires": "My Hires",
     "Saved": "Saved",
+    
+    "My jobs":"My jobs",
+    "Earnings available now":"Earnings available now",
+
+
     "Youhaventhiredanyoneyet": "You haven't hired anyone yet",
     "Searchforfreelancers": "Search for freelancers",
     "whocanhelpyougetworkdone": "who can help you get work done.",

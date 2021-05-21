@@ -180,7 +180,7 @@ export default function NavLargScreen() {
                   </button>
                   <span style={{ padding: "0 1px" }}></span>
                   <button type="button" className="btn">
-                    {T("Invisible")}
+                    {t("Invisible")}
                   </button>
                 </div>
               </li>
@@ -191,8 +191,8 @@ export default function NavLargScreen() {
                       <i className="fa fa-user-circle fs-3"></i>
                     </span>
                     <div className="acc-cn ms-2">
-                      <p>{T("Name")}</p>
-                      <p>{T("Freelancer")}</p>
+                      <p>{t("Name")}</p>
+                      <p>{t("Freelancer")}</p>
                     </div>
                   </div>
                 </NavLink>
@@ -208,8 +208,8 @@ export default function NavLargScreen() {
                       <i className="fa fa-user-circle fs-3"></i>
                     </span>
                     <div className="acc-cn ms-2">
-                      <p>{T("Name")}</p>
-                      <p>{T("Client")}</p>
+                      <p>{t("Name")}</p>
+                      <p>{t("Client")}</p>
                     </div>
                   </div>
                 </NavLink>
@@ -219,7 +219,7 @@ export default function NavLargScreen() {
                   <span>
                     <i className="fa fa-cog"></i>
                   </span>
-                  <span className="ps-2">{T("Settings")}</span>
+                  <span className="ps-2">{t("Settings")}</span>
                 </Link>
               </li>
               <li>
@@ -227,7 +227,7 @@ export default function NavLargScreen() {
                   <span>
                     <i className="fas fa-sign-out-alt"></i>
                   </span>
-                  <span className="ps-2">{T("Log Out")}</span>
+                  <span className="ps-2">{t("Log Out")}</span>
                 </button>
               </li>
             </ul>

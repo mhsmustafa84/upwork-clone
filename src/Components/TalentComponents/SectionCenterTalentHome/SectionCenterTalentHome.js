@@ -25,7 +25,12 @@ export default function SectionCenterTalentHome() {
           <div className="list-group-item">
             <div className="row align-items-center">
               <div className="col-lg-9 pt-lg-2">
-                <Link to={`/job/${item.jobID}`} className="job-title-link fw-bold">
+                <Link to={{
+                  pathname:
+                  `/job/${item.jobID}`,
+                state:`${item.jobID}`
+              }} 
+                  className="job-title-link fw-bold">
                   {item?.jobTitle}
                 </Link>
               </div>
