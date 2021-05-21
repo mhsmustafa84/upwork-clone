@@ -1,5 +1,5 @@
-import { add } from "date-fns";
-import React, { useState, useEffect } from "react";
+
+import React, { useState} from "react";
 import { Link } from "react-router-dom";
 import firebaseApp from "../../../firebase";
 import { updateUserData } from "../../../Network/Network";
@@ -15,7 +15,6 @@ export default function CreateProfileLanguage() {
     setaddlang(!addlang)
  }
   const lang = (e) => {
-    // updateUserData("talent", { englishProficiency: e.target.value });
     language = e.target.value;
     setlanguage(language);
   };

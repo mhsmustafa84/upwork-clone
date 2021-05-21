@@ -1,6 +1,5 @@
 /* eslint-disable array-callback-return */
 import React from "react";
-import LangListItem from "../LangListItem/LangListItem";
 
 export default function AddLanguage(props) {
     return (
