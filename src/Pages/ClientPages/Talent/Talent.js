@@ -8,11 +8,12 @@ import {
 } from "react-router-dom";
 import MyHires from "../../../Components/ClientComponents/MyHiresComponent/MyHires";
 import Saved from "../../../Components/ClientComponents/SavedComponent/Saved";
-import { useTranslation } from "react-i18next";  
+import { useTranslation } from "react-i18next";
+import SearchClient from "../SearchClient/SearchClient";
 
 
 export default function Talent() {
-  const { t }=useTranslation();
+  const { t } = useTranslation();
   const { pathname } = useLocation();
   const { push } = useHistory();
   pathname === "/talent" && push("/talent/my-hires");
@@ -27,10 +28,10 @@ export default function Talent() {
                 className="nav-link"
                 exact
                 activeClassName="active"
-                to="/searchclient"
+                to="/talent/searchclient"
               >
                 {t("Search")}
-                </NavLink>
+              </NavLink>
             </li>
             <li className="nav-item mx-2">
               <NavLink
@@ -40,7 +41,7 @@ export default function Talent() {
                 to="/talent/my-hires"
               >
                 {t("MyHires")}
-                </NavLink>
+              </NavLink>
             </li>
             <li className="nav-item mx-2">
               <NavLink
@@ -50,10 +51,14 @@ export default function Talent() {
                 to="/talent/saved-talent"
               >
                 {t("Saved")}
-                </NavLink>
+              </NavLink>
             </li>
           </ul>
           <Switch>
+            {
+              pathname === "/talent/searchclient"
+              && <SearchClient />
+            }
             {
               pathname === "/talent/my-hires"
               && <MyHires />
@@ -62,6 +67,7 @@ export default function Talent() {
               pathname === "/talent/saved-talent"
               && <Saved />
             }
+            <Route path="/talent/searchclient" exact component={SearchClient} />
             <Route path="/talent/my-hires" exact component={MyHires} />
             <Route path="/talent/saved-talent" exact component={Saved} />
           </Switch>

@@ -316,40 +316,7 @@ export default function SearchClient() {
                 </div>
                 <div className="col-lg-10 col-xs-12">
                     <div>
-                        <div>
-                            <ul
-                                id="list-homepage"
-                                className="navbar navbar-expand list-group-horizontal bg-white boder border-1 my-0"
-                            >
-                                <li
-                                    className="list-group-item sidebar-homebage-ul-li bg-white boder border-0"
-                                    aria-current="true"
-                                >
-                                    <Link to="/searchclient">
-                                        <a
-                                            href="#"
-                                            className=" list-group-item-action saved-homebage-ul-li-aa active activesidesaved bg-white"
-                                            aria-current="true"
-                                        >
-                                            {t("SEARCH")}
-                                        </a></Link>
-                                </li>
-                                <li
-                                    className="list-group-item sidebar-homebage-ul-li bg-white boder border-0"
-                                    aria-current="true"
-                                >
-                                    <Link to="/talent/saved-talent">
-                                    <a
-                                        href="#"
-                                        className=" list-group-item-action saved-homebage-ul-li-aa bg-white"
-                                        aria-current="true"
-                                    >
-                                        {t("SAVEDJOBS")}(2)
-              </a></Link>
-                                </li>
-                            </ul>
-
-                        </div>
+                        
                         <div className="list-group-item py-lg-4">
                             <SearchBarJobsClient/>
                         </div>
