@@ -4,10 +4,11 @@ export default function LangListItem(props)
 {
     return(
         <>
-       <div>
-           <li>{props?.element[0]["language"]}</li>
-           <i class="fas fa-trash"></i>
-       </div>
+       <li className="col-5 d-flex justify-content-between py-2">
+          <span> <span className="fw-bold">{props.element["language"]}</span>
+           <span> : {props.element["langProf"]}</span></span>
+           <i class="fas fa-trash" onClick={()=>props.del(props.element)}></i>
+       </li>
    </>
     )
 }
