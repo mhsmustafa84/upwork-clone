@@ -1,6 +1,7 @@
-import { add } from "date-fns";
-import React, { useState } from "react";
+
+import React, { useState} from "react";
 import { Link } from "react-router-dom";
+import firebaseApp from "../../../firebase";
 import { updateUserData } from "../../../Network/Network";
 import AddLanguage from "../AddLanguage/AddLanguge";
 import NewLang from "../NewLang/NewLang";
@@ -14,12 +15,11 @@ export default function CreateProfileLanguage() {
     setaddlang(!addlang)
  }
   const lang = (e) => {
-    // updateUserData("talent", { englishProficiency: e.target.value });
     language = e.target.value;
     setlanguage(language);
   };
   const updateuser = () => {
-    updateUserData("talent", { englishProficiency: language });
+    updateUserData("talent", { englishProficiency: language , languages: languagesList });
     console.log(language);
     console.log(languagesList);
   };
@@ -28,6 +28,12 @@ export default function CreateProfileLanguage() {
       languagesList.push(newLang)
       setlanguagesList(languagesList)
   }
+  const deleteLang =(index) =>
+  {
+    setlanguagesList(languagesList.filter(ele => languagesList.indexOf(ele) !== index))
+    console.log(firebaseApp.auth().currentUser.uid)
+  }
+  
   return (
     <section className=" bg-white border rounded mt-3 pt-4">
       <div className="border-bottom ps-4 pb-3">
@@ -49,7 +55,7 @@ export default function CreateProfileLanguage() {
         {
           addlang ?
           <NewLang toggleAddLang = {toggleAddLang} addlangToList={addlangToList}/> :
-        <AddLanguage toggleAddLang = {toggleAddLang} languagesList={languagesList}/>
+        <AddLanguage toggleAddLang = {toggleAddLang} languagesList={languagesList} deleteLang={deleteLang}/>
         
 }
       </div>
