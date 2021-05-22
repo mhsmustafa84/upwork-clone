@@ -1,8 +1,8 @@
 /* eslint-disable */
-import React from "react";
-import { useTranslation } from "react-i18next";
-import "./SavedJobsHeader.css";
-import { Link, NavLink } from "react-router-dom";
+import React from 'react'
+import './SavedJobsHeader.css';
+import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 export default function SavedJobsHeader() {
   const { t } = useTranslation();

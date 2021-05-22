@@ -11,7 +11,7 @@ export default function PostJobGetStarted(props) {
 
     const createJob = () => {
         props.isStart();
-        createDocument("job", { authID: firebaseApp.auth().currentUser.uid, postTime: "", status: "private" });
+        createDocument("job", { authID: firebaseApp.auth().currentUser.uid, postTime: "", status: "private", user: firebaseApp.firestore().doc('client/' + firebaseApp.auth().currentUser.uid), });
     }
 
     const getData = e => {

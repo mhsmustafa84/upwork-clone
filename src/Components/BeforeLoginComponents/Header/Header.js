@@ -71,7 +71,7 @@ export default function Header() {
                                     </li>
                                     <li className="nav-item dropdown">
                                         <a className="nav-link n-l-c-cn dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            {t("Find Work")}
+                                            {t("FindWork")}
                                         <i className="fa fa-sort-down ms-1"></i>
                                         </a>
                                         <ul id="find-work-dd-id" className="dropdown-menu pb-4" aria-labelledby="navbarDropdownMenuLink">

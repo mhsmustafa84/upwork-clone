@@ -11,7 +11,6 @@ import { jobDetailsAction } from "../../../Store/actions/jobDetails";
 
 export default function JobDetailsTalent() {
   const { id } = useParams();
-  console.log(id);
   const { t } = useTranslation();
   let job = useSelector((state) => state.jobDetails);
   const dispatch = useDispatch();
