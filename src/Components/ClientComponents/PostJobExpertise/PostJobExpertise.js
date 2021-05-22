@@ -3,11 +3,39 @@ import { Link } from "react-router-dom";
 import { updateJob } from "../../../Network/Network";
 import "./PostJobExpertise.css";
 export default function PostJobExpertise() {
-  const [job, setJob] = useState({ jobExperienceLevel: "" });
+  const [skill, setSkill] = useState("");
+  const [skills, setSkillslist] = useState([]);
+  const [job, setJob] = useState({ jobExperienceLevel: "", jobSkills: [] });
 
   const getData = (e) => {
-    job.jobExperienceLevel = e.target.value;
-    setJob(job);
+    const val = e.target.value;
+    const name = e.target.name;
+
+    switch (name) {
+      case "jobExperienceLevel":
+        job.jobExperienceLevel = val;
+        setJob({ ...job, jobExperienceLevel: job.jobExperienceLevel });
+        break;
+      case "jobSkills":
+        setSkill(val);
+        // setJob({ ...job, jobSkills: skill });
+        // console.log(skills);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const addskills = () => {
+    let arr = [];
+    if (skill !== "") {
+      arr = [...skills, skill];
+      setSkillslist(arr);
+      // setSkillslist(skill, ...skills);
+      // setJob({ ...job, jobSkills: skills });
+      console.log(skills);
+    }
+    setSkill("");
   };
 
   const addData = () => {
@@ -64,6 +92,25 @@ export default function PostJobExpertise() {
                 Looking for comprehensive and deep expertise in this field
               </div>
             </label>
+          </div>
+          <p className="fw-bold">Enter the skills of your job post</p>
+          <div className="my-4 d-flex justify-content-between">
+            <input
+              className="form-control w-75 shadow-none"
+              type="text"
+              name="jobSkills"
+              onChange={getData}
+            />
+            <Link className="btn bg-upwork px-5" onClick={addskills}>
+              Add
+            </Link>
+            <div className="my-4 d-flex justify-content-between"></div>
+          </div>
+          <div className="chip">
+            <span>download</span>
+            <span>
+              <i className=" ms-3 fas fa-times-circle"></i>
+            </span>
           </div>
         </div>
       </section>
