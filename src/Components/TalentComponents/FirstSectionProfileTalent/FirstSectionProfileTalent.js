@@ -24,9 +24,9 @@ export default function FirstSectionProfileTalent() {
                 className="rounded-circle avatar vertical-align-middle m-0 avatar-sm avatar-responsive"
                 src={user.profilePhoto ? user.profilePhoto : img}
               />
-              <span className="hotspotimg">
+              {/* <span className="hotspotimg">
                 <span className="hotspotimg__btn"></span>
-              </span>
+              </span> */}
             </div>
           </div>
           <div className="col-lg-4 pt-lg-3 mx-3">
@@ -43,8 +43,8 @@ export default function FirstSectionProfileTalent() {
               <span>
                 {user.location && (
                   <>
-                    user.location.city + ", "
-                    <strong>{user.location.country}– </strong>
+                    {" "}{user.location.city} - {" "}
+                    <strong>{user.location.country} – </strong>
                   </>
                 )}
                 {new Date().toLocaleTimeString()} {t("local time")}

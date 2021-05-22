@@ -3,11 +3,33 @@ import { Link } from "react-router-dom";
 import { updateJob } from "../../../Network/Network";
 import "./PostJobExpertise.css";
 export default function PostJobExpertise() {
-  const [job, setJob] = useState({ jobExperienceLevel: "" });
+  const [skill, setSkill] = useState("");
+  const [job, setJob] = useState({ jobExperienceLevel: "", jobSkills: [] });
 
   const getData = (e) => {
-    job.jobExperienceLevel = e.target.value;
-    setJob(job);
+    const val = e.target.value;
+    const name = e.target.name;
+
+    switch (name) {
+      case "jobExperienceLevel":
+        job.jobExperienceLevel = val;
+        setJob({ ...job, jobCategory: job.jobCategory });
+        break;
+      case "jobSkills":
+        setSkill(val);
+        setJob({ ...job, jobSkills: skill });
+        break;
+      default:
+        break;
+    }
+  };
+
+  const addskills = () => {
+    if (skill !== "") {
+      setSkill(skill);
+      setJob({ ...job, jobSkills: skill });
+    }
+    setSkill("");
   };
 
   const addData = () => {
@@ -64,6 +86,27 @@ export default function PostJobExpertise() {
                 Looking for comprehensive and deep expertise in this field
               </div>
             </label>
+          </div>
+          <p className="fw-bold">Enter the skills of your job post</p>
+          <div className="my-4 d-flex justify-content-between">
+            <input
+              className="form-control w-75 shadow-none"
+              name="jobSkills"
+              onInput={getData}
+            />
+            <Link className="btn bg-upwork px-5" onClick={addskills}>
+              Add
+            </Link>
+            <div className="my-4 d-flex justify-content-between">
+              {job.jobSkills.map((task, index) => (
+                <div className="chip">
+                  <span key={index}>{task}</span>
+                  <span>
+                    <i className=" ms-3 fas fa-times-circle"></i>
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

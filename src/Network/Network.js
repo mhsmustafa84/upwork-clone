@@ -1,5 +1,4 @@
 import { auth, db } from "../firebase";
-
 // Create New Document - auto id
 const createDocument = (collectionName, data) => {
   db.collection(collectionName)
@@ -41,9 +40,31 @@ export const updateJob = (newData, docID) => {
     .then(() => console.log("job updated"))
     .catch((err) => console.log("fail to update job", err));
 };
+// new proposal
+export const subCollection = (collectionName,subCollectionName,data, docId) => {
+  db.collection(collectionName)
+  .doc(docId)
+  .collection(subCollectionName)
+  .add(data)
+  .then((res)=>console.log(res,'add new subCollection'))
+  .catch((e)=>console.log(e))
+};
 
 export const getCurrentUser = async () => {
   return auth.currentUser;
 }
+
+//getJobData
+export const getJobData = async (jobId)=>{
+
+  const res=db.collection('job');
+  const data =await res.doc(jobId).get().then((res)=>res.data())
+
+ return data;
+}
+
+ 
+  
+ 
 
 export default createDocument;

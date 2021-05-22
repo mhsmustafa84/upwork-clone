@@ -1,10 +1,15 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import firebaseApp from '../../../firebase';
 import { updateJob } from '../../../Network/Network';
 import './PostJobBudget.css'
 export default function PostJobBudget() {
+    const [userData, setuserData] = useState({})
 
-    const [job, setJob] = useState({ jobPaymentType: "", jobBudget: "" });
+    firebaseApp.firestore().collection('client').doc(firebaseApp.auth().currentUser.uid).get().then((res)=>setuserData(res.data()))
+    console.log(userData)
+
+    const [job, setJob] = useState({ jobPaymentType: "", jobBudget: "",connects:2 });
 
     const getData = e => {
         const val = e.target.value;

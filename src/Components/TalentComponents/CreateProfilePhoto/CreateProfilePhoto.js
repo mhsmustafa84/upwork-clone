@@ -67,11 +67,13 @@ export default function CreateProfilePhoto() {
                         ></i>
                     )}
                 </div>
-                <input type="file" onChange={hndlChange} />
-                <button onClick={handlUpload}>upload</button>
-                <button className="btn border mt-4" style={{ color: "#37a000" }}>
-                    <i className="fas fa-plus me-3"></i>Add Profile Photo
-                </button>
+                {/* <button onClick={handlUpload}>
+                    upload</button> */}
+                <label className="btn border border-2 mt-4 rounded-5" for="img" style={{ color: "#37a000" }}>
+                <input id="img" className="d-none" type="file" onChange={hndlChange} />
+                    <i className="fas fa-plus me-3" ></i>Add Profile Photo
+                </label>
+                <button  className="btn btn-success" onClick={handlUpload}>upload</button>
             </div>
             <div className="px-4 my-3 pt-4 border-top d-flex justify-content-between">
                 <Link className="btn border text-success me-4 px-5 fw-bold" to="/home">

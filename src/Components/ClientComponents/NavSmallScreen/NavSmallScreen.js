@@ -3,8 +3,11 @@ import React from "react";
 import HeaderSearchSm from "../../SharedComponents/HeaderSearchSm/HeaderSearchSm";
 import { Link, useHistory } from "react-router-dom";
 import firebaseApp from "../../../firebase";
+import { useTranslation } from "react-i18next";  
+
 
 export default function NavSmallScreen() {
+  const { t }=useTranslation();
   const { push } = useHistory();
   const logout = () => {
     firebaseApp
@@ -50,7 +53,7 @@ export default function NavSmallScreen() {
                   d="M7 12.6a5.6 5.6 0 0 1-4.64-2.47C2.94 8.78 4.49 7.88 7 7.88s4.06.9 4.64 2.25A5.6 5.6 0 0 1 7 12.6M7 1.45a2.76 2.76 0 1 1 0 5.53 2.76 2.76 0 0 1 0-5.53M7 0a7 7 0 1 0 .02 14.02A7 7 0 0 0 7 0"
                 ></path>
               </svg>{" "}
-              Name
+              {t("Name")}
               <i className="fa fa-sort-down text-white float-end"></i>
             </a>
             <ul
@@ -66,11 +69,11 @@ export default function NavSmallScreen() {
                   aria-label="Basic example"
                 >
                   <button type="button" className="btn">
-                    Online
+                    {t("Online")}
                   </button>
                   <span style={{ padding: "0 1px" }}></span>
                   <button type="button" className="btn">
-                    Invisible
+                    {t("Invisible")}
                   </button>
                 </div>
               </li>
@@ -85,8 +88,8 @@ export default function NavSmallScreen() {
                       <i className="fa fa-user-circle fs-3"></i>
                     </span>
                     <div className="acc-cn ms-2">
-                      <p>Name</p>
-                      <p>Freelancer</p>
+                      <p>{t("Name")}</p>
+                      <p>{t("Freelancer")}</p>
                     </div>
                   </div>
                 </Link>
@@ -98,8 +101,8 @@ export default function NavSmallScreen() {
                       <i className="fa fa-user-circle fs-3"></i>
                     </span>
                     <div className="acc-cn ms-2">
-                      <p>Name</p>
-                      <p>Client</p>
+                      <p>{t("Name")}</p>
+                      <p>{t("Client")}</p>
                     </div>
                   </div>
                 </Link>
@@ -115,7 +118,7 @@ export default function NavSmallScreen() {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Jobs
+              {t("Jobs")}
               <i className="fa fa-sort-down text-white float-end"></i>
             </a>
             <ul
@@ -124,27 +127,27 @@ export default function NavSmallScreen() {
             >
               <li>
                 <Link className="dropdown-item" to="/home">
-                  My Jobs
+                  {t("My Jobs")}
                 </Link>
               </li>
               <li>
                 <Link className="dropdown-item" to="/all-job-posts">
-                  All Jobs Posts
+                  {t("All Jobs Posts")}
                 </Link>
               </li>
               <li>
                 <Link className="dropdown-item" to="/all-contracts">
-                  All Contracts
+                  {t("All Contracts")}
                 </Link>
               </li>
               <li>
                 <Link className="dropdown-item" to="/bring-your-own-talent">
-                  Bring Your Own Talent
+                  {t("Bring Your Own Talent")}
                 </Link>
               </li>
               <li>
                 <Link className="dropdown-item" to="/post-job">
-                  Post a Job
+                  {t("Post a Job")}
                 </Link>
               </li>
             </ul>
@@ -158,7 +161,7 @@ export default function NavSmallScreen() {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Talent
+              {t("Talent")}
               <i className="fa fa-sort-down text-white float-end"></i>
             </a>
             <ul
@@ -167,12 +170,12 @@ export default function NavSmallScreen() {
             >
               <li>
                 <Link className="dropdown-item" to="/talent/my-hires">
-                  My Hires
+                  {t("My Hires")}
                 </Link>
               </li>
               <li>
                 <Link className="dropdown-item" to="/talent/saved-talent">
-                  Saved Talent
+                  {t("Saved Talent")}
                 </Link>
               </li>
             </ul>
@@ -186,7 +189,7 @@ export default function NavSmallScreen() {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Reports
+              {t("Reports")}
               <i className="fa fa-sort-down text-white float-end"></i>
             </a>
             <ul
@@ -197,18 +200,18 @@ export default function NavSmallScreen() {
                 className="fw-bold py-1 text-light"
                 style={{ marginLeft: "-15px" }}
               >
-                FINANCIALS
+                {t("FINANCIALS")}
               </li>
               <li>
                 <Link className="dropdown-item ps-3" to="/transaction-history">
-                  Transactions
+                  {t("Transactions")}
                 </Link>
               </li>
               <li
                 className="border-top-cn fw-bold py-1 text-light"
                 style={{ marginLeft: "-15px" }}
               >
-                MORE REPORTS
+                {t("MORE REPORTS")}
                 <div>
                   <div className="text-center mt-2">
                     <svg
@@ -256,15 +259,14 @@ export default function NavSmallScreen() {
                     </svg>
                   </div>
                   <p className="fw-normal p-3">
-                    Access premium reports such as hourly timesheets, team
-                    budgets, weekly summaries and more when you upgrade.
+                    {t("Access premium reports such as hourly timesheets, team budgets, weekly summaries and more when you upgrade.")}
                   </p>
                   <a
                     href="#"
                     style={{ color: "#6fda44" }}
                     className="d-block text-center mb-3"
                   >
-                    Learn More
+                    {t("Learn More")}
                   </a>
                 </div>
               </li>
@@ -272,24 +274,24 @@ export default function NavSmallScreen() {
           </li>
           <li className="nav-item px-3">
             <Link className="nav-link mt-2 pt-3 border-top-cn" to="/messages">
-              Messages
+              {t("Messages")}
             </Link>
           </li>
           <li className="nav-item px-3">
             <a className="nav-link mt-2 pt-3 border-top-cn" href="#">
-              Help
+              {t("Help")}
               <i className="fas fa-question float-end"></i>
             </a>
           </li>
           <li className="nav-item px-3">
             <a className="nav-link mt-2 pt-3 border-top-cn" href="#">
-              Notification
+              {t("Notification")}
               <i className="far fa-bell float-end"></i>
             </a>
           </li>
           <li className="nav-item px-3">
             <a className="nav-link mt-2 pt-3 border-top-cn" href="#">
-              Invite a Coworker
+              {t("Invite a Coworker")}
               <i
                 className="fas fa-user-plus float-end"
                 style={{ transform: "scaleX(-1)" }}
@@ -301,7 +303,7 @@ export default function NavSmallScreen() {
               <span>
                 <i className="fa fa-cog"></i>
               </span>
-              <span className="ps-3">Settings</span>
+              <span className="ps-3">{t("Settings")}</span>
             </a>
           </li>
           <li className="nav-item pb-2" onClick={logout}>
@@ -309,7 +311,7 @@ export default function NavSmallScreen() {
               <span>
                 <i className="fas fa-sign-out-alt"></i>
               </span>
-              <span className="ps-3">Log Out</span>
+              <span className="ps-3">{t("Log Out")}</span>
             </a>
           </li>
         </ul>

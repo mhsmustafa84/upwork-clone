@@ -1,6 +1,7 @@
 /* eslint-disable */
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { auth } from "../../../firebase";
 import { updateUserData } from "../../../Network/Network";
 
 export default function CreateProfileCategory() {
@@ -11,7 +12,7 @@ export default function CreateProfileCategory() {
   };
 
   const addData = () => {
-    updateUserData("talent", { jobCategory: cat });
+    updateUserData("talent", { jobCategory: cat,authID:auth.currentUser.uid });
   }
 
   return (
