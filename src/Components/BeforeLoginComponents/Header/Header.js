@@ -1,12 +1,15 @@
 /* eslint-disable */
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
 import LanguageList from '../../SharedComponents/LanguageBtn/LanguageList';
 import './Header.css'
 
 export default function Header() {
+    let lang = useSelector(state => state.lang);
     const { t } = useTranslation();
+    
     return (
         <header className="py-3 fixed-top bg-white">
             <div className="container">
@@ -24,12 +27,12 @@ export default function Header() {
                             <div className="collapse navbar-collapse" id="navbarNavDropdown">
                                 <ul className="navbar-nav">
                                     <li className="nav-item dropdown">
-                                        <a className="nav-link n-l-c-cn dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <a className="nav-link n-l-c-cn dropdown-toggle"  href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             {t("Find Talent")}
-                                        <i className="fa fa-sort-down ms-1"></i>
+                                        <i className="fa fa-sort-down ms-1 px-2"></i>
                                         </a>
-                                        <ul id="find-talent-dd-id" className="dropdown-menu pb-4" aria-labelledby="navbarDropdownMenuLink">
-                                            <ul className="mt-3 d-inline-block">
+                                        <ul id="find-talent-dd-id"  className={`dropdown-menu pb-4 ${lang==='ar' && "text-end"}`} aria-labelledby="navbarDropdownMenuLink">
+                                            <ul className="mt-3 d-inline-block typeOfwork-cn" >
                                                 <span className="fw-bold">{t("TYPE OF WORK")}</span>
                                                 <li><Link className="dropdown-item" to="dev-it">{t("Development & IT")}</Link></li>
                                                 <li><a className="dropdown-item" href="#">{t("Design & Creative")}</a></li>
@@ -39,7 +42,7 @@ export default function Header() {
                                                 <li><a className="dropdown-item" href="#">{t("Finance & Accounting")}</a></li>
                                                 <li><a className="dropdown-item" href="#">{t("See all specializations")}</a></li>
                                             </ul>
-                                            <div className="mt-3 ms-5 ps-4 d-inline-block">
+                                            <div className="mt-3 ms-5 ps-4 d-inline-block waysToHire-cn">
                                                 <span className="fw-bold">{t("WAYS TO HIRE")}</span>
                                                 <div className="d-flex mt-3 pb-5">
                                                     <div>
@@ -63,8 +66,10 @@ export default function Header() {
                                                         </a>
                                                     </div>
                                                 </div>
-                                                <div className="border-top mt-5 pt-4">
-                                                    <a href="#">{t("Learn how to hire on Upwork")}<i className="fa fa-arrow-right ms-3 text-success"></i></a>
+                                                <div className={`border-top mt-5 pt-4 ${lang==='ar' && "fs-5"}`}>
+                                                    <a href="#">{t("Learn how to hire on Upwork")}
+                                                    <i className={`fa ${lang==='ar' ? "fa-arrow-left pe-3 " : "fa-arrow-right"} ms-3 text-success `}></i></a>
+                                                    
                                                 </div>
                                             </div>
                                         </ul>
@@ -72,11 +77,11 @@ export default function Header() {
                                     <li className="nav-item dropdown">
                                         <a className="nav-link n-l-c-cn dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             {t("Find Work")}
-                                        <i className="fa fa-sort-down ms-1"></i>
+                                        <i className="fa fa-sort-down ms-1  px-2"></i>
                                         </a>
                                         <ul id="find-work-dd-id" className="dropdown-menu pb-4" aria-labelledby="navbarDropdownMenuLink">
-                                            <div className="d-flex">
-                                                <ul className="mt-3 d-inline-block">
+                                            <div className="d-flex text-end">
+                                                <ul className="mt-3 d-inline-block ">
                                                     <span className="fw-bold">{t("TYPE OF WORK")}</span>
                                                     <li><Link className="dropdown-item mt-3" to="freelance-jobs">{t("Development & IT")}</Link></li>
                                                     <li><a className="dropdown-item" href="#">{t("Design & Creative")}</a></li>
@@ -91,9 +96,9 @@ export default function Header() {
                                             </div>
                                             <div className="mt-3 ps-4 d-inline-block">
                                                 <div className="border-top pt-3">
-                                                    <a href="#">
+                                                    <a href="#" className={` pt-4 ${lang==='ar' && "fs-5"}`}>
                                                         {t("Learn how to get hired on Upwork")}
-                                                    <i className="fa fa-arrow-right ms-3 text-success"></i>
+                                                        <i className={`fa ${lang==='ar' ? "fa-arrow-left pe-3 " : "fa-arrow-right"} ms-3 text-success `}></i>
                                                     </a>
                                                 </div>
                                             </div>
@@ -102,9 +107,9 @@ export default function Header() {
                                     <li className="nav-item dropdown">
                                         <a className="nav-link n-l-c-cn dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             {t("Why Upwork")}
-                                        <i className="fa fa-sort-down ms-1"></i>
+                                        <i className="fa fa-sort-down ms-1  px-2"></i>
                                         </a>
-                                        <ul id="why-work-dd-id" className="dropdown-menu mt-3" aria-labelledby="navbarDropdownMenuLink">
+                                        <ul id="why-work-dd-id" className={`dropdown-menu mt-3 ${lang==='ar' && "fs-5"}`} aria-labelledby="navbarDropdownMenuLink">
                                             <li><a className="dropdown-item py-2 mt-3" href="#">{t("Success Stories")}</a></li>
                                             <li><a className="dropdown-item py-2" href="#">{t("Reviews")}</a></li>
                                             <li><a className="dropdown-item py-2" href="#">{t("Learn")}</a></li>
@@ -115,12 +120,12 @@ export default function Header() {
                             </div>
                         </nav>
                     </div>
-                    <div className="d-flex">
-                        <form id="search-form-id" className="d-flex ms-4">
-                            <button className="btn position-relative search-btnn-cn">
+                    <div className="d-flex justify-content-between">
+                        <form id="search-form-id" className="d-flex">
+                            <button className="btn position-relative search-btnn-cn ">
                                 <i className="fa fa-search search-icon-cn"></i>
                             </button>
-                            <div className="nav-item dropdown search-type-cn">
+                            <div className="nav-item dropdown search-type-cn ">
                                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i className="fa fa-sort-down search-icon-cn"></i>
                                 </a>
@@ -157,10 +162,10 @@ export default function Header() {
                             </div>
                             <input className="form-control ms-1 ps-5 py-1 search-inputt-cn" type="search" placeholder={t("Search")} aria-label="Search" />
                         </form>
-                        <div className="border-start ms-4 ps-2 d-flex">
+                        <div className="col-md-5 border-start ps-2 d-flex j justify-content-end">
                             {/* <button className="btn login-btn-cn"></button> */}
-                            <Link className="btn login-btn-cn" to="/login">{t("Log In")}</Link>
-                            <Link className="btn signup-btn-cn px-3 py-2" to="/sign-up">{t("Sign Up")}</Link>
+                            <Link className={`btn login-btn-cn ${lang === 'ar' && "fs-5"}`} to="/login">{t("Log In")}</Link>
+                            <Link className={`btn signup-btn-cn px-3 py-2 ${lang === 'ar' && "fs-5"}`}to="/sign-up">{t("Sign Up")}</Link>
                             <LanguageList />
                         </div>
                     </div>

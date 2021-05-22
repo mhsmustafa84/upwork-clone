@@ -6,11 +6,16 @@
   letter-spacing: 2.8px;
   color: #656565;
 }
-
+[dir ="rtl"] .ss-p-cn {
+  letter-spacing: normal;
+}
 .ss-h2-cn {
   font-size: 60px;
   line-height: 80px;
   color: #1d4354;
+}
+[dir ="rtl"] .ss-h2-cn {
+  line-height:  40px;
 }
 
 .ss-p2-cn {
@@ -51,9 +56,13 @@
 }
 
 .ss-ul-a-cn {
-  font-size: 53px;
-  line-height: 90px;
+  font-size: 30px;
+  line-height: 60px;
   color: #222;
+}
+[dir="rtl"] .ss-ul-a-cn
+{
+  font-size: 40px;
 }
 
 .ss-ul-a-cn:hover {
