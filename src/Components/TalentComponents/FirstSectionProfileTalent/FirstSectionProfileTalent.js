@@ -43,7 +43,8 @@ export default function FirstSectionProfileTalent() {
               <span>
                 {user.location && (
                   <>
-                    {" "}{user.location.city} - {" "}
+                    {" "}
+                    {user.location.city} -{" "}
                     <strong>{user.location.country} – </strong>
                   </>
                 )}
@@ -85,23 +86,29 @@ export default function FirstSectionProfileTalent() {
             <div className="col-4 row border-end border-2 me-1">
               <div className="row">
                 <div className="col">
-                  <div className="fw-bold fs-5">$30</div>
+                  <div className="fw-bold fs-5">${user.totalEarnings}</div>
                   <div className="fs-6">{t("Earnings")}</div>
                 </div>
                 <div className="col">
-                  <div className="fw-bold fs-5">2</div>
+                  <div className="fw-bold fs-5">{user.totalJobs}</div>
                   <div className="fs-6">{t("Total Jobs")}</div>
                 </div>
                 <div className="col">
-                  <div className="fw-bold fs-5">10</div>
+                  <div className="fw-bold fs-5">{user.totalHours}</div>
                   <div className="fs-6">{t("Total Hours")}</div>
                 </div>
               </div>
               <hr />
               <div>
                 <h5 className="fw-bold">{t("Availability")}</h5>
-                <h6 className="fw-bold">Available</h6>
-                <p>As Needed - Open to Offers</p>
+                <h6 className="fw-bold">
+                  {user.Availabilty == true ? "available" : "not available"}
+                </h6>
+                <p>
+                  {user.Availabilty
+                    ? "As Needed - Open to Offers"
+                    : "not available for 3 months"}
+                </p>
                 <h5 className="fw-bold">{t("Languages")}</h5>
                 <span className="fw-bold fs-5">English:</span>
                 <span>Fluent</span>
