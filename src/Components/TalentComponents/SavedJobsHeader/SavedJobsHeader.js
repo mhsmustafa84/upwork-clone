@@ -1,13 +1,11 @@
 /* eslint-disable */
-import React from 'react'
-import { useTranslation } from 'react-i18next';
-import './SavedJobsHeader.css';
+import React from "react";
 import { useTranslation } from "react-i18next";
+import "./SavedJobsHeader.css";
 import { Link, NavLink } from "react-router-dom";
 
-
 export default function SavedJobsHeader() {
-  const { t }=useTranslation();
+  const { t } = useTranslation();
   return (
     <div>
       <ul
@@ -25,7 +23,8 @@ export default function SavedJobsHeader() {
               aria-current="true"
             >
               {t("SEARCH")}
-            </a></Link>
+            </a>
+          </Link>
         </li>
         <li
           className="list-group-item sidebar-homebage-ul-li-aa active activesidesaved bg-white boder border-0"
@@ -38,10 +37,10 @@ export default function SavedJobsHeader() {
               aria-current="true"
             >
               {t("SAVEDJOBS")}(2)
-              </a></Link>
+            </a>
+          </Link>
         </li>
       </ul>
-
     </div>
-  )
+  );
 }
