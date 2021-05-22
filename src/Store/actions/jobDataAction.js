@@ -1,4 +1,4 @@
-import { auth, db } from "../../firebase";
+import { db } from "../../firebase";
 
 export const jobDataAction = (jobId) => async (dispatch) => {
     try {

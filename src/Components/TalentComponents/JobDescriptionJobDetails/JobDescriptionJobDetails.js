@@ -2,12 +2,12 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-export default function JobDescriptionJobDetails() {
+export default function JobDescriptionJobDetails({ job }) {
   const { t } = useTranslation();
   return (
     <div className="col-lg-9 col-xs-12  mt-lg-0">
       <div className="bg-white py-lg-4 px-4 border border-1 row py-sm-3 mt-lg-0 mt-sm-3 py-xs-5">
-        <h4>Need graphic designer for label designing</h4>
+        <h4>{job.jobTitle}</h4>
       </div>
       <div className="bg-white py-lg-4 px-4 border border-1 row py-sm-3">
         <a href="#" className="advanced-search-link">

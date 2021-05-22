@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React from "react";
 import { useHistory } from "react-router-dom";
 import SearchBarJobsTalent from "../../../Components/TalentComponents/SearchBarJobsTalent/SearchBarJobsTalent";
 // import ReviewProposalsCard from "../../../Components/ClientComponents/ReviewProposalsCard/ReviewProposalsCard";
 import SectionCenterTalentHome from "../../../Components/TalentComponents/SectionCenterTalentHome/SectionCenterTalentHome";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 export default function Search() {
@@ -339,12 +340,12 @@ export default function Search() {
                                     aria-current="true"
                                 >
                                     <Link to="/saved-jobs">
-                                    <a
-                                        href="#"
-                                        className=" list-group-item-action saved-homebage-ul-li-aa bg-white"
-                                        aria-current="true"
-                                    >
-                                        {t("SAVEDJOBS")}(2)
+                                        <a
+                                            href="#"
+                                            className=" list-group-item-action saved-homebage-ul-li-aa bg-white"
+                                            aria-current="true"
+                                        >
+                                            {t("SAVEDJOBS")}(2)
               </a></Link>
                                 </li>
                             </ul>
