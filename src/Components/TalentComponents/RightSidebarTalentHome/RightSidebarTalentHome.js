@@ -29,7 +29,7 @@ const { t } = useTranslation();
           height="50px"
         />
 
-        <h6 className="d-inline ps-1">{`${user.firstName} ${user.lastName}`}</h6>
+        <h5 className="d-inline ps-1">{`${user.firstName}`}</h5>
       </div>
       <div className="my-lg-1">
         <Link to="/profile" className="advanced-search-link ">

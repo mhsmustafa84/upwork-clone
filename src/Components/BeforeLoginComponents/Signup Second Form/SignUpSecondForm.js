@@ -5,14 +5,14 @@ import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import { auth } from "../../../firebase";
 import { createDocumentWithId } from "../../../Network/Network";
-import { useTranslation } from "react-i18next";  
+import { useTranslation } from "react-i18next";
 
 
 export default function SignUpSecondForm() {
-  const { t }=useTranslation();
+  const { t } = useTranslation();
 
   const [errorMessage, setErrorMessage] = useState("");
-  const [validate, setValidate] = useState({ firstName: "", lastName: "", password: "" });
+  const [validate, setValidate] = useState({ firstName: "", lastName: "", password: "" ,terms:false});
 
   const userEmail = useSelector(state => state.signUpData.email);
   const { push } = useHistory();
@@ -69,6 +69,10 @@ export default function SignUpSecondForm() {
       case "userType":
         setuser({ ...usr, userType: val });
         break;
+        // case "terms":
+        //   setValidate(...validate,validate.terms==e.target.checked)
+        //   console.log(e.target.checked);
+        //   break;
       default:
         break;
     }
@@ -76,7 +80,6 @@ export default function SignUpSecondForm() {
   };
 
   const signUpComplete = () => {
-    console.log(usr);
     auth
       .createUserWithEmailAndPassword(usr.email, usr.password)
       .then(res => {
@@ -117,6 +120,7 @@ export default function SignUpSecondForm() {
       })
       .catch(err => {
         setErrorMessage(err.message);
+        console.log(err.message);
       });
   };
 
@@ -233,7 +237,7 @@ export default function SignUpSecondForm() {
                 onInput={getUserData}
               />
               <label className="btn btn-outline-upwork" htmlFor="btnradio1">
-              {t("Hireforaproject")}
+                {t("Hireforaproject")}
               </label>
               <input
                 type="radio"
@@ -245,20 +249,22 @@ export default function SignUpSecondForm() {
                 onInput={getUserData}
               />
               <label className="btn btn-outline-upwork" htmlFor="btnradio2">
-              {t("Workasafreelancer")}
+                {t("Workasafreelancer")}
               </label>
             </div>
           </div>
           <div className="form-check mt-3">
             <input
+              name="terms"
               className="form-check-input"
               type="checkbox"
-              defaultValue
+              
+              onChange={getUserData}
               id="flexCheckDefault"
             />
             <label className="form-check-label" htmlFor="flexCheckDefault">
               <p>
-              {t("YesIunderstandandagreetothe")}
+                {t("YesIunderstandandagreetothe")}
                 <a
                   className="m-1"
                   href="https://www.upwork.com/legal#terms"
@@ -286,16 +292,16 @@ export default function SignUpSecondForm() {
             </label>
           </div>
 
-          <Link to="/email-verification" ><div className="d-grid gap-2 col-8 mx-auto mt-3 hitbtn-class loginpcolor mb-4">
+          <  ><div className="d-grid gap-2 col-8 mx-auto mt-3 hitbtn-class loginpcolor mb-4" >
             <button
               className="btn bg-upwork "
               type="button"
-              disabled={validate.password != null || validate.firstName || validate.lastName}
+              disabled={validate.password != null || validate.firstName || validate.lastName } 
               onClick={signUpComplete}
             >
               {t("ContinuewithEmail")}
             </button>
-          </div> </Link>
+          </div> </>
         </form>
       </div>
     </div>

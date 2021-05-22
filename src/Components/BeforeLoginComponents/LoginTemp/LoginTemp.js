@@ -12,6 +12,7 @@ export default function LoginTemp() {
   const [user, setUser] = useState({ email: "", password: "" });
   const [emailError, setEmailErorr] = useState("");
   const [PasswordError, setPasswordErrorr] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const { push } = useHistory();
 
   const { t } = useTranslation();
@@ -61,8 +62,10 @@ export default function LoginTemp() {
         }
       })
       .catch((error) => {
+        setErrorMessage(error.message)
         console.log(error.message);
         console.log(error.code);
+        
       });
   };
 
@@ -99,19 +102,21 @@ export default function LoginTemp() {
                 </span>
               </h5>
               <form>
+              <span className="text-danger text-center">{errorMessage}</span>
+
                 <div className="form-group col-8 mx-auto mt-3">
                   <span className="text-danger">{emailError}</span>
                   <input
                     type="email"
                     name="email"
-                    className={`form-control shadow-none ${emailError ? "border-danger" : ""}`}
+                    className={`form-control shadow-none ${emailError  ? "border-danger" : ""}`}
                     aria-describedby="emailHelp"
                     placeholder={t("UsernameorEmail")}
                     onInput={getUserData}
                   />
                 </div>
                 <div className="form-group col-8 mx-auto mt-3">
-                  <span className="text-danger">{PasswordError}</span>
+                  <span className="text-danger">{PasswordError}</span> 
                   <input
                     type="password"
                     name="password"
