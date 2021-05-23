@@ -8,15 +8,13 @@ import { Link } from "react-router-dom";
 import { talentDataAction } from "../../../Store/actions/talentData";
 
 export default function RightSidebarTalentHome() {
-const { t } = useTranslation();
+  const { t } = useTranslation();
 
-
-  const user = useSelector(state => state.talentData);
+  const user = useSelector((state) => state.talentData);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(talentDataAction());
   }, []);
-
 
   return (
     <div className="col d-none d-lg-block">
@@ -62,7 +60,7 @@ const { t } = useTranslation();
       <div className="my-lg-1">
         <i className="far fa-clock" />
         <span>
-          As Needed 
+          As Needed
           <span className="btn-group float-sm-end px-lg-1">
             <button
               type="button"
@@ -80,13 +78,13 @@ const { t } = useTranslation();
           <div
             className="progress-bar bg-upwork"
             role="progressbar"
-            style={{ width: "100%" }}
-            aria-valuenow={25}
+            style={{ width: `${user.profileCompletion}%` }}
+            aria-valuenow={60}
             aria-valuemin={0}
             aria-valuemax={100}
           >
             <div style={{ fontSize: "0.7em", display: "inline" }}>
-              100%
+              {`${user.profileCompletion}%`}
             </div>
           </div>
         </div>
