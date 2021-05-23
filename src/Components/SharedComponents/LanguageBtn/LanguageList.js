@@ -23,7 +23,6 @@ export default function LanguageList() {
   useEffect(() => {
     dispatch(langAction(lang));
     i18next.changeLanguage(lang)
-    console.log('renddddddddddddddddd');
   }, []);
 
   const change = (code) => {

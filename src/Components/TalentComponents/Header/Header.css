@@ -26,7 +26,10 @@
   left: 60px;
   height: 38px;
 }
-
+[dir ="rtl"] .search-btn-cn 
+{
+  left: -345px;
+}
 .search-type-cn {
   background-color: transparent;
   top: -2px;
@@ -69,6 +72,27 @@
   width: 350px;
   left: -300px;
 }
+[dir = "rtl"] #acc-id {
+  left: -200px;
+
+}
+#acc-btns-id button.invisible-cn
+{
+  border-radius: 0px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+[dir = "rtl"] #acc-btns-id button.invisible-cn
+{
+  border-radius: 0px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+[dir = "rtl"] #acc-id .nav-dd-acc-cn
+ {
+  right: 105px;
+  border-radius: 0px !important;
+}
 
 .acc-cn p {
   font-size: 14px;
@@ -84,6 +108,10 @@
   color: #656565;
   border: 1px solid #b8b8b8;
   border-left: transparent;
+}
+[dir = "rtl"] #acc-btns-id button:last-child{
+  border-right: transparent;
+  border-left:1px solid #b8b8b8;
 }
 
 #acc-btns-id button:hover {
@@ -123,7 +151,10 @@ nav ul ul {
   border-color: transparent transparent white white;
   transform: translateX(-50%) rotate(135deg);
 }
-
+[dir = "rtl"] .nav-dd-cn
+{
+  left: 200px;
+}
 .nav-dd-acc-cn {
   position: absolute;
   top: -7px;
@@ -139,7 +170,21 @@ nav ul ul {
 .nav-item.hov-cn:hover .dropdown-menu {
   display: block;
 }
-
+body[dir = "rtl"] .nav-item.hov-cn:hover .dropdown-menu {
+  position: absolute !important;
+}
+body[dir = "rtl"] .nav-item.hov-cn:hover .dropdown-menu.findWork-cn
+{
+ left:250px;
+}
+body[dir = "rtl"] .nav-item.hov-cn:hover .dropdown-menu.myJobs-cn
+{
+ left:180px;
+}
+body[dir = "rtl"] .nav-item.hov-cn:hover .dropdown-menu.Reports-cn
+{
+ left:125px;
+}
 .dropdown-item.active,
 .dropdown-item:active {
   color: #212529;

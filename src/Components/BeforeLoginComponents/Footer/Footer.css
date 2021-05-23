@@ -9,6 +9,10 @@ footer ul li a {
   font-size: 13px;
   margin: 2px 0;
 }
+[dir = "rtl"] footer ul li a
+{
+  font-size: 18px;
+}
 
 .social-footer-cn {
   border-top: 1px solid #2b5468;

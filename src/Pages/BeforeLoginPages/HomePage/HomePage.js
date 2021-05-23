@@ -8,13 +8,13 @@ import Footer from '../../../Components/BeforeLoginComponents/Footer/Footer';
 
 export default function HomePage() {
     return (
-        <>
+        <div className="bg-white">
             <Header />
             <HomeFirstSection />
             <HomeSecondSection />
             <HomeThirdSection />
             <HomeFourthSection />
             <Footer />
-        </>
+        </div>
     )
 }

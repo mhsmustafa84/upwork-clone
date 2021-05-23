@@ -150,18 +150,18 @@ export default function LoginTemp() {
                 <div className="separator mt-4 col-8 mx-auto">or</div>
                 <div
                   className="google-btn  gap-2 mx-auto mt-3 rounded hitbtn-className col-sm-12"
+                  style={{height:'40px'}}
                   onClick={googleLogin}
                 >
-                  <div className="google-icon-wrapper">
+                  <div className="google-icon-wrapper" style={{marginRight:'1px'}}>
                     <img
-                      className="google-icon"
+                      className="google-icon me-2"
                       src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
                     />
                   </div>
                   <div className="text-justify ">
                     <p
-                      className="text-center text-white"
-                      style={{ paddingTop: ".3em" }}
+                      className="text-center text-white pt-2"
                     >
                       {t("Signinwithgoogle")}
                     </p>

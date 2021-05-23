@@ -98,22 +98,19 @@ export default function JobDescriptionJobDetails({ job }) {
       <div className="bg-white py-lg-4 px-4 border border-1 row pb-sm-3 py-xs-5">
         <h5 className="fw-bold my-4">{t("Skills and experties")}</h5>
         <div className="col">
-          <div className="fw-bold">Web Design languages</div>
-          <button
-            type="button"
-            className="btn btn-secondary btn-sm rounded-pill skills"
-          >
-            HTML
-          </button>
-          <button
-            type="button"
-            className="btn btn-secondary btn-sm rounded-pill skills"
-          >
-            Css
-          </button>
+          <div className="fw-bold">{t("Web Design languages")}</div>
+          {jobsdata?.skills?.map((task, index) => (
+            <button
+              type="button"
+              className="btn btn-secondary btn-sm rounded-pill skills"
+              key={index}
+            >
+              {task}
+            </button>
+          ))}
         </div>
         <div className="col">
-          <div className="fw-bold">Website builders and CMS platforms</div>
+          <div className="fw-bold">{t("Website platforms")}</div>
           <button
             type="button"
             className="btn btn-secondary btn-sm rounded-pill skills"
