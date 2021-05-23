@@ -110,27 +110,6 @@ export default function JobDescriptionJobDetails({ jobsdata }) {
             </button>
           ))}
         </div>
-        <div className="col">
-          <div className="fw-bold">{t("Website platforms")}</div>
-          <button
-            type="button"
-            className="btn btn-secondary btn-sm rounded-pill skills"
-          >
-            Wordpress
-          </button>
-          <button
-            type="button"
-            className="btn btn-secondary btn-sm rounded-pill skills"
-          >
-            shopify
-          </button>
-          <button
-            type="button"
-            className="btn btn-secondary btn-sm rounded-pill skills"
-          >
-            WIX
-          </button>
-        </div>
       </div>
       <div className="bg-white py-lg-2 py-md-4 px-4 border border-1 row py-xs-5">
         <h5 className="fw-bold my-4">{t("Activity on this job")}</h5>

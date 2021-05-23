@@ -14,7 +14,7 @@ export default function SectionCenterTalentHome() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(jobsDataAction());
-    console.log(jobs);
+    console.log(jobs[0]?.skills);
   }, []);
 
   return (
@@ -25,12 +25,13 @@ export default function SectionCenterTalentHome() {
           <div className="list-group-item">
             <div className="row align-items-center">
               <div className="col-lg-9 pt-lg-2">
-                <Link to={{
-                  pathname:
-                  `/job/${item.jobID}`,
-                state:`${item.jobID}`
-              }} 
-                  className="job-title-link fw-bold">
+                <Link
+                  to={{
+                    pathname: `/job/${item.jobID}`,
+                    state: `${item.jobID}`,
+                  }}
+                  className="job-title-link fw-bold"
+                >
                   {item?.jobTitle}
                 </Link>
               </div>
@@ -95,71 +96,45 @@ export default function SectionCenterTalentHome() {
                   <span className="advanced-search-link ">more</span>
                 </>
               )}
-            </p>
-            <button
-              type="button"
-              className="btn btn-secondary btn-sm rounded-pill skills"
-            >
-              Training
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary btn-sm rounded-pill skills"
-            >
-              Education presentation
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary btn-sm rounded-pill skills"
-            >
-              Marketing
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary btn-sm rounded-pill skills"
-            >
-              Microsof PowerPoint
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary btn-sm rounded-pill skills"
-            >
-              Html
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary btn-sm rounded-pill skills"
-            >
-              Css
-            </button>
-            <p style={{ fontSize: "0.9em" }} className="my-lg-1">
-              <span className="text-muted">
-                <span>Proposals: </span>
-                <span className="fw-bold ">Less than </span>
-                <span className="fw-bold " id="proposals-numbers">
-                  5
+              {item?.skills?.map((i, index) => (
+                <button
+                  type="button"
+                  className="btn btn-secondary btn-sm rounded-pill skills"
+                  key={index}
+                >
+                  {i}
+                </button>
+              ))}
+
+              <p style={{ fontSize: "0.9em" }} className="my-lg-1">
+                <span className="text-muted">
+                  <span>Proposals: </span>
+                  <span className="fw-bold ">Less than </span>
+                  <span className="fw-bold " id="proposals-numbers">
+                    5
+                  </span>
                 </span>
-              </span>
-            </p>
-            <p style={{ fontSize: "0.85em" }} className="my-lg-1 mb-lg-2">
-              <span className="fw-bold" style={{ color: "#14bff4" }}>
-                <i className="fas fa-check-circle primary me-1" />
-                Payment verified
-              </span>
-              <span className="text-muted">
-                <span className="mx-2">
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
+              </p>
+              <p style={{ fontSize: "0.85em" }} className="my-lg-1 mb-lg-2">
+                <span className="fw-bold" style={{ color: "#14bff4" }}>
+                  <i className="fas fa-check-circle primary me-1" />
+                  Payment verified
                 </span>
-                <span className="fw-bold "> $0 </span>
-                <span> spent </span>
-                <span className="fw-bold ">
-                  <i className="fas fa-map-marker-alt ms-2" /> United States
+                <span className="text-muted">
+                  <span className="mx-2">
+                    <i className="fas fa-star" />
+                    <i className="fas fa-star" />
+                    <i className="fas fa-star" />
+                    <i className="fas fa-star" />
+                    <i className="fas fa-star" />
+                  </span>
+                  <span className="fw-bold "> $0 </span>
+                  <span> spent </span>
+                  <span className="fw-bold ">
+                    <i className="fas fa-map-marker-alt ms-2" /> United States
+                  </span>
                 </span>
-              </span>
+              </p>
             </p>
           </div>
         </div>
