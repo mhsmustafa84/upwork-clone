@@ -6,14 +6,18 @@ import { updateUserData } from "../../../Network/Network";
 
 export default function CreateProfileCategory() {
   let [cat, setCat] = useState();
-  const catVal = e => {
+  const catVal = (e) => {
     cat = e.target.value;
-    setCat(cat)
+    setCat(cat);
   };
 
   const addData = () => {
-    updateUserData("talent", { jobCategory: cat,authID:auth.currentUser.uid });
-  }
+    updateUserData("talent", {
+      jobCategory: cat,
+      authID: auth.currentUser.uid,
+      profileCompletion: 20,
+    });
+  };
 
   return (
     <section className=" bg-white border rounded mt-3 pt-4">

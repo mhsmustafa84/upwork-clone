@@ -7,7 +7,11 @@ import { updateUserData } from "./../../../Network/Network";
 
 export default function CreateProfileLocation() {
   let [country, setCountry] = useState("");
-  const [location, setLocation] = useState({ country: "", city: "", street: "" });
+  const [location, setLocation] = useState({
+    country: "",
+    city: "",
+    street: "",
+  });
 
   const getData = (e) => {
     const val = e.target.value;
@@ -19,25 +23,24 @@ export default function CreateProfileLocation() {
         break;
       case "street":
         location.street = val;
-        setLocation(
-          { ...location, street: location.street },
-        );
+        setLocation({ ...location, street: location.street });
         break;
       default:
         break;
     }
     if (country.name) {
-      setLocation(
-        {
-          ...location,
-          country: country.name,
-        }
-      );
+      setLocation({
+        ...location,
+        country: country.name,
+      });
     }
   };
 
   const addData = () => {
-    updateUserData("talent", { location: { ...location } });
+    updateUserData("talent", {
+      location: { ...location },
+      profileCompletion: 90,
+    });
     console.log(location);
   };
   return (

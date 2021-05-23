@@ -5,7 +5,10 @@ import { updateUserData } from "../../../Network/Network";
 export default function CreateProfileExpertiseLevel() {
   let onChangeVal = (e) => {
     console.log(e.target.value);
-    updateUserData("talent", { expertiseLevel: e.target.value });
+    updateUserData("talent", {
+      expertiseLevel: e.target.value,
+      profileCompletion: 30,
+    });
   };
 
   return (
@@ -54,7 +57,10 @@ export default function CreateProfileExpertiseLevel() {
         </div>
       </div>
       <div className="px-4 my-3 pt-4 border-top d-flex justify-content-between">
-        <Link className="btn border text-success me-4 px-5 fw-bold" to="/create-profile/category">
+        <Link
+          className="btn border text-success me-4 px-5 fw-bold"
+          to="/create-profile/category"
+        >
           Back
         </Link>
         <Link
