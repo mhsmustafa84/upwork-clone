@@ -99,7 +99,7 @@ export default function JobDescriptionJobDetails({ job }) {
         <h5 className="fw-bold my-4">{t("Skills and experties")}</h5>
         <div className="col">
           <div className="fw-bold">{t("Web Design languages")}</div>
-          {jobsdata?.skills?.map((task, index) => (
+          {job?.skills?.map((task, index) => (
             <button
               type="button"
               className="btn btn-secondary btn-sm rounded-pill skills"

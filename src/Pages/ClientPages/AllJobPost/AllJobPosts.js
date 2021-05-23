@@ -12,7 +12,7 @@ export default function AllJobPosts() {
   const jobs = useSelector(state => state.clientJobs);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(clientJobsAction('job', 'authID', '==', auth.currentUser.uid));
+    dispatch(clientJobsAction('authID', '==', auth.currentUser.uid));
     console.log(jobs);
   }, []);
   return (

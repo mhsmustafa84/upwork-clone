@@ -17,11 +17,10 @@ export default function JobPostLi({ job, id }) {
 
   return (
     <div>
-
       <div className="row">
         <div className="col-lg-5 col-md-6 col-sm-10 col-xs-9">
           <h4 className="m-0-bottom" id="all-postings-list-opening-title-0">
-            <Link to={`/all-job-posts/${id}`}>
+            <Link to={`/review-proposal/${id}`}>
               {job.jobTitle}
             </Link>
           </h4>
@@ -52,11 +51,11 @@ export default function JobPostLi({ job, id }) {
           <div className="text-muted">Messaged</div>
         </div>
         <div className="d-block col-sm-1 col-xs-3">
-          <div className="fw-bold">{job.hired}</div>
+          <div className="fw-bold">{job.hired}0</div>
           <div className="text-muted">Hired</div>
         </div>
         <div className="d-block col-sm-2 col-xs-3">
-          <button type="button" className="btn bg-upwork">
+          <button type="button" className="btn bg-upwork" >
             View Proposals
             </button>
         </div>
@@ -118,7 +117,6 @@ export default function JobPostLi({ job, id }) {
           </ul>
         </div>
       </div>
-
     </div>
   );
 }

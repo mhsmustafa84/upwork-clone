@@ -25,15 +25,15 @@ export default function HomeLayout() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(clientDataAction());
-    dispatch(clientJobsAction("job", "authID", "==", auth.currentUser.uid));
+    dispatch(clientJobsAction("authID", "==", auth.currentUser.uid));
     console.log(jobs);
   }, []);
 
+  const job = jobs[0]?.data;
   return (
     <>
-      <div className="container-md container-fluid-sm my-lg-4">
+      <div className="container container-fluid-sm my-lg-4">
         <div className="row">
-          <div className="col-1 d-none d-lg-block">.</div>
           <div className="col-lg-8 col-xs-12">
             <div className="row my-3">
               <div className="col-4">
@@ -65,27 +65,58 @@ export default function HomeLayout() {
             </div>
             {jobs !== null ? (
               <div className="list-group-item">
-                <div className="row align-items-center">
-                  <div className="col-lg-9 pt-lg-3">
-                    <a
-                      id="job-title-home-page "
-                      className="link-dark job-title-hover"
-                    >
-                      <p className="fw-bold">{jobs[0]?.jobTitle}</p>
-                    </a>
-                  </div>
-                  <div className="col-lg-3">
-                    <div className="btn-group float-sm-end px-lg-1">
+                <div>
+                  <div className="row">
+                    <div className="col-lg-5 col-md-6 col-sm-10 col-xs-9">
+                      <h4
+                        className="m-0-bottom"
+                        id="all-postings-list-opening-title-0"
+                      >
+                        <Link to={`/review-proposal/${jobs[0]?.docID}`}>{job?.jobTitle}</Link>
+                      </h4>
+                      <p
+                        className="m-xs-bottom m-0 text-muted ng-binding"
+                        id="all-postings-list-created-by-block-0"
+                      >
+                        Posted
+                        <span className="">
+                          {new Date(
+                            job?.postTime.seconds * 1000
+                          ).toLocaleString()}
+                        </span>
+                      </p>
+                      <p className="m-xs-bottom m-0-top ng-binding">
+                        <span
+                          className="text-capitalize"
+                          id="all-postings-list-opening-type-0"
+                        >
+                          {job?.jobPaymentType} - {job?.status}
+                        </span>
+                      </p>
+                    </div>
+                    <div className="d-block col-sm-2 col-xs-3">
+                      <div className="fw-bold">
+                        <span>0</span> (<span> 0 </span> new)
+                      </div>
+                      <div className="text-muted">Proposals</div>
+                    </div>
+                    <div className="d-block col-sm-2 col-xs-3">
+                      <div className="fw-bold">0</div>
+                      <div className="text-muted">Messaged</div>
+                    </div>
+                    <div className="d-block col-sm-2 col-xs-3">
+                      <div className="fw-bold">{job?.hired}0</div>
+                      <div className="text-muted">Hired</div>
+                    </div>
+
+                    <div className="d-block col-sm-1 col-xs-3 btn-group float-sm-end ">
                       <button
                         type="button"
-                        className="btn btn-light dropdown-toggle border border-1 rounded-circle collapsed"
-                        data-toggle="collapse"
-                        data-target="#collapse"
-                        aria-expanded="false"
-                        aria-controls="collapseTwo"
+                        className="btn btn-light dropdown-toggle border border-1 rounded-circle"
                         data-bs-toggle="dropdown"
+                        aria-expanded="false"
                       >
-                        <i className="fas fa-ellipsis-h" aria-hidden="true"></i>
+                        <i className="fas fa-ellipsis-h " />
                       </button>
                       <ul className="dropdown-menu">
                         <li>
@@ -137,28 +168,6 @@ export default function HomeLayout() {
                     </div>
                   </div>
                 </div>
-                <p style={{ fontSize: "0.9em" }}>
-                  <span className="text-muted">
-                    <span className="fw-bold" id="contract-type">
-                      {jobs[0]?.jobPaymentType}
-                    </span>
-                    <span> - </span>
-                    <span id="experience-level">
-                      {jobs[0]?.jobExperienceLevel}
-                    </span>
-                    <span>-</span>
-                    <span>Est. Budget: </span>
-                    <span id="client-budget">${jobs[0]?.jobBudget}</span> -
-                    posted
-                    <span id="posting-time">
-                      {" "}
-                      {new Date(
-                        jobs[0]?.postTime?.seconds * 1000
-                      ).toLocaleString()}
-                    </span>
-                  </span>
-                </p>
-                <p id="job-description">{jobs[0]?.jobDescription}</p>
               </div>
             ) : (
               <div className="list-group-item">
