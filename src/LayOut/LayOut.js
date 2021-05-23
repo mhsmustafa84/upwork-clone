@@ -11,58 +11,36 @@ export default function LayOut() {
   const [usrType, setUsrType] = useState("");
 
   const getUserType = (collectionName) => {
-    // console.log(collectionName);
     if (collectionName) {
-      const user = db
+      db
         .collection(collectionName)
         .doc(auth.currentUser.uid)
-        .get();
-      user.then((res) => {
-        setUsrType(res.data()?.userType);
-      });
+        .get()
+        .then(res => {
+          setUsrType(res.data()?.userType)
+        })
     }
   };
 
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      //console.log(usrType,"up condition")
-
+    auth.onAuthStateChanged(user => {
       if (user) {
         setUsr(user);
         getUserType(user.displayName);
       }
     });
-    //console.log(usrType,"out of cond")
-  }, []);
+  }, [])
 
-  // return(
-  //   <>
-  // {console.log(usrType)}
-  //   {
-  //   usr
-  //   ? usrType=='talent'
-  //    ?<TalentRoutes />
-  //    :<ClientRoutes />
-  //   : <BeforeLoginRoutes />
-
-  //   }
-  //   // </>
-  //   // C == 0 ? null            :
-  //   // V == r ? (g - b) / C     :
-  //   // V == g ? (b - r) / C + 2 :
-  //   //          (r - g) / C + 4 ;
-  // );
 
   if (usr) {
     if (usrType === "talent") {
-      return <TalentRoutes />;
+      return <TalentRoutes />
     } else if (usrType === "client") {
-      //debugger;
-      return <ClientRoutes />;
+      return <ClientRoutes />
     } else {
-      return <Loader />;
+      return <Loader />
     }
   } else {
-    return <BeforeLoginRoutes />;
+    return <BeforeLoginRoutes />
   }
 }

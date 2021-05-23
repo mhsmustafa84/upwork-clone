@@ -1,5 +1,5 @@
-import React,{useState} from "react";
-import { Switch, Route, useLocation, useHistory} from "react-router-dom";
+import React, { useState } from "react";
+import { Switch, Route, useLocation, useHistory } from "react-router-dom";
 import Messages from "../Pages/Messages/Messages";
 import Header from "./../Components/TalentComponents/Header/Header";
 import Footer from "./../Components/SharedComponents/Footer/Footer";
@@ -37,8 +37,7 @@ export default function TalentRoutes() {
   return (
     <>
       <Header />
-      <SearchContextProvider value={{ arr, setarr,itemSearchList, setitemSearchList }}>
-        
+      <SearchContextProvider value={{ arr, setarr, itemSearchList, setitemSearchList }}>
         <Switch>
           <Route path="/create-profile" component={CreateProfile} />
           <Route path="/find-work" exact component={HomeTalent} />
@@ -61,7 +60,7 @@ export default function TalentRoutes() {
           <Route path="/buyconnects" exact component={BuyConnects} />
           <Route path="/transaction-history" exact component={TransactionHistory} />
           <Route path="/messages" exact component={Messages} />
-          {/* <Route path="**" component={PageNotFound} /> */}
+          <Route path="**" component={PageNotFound} />
         </Switch>
       </SearchContextProvider>
       <Footer />

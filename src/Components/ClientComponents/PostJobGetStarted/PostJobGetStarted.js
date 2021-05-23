@@ -1,9 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import createDocument, { updateJob } from "../../../Network/Network";
 import firebaseApp from "./../../../firebase";
 import { useTranslation } from "react-i18next";
+import createDocument, { updateJob } from "../../../Network/Network";
+import { auth, db } from "./../../../firebase";
 
 export default function PostJobGetStarted(props) {
   const { t } = useTranslation();
@@ -12,14 +13,19 @@ export default function PostJobGetStarted(props) {
   const createJob = () => {
     props.isStart();
     createDocument("job", {
-      authID: firebaseApp.auth().currentUser.uid,
+      authID: auth.currentUser.uid,
       postTime: "",
       status: "private",
-      user: firebaseApp
-        .firestore()
-        .doc("client/" + firebaseApp.auth().currentUser.uid),
+      hired: 0,
+      closed: false,
+      user: db.doc("client/" + auth.currentUser.uid),
     });
   };
+
+  // const getData = ({ target }) => {
+  //   job.jobDuration = target.value;
+  //   setJob({ ...job, jobDuration: job.jobDuration });
+  // };
 
   const getData = (e) => {
     const val = e.target.value;
