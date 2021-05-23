@@ -7,6 +7,7 @@ import { jobsDataAction } from "./../../../Store/actions/jobsData";
 import { Link } from "react-router-dom";
 import "./SectionCenterTalentHome.css";
 import { useTranslation } from "react-i18next";
+import ShowMore from "react-show-more-button/dist/module";
 
 export default function SectionCenterTalentHome() {
   const { t } = useTranslation();
@@ -14,7 +15,7 @@ export default function SectionCenterTalentHome() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(jobsDataAction());
-    console.log(jobs[0]?.skills);
+    // console.log(jobs);
   }, []);
 
   return (
@@ -85,56 +86,58 @@ export default function SectionCenterTalentHome() {
                 <span id="posting-time"> 4 Hours ago</span>
               </span>
             </p>
-            <p id="job-description">
-              {item.jobDescription?.length > 300
-                ? item.jobDescription?.substr(1, 300)
-                : item.jobDescription}
-              {item.jobDescription?.length > 300 && (
-                <>
-                  <span id="dots">...</span>
-                  <span id="more">{item.jobDescription}</span>
-                  <span className="advanced-search-link ">more</span>
-                </>
-              )}
-              {item?.skills?.map((i, index) => (
+            <ShowMore
+              maxHeight={100}
+              button={
                 <button
-                  type="button"
-                  className="btn btn-secondary btn-sm rounded-pill skills"
-                  key={index}
+                  id="seemorebutton"
+                  classname="advanced-search-link "
+                  style={{ color: "green", position: "absolute", left: 0 }}
                 >
-                  {i}
+                  more
                 </button>
-              ))}
+              }
+            >
+              {item?.jobDescription}
+            </ShowMore>
+            {item?.skills?.map((skill, index) => (
+              <button
+                key={index}
+                type="button"
+                className="btn btn-secondary btn-sm rounded-pill skills"
+              >
+                {skill}
+              </button>
+            ))}
 
-              <p style={{ fontSize: "0.9em" }} className="my-lg-1">
-                <span className="text-muted">
-                  <span>Proposals: </span>
-                  <span className="fw-bold ">Less than </span>
-                  <span className="fw-bold " id="proposals-numbers">
-                    5
-                  </span>
+            <p style={{ fontSize: "0.9em" }} className="my-lg-1">
+              <span className="text-muted">
+                <span>Proposals: </span>
+                <span className="fw-bold ">Less than </span>
+                <span className="fw-bold " id="proposals-numbers">
+                  5
                 </span>
-              </p>
-              <p style={{ fontSize: "0.85em" }} className="my-lg-1 mb-lg-2">
-                <span className="fw-bold" style={{ color: "#14bff4" }}>
-                  <i className="fas fa-check-circle primary me-1" />
-                  Payment verified
+              </span>
+            </p>
+            <p style={{ fontSize: "0.85em" }} className="my-lg-1 mb-lg-2">
+              <span className="fw-bold" style={{ color: "#14bff4" }}>
+                <i className="fas fa-check-circle primary me-1" />
+                Payment verified
+              </span>
+              <span className="text-muted">
+                <span className="mx-2">
+                  <i className="fas fa-star" />
+                  <i className="fas fa-star" />
+                  <i className="fas fa-star" />
+                  <i className="fas fa-star" />
+                  <i className="fas fa-star" />
                 </span>
-                <span className="text-muted">
-                  <span className="mx-2">
-                    <i className="fas fa-star" />
-                    <i className="fas fa-star" />
-                    <i className="fas fa-star" />
-                    <i className="fas fa-star" />
-                    <i className="fas fa-star" />
-                  </span>
-                  <span className="fw-bold "> $0 </span>
-                  <span> spent </span>
-                  <span className="fw-bold ">
-                    <i className="fas fa-map-marker-alt ms-2" /> United States
-                  </span>
+                <span className="fw-bold "> $0 </span>
+                <span> spent </span>
+                <span className="fw-bold ">
+                  <i className="fas fa-map-marker-alt ms-2" /> United States
                 </span>
-              </p>
+              </span>
             </p>
           </div>
         </div>
