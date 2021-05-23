@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { format } from 'date-fns';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
@@ -26,7 +27,7 @@ export default function SubmitProposal() {
   const handlVal = (e) => {
     const files = e.target.files;
 
-    if (e.target.name == 'coverLitter')
+    if (e.target.name === 'coverLitter')
       setproposalData({ coverLitter: e.target.value });
     else {
       if (files[0]) {
@@ -56,20 +57,20 @@ export default function SubmitProposal() {
   const handleProposal = () => {
     console.log(proposalData);
     //talent subproposal
-    subCollection('talent','jobProposal',{jobId:id,status:"proposal"},auth.currentUser.uid);
-    updateUserData('talent',{connects:user.connects-2})
+    subCollection('talent', 'jobProposal', { jobId: id, status: "proposal" }, auth.currentUser.uid);
+    updateUserData('talent', { connects: user.connects - 2 })
 
     //subcollection proposal
-    subCollection('job','proposals',  {
+    subCollection('job', 'proposals', {
       talentName: user.firstName + user.lastName,
       talentId: auth.currentUser.uid,
       coverLitter: proposalData.coverLitter,
       // images: proposalData?.proposalImages,
       //budged:proposalData.price,
       clientId: job.authID,
-    },id)
-    
-    
+    }, id)
+
+
   }
 
   return (

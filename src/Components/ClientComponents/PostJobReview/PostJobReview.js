@@ -23,13 +23,6 @@ export default function PostJobReview() {
         localStorage.removeItem("docID");
     }
 
-
-    // getCurrentPostJob(id).then(doc => {
-    //     job = doc;
-    //     setJob(job);
-    //     console.log(job);
-    // }).catch(err => console.log(err));
-
     return (
         <>
             <section className=" bg-white border rounded mt-3">

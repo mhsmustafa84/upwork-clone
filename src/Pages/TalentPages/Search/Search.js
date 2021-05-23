@@ -1,14 +1,14 @@
-import React, { useEffect,useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import SearchBarJobsTalent from "../../../Components/TalentComponents/SearchBarJobsTalent/SearchBarJobsTalent";
 // import ReviewProposalsCard from "../../../Components/ClientComponents/ReviewProposalsCard/ReviewProposalsCard";
-import SectionCenterTalentHome from "../../../Components/TalentComponents/SectionCenterTalentHome/SectionCenterTalentHome";
-import { Link, NavLink } from "react-router-dom";
+// import SectionCenterTalentHome from "../../../Components/TalentComponents/SectionCenterTalentHome/SectionCenterTalentHome";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import {SearchContext} from '../../../Context/SearchContext'
+import { SearchContext } from '../../../Context/SearchContext'
 
 export default function Search() {
-    const {itemSearchList} = useContext(SearchContext);
+    const { itemSearchList } = useContext(SearchContext);
 
     const { t } = useTranslation();
     const { push } = useHistory();
@@ -18,9 +18,9 @@ export default function Search() {
     }
     useEffect(() => {
         console.log(itemSearchList);
-      }, [itemSearchList])
-    
-    
+    }, [itemSearchList])
+
+
 
     return (
         <div className="container-md container-fluid-sm my-lg-4">
@@ -346,12 +346,12 @@ export default function Search() {
                                     aria-current="true"
                                 >
                                     <Link to="/saved-jobs">
-                                    <a
-                                        href="#"
-                                        className=" list-group-item-action saved-homebage-ul-li-aa bg-white"
-                                        aria-current="true"
-                                    >
-                                        {t("SAVEDJOBS")}(2)
+                                        <a
+                                            href="#"
+                                            className=" list-group-item-action saved-homebage-ul-li-aa bg-white"
+                                            aria-current="true"
+                                        >
+                                            {t("SAVEDJOBS")}(2)
               </a></Link>
                                 </li>
                             </ul>
