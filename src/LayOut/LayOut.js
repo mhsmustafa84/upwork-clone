@@ -32,23 +32,6 @@ export default function LayOut() {
   }, [])
 
 
-  // return (
-  //   <>
-  //     {console.log(usrType)}
-  //     {
-  //       usr
-  //         ? usrType === 'talent'
-  //           ? <TalentRoutes />
-  //           : usrType === 'client'
-  //             ? <ClientRoutes />
-  //             : <TalentRoutes />
-  //         : <BeforeLoginRoutes />
-
-  //     }
-  //   </>
-  // );
-
-
   if (usr) {
     if (usrType === "talent") {
       return <TalentRoutes />

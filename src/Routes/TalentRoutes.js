@@ -54,7 +54,7 @@ export default function TalentRoutes() {
         <Route path="/buyconnects" exact component={BuyConnects} />
         <Route path="/transaction-history" exact component={TransactionHistory} />
         <Route path="/messages" exact component={Messages} />
-        {/* <Route path="**" component={PageNotFound} /> */}
+        <Route path="**" component={PageNotFound} />
       </Switch>
       <Footer />
     </>

@@ -14,7 +14,7 @@ export default function JobDescriptionJobDetails({ job }) {
           {job.jobCategory}
         </a>
 
-        <p className="text-muted">Posted at 9 hours ago</p>
+        <p className="text-muted">{new Date(job.postTime * 1000).toLocaleString()}</p>
         <span>
           <i className="fas fa-street-view" style={{ color: "#14bff4" }}>
             {" "}
@@ -71,8 +71,7 @@ export default function JobDescriptionJobDetails({ job }) {
             <span className="d-lg-none">Experience Level</span>
           </small>
         </li>
-        {/**/}
-        {/**/}
+
         <li className="col list-group-item border-0">
           <div className="header">
             <span className="icon up-icon" data-cy="local">

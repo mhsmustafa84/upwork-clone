@@ -1,129 +1,124 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+
 import { Link } from "react-router-dom";
-import { auth } from "../../../firebase";
-import { jobsDataAction } from "../../../Store/actions/jobsData";
 
-export default function JobPostLi() {
+export default function JobPostLi({ job, id }) {
 
-  const [myJobs, setMyJobs] = useState([]);
+  // const [myJobs, setMyJobs] = useState([]);
 
-  const allJobs = useSelector((state) => state.jobsData);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(jobsDataAction());
-    const arr = allJobs.filter(job => job.authID === auth.currentUser?.uid);
-    setMyJobs([...arr]);
-  }, []);
+  // const allJobs = useSelector((state) => state.jobsData);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(jobsDataAction());
+  //   const arr = allJobs.filter(job => job.authID === auth.currentUser?.uid);
+  //   setMyJobs([...arr]);
+  // }, []);
 
   return (
     <div>
-      {console.log(allJobs)}
-      {console.log(myJobs)}
-      <Link to="/review-proposal">
-        <div className="row">
-          <div className="col-lg-5 col-md-6 col-sm-10 col-xs-9">
-            <h4 className="m-0-bottom" id="all-postings-list-opening-title-0">
-              Graphic designer needed
-            </h4>
-            <p
-              className="m-xs-bottom m-0 text-muted ng-binding"
-              id="all-postings-list-created-by-block-0"
+
+      <div className="row">
+        <div className="col-lg-5 col-md-6 col-sm-10 col-xs-9">
+          <h4 className="m-0-bottom" id="all-postings-list-opening-title-0">
+            <Link to={`/all-job-posts/${id}`}>
+              {job.jobTitle}
+            </Link>
+          </h4>
+          <p
+            className="m-xs-bottom m-0 text-muted ng-binding"
+            id="all-postings-list-created-by-block-0"
+          >
+            Posted
+              <span className=""> {new Date(job.postTime.seconds * 1000).toLocaleString()} </span>
+          </p>
+          <p className="m-xs-bottom m-0-top ng-binding">
+            <span
+              className="text-capitalize"
+              id="all-postings-list-opening-type-0"
             >
-              Posted
-              <span className=""> 7 hours ago </span>
-              by
-              <span className=""> You</span>
-            </p>
-            <p className="m-xs-bottom m-0-top ng-binding">
-              <span
-                className="text-capitalize"
-                id="all-postings-list-opening-type-0"
-              >
-                hourly
-              </span>
-            </p>
-          </div>
-          <div className="d-block col-sm-2 col-xs-3">
-            <div className="fw-bold">
-              <span>31</span> (<span> 31 </span> new)
-            </div>
-            <div className="text-muted">Proposals</div>
-          </div>
-          <div className="d-block col-sm-1 col-xs-3">
-            <div className="fw-bold">0</div>
-            <div className="text-muted">Messaged</div>
-          </div>
-          <div className="d-block col-sm-1 col-xs-3">
-            <div className="fw-bold">0</div>
-            <div className="text-muted">Hired</div>
-          </div>
-          <div className="d-block col-sm-2 col-xs-3">
-            <button type="button" className="btn bg-upwork">
-              View Proposals
-            </button>
-          </div>
-          <div className="d-block col-sm-1 col-xs-3 btn-group float-sm-end ">
-            <button
-              type="button"
-              className="btn btn-light dropdown-toggle border border-1 rounded-circle"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <i className="fas fa-ellipsis-h " />
-            </button>
-            <ul className="dropdown-menu">
-              <li>
-                <a className="dropdown-item" href="#">
-                  View Proposals
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Invite freelancers
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Make Private
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Share job posting
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Upgrade to Featured
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  View Job posting
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Edit posting
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Reuse posting
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Remove posting
-                </a>
-              </li>
-            </ul>
-          </div>
+              {job.jobPaymentType} - {job.status}
+            </span>
+          </p>
         </div>
-      </Link>
+        <div className="d-block col-sm-2 col-xs-3">
+          <div className="fw-bold">
+            <span>0</span> (<span> 0 </span> new)
+            </div>
+          <div className="text-muted">Proposals</div>
+        </div>
+        <div className="d-block col-sm-1 col-xs-3">
+          <div className="fw-bold">0</div>
+          <div className="text-muted">Messaged</div>
+        </div>
+        <div className="d-block col-sm-1 col-xs-3">
+          <div className="fw-bold">{job.hired}</div>
+          <div className="text-muted">Hired</div>
+        </div>
+        <div className="d-block col-sm-2 col-xs-3">
+          <button type="button" className="btn bg-upwork">
+            View Proposals
+            </button>
+        </div>
+        <div className="d-block col-sm-1 col-xs-3 btn-group float-sm-end ">
+          <button
+            type="button"
+            className="btn btn-light dropdown-toggle border border-1 rounded-circle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i className="fas fa-ellipsis-h " />
+          </button>
+          <ul className="dropdown-menu">
+            <li>
+              <a className="dropdown-item" href="#">
+                View Proposals
+                </a>
+            </li>
+            <li>
+              <a className="dropdown-item" href="#">
+                Invite freelancers
+                </a>
+            </li>
+            <li>
+              <a className="dropdown-item" href="#">
+                Make Private
+                </a>
+            </li>
+            <li>
+              <a className="dropdown-item" href="#">
+                Share job posting
+                </a>
+            </li>
+            <li>
+              <a className="dropdown-item" href="#">
+                Upgrade to Featured
+                </a>
+            </li>
+            <li>
+              <a className="dropdown-item" href="#">
+                View Job posting
+                </a>
+            </li>
+            <li>
+              <a className="dropdown-item" href="#">
+                Edit posting
+                </a>
+            </li>
+            <li>
+              <a className="dropdown-item" href="#">
+                Reuse posting
+                </a>
+            </li>
+            <li>
+              <a className="dropdown-item" href="#">
+                Remove posting
+                </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
     </div>
   );
 }
