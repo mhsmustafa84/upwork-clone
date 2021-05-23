@@ -7,6 +7,7 @@ import { jobDetailsReducer } from "./reducers/jobDetailsReducer";
 import { langReducer } from "./reducers/langReducer";
 import { jobDataReducer } from "./reducers/jobDataReducer";
 import { clientJobReducer } from "./reducers/clientJobReducer";
+import { inReviewReducer } from "./reducers/inReviewReducer";
 
 export default combineReducers({
   //The Key is your type;
@@ -20,4 +21,5 @@ export default combineReducers({
   jobData: jobDataReducer,
   clientJobs: clientJobReducer,
   jobDetails: jobDetailsReducer,
+  inreview: inReviewReducer,
 });
