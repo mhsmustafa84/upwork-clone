@@ -1,19 +1,26 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useContext } from "react";
 import { useHistory } from "react-router-dom";
 import SearchBarJobsTalent from "../../../Components/TalentComponents/SearchBarJobsTalent/SearchBarJobsTalent";
 // import ReviewProposalsCard from "../../../Components/ClientComponents/ReviewProposalsCard/ReviewProposalsCard";
 import SectionCenterTalentHome from "../../../Components/TalentComponents/SectionCenterTalentHome/SectionCenterTalentHome";
 import { Link, NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import {SearchContext} from '../../../Context/SearchContext'
 
 export default function Search() {
+    const {itemSearchList} = useContext(SearchContext);
+
     const { t } = useTranslation();
     const { push } = useHistory();
 
     const clickHandler = () => {
         push("/job/");
     }
-
+    useEffect(() => {
+        console.log(itemSearchList);
+      }, [itemSearchList])
+    
+    
 
     return (
         <div className="container-md container-fluid-sm my-lg-4">

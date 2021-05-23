@@ -7,6 +7,10 @@ import { jobsDataAction } from "./../../../Store/actions/jobsData";
 import { Link } from "react-router-dom";
 import "./SectionCenterTalentHome.css";
 import { useTranslation } from "react-i18next";
+// import ShowMore from 'react-show-more-button';
+import ShowMore from 'react-show-more-button/dist/module';
+
+
 
 export default function SectionCenterTalentHome() {
   const { t } = useTranslation();
@@ -84,18 +88,27 @@ export default function SectionCenterTalentHome() {
                 <span id="posting-time"> 4 Hours ago</span>
               </span>
             </p>
-            <p id="job-description">
+            <ShowMore maxHeight={100} button={<button id="seemorebutton" classname="advanced-search-link " style={{color:'green', position: 'absolute', left: 0}}>
+        more
+      </button>}>
+      
+            {item?.jobDescription}
+           
+           
+            {/* <p id="job-description">
               {item.jobDescription?.length > 300
                 ? item.jobDescription?.substr(1, 300)
                 : item.jobDescription}
+                
               {item.jobDescription?.length > 300 && (
                 <>
                   <span id="dots">...</span>
                   <span id="more">{item.jobDescription}</span>
-                  <span className="advanced-search-link ">more</span>
+                  <a className="advanced-search-link" href="more">more</a>
                 </>
               )}
-            </p>
+            </p> */}
+            </ShowMore>
             <button
               type="button"
               className="btn btn-secondary btn-sm rounded-pill skills"

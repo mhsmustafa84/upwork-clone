@@ -2,6 +2,7 @@ import { format } from 'date-fns';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
+import SubmitProposalContractType from '../../Components/TalentComponents/SubmitProposalContractType/SubmitProposalContractType';
 import { db, storage } from '../../firebase';
 import { addProposal } from '../../Network/Network';
 import { jobDataAction } from '../../Store/actions/jobDataAction';
@@ -136,51 +137,16 @@ export default function SubmitProposal() {
           <div className="row mt-5">
             <div className="col">
               <div className="bg-white border rounded-bottom rounded-top">
-                <h2 className="h4 border-bottom p-4">Job details</h2>
+                <h2 className="h4 border-bottom p-4">Terms</h2>
                 <div className="ps-4 pt-2 d-flex">
-                  <div className="w-75">
-                    <p className="fw-bold">What is the rate you'd like to bid for this job?</p>
-                    <div className="my-4">
-                      <span>Your profile rate: <strong>$20.00/hr</strong></span>
-                    </div>
-                    <div className="mb-3 d-flex justify-content-between">
-                      <div>
-                        <span><strong>Hourly Rate</strong></span>
-                        <p>Total amount the client will see on your proposal</p>
-                      </div>
-                      <div className="me-5 mt-2 position-relative jd-inp-cn">
-                        <div className="position-absolute"><i className="fas fa-dollar-sign" /></div>
-                        <input className="form-control text-end" type="text" defaultValue={20.00} /><span className="position-absolute">/hr</span>
-                      </div>
-                    </div>
-                    <div className="mb-3 d-flex justify-content-between border-top pt-3">
-                      <div>
-                        <p className="fw-bold">20% Upwork Service Fee <a className="upw-c-cn fw-normal" href>Explain this</a></p>
-                      </div>
-                      <div className="me-5 mt-2">
-                        <span style={{ position: 'relative', right: '115px' }}><i className="fas fa-dollar-sign" /></span>
-                        <span className="text-end">-4.00</span>
-                        <span style={{ position: 'relative', right: '-30px' }}>/hr</span>
-                      </div>
-                    </div>
-                    <div className="mb-3 d-flex justify-content-between border-top pt-3">
-                      <div>
-                        <span><strong>You'll Receive</strong></span>
-                        <p>The estimated amount you'll receive after service fees <span className="upw-c-cn"><i className="fas fa-question-circle" /></span></p>
-                      </div>
-                      <div className="me-5 mt-2 position-relative jd-inp-cn">
-                        <div className="position-absolute"><i className="fas fa-dollar-sign" /></div>
-                        <input className="form-control text-end" type="text" defaultValue={16.00} /><span className="position-absolute">/hr</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="w-25 m-3 ps-3">
+                  <SubmitProposalContractType ContractType={job.jobPaymentType}/>
+                  <div className="w-25 m-3 ps-3 d-flex flex-column justify-content-center align-items-center">
                     <svg width="120px" role="img" viewBox="0 0 145 130" xmlns="http://www.w3.org/2000/svg">
                       <path d="M72.5.5L16.8 17.6v61c0 5.6 1.4 11.2 4.2 16.1 6.1 10.8 20.3 27.5 51.5 34.8 31.2-7.2 45.4-24 51.5-34.8 2.8-4.9 4.2-10.5 4.2-16.1v-61L72.5.5z" fill="#6fda44" />
                       <path d="M128.2 78.6v-61L72.5.5v129c31.2-7.2 45.4-24 51.5-34.8 2.8-4.9 4.2-10.4 4.2-16.1z" fill="#34ba08" />
                       <path d="M75.9 75.9c2.8-.4 4.4-1.6 4.4-4 0-2-1.2-3.2-4.4-4.9l-6.1-1.6C61 62.9 56.5 59.7 56.5 52c0-6.9 5.3-11.3 13.3-12.5v-3.6h6.5v3.6c4.4.4 8.1 2 11.7 4.4l-4 7.3c-2.4-1.6-5.3-2.8-7.7-3.6 0 0-2-.8-6.1-.4-3.2.4-4.4 2-4.4 4s.8 3.2 4.4 4.4l6.1 1.6C86 59.6 90 63.7 90 70.5c0 6.9-5.3 11.7-13.3 12.5v4h-6.5v-4c-6.1-.4-11.3-2.4-15.4-5.7l4.9-7.3c3.2 2.4 6.5 4.4 10.1 5.3 4.1 1 6.1.6 6.1.6z" fill="#fff" />
                     </svg>
-                    <p>Includes Upwork Hourly Protection<a className="upw-c-cn" href>Learn more</a></p>
+                    <p className="ms-5">Includes Upwork Hourly Protection<a className="upw-c-cn" href>Learn more</a></p>
                   </div>
                 </div>
               </div>
