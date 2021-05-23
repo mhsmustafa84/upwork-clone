@@ -76,7 +76,7 @@ export default function Header() {
                                     </li>
                                     <li className="nav-item dropdown">
                                         <a className="nav-link n-l-c-cn dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            {t("Find Work")}
+                                            {t("FindWork")}
                                         <i className="fa fa-sort-down ms-1  px-2"></i>
                                         </a>
                                         <ul id="find-work-dd-id" className="dropdown-menu pb-4" aria-labelledby="navbarDropdownMenuLink">
@@ -120,7 +120,7 @@ export default function Header() {
                             </div>
                         </nav>
                     </div>
-                    <div className="d-flex justify-content-between">
+                    <div className="d-flex justify-content-between col-7">
                         <form id="search-form-id" className="d-flex">
                             <button className="btn position-relative search-btnn-cn ">
                                 <i className="fa fa-search search-icon-cn"></i>
