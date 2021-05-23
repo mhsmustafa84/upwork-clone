@@ -14,7 +14,7 @@ export default function SectionCenterTalentHome() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(jobsDataAction());
-    console.log(jobs);
+    // console.log(jobs);
   }, []);
 
   return (
@@ -96,12 +96,15 @@ export default function SectionCenterTalentHome() {
                 </>
               )}
             </p>
-            <button
-              type="button"
-              className="btn btn-secondary btn-sm rounded-pill skills"
-            >
-              Training
-            </button>
+            {item?.skills?.map((i)=>
+             <button
+             type="button"
+             className="btn btn-secondary btn-sm rounded-pill skills"
+           >
+             {i}
+           </button>
+            )}
+           
             <button
               type="button"
               className="btn btn-secondary btn-sm rounded-pill skills"

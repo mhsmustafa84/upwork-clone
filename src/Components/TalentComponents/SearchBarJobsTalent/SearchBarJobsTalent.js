@@ -1,16 +1,38 @@
-import React,{ useState } from "react";
-import firebaseApp from "../../../firebase";
-import { Link } from "react-router-dom";
+import React,{ useEffect, useState } from "react";
+import firebaseApp, { db } from "../../../firebase";
+import { Link, useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";  
 
 
-
-export default function SearchBarJobsTalent() {
+export default function SearchBarJobsTalent(props) {
   const { t }=useTranslation();
-    const [verify, setverify] = useState(false);
+  let [searchValue, setsearchValue] = useState('');
+  const [verify, setverify] = useState(false);
+  const { push } = useHistory();
+ 
+
+  const handlSearchValue=(e)=>{
+     searchValue=e.target.value
+    setsearchValue(searchValue);
+  }
+
+  const searchDatabase = () => {
+    let arr = [];
+    db.collection('job')
+    .where('skills', 'array-contains', searchValue)
+    .onSnapshot(
+      jobs=>jobs.docs.map(
+        item=>{
+        arr.push(item.data())
+         push({pathname:"/search",state:arr})
+      }
+      
+      ))
+}
+
+  
   firebaseApp.auth().onAuthStateChanged((user) => {
     if (user) {
-      //console.log(user.emailVerified);
       var verf = user.emailVerified;
       setverify(verf);
     }
@@ -34,27 +56,24 @@ export default function SearchBarJobsTalent() {
           )}
           <div className="col-8 input-group form-outline has-success">
             <input
+            onInput={handlSearchValue}
               id="input"
               type="search"
               className="form-control text-dark bg-white btn-outline-success"
               placeholder={t("Search For Jobs")}
             />
-             <Link to="/Search">
-            <button
+           
+            <Link
               id="search-button"
               type="button"
               className="btn bg-upwork bg-invert"
-
+              onClick={searchDatabase} 
             >
               <i className="fas fa-search" />
-            </button>
             </Link>
+        
           </div>
-          <span>
-            <a href="#" className="advanced-search-link">
-              {t("AdvancedSearch")}
-            </a>
-          </span>
+          
         </div>
         
     )

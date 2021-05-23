@@ -5,15 +5,27 @@ import { auth } from "../../../firebase";
 import { updateUserData } from "../../../Network/Network";
 
 export default function CreateProfileCategory() {
+  const [inputVal, setinputVal] = useState("");
+  const [skillsList, setskillsList] = useState([]);
   let [cat, setCat] = useState();
   const catVal = e => {
     cat = e.target.value;
     setCat(cat)
   };
+  const skillVal=(e)=>{
+    setinputVal(e.target.value)
+  }
 
   const addData = () => {
-    updateUserData("talent", { jobCategory: cat,authID:auth.currentUser.uid });
+    updateUserData("talent", { jobCategory: cat,authID:auth.currentUser.uid ,skills:skillsList});
   }
+  const addskills = () => {
+    let arr2=[...skillsList,inputVal];
+    setskillsList(arr2);
+    console.log(skillsList);
+  //  setskillsList([...skillsList,inputVal]);
+  //  console.log(skillsList);
+  };
 
   return (
     <section className=" bg-white border rounded mt-3 pt-4">
@@ -33,6 +45,27 @@ export default function CreateProfileCategory() {
           <option value="Web Design">Web Design</option>
           <option value="Graphic Design">Graphic Design</option>
         </select>
+        <>
+          <p className="fw-bold mt-2">About your skills?</p>
+          <div className="my-4 d-flex justify-content-between">
+            <input
+              className="form-control w-75 shadow-none"
+              type="text"
+              name="jobSkills"
+              onChange={skillVal}
+            />
+            <button className="btn bg-upwork px-5" onClick={addskills}>
+              Add
+            </button>
+          </div>
+        <div className="my-4 d-flex justify-content-start">
+          {skillsList.map((item)=>
+          <div  className="chip mb-3 ms">
+            <span>{item}</span>
+          </div>
+          )}
+          </div>  
+        </>
       </div>
       <div className="px-4 my-3 pt-4 border-top d-flex justify-content-between">
         <Link className="btn border text-success me-4 px-5 fw-bold" to="/home">

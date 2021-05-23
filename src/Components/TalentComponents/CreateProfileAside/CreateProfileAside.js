@@ -13,7 +13,7 @@ export default function CreateProfileAside() {
                 </li>
                 <li className="border-start border-4 border-success py-1 my-3">
                     <Link to="/create-profile/category" className="d-flex justify-content-between">
-                        <span className="text-dark"><i className="fas fa-list-alt mx-4"></i>Category</span>
+                        <span className="text-dark"><i className="fas fa-list-alt mx-4"></i>Category & Skills</span>
                         <i className="fas fa-check-circle"></i>
                     </Link>
                 </li>

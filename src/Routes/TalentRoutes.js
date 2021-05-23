@@ -36,7 +36,9 @@ export default function TalentRoutes() {
       <Switch>
         <Route path="/create-profile" component={CreateProfile} />
         <Route path="/find-work" exact component={HomeTalent} />
+        {/* <Route path="/Search/:searchValue" exact component={Search} /> */}
         <Route path="/Search" exact component={Search} />
+
         <Route path="/job/" exact component={JobDetailsTalent} />
         <Route path="/job/:id" exact component={JobDetailsTalent} />
         <Route path="/job/apply/:id" exact component={SubmitProposal} />
