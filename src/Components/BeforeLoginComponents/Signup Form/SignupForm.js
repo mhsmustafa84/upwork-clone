@@ -43,6 +43,7 @@ export default function SignupForm() {
             <img
               className="google-icon"
               src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+              
             />
           </div>
           <div className="text-justify ">

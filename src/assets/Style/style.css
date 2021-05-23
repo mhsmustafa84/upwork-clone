@@ -24,6 +24,7 @@
   cursor: pointer;
   width: 66.66%;
   height: 42px;
+  line-height: 30px;
   background-color: #4285f4;
   border-radius: 2px;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
@@ -33,6 +34,7 @@
   position: absolute;
   margin-top: 1.2px;
   margin-left: 1px;
+  margin-right: 1px;
   width: 38px;
   height: 38px;
   border-radius: 4px;
@@ -45,6 +47,10 @@
   margin-left: 11px;
   width: 17px;
   height: 17px;
+}
+[dir="rtl"] .google-btn .google-icon 
+{
+  margin-right: 10px;
 }
 .google-btn .btn-text {
   float: left;
