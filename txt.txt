@@ -4,7 +4,6 @@ import { updateJob } from "../../../Network/Network";
 import "./PostJobExpertise.css";
 export default function PostJobExpertise() {
   const [skill, setSkill] = useState("");
-  const [skills, setSkillslist] = useState([]);
   const [job, setJob] = useState({ jobExperienceLevel: "", jobSkills: [] });
 
   const getData = (e) => {
@@ -14,12 +13,11 @@ export default function PostJobExpertise() {
     switch (name) {
       case "jobExperienceLevel":
         job.jobExperienceLevel = val;
-        setJob({ ...job, jobExperienceLevel: job.jobExperienceLevel });
+        setJob({ ...job, jobCategory: job.jobCategory });
         break;
       case "jobSkills":
         setSkill(val);
-        // setJob({ ...job, jobSkills: skill });
-        // console.log(skills);
+        setJob({ ...job, jobSkills: skill });
         break;
       default:
         break;
@@ -27,13 +25,9 @@ export default function PostJobExpertise() {
   };
 
   const addskills = () => {
-    let arr = [];
     if (skill !== "") {
-      arr = [...skills, skill];
-      setSkillslist(arr);
-      // setSkillslist(skill, ...skills);
-      // setJob({ ...job, jobSkills: skills });
-      console.log(skills);
+      setSkill(skill);
+      setJob({ ...job, jobSkills: skill });
     }
     setSkill("");
   };
@@ -97,20 +91,22 @@ export default function PostJobExpertise() {
           <div className="my-4 d-flex justify-content-between">
             <input
               className="form-control w-75 shadow-none"
-              type="text"
               name="jobSkills"
-              onChange={getData}
+              onInput={getData}
             />
             <Link className="btn bg-upwork px-5" onClick={addskills}>
               Add
             </Link>
-            <div className="my-4 d-flex justify-content-between"></div>
-          </div>
-          <div className="chip">
-            <span>download</span>
-            <span>
-              <i className=" ms-3 fas fa-times-circle"></i>
-            </span>
+            <div className="my-4 d-flex justify-content-between">
+              {job.jobSkills.map((task, index) => (
+                <div className="chip">
+                  <span key={index}>{task}</span>
+                  <span>
+                    <i className=" ms-3 fas fa-times-circle"></i>
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -135,3 +131,6 @@ export default function PostJobExpertise() {
     </>
   );
 }
+
+
+        onClick={addData}

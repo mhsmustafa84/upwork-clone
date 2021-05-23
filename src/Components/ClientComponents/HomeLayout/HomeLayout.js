@@ -2,10 +2,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-script-url */
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clientDataAction } from './../../../Store/actions/clientData';
+import { jobsDataAction } from './../../../Store/actions/jobsData';
 import "./HomeLayout.css";
 import j1 from "../../../assets/svg/jobs1.svg";
 import j2 from "../../../assets/svg/jobs2.svg";
@@ -15,23 +16,20 @@ import s1 from "../../../assets/img/jobslide1.jpg";
 import s2 from "../../../assets/img/jobslide2.jpg";
 import s3 from "../../../assets/img/jobslide2.jpg";
 import { useTranslation } from "react-i18next";
-import firebaseApp from './../../../firebase';
+import { auth, db } from "../../../firebase";
+import { clientJobsAction } from "../../../Store/actions/clientJobAction";
 
 
 export default function HomeLayout() {
 const { t } = useTranslation();
   const user = useSelector(state => state.clientData);
+  const jobs = useSelector((state) => state.clientJobs);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(clientDataAction());
+    dispatch(clientJobsAction('job','authID','==',auth.currentUser.uid));
+    console.log(jobs);
   }, []);
- firebaseApp.firestore()
-  .collection("jobs")
-  .doc("AcVq6BdfU0UbXkmRUdhZ")
-  .get()
-  .then((application) => {
-    console.log(application.data());
-  });
 
   return (
     <>
@@ -65,11 +63,13 @@ const { t } = useTranslation();
               <h4>{t("My Postings")}</h4>
               <a className="float-sm-end mt-0">{t("All Posts")}</a>
             </div>
-            <div className="list-group-item">
+            {/* Job Details Start here */}
+            {
+            jobs==null?
+              <div className="list-group-item">
               <div className="row align-items-center">
                 <div className="col-lg-9 pt-lg-3">
                   <a
-                    href="#"
                     id="job-title-home-page "
                     className="link-dark job-title-hover"
                   >
@@ -93,29 +93,6 @@ const { t } = useTranslation();
                         aria-hidden="true"
                       ></i>
                     </button>
-                  </div>
-
-                  <div className="btn-group float-sm-end px-lg-1">
-                    <button
-                      type="button"
-                      className="btn btn-light dropdown-toggle border border-1 rounded-circle"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      <i className="far fa-thumbs-down"></i>
-                    </button>
-                    <ul className="dropdown-menu">
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          RSS
-                        </a>
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Atom
-                        </a>
-                      </li>
-                    </ul>
                   </div>
                 </div>
               </div>
@@ -204,6 +181,16 @@ const { t } = useTranslation();
                 Css
               </button>
             </div>
+            :
+            <div className="list-group-item">
+              <div className="row align-items-center">
+                <div className="col-lg-9 pt-lg-3">
+                <button className="btn bg-upwork border-2 rounded w-50">Post a job</button>
+                </div>
+                </div>
+                </div>
+            }
+            
             <div className="card mt-5">
               <div className="card-body">
                 <h5 className="card-title">{t("How it works")}</h5>
@@ -409,7 +396,7 @@ const { t } = useTranslation();
               </div>
             </div>
 
-            <ul
+            {/* <ul
               className="list-group sidebar-homebage-ul mb-lg-3 d-none d-lg-block d-xl-none"
               style={{ fontSize: "0.9em" }}
             >
@@ -449,7 +436,7 @@ const { t } = useTranslation();
                   <i className="fas fa-stopwatch"></i> {t("Track time with the desktop app")}
                 </a>
               </li>
-            </ul>
+            </ul> */}
           </div>
         </div>
       </div>

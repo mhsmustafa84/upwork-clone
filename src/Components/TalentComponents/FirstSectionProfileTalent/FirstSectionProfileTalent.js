@@ -12,6 +12,8 @@ export default function FirstSectionProfileTalent() {
   useEffect(() => {
     dispatch(talentDataAction());
   }, []);
+  // let data = Object.values(user.data);
+
   const { t } = useTranslation();
   return (
     <>
@@ -24,9 +26,9 @@ export default function FirstSectionProfileTalent() {
                 className="rounded-circle avatar vertical-align-middle m-0 avatar-sm avatar-responsive"
                 src={user.profilePhoto ? user.profilePhoto : img}
               />
-              <span className="hotspotimg">
+              {/* <span className="hotspotimg">
                 <span className="hotspotimg__btn"></span>
-              </span>
+              </span> */}
             </div>
           </div>
           <div className="col-lg-4 pt-lg-3 mx-3">
@@ -43,8 +45,9 @@ export default function FirstSectionProfileTalent() {
               <span>
                 {user.location && (
                   <>
-                    user.location.city + ", "
-                    <strong>{user.location.country}– </strong>
+                    {" "}
+                    {user.location.city} -{" "}
+                    <strong>{user.location.country} – </strong>
                   </>
                 )}
                 {new Date().toLocaleTimeString()} {t("local time")}
@@ -85,96 +88,89 @@ export default function FirstSectionProfileTalent() {
             <div className="col-4 row border-end border-2 me-1">
               <div className="row">
                 <div className="col">
-                  <div className="fw-bold fs-5">$30</div>
+                  <div className="fw-bold fs-5">${user.totalEarnings}</div>
                   <div className="fs-6">{t("Earnings")}</div>
                 </div>
                 <div className="col">
-                  <div className="fw-bold fs-5">2</div>
+                  <div className="fw-bold fs-5">{user.totalJobs}</div>
                   <div className="fs-6">{t("Total Jobs")}</div>
                 </div>
                 <div className="col">
-                  <div className="fw-bold fs-5">10</div>
+                  <div className="fw-bold fs-5">{user.totalHours}</div>
                   <div className="fs-6">{t("Total Hours")}</div>
                 </div>
               </div>
               <hr />
-              <div>
-                <h5 className="fw-bold">{t("Availability")}</h5>
-                <h6 className="fw-bold">Available</h6>
-                <p>As Needed - Open to Offers</p>
-                <h5 className="fw-bold">{t("Languages")}</h5>
-                <span className="fw-bold fs-5">English:</span>
-                <span>Fluent</span>
+              <h5 className="fw-bold">{t("Availability")}</h5>
+              <h6 className="fw-bold">
+                {user?.Availabilty == true ? "available" : "not available"}
+              </h6>
+              <p>
+                {user?.Availabilty
+                  ? "As Needed - Open to Offers"
+                  : "not available for 3 months"}
+              </p>
+              <h5 className="fw-bold">{t("Languages")}</h5>
+              <span className="fw-bold fs-5">English:</span>
+              <span>Fluent</span>
 
-                <h5 className="fw-bold mt-3">{t("Education")}</h5>
-                <h5 className="fw-bold">Army Apprentice College</h5>
-                <p>Military and occupational training 1975-1977</p>
-                <h5 className="fw-bold">
-                  Toynbee Secondary School, Eastleigh, Hants, UK.
-                </h5>
-                <p>1970-1975</p>
-                <ul className="list-unstyled">
-                  <li className="d-flex">
+              <h5 className="fw-bold mt-3">{t("Education")}</h5>
+              <h5 className="fw-bold">{user?.school}</h5>
+              <p>{user?.school} 1975-1977</p>
+              <h5 className="fw-bold">
+                Toynbee Secondary School, Eastleigh, Hants, UK.
+              </h5>
+              <p>1970-1975</p>
+              <ul className="list-unstyled">
+                <li className="d-flex">
+                  <div>
+                    <h5 className=" fw-bold">
+                      Information Technology Institute (Egypt)
+                    </h5>{" "}
                     <div>
-                      <h5 className=" fw-bold">
-                        Information Technology Institute (Egypt)
-                      </h5>{" "}
-                      <div>
-                        Introduction to software testing concepts &amp;
-                        techniques
-                      </div>{" "}
-                      <div className="text-muted">2020-2020</div>
+                      Introduction to software testing concepts &amp; techniques
                     </div>{" "}
-                  </li>
-                  <li className="d-flex">
+                    <div className="text-muted">2020-2020</div>
+                  </div>{" "}
+                </li>
+                <li className="d-flex">
+                  <div>
+                    <h5 className=" fw-bold">
+                      Information Technology Institute (Egypt)
+                    </h5>{" "}
+                    <div>Python Programming Basics</div>{" "}
+                    <div className="text-muted">2020-2020</div>
+                  </div>{" "}
+                </li>
+                <li className="d-flex">
+                  <div>
+                    <h5 className=" fw-bold">
+                      Information Technology Institute (Egypt)
+                    </h5>{" "}
+                    <div>Database fundamentals</div>{" "}
+                    <div className="text-muted">2020-2020</div>
+                  </div>{" "}
+                </li>
+                <li className="d-flex">
+                  <div>
+                    <h5 className=" fw-bold">computer science</h5>{" "}
                     <div>
-                      <h5 className=" fw-bold">
-                        Information Technology Institute (Egypt)
-                      </h5>{" "}
-                      <div>Python Programming Basics</div>{" "}
-                      <div className="text-muted">2020-2020</div>
+                      Bachelor of Computer Science (BCompSc), Designing and
+                      developing
                     </div>{" "}
-                  </li>
-                  <li className="d-flex">
-                    <div>
-                      <h5 className=" fw-bold">
-                        Information Technology Institute (Egypt)
-                      </h5>{" "}
-                      <div>Database fundamentals</div>{" "}
-                      <div className="text-muted">2020-2020</div>
-                    </div>{" "}
-                  </li>
-                  <li className="d-flex">
-                    <div>
-                      <h5 className=" fw-bold">computer science</h5>{" "}
-                      <div>
-                        Bachelor of Computer Science (BCompSc), Designing and
-                        developing
-                      </div>{" "}
-                      <div className="text-muted">2014-2018</div>
-                    </div>{" "}
-                  </li>{" "}
-                  {/**/}
-                </ul>
-              </div>
+                    <div className="text-muted">2014-2018</div>
+                  </div>{" "}
+                </li>{" "}
+                {/**/}
+              </ul>
             </div>
 
             <div className="col-6">
-              <h4 className="fw-bold">
-                {" "}
-                Full Stack Web Developer | Graphic Designer | Video Editor
-              </h4>
+              <h4 className="fw-bold"> {user?.title}</h4>
               <p style={{ fontFamily: "Gotham SSm" }} className="mb-0 mt-4">
-                Looking for a certified freelancer by Upwork! You came to the
-                right person!! Design is a powerful tool of communication and
-                influence. It helps to deliver high-quality products and
-                services which leads to better user experiences and happier
-                customers. I have experience for more than 7 years in different
-                fields of design.
+                {user?.overview}
               </p>
-              <p style={{ fontFamily: "Gotham SSm" }} className="mb-0">
-                Lorem web designer{" "}
-              </p>
+
               <button
                 className="btn btn-link mb-3 border rounded-border"
                 style={{ textDecoration: "none", color: "#008329" }}
@@ -448,84 +444,15 @@ export default function FirstSectionProfileTalent() {
                   </button>
                 </div>
                 <div className="row">
-                  <button
-                    type="button"
-                    className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
-                  >
-                    Training
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
-                  >
-                    Education
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
-                  >
-                    Marketing
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
-                  >
-                    PowerPoint
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
-                  >
-                    Html
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
-                  >
-                    Css
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
-                  >
-                    Marketing
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
-                  >
-                    PowerPoint
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
-                  >
-                    Html
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
-                  >
-                    Css
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
-                  >
-                    Marketing
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
-                  >
-                    PowerPoint
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
-                  >
-                    Html
-                  </button>
+                  {user?.skills?.map((task, index) => (
+                    <button
+                      type="button"
+                      className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
+                      key={index}
+                    >
+                      {task}
+                    </button>
+                  ))}
                 </div>
               </div>
             </div>

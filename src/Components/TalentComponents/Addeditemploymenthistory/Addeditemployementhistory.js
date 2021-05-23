@@ -1,8 +1,17 @@
 /* eslint-disable */
 import React from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { talentDataAction } from "../../../Store/actions/talentData";
 import { useTranslation } from "react-i18next";
 
 export default function AddandeditEmployementHistory() {
+  const user = useSelector((state) => state.talentData);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(talentDataAction());
+  }, []);
+
   const { t } = useTranslation();
   return (
     <>
@@ -40,19 +49,20 @@ export default function AddandeditEmployementHistory() {
           <div className="row">
             {/*  employment skills */}
             <div className="col-md-6">
-              <h5>web designer in ITI</h5>
-              <p style={{ fontFamily: "Gotham SSm" }} className="mb-0">
-                September 2020 - Present
+              <h5>{user?.company?.jobTitile}</h5>
+              <p style={{ fontFamily: "Gotham SSm" }} className="mb-0 ">
+                {user?.company?.companyName}
               </p>
-              <p style={{ fontFamily: "Gotham SSm" }} className="mb-0">
-                Lorem web designer{" "}
+              <p style={{ fontFamily: "Gotham SSm" }} className="mb-2 ">
+                {user?.company?.stillWork ? "present" : ""}
               </p>
-              <button
+
+              {/* <button
                 className="btn btn-link mb-3 border rounded-border"
                 style={{ textDecoration: "none", color: "#008329" }}
               >
                 {t("more")}
-              </button>
+              </button> */}
             </div>
             {/* icons */}
             <div className="col-md-6 d-flex justify-content-end">

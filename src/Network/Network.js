@@ -41,12 +41,12 @@ export const updateJob = (newData, docID) => {
     .catch((err) => console.log("fail to update job", err));
 };
 // new proposal
-export const addProposal = (data, jobId) => {
-  db.collection('job')
-  .doc(jobId)
-  .collection('proposals')
+export const subCollection = (collectionName,subCollectionName,data, docId) => {
+  db.collection(collectionName)
+  .doc(docId)
+  .collection(subCollectionName)
   .add(data)
-  .then((res)=>console.log(res,'add new proposal'))
+  .then((res)=>console.log(res,'add new subCollection'))
   .catch((e)=>console.log(e))
 };
 

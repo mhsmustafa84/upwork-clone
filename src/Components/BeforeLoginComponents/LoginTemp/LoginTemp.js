@@ -12,6 +12,7 @@ export default function LoginTemp() {
   const [user, setUser] = useState({ email: "", password: "" });
   const [emailError, setEmailErorr] = useState("");
   const [PasswordError, setPasswordErrorr] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const { push } = useHistory();
 
   const { t } = useTranslation();
@@ -61,8 +62,10 @@ export default function LoginTemp() {
         }
       })
       .catch((error) => {
+        setErrorMessage(error.message)
         console.log(error.message);
         console.log(error.code);
+        
       });
   };
 
@@ -99,19 +102,21 @@ export default function LoginTemp() {
                 </span>
               </h5>
               <form>
+              <span className="text-danger text-center">{errorMessage}</span>
+
                 <div className="form-group col-8 mx-auto mt-3">
                   <span className="text-danger">{emailError}</span>
                   <input
                     type="email"
                     name="email"
-                    className={`form-control shadow-none ${emailError ? "border-danger" : ""}`}
+                    className={`form-control shadow-none ${emailError  ? "border-danger" : ""}`}
                     aria-describedby="emailHelp"
                     placeholder={t("UsernameorEmail")}
                     onInput={getUserData}
                   />
                 </div>
                 <div className="form-group col-8 mx-auto mt-3">
-                  <span className="text-danger">{PasswordError}</span>
+                  <span className="text-danger">{PasswordError}</span> 
                   <input
                     type="password"
                     name="password"
@@ -145,18 +150,18 @@ export default function LoginTemp() {
                 <div className="separator mt-4 col-8 mx-auto">or</div>
                 <div
                   className="google-btn  gap-2 mx-auto mt-3 rounded hitbtn-className col-sm-12"
+                  style={{height:'40px'}}
                   onClick={googleLogin}
                 >
-                  <div className="google-icon-wrapper">
+                  <div className="google-icon-wrapper" style={{marginRight:'1px'}}>
                     <img
-                      className="google-icon"
+                      className="google-icon me-2"
                       src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
                     />
                   </div>
                   <div className="text-justify ">
                     <p
-                      className="text-center text-white"
-                      style={{ paddingTop: ".3em" }}
+                      className="text-center text-white pt-2"
                     >
                       {t("Signinwithgoogle")}
                     </p>

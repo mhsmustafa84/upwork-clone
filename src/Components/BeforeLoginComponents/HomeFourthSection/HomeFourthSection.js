@@ -7,14 +7,16 @@ import img1 from "../../../assets/img/cara.webp";
 import img2 from "../../../assets/img/sam.webp";
 import img3 from "../../../assets/svg/clearly-rated.e51d653.svg";
 import { useTranslation } from "react-i18next";  
+import { useSelector } from "react-redux";
 
 
 export default function HomeFourthSection() {
+  let lang = useSelector(state => state.lang);
   const { t }=useTranslation();
   return (
     <section>
       <div className="container">
-        <p className="my-5 fw-bold ss-p-cn text-center">{t("WHATTHEYSAY")}</p>
+        <p className={`my-5 fw-bold ss-p-cn text-center ${lang==='ar' && "fs-5"}`}>{t("WHATTHEYSAY")}</p>
         <div className="row">
           <div>
             <div className="position-relative">
@@ -41,8 +43,8 @@ export default function HomeFourthSection() {
                 </span>
                 <p>{t("IndependentWebDeveloper")}</p>
               </div>
-              <div className="w-50 position-absolute fth-abs-img2-cn">
-                <img className="w-75" src={img2} />
+              <div className="w-50 position-absolute fth-abs-img2-cn"dir="ltr">
+                <img className="w-75"  src={img2} />
               </div>
             </div>
             <div className="text-center mb-5">

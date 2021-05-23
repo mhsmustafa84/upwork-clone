@@ -5,10 +5,21 @@ import RightSidebarJobDetails from "../../../Components/TalentComponents/RightSi
 import OtherOpenJobsByThisClient from "../../../Components/TalentComponents/OtherOpenJobsByThisClient/OtherOpenJobsByThisClient";
 import SimilarJobsOnUpwork from "./../../../Components/TalentComponents/SimilarJobsOnUpwork/SimilarJobsOnUpwork";
 import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { jobDetailsAction } from "../../../Store/actions/jobDetails";
 
 export default function JobDetailsTalent() {
   const { id } = useParams();
   const { t } = useTranslation();
+  let job = useSelector((state) => state.jobDetails);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(jobDetailsAction(id));
+    console.log(job);
+  }, []);
+
   return (
     <div className="container-md container-fluid-sm my-lg-4 my-sm-4 py-xs-5">
       <div className="d-lg-block">
@@ -16,8 +27,8 @@ export default function JobDetailsTalent() {
           <h3>{t("Job details")}</h3>
         </div>
         <div className="row ">
-          <JobDescriptionJobDetails />
-          <RightSidebarJobDetails />
+          <JobDescriptionJobDetails jobsdata={job} />
+          <RightSidebarJobDetails jobsdata={job} />
         </div>
       </div>
       <div className="row">

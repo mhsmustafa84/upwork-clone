@@ -3,8 +3,9 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import SubmitProposalContractType from '../../Components/TalentComponents/SubmitProposalContractType/SubmitProposalContractType';
-import { db, storage } from '../../firebase';
 import { addProposal } from '../../Network/Network';
+import { auth, db, storage } from '../../firebase';
+import { subCollection, updateUserData } from '../../Network/Network';
 import { jobDataAction } from '../../Store/actions/jobDataAction';
 import { talentDataAction } from '../../Store/actions/talentData';
 
@@ -54,14 +55,21 @@ export default function SubmitProposal() {
 
   const handleProposal = () => {
     console.log(proposalData);
-    addProposal(
-      {
+    //talent subproposal
+    subCollection('talent','jobProposal',{jobId:id,status:"proposal"},auth.currentUser.uid);
+    updateUserData('talent',{connects:user.connects-2})
+
+    //subcollection proposal
+    subCollection('job','proposals',  {
       talentName: user.firstName + user.lastName,
-      //talentId: user.authID,
+      talentId: auth.currentUser.uid,
       coverLitter: proposalData.coverLitter,
       // images: proposalData?.proposalImages,
+      //budged:proposalData.price,
       clientId: job.authID,
     },id)
+    
+    
   }
 
   return (
