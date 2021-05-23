@@ -45,7 +45,7 @@
     "Revamp the way you hire" : "تجديد طريقة توظيفك",
     "Learn how to hire on Upwork" : "تعلم كيفية التوظيف علي ابوورك",
     "Learn how to get hired on Upwork" : "تعلم كيفية توظيفك علي ابوورك",
-    "FindWork": "العثور على وظيفة",
+    "FindWork": "اعثرعلى وظيفة",
         "weekSummary": "ملخص الأسبوع",
         "currentWeek": "الأسبوع الحالي",
         "WeeklySummaryByClient": "ملخص الأسبوع حسب العميل",
@@ -415,7 +415,9 @@
     "Upwork Readiness Test":"اختبار الإستعداد لأبورك",
     "My Project Dashboard":"لوحة تحكم مشروعي",
     "Certificate of Earnings":"شهادة الأرباح",
-    "Direct Contracts":"العقود المباشرة"
+    "Direct Contracts":"العقود المباشرة",
+    "Saved Jobs":"الوظائف المحفوظة",
+    "Transaction History": "تاريخ المعاملات"
 
 
 

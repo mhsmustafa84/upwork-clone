@@ -4,11 +4,12 @@ import HeaderSearchSm from "../../SharedComponents/HeaderSearchSm/HeaderSearchSm
 import { Link, useHistory } from "react-router-dom";
 import firebaseApp from "../../../firebase";
 import { useTranslation } from "react-i18next";  
-
+import { useSelector } from "react-redux";
 
 
 export default function NavSmallScreen() {
-  const { t }=useTranslation();
+let lang = useSelector(state => state.lang);
+const { t } = useTranslation();
   const { push } = useHistory();
 
   const logout = () => {
@@ -34,7 +35,7 @@ export default function NavSmallScreen() {
           </li>
           <li className="dropdown px-3">
             <a
-              className="nav-link dropdown-toggle mt-4 pt-4 border-top-cn"
+              className={`nav-link dropdown-toggle mt-4 pt-4 border-top-cn ${lang='ar'&&"fs-4"}`}
               href="#"
               id="navbarDropdownMenuLink"
               role="button"
@@ -113,14 +114,14 @@ export default function NavSmallScreen() {
           </li>
           <li className="dropdown px-3">
             <a
-              className="nav-link active dropdown-toggle mt-2 pt-3 border-top-cn"
+              className={`nav-link active dropdown-toggle mt-2 pt-3 border-top-cn ${lang='ar'&&"fs-5"}`}
               href="#"
               id="navbarDropdownMenuLink"
               role="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              {t("Find Work")}
+              {t("FindWork")}
               <i className="fa fa-sort-down text-white float-end"></i>
             </a>
             <ul
@@ -129,7 +130,7 @@ export default function NavSmallScreen() {
             >
               <li>
                 <a className="dropdown-item" href="#">
-                  {t("Find Work")}
+                  {t("FindWork")}
                 </a>
               </li>
               <li>
@@ -139,7 +140,7 @@ export default function NavSmallScreen() {
               </li>
               <li>
                 <a className="dropdown-item" href="#">
-                  {("Proposals")}
+                  {t("Proposals")}
                 </a>
               </li>
               <li>
@@ -166,7 +167,7 @@ export default function NavSmallScreen() {
           </li>
           <li className="dropdown px-3">
             <a
-              className="nav-link dropdown-toggle mt-2 pt-3 border-top-cn"
+              className={`nav-link dropdown-toggle mt-2 pt-3 border-top-cn ${lang='ar'&&"fs-4"}`}
               href="#"
               id="navbarDropdownMenuLink"
               role="button"
@@ -199,7 +200,7 @@ export default function NavSmallScreen() {
           </li>
           <li className="dropdown px-3">
             <a
-              className="nav-link dropdown-toggle mt-2 pt-3 border-top-cn"
+              className={`nav-link dropdown-toggle mt-2 pt-3 border-top-cn ${lang='ar'&&"fs-4"}`}
               href="#"
               id="navbarDropdownMenuLink"
               role="button"
@@ -246,24 +247,24 @@ export default function NavSmallScreen() {
             </ul>
           </li>
           <li className="nav-item px-3">
-            <Link className="nav-link mt-2 pt-3 border-top-cn" to="/messages">
+            <Link className={`nav-link mt-2 pt-3 border-top-cn ${lang='ar'&&"fs-4"}`} to="/messages">
               {t("Messages")}
             </Link>
           </li>
           <li className="nav-item px-3">
-            <a className="nav-link mt-2 pt-3 border-top-cn" href="#">
+            <a className={`nav-link mt-2 pt-3 border-top-cn ${lang='ar'&&"fs-4"}`} href="#">
               {t("Help")}
               <i className="fas fa-question float-end"></i>
             </a>
           </li>
           <li className="nav-item px-3">
-            <a className="nav-link mt-2 pt-3 border-top-cn" href="#">
+            <a className={`nav-link mt-2 pt-3 border-top-cn ${lang='ar'&&"fs-4"}`} href="#">
               {t("Notification")}
               <i className="far fa-bell float-end"></i>
             </a>
           </li>
           <li className="nav-item px-3">
-            <a className="nav-link mt-2 pt-3 border-top-cn" href="#">
+            <a className={`nav-link mt-2 pt-3 border-top-cn ${lang='ar'&&"fs-4"}`} href="#">
               {t("Direct Contracts")}
               <i
                 className="far fa-paper-plane float-end"
@@ -272,7 +273,7 @@ export default function NavSmallScreen() {
             </a>
           </li>
           <li className="nav-item">
-            <a className="dropdown-item mt-2 pt-3 border-top-cn" href="#">
+            <a className={`dropdown-item mt-2 pt-3 border-top-cn ${lang='ar'&&"fs-4"}`} href="#">
               <span>
                 <i className="fa fa-cog"></i>
               </span>
@@ -280,7 +281,7 @@ export default function NavSmallScreen() {
             </a>
           </li>
           <li className="nav-item pb-2" onClick={logout}>
-            <a className="dropdown-item mt-2 pt-3 border-top-cn" href="#">
+            <a className={`dropdown-item mt-2 pt-3 border-top-cn ${lang='ar'&&"fs-4"}`} href="#">
               <span>
                 <i className="fas fa-sign-out-alt"></i>
               </span>
