@@ -64,7 +64,9 @@ export default function PostJobGetStarted({ start, isStart, setBtns, btns }) {
                         </div>
                         <div className="ps-4 my-3">
                             <Link className="btn border text-success me-4 px-5 fw-bold" to="/home">Cancel</Link>
-                            <Link className="btn bg-upwork px-5" to="/post-job/title" onClick={addData}>Continue</Link>
+                            <button className={`btn ${job.jobDuration === "" ? "disabled" : ""}`}>
+                                <Link className="btn bg-upwork px-5" to="/post-job/title" onClick={addData}>Continue</Link>
+                            </button>
                         </div>
                     </>
             }
