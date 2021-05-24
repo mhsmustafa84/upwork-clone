@@ -15,8 +15,6 @@ export default function ConnectsAndSubmit({ connects }) {
     dispatch(talentDataAction());
   }, []);
 
-  //console.log(id, "dasdasda");
-  //console.log(connects.RequiredConnects);
   return (
     <div className="bg-white py-lg-4 px-4 border border-1 row py-sm-3">
       <div className="d-lg-grid gap-2  mx-auto d-none">

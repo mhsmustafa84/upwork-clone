@@ -1,8 +1,8 @@
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import './PostJobAside.css'
-
 export default function PostJobAside({ btns }) {
-
+const{t} =useTranslation();
     return (
         <aside>
             <ul>
@@ -14,7 +14,7 @@ export default function PostJobAside({ btns }) {
                         >
                             <span className="text-dark">
                                 <i className="fas fa-pencil-alt mx-4"></i>
-                                Title
+                                {t("Title")}
                             </span>
                             <i className={`fas fa-check-circle ${btns.title && "text-dark"}`}></i>
                         </Link>
@@ -28,7 +28,7 @@ export default function PostJobAside({ btns }) {
                         >
                             <span className="text-dark">
                                 <i className="fas fa-edit mx-4"></i>
-                                Description
+                                {t("Description")}
                             </span>
                             <i className={`fas fa-check-circle ${btns.description && "text-dark"}`}></i>
                         </Link>
@@ -42,7 +42,7 @@ export default function PostJobAside({ btns }) {
                         >
                             <span className="text-dark">
                                 <i className="fas fa-list-alt mx-4"></i>
-                                Details
+                                {t("Details")}
                             </span>
                             <i className={`fas fa-check-circle ${btns.details && "text-dark"}`}></i>
                         </Link>
@@ -56,7 +56,7 @@ export default function PostJobAside({ btns }) {
                         >
                             <span className="text-dark">
                                 <i className="fas fa-tools mx-4"></i>
-                                Expertise
+                                {t("Expertise")}
                             </span>
                             <i className={`fas fa-check-circle ${btns.expertise && "text-dark"}`}></i>
                         </Link>
@@ -70,7 +70,7 @@ export default function PostJobAside({ btns }) {
                         >
                             <span className="text-dark">
                                 <i className="fas fa-user-clock mx-4"></i>
-                                Visibility
+                                {t("Visibility")}
                             </span>
                             <i className={`fas fa-check-circle ${btns.visibility && "text-dark"}`}></i>
                         </Link>
@@ -84,7 +84,7 @@ export default function PostJobAside({ btns }) {
                         >
                             <span className="text-dark">
                                 <i className="fas fa-search-dollar mx-4"></i>
-                                Budget
+                                {t("Budget")}
                             </span>
                             <i className={`fas fa-check-circle ${btns.budget && "text-dark"}`}></i>
                         </Link>
@@ -98,7 +98,7 @@ export default function PostJobAside({ btns }) {
                         >
                             <span className="text-dark">
                                 <i className="fas fa-check mx-4"></i>
-                                Review
+                                {t("Review")}
                             </span>
                             <i className={`fas fa-check-circle ${btns.review && "text-dark"}`}></i>
                         </Link>
