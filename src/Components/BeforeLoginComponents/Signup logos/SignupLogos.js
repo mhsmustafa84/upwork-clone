@@ -15,7 +15,7 @@ export default function SignupLogos() {
       <div className="container ">
         <div className="row ">
           <div className="text-center h6 pb-10 m-0 mb-md-5 mt-3">
-            <p>{t("Trustedby5Mbusinesses")}</p>
+            <p>{t("Trusted by 5M businesses")}</p>
           </div>
           <div className="logos d-flex pb-md-10 justify-content-between">
             <img src={micro} className="" width="146px" alt="" />
@@ -31,7 +31,7 @@ export default function SignupLogos() {
       <div className="container-fluid">
         <div className="row d-flex justify-content-evenly mb-4">
           <div className="text-center h6 pb-10 m-0 mb-md-5 mt-5 col-12">
-            <p>{t("Morethan60kjobs")}</p>
+            <p>{t("More than 60k jobs")}</p>
           </div>
           <div className="col-sm-2 col-md-1">
             <svg viewBox="0 0 145 130" xmlns="http://www.w3.org/2000/svg">
@@ -122,7 +122,7 @@ export default function SignupLogos() {
             </svg>
           </div>
           <div className="col-sm-10 col-md-2">
-            <h6>{t("Findwhatyourneed")}</h6>
+            <h6>{t("Find what your need")}</h6>
             <p className="font-2">
             {t("Choosefromspecializedfreelancers")}
             </p>
@@ -160,9 +160,9 @@ export default function SignupLogos() {
             </svg>
           </div>
           <div className="col-sm-10 col-md-2">
-            <h6>{t("Posttodayhiretomorrow")}</h6>
+            <h6>{t("Post today hire tomorrow")}</h6>
             <p className="font-2">
-            {t("Getcustomquotesrightaway")}
+            {t("Get custom quotes right away")}
             </p>
           </div>
           <div className="col-sm-2 col-md-1">
@@ -215,9 +215,9 @@ export default function SignupLogos() {
             </svg>
           </div>
           <div className="col-sm-10 col-md-2">
-            <h6>{t("Engagewithconfidence")}</h6>
+            <h6>{t("Engage with confidence")}</h6>
             <p className="font-2">
-            {t("Onlypayforworkyouauthorize")}
+            {t("Only pay for work you authorize")}
             </p>
           </div>
         </div>

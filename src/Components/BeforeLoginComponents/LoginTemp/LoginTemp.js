@@ -27,8 +27,8 @@ export default function LoginTemp() {
           email: val,
         });
         setEmailErorr(
-          val === "" ? t("Emailrequired") : !val.match(/^([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/)
-            ? t("PleaseinterValidEmail") : null
+          val === "" ? t("Email required") : !val.match(/^([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/)
+            ? t("Please inter Valid Email") : null
         );
         break;
       case "password":
@@ -38,9 +38,9 @@ export default function LoginTemp() {
         });
         setPasswordErrorr(
           val === ""
-            ? t("ThisisRequired")
+            ? t("This is Required")
             : val.length < 8
-              ? t("PasswordShouldbeMore8Character")
+              ? t("Password Should be More 8 Character")
               : null
         );
         break;
@@ -98,7 +98,7 @@ export default function LoginTemp() {
             <div className="shadow-sm p-5 mb-5 bg-white rounded mx-auto mt-5 w-100  border ">
               <h5 data-v-904d5b16 className="text-center m-0">
                 <span data-v-733406b2 data-v-44072c38>
-                {t("Loginandgettowork")}
+                {t("Login and get to work")}
                 
                 </span>
               </h5>
@@ -112,7 +112,7 @@ export default function LoginTemp() {
                     name="email"
                     className={`form-control shadow-none ${emailError  ? "border-danger" : ""}`}
                     aria-describedby="emailHelp"
-                    placeholder={t("UsernameorEmail")}
+                    placeholder={t("User name or Email")}
                     onInput={getUserData}
                   />
                 </div>
@@ -130,9 +130,9 @@ export default function LoginTemp() {
                 <div className="form-group col-8 mx-auto mt-3 d-flex justify-content-between">
                   <label>
                     <input type="checkbox" className="me-2" />
-                    {t("Keepmeloggedin")}
+                    {t("Keep me logged in")}
                   </label>
-                  <Link to="">{t("Forgotpassword")}</Link>
+                  <Link to="">{t("Forgot password")}</Link>
                 </div>
                 <div className="d-grid gap-2 col-8 mx-auto mt-3 hitbtn-className loginpcolor">
                   <button
@@ -140,12 +140,12 @@ export default function LoginTemp() {
                     onClick={login}
                     disabled={PasswordError != null || emailError != null}
                   >
-                    {t("Login")}
+                    {t("Log in")}
                   </button>
                 </div>
                 <div className="d-grid gap-2 col-8 mx-auto mt-3">
                   <Link to="" className="text-center">
-                  {t("Notyou")}
+                  {t("Not you")}
                   </Link>
                 </div>
                 <div className="separator mt-4 col-8 mx-auto">or</div>
@@ -164,7 +164,7 @@ export default function LoginTemp() {
                     <p
                       className="text-center text-white pt-2"
                     >
-                      {t("Signinwithgoogle")}
+                      {t("Sign in with google")}
                     </p>
                   </div>
                 </div>
@@ -172,17 +172,17 @@ export default function LoginTemp() {
                   <button className="btn bg-light " type="button">
                     {" "}
                     <img src={apple} className="apple-icon" />
-                    {t("signinwithapple")}
+                    {" "}{t("sign in with apple")}
                   </button>
                 </div>
                 <hr />
                 <div>
                   <div className="separator mt-4 col-8 mx-auto">
-                  {t("NewToUpwork")}
+                  {t("New To Upwork")}
                   </div>
                   <div className="d-grid gap-2 col-md-5 col-sm-10 mx-auto mt-3   rounded mb-5">
                     <Link className="btn signup" to="/sign-up">
-                    {t("SignUp")}
+                    {t("Sign Up")}
                     </Link>
                   </div>
                 </div>

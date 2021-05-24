@@ -18,8 +18,8 @@ export default function SignupForm() {
   const getEmail = ({ target }) => {
     user.email = target.value;
     setEmailErorr(
-      target.value === "" ? t("Emailrequired") : !target.value.match(/^([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/)
-        ? t("PleaseinterValidEmail") : null
+      target.value === "" ? t("Email required") : !target.value.match(/^([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/)
+        ? t("Please inter Valid Email") : null
     );
     dispatch(signUpAction(user));
   }
@@ -35,7 +35,7 @@ export default function SignupForm() {
       <div className="shadow-sm p-3 mb-5 bg-white rounded mx-auto mt-5 w-100 border">
         <h4 data-v-904d5b16 className="text-center m-0">
           <span style={{ fontFamily: "serif", fontWeight: "bold" }}>
-          {t("Getyourfreeaccount")}
+          {t("Get your free account")}
           </span>
         </h4>
         <div className="google-btn  gap-2 mx-auto mt-3 rounded hitbtn-class">
@@ -51,7 +51,7 @@ export default function SignupForm() {
               className="text-center text-white"
               style={{ paddingTop: ".3em" }}
             >
-              {t("ContinuewithGoogle")}
+              {t("Continue with Google")}
             </p>
           </div>
         </div>
@@ -59,7 +59,7 @@ export default function SignupForm() {
           <button className="btn bg-light " type="button">
             {" "}
             <img src={apple} className="apple-icon" />
-            {t("ContinuewithApple")}
+            {t("Continue with Apple")}
           </button>
         </div>
         <div className="separator mt-3 col-8 mx-auto">or</div>
@@ -72,7 +72,7 @@ export default function SignupForm() {
               className="form-control mt-1"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
-              placeholder={t("Workemailaddress")}
+              placeholder={t("Work email address")}
               onInput={getEmail}
             />
           </div>
@@ -84,7 +84,7 @@ export default function SignupForm() {
               type="button"
               onClick={signUpContinue}
             >
-              {t("ContinuewithEmail")}
+              {t("Continue with Email")}
             </button>
           </div>
         </form>

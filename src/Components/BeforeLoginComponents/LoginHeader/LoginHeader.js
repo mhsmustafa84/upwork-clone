@@ -17,7 +17,7 @@ export default function LoginHeader() {
                 <div>
                     {
                         pathname === "/sign-up" &&
-                        <p className="text-white">{t("Alreadyhaveanaccount")}<Link to="/login">{t("LogIn")}</Link></p>
+                        <p className="text-white">{t("Already have an account")}<Link to="/login">{" "}{t("Log In")}</Link></p>
                     }
                 </div>
             </div>
