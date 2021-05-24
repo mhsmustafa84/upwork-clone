@@ -60,7 +60,7 @@ export default function PostJob() {
                                 <PostJobBudget setBtns={setBtns} btns={btns} />
                             </Route>
                             <Route path="/post-job/review" exact>
-                                <PostJobReview setBtns={setBtns} btns={btns} />
+                                <PostJobReview />
                             </Route>
                         </Switch>
                     </div>

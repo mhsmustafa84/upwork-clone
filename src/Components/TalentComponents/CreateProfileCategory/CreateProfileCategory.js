@@ -1,11 +1,11 @@
-/* eslint-disable */
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../../../firebase";
 import { updateUserData } from "../../../Network/Network";
 
-export default function CreateProfileCategory() {
-  let [cat, setCat] = useState();
+export default function CreateProfileCategory({ setBtns, btns }) {
+  let [cat, setCat] = useState("");
   const catVal = (e) => {
     cat = e.target.value;
     setCat(cat);
@@ -17,6 +17,7 @@ export default function CreateProfileCategory() {
       authID: auth.currentUser.uid,
       profileCompletion: 20,
     });
+    setBtns({ ...btns, expertiseLevel: false })
   };
 
   return (
@@ -32,23 +33,22 @@ export default function CreateProfileCategory() {
           aria-label=".form-select-lg example"
           onChange={catVal}
         >
-          <option selected>Select a category</option>
+          <option selected value="Select a category">Select a category</option>
           <option value="Web Development">Web Development</option>
           <option value="Web Design">Web Design</option>
           <option value="Graphic Design">Graphic Design</option>
         </select>
       </div>
-      <div className="px-4 my-3 pt-4 border-top d-flex justify-content-between">
-        <Link className="btn border text-success me-4 px-5 fw-bold" to="/home">
-          Back
+      <div className="px-4 my-3 pt-4 border-top d-flex justify-content-end">
+        <button className={`btn ${cat === "" || cat === "Select a category" ? "disabled" : ""}`}>
+          <Link
+            className="btn bg-upwork px-5"
+            to="/create-profile/expertise-level"
+            onClick={addData}
+          >
+            Next
         </Link>
-        <Link
-          className="btn bg-upwork px-5"
-          to="/create-profile/expertise-level"
-          onClick={addData}
-        >
-          Next
-        </Link>
+        </button>
       </div>
     </section>
   );
