@@ -4,10 +4,10 @@ import { updateJob } from "../../../Network/Network";
 import "./PostJobTitle.css";
 import { useTranslation } from "react-i18next";
 
-export default function PostJobTitle() {
+export default function PostJobTitle({ setBtns, btns }) {
+  const [job, setJob] = useState({ jobTitle: "", jobCategory: "" });
   const { t } = useTranslation();
 
-  const [job, setJob] = useState({ jobTitle: "", jobCategory: "" });
   const getData = (e) => {
     const val = e.target.value;
     const name = e.target.name;
@@ -31,6 +31,7 @@ export default function PostJobTitle() {
     const id = localStorage.getItem("docID");
     console.log(id);
     updateJob(job, id);
+    setBtns({ ...btns, description: false });
   };
 
   return (

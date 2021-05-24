@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { updateUserData } from "../../../Network/Network";
 
-export default function CreateProfileTitleAndOverview() {
+export default function CreateProfileTitleAndOverview({ setBtns, btns }) {
   const [data, setData] = useState({
     title: "",
     overview: "",
@@ -27,6 +27,7 @@ export default function CreateProfileTitleAndOverview() {
   const addData = () => {
     console.log(data);
     updateUserData("talent", data);
+    setBtns({ ...btns, profilePhoto: false })
   };
 
   return (
@@ -44,6 +45,7 @@ export default function CreateProfileTitleAndOverview() {
         <div>
           <label className="w-100">
             <strong>Title</strong>
+            <span className="text-danger"> *</span>
             <i className="fas fa-question-circle upw-c-cn ms-3 mb-3"></i>
             <input
               type="text"
@@ -54,6 +56,7 @@ export default function CreateProfileTitleAndOverview() {
           </label>
           <label className="w-100 mt-3">
             <strong>Professional Overview</strong>
+            <span className="text-danger"> *</span>
             <i className="fas fa-question-circle upw-c-cn ms-3 mb-3"></i>
             <textarea
               name="overview"
@@ -67,19 +70,23 @@ export default function CreateProfileTitleAndOverview() {
         </div>
       </div>
       <div className="px-4 my-3 pt-4 border-top d-flex justify-content-between">
-        <Link
-          className="btn border text-success me-4 px-5 fw-bold"
-          to="/create-profile/hourly-rate"
-        >
-          Back
+        <button className="btn">
+          <Link
+            className="btn border text-success me-4 px-5 fw-bold"
+            to="/create-profile/hourly-rate"
+          >
+            Back
+          </Link>
+        </button>
+        <button className={`btn ${data.title === "" || data.overview === "" ? "disabled" : ""}`}>
+          <Link
+            className="btn bg-upwork px-5"
+            to="/create-profile/profile-photo"
+            onClick={addData}
+          >
+            Next
         </Link>
-        <Link
-          className="btn bg-upwork px-5"
-          to="/create-profile/profile-photo"
-          onClick={addData}
-        >
-          Next
-        </Link>
+        </button>
       </div>
     </section>
   );

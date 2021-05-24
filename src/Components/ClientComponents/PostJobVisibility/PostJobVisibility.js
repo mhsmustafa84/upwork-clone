@@ -6,7 +6,7 @@ import upwork from "../../../assets/img/TLpZ1jf.png";
 import { updateJob } from "../../../Network/Network";
 import { useTranslation } from "react-i18next";
 
-export default function PostJobVisibility() {
+export default function PostJobVisibility({ setBtns, btns }) {
   const [job, setJob] = useState({ jobVisibility: "", freelancerNeed: "" });
   const { t } = useTranslation();
 
@@ -32,6 +32,7 @@ export default function PostJobVisibility() {
     const id = localStorage.getItem("docID");
     console.log(id);
     updateJob(job, id);
+    setBtns({ ...btns, budget: false });
   };
 
   return (

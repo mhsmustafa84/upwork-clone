@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { talentDataAction } from "../../../Store/actions/talentData";
 
@@ -13,12 +14,12 @@ export default function AddandeditExperience() {
   const { t } = useTranslation();
   return (
     <>
-      <style
+      {/* <style
         dangerouslySetInnerHTML={{
           __html:
             "\n    @import url(//db.onlinewebfonts.com/c/3def92f7b2ad644bd382798ecc8ca4c7?family=Canela);\n     {\n        .container {\n             ;\n        }\n    }\n\n    * {\n        margin: 0;\n        padding: 0;\n        \n\n    }\n    body{\n        ;\n\n    }\n",
         }}
-      />
+      /> */}
       <div className="container card my-5">
         <div className="row mt-3">
           <div className="col-md-8">

@@ -1,75 +1,68 @@
-import React, { useState, useEffect, useContext } from "react";
-import firebaseApp from "../../../firebase";
-import { NavLink } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import React,{ useContext, useEffect, useState } from "react";
+import { db } from "../../../firebase";
+import { Link, useHistory } from "react-router-dom";
+import { useTranslation } from "react-i18next";  
+import { SearchContext } from '../../../Context/SearchContext';
 import { updateUserData } from '../../../Network/Network'
-import { SearchContext } from '../../../Context/SearchContext'
+import { useDispatch, useSelector } from "react-redux";
+import { talentDataAction } from "../../../Store/actions/talentData";
 
 
-export default function SearchBarJobsTalent() {
-  const { t } = useTranslation();
-  const [verify, setverify] = useState(false);
-  firebaseApp.auth().onAuthStateChanged((user) => {
-    if (user) {
-      var verf = user.emailVerified;
-      setverify(verf);
-    }
-  });
+export default function SearchBarJobsTalent(props) {
+  const { t }=useTranslation();
+  const { push } = useHistory();
   const { arr, setarr, itemSearchList, setitemSearchList } = useContext(SearchContext)
-  const handleOnClick = () => {
-    if (itemSearchList != "") {
+  const user = useSelector((state) => state.talentData);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(talentDataAction());
+    console.log(user);
+  }, []);
 
-      let arr2 = [itemSearchList, ...arr];
-      setarr(arr2);
-      console.log(itemSearchList);
-      updateUserData('talent', { searchHistory: arr })
-    }
-
-  }
   const handle = (e) => {
-    e.preventDefault();
     setitemSearchList(e.target.value)
   }
+
+  const searchDatabase = () => {
+    let tempArr = [];
+    db.collection('job')
+    .where('skills', 'array-contains', itemSearchList)
+    .onSnapshot(
+      jobs=>jobs.docs.map(
+        item=>{
+        tempArr.push(item.data())
+        push({pathname:"/search",state:tempArr})
+      }))
+
+      if (itemSearchList != "") {
+       let  arr2 = [itemSearchList,...arr];       
+        updateUserData('talent', { searchHistory: [...user?.searchHistory,...arr2] })
+        setarr(arr2);
+        sessionStorage.setItem('searchArray',JSON.stringify(arr2))
+      }
+}
+
   return (
     <div>
-      {!verify && (
-        <div
-          class="alert alert-warning alert-dismissible fade show"
-          role="alert"
-        >
-          <strong>{t("Email Verification")}</strong> {t("Your mail is not verified")}
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-          ></button>
-        </div>
-      )}
       <div className="col-8 input-group form-outline has-success">
         <input
-
-          onChange={(e) => handle(e)}
+          onChange={handle}
           value={itemSearchList}
           id="input"
           type="search"
           className="form-control text-dark bg-white btn-outline-success"
           placeholder={t("Search For Jobs")}
         />
-        <NavLink to="/Search" onClick={handleOnClick}>
+        <Link onClick={searchDatabase}>
           <button
-
-
             id="search-button"
             type="button"
             className="btn bg-upwork bg-invert search"
-
           >
 
             <i className="fas fa-search" />
-
           </button>
-        </NavLink>
+        </Link>
       </div>
       <span>
         <a href="#" className="advanced-search-link">

@@ -1,14 +1,10 @@
-import { format } from "date-fns";
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 import SubmitProposalContractType from "../../Components/TalentComponents/SubmitProposalContractType/SubmitProposalContractType";
-import { addProposal } from "../../Network/Network";
 import { auth, db, storage } from "../../firebase";
 import { subCollection, updateUserData } from "../../Network/Network";
-import { jobDataAction } from "../../Store/actions/jobDataAction";
-import { talentDataAction } from "../../Store/actions/talentData";
-import { deletesubCollection } from "../../Network/Network";
 
 export default function SubmitProposal() {
   const { id } = useParams();
@@ -23,7 +19,7 @@ export default function SubmitProposal() {
       .doc(id)
       .get()
       .then((res) => setjob(res.data()));
-      handlewithdrawProposal();
+    handlewithdrawProposal();
   }, []);
 
   const handlewithdrawProposal = async () => {
@@ -51,8 +47,6 @@ export default function SubmitProposal() {
       console.log(err);
     }
   };
-
- 
 
   let date = new Date();
   let arr = ["s"];

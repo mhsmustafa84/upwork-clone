@@ -19,6 +19,7 @@ const { t } = useTranslation();
       .then((res) => {
         console.log(res);
         push("/login");
+        localStorage.removeItem('userType');
         window.location.reload();
       })
       .catch((error) => {

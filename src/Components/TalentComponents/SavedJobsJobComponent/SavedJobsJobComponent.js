@@ -1,8 +1,9 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import { useTranslation } from 'react-i18next';
 
 export default function SavedJobsJobComponent() {
-   const { t } = useTranslation();
+  const { t } = useTranslation();
   return (
     <div className="list-group-item">
       <div className="row align-items-center">
@@ -12,7 +13,7 @@ export default function SavedJobsJobComponent() {
             id="job-title-home-page "
             className="link-dark job-title-hover "
           >
-            <p className="fw-bold ">{t ("Figma Prototype")}</p>
+            <p className="fw-bold ">{t("Figma Prototype")}</p>
           </a>
         </div>
         <div className="col-lg-3">
@@ -60,13 +61,13 @@ export default function SavedJobsJobComponent() {
         <span className="text-muted">
           <span className="fw-bold " id="contract-type">
             {t("Fixed Price")}
-            </span>
+          </span>
           <span>-</span>
           <span id="experience-level">{t("Expert")}</span>
           <span>-</span>
           <span>{t("Est. Budget")}:</span>
           <span id="client-budget">${t("200")}</span>- {t("posted")}
-            <span id="posting-time"> {t("4 Hours ago")}</span>
+          <span id="posting-time"> {t("4 Hours ago")}</span>
         </span>
       </p>
       <p id="job-description">
@@ -100,7 +101,7 @@ export default function SavedJobsJobComponent() {
             className="advanced-search-link "
           >
             {t("more")}
-            </button>
+          </button>
         </span>
       </p>
       <button
@@ -145,14 +146,14 @@ export default function SavedJobsJobComponent() {
           <span className="fw-bold ">{t("Less than")} </span>
           <span className="fw-bold " id="proposals-numbers">
             {t("5")}
-            </span>
+          </span>
         </span>
       </p>
       <p style={{ fontSize: "0.85em" }} className="my-lg-1 mb-lg-2">
         <span className="fw-bold " style={{ color: "#14bff4" }}>
           <i className="fas fa-check-circle primary" />
-            {t("Payment verified")}
-          </span>
+          {t("Payment verified")}
+        </span>
         <span className="text-muted">
           <span>
             <i className="fas fa-star" />
@@ -166,7 +167,7 @@ export default function SavedJobsJobComponent() {
           <span> {t("spent")}</span>
           <span className="fw-bold ">
             <i className="fas fa-map-marker-alt" /> {t("United States")}
-            </span>
+          </span>
         </span>
       </p>
     </div>

@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { useTranslation } from "react-i18next";
+import { useHistory } from "react-router";
 
 export default function JobLink() {
+  let his =useHistory()
+ 
   const [state, setstate] = useState({
-    value: "https://www.upwork.com/jobs/~013341eba25b4755dd",
+    value: `http://localhost:3000${his.location.pathname}`,
     copied: false,
   });
 
@@ -20,7 +23,7 @@ export default function JobLink() {
         onInput={({ target: { value } }) => setstate({ value, copied: false })}
         className="form-control my-3"
         type="text"
-        defaultValue={t("JobLink")}
+        defaultValue={state.value}
         aria-label="Disabled input example"
         disabled
       />

@@ -7,7 +7,7 @@ import SubmitProposalHourly from "../SubmitProposalHourly/SubmitProposalHourly";
 
 
 export default function SubmitProposalContractType({ContractType}) {
- console.log(ContractType);
+ //console.log(ContractType);
 
     return (
         // {item?.jobPaymentType}

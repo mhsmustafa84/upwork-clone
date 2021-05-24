@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import HeadOfCenterSection from "./../HeadOfCenterSection/HeadOfCenterSection";
 import { jobsDataAction } from "./../../../Store/actions/jobsData";
 import { Link } from "react-router-dom";
-import "./SectionCenterTalentHome.css";
 import { useTranslation } from "react-i18next";
+import "./SectionCenterTalentHome.css";
 import ShowMore from "react-show-more-button/dist/module";
 
 export default function SectionCenterTalentHome() {

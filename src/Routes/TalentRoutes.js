@@ -23,13 +23,12 @@ import CreateProfile from "../Pages/TalentPages/CreateProfile/CreateProfile";
 import Search from "../Pages/TalentPages/Search/Search";
 import EmailVerified from "./../Pages/EmailVerification/EmailVerified";
 import SubmitProposal from "../Pages/Submit Proposal/SubmitProposal";
-
+import ReviewProposalsCard from "../Components/ClientComponents/ReviewProposalsCard/ReviewProposalsCard";
 import { SearchContextProvider } from "../Context/SearchContext";
 
 export default function TalentRoutes() {
   const [arr, setarr] = useState([]);
   const [itemSearchList, setitemSearchList] = useState("");
-
   const { pathname } = useLocation();
   const { push } = useHistory();
   pathname === "/" && push("/find-work");
@@ -43,10 +42,16 @@ export default function TalentRoutes() {
         <Switch>
           <Route path="/create-profile" component={CreateProfile} />
           <Route path="/find-work" exact component={HomeTalent} />
+          <Route path="/Search/:searchValue" exact component={Search} />
           <Route path="/Search" exact component={Search} />
           <Route path="/job/" exact component={JobDetailsTalent} />
           <Route path="/job/:id" exact component={JobDetailsTalent} />
           <Route path="/job/apply/:id" exact component={SubmitProposal} />
+          <Route
+            path="/job/review-proposal/:id"
+            exact
+            component={ReviewProposalsCard}
+          />
           <Route path="/saved-jobs" exact component={SavedJobs} />
           <Route path="/proposals" exact component={Proposals} />
           <Route path="/profile" exact component={Profile} />
@@ -66,7 +71,7 @@ export default function TalentRoutes() {
             component={TransactionHistory}
           />
           <Route path="/messages" exact component={Messages} />
-          <Route path="**" component={PageNotFound} />
+          {/* <Route path="**" component={PageNotFound} /> */}
         </Switch>
       </SearchContextProvider>
       <Footer />

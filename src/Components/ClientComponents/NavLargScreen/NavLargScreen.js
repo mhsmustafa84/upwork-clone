@@ -17,6 +17,7 @@ export default function NavLargScreen() {
         console.log(res);
         push("/login");
         window.location.reload();
+        localStorage.removeItem('userType');
       })
       .catch((error) => {
         console.log(error.message);

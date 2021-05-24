@@ -1,16 +1,14 @@
 /* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable */
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { storage } from "../../../firebase";
 import { updateJob } from "../../../Network/Network";
 import "./PostJobDescription.css";
-import { useTranslation } from "react-i18next";
 
-export default function PostJobDescription() {
+export default function PostJobDescription({ setBtns, btns }) {
+  const {t} =useTranslation();
   let [job, setJob] = useState({ jobDescription: "", jobImages: [] });
-  const { t } = useTranslation();
-
   const getData = (e) => {
     const val = e.target.value;
     const name = e.target.name;
@@ -56,6 +54,7 @@ export default function PostJobDescription() {
     const id = localStorage.getItem("docID");
     console.log(id);
     updateJob(job, id);
+    setBtns({ ...btns, details: false });
   };
 
   return (
@@ -69,7 +68,9 @@ export default function PostJobDescription() {
         <ul style={{ listStyle: "disc" }}>
           <li>{t("What the deliverable is")}</li>
           <li>{t("Type of freelancer or agency you're looking for")}</li>
-          <li>{t("Anything unique about the project, team, or your company")}</li>
+          <li>
+            {t("Anything unique about the project, team, or your company")}
+          </li>
         </ul>
       </div>
       <div className="ps-4 pt-2 pe-4">
@@ -116,7 +117,7 @@ export default function PostJobDescription() {
           </p>
         </div>
         <p className="my-3">
-         {t("You may attach up to 5 files under 100 MB each")}
+          {t("You may attach up to 5 files under 100 MB each")}
         </p>
       </div>
       <div className="ps-4 my-3 pt-4 pb-3 pt-3 border-top">
@@ -124,7 +125,7 @@ export default function PostJobDescription() {
           className="btn border text-success me-4 px-5"
           to="/post-job/title"
         >
-         {t("Back")}
+          {t("Back")}
         </Link>
         <Link
           className="btn bg-upwork px-5"

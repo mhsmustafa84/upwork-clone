@@ -19,6 +19,7 @@ let lang = useSelector(state => state.lang);
         console.log(res);
         push("/login");
         window.location.reload();
+        localStorage.removeItem('userType');
       }).catch((error) => {
         console.log(error.message);
       })
