@@ -8,12 +8,11 @@ export default function AddLanguage(props) {
             <button type="button" class="btn border border-success rounded-pill col-6 text-success" onClick={props.toggleAddLang}><i class="fas fa-plus"></i> Add Language</button>
             <ul>
                 {props.languagesList.map((e, index) => (
-                    // <LangListItem key={index} element={e} del={props.deleteLang}/>
                     <li className="col-5 d-flex justify-content-between py-2">
-                    <span> <span className="fw-bold">{e["language"]}</span>
-                     <span> : {e["langProf"]}</span></span>
-                     <i class="fas fa-trash" onClick={()=>props.deleteLang(index)}></i>
-                 </li>
+                        <span> <span className="fw-bold">{e["language"]}</span>
+                            <span> : {e["langProf"]}</span></span>
+                        <i class="fas fa-trash" onClick={() => props.deleteLang(index)}></i>
+                    </li>
                 ))}
             </ul>
         </>

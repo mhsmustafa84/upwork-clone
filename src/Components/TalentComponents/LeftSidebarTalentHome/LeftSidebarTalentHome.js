@@ -75,18 +75,24 @@ export default function LeftSidebarTalentHome() {
           </a>
         </li>
       </ul>
+
+      
+      {arr!= null?
+      <h5 className="mb-lg-2 display-inline-block end">{t("RecentSearch")}</h5>:
+      null
+      }
       {arr.reverse()?.map((item,index) =>
       index >= arr.length-3 ? 
-      <>
-      <h5 className="mb-lg-2 display-inline-block end">{t("RecentSearch")}</h5>
+     
         <ul
-          className="list-group sidebar-homebage-ul mb-lg-3 "
+          className="list-group sidebar-homebage-ul mb-lg-3 btn"
           style={{ fontSize: "0.9em" }}
         >
 
           <li
-            className="list-group-item sidebar-homebage-ul-li "
+            className="list-group-item sidebar-homebage-ul-li text-success "
             aria-current="true"
+
           >
             <a
               onClick={() => handleVal(item)}
@@ -101,7 +107,7 @@ export default function LeftSidebarTalentHome() {
 
         </ul>
 
-      </>
+     
         :null
        )}
 

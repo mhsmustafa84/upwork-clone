@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { updateUserData } from "../../../Network/Network";
 
-export default function CreateProfileExpertiseLevel() {
-  let onChangeVal = (e) => {
-    console.log(e.target.value);
+export default function CreateProfileExpertiseLevel({ setBtns, btns }) {
+
+  const [state, setState] = useState("")
+
+  const onChangeVal = ({ target }) => {
+    setState(target.value)
+  };
+
+  const addData = () => {
     updateUserData("talent", {
-      expertiseLevel: e.target.value,
+      expertiseLevel: state,
       profileCompletion: 30,
     });
-  };
+    setBtns({ ...btns, eduAndEmp: false })
+  }
 
   return (
     <section className=" bg-white border rounded mt-3 pt-4">
@@ -57,18 +64,23 @@ export default function CreateProfileExpertiseLevel() {
         </div>
       </div>
       <div className="px-4 my-3 pt-4 border-top d-flex justify-content-between">
-        <Link
-          className="btn border text-success me-4 px-5 fw-bold"
-          to="/create-profile/category"
-        >
-          Back
+        <button className="btn">
+          <Link
+            className="btn border text-success me-4 px-5 fw-bold"
+            to="/create-profile/category"
+          >
+            Back
         </Link>
-        <Link
-          className="btn bg-upwork px-5"
-          to="/create-profile/education-and-employment"
-        >
-          Next
+        </button>
+        <button className={`btn ${state === "" && "disabled"}`}>
+          <Link
+            className="btn bg-upwork px-5"
+            to="/create-profile/education-and-employment"
+            onClick={addData}
+          >
+            Next
         </Link>
+        </button>
       </div>
     </section>
   );
