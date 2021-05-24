@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import FindWorkTalentHome from "../../../Components/TalentComponents/FindWorkTalentHome/FindWorkTalentHome";
@@ -17,9 +18,9 @@ export default function HomeTalent() {
 
   }, [lang]);
   return (
-    <div className="bg-gray"dir={lang==='ar' ? 'rtl':'ltr'} >
+    <div className="bg-gray" dir={lang === 'ar' ? 'rtl' : 'ltr'} >
       <div className="container-md container-fluid-sm my-lg-4">
-        <FindWorkTalentHome  />
+        <FindWorkTalentHome />
         <SmallScreenOnlyTalentHome />
         <div className="row">
           <LeftSidebarTalentHome />

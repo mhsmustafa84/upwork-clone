@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { format } from 'date-fns';
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
@@ -27,7 +28,7 @@ export default function SubmitProposal() {
   const handlVal = (e) => {
     const files = e.target.files;
 
-    if (e.target.name == 'coverLitter')
+    if (e.target.name === 'coverLitter')
       setproposalData({ coverLitter: e.target.value });
     else {
       if (files[0]) {

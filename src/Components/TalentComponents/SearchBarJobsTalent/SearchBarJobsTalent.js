@@ -1,5 +1,5 @@
 import React,{ useContext, useEffect, useState } from "react";
-import firebaseApp, { db } from "../../../firebase";
+import { db } from "../../../firebase";
 import { Link, useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";  
 import { SearchContext } from '../../../Context/SearchContext';
@@ -20,9 +20,6 @@ export default function SearchBarJobsTalent(props) {
   }, []);
 
   const handle = (e) => {
-   // e.preventDefault();
-    // searchValue=e.target.value
-    // setsearchValue(searchValue);
     setitemSearchList(e.target.value)
   }
 
@@ -42,7 +39,6 @@ export default function SearchBarJobsTalent(props) {
         updateUserData('talent', { searchHistory: [...user?.searchHistory,...arr2] })
         setarr(arr2);
         sessionStorage.setItem('searchArray',JSON.stringify(arr2))
-        // console.log(user.searchHistory);
       }
 }
 
@@ -50,8 +46,6 @@ export default function SearchBarJobsTalent(props) {
     <div>
       <div className="col-8 input-group form-outline has-success">
         <input
-
-          // onChange={(e) => handle(e)}
           onChange={handle}
           value={itemSearchList}
           id="input"

@@ -3,7 +3,7 @@ import { db } from "../../firebase";
 export const jobsDataAction = () => async (dispatch) => {
     try {
         let res = [];
-        db.collection("job").where("status", "==", "public").onSnapshot(jobs =>
+        await db.collection("job").where("status", "==", "public").get().then(jobs =>
             jobs.docs.map(item => res.push(item.data()))
         )
         dispatch({

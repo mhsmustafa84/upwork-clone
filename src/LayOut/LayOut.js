@@ -8,55 +8,39 @@ import Loader from "./../Components/SharedComponents/Loader/Loader";
 
 export default function LayOut() {
   const [usr, setUsr] = useState(null);
-  const [usrType, setUsrType] = useState('');
+  const [usrType, setUsrType] = useState("");
 
   const getUserType = (collectionName) => {
-    // console.log(collectionName);
     if (collectionName) {
-      const user = db
+      db
         .collection(collectionName)
         .doc(auth.currentUser.uid)
-        .get();
-      user.then((res) => {
-        setUsr(res)
-        setUsrType(res.data()?.userType);
-      });
+        .get()
+        .then(res => {
+          setUsrType(res.data()?.userType)
+        })
     }
   };
 
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
+    auth.onAuthStateChanged(user => {
       if (user) {
-        getUserType(localStorage.getItem('userType'))
-        //setUsr(user);
-
+        setUsr(user);
+        getUserType(user.displayName);
       }
     });
-  }, []);
+  }, [])
 
-  return(
-    <>
-  {console.log(usrType)}
-    {
-    usr
-    ? usrType=='talent'
-     ?<TalentRoutes />
-     :<ClientRoutes />
-    : <BeforeLoginRoutes />
-}
-</>
-  )
- 
 
-  // if (usr) {
-  //   if (usrType === "talent") {
-  //     return <TalentRoutes />;
-  //   } else if (usrType === "client") {
-  //     return <ClientRoutes />;
-  //   } else {
-  //     return <Loader />;
-  //   }
-  // } else {
-  //   return <BeforeLoginRoutes />;
-  // }
+  if (usr) {
+    if (usrType === "talent") {
+      return <TalentRoutes />
+    } else if (usrType === "client") {
+      return <ClientRoutes />
+    } else {
+      return <Loader />
+    }
+  } else {
+    return <BeforeLoginRoutes />
+  }
 }

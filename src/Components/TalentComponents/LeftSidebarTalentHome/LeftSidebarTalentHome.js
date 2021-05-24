@@ -16,7 +16,7 @@ export default function LeftSidebarTalentHome() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(talentDataAction());
-  //setarr(JSON.parse([...sessionStorage.getItem('searchArray'),sessionStorage.getItem('searchArray')]))
+  setarr(JSON.parse(sessionStorage.getItem('searchArray')))
   }, []);
   const handleVal = (textSearch) => {
     setitemSearchList(textSearch)
@@ -75,16 +75,10 @@ export default function LeftSidebarTalentHome() {
           </a>
         </li>
       </ul>
-
-      <h5 className="mb-lg-2 display-inline-block end">
-        {t("RecentSearch")}
-
-      </h5>
-
-
-
-      {arr?.map((item,index) =>
+      {arr.reverse()?.map((item,index) =>
       index >= arr.length-3 ? 
+      <>
+      <h5 className="mb-lg-2 display-inline-block end">{t("RecentSearch")}</h5>
         <ul
           className="list-group sidebar-homebage-ul mb-lg-3 "
           style={{ fontSize: "0.9em" }}
@@ -105,8 +99,11 @@ export default function LeftSidebarTalentHome() {
 
           </li>
 
-        </ul>:null
-        )}
+        </ul>
+
+      </>
+        :null
+       )}
 
 
 

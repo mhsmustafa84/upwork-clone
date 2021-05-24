@@ -1,5 +1,5 @@
-import React,{useState} from "react";
-import { Switch, Route, useLocation, useHistory} from "react-router-dom";
+import React, { useState } from "react";
+import { Switch, Route, useLocation, useHistory } from "react-router-dom";
 import Messages from "../Pages/Messages/Messages";
 import Header from "./../Components/TalentComponents/Header/Header";
 import Footer from "./../Components/SharedComponents/Footer/Footer";
@@ -41,7 +41,7 @@ export default function TalentRoutes() {
       <Switch>
         <Route path="/create-profile" component={CreateProfile} />
         <Route path="/find-work" exact component={HomeTalent} />
-        {/* <Route path="/Search/:searchValue" exact component={Search} /> */}
+        <Route path="/Search/:searchValue" exact component={Search} />
         <Route path="/Search" exact component={Search} />
         <Route path="/job/" exact component={JobDetailsTalent} />
         <Route path="/job/:id" exact component={JobDetailsTalent} />
