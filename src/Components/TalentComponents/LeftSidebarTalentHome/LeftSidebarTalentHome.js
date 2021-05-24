@@ -81,7 +81,7 @@ export default function LeftSidebarTalentHome() {
       <h5 className="mb-lg-2 display-inline-block end">{t("RecentSearch")}</h5>:
       null
       }
-      {arr.reverse()?.map((item,index) =>
+      {arr?.map((item,index) =>
       index >= arr.length-3 ? 
      
         <ul
