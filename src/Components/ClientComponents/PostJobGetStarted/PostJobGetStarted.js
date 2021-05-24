@@ -11,7 +11,7 @@ export default function PostJobGetStarted({ start, isStart, setBtns, btns }) {
 
     const createJob = () => {
         isStart();
-        createDocument("job", { authID: auth.currentUser.uid, postTime: "", status: "private", hired: 0, closed: false, user: db.doc('client/' + auth.currentUser.uid) });
+        createDocument("job", { authID: auth.currentUser.uid, postTime: "", status: "private", hired: 0, closed: false });
     }
 
     const getData = ({ target }) => {
