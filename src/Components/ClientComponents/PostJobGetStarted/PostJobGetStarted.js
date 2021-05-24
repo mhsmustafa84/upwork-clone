@@ -5,12 +5,12 @@ import createDocument, { updateJob } from '../../../Network/Network';
 import { auth, db } from './../../../firebase';
 
 
-export default function PostJobGetStarted(props) {
+export default function PostJobGetStarted({ start, isStart, setBtns, btns }) {
 
     let [job, setJob] = useState({ jobDuration: "" });
 
     const createJob = () => {
-        props.isStart();
+        isStart();
         createDocument("job", { authID: auth.currentUser.uid, postTime: "", status: "private", hired: 0, closed: false, user: db.doc('client/' + auth.currentUser.uid) });
     }
 
@@ -24,6 +24,7 @@ export default function PostJobGetStarted(props) {
         const id = localStorage.getItem("docID");
         console.log(id);
         updateJob({ jobID: id, jobDuration: job.jobDuration }, id);
+        setBtns({ ...btns, title: false })
     }
 
 
@@ -33,7 +34,7 @@ export default function PostJobGetStarted(props) {
                 <h4>Getting started</h4>
             </div>
             {
-                !props.start
+                !start
                     ?
                     <div className="ps-4 my-3">
                         <button className="btn bg-upwork" onClick={createJob}>Get Start</button>

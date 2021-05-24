@@ -1,12 +1,11 @@
 /* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable */
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { storage } from '../../../firebase';
 import { updateJob } from '../../../Network/Network';
 import './PostJobDescription.css'
 
-export default function PostJobDescription() {
+export default function PostJobDescription({ setBtns, btns }) {
 
     let [job, setJob] = useState({ jobDescription: "", jobImages: [] });
 
@@ -51,6 +50,7 @@ export default function PostJobDescription() {
         const id = localStorage.getItem("docID");
         console.log(id);
         updateJob(job, id);
+        setBtns({ ...btns, details: false });
     }
 
 

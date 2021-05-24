@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useState, useContext } from "react";
 import firebaseApp from "../../../firebase";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -17,7 +18,7 @@ export default function SearchBarJobsTalent() {
   });
   const { arr, setarr, itemSearchList, setitemSearchList } = useContext(SearchContext)
   const handleOnClick = () => {
-    if (itemSearchList != "") {
+    if (itemSearchList !== "") {
 
       let arr2 = [itemSearchList, ...arr];
       setarr(arr2);
