@@ -37,9 +37,9 @@ export default function SignUpSecondForm() {
           ...validate,
           firstName:
             val === ""
-              ? t("Firstnameisrequired")
+              ? t("First name is required")
               : val.length < 3
-                ? t("Firstnamemusbemorethan2")
+                ? t("First name must be more than 2")
                 : null
         });
         break;
@@ -49,9 +49,9 @@ export default function SignUpSecondForm() {
           ...validate,
           lastName:
             val === ""
-              ? t("Lastnameisrequired")
+              ? t("Last name is required")
               : val.length < 3
-                ? t("Lastnamemusbemorethan2")
+                ? t("Last name must be more than 2")
                 : null
         });
         break;
@@ -61,9 +61,9 @@ export default function SignUpSecondForm() {
           ...validate,
           password:
             val === ""
-              ? t("ThisisRequired")
+              ? t("This is Required")
               : val.length < 8
-                ? t("PasswordShouldbeMore8Character")
+                ? t("Password Should be More 8 Character")
                 : null
         });
         break;
@@ -167,7 +167,7 @@ export default function SignUpSecondForm() {
                   type="text"
                   name="firstName"
                   className="form-control  border-start-0 d-inline"
-                  placeholder={t("FirstName")}
+                  placeholder={t("First Name")}
                   aria-label="Input group example"
                   aria-describedby="basic-addon1"
                   onInput={getUserData}
@@ -193,7 +193,7 @@ export default function SignUpSecondForm() {
                   type="text"
                   name="lastName"
                   className="form-control border-start-0 d-inline"
-                  placeholder={t("LastName")}
+                  placeholder={t("Last Name")}
                   aria-label="Input group example"
                   aria-describedby="basic-addon1"
                   onInput={getUserData}
@@ -229,7 +229,7 @@ export default function SignUpSecondForm() {
           </div>
           <p className='text-danger'>{validate.password}</p>
           <div>
-            <h3 className="text-center mt-3">i want to:</h3>
+            <h3 className="text-center mt-3">{t("i want to :")}</h3>
             <div
               className="btn-group d-flex  border-gray rounded"
               role="group"
@@ -246,7 +246,7 @@ export default function SignUpSecondForm() {
                 onInput={getUserData}
               />
               <label className="btn btn-outline-upwork" htmlFor="btnradio1">
-                {t("Hireforaproject")}
+                {t("Hire for a project")}
               </label>
               <input
                 type="radio"
@@ -258,7 +258,7 @@ export default function SignUpSecondForm() {
                 onInput={getUserData}
               />
               <label className="btn btn-outline-upwork" htmlFor="btnradio2">
-                {t("Workasafreelancer")}
+                {t("Work as a freelancer")}
               </label>
             </div>
           </div>
@@ -273,21 +273,21 @@ export default function SignUpSecondForm() {
             />
             <label className="form-check-label" htmlFor="flexCheckDefault">
               <p>
-                {t("YesIunderstandandagreetothe")}
+                {t("Yes I understand and agree to the")}
                 <a
                   className="m-1"
                   href="https://www.upwork.com/legal#terms"
                   target="_blank"
                 >
-                  Upwork Terms of Service
+                  {t("Upwork Terms of Service")}
                 </a>
-                , including the
+                {t(", including the")}
                 <a
                   className="m-1"
                   href="https://www.upwork.com/legal#useragreement"
                   target="_blank"
                 >
-                  {t("UserAgreement")}
+                  {t("User Agreement")}
                 </a>
                 {t("and")}
                 <a
@@ -295,7 +295,7 @@ export default function SignUpSecondForm() {
                   href="https://www.upwork.com/legal#privacy"
                   target="_blank"
                 >
-                  {t("PrivacyPolicy")}
+                  {t("Privacy Policy")}
                 </a>
               </p>
             </label>
@@ -308,7 +308,7 @@ export default function SignUpSecondForm() {
               disabled={validate.password != null || validate.firstName || validate.lastName}
               onClick={signUpComplete}
             >
-              {t("ContinuewithEmail")}
+              {t("Continue with Email")}
             </button>
           </div> </>
         </form>

@@ -45,11 +45,11 @@ let lang = useSelector(state => state.lang);
                   {t("Saved Jobs")}
                 </Link>
               </li>
-              {/* <li>
+              <li>
                 <Link className="dropdown-item" to="/proposals">
-                  Proposals
+                  {t("Proposals")}
                 </Link>
-              </li> */}
+              </li>
               <li>
                 <Link className={`dropdown-item  ${lang ==='ar' && "fs-5"}`} to="/profile">
                   {t("Profile")}

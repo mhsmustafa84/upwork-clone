@@ -1,24 +1,27 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
+import { useTranslation } from "react-i18next";
+
 
 export default function ProposalCard() {
+    const { t } = useTranslation();
     return (
         <div>
             <div className="row">
-                <div className="col">
-                    <div>
-                        Initiated Apr 27, 2021
+                        <div className="col">
+                            <div>
+                                {t("Initiated")} Apr 27, 2021
 
                             </div>
-                    <div className="text-muted">
-                        a month ago
+                            <div className="text-muted">
+                                {t("a month ago")}
                             </div>
                 </div>
                 <a href="#" className="col-6 fw-bold text-success ">
                     Create 3D Mock Up File for Phone Case Packaging
                         </a>
-                <div className="col text muted">
-                    Graphic Design
+                        <div className="col text muted">
+                            {t("Graphic Design")}
                         </div>
             </div>
             <hr />
