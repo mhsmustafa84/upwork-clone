@@ -21,10 +21,10 @@ import JobDetailsTalent from "../Pages/TalentPages/JobDetailsTalent/JobDetailsTa
 import TransactionHistory from "../Pages/TalentPages/Reports/TransactionHistory/TransactionHistory";
 import CreateProfile from "../Pages/TalentPages/CreateProfile/CreateProfile";
 import Search from "../Pages/TalentPages/Search/Search";
-import EmailVerified from './../Pages/EmailVerification/EmailVerified';
+import EmailVerified from "./../Pages/EmailVerification/EmailVerified";
 import SubmitProposal from "../Pages/Submit Proposal/SubmitProposal";
-import { SearchContextProvider } from "../Context/SearchContext";
 
+import { SearchContextProvider } from "../Context/SearchContext";
 
 export default function TalentRoutes() {
   const [arr, setarr] = useState([]);
@@ -37,7 +37,9 @@ export default function TalentRoutes() {
   return (
     <>
       <Header />
-      <SearchContextProvider value={{ arr, setarr, itemSearchList, setitemSearchList }}>
+      <SearchContextProvider
+        value={{ arr, setarr, itemSearchList, setitemSearchList }}
+      >
         <Switch>
           <Route path="/create-profile" component={CreateProfile} />
           <Route path="/find-work" exact component={HomeTalent} />
@@ -58,7 +60,11 @@ export default function TalentRoutes() {
           <Route path="/life-time-billing" exact component={BillingByClients} />
           <Route path="/connects-history" exact component={ConnectsHistory} />
           <Route path="/buyconnects" exact component={BuyConnects} />
-          <Route path="/transaction-history" exact component={TransactionHistory} />
+          <Route
+            path="/transaction-history"
+            exact
+            component={TransactionHistory}
+          />
           <Route path="/messages" exact component={Messages} />
           <Route path="**" component={PageNotFound} />
         </Switch>
