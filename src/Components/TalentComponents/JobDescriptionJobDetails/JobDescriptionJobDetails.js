@@ -1,3 +1,4 @@
+
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { useTranslation } from "react-i18next";
@@ -14,7 +15,7 @@ export default function JobDescriptionJobDetails({ job }) {
           {job.jobCategory}
         </a>
 
-        <p className="text-muted">{new Date(job.postTime * 1000).toLocaleString()}</p>
+        <p className="text-muted">{new Date(job.postTime?.seconds * 1000).toLocaleString()}</p>
         <span>
           <i className="fas fa-street-view" style={{ color: "#14bff4" }}>
             {" "}
@@ -44,7 +45,8 @@ export default function JobDescriptionJobDetails({ job }) {
             <strong>${job.jobBudget}</strong>
           </div>{" "}
           <small className="text-muted">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed-price
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{job.jobPaymentType}
           </small>
         </li>
         {/**/}
@@ -66,27 +68,27 @@ export default function JobDescriptionJobDetails({ job }) {
           </div>{" "}
           <small className="text-muted">
             <span className="d-none d-lg-inline">
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I am looking for a mix of experience
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Experience Level
             </span>{" "}
-            <span className="d-lg-none">Experience Level</span>
           </small>
         </li>
 
         <li className="col list-group-item border-0">
           <div className="header">
             <span className="icon up-icon" data-cy="local">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 14 14"
-                aria-hidden="true"
-                role="img"
-                width="15px"
-              >
-                <path d="M10.8 2.692C10.214.93 8.439-.188 6.558.025c-1.062.12-1.961.566-2.631 1.384-.866 1.058-1.17 2.244-.722 3.569.266.782.649 1.511 1.063 2.225.758 1.308 1.618 2.547 2.529 3.754l.199.261c.029-.034.049-.056.065-.077a39.597 39.597 0 002.367-3.432c.458-.752.888-1.518 1.216-2.332.153-.381.287-.768.334-1.174.061-.517-.016-1.021-.178-1.511zM6.982 5.611c-.955 0-1.699-.736-1.699-1.684 0-.946.748-1.682 1.707-1.681.979.002 1.723.728 1.723 1.682.002.958-.745 1.683-1.731 1.683zm3.248 4.078c2.23.383 3.77 1.138 3.77 2.02C14 12.973 10.866 14 7 14c-3.867 0-7-1.027-7-2.291 0-.881 1.533-1.635 3.756-2.018.324.49.678.996 1.059 1.52-.883.128-1.578.313-2.004.494.733.311 2.19.659 4.189.659 2 0 3.456-.349 4.189-.659-.428-.184-1.127-.369-2.017-.498.375-.516.728-1.021 1.058-1.518z"></path>
-              </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+  <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+  <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+</svg>
             </span>{" "}
-            <strong>Remote Job</strong>
+            <strong>{job.jobDuration}</strong>
+            
           </div>
+          <small className="text-muted">
+            <span className="d-none d-lg-inline">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Job Duration
+            </span>{" "}
+          </small>
         </li>
       </ul>
       <div className="bg-white py-lg-4 px-4 border border-1 row py-sm-3 py-xs-5">
@@ -109,29 +111,9 @@ export default function JobDescriptionJobDetails({ job }) {
             </button>
           ))}
         </div>
-        <div className="col">
-          <div className="fw-bold">{t("Website platforms")}</div>
-          <button
-            type="button"
-            className="btn btn-secondary btn-sm rounded-pill skills"
-          >
-            Wordpress
-          </button>
-          <button
-            type="button"
-            className="btn btn-secondary btn-sm rounded-pill skills"
-          >
-            shopify
-          </button>
-          <button
-            type="button"
-            className="btn btn-secondary btn-sm rounded-pill skills"
-          >
-            WIX
-          </button>
-        </div>
       </div>
       <div className="bg-white py-lg-2 py-md-4 px-4 border border-1 row py-xs-5">
+        {/* need to handl dynamic data */}
         <h5 className="fw-bold my-4">{t("Activity on this job")}</h5>
         <div>
           <p className="my-lg-1">

@@ -2,26 +2,21 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { updateJob } from "../../../Network/Network";
 import "./PostJobExpertise.css";
-
 export default function PostJobExpertise({ setBtns, btns }) {
-
-  const [skill, setSkill] = useState("");
-  const [skills, setSkillslist] = useState([]);
+  const [inputVal, setinputVal] = useState("");
+  const [skillsList, setskillsList] = useState([]);
   const [job, setJob] = useState({ jobExperienceLevel: "", jobSkills: [] });
 
   const getData = (e) => {
     const val = e.target.value;
     const name = e.target.name;
-
     switch (name) {
       case "jobExperienceLevel":
         job.jobExperienceLevel = val;
         setJob({ ...job, jobExperienceLevel: job.jobExperienceLevel });
         break;
       case "jobSkills":
-        setSkill(val);
-        // setJob({ ...job, jobSkills: skill });
-        // console.log(skills);
+        setinputVal(val);
         break;
       default:
         break;
@@ -29,19 +24,14 @@ export default function PostJobExpertise({ setBtns, btns }) {
   };
 
   const addskills = () => {
-    let arr = [];
-    if (skill !== "") {
-      arr = [...skills, skill];
-      setSkillslist(arr);
-      // setSkillslist(skill, ...skills);
-      // setJob({ ...job, jobSkills: skills });
-      console.log(skills);
-    }
-    setSkill("");
+    let arr2=[...skillsList,inputVal];
+    setskillsList(arr2);
+    console.log(skillsList);
+    setJob({...job,jobSkills:skillsList})
+ 
   };
 
   const addData = () => {
-    console.log(job);
     const id = localStorage.getItem("docID");
     console.log(id);
     updateJob(job, id);
@@ -104,17 +94,16 @@ export default function PostJobExpertise({ setBtns, btns }) {
               name="jobSkills"
               onChange={getData}
             />
-            <Link className="btn bg-upwork px-5" onClick={addskills}>
+            <button className="btn bg-upwork px-5" onClick={addskills}>
               Add
-            </Link>
+            </button>
             <div className="my-4 d-flex justify-content-between"></div>
           </div>
-          <div className="chip">
-            <span>download</span>
-            <span>
-              <i className=" ms-3 fas fa-times-circle"></i>
-            </span>
-          </div>
+          {skillsList.map((item)=><div  className="chip mb-3 ms">
+
+          <span>{item}</span>
+          </div>)}
+            
         </div>
       </section>
 

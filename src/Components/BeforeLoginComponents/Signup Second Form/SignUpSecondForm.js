@@ -86,6 +86,7 @@ export default function SignUpSecondForm() {
         if (res.user) {
           res.user.updateProfile({ displayName: usr.userType });
           res.user.sendEmailVerification();
+          localStorage.setItem('userType',usr.userType)
           if (usr.userType === "talent") {
             createDocumentWithId(
               usr.userType,

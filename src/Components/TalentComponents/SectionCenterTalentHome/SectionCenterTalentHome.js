@@ -1,12 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react-hooks/exhaustive-deps */
-import ShowMore from 'react-show-more-button/dist/module';
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import HeadOfCenterSection from "./../HeadOfCenterSection/HeadOfCenterSection";
 import { jobsDataAction } from "./../../../Store/actions/jobsData";
 import { useTranslation } from "react-i18next";
+import ShowMore from 'react-show-more-button/dist/module';
 import "./SectionCenterTalentHome.css";
 // import ShowMore from 'react-show-more-button';
 
@@ -18,7 +18,7 @@ export default function SectionCenterTalentHome() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(jobsDataAction());
-    console.log(jobs);
+    // console.log(jobs);
   }, []);
 
 
@@ -89,63 +89,23 @@ export default function SectionCenterTalentHome() {
                 <span id="posting-time"> {new Date(item.postTime?.seconds * 1000).toLocaleString()}</span>
               </span>
             </p>
-            <ShowMore maxHeight={100} button={<button id="seemorebutton" classname="advanced-search-link " style={{ color: 'green', position: 'absolute', left: 0 }}>
-              more
-      </button>}>
-
-              {item?.jobDescription}
-
-
-              {/* <p id="job-description">
-              {item.jobDescription?.length > 300
-                ? item.jobDescription?.substr(1, 300)
-                : item.jobDescription}
-                
-              {item.jobDescription?.length > 300 && (
-                <>
-                  <span id="dots">...</span>
-                  <span id="more">{item.jobDescription}</span>
-                  <a className="advanced-search-link" href="more">more</a>
-                </>
-              )}
-            </p> */}
+            <ShowMore maxHeight={100} button={<button id="seemorebutton" classname="advanced-search-link " style={{color:'green', position: 'absolute', left: 0}}>
+        more
+      </button>}> 
+            {item?.jobDescription}
             </ShowMore>
+            {item?.skills?.map((skill,index)=>
             <button
-              type="button"
-              className="btn btn-secondary btn-sm rounded-pill skills"
-            >
-              Training
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary btn-sm rounded-pill skills"
-            >
-              Education presentation
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary btn-sm rounded-pill skills"
-            >
-              Marketing
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary btn-sm rounded-pill skills"
-            >
-              Microsof PowerPoint
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary btn-sm rounded-pill skills"
-            >
-              Html
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary btn-sm rounded-pill skills"
-            >
-              Css
-            </button>
+            key={index}
+            type="button"
+            className="btn btn-secondary btn-sm rounded-pill skills"
+          >
+            {skill}
+          </button>
+            )}
+            
+           
+           
             <p style={{ fontSize: "0.9em" }} className="my-lg-1">
               <span className="text-muted">
                 <span>Proposals: </span>

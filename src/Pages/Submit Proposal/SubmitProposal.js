@@ -1,26 +1,27 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { format } from 'date-fns';
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import SubmitProposalContractType from '../../Components/TalentComponents/SubmitProposalContractType/SubmitProposalContractType';
-import { addProposal } from '../../Network/Network';
 import { auth, db, storage } from '../../firebase';
 import { subCollection, updateUserData } from '../../Network/Network';
-import { jobDataAction } from '../../Store/actions/jobDataAction';
-import { talentDataAction } from '../../Store/actions/talentData';
 
 export default function SubmitProposal() {
   const { id } = useParams();
-  const job = useSelector((state) => state.jobData);
+  const [job, setjob] = useState({});
   const user = useSelector(state => state.talentData);
+  let idd=auth.currentUser.uid;
   const [proposalData, setproposalData] = useState({ proposalImages: [] });
-  const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(jobDataAction(id));
-    dispatch(talentDataAction());
-    console.log(user);
-  }, []);
+    console.log("user Id is",idd);
+    db.collection("job").doc(id).get().then((res)=>setjob(res.data()));
+    db.collection('job').doc(id).collection('proposals')
+    // .doc('NGSk3NKfGVAMo1GbeuJN')
+     .where('talentId', '==' ,auth.currentUser.uid)
+    .get().then((res)=>res.docs.map(e=>console.log("data is",e.data())))
+  }, [])
+
   let date = new Date()
   let arr = ['s'];
   arr = job?.skills;
@@ -45,7 +46,7 @@ export default function SubmitProposal() {
               .then(url => {
                 proposalData.proposalImages?.push(url);
                 setproposalData({ ...proposalData, proposalImages: proposalData.proposalImages });
-                console.log(proposalData);
+                //console.log(proposalData);
               });
           })
       }
@@ -55,7 +56,8 @@ export default function SubmitProposal() {
   }
 
   const handleProposal = () => {
-    console.log(proposalData);
+
+    //console.log(proposalData);
     //talent subproposal
     subCollection('talent', 'jobProposal', { jobId: id, status: "proposal" }, auth.currentUser.uid);
     updateUserData('talent', { connects: user.connects - 2 })
@@ -76,6 +78,7 @@ export default function SubmitProposal() {
   return (
     <>
       <main>
+        {/* {console.log(job)} */}
         <div className="container">
           <h1 className="h3 py-4">Submit a proposal</h1>
           <div className="row">
@@ -188,9 +191,61 @@ export default function SubmitProposal() {
                   <p className="my-3">You may attach up to 10 files under the size of <strong>25MB</strong> each. Include work samples or other documents to support your application. Do not attach your résumé — your Upwork profile is automatically forwarded to the client with your proposal.</p>
                 </div>
                 <div className="border-top ps-4 py-4">
-                  <button className="btn shadow-none text-white" style={{ backgroundColor: '#37a000' }} onClick={handleProposal}>Submit Proposal</button>
+                  <button className="btn shadow-none text-white" onClick={handleProposal} data-bs-toggle="modal"    asddata-bs-target="#exampleModal"  style={{ backgroundColor: '#37a000' }} >Submit Proposal</button>
                   <button className="btn shadow-none upw-c-cn">Cancel</button>
+
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Review proposal</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <div className="ps-4 pt-2 d-flex">
+                  <div className="w-75">
+                    <p className="fw-bold">{job.jobTitle}</p>
+                    <div className="mb-3">
+                      <span className="bg-cat-cn py-1 px-2 me-3 rounded-pill">{job.jobCategory}</span>
+                    </div>
+                    <div className="mb-3">
+                      <p>{job.jobDescription}</p>
+                    </div>
+                  </div>
+                  <div className="w-25 border-start m-3 ps-3">
+                    <div>
+                      <span><i className="fas fa-head-side-virus" /></span>
+                      <span className="ps-2"><strong>Expert</strong></span>
+                      <p className="ps-4">{job.jobExperienceLevel}</p>
+                    </div>
+                    <div>
+                      <span><i className="far fa-clock" /></span>
+                      <span className="ps-2"><strong>Hours to be determined</strong></span>
+                      <p className="ps-4">{job.jobPaymentType}</p>
+                    </div>
+                    <div>
+                      <span><i className="far fa-calendar-alt" /></span>
+                      <span className="ps-2"><strong>{job.jobDuration}</strong></span>
+                      <p className="ps-4">Project Length</p>
+                    </div>
+                  </div>
                 </div>
+                <div>
+                <p className="fw-bold">Cover Litter</p>
+                <div className="mb-3">
+                      <p>{proposalData.coverLitter}</p>
+                </div>
+                </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn bg-upwork-dark rounded border-dark text-white" data-bs-dismiss="modal">WithDraw proposal</button>
+                          <button type="button" class="btn bg-upwork">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              
               </div>
             </div>
           </div>
