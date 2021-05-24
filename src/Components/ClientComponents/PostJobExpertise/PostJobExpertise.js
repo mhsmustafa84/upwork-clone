@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { updateJob } from "../../../Network/Network";
 import "./PostJobExpertise.css";
-export default function PostJobExpertise() {
+
+export default function PostJobExpertise({ setBtns, btns }) {
+
   const [skill, setSkill] = useState("");
   const [skills, setSkillslist] = useState([]);
   const [job, setJob] = useState({ jobExperienceLevel: "", jobSkills: [] });
@@ -43,6 +45,7 @@ export default function PostJobExpertise() {
     const id = localStorage.getItem("docID");
     console.log(id);
     updateJob(job, id);
+    setBtns({ ...btns, visibility: false });
   };
 
   return (

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { updateJob } from '../../../Network/Network'
 import './PostJobTitle.css'
 
-export default function PostJobTitle() {
+export default function PostJobTitle({ setBtns, btns }) {
 
     const [job, setJob] = useState({ jobTitle: "", jobCategory: "" })
 
@@ -30,6 +30,7 @@ export default function PostJobTitle() {
         const id = localStorage.getItem("docID");
         console.log(id);
         updateJob(job, id);
+        setBtns({ ...btns, description: false });
     }
 
     return (

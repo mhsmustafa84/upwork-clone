@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { updateJob } from '../../../Network/Network';
 import './PostJobDetails.css'
-export default function PostJobDetails() {
+
+export default function PostJobDetails({ setBtns, btns }) {
 
     const [job, setJob] = useState({ jobType: "" });
 
@@ -16,6 +17,7 @@ export default function PostJobDetails() {
         const id = localStorage.getItem("docID");
         console.log(id);
         updateJob(job, id);
+        setBtns({ ...btns, expertise: false });
     }
 
     return (
