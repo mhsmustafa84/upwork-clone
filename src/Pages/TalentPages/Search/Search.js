@@ -1,16 +1,32 @@
-import SearchBarJobsTalent from "../../../Components/TalentComponents/SearchBarJobsTalent/SearchBarJobsTalent";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useEffect, useState } from "react";
+import { SearchContext } from '../../../Context/SearchContext'
+import SearchBarJobsTalent from "../../../Components/TalentComponents/SearchBarJobsTalent/SearchBarJobsTalent";
 
 export default function Search(props) {
     const { t } = useTranslation();
     const [searchData, setsearchData] = useState([]);
-    useEffect(() => {   
-        let arr=props.location.state
-    setsearchData(arr)
+    const { itemSearchList } = useContext(SearchContext);
+
+    useEffect(() => {
+        let arr = props.location.state
+        setsearchData(arr)
+        console.log(arr);
     }, [props.location.state])
-    console.log(searchData);
+
+    useEffect(() => {
+        // console.log(itemSearchList);
+    }, [itemSearchList])
+
+
+    // console.log(searchData);
+    // const clickHandler = () => {
+    //     push("/job/");
+    // }
+
+
+
     return (
         <div className="container-md container-fluid-sm my-lg-4">
             <div className="row">
@@ -351,125 +367,125 @@ export default function Search(props) {
                         </div>
                     </div>
                     {searchData?.map((item) => (
-        <div>
-          <div className="list-group-item">
-            <div className="row align-items-center">
-              <div className="col-lg-9 pt-lg-2">
-                <Link to={{
-                  pathname:
-                  `/job/${item.jobID}`,
-                state:`${item.jobID}`
-              }} 
-                  className="job-title-link fw-bold">
-                  {item?.jobTitle}
-                </Link>
-              </div>
-              <div className="col-lg-3">
-                <div className="btn-group float-sm-end px-lg-1">
-                  <button
-                    type="button"
-                    className="btn btn-light dropdown-toggle border border-1 rounded-circle collapsed"
-                    data-toggle="collapse"
-                    data-target="#collapse"
-                    aria-expanded="false"
-                    aria-controls="collapseTwo"
-                  >
-                    <i className="far fa-heart" aria-hidden="true" />
-                  </button>
-                </div>
-                <div className="btn-group float-sm-end  px-lg-1">
-                  <button
-                    type="button"
-                    className="btn btn-light dropdown-toggle border border-1 rounded-circle"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    <i className="far fa-thumbs-down" />
-                  </button>
-                  <ul className="dropdown-menu">
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        RSS
+                        <div>
+                            <div className="list-group-item">
+                                <div className="row align-items-center">
+                                    <div className="col-lg-9 pt-lg-2">
+                                        <Link to={{
+                                            pathname:
+                                                `/job/${item.jobID}`,
+                                            state: `${item.jobID}`
+                                        }}
+                                            className="job-title-link fw-bold">
+                                            {item?.jobTitle}
+                                        </Link>
+                                    </div>
+                                    <div className="col-lg-3">
+                                        <div className="btn-group float-sm-end px-lg-1">
+                                            <button
+                                                type="button"
+                                                className="btn btn-light dropdown-toggle border border-1 rounded-circle collapsed"
+                                                data-toggle="collapse"
+                                                data-target="#collapse"
+                                                aria-expanded="false"
+                                                aria-controls="collapseTwo"
+                                            >
+                                                <i className="far fa-heart" aria-hidden="true" />
+                                            </button>
+                                        </div>
+                                        <div className="btn-group float-sm-end  px-lg-1">
+                                            <button
+                                                type="button"
+                                                className="btn btn-light dropdown-toggle border border-1 rounded-circle"
+                                                data-bs-toggle="dropdown"
+                                                aria-expanded="false"
+                                            >
+                                                <i className="far fa-thumbs-down" />
+                                            </button>
+                                            <ul className="dropdown-menu">
+                                                <li>
+                                                    <a className="dropdown-item" href="#">
+                                                        RSS
                       </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        Atom
+                                                </li>
+                                                <li>
+                                                    <a className="dropdown-item" href="#">
+                                                        Atom
                       </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <p style={{ fontSize: "0.9em" }}>
-              <span className="text-muted">
-                <span className="fw-bold" id="contract-type">
-                  {item?.jobPaymentType}
-                </span>
-                <span> - </span>
-                <span id="experience-level">{item?.jobExperienceLevel}</span>
-                <span> - </span>
-                <span>Est. Budget: </span>
-                <span id="client-budget">{item?.jobBudget}</span> - posted
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p style={{ fontSize: "0.9em" }}>
+                                    <span className="text-muted">
+                                        <span className="fw-bold" id="contract-type">
+                                            {item?.jobPaymentType}
+                                        </span>
+                                        <span> - </span>
+                                        <span id="experience-level">{item?.jobExperienceLevel}</span>
+                                        <span> - </span>
+                                        <span>Est. Budget: </span>
+                                        <span id="client-budget">{item?.jobBudget}</span> - posted
                 <span id="posting-time"> 4 Hours ago</span>
-              </span>
-            </p>
-            <p id="job-description">
-              {item.jobDescription?.length > 300
-                ? item.jobDescription?.substr(1, 300)
-                : item.jobDescription}
-              {item.jobDescription?.length > 300 && (
-                <>
-                  <span id="dots">...</span>
-                  <span id="more">{item.jobDescription}</span>
-                  <span className="advanced-search-link ">more</span>
-                </>
-              )}
-            </p>
-            {item?.skills?.map((skill,index)=>
-            <button
-            key={index}
-            type="button"
-            className="btn btn-secondary btn-sm rounded-pill skills"
-          >
-            {skill}
-          </button>
-                
-            )}
-            
-           
-            <p style={{ fontSize: "0.9em" }} className="my-lg-1">
-              <span className="text-muted">
-                <span>Proposals: </span>
-                <span className="fw-bold ">Less than </span>
-                <span className="fw-bold " id="proposals-numbers">
-                  5
+                                    </span>
+                                </p>
+                                <p id="job-description">
+                                    {item.jobDescription?.length > 300
+                                        ? item.jobDescription?.substr(1, 300)
+                                        : item.jobDescription}
+                                    {item.jobDescription?.length > 300 && (
+                                        <>
+                                            <span id="dots">...</span>
+                                            <span id="more">{item.jobDescription}</span>
+                                            <span className="advanced-search-link ">more</span>
+                                        </>
+                                    )}
+                                </p>
+                                {item?.skills?.map((skill, index) =>
+                                    <button
+                                        key={index}
+                                        type="button"
+                                        className="btn btn-secondary btn-sm rounded-pill skills"
+                                    >
+                                        {skill}
+                                    </button>
+
+                                )}
+
+
+                                <p style={{ fontSize: "0.9em" }} className="my-lg-1">
+                                    <span className="text-muted">
+                                        <span>Proposals: </span>
+                                        <span className="fw-bold ">Less than </span>
+                                        <span className="fw-bold " id="proposals-numbers">
+                                            5
                 </span>
-              </span>
-            </p>
-            <p style={{ fontSize: "0.85em" }} className="my-lg-1 mb-lg-2">
-              <span className="fw-bold" style={{ color: "#14bff4" }}>
-                <i className="fas fa-check-circle primary me-1" />
+                                    </span>
+                                </p>
+                                <p style={{ fontSize: "0.85em" }} className="my-lg-1 mb-lg-2">
+                                    <span className="fw-bold" style={{ color: "#14bff4" }}>
+                                        <i className="fas fa-check-circle primary me-1" />
                 Payment verified
               </span>
-              <span className="text-muted">
-                <span className="mx-2">
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
+                                    <span className="text-muted">
+                                        <span className="mx-2">
+                                            <i className="fas fa-star" />
+                                            <i className="fas fa-star" />
+                                            <i className="fas fa-star" />
+                                            <i className="fas fa-star" />
+                                            <i className="fas fa-star" />
+                                        </span>
+                                        <span className="fw-bold "> $0 </span>
+                                        <span> spent </span>
+                                        <span className="fw-bold ">
+                                            <i className="fas fa-map-marker-alt ms-2" /> United States
                 </span>
-                <span className="fw-bold "> $0 </span>
-                <span> spent </span>
-                <span className="fw-bold ">
-                  <i className="fas fa-map-marker-alt ms-2" /> United States
-                </span>
-              </span>
-            </p>
-          </div>
-        </div>
-      ))}
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>

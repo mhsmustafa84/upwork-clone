@@ -8,16 +8,16 @@ export default function CreateProfileCategory() {
   const [inputVal, setinputVal] = useState("");
   const [skillsList, setskillsList] = useState([]);
   let [cat, setCat] = useState();
-  const catVal = e => {
+  const catVal = (e) => {
     cat = e.target.value;
-    setCat(cat)
+    setCat(cat);
   };
   const skillVal=(e)=>{
     setinputVal(e.target.value)
   }
 
   const addData = () => {
-    updateUserData("talent", { jobCategory: cat,authID:auth.currentUser.uid ,skills:skillsList});
+    updateUserData("talent", { jobCategory: cat,authID:auth.currentUser.uid ,skills:skillsList, profileCompletion: 20});
   }
   const addskills = () => {
     let arr2=[...skillsList,inputVal];

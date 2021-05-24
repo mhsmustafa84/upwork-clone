@@ -1,5 +1,5 @@
-import React from "react";
-import { Switch, Route, useLocation, useHistory } from "react-router-dom";
+import React,{useState} from "react";
+import { Switch, Route, useLocation, useHistory} from "react-router-dom";
 import Messages from "../Pages/Messages/Messages";
 import Header from "./../Components/TalentComponents/Header/Header";
 import Footer from "./../Components/SharedComponents/Footer/Footer";
@@ -24,8 +24,12 @@ import Search from "../Pages/TalentPages/Search/Search";
 import EmailVerified from './../Pages/EmailVerification/EmailVerified';
 import SubmitProposal from "../Pages/Submit Proposal/SubmitProposal";
 import ReviewProposalsCard from "../Components/ClientComponents/ReviewProposalsCard/ReviewProposalsCard";
+import { SearchContextProvider } from "../Context/SearchContext";
+
 
 export default function TalentRoutes() {
+  const [arr, setarr] = useState([]);
+  const [itemSearchList, setitemSearchList] = useState("");
   const { pathname } = useLocation();
   const { push } = useHistory();
   pathname === "/" && push("/find-work");
@@ -33,12 +37,12 @@ export default function TalentRoutes() {
   return (
     <>
       <Header />
+      <SearchContextProvider value={{ arr, setarr,itemSearchList, setitemSearchList }}>
       <Switch>
         <Route path="/create-profile" component={CreateProfile} />
         <Route path="/find-work" exact component={HomeTalent} />
         {/* <Route path="/Search/:searchValue" exact component={Search} /> */}
         <Route path="/Search" exact component={Search} />
-
         <Route path="/job/" exact component={JobDetailsTalent} />
         <Route path="/job/:id" exact component={JobDetailsTalent} />
         <Route path="/job/apply/:id" exact component={SubmitProposal} />
@@ -60,6 +64,7 @@ export default function TalentRoutes() {
         <Route path="/messages" exact component={Messages} />
         {/* <Route path="**" component={PageNotFound} /> */}
       </Switch>
+      </SearchContextProvider>
       <Footer />
     </>
   );

@@ -1,8 +1,16 @@
 /* eslint-disable */
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { talentDataAction } from "../../../Store/actions/talentData";
 
 export default function CertificatProfileTalent() {
+  const user = useSelector((state) => state.talentData);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(talentDataAction());
+  }, []);
   const { t } = useTranslation();
   return (
     <>
