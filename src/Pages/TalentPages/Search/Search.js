@@ -10,6 +10,8 @@ export default function Search(props) {
     const [searchData, setsearchData] = useState([]);
     const [filterSearch, setfilterSearch] = useState([]);
     const { itemSearchList } = useContext(SearchContext);
+    const [filtered, setfiltered] = useState(false)
+    
 
     useEffect(() => {
         let arr = props.location.state
@@ -18,7 +20,7 @@ export default function Search(props) {
     }, [props.location.state])
 
     useEffect(() => {
-        console.log(filterSearch);
+        // console.log(filterSearch);
     }, [itemSearchList,filterSearch])
     //filter level expereince
 const handleLevel=(e)=>{
@@ -26,6 +28,28 @@ const handleLevel=(e)=>{
     let name=e.target.name;
     switch (name) {
         case 'entry level':
+        //    val ?
+        // (filterSearch.length!=0 ?
+        // setfilterSearch([...filterSearch,searchData.filter((item)=>item.jobExperienceLevel==name  && item)])
+        // :setfilterSearch(searchData.filter((item)=>item.jobExperienceLevel==name  && item))
+        // )
+        // :setfilterSearch(filterSearch.filter(item=>item.jobExperienceLevel!=name&& item))
+        setfilterSearch(searchData.filter((item)=>item.jobExperienceLevel==name &&val && item))
+        console.log(filterSearch);
+            setfiltered(val); 
+            break;
+            case 'intermediate':
+                setfilterSearch(searchData.filter((item)=>item.jobExperienceLevel==name && val && item))
+                setfiltered(val);
+                // val ?
+                // (filterSearch.length!=0 ?
+                //     setfilterSearch([...filterSearch,searchData.filter((item)=>item.jobExperienceLevel==name  && item)])
+                //     :setfilterSearch(searchData.filter((item)=>item.jobExperienceLevel==name  && item))
+                //     )
+                //     :setfilterSearch(filterSearch.filter(item=>item.jobExperienceLevel!=name&& item))    
+                break;
+                case 'expert':
+                setfiltered(val);
             setfilterSearch(searchData.filter((item)=>item.jobExperienceLevel==name &&val && item))
             break;
     
@@ -388,10 +412,10 @@ const handleLevel=(e)=>{
                     :
                     null
                     }
+                        {/* {console.log(filtered,filterSearch)} */}
                     {
                         
-                  
-                        (filterSearch.length!=0 ?filterSearch:searchData)?.map((item) => (
+                        (filtered   ?filterSearch:searchData)?.map((item) => (
                         <div>
                             <div className="list-group-item">
                                 <div className="row align-items-center">
