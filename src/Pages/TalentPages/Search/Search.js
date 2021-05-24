@@ -8,26 +8,32 @@ import SearchBarJobsTalent from "../../../Components/TalentComponents/SearchBarJ
 export default function Search(props) {
     const { t } = useTranslation();
     const [searchData, setsearchData] = useState([]);
+    const [filterSearch, setfilterSearch] = useState([]);
     const { itemSearchList } = useContext(SearchContext);
 
     useEffect(() => {
         let arr = props.location.state
         setsearchData(arr)
-        console.log(arr);
+        //console.log(arr);
     }, [props.location.state])
 
     useEffect(() => {
-        // console.log(itemSearchList);
-    }, [itemSearchList])
-
-
-    // console.log(searchData);
-    // const clickHandler = () => {
-    //     push("/job/");
-    // }
-
-
-
+        console.log(filterSearch);
+    }, [itemSearchList,filterSearch])
+    //filter level expereince
+const handleLevel=(e)=>{
+    let val=e.target.checked;
+    let name=e.target.name;
+    switch (name) {
+        case 'entry level':
+            setfilterSearch(searchData.filter((item)=>item.jobExperienceLevel==name &&val && item))
+            break;
+    
+        default:
+            break;
+    }
+    // console.log(e.target.name, e.target.checked);
+}
     return (
         <div className="container-md container-fluid-sm my-lg-4">
             <div className="row">
@@ -108,19 +114,24 @@ export default function Search(props) {
                         <input
                             className="form-check-input btn-outline-success"
                             type="checkbox"
+                            name="entry level"
                             defaultValue
                             id="flexCheckDefault"
+                            onChange={handleLevel}
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
                             {t("EntryLevel")}
                         </label>
                     </div>
-                    <div className="form-check py-2 my-0">
+                    <div className="form-check py-2 my-0" >
                         <input
                             className="form-check-input btn-outline-success"
                             type="checkbox"
+                            name="intermediate"
                             defaultValue
                             id="flexCheckDefault"
+                            onChange={handleLevel}
+
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
                             {t("Intermediate")}
@@ -130,8 +141,11 @@ export default function Search(props) {
                         <input
                             className="form-check-input btn-outline-success"
                             type="checkbox"
+                            name="expert"
                             defaultValue
                             id="flexCheckDefault"
+                            onChange={handleLevel}
+
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
                             {t("Expert")}
@@ -374,7 +388,10 @@ export default function Search(props) {
                     :
                     null
                     }
-                    {searchData?.map((item) => (
+                    {
+                        
+                  
+                        (filterSearch.length!=0 ?filterSearch:searchData)?.map((item) => (
                         <div>
                             <div className="list-group-item">
                                 <div className="row align-items-center">
@@ -493,7 +510,8 @@ export default function Search(props) {
                                 </p>
                             </div>
                         </div>
-                    ))}
+                    ))
+            }
                 </div>
             </div>
         </div>
