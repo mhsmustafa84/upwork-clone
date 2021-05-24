@@ -1,39 +1,40 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import HeadOfCenterSection from "./../HeadOfCenterSection/HeadOfCenterSection";
 import { jobsDataAction } from "./../../../Store/actions/jobsData";
-import { Link } from "react-router-dom";
-import "./SectionCenterTalentHome.css";
 import { useTranslation } from "react-i18next";
-// import ShowMore from 'react-show-more-button';
 import ShowMore from 'react-show-more-button/dist/module';
+import "./SectionCenterTalentHome.css";
+// import ShowMore from 'react-show-more-button';
 
 
 
 export default function SectionCenterTalentHome() {
   const { t } = useTranslation();
-  const jobs = useSelector((state) => state.jobsData);
+  const jobs = useSelector(state => state.jobsData);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(jobsDataAction());
-    console.log(jobs);
+    // console.log(jobs);
   }, []);
+
 
   return (
     <div className="col-lg-8 col-xs-12">
       <HeadOfCenterSection />
-      {jobs.map((item) => (
+      {jobs.map(item => (
         <div>
           <div className="list-group-item">
             <div className="row align-items-center">
               <div className="col-lg-9 pt-lg-2">
                 <Link to={{
                   pathname:
-                  `/job/${item.jobID}`,
-                state:`${item.jobID}`
-              }} 
+                    `/job/${item.jobID}`,
+                  state: `${item.jobID}`
+                }}
                   className="job-title-link fw-bold">
                   {item?.jobTitle}
                 </Link>
@@ -84,67 +85,27 @@ export default function SectionCenterTalentHome() {
                 <span id="experience-level">{item?.jobExperienceLevel}</span>
                 <span> - </span>
                 <span>Est. Budget: </span>
-                <span id="client-budget">{item?.jobBudget}</span> - posted
-                <span id="posting-time"> 4 Hours ago</span>
+                <span id="client-budget">${item?.jobBudget}</span> - posted
+                <span id="posting-time"> {new Date(item.postTime?.seconds * 1000).toLocaleString()}</span>
               </span>
             </p>
             <ShowMore maxHeight={100} button={<button id="seemorebutton" classname="advanced-search-link " style={{color:'green', position: 'absolute', left: 0}}>
         more
-      </button>}>
-      
+      </button>}> 
             {item?.jobDescription}
-           
-           
-            {/* <p id="job-description">
-              {item.jobDescription?.length > 300
-                ? item.jobDescription?.substr(1, 300)
-                : item.jobDescription}
-                
-              {item.jobDescription?.length > 300 && (
-                <>
-                  <span id="dots">...</span>
-                  <span id="more">{item.jobDescription}</span>
-                  <a className="advanced-search-link" href="more">more</a>
-                </>
-              )}
-            </p> */}
             </ShowMore>
+            {item?.skills?.map((skill,index)=>
             <button
-              type="button"
-              className="btn btn-secondary btn-sm rounded-pill skills"
-            >
-              Training
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary btn-sm rounded-pill skills"
-            >
-              Education presentation
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary btn-sm rounded-pill skills"
-            >
-              Marketing
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary btn-sm rounded-pill skills"
-            >
-              Microsof PowerPoint
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary btn-sm rounded-pill skills"
-            >
-              Html
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary btn-sm rounded-pill skills"
-            >
-              Css
-            </button>
+            key={index}
+            type="button"
+            className="btn btn-secondary btn-sm rounded-pill skills"
+          >
+            {skill}
+          </button>
+            )}
+            
+           
+           
             <p style={{ fontSize: "0.9em" }} className="my-lg-1">
               <span className="text-muted">
                 <span>Proposals: </span>

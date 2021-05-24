@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import { useTranslation } from "react-i18next";
 
@@ -15,15 +16,15 @@ export default function ProposalCard() {
                             <div className="text-muted">
                                 {t("a month ago")}
                             </div>
-                        </div>
-                        <a href="#" className="col-6 fw-bold text-success ">
-                            Create 3D Mock Up File for Phone Case Packaging
+                </div>
+                <a href="#" className="col-6 fw-bold text-success ">
+                    Create 3D Mock Up File for Phone Case Packaging
                         </a>
                         <div className="col text muted">
                             {t("Graphic Design")}
                         </div>
-                    </div>
-                    <hr/>
+            </div>
+            <hr />
         </div>
     )
 }

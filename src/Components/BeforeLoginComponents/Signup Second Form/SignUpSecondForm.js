@@ -2,17 +2,17 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
 import { auth } from "../../../firebase";
 import { createDocumentWithId } from "../../../Network/Network";
 import { useTranslation } from "react-i18next";
+import firebase from 'firebase/app';
 
 
 export default function SignUpSecondForm() {
   const { t } = useTranslation();
 
   const [errorMessage, setErrorMessage] = useState("");
-  const [validate, setValidate] = useState({ firstName: "", lastName: "", password: "" ,terms:false});
+  const [validate, setValidate] = useState({ firstName: "", lastName: "", password: "", terms: false });
 
   const userEmail = useSelector(state => state.signUpData.email);
   const { push } = useHistory();
@@ -69,10 +69,10 @@ export default function SignUpSecondForm() {
       case "userType":
         setuser({ ...usr, userType: val });
         break;
-        // case "terms":
-        //   setValidate(...validate,validate.terms==e.target.checked)
-        //   console.log(e.target.checked);
-        //   break;
+      // case "terms":
+      //   setValidate(...validate,validate.terms==e.target.checked)
+      //   console.log(e.target.checked);
+      //   break;
       default:
         break;
     }
@@ -86,6 +86,7 @@ export default function SignUpSecondForm() {
         if (res.user) {
           res.user.updateProfile({ displayName: usr.userType });
           res.user.sendEmailVerification();
+          localStorage.setItem('userType',usr.userType)
           if (usr.userType === "talent") {
             createDocumentWithId(
               usr.userType,
@@ -109,6 +110,7 @@ export default function SignUpSecondForm() {
                 connects: 20,
                 connectsHistory: [],
                 profileCompletion: 0,
+                createdAt: firebase.firestore.Timestamp.now()
               },
               auth.currentUser.uid
             );
@@ -258,7 +260,7 @@ export default function SignUpSecondForm() {
               name="terms"
               className="form-check-input"
               type="checkbox"
-              
+
               onChange={getUserData}
               id="flexCheckDefault"
             />
@@ -296,7 +298,7 @@ export default function SignUpSecondForm() {
             <button
               className="btn bg-upwork "
               type="button"
-              disabled={validate.password != null || validate.firstName || validate.lastName } 
+              disabled={validate.password != null || validate.firstName || validate.lastName}
               onClick={signUpComplete}
             >
               {t("Continue with Email")}

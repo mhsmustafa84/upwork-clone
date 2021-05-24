@@ -8,6 +8,7 @@ export default function CreateProfilePhoneNumber() {
   const [value, setValue] = useState();
 
   const getNumber = () => {
+    console.log(value);
     updateUserData("talent", { phoneNumber: value, profileCompletion: 100 });
   };
 
@@ -34,19 +35,23 @@ export default function CreateProfilePhoneNumber() {
         </p>
       </div>
       <div className="px-4 my-3 pt-4 border-top d-flex justify-content-between">
-        <Link
-          className="btn border text-success me-4 px-5 fw-bold"
-          to="/create-profile/location"
-        >
-          Back
-        </Link>
-        <Link
-          className="btn bg-upwork px-5"
-          to="/create-profile/submit"
-          onClick={getNumber}
-        >
-          Review Profile
-        </Link>
+        <button className="btn">
+          <Link
+            className="btn border text-success me-4 px-5 fw-bold"
+            to="/create-profile/location"
+          >
+            Back
+          </Link>
+        </button>
+        <button className={`btn ${!value ? "disabled" : ""}`}>
+          <Link
+            className="btn bg-upwork px-5"
+            to="/create-profile/submit"
+            onClick={getNumber}
+          >
+            Review Profile
+          </Link>
+        </button>
       </div>
     </section>
   );

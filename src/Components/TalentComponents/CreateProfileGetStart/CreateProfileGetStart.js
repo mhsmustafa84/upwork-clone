@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function CreateProfileGetStart() {
+export default function CreateProfileGetStart({ setBtns, btns }) {
     return (
         <section className=" bg-white border rounded mt-3 pt-4">
             <div className="border-bottom ps-4">
@@ -19,7 +19,7 @@ export default function CreateProfileGetStart() {
                     <p>We are currently experiencing a high number of applications. Create a stand-out profile to increase your chances of getting approved!</p>
                 </div>
                 <div className="my-4 text-end">
-                    <Link className="btn bg-upwork" to="/create-profile/category">Start My Profile</Link>
+                    <Link className="btn bg-upwork" to="/create-profile/category" onClick={() => setBtns({ ...btns, category: false })}>Start My Profile</Link>
                 </div>
             </div>
         </section>

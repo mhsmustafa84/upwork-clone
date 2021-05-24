@@ -54,11 +54,12 @@ export default function LoginTemp() {
     e.preventDefault();
     auth.signInWithEmailAndPassword(user.email, user.password)
       .then(res => {
-        console.log(res);
+      
         if (res.user) {
-          console.log(res.user.displayName);
+          localStorage.setItem('userType',res.user.displayName)
           res.user.displayName === "talent" ?
-            push("/find-work") : push("/home");
+            push("/find-work") 
+            :push("/home");
         }
       })
       .catch((error) => {

@@ -1,8 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { useHistory } from "react-router-dom";
-// import ReviewProposalsCard from "../../../Components/ClientComponents/ReviewProposalsCard/ReviewProposalsCard";
-import SectionCenterTalentHome from "../../../Components/TalentComponents/SectionCenterTalentHome/SectionCenterTalentHome";
-import { Link} from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import SearchBarJobsClient from "../../../Components/ClientComponents/SearchBarJobsClient/SearchBarJobsClient";
 
@@ -316,9 +314,9 @@ export default function SearchClient() {
                 </div>
                 <div className="col-lg-10 col-xs-12">
                     <div>
-                        
+
                         <div className="list-group-item py-lg-4">
-                            <SearchBarJobsClient/>
+                            <SearchBarJobsClient />
                         </div>
                     </div>
                     <div className="row">

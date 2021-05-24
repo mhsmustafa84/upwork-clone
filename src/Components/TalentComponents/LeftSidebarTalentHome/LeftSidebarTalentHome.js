@@ -4,19 +4,31 @@ import React, { useEffect, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { talentDataAction } from "../../../Store/actions/talentData";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { SearchContext } from '../../../Context/SearchContext'
+import { db } from "../../../firebase";
 
 export default function LeftSidebarTalentHome() {
-  const { arr, setitemSearchList } = useContext(SearchContext);
+  const { arr,setarr, setitemSearchList } = useContext(SearchContext);
   const { t } = useTranslation();
   const user = useSelector(state => state.talentData);
+  const { push } = useHistory();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(talentDataAction());
+  setarr(JSON.parse(sessionStorage.getItem('searchArray')))
   }, []);
   const handleVal = (textSearch) => {
     setitemSearchList(textSearch)
+    let tempArr=[];
+    db.collection('job')
+    .where('skills', 'array-contains', textSearch)
+    .onSnapshot(
+      jobs=>jobs.docs.map(
+        item=>{
+        tempArr.push(item.data())
+        push({pathname:"/search",state:tempArr})
+      }))
   }
 
   return (
@@ -31,7 +43,6 @@ export default function LeftSidebarTalentHome() {
             className=" list-group-item-action sidebar-homebage-ul-li-aa activeside"
             aria-current="true"
           >
-
             {t("My Feed")}
           </a>
         </li>
@@ -65,35 +76,40 @@ export default function LeftSidebarTalentHome() {
         </li>
       </ul>
 
-      <h5 className="mb-lg-2 display-inline-block end">
-        {t("RecentSearch")}
-
-      </h5>
-
-
-
-      {arr.map((item) =>
+      
+      {arr!= null?
+      <h5 className="mb-lg-2 display-inline-block end">{t("RecentSearch")}</h5>:
+      null
+      }
+      {arr.reverse()?.map((item,index) =>
+      index >= arr.length-3 ? 
+     
         <ul
-          className="list-group sidebar-homebage-ul mb-lg-3 "
+          className="list-group sidebar-homebage-ul mb-lg-3 btn"
           style={{ fontSize: "0.9em" }}
         >
 
           <li
-            className="list-group-item sidebar-homebage-ul-li "
+            className="list-group-item sidebar-homebage-ul-li text-success "
             aria-current="true"
+
           >
-            <Link
+            <a
               onClick={() => handleVal(item)}
-              to="/search"
+             
               className=" list-group-item-action advanced-search-link"
               aria-current="true"
             >
               {item}
-            </Link>
+            </a>
 
           </li>
 
-        </ul>)}
+        </ul>
+
+     
+        :null
+       )}
 
 
 

@@ -9,17 +9,14 @@ import { talentDataAction } from "../../../Store/actions/talentData";
 export default function ConnectsAndSubmit({ connects }) {
   const { t } = useTranslation();
   const { id } = useParams();
-  const jobs = useSelector((state) => state.jobsData);
   const user = useSelector((state) => state.talentData);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(jobsDataAction());
     dispatch(talentDataAction());
-    console.log(jobs);
   }, []);
 
-  console.log(id, "dasdasda");
-  console.log(connects.RequiredConnects);
+  //console.log(id, "dasdasda");
+  //console.log(connects.RequiredConnects);
   return (
     <div className="bg-white py-lg-4 px-4 border border-1 row py-sm-3">
       <div className="d-lg-grid gap-2  mx-auto d-none">
