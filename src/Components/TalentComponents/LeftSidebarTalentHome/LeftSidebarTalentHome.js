@@ -21,14 +21,19 @@ export default function LeftSidebarTalentHome() {
   const handleVal = (textSearch) => {
     setitemSearchList(textSearch);
     let tempArr = [];
-    db.collection("job")
-      .where("skills", "array-contains", textSearch)
-      .onSnapshot((jobs) =>
-        jobs.docs.map((item) => {
-          tempArr.push(item.data());
-          push({ pathname: "/search", state: tempArr });
-        })
-      );
+    db.collection('job')
+    .where('skills', 'array-contains', textSearch)
+    .onSnapshot(
+      jobs=>jobs.docs.map(
+        item=>{
+        tempArr.push(item.data())
+        push({pathname:"/search",state:tempArr})
+      })
+    )
+      if(tempArr.length<=0){
+        
+        push('/search')
+      }
   };
 
   return (
@@ -75,23 +80,17 @@ export default function LeftSidebarTalentHome() {
         </li>
       </ul>
 
-      
-      {arr!= null?
-      <h5 className="mb-lg-2 display-inline-block end">{t("RecentSearch")}</h5>:
-      null
+      {arr != null ? (
+        <h5 className="mb-lg-2 display-inline-block end">
+          {t("RecentSearch")}
+        </h5>
+      ) : null
       }
-      {arr?.map((item,index) =>
-      index >= arr.length-3 ? 
-     
-        <ul
-          className="list-group sidebar-homebage-ul mb-lg-3 btn"
-          style={{ fontSize: "0.9em" }}
-        >
-
-          <li
-            className="list-group-item sidebar-homebage-ul-li text-success "
-            aria-current="true"
-
+      {arr?.slice().reverse()?.map((item, index) =>
+        index >= arr.length - 4 ? (
+          <ul
+            className="list-group sidebar-homebage-ul mb-lg-3 btn"
+            style={{ fontSize: "0.9em" }}
           >
             <li
               className="list-group-item sidebar-homebage-ul-li text-success "

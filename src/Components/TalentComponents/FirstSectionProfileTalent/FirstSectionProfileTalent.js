@@ -1,10 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { useEffect } from "react";
+import React,{ useEffect,useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { talentDataAction } from "../../../Store/actions/talentData";
 import img from "../../../assets/img/icon-user.svg";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import ShowMore from 'react-show-more-button/dist/module';
+import { updateUserData } from "../../../Network/Network";
+
+
+
 
 export default function FirstSectionProfileTalent() {
   const user = useSelector((state) => state.talentData);
@@ -15,15 +21,28 @@ export default function FirstSectionProfileTalent() {
   // let data = Object.values(user.data);
 
   const { t } = useTranslation();
+  const [inputVal, setinputVal] = useState("");
+  const [skillsList, setskillsList] = useState([]);
+  const skillVal=(e)=>{
+    setinputVal(e.target.value)
+  }
+  const addskills = () => {
+    if (inputVal!= "") {
+      let arr2=[...skillsList,inputVal];
+    setskillsList(arr2);
+    console.log(skillsList);
+    }
+    
+  };
   return (
     <>
       <div className="container card mb-3 mt-5">
         <div className="row mt-3">
-          <div className="col-lg-1 pt-lg-3">
+          <div className="col-lg-2 pt-lg-3">
             <div>
               <img
                 alt=""
-                className="rounded-circle avatar vertical-align-middle m-0 avatar-sm avatar-responsive"
+                className="mb-3 ms-3 rounded avatar vertical-align-middle m-0 avatar-sm avatar-responsive"
                 src={user.profilePhoto ? user.profilePhoto : img}
               />
               {/* <span className="hotspotimg">
@@ -78,9 +97,11 @@ export default function FirstSectionProfileTalent() {
           <div className="col-2"></div>
 
           <div className="col py-3 mx-1 float-end ">
-            <button type="button" className="btn btn-success px-4  mx-3">
-              {t("Profile Settings")}
-            </button>
+            <Link to="/settings">
+              <button type="button" className="btn btn-success px-4  mx-3">
+                {t("Profile Settings")}
+              </button>
+            </Link>
           </div>
 
           <hr />
@@ -167,16 +188,15 @@ export default function FirstSectionProfileTalent() {
 
             <div className="col-6">
               <h4 className="fw-bold"> {user?.title}</h4>
-              <p style={{ fontFamily: "Gotham SSm" }} className="mb-0 mt-4">
-                {user?.overview}
-              </p>
+              
+                <ShowMore style={{ fontFamily: "Gotham SSm" }} className="mb-0 mt-4" maxHeight={100} button={<button id="seemorebutton" classname="advanced-search-link " style={{ color: 'green', position: 'absolute', left: 0 }}>
+                  more
+      </button>}>
+                  {user?.overview}
+                </ShowMore>
+            
 
-              <button
-                className="btn btn-link mb-3 border rounded-border"
-                style={{ textDecoration: "none", color: "#008329" }}
-              >
-                {t("more")}
-              </button>
+
               <hr />
 
               <div className="row">
@@ -334,6 +354,7 @@ export default function FirstSectionProfileTalent() {
                 <hr />
                 <div className="row">
                   <h3 className="col-4 mx-0">{t("Portfolio")}</h3>
+                  
                   <button
                     type="button"
                     className=" col-1 btn btn-default d-flex justify-content-center border rounded-circle"
@@ -346,48 +367,13 @@ export default function FirstSectionProfileTalent() {
                       marginRight: 10,
                     }}
                     data-bs-toggle="modal"
-                    data-bs-target="#exampleModal13"
-                  >
-                    <div>
-                      <i className="fas fa-ellipsis-h"></i>{" "}
-                    </div>
-                  </button>
-                  <button
-                    type="button"
-                    className=" col-1 btn btn-default d-flex justify-content-center border rounded-circle"
-                    style={{
-                      width: 30,
-                      height: 30,
-                      textAlign: "center",
-                      paddingTop: 3,
-                      paddingBottom: 3,
-                      marginRight: 10,
-                    }}
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal13"
+                    data-bs-target="#modalPortfolioWithImages"
                   >
                     <div>
                       <i className="fas fa-plus"></i>{" "}
                     </div>
                   </button>
-                  <button
-                    type="button"
-                    className=" col-1 btn btn-default d-flex justify-content-center border rounded-circle"
-                    style={{
-                      width: 30,
-                      height: 30,
-                      textAlign: "center",
-                      paddingTop: 3,
-                      paddingBottom: 3,
-                      marginRight: 200,
-                    }}
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal13"
-                  >
-                    <div>
-                      <i className="fas fa-retweet"></i>{" "}
-                    </div>
-                  </button>
+                  
                 </div>
                 <div className="card-group">
                   <div className="card border border-0 mx-1">
@@ -425,6 +411,7 @@ export default function FirstSectionProfileTalent() {
                 <div className="row">
                   <h3 className="col mx-0">{t("Skills")}</h3>
                   <button
+                  
                     type="button"
                     className=" col-1 btn btn-default d-flex justify-content-center border rounded-circle"
                     style={{
@@ -436,24 +423,21 @@ export default function FirstSectionProfileTalent() {
                       marginRight: 350,
                     }}
                     data-bs-toggle="modal"
-                    data-bs-target="#exampleModal13"
+                    data-bs-target="#modalSkills"
                   >
                     <div>
                       <i className="fas fa-pen"></i>{" "}
                     </div>
                   </button>
                 </div>
-                <div className="row">
-                  {user?.skills?.map((task, index) => (
-                    <button
-                      type="button"
-                      className="btn btn-secondary btn-sm rounded-pill skills col mt-2 ms-1"
-                      key={index}
-                    >
-                      {task}
-                    </button>
-                  ))}
-                </div>
+                
+                <div className="my-4 d-flex justify-content-start">
+          {skillsList.map((item)=>
+          <div  className="chip mb-3 ms">
+            <span>{item}</span>
+          </div>
+          )}
+          </div> 
               </div>
             </div>
 
@@ -472,28 +456,14 @@ export default function FirstSectionProfileTalent() {
                   paddingBottom: 3,
                 }}
                 data-bs-toggle="modal"
-                data-bs-target="#exampleModal13"
+                data-bs-target="#modalProfileTitleAndDescription"
               >
                 <div>
                   <i className="fas fa-pen" />
                 </div>
               </button>
-              <button
-                type="button"
-                className="btn col-1 btn-default d-flex justify-content-center border rounded-circle mb-3"
-                style={{
-                  width: 30,
-                  height: 30,
-                  textAlign: "center",
-                  paddingTop: 3,
-                  paddingBottom: 3,
-                }}
-              >
-                <div>
-                  <i className="fas fa-link    "></i>
-                </div>
-              </button>
-              <hr />
+              
+            
             </div>
           </div>
         </div>
@@ -908,7 +878,227 @@ export default function FirstSectionProfileTalent() {
 
       <div
         className="modal fade"
-        id="exampleModal13"
+        id="modalProfileTitleAndDescription"
+        tabIndex={-1}
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">
+                Edit Profile
+              </h5>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              />
+            </div>
+            <div className="modal-body">
+              <form>
+                <div className="mb-3">
+                  <label
+                    htmlFor="exampleFormControlInput1"
+                    className="form-label fw-bold"
+                  >
+                    Profile title
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="exampleFormControlInput1"
+                  />
+                </div>
+               
+                <div className="mb-3">
+                  <label
+                    htmlFor="exampleFormControlTextarea1"
+                    className="form-label"
+                  >
+                    Overview
+                  </label>
+                  <textarea
+                    className="form-control"
+                    id="exampleFormControlTextarea1"
+                    rows={5}
+                    defaultValue={""}
+                  />
+                </div>
+              </form>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-link border rounded-border "
+                data-bs-dismiss="modal"
+                style={{
+                  color: "#008329",
+                  backgroundColor: "white",
+                  textDecoration: "none",
+                }}
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                className="btn btn-default border rounded-border"
+              >
+                Save{" "}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="modal fade"
+        id="modalPortfolioWithImages"
+        tabIndex={-1}
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">
+                Add Portofolio Item
+              </h5>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              />
+            </div>
+            <div className="modal-body">
+              <form>
+                <div className="mb-3">
+                  <label
+                    htmlFor="exampleFormControlInput1"
+                    className="form-label fw-bold"
+                  >
+                    Item Title
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="exampleFormControlInput1"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label
+                    htmlFor="exampleFormControlInput2"
+                    className="form-label fw-bold"
+                  >
+                    Add Image
+                  </label>
+                  <input
+                    type="file"
+                    className="form-control"
+                    id="exampleFormControlInput2"
+                  />
+                </div>
+
+                </form>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-link border rounded-border "
+                data-bs-dismiss="modal"
+                style={{
+                  color: "#008329",
+                  backgroundColor: "white",
+                  textDecoration: "none",
+                }}
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                className="btn btn-default border rounded-border"
+              >
+                Save{" "}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="modal fade"
+        id="modalSkills"
+        tabIndex={-1}
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">
+                Edit Skills
+              </h5>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              />
+            </div>
+            <div className="modal-body">
+              <form>
+                <div className="mb-3">
+                  <label
+                    htmlFor="exampleFormControlInput1"
+                    className="form-label fw-bold"
+                  >
+                    Skill name
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="exampleFormControlInput1"
+                    name="jobSkills"
+              onChange={skillVal}
+                  />
+                  
+                </div>
+              </form>
+            </div>
+            <div className="my-4 d-flex justify-content-start">
+          {skillsList.map((item)=>
+          <div  className="chip mb-3 ms">
+            <span>{item}</span>
+          </div>
+          )}
+          </div> 
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-link border rounded-border "
+                data-bs-dismiss="modal"
+                style={{
+                  color: "#008329",
+                  backgroundColor: "white",
+                  textDecoration: "none",
+                }}
+              >
+                Cancel
+              </button>
+              <button
+              onClick={addskills}
+                type="button"
+                className="btn btn-default border rounded-border"
+              >
+                Save{" "}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="modal fade"
+        id="modalEmploymentHistory"
         tabIndex={-1}
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
@@ -1147,6 +1337,96 @@ export default function FirstSectionProfileTalent() {
           </div>
         </div>
       </div>
+      <div
+        className="modal fade"
+        id="modalOtherExperience"
+        tabIndex={-1}
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">
+                Edit Employment
+              </h5>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              />
+            </div>
+            <div className="modal-body">
+              <form>
+                <div className="mb-3">
+                  <label
+                    htmlFor="exampleFormControlInput1"
+                    className="form-label fw-bold"
+                  >
+                    Company
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="exampleFormControlInput1"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label
+                    htmlFor="exampleFormControlInput2"
+                    className="form-label fw-bold"
+                  >
+                    Location
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="exampleFormControlInput2"
+                  />
+                </div>
+
+               
+                <div className="mb-3">
+                  <label
+                    htmlFor="exampleFormControlTextarea1"
+                    className="form-label"
+                  >
+                    Description
+                  </label>
+                  <textarea
+                    className="form-control"
+                    id="exampleFormControlTextarea1"
+                    rows={5}
+                    defaultValue={""}
+                  />
+                </div>
+              </form>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-link border rounded-border "
+                data-bs-dismiss="modal"
+                style={{
+                  color: "#008329",
+                  backgroundColor: "white",
+                  textDecoration: "none",
+                }}
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                className="btn btn-default border rounded-border"
+              >
+                Save{" "}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+                
     </>
   );
 }
