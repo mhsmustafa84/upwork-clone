@@ -58,30 +58,22 @@ export default function SubmitProposal() {
       setproposalData({ coverLitter: e.target.value });
     else {
       if (files[0]) {
-        const upload = storage
-          .ref(`proposalImages/${files[0].name}`)
-          .put(files[0]);
-        upload.on(
-          "state_changed",
-          (snapshot) => {},
-          (err) => {
-            console.log(err);
-          },
-          () => {
-            storage
-              .ref("proposalImages")
-              .child(files[0].name)
-              .getDownloadURL()
-              .then((url) => {
-                proposalData.proposalImages?.push(url);
-                setproposalData({
-                  ...proposalData,
-                  proposalImages: proposalData.proposalImages,
-                });
-                //console.log(proposalData);
-              });
-          }
-        );
+        const upload = storage.ref(`proposalImages/${files[0].name}`).put(files[0]);
+                    upload.on(
+                        "state_changed",
+                        (snapshot) => { },
+                        (err) => {
+                            console.log(err);
+                        },
+                        () => {
+                            storage.ref("proposalImages")
+                                .child(files[0].name)
+                                .getDownloadURL()
+                                .then(url => {
+                                  proposalData.proposalImages.push(url);
+                                    setproposalData({...proposalData,proposalImages:[...proposalData.proposalImages]})
+                                });
+                        })
       }
     }
   };

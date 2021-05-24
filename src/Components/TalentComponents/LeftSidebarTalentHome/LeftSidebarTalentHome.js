@@ -75,16 +75,23 @@ export default function LeftSidebarTalentHome() {
         </li>
       </ul>
 
-      {arr != null ? (
-        <h5 className="mb-lg-2 display-inline-block end">
-          {t("RecentSearch")}
-        </h5>
-      ) : null}
-      {arr?.map((item, index) =>
-        index >= arr.length - 3 ? (
-          <ul
-            className="list-group sidebar-homebage-ul mb-lg-3 btn"
-            style={{ fontSize: "0.9em" }}
+      
+      {arr!= null?
+      <h5 className="mb-lg-2 display-inline-block end">{t("RecentSearch")}</h5>:
+      null
+      }
+      {arr?.map((item,index) =>
+      index >= arr.length-3 ? 
+     
+        <ul
+          className="list-group sidebar-homebage-ul mb-lg-3 btn"
+          style={{ fontSize: "0.9em" }}
+        >
+
+          <li
+            className="list-group-item sidebar-homebage-ul-li text-success "
+            aria-current="true"
+
           >
             <li
               className="list-group-item sidebar-homebage-ul-li text-success "
