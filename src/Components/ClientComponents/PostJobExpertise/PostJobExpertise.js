@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { updateJob } from "../../../Network/Network";
 import "./PostJobExpertise.css";
+
 export default function PostJobExpertise({ setBtns, btns }) {
-  const [inputVal, setinputVal] = useState("");
-  const [skillsList, setskillsList] = useState([]);
+
+  const [inputVal, setInputVal] = useState("");
+  const [skillsList, setSkillsList] = useState([]);
   const [job, setJob] = useState({ jobExperienceLevel: "", jobSkills: [] });
 
   const getData = (e) => {
@@ -12,23 +14,20 @@ export default function PostJobExpertise({ setBtns, btns }) {
     const name = e.target.name;
     switch (name) {
       case "jobExperienceLevel":
-        job.jobExperienceLevel = val;
-        setJob({ ...job, jobExperienceLevel: job.jobExperienceLevel });
+        setJob({ ...job, jobExperienceLevel: val });
         break;
       case "jobSkills":
-        setinputVal(val);
+        setInputVal(val);
         break;
       default:
         break;
     }
   };
 
-  const addskills = () => {
-    let arr2=[...skillsList,inputVal];
-    setskillsList(arr2);
-    console.log(skillsList);
-    setJob({...job,jobSkills:skillsList})
- 
+  const addSkills = () => {
+    setSkillsList([...skillsList, inputVal]);
+    setJob({ ...job, jobSkills: skillsList });
+    setInputVal("");
   };
 
   const addData = () => {
@@ -48,6 +47,7 @@ export default function PostJobExpertise({ setBtns, btns }) {
         <div className="px-4 mt-3">
           <p className="fw-bold mt-2">
             What level of experience should your freelancer have?
+             <span className="text-danger"> *</span>
           </p>
           <div
             className="my-4 d-flex justify-content-between"
@@ -86,42 +86,49 @@ export default function PostJobExpertise({ setBtns, btns }) {
               </div>
             </label>
           </div>
-          <p className="fw-bold">Enter the skills of your job post</p>
+          <p className="fw-bold mt-5">Enter the skills of your job post</p>
           <div className="my-4 d-flex justify-content-between">
             <input
               className="form-control w-75 shadow-none"
               type="text"
               name="jobSkills"
+              value={inputVal}
               onChange={getData}
             />
-            <button className="btn bg-upwork px-5" onClick={addskills}>
+            <button className="btn bg-upwork px-5" disabled={!inputVal} onClick={addSkills}>
               Add
             </button>
             <div className="my-4 d-flex justify-content-between"></div>
           </div>
-          {skillsList.map((item)=><div  className="chip mb-3 ms">
-
-          <span>{item}</span>
-          </div>)}
-            
+          {
+            skillsList.map((item, index) =>
+              <div className="chip mb-3 ms" key="index">
+                <span>{item}</span>
+              </div>
+            )
+          }
         </div>
       </section>
 
       <section className="bg-white border rounded mt-3">
         <div className="ps-4 my-3">
-          <Link
-            className="btn border text-success me-4 px-5"
-            to="/post-job/details"
-          >
-            Back
-          </Link>
-          <Link
-            className="btn bg-upwork px-5"
-            to="/post-job/visibility"
-            onClick={addData}
-          >
-            Next
-          </Link>
+          <button className="btn">
+            <Link
+              className="btn border text-success me-4 px-5"
+              to="/post-job/details"
+            >
+              Back
+           </Link>
+          </button>
+          <button className={`btn ${job.jobExperienceLevel === "" && "disabled"}`}>
+            <Link
+              className="btn bg-upwork px-5"
+              to="/post-job/visibility"
+              onClick={addData}
+            >
+              Next
+            </Link>
+          </button>
         </div>
       </section>
     </>

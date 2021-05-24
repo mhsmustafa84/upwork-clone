@@ -61,7 +61,6 @@ export default function PostJobDescription({ setBtns, btns }) {
                 <p>Step 2 of 7</p>
             </div>
             <div className="ps-4 mt-3">
-
                 <p className="fw-bold mt-2">A good description includes:</p>
                 <ul style={{ listStyle: "disc" }}>
                     <li>What the deliverable is</li>
@@ -95,8 +94,12 @@ export default function PostJobDescription({ setBtns, btns }) {
                 <p className="my-3">You may attach up to 5 files under <strong>100 MB</strong> each</p>
             </div>
             <div className="ps-4 my-3 pt-4 pb-3 pt-3 border-top">
-                <Link className="btn border text-success me-4 px-5" to="/post-job/title">Back</Link>
-                <Link className="btn bg-upwork px-5" to="/post-job/details" onClick={addData}>Next</Link>
+                <button className="btn">
+                    <Link className="btn border text-success me-4 px-5" to="/post-job/title">Back</Link>
+                </button>
+                <button className={`btn ${job.jobDescription === "" && "disabled"}`}>
+                    <Link className="btn bg-upwork px-5" to="/post-job/details" onClick={addData}>Next</Link>
+                </button>
             </div>
         </section>
     )

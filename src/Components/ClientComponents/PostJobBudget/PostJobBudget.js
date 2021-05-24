@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import firebaseApp from '../../../firebase';
+// import { auth, db } from '../../../firebase';
 import { updateJob } from '../../../Network/Network';
 import './PostJobBudget.css'
 
 export default function PostJobBudget({ setBtns, btns }) {
-    const [userData, setuserData] = useState({})
+    // const [userData, setUserData] = useState({})
 
-    firebaseApp.firestore().collection('client').doc(firebaseApp.auth().currentUser.uid).get().then((res) => setuserData(res.data()))
-    console.log(userData)
+    // db.collection('client').doc(auth.currentUser.uid).get().then(res => setUserData(res.data()))
+    // console.log(userData)
 
-    const [job, setJob] = useState({ jobPaymentType: "", jobBudget: "", connects: 2 });
+    const [job, setJob] = useState({ jobPaymentType: "", jobBudget: "" });
 
     const getData = e => {
         const val = e.target.value;
@@ -88,8 +88,12 @@ export default function PostJobBudget({ setBtns, btns }) {
 
             <section className="bg-white border rounded mt-3">
                 <div className="ps-4 my-3">
-                    <Link className="btn border text-success me-4 px-5" to="/post-job/visibility">Back</Link>
-                    <Link className="btn bg-upwork px-5" to="/post-job/review" onClick={addData}>Next</Link>
+                    <button className="btn">
+                        <Link className="btn border text-success me-4 px-5" to="/post-job/visibility">Back</Link>
+                    </button>
+                    <button className={`btn ${job.jobPaymentType === "" || job.jobBudget === "" || job.jobBudget === "0" ? "disabled" : ""}`}>
+                        <Link className="btn bg-upwork px-5" to="/post-job/review" onClick={addData}>Next</Link>
+                    </button>
                 </div>
             </section>
         </>

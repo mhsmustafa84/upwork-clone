@@ -8,9 +8,8 @@ export default function PostJobDetails({ setBtns, btns }) {
     const [job, setJob] = useState({ jobType: "" });
 
     const getData = e => {
-        job.jobType = e.target.value;
-        setJob(job)
-    }
+        setJob({ jobType: e.target.value });
+    };
 
     const addData = () => {
         console.log(job);
@@ -18,7 +17,7 @@ export default function PostJobDetails({ setBtns, btns }) {
         console.log(id);
         updateJob(job, id);
         setBtns({ ...btns, expertise: false });
-    }
+    };
 
     return (
         <>
@@ -54,8 +53,12 @@ export default function PostJobDetails({ setBtns, btns }) {
 
             <section className="bg-white border rounded mt-3">
                 <div className="ps-4 my-3">
-                    <Link className="btn border text-success me-4 px-5" to="/post-job/description">Back</Link>
-                    <Link className="btn bg-upwork px-5" to="/post-job/expertise" onClick={addData}>Next</Link>
+                    <button className="btn">
+                        <Link className="btn border text-success me-4 px-5" to="/post-job/description">Back</Link>
+                    </button>
+                    <button className={`btn ${job.jobType === "" && "disabled"}`}>
+                        <Link className="btn bg-upwork px-5" to="/post-job/expertise" onClick={addData}>Next</Link>
+                    </button>
                 </div>
             </section>
         </>

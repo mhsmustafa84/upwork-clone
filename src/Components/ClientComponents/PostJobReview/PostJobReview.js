@@ -23,6 +23,11 @@ export default function PostJobReview() {
         localStorage.removeItem("docID");
     }
 
+    const deletePost = () => {
+        db.collection("job").doc(id).delete();
+        localStorage.removeItem("docID");
+    }
+
     return (
         <>
             <section className=" bg-white border rounded mt-3">
@@ -123,7 +128,7 @@ export default function PostJobReview() {
                 </div>
                 <div className="ps-4 my-3 border-top pt-4">
                     <Link className="btn bg-upwork me-4 px-5" to="/" onClick={publishJob}>Post Job Now</Link>
-                    <Link className="btn border text-success px-5" to="/home">Save & Exit</Link>
+                    <Link className="btn border text-success px-5" to="/home" onClick={deletePost}>Delete & Exit</Link>
                 </div>
             </section>
         </>
