@@ -20,7 +20,7 @@ export default function JobDescriptionJobDetails({ job }) {
           <i className="fas fa-street-view" style={{ color: "#14bff4" }}>
             {" "}
           </i>{" "}
-          Worldwide
+          {t("Worldwide")}
         </span>
       </div>
       <div className="bg-white py-lg-4 px-4 border border-1 row py-xs-5">
@@ -68,7 +68,7 @@ export default function JobDescriptionJobDetails({ job }) {
           </div>{" "}
           <small className="text-muted">
             <span className="d-none d-lg-inline">
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Experience Level
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{t("Experience Level")}
             </span>{" "}
           </small>
         </li>
@@ -86,7 +86,7 @@ export default function JobDescriptionJobDetails({ job }) {
           </div>
           <small className="text-muted">
             <span className="d-none d-lg-inline">
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Job Duration
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{t("Job Duration")}
             </span>{" "}
           </small>
         </li>
@@ -128,7 +128,7 @@ export default function JobDescriptionJobDetails({ job }) {
             >
               <path d="M7 0a7 7 0 100 14A7 7 0 007 0zm3.017 4.981c0 1.57-1.128 2.278-2.52 2.52l-.131 1.03h-.96l-.251-2.015.059-.06c1.608-.06 2.327-.588 2.327-1.44v-.023c0-.72-.551-1.236-1.462-1.236-.804 0-1.464.36-2.064 1.008l-.9-.948c.72-.827 1.644-1.39 3-1.39 1.738 0 2.902.983 2.902 2.53v.024zm-3.958 6.284V9.598h1.606v1.667H6.059z"></path>
             </svg>{" "}
-            Less than 5
+            {t("Less than 5")}
           </p>
           <p className="my-lg-1">
             <span className="text-muted">Last viewed by client: </span>

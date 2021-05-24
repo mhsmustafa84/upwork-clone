@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { SearchContext } from '../../../Context/SearchContext'
+import searchSvg from '../../../assets/svg/search.svg'
 import SearchBarJobsTalent from "../../../Components/TalentComponents/SearchBarJobsTalent/SearchBarJobsTalent";
 
 export default function Search(props) {
@@ -366,6 +367,13 @@ export default function Search(props) {
                             <SearchBarJobsTalent />
                         </div>
                     </div>
+                    {searchData==null ?
+                     <div className='col-10'>
+                         <img className='mx-auto' src={searchSvg} /> 
+                    </div>
+                    :
+                    null
+                    }
                     {searchData?.map((item) => (
                         <div>
                             <div className="list-group-item">
