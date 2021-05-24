@@ -8,9 +8,9 @@ export default function SignupFooter() {
     return (
         <footer className="text-center">
             <ul className="list-unstyled text-white">
-                <li>{t("UpworkGlobalInc")}</li>
+                <li>{t("Upwork Global Inc")}</li>
                 <li>
-                    <a href="#">{t("AboutUs")}</a>
+                    <a href="#">{t("About Us")}</a>
                 </li>
                 <li>
                     <a href="#">{t("Feedback")}</a>
