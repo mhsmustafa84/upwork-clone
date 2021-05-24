@@ -5,9 +5,13 @@ import "react-bootstrap/dist/react-bootstrap";
 import "react-bootstrap-country-select/dist/react-bootstrap-country-select.css";
 import { updateUserData } from "./../../../Network/Network";
 
-export default function CreateProfileLocation() {
+export default function CreateProfileLocation({ setBtns, btns }) {
   let [country, setCountry] = useState("");
-  const [location, setLocation] = useState({ country: "", city: "", street: "" });
+  const [location, setLocation] = useState({
+    country: "",
+    city: "",
+    street: "",
+  });
 
   const getData = (e) => {
     const val = e.target.value;
@@ -19,26 +23,26 @@ export default function CreateProfileLocation() {
         break;
       case "street":
         location.street = val;
-        setLocation(
-          { ...location, street: location.street },
-        );
+        setLocation({ ...location, street: location.street });
         break;
       default:
         break;
     }
-    if (country.name) {
-      setLocation(
-        {
-          ...location,
-          country: country.name,
-        }
-      );
+    if (country) {
+      setLocation({
+        ...location,
+        country: country.name,
+      });
     }
   };
 
   const addData = () => {
-    updateUserData("talent", { location: { ...location } });
+    updateUserData("talent", {
+      location: { ...location },
+      profileCompletion: 90,
+    });
     console.log(location);
+    setBtns({ ...btns, PhoneNumber: false })
   };
   return (
     <section className="bg-white border rounded mt-3 pt-4">
@@ -55,13 +59,15 @@ export default function CreateProfileLocation() {
         </p>
         <p>
           <strong>Country</strong>
+          <span className="text-danger"> *</span>
         </p>
         <CountrySelect className="w-50" value={country} onChange={setCountry} />
         <label className="mt-4 w-50">
-          <strong className="d-block mb-2">City</strong>
+          <strong className="mb-2">City</strong>
+          <span className="text-danger"> *</span>
           <input
             type="text"
-            className="form-control"
+            className="form-control mt-2"
             name="city"
             autoComplete="disabled"
             onInput={getData}
@@ -79,19 +85,23 @@ export default function CreateProfileLocation() {
         </label>
       </div>
       <div className="px-4 my-3 pt-4 border-top d-flex justify-content-between">
-        <Link
-          className="btn border text-success me-4 px-5 fw-bold"
-          to="/create-profile/profile-photo"
-        >
-          Back
+        <button className="btn">
+          <Link
+            className="btn border text-success me-4 px-5 fw-bold"
+            to="/create-profile/profile-photo"
+          >
+            Back
+          </Link>
+        </button>
+        <button className={`btn ${country === "" || country === null || location.city === "" ? "disabled" : ""}`}>
+          <Link
+            className="btn bg-upwork px-5"
+            to="/create-profile/phone-number"
+            onClick={addData}
+          >
+            Next
         </Link>
-        <Link
-          className="btn bg-upwork px-5"
-          to="/create-profile/phone-number"
-          onClick={addData}
-        >
-          Next
-        </Link>
+        </button>
       </div>
     </section>
   );

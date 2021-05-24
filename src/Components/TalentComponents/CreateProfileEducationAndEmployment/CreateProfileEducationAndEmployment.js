@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { updateUserData } from "../../../Network/Network";
 
-export default function CreateProfileEducationAndEmployment() {
+export default function CreateProfileEducationAndEmployment({ setBtns, btns }) {
+
   const [user, setuser] = useState({
     school: "",
-    company: { companyName: "", jobTitile: "", stillWork: false }
+    company: { companyName: "", jobTitile: "", stillWork: false },
+    profileCompletion: 40,
   });
   const getUserData = (e) => {
     const val = e.target.value;
@@ -21,7 +23,10 @@ export default function CreateProfileEducationAndEmployment() {
         setuser({ ...user, company: { ...user.company, jobTitile: val } });
         break;
       case "stillwork":
-        setuser({ ...user, company: { ...user.company, stillWork: e.target.checked } });
+        setuser({
+          ...user,
+          company: { ...user.company, stillWork: e.target.checked },
+        });
         break;
       default:
         break;
@@ -29,8 +34,8 @@ export default function CreateProfileEducationAndEmployment() {
   };
   const updateUser = () => {
     console.log(user);
-
     updateUserData("talent", user);
+    setBtns({ ...btns, language: false })
   };
   return (
     <section className="bg-white border rounded mt-3 pt-4">
@@ -41,7 +46,7 @@ export default function CreateProfileEducationAndEmployment() {
         <div>
           <p className="fw-bold">Add School</p>
           <label className="w-100">
-            School
+            School <span className="text-danger">*</span>
             <input
               className="form-control shadow-none"
               name="school"
@@ -81,16 +86,20 @@ export default function CreateProfileEducationAndEmployment() {
         </div>
       </div>
       <div className="px-4 my-3 pt-4 border-top d-flex justify-content-between">
-        <Link className="btn border text-success me-4 px-5 fw-bold" to="/home">
-          Back
+        <button className="btn">
+          <Link className="btn border text-success me-4 px-5 fw-bold" to="/create-profile/expertise-level">
+            Back
         </Link>
-        <Link
-          className="btn bg-upwork px-5"
-          to="/create-profile/language"
-          onClick={updateUser}
-        >
-          Next
+        </button>
+        <button className={`btn ${user.school === "" && "disabled"}`}>
+          <Link
+            className="btn bg-upwork px-5"
+            to="/create-profile/language"
+            onClick={updateUser}
+          >
+            Next
         </Link>
+        </button>
       </div>
     </section>
   );

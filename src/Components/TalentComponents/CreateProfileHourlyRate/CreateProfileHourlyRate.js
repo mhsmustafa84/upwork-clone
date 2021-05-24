@@ -1,19 +1,20 @@
 /* eslint-disable */
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { updateUserData } from "./../../../Network/Network";
 import "./CreateProfileHourlyRate.css";
-import { updateUserData } from './../../../Network/Network';
 
-export default function CreateProfileHourlyRate() {
-  let [rate, setrate] = useState(0);
+export default function CreateProfileHourlyRate({ setBtns, btns }) {
+  let [rate, setRate] = useState("");
   const rateNum = (e) => {
     rate = e.target.value;
-    setrate(rate);
+    setRate(rate);
   };
   const addRate = () => {
     console.log(rate);
-    updateUserData("talent", { hourlyRate: rate });
-  }
+    updateUserData("talent", { hourlyRate: rate, profileCompletion: 60 });
+    setBtns({ ...btns, titleAndOverview: false })
+  };
   return (
     <section className=" bg-white border rounded mt-3 pt-4">
       <div className="border-bottom ps-4 pb-3">
@@ -91,19 +92,23 @@ export default function CreateProfileHourlyRate() {
         </div>
       </div>
       <div className="px-4 my-3 pt-4 border-top d-flex justify-content-between">
-        <Link
-          className="btn border text-success me-4 px-5 fw-bold"
-          to="/create-profile/language"
-        >
-          Back
+        <button className="btn">
+          <Link
+            className="btn border text-success me-4 px-5 fw-bold"
+            to="/create-profile/language"
+          >
+            Back
+          </Link>
+        </button>
+        <button className={`btn ${rate === "0" || rate === "" ? "disabled" : ""}`}>
+          <Link
+            className="btn bg-upwork px-5"
+            to="/create-profile/title-and-overview"
+            onClick={addRate}
+          >
+            Next
         </Link>
-        <Link
-          className="btn bg-upwork px-5"
-          to="/create-profile/title-and-overview"
-          onClick={addRate}
-        >
-          Next
-        </Link>
+        </button>
       </div>
     </section>
   );

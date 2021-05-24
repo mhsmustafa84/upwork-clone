@@ -28,15 +28,14 @@ export default function ClientRoutes() {
         <Route path="/messages" exact component={Messages} />
         <Route path="/all-job-posts" exact component={AllJobPosts} />
         <Route path="/all-contracts" exact component={AllContract} />
-        <Route path="/bring-your-own-talent" exactcomponent={BringYourTalent} />
+        <Route path="/bring-your-own-talent" exact component={BringYourTalent} />
         <Route path="/email-verification" component={EmailVerified} />
         <Route path="/post-job" component={PostJob} />
         <Route path="/talent" component={Talent} />
-        <Route path="/review-proposal" component={ReviewProposals} />
+        <Route path="/review-proposal/:id" exact component={ReviewProposals} />
         <Route path="/billing-history" exact component={Reports} />
         <Route path="/transaction-history" exact component={TransactionHistory} />
         <Route path="**" component={PageNotFound} />
-        {/* <Route path="**" component={PageNotFound} /> */}
       </Switch>
       <Footer />
     </>

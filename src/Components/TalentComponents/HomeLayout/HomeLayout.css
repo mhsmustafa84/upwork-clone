@@ -106,9 +106,10 @@ body{
 #seemorebutton {
     background-color: #fff;
     border: none;
+    position: relative;
+    align-items: flex-start;
 
 
-    display: inline;
 }
 
 .skills {

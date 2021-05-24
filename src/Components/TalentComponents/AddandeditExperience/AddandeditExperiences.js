@@ -1,16 +1,25 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { talentDataAction } from "../../../Store/actions/talentData";
 
 export default function AddandeditExperience() {
+  const user = useSelector((state) => state.talentData);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(talentDataAction());
+  }, []);
   const { t } = useTranslation();
   return (
     <>
-      <style
+      {/* <style
         dangerouslySetInnerHTML={{
           __html:
             "\n    @import url(//db.onlinewebfonts.com/c/3def92f7b2ad644bd382798ecc8ca4c7?family=Canela);\n     {\n        .container {\n             ;\n        }\n    }\n\n    * {\n        margin: 0;\n        padding: 0;\n        \n\n    }\n    body{\n        ;\n\n    }\n",
         }}
-      />
+      /> */}
       <div className="container card my-5">
         <div className="row mt-3">
           <div className="col-md-8">
@@ -40,22 +49,28 @@ export default function AddandeditExperience() {
             {/* soft skills */}
             <div className="col-md-6">
               <h5>{t("Softskills")}</h5>
-              <p style={{ fontFamily: "Gotham SSm" }} className="mb-0">
-                Trainee at Marketing with Amir (MWA) course (2019)
-              </p>
-              <p style={{ fontFamily: "Gotham SSm" }} className="mb-0">
-                Trainee at Presentation skills CDC_SUV (2018)
-              </p>
-              <p style={{ fontFamily: "Gotham SSm" }} className="mb-0">
-                Trainee at Completed TIEC Capacity Building program for
-                universities at InnovEgypt
-              </p>
-              <button
-                className="btn btn-link border rounded-border mb-3"
-                style={{ textDecoration: "none", color: "#008329" }}
-              >
-                {t("more")}
-              </button>
+              <div>
+                {user?.otherExperience?.map((task, index) => (
+                  <div className="row">
+                    <div className="col-8">
+                      <p
+                        style={{ fontFamily: "Gotham SSm" }}
+                        key={index}
+                        className="mb-0"
+                      >
+                        {task}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+
+                <button
+                  className="btn btn-link border rounded-border mb-3"
+                  style={{ textDecoration: "none", color: "#008329" }}
+                >
+                  {t("more")}
+                </button>
+              </div>
             </div>
             {/* icons */}
             <div className="col-md-6 d-flex justify-content-end  ">
