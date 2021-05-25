@@ -1,105 +1,112 @@
-/* eslint-disable */
-import React from 'react'
-import ImgWithActiveStatus from "./../../../Components/ClientComponents/ImgWithActiveStatus/ImgWithActiveStatus";
-
+/* eslint-disable array-callback-return */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/alt-text */
+import { useEffect, useState } from "react"
+import { db } from "../../../firebase"
+import { useParams } from 'react-router';
+import Loader from './../../SharedComponents/Loader/Loader';
+import img from "../../../assets/img/icon-user.svg";
+import ReviewProposalsPageHeader from './../ReviewProposalsPageHeader/ReviewProposalsPageHeader';
+import { Link } from "react-router-dom";
 
 export default function ReviewProposalsCard() {
+
+  const { id } = useParams();
+
+  const [proposals, setProposals] = useState([]);
+  const [talent, setTalent] = useState([]);
+
+  useEffect(async () => {
+    await db.collection("job").doc(id).collection("proposals").get().then(res => {
+      res.docs.map(async proposal => {
+        proposals.push(proposal.data());
+        await db.collection("talent").doc(proposal.data().talentId).get().then(doc => {
+          talent.push(doc.data())
+          setTalent([...talent]);
+        });
+      });
+      setProposals([...proposals]);
+    });
+  }, []);
+
+  const sendMSG = talentDocID => {
+    console.log(talentDocID);
+  }
+
+
   return (
-    <div>
-      <div className="row border bg-white border-1">
-        <div className="col-1 pt-lg-3">
-          <ImgWithActiveStatus />
-        </div>
-        <div className="col-lg-6 pt-lg-3 ">
-          <a
-            href
-            id="job-title-home-page "
-            className="link-dark job-title-hover "
-          >
-            <p className="fw-bold text-success">Anva D.</p>
-          </a>
-          <a href id="job-title-home-page " className="link-dark">
-            <p className="fw-bold ">Youtube Thumbnail designer</p>
-          </a>
-          <span className="text-muted">Poland</span>
-          <div className="row py-3">
-            <div className="col">
-              <span className="fw-bold">$30.00</span>
-              <span className="text-muted"> /hr</span>
+    <>
+      <ReviewProposalsPageHeader proposals={proposals.length} />
+      {proposals.length > 0 && talent.length > 0 ?
+        proposals.map((proposal, index) => {
+          return <div className="row border bg-white border-1 ms-0 pt-2" key={index}>
+            <div className="col-1 pt-lg-3">
+              <img className="circle" src={talent[index]?.profilePhoto ? talent[index]?.profilePhoto : img} style={{ width: "70px", height: "70px" }} />
             </div>
-            <div className="col">
-              <span className="fw-bold">$30</span> +{" "}
-              <span className="text-muted"> earned</span>
+            <div className="col-lg-6 pt-lg-3 ">
+              <Link
+                to={`/talent-profile/${talent[index]?.authID}`}
+                id="job-title-home-page "
+                className="link-dark job-title-hover fw-bold text-success"
+              >
+                {talent[index]?.firstName + " " + talent[index]?.lastName[0].toUpperCase() + "."}
+              </Link>
+              <p id="job-title-home-page" className="fw-bold link-dark my-1">{talent[index]?.title}</p>
+              <span className="text-muted">{talent[index]?.location?.country}</span>
+              <div className="row py-3">
+                <div className="col">
+                  <span className="fw-bold">Hourly Rate: {talent[index]?.hourlyRate}</span>
+                  <span className="text-muted"> /hr</span>
+                </div>
+                <div className="col">
+                  <span className="fw-bold">{talent[index]?.totalEarnings}</span>
+                  <span className="text-muted"> earned</span>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div className="col py-3">
-          <div className="btn-group float-end ">
-            <button
-              type="button"
-              className="btn btn-light dropdown-toggle border border-1 rounded-circle collapsed"
-              data-toggle="collapse"
-              data-target="#collapse"
-              aria-expanded="false"
-              aria-controls="collapseTwo"
-            >
-              <i
-                className="far fa-thumbs-up"
-                aria-hidden="true"
-                onclick="this.classList.toggle('fas')"
-              />
-            </button>
-          </div>
-          <div className="btn-group float-start">
-            <button
-              type="button"
-              className="btn btn-light dropdown-toggle border border-1 rounded-circle"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <i className="far fa-thumbs-down" />
-            </button>
-            <ul className="dropdown-menu ">
-              <li>
-                <a className="dropdown-item" href="#">
-                  Candidate will not be notified
+            <div className="col py-3">
+              <div className="btn-group float-end ">
+              </div>
+              <div className="btn-group float-start">
+
+                <ul className="dropdown-menu ">
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Candidate will not be notified
                 </a>
-              </li>
-            </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="col py-3">
+              <Link to="/messagess" className="btn bg-white btn-outline-secondary" onClick={() => sendMSG(talent[index]?.authID)}>
+                <span className="text-success fw-bold">Messages</span>
+              </Link>
+            </div>
+            <div className="col py-3">
+              <button type="button" className="btn bg-upwork px-5">
+                Hire
+          </button>
+            </div>
+
+            <div className="col-lg-1 pt-lg-3"></div>
+            <div className="col-lg-10 pt-lg-3 mx-3">
+              <p className="text-muted">
+                <strong>
+                  Specialized in:
+              </strong>
+                <span> {talent[index]?.jobCategory}</span>
+              </p>
+              <p id="Cover-Letter">
+                <span className="fw-bold">Cover Letter - </span>
+                {proposal.coverLitter}
+              </p>
+            </div>
           </div>
-        </div>
-        <div className="col py-3">
-          <button type="button" className="btn bg-white btn-outline-secondary">
-            <span className="text-success fw-bold">Messages</span>
-          </button>
-        </div>
-        <div className="col py-3">
-          <button type="button" className="btn bg-upwork px-5">
-            Hire
-          </button>
-        </div>
-
-        <div className="col-lg-1 pt-lg-3"></div>
-        <div className="col-lg-10 pt-lg-3 mx-3">
-          <p className="text-muted">
-            <span>
-              <i className="fas fa-star" /> Specialized in
-            </span>
-            <span> Graphic Design</span>
-          </p>
-          <p id="Cover-Letter">
-            <span className="fw-bold">Cover Letter - </span>
-            Hi, I like how you described what you're looking for - it seems to
-            be an exciting project! What's your main goal? Do you have any extra
-            wishes? Best wishes, Anna Dembov P.S. https://behance.net/annadembov
-            https://www.linkedin.com/in<span id="dots">...</span>
-            <span id="more">
-              /anna-dembov-91a32b1b3
-            </span>
-          </p>
-        </div>
-      </div>
-
-    </div>
+        })
+        : <Loader />
+      }
+    </>
   )
 }

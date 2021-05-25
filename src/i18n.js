@@ -12,7 +12,6 @@ import ar from './Localization/ar.json';
 
 let language = JSON.parse(localStorage.getItem('lang')) || 'en';
 
-console.log(language);
 if (language === undefined) {
   language = 'ar';
 }
