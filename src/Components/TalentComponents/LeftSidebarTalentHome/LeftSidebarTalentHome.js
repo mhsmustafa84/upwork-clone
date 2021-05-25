@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useContext } from "react";
@@ -14,21 +15,30 @@ export default function LeftSidebarTalentHome() {
   const user = useSelector((state) => state.talentData);
   const { push } = useHistory();
   const dispatch = useDispatch();
+  
   useEffect(() => {
     dispatch(talentDataAction());
-    setarr(JSON.parse(sessionStorage.getItem("searchArray")));
+    user.searchHistory != null ?
+     sessionStorage.setItem("searchArray", user?.searchHistory):
+     setarr(user?.searchHistory)
+    //setarr(JSON.parse(sessionStorage.getItem("searchArray")))
   }, []);
   const handleVal = (textSearch) => {
     setitemSearchList(textSearch);
     let tempArr = [];
-    db.collection("job")
-      .where("skills", "array-contains", textSearch)
-      .onSnapshot((jobs) =>
-        jobs.docs.map((item) => {
-          tempArr.push(item.data());
-          push({ pathname: "/search", state: tempArr });
-        })
-      );
+    db.collection('job')
+      .where('skills', 'array-contains', textSearch)
+      .onSnapshot(
+        jobs => jobs.docs.map(
+          item => {
+            tempArr.push(item.data())
+            push({ pathname: "/search", state: tempArr })
+          })
+      )
+    if (tempArr.length <= 0) {
+
+      push('/search')
+    }
   };
 
   return (
@@ -79,9 +89,10 @@ export default function LeftSidebarTalentHome() {
         <h5 className="mb-lg-2 display-inline-block end">
           {t("RecentSearch")}
         </h5>
-      ) : null}
-      {arr?.map((item, index) =>
-        index >= arr.length - 3 ? (
+      ) : null
+      }
+      {arr?.slice().reverse()?.map((item, index) =>
+        index >= arr.length - 4 ? (
           <ul
             className="list-group sidebar-homebage-ul mb-lg-3 btn"
             style={{ fontSize: "0.9em" }}
@@ -89,6 +100,7 @@ export default function LeftSidebarTalentHome() {
             <li
               className="list-group-item sidebar-homebage-ul-li text-success "
               aria-current="true"
+
             >
               <a
                 onClick={() => handleVal(item)}

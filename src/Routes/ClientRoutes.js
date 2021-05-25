@@ -15,6 +15,7 @@ import ReviewProposals from "../Pages/ClientPages/ReviewProposals/ReviewProposal
 import EmailVerified from "./../Pages/EmailVerification/EmailVerified";
 import TransactionHistory from "../Pages/TalentPages/Reports/TransactionHistory/TransactionHistory";
 import TalentProfile from "../Pages/ClientPages/TalentProfile/talentProfile";
+import PleaseVerifiy from "../Pages/EmailVerification/PleaseVerifiy";
 
 export default function ClientRoutes() {
   const { pathname } = useLocation();
@@ -35,6 +36,7 @@ export default function ClientRoutes() {
           component={BringYourTalent}
         />
         <Route path="/email-verification" component={EmailVerified} />
+        <Route path="/sign-up/please-verify" exact component={PleaseVerifiy} />
         <Route path="/post-job" component={PostJob} />
         <Route path="/talent" component={Talent} />
         <Route path="/talent-profile/:id" exact component={TalentProfile} />

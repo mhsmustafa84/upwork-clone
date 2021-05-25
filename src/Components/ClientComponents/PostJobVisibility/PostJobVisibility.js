@@ -134,21 +134,14 @@ export default function PostJobVisibility({ setBtns, btns }) {
 
       <section className="bg-white border rounded mt-3">
         <div className="ps-4 my-3">
-          <Link
-            className="btn border text-success me-4 px-5"
-            to="/post-job/expertise"
-          >
-            {t("Back")}
-          </Link>
-          <Link
-            className="btn bg-upwork px-5"
-            to="/post-job/budget"
-            onClick={addData}
-          >
-            {t("Next")}
-          </Link>
+          <button className="btn">
+            <Link className="btn border text-success me-4 px-5" to="/post-job/expertise">{t("Back")}</Link>
+          </button>
+          <button className={`btn ${job.jobVisibility === "" || job.freelancerNeed === "" ? "disabled" : ""}`}>
+            <Link className="btn bg-upwork px-5" to="/post-job/budget" onClick={addData}>{t("Next")}</Link>
+          </button>
         </div>
       </section>
     </>
-  );
+  )
 }

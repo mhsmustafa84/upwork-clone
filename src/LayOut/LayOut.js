@@ -10,23 +10,12 @@ export default function LayOut() {
   const [usr, setUsr] = useState(null);
   const [usrType, setUsrType] = useState("");
 
-  const getUserType = (collectionName) => {
-    if (collectionName) {
-      db
-        .collection(collectionName)
-        .doc(auth.currentUser.uid)
-        .get()
-        .then(res => {
-          setUsrType(res.data()?.userType)
-        })
-    }
-  };
-
   useEffect(() => {
     auth.onAuthStateChanged(user => {
       if (user) {
         setUsr(user);
-        getUserType(user.displayName);
+        setUsrType(localStorage.getItem('userType'));
+       
       }
     });
   }, [])

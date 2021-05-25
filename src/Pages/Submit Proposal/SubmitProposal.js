@@ -14,19 +14,19 @@ export default function SubmitProposal() {
   let [talent, setTalent] = useState("");
   const user = useSelector((state) => state.talentData);
   let idd = auth.currentUser.uid;
-  const [proposalData, setproposalData] = useState({ proposalImages: [] });
+  const [proposalData, setproposalData] = useState({
+    coverLetter: "",
+    proposalImages: [],
+  });
   useEffect(() => {
-    console.log("user Id is", idd);
     db.collection("job")
       .doc(id)
       .get()
       .then((res) => setjob(res.data()));
-    handlewithdrawProposal();
   }, []);
 
   const handlewithdrawProposal = async () => {
     try {
-      let res;
       await db
         .collection("job")
         .doc(id)
@@ -68,14 +68,13 @@ export default function SubmitProposal() {
     }
   };
 
-  let date = new Date();
   let arr = ["s"];
   arr = job?.skills;
   const handlVal = (e) => {
     const files = e.target.files;
 
-    if (e.target.name == "coverLitter")
-      setproposalData({ coverLitter: e.target.value });
+    if (e.target.name == "coverLetter")
+      setproposalData({ coverLetter: e.target.value });
     else {
       if (files[0]) {
         const upload = storage
@@ -93,12 +92,11 @@ export default function SubmitProposal() {
               .child(files[0].name)
               .getDownloadURL()
               .then((url) => {
-                proposalData.proposalImages?.push(url);
+                proposalData.proposalImages.push(url);
                 setproposalData({
                   ...proposalData,
-                  proposalImages: proposalData.proposalImages,
+                  proposalImages: [...proposalData.proposalImages],
                 });
-                //console.log(proposalData);
               });
           }
         );
@@ -107,8 +105,6 @@ export default function SubmitProposal() {
   };
 
   const handleProposal = () => {
-    //console.log(proposalData);
-    //talent subproposal
     subCollection(
       "talent",
       "jobProposal",
@@ -122,12 +118,12 @@ export default function SubmitProposal() {
       "job",
       "proposals",
       {
-        talentName: user.firstName + user.lastName,
+        talentName: user.firstName + " " + user.lastName,
         talentId: auth.currentUser.uid,
-        coverLitter: proposalData.coverLitter,
-        // images: proposalData?.proposalImages,
-        //budged:proposalData.price,
+        coverLetter: proposalData.coverLetter,
+        images: proposalData?.proposalImages,
         clientId: job.authID,
+        //budged:proposalData.price,
       },
       id
     );
@@ -182,7 +178,7 @@ export default function SubmitProposal() {
                   </p>
                   <p>
                     When you submit this proposal, you'll have
-                    <strong> {user.connects - 2} </strong>remaining
+                    <strong> {user.firstName} </strong>remaining
                   </p>
                 </div>
               </div>
@@ -199,7 +195,11 @@ export default function SubmitProposal() {
                       <span className="bg-cat-cn py-1 px-2 me-3 rounded-pill">
                         {job?.jobCategory}
                       </span>
-                      {/* <span>{date.setSeconds(job?.postTime?.seconds)}</span> */}
+                      <span>
+                        {new Date(
+                          job?.postTime?.seconds * 1000
+                        ).toLocaleString()}
+                      </span>
                     </div>
                     <div className="mb-3">
                       <p>{job?.jobDescription}</p>
@@ -291,7 +291,7 @@ export default function SubmitProposal() {
                 <div className="ps-4 pt-2 pe-4">
                   <p className="fw-bold">Cover Letter</p>
                   <textarea
-                    name="coverLitter"
+                    name="coverLetter"
                     className="form-control"
                     rows={8}
                     defaultValue={""}
@@ -397,7 +397,9 @@ export default function SubmitProposal() {
                                 <span className="ps-2">
                                   <strong>Expert</strong>
                                 </span>
-                                <p className="ps-4">{job?.jobExperienceLevel}</p>
+                                <p className="ps-4">
+                                  {job?.jobExperienceLevel}
+                                </p>
                               </div>
                               <div>
                                 <span>
@@ -422,7 +424,7 @@ export default function SubmitProposal() {
                           <div>
                             <p className="fw-bold">Cover Litter</p>
                             <div className="mb-3">
-                              <p>{proposalData?.coverLitter}</p>
+                              <p>{proposalData.coverLetter}</p>
                             </div>
                           </div>
                         </div>

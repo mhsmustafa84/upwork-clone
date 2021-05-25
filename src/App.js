@@ -8,10 +8,6 @@ import { langAction } from "./Store/actions/lang";
 function App() {
   let lang = useSelector(state => state.lang);
   // const dispatch = useDispatch();
-
-
-
-
   let dir;
   // const [dir, setdir] = useState('ltr');
   lang === 'ar' ? dir = 'rtl' : dir = 'ltr';

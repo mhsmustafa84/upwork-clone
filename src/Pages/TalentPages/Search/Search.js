@@ -2,31 +2,66 @@ import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { SearchContext } from '../../../Context/SearchContext'
+import searchSvg from '../../../assets/svg/search.svg'
 import SearchBarJobsTalent from "../../../Components/TalentComponents/SearchBarJobsTalent/SearchBarJobsTalent";
 
 export default function Search(props) {
     const { t } = useTranslation();
     const [searchData, setsearchData] = useState([]);
+    const [filterSearch, setfilterSearch] = useState([]);
     const { itemSearchList } = useContext(SearchContext);
+    const [filtered, setfiltered] = useState(false)
+    
 
     useEffect(() => {
         let arr = props.location.state
         setsearchData(arr)
-        console.log(arr);
+        //console.log(arr);
     }, [props.location.state])
 
     useEffect(() => {
-        // console.log(itemSearchList);
-    }, [itemSearchList])
-
-
-    // console.log(searchData);
-    // const clickHandler = () => {
-    //     push("/job/");
-    // }
-
-
-
+        // console.log(filterSearch);
+    }, [itemSearchList,filterSearch])
+    //filter level expereince
+const handleLevel=(e)=>{
+    let val=e.target.checked;
+    let name=e.target.name;
+    switch (name) {
+        case 'entry level':
+            setfilterSearch(searchData.filter((item)=>item.jobExperienceLevel==name &&val && item))
+            setfiltered(val); 
+            // //f-search =[.....] val =true [...arr ,e]
+            // if(filterSearch.length!=0 && val){
+            //     setfilterSearch([...filterSearch,(searchData.filter((item)=>item.jobExperienceLevel==name  && item))])
+            // }else
+            // //f-search =[.....] val =false [...arr , -e]
+            //  if(filterSearch.length!=0 && val==false){
+            // setfilterSearch([...filterSearch,(filterSearch.filter((item)=>item.jobExperienceLevel!=name  && item))])
+            //  }else 
+            //  //f-search =[] val =true [e]
+            //  if(filterSearch.length==0 && val){
+            //     setfilterSearch(searchData.filter((item)=>item.jobExperienceLevel==name  && item))
+            //  }
+            //  //f-search =[] val =false sea
+            //  else{
+            //     setfilterSearch(searchData)
+            //  }     
+               
+            break;
+            case 'intermediate':       
+                 setfilterSearch(searchData.filter((item)=>item.jobExperienceLevel==name &&val && item))
+                 setfiltered(val)
+                break;
+                case 'expert':
+                    setfilterSearch(searchData.filter((item)=>item.jobExperienceLevel==name &&val && item))
+                    setfiltered(val);
+            break;
+    
+        default:
+            break;
+    }
+    // console.log(e.target.name, e.target.checked);
+}
     return (
         <div className="container-md container-fluid-sm my-lg-4">
             <div className="row">
@@ -107,19 +142,24 @@ export default function Search(props) {
                         <input
                             className="form-check-input btn-outline-success"
                             type="checkbox"
+                            name="entry level"
                             defaultValue
                             id="flexCheckDefault"
+                            onChange={handleLevel}
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
                             {t("EntryLevel")}
                         </label>
                     </div>
-                    <div className="form-check py-2 my-0">
+                    <div className="form-check py-2 my-0" >
                         <input
                             className="form-check-input btn-outline-success"
                             type="checkbox"
+                            name="intermediate"
                             defaultValue
                             id="flexCheckDefault"
+                            onChange={handleLevel}
+
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
                             {t("Intermediate")}
@@ -129,8 +169,11 @@ export default function Search(props) {
                         <input
                             className="form-check-input btn-outline-success"
                             type="checkbox"
+                            name="expert"
                             defaultValue
                             id="flexCheckDefault"
+                            onChange={handleLevel}
+
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
                             {t("Expert")}
@@ -366,7 +409,21 @@ export default function Search(props) {
                             <SearchBarJobsTalent />
                         </div>
                     </div>
-                    {searchData?.map((item) => (
+                    {searchData==null ?
+                     <div className='col-12 bg-white'>
+
+                     <h3 className="fw-bold text-center py-2 pt-5 " style={{color: '#124C82'}}>There are no results that match your search</h3>
+                 
+                     <h6 className="text-center " style={{color: '#124C82'}}>Please try adjusting your search keywords or filters</h6>
+                 
+                     <img className='mx-auto d-block' src={searchSvg} /> 
+                 
+                 </div>
+                    :
+                    null
+                    }
+                    {                      
+                        (filtered?filterSearch:searchData)?.map((item) => (
                         <div>
                             <div className="list-group-item">
                                 <div className="row align-items-center">
@@ -485,7 +542,8 @@ export default function Search(props) {
                                 </p>
                             </div>
                         </div>
-                    ))}
+                    ))
+            }
                 </div>
             </div>
         </div>
