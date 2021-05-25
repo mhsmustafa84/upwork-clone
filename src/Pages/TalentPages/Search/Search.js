@@ -28,29 +28,33 @@ const handleLevel=(e)=>{
     let name=e.target.name;
     switch (name) {
         case 'entry level':
-        //    val ?
-        // (filterSearch.length!=0 ?
-        // setfilterSearch([...filterSearch,searchData.filter((item)=>item.jobExperienceLevel==name  && item)])
-        // :setfilterSearch(searchData.filter((item)=>item.jobExperienceLevel==name  && item))
-        // )
-        // :setfilterSearch(filterSearch.filter(item=>item.jobExperienceLevel!=name&& item))
-        setfilterSearch(searchData.filter((item)=>item.jobExperienceLevel==name &&val && item))
-        console.log(filterSearch);
+            setfilterSearch(searchData.filter((item)=>item.jobExperienceLevel==name &&val && item))
             setfiltered(val); 
+            // //f-search =[.....] val =true [...arr ,e]
+            // if(filterSearch.length!=0 && val){
+            //     setfilterSearch([...filterSearch,(searchData.filter((item)=>item.jobExperienceLevel==name  && item))])
+            // }else
+            // //f-search =[.....] val =false [...arr , -e]
+            //  if(filterSearch.length!=0 && val==false){
+            // setfilterSearch([...filterSearch,(filterSearch.filter((item)=>item.jobExperienceLevel!=name  && item))])
+            //  }else 
+            //  //f-search =[] val =true [e]
+            //  if(filterSearch.length==0 && val){
+            //     setfilterSearch(searchData.filter((item)=>item.jobExperienceLevel==name  && item))
+            //  }
+            //  //f-search =[] val =false sea
+            //  else{
+            //     setfilterSearch(searchData)
+            //  }     
+               
             break;
-            case 'intermediate':
-                setfilterSearch(searchData.filter((item)=>item.jobExperienceLevel==name && val && item))
-                setfiltered(val);
-                // val ?
-                // (filterSearch.length!=0 ?
-                //     setfilterSearch([...filterSearch,searchData.filter((item)=>item.jobExperienceLevel==name  && item)])
-                //     :setfilterSearch(searchData.filter((item)=>item.jobExperienceLevel==name  && item))
-                //     )
-                //     :setfilterSearch(filterSearch.filter(item=>item.jobExperienceLevel!=name&& item))    
+            case 'intermediate':       
+                 setfilterSearch(searchData.filter((item)=>item.jobExperienceLevel==name &&val && item))
+                 setfiltered(val)
                 break;
                 case 'expert':
-                setfiltered(val);
-            setfilterSearch(searchData.filter((item)=>item.jobExperienceLevel==name &&val && item))
+                    setfilterSearch(searchData.filter((item)=>item.jobExperienceLevel==name &&val && item))
+                    setfiltered(val);
             break;
     
         default:
@@ -406,16 +410,20 @@ const handleLevel=(e)=>{
                         </div>
                     </div>
                     {searchData==null ?
-                     <div className='col-10'>
-                         <img className='mx-auto' src={searchSvg} /> 
-                    </div>
+                     <div className='col-12 bg-white'>
+
+                     <h3 className="fw-bold text-center py-2 pt-5 " style={{color: '#124C82'}}>There are no results that match your search</h3>
+                 
+                     <h6 className="text-center " style={{color: '#124C82'}}>Please try adjusting your search keywords or filters</h6>
+                 
+                     <img className='mx-auto d-block' src={searchSvg} /> 
+                 
+                 </div>
                     :
                     null
                     }
-                        {/* {console.log(filtered,filterSearch)} */}
-                    {
-                        
-                        (filtered   ?filterSearch:searchData)?.map((item) => (
+                    {                      
+                        (filtered?filterSearch:searchData)?.map((item) => (
                         <div>
                             <div className="list-group-item">
                                 <div className="row align-items-center">

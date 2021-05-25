@@ -10,10 +10,8 @@ import firebase from 'firebase/app';
 
 export default function SignUpSecondForm() {
   const { t } = useTranslation();
-
   const [errorMessage, setErrorMessage] = useState("");
   const [validate, setValidate] = useState({ firstName: "", lastName: "", password: "", terms: false });
-
   const userEmail = useSelector(state => state.signUpData.email);
   const { push } = useHistory();
 
@@ -125,6 +123,7 @@ export default function SignUpSecondForm() {
             );
           }
           push("/email-verification");
+          sessionStorage.setItem("searchArray",[' '])
         }
       })
       .catch(err => {
