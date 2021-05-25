@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useContext } from "react";
@@ -22,18 +23,18 @@ export default function LeftSidebarTalentHome() {
     setitemSearchList(textSearch);
     let tempArr = [];
     db.collection('job')
-    .where('skills', 'array-contains', textSearch)
-    .onSnapshot(
-      jobs=>jobs.docs.map(
-        item=>{
-        tempArr.push(item.data())
-        push({pathname:"/search",state:tempArr})
-      })
-    )
-      if(tempArr.length<=0){
-        
-        push('/search')
-      }
+      .where('skills', 'array-contains', textSearch)
+      .onSnapshot(
+        jobs => jobs.docs.map(
+          item => {
+            tempArr.push(item.data())
+            push({ pathname: "/search", state: tempArr })
+          })
+      )
+    if (tempArr.length <= 0) {
+
+      push('/search')
+    }
   };
 
   return (
@@ -95,6 +96,7 @@ export default function LeftSidebarTalentHome() {
             <li
               className="list-group-item sidebar-homebage-ul-li text-success "
               aria-current="true"
+
             >
               <a
                 onClick={() => handleVal(item)}

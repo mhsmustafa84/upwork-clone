@@ -6,7 +6,7 @@ const{t} =useTranslation();
     return (
         <aside>
             <ul>
-                <li className="py-1 my-3">
+                <li className="py-1 my-2">
                     <button className="btn w-100" disabled={btns.title}>
                         <Link
                             to="/post-job/title"
@@ -20,7 +20,7 @@ const{t} =useTranslation();
                         </Link>
                     </button>
                 </li>
-                <li className="py-1 my-3">
+                <li className="py-1 my-2">
                     <button className="btn w-100" disabled={btns.description}>
                         <Link
                             to="/post-job/description"
@@ -34,7 +34,7 @@ const{t} =useTranslation();
                         </Link>
                     </button>
                 </li>
-                <li className="py-1 my-3">
+                <li className="py-1 my-2">
                     <button className="btn w-100" disabled={btns.details}>
                         <Link
                             to="/post-job/details"
@@ -48,7 +48,7 @@ const{t} =useTranslation();
                         </Link>
                     </button>
                 </li>
-                <li className="py-1 my-3">
+                <li className="py-1 my-2">
                     <button className="btn w-100" disabled={btns.expertise}>
                         <Link
                             to="/post-job/expertise"
@@ -62,7 +62,7 @@ const{t} =useTranslation();
                         </Link>
                     </button>
                 </li>
-                <li className="py-1 my-3">
+                <li className="py-1 my-2">
                     <button className="btn w-100" disabled={btns.visibility}>
                         <Link
                             to="/post-job/visibility"
@@ -76,7 +76,7 @@ const{t} =useTranslation();
                         </Link>
                     </button>
                 </li>
-                <li className="py-1 my-3">
+                <li className="py-1 my-2">
                     <button className="btn w-100" disabled={btns.budget}>
                         <Link
                             to="/post-job/budget"
@@ -90,7 +90,7 @@ const{t} =useTranslation();
                         </Link>
                     </button>
                 </li>
-                <li className="py-1 my-3">
+                <li className="py-1 my-2">
                     <button className="btn w-100" disabled={btns.review}>
                         <Link
                             to="/post-job/review"

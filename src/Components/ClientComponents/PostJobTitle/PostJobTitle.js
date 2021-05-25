@@ -42,29 +42,32 @@ export default function PostJobTitle({ setBtns, btns }) {
           <p>{t("Step 1 of 7")}</p>
         </div>
         <div className="ps-4 mt-3">
-          <p className="fw-bold">{t("Enter the name of your job post")}</p>
-          <input
-            className="form-control w-75 shadow-none"
-            name="jobTitle"
-            onInput={getData}
-          />
-          <p className="text-warning mt-2">
-            {t(
-              "Title is a little short. More descriptive titles attract the right talent faster."
-            )}
-          </p>
-          <p className="text-danger fw-bold mt-2">
-            <i className="fas fa-exclamation-circle me-2"></i>
-            {t("Title should be more than 3 characters")}
-          </p>
-          <p className="text-danger fw-bold mt-2">
-            <i className="fas fa-exclamation-circle me-2"></i>
-            {t("Title should be more than 2 words")}
-          </p>
-          <p className="text-danger fw-bold">
-            <i className="fas fa-exclamation-circle me-2"></i>
-            {t("Title should not be all uppercase letters")}
-          </p>
+          <p className="fw-bold">{t("Enter the name of your job post")} <span className="text-danger">*</span></p>
+          <input className="form-control w-75 shadow-none" name="jobTitle" onInput={getData} />
+          {
+            job.jobTitle.length < 4 && job.jobTitle !== ""
+              ? <p className="text-danger fw-bold mt-2">
+                <i className="fas fa-exclamation-circle me-2"></i>
+                {t("Title should be more than 3 characters")}
+              </p>
+              : ""
+          }
+          {
+            job.jobTitle.split(" ").length < 3 && job.jobTitle !== ""
+              ? <p className="text-danger fw-bold mt-2">
+                <i className="fas fa-exclamation-circle me-2"></i>
+                {t("Title should be more than 2 words")}
+              </p>
+              : ""
+          }
+          {
+            job.jobTitle === job.jobTitle.toUpperCase() && job.jobTitle !== ""
+              ? <p className="text-danger fw-bold">
+                <i className="fas fa-exclamation-circle me-2"></i>
+                {t("Title should not be all uppercase letters")}
+              </p>
+              : ""
+          }
           <p className="fw-bold mt-2">{t("Here are some good examples:")}</p>
           <ul style={{ listStyle: "disc" }}>
             <li>
@@ -78,36 +81,25 @@ export default function PostJobTitle({ setBtns, btns }) {
       <section className=" bg-white border rounded mt-3 pt-4">
         <div className="border-bottom ps-4">
           <h4>{t("Job Category")}</h4>
-          <p className="w-75">
-            {t(
-              "Let's categorize your job, which helps us personalize your job details and match your job to relevant freelancers and agencies."
-            )}
-          </p>
-          <select
-            className="form-select form-select-lg mb-3 shadow-none w-50"
-            aria-label=".form-select-lg example"
-            name="JobCategory"
-            onChange={getData}
-          >
-            <option selected>{t("Select a category")}</option>
+          <p className="w-75">{t(
+            "Let's categorize your job, which helps us personalize your job details and match your job to relevant freelancers and agencies."
+          )}</p>
+          <select className="form-select form-select-lg mb-3 shadow-none w-50" aria-label=".form-select-lg example" name="JobCategory" onChange={getData}>
+            <option defaultValue value="Select a category">{t("Select a category")}</option>
             <option value="Web Development">{t("Web Development")}</option>
             <option value="Web Design">{t("Web Design")}</option>
             <option value="Graphic Design">{t("Graphic Design")}</option>
           </select>
         </div>
         <div className="ps-4 my-3">
-          <Link className="btn border text-success me-4 px-5" to="/post-job">
-            {t("Back")}
-          </Link>
-          <Link
-            className="btn bg-upwork px-5"
-            to="/post-job/description"
-            onClick={addData}
-          >
-            {t("Next")}
-          </Link>
+          <button className="btn">
+            <Link className="btn border text-success me-4 px-5" to="/post-job">{t("Back")}</Link>
+          </button>
+          <button className={`btn ${job.jobTitle === "" || job.jobCategory === "" || job.jobCategory === "Select a category" ? "disabled" : ""}`}>
+            <Link className="btn bg-upwork px-5" to="/post-job/description" onClick={addData}>{t("Next")}</Link>
+          </button>
         </div>
       </section>
     </>
-  );
+  )
 }

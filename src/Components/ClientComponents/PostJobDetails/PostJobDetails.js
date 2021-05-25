@@ -8,9 +8,8 @@ export default function PostJobDetails({ setBtns, btns }) {
   const [job, setJob] = useState({ jobType: "" });
   const { t } = useTranslation();
 
-  const getData = (e) => {
-    job.jobType = e.target.value;
-    setJob(job);
+  const getData = e => {
+    setJob({ jobType: e.target.value });
   };
 
   const addData = () => {
@@ -32,48 +31,22 @@ export default function PostJobDetails({ setBtns, btns }) {
           <p className="fw-bold mt-2">
             {t("What type of project do you have?")}
           </p>
-          <div
-            className="my-4 d-flex justify-content-between"
-            onInput={getData}
-          >
+          <div className="my-4 d-flex justify-content-between" onInput={getData}>
             <label className="border border-success rounded p-3 text-center">
-              <input
-                type="radio"
-                className="float-end"
-                name="jobType"
-                value="one time project"
-              />
-              <div>
-                <i className="fas fa-briefcase"></i>
-              </div>
+              <input type="radio" className="float-end" name="jobType" value="one time project" />
+              <div><i className="fas fa-briefcase"></i></div>
               <h6 className="my-3">{t("One-time project")}</h6>
               <div>{t("Find the right skills for a short-term need.")}</div>
             </label>
             <label className="border border-success rounded p-3 text-center mx-3">
-              <input
-                type="radio"
-                className="float-end"
-                name="jobType"
-                value="ongoing project"
-              />
-              <div>
-                <i className="fas fa-list-alt"></i>
-              </div>
+              <input type="radio" className="float-end" name="jobType" value="ongoing project" />
+              <div><i className="fas fa-list-alt"></i></div>
               <h6 className="my-3">{t("Ongoing project")}</h6>
-              <div>
-                {t("Find a skilled resource for an extended engagement.")}
-              </div>
+              {t("Find a skilled resource for an extended engagement.")}
             </label>
             <label className="border border-success rounded p-3 text-center">
-              <input
-                type="radio"
-                className="float-end"
-                name="jobType"
-                value="complex project"
-              />
-              <div>
-                <i className="fas fa-th-large"></i>
-              </div>
+              <input type="radio" className="float-end" name="jobType" value="complex project" />
+              <div><i className="fas fa-th-large"></i></div>
               <h6 className="my-3">{t("Complex project")}</h6>
               <div>
                 {t("Find specialized experts and agencies for large projects.")}
@@ -85,21 +58,14 @@ export default function PostJobDetails({ setBtns, btns }) {
 
       <section className="bg-white border rounded mt-3">
         <div className="ps-4 my-3">
-          <Link
-            className="btn border text-success me-4 px-5"
-            to="/post-job/description"
-          >
-            {t("Back")}
-          </Link>
-          <Link
-            className="btn bg-upwork px-5"
-            to="/post-job/expertise"
-            onClick={addData}
-          >
-            {t("Next")}
-          </Link>
+          <button className="btn">
+            <Link className="btn border text-success me-4 px-5" to="/post-job/description">{t("Back")}</Link>
+          </button>
+          <button className={`btn ${job.jobType === "" && "disabled"}`}>
+            <Link className="btn bg-upwork px-5" to="/post-job/expertise" onClick={addData}>{t("Next")}</Link>
+          </button>
         </div>
       </section>
     </>
-  );
+  )
 }

@@ -23,6 +23,7 @@ export default function SignUpSecondForm() {
     lastName: "",
     password: "",
     userType: "client",
+    createdAt: firebase.firestore.Timestamp.now(),
   });
   console.log(usr.userType);
 
@@ -69,10 +70,6 @@ export default function SignUpSecondForm() {
       case "userType":
         setuser({ ...usr, userType: val });
         break;
-      // case "terms":
-      //   setValidate(...validate,validate.terms==e.target.checked)
-      //   console.log(e.target.checked);
-      //   break;
       default:
         break;
     }
@@ -86,7 +83,7 @@ export default function SignUpSecondForm() {
         if (res.user) {
           res.user.updateProfile({ displayName: usr.userType });
           res.user.sendEmailVerification();
-          localStorage.setItem('userType',usr.userType)
+          localStorage.setItem('userType', usr.userType)
           if (usr.userType === "talent") {
             createDocumentWithId(
               usr.userType,
@@ -110,12 +107,22 @@ export default function SignUpSecondForm() {
                 connects: 20,
                 connectsHistory: [],
                 profileCompletion: 0,
-                createdAt: firebase.firestore.Timestamp.now()
+                savedJobs: []
               },
               auth.currentUser.uid
             );
           } else if (usr.userType === "client") {
-            createDocumentWithId(usr.userType, usr, auth.currentUser.uid);
+            createDocumentWithId(
+              usr.userType,
+              {
+                ...usr,
+                paymentVerified: false,
+                review: {},
+                spentMoney: 0,
+                location: "",
+              },
+              auth.currentUser.uid
+            );
           }
           push("/email-verification");
         }

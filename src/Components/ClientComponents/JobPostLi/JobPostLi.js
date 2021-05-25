@@ -51,7 +51,7 @@ export default function JobPostLi({ job, id }) {
           <div className="text-muted">Messaged</div>
         </div>
         <div className="d-block col-sm-1 col-xs-3">
-          <div className="fw-bold">{job.hired}0</div>
+          <div className="fw-bold">{job.hired}</div>
           <div className="text-muted">Hired</div>
         </div>
         <div className="d-block col-sm-2 col-xs-3">
