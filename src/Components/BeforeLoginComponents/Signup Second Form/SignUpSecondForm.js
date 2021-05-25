@@ -6,8 +6,6 @@ import { auth } from "../../../firebase";
 import { createDocumentWithId } from "../../../Network/Network";
 import { useTranslation } from "react-i18next";
 import firebase from 'firebase/app';
-
-
 export default function SignUpSecondForm() {
   const { t } = useTranslation();
   const [errorMessage, setErrorMessage] = useState("");
@@ -122,7 +120,7 @@ export default function SignUpSecondForm() {
               auth.currentUser.uid
             );
           }
-          push("/email-verification");
+          push("/sign-up/please-verify");
           sessionStorage.setItem("searchArray",[' '])
         }
       })
