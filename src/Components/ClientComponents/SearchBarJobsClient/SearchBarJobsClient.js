@@ -45,7 +45,6 @@ export default function SearchBarJobsClient() {
               id="search-button"
               type="button"
               className="btn bg-upwork bg-invert"
-
             >
               <i className="fas fa-search" />
             </button>

@@ -4,7 +4,6 @@ import { updateJob } from "../../../Network/Network";
 import "./PostJobExpertise.css";
 import { useTranslation } from "react-i18next";
 export default function PostJobExpertise({ setBtns, btns }) {
-
   const [inputVal, setInputVal] = useState("");
   const [skillsList, setSkillsList] = useState([]);
   const [job, setJob] = useState({ jobExperienceLevel: "", jobSkills: [] });
@@ -98,18 +97,20 @@ export default function PostJobExpertise({ setBtns, btns }) {
               value={inputVal}
               onChange={getData}
             />
-            <button className="btn bg-upwork px-5" disabled={!inputVal} onClick={addSkills}>
+            <button
+              className="btn bg-upwork px-5"
+              disabled={!inputVal}
+              onClick={addSkills}
+            >
               Add
             </button>
             <div className="my-4 d-flex justify-content-between"></div>
           </div>
-          {
-            skillsList.map((item, index) =>
-              <div className="chip mb-3 ms" key="index">
-                <span>{item}</span>
-              </div>
-            )
-          }
+          {skillsList.map((item, index) => (
+            <div className="chip mb-3 ms" key="index">
+              <span>{item}</span>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -123,7 +124,9 @@ export default function PostJobExpertise({ setBtns, btns }) {
               {t("Back")}
             </Link>
           </button>
-          <button className={`btn ${job.jobExperienceLevel === "" && "disabled"}`}>
+          <button
+            className={`btn ${job.jobExperienceLevel === "" && "disabled"}`}
+          >
             <Link
               className="btn bg-upwork px-5"
               to="/post-job/visibility"
