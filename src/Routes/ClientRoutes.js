@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Switch, Route, useLocation, useHistory } from "react-router-dom";
 import AllJobPosts from "../Pages/ClientPages/AllJobPost/AllJobPosts";
 import Jobs from "../Pages/ClientPages/Jobs/Jobs";
@@ -15,15 +15,19 @@ import ReviewProposals from "../Pages/ClientPages/ReviewProposals/ReviewProposal
 import EmailVerified from './../Pages/EmailVerification/EmailVerified';
 import TransactionHistory from "../Pages/TalentPages/Reports/TransactionHistory/TransactionHistory";
 import PleaseVerifiy from "../Pages/EmailVerification/PleaseVerifiy";
+import { SearchContextProvider } from "../Context/SearchContext";
 
 export default function ClientRoutes() {
   const { pathname } = useLocation();
   const { push } = useHistory();
   pathname === "/" && push("/home");
+  const [talentArr, settalentArr] = useState([]);
+  const [talentSearchList, settalentSearchList] = useState("");
 
   return (
     <>
       <Header />
+      <SearchContextProvider  value={{talentSearchList, settalentSearchList , talentArr, settalentArr}}>
       <Switch>
         <Route path="/home" exact component={Jobs} />
         <Route path="/messages" exact component={Messages} />
@@ -39,6 +43,7 @@ export default function ClientRoutes() {
         <Route path="/transaction-history" exact component={TransactionHistory} />
         <Route path="**" component={PageNotFound} />
       </Switch>
+      </SearchContextProvider>
       <Footer />
     </>
   );
