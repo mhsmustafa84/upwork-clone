@@ -42,8 +42,11 @@ export default function SearchBarJobsTalent(props) {
       if (itemSearchList !="") {
         let  arr2=[]
         arr != null ?arr2 = [itemSearchList,...arr] : 
-        arr2=[itemSearchList]        
+        arr2=[itemSearchList]
+        user.searchHistory !=null ?   
         updateUserData('talent', { searchHistory: [...user?.searchHistory,...arr2] })
+        :updateUserData('talent', { searchHistory: [...arr2] })
+
         sessionStorage.setItem('searchArray',JSON.stringify(arr2))
         setarr([...arr2])
       }
