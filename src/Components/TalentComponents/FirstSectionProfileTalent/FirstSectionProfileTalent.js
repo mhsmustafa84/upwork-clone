@@ -1,13 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React,{ useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { talentDataAction } from "../../../Store/actions/talentData";
-import img from "../../../assets/img/icon-user.svg";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import ShowMore from 'react-show-more-button/dist/module';
-import { updateUserData } from "../../../Network/Network";
+import img from "../../../assets/img/icon-user.svg";
+
 
 
 
@@ -23,16 +23,16 @@ export default function FirstSectionProfileTalent() {
   const { t } = useTranslation();
   const [inputVal, setinputVal] = useState("");
   const [skillsList, setskillsList] = useState([]);
-  const skillVal=(e)=>{
+  const skillVal = (e) => {
     setinputVal(e.target.value)
   }
   const addskills = () => {
-    if (inputVal!= "") {
-      let arr2=[...skillsList,inputVal];
-    setskillsList(arr2);
-    console.log(skillsList);
+    if (inputVal !== "") {
+      let arr2 = [...skillsList, inputVal];
+      setskillsList(arr2);
+      console.log(skillsList);
     }
-    
+
   };
   return (
     <>
@@ -188,13 +188,13 @@ export default function FirstSectionProfileTalent() {
 
             <div className="col-6">
               <h4 className="fw-bold"> {user?.title}</h4>
-              
-                <ShowMore style={{ fontFamily: "Gotham SSm" }} className="mb-0 mt-4" maxHeight={100} button={<button id="seemorebutton" classname="advanced-search-link " style={{ color: 'green', position: 'absolute', left: 0 }}>
-                  more
+
+              <ShowMore style={{ fontFamily: "Gotham SSm" }} className="mb-0 mt-4" maxHeight={100} button={<button id="seemorebutton" classname="advanced-search-link " style={{ color: 'green', position: 'absolute', left: 0 }}>
+                more
       </button>}>
-                  {user?.overview}
-                </ShowMore>
-            
+                {user?.overview}
+              </ShowMore>
+
 
 
               <hr />
@@ -354,7 +354,7 @@ export default function FirstSectionProfileTalent() {
                 <hr />
                 <div className="row">
                   <h3 className="col-4 mx-0">{t("Portfolio")}</h3>
-                  
+
                   <button
                     type="button"
                     className=" col-1 btn btn-default d-flex justify-content-center border rounded-circle"
@@ -373,7 +373,7 @@ export default function FirstSectionProfileTalent() {
                       <i className="fas fa-plus"></i>{" "}
                     </div>
                   </button>
-                  
+
                 </div>
                 <div className="card-group">
                   <div className="card border border-0 mx-1">
@@ -411,7 +411,7 @@ export default function FirstSectionProfileTalent() {
                 <div className="row">
                   <h3 className="col mx-0">{t("Skills")}</h3>
                   <button
-                  
+
                     type="button"
                     className=" col-1 btn btn-default d-flex justify-content-center border rounded-circle"
                     style={{
@@ -430,14 +430,14 @@ export default function FirstSectionProfileTalent() {
                     </div>
                   </button>
                 </div>
-                
+
                 <div className="my-4 d-flex justify-content-start">
-          {skillsList.map((item)=>
-          <div  className="chip mb-3 ms">
-            <span>{item}</span>
-          </div>
-          )}
-          </div> 
+                  {skillsList.map((item) =>
+                    <div className="chip mb-3 ms">
+                      <span>{item}</span>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
 
@@ -462,8 +462,8 @@ export default function FirstSectionProfileTalent() {
                   <i className="fas fa-pen" />
                 </div>
               </button>
-              
-            
+
+
             </div>
           </div>
         </div>
@@ -911,7 +911,7 @@ export default function FirstSectionProfileTalent() {
                     id="exampleFormControlInput1"
                   />
                 </div>
-               
+
                 <div className="mb-3">
                   <label
                     htmlFor="exampleFormControlTextarea1"
@@ -1000,7 +1000,7 @@ export default function FirstSectionProfileTalent() {
                   />
                 </div>
 
-                </form>
+              </form>
             </div>
             <div className="modal-footer">
               <button
@@ -1059,19 +1059,19 @@ export default function FirstSectionProfileTalent() {
                     className="form-control"
                     id="exampleFormControlInput1"
                     name="jobSkills"
-              onChange={skillVal}
+                    onChange={skillVal}
                   />
-                  
+
                 </div>
               </form>
             </div>
             <div className="my-4 d-flex justify-content-start">
-          {skillsList.map((item)=>
-          <div  className="chip mb-3 ms">
-            <span>{item}</span>
-          </div>
-          )}
-          </div> 
+              {skillsList.map((item) =>
+                <div className="chip mb-3 ms">
+                  <span>{item}</span>
+                </div>
+              )}
+            </div>
             <div className="modal-footer">
               <button
                 type="button"
@@ -1086,7 +1086,7 @@ export default function FirstSectionProfileTalent() {
                 Cancel
               </button>
               <button
-              onClick={addskills}
+                onClick={addskills}
                 type="button"
                 className="btn btn-default border rounded-border"
               >
@@ -1386,7 +1386,7 @@ export default function FirstSectionProfileTalent() {
                   />
                 </div>
 
-               
+
                 <div className="mb-3">
                   <label
                     htmlFor="exampleFormControlTextarea1"
@@ -1426,7 +1426,7 @@ export default function FirstSectionProfileTalent() {
           </div>
         </div>
       </div>
-                
+
     </>
   );
 }
