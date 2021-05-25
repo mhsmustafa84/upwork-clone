@@ -17,7 +17,10 @@ export default function LeftSidebarTalentHome() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(talentDataAction());
-    setarr(JSON.parse(sessionStorage.getItem("searchArray")));
+    user.searchHistory != null ?
+      sessionStorage.setItem("searchArray", user?.searchHistory) :
+      setarr(user?.searchHistory)
+    //setarr(JSON.parse(sessionStorage.getItem("searchArray")))
   }, []);
   const handleVal = (textSearch) => {
     setitemSearchList(textSearch);

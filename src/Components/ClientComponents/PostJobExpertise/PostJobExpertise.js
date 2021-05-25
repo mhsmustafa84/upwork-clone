@@ -27,7 +27,7 @@ export default function PostJobExpertise({ setBtns, btns }) {
 
   const addSkills = () => {
     setSkillsList([...skillsList, inputVal]);
-    setJob({ ...job, jobSkills: skillsList });
+    setJob({ ...job, skills: skillsList });
     setInputVal("");
   };
 
