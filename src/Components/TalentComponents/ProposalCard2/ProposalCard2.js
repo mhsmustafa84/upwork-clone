@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 import { auth, db, storage } from "../../../firebase";
 
-export default function ProposalCard({ job }) {
+export default function ProposalCard2({ job }) {
   console.log(job);
   const [jobdata, setJobData] = useState({});
   const { t } = useTranslation();

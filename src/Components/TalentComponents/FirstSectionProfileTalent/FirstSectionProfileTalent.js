@@ -3,12 +3,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { talentDataAction } from "../../../Store/actions/talentData";
-import img from "../../../assets/img/icon-user.svg";
 import { useTranslation } from "react-i18next";
 import { Link, useHistory } from "react-router-dom";
 import ShowMore from 'react-show-more-button/dist/module';
 import { updateUserData } from "../../../Network/Network";
-import { auth, storage } from "../../../firebase";
+import { storage } from "../../../firebase";
+import img from "../../../assets/img/icon-user.svg";
 
 
 
@@ -28,20 +28,13 @@ export default function FirstSectionProfileTalent() {
   const dispatch = useDispatch();
   const [inputVal, setinputVal] = useState("");
   const [skillsList, setskillsList] = useState([]);
-  const [EmpTitle,setEmpTitle]= useState("");
-  const [EmpCompany,setEmpCompany]= useState("");
-    const [EmpStillWork,setEmpStillWork]= useState(false);
-const [EmpList,setEmpList]= useState([]);
+  const [EmpTitle, setEmpTitle] = useState("");
+  const [EmpCompany, setEmpCompany] = useState("");
+  const [EmpStillWork, setEmpStillWork] = useState(false);
 
-
-  
+  const [EmpList, setEmpList] = useState([]);
 
   const { t } = useTranslation();
-  
-  
-
-  
-
 
   useEffect(() => {
     dispatch(talentDataAction());
@@ -74,7 +67,6 @@ const [EmpList,setEmpList]= useState([]);
     }
   };
 
-
   const skillVal = (e) => {
     setinputVal(e.target.value)
   }
@@ -85,7 +77,7 @@ const [EmpList,setEmpList]= useState([]);
       let arr2 = [...skillsList, inputVal];
       setskillsList(arr2);
       console.log(skillsList);
-      updateUserData("talent", { skills: [...user?.skills, ...arr2]})
+      updateUserData("talent", { skills: [...user?.skills, ...arr2] })
     }
   };
 
@@ -109,7 +101,7 @@ const [EmpList,setEmpList]= useState([]);
         setimageItself(val);
 
         break;
-        case "EmpTitle":
+      case "EmpTitle":
         setEmpTitle(val);
         break;
       case "EmpCompany":
@@ -131,25 +123,25 @@ const [EmpList,setEmpList]= useState([]);
       let arr3 = [...portfolioList, { image: imgUrl, imagetitle: imgTitle }];
       setportfolioList(arr3);
       console.log(portfolioList);
-        updateUserData("talent", { portfolio: [...user?.portfolio, { image: imgUrl, imagetitle: imgTitle }] })
+      updateUserData("talent", { portfolio: [...user?.portfolio, { image: imgUrl, imagetitle: imgTitle }] })
     }
   }
   const UpdateEditEmployment = () => {
     if (EmpTitle != "" && EmpCompany != "") {
-      let arr4 = [...EmpList, { jobTitile: EmpTitle, companyName: EmpCompany,stillWork:EmpStillWork }];
+      let arr4 = [...EmpList, { jobTitile: EmpTitle, companyName: EmpCompany, stillWork: EmpStillWork }];
       setEmpList(arr4);
       console.log(EmpList);
-        updateUserData("talent", { company: [...user?.company, { jobTitile: EmpTitle, companyName: EmpCompany,stillWork:EmpStillWork }] })
+      updateUserData("talent", { company: [...user?.company, { jobTitile: EmpTitle, companyName: EmpCompany, stillWork: EmpStillWork }] })
     }
   }
 
 
   return (
-    
+
     <>
-    
+
       <div className="container card mb-3 mt-5">
-      {console.log("abc")}
+        {console.log("abc")}
         <div className="row mt-3">
           <div className="col-lg-2 pt-lg-3">
             <div>
@@ -486,7 +478,7 @@ const [EmpList,setEmpList]= useState([]);
                       <i className="fas fa-plus"></i>{" "}
                     </div>
                   </button>
-                  
+
 
                 </div>
                 <div className="card-group">
@@ -528,8 +520,8 @@ const [EmpList,setEmpList]= useState([]);
                       <i className="fas fa-plus"></i>{" "}
                     </div>
                   </button>
-                  
-                  
+
+
 
                 </div>
 
@@ -570,14 +562,14 @@ const [EmpList,setEmpList]= useState([]);
           </div>
         </div>
       </div>
-      
+
       <div className="container card mb-3 mt-5">
         <div className="row mt-3">
-        <div className="row">
+          <div className="row">
 
-          <div className="col d-flex justify-content-between ">
-            <h2 className="mb-3">{t("Employment history")}</h2>
-            <button
+            <div className="col d-flex justify-content-between ">
+              <h2 className="mb-3">{t("Employment history")}</h2>
+              <button
                 type="button"
                 className="btn btn-default me-2 d-flex justify-content-center border rounded-circle"
                 style={{
@@ -594,33 +586,33 @@ const [EmpList,setEmpList]= useState([]);
                   <i className="fas fa-plus" />
                 </div>
               </button>
-          </div>
+            </div>
           </div>
           <hr />
           <div className="row">
             {/*  employment skills */}
             {user?.company?.map((item) =>
-            <div className="container">
-              <h5>{item.jobTitile}</h5>
-              <p style={{ fontFamily: "Gotham SSm" }} className="mb-0 ">
-                {item.companyName}
-              </p>
-              <p style={{ fontFamily: "Gotham SSm" }} className="mb-2 ">
-                {item.stillWork ? "present" : ""}
-              </p>
-              <hr/>
+              <div className="container">
+                <h5>{item.jobTitile}</h5>
+                <p style={{ fontFamily: "Gotham SSm" }} className="mb-0 ">
+                  {item.companyName}
+                </p>
+                <p style={{ fontFamily: "Gotham SSm" }} className="mb-2 ">
+                  {item.stillWork ? "present" : ""}
+                </p>
+                <hr />
               </div>
-)}
-              {/* <button
+            )}
+            {/* <button
                 className="btn btn-link mb-3 border rounded-border"
                 style={{ textDecoration: "none", color: "#008329" }}
               >
                 {t("more")}
               </button> */}
-     
+
             {/* icons */}
             <div className="col-md-6 d-flex justify-content-end">
-              
+
               {/* <button
                 type="button"
                 className="btn btn-default d-flex justify-content-center border rounded-circle mb-3"
@@ -670,8 +662,8 @@ const [EmpList,setEmpList]= useState([]);
                     Company
                   </label>
                   <input
-                   onChange={updateProfile}
-                   name="EmpCompany"
+                    onChange={updateProfile}
+                    name="EmpCompany"
                     type="text"
                     className="form-control"
                     id="exampleFormControlInput1"
@@ -685,8 +677,8 @@ const [EmpList,setEmpList]= useState([]);
                     Title
                   </label>
                   <input
-                  onChange={updateProfile}
-                  name="EmpTitle"
+                    onChange={updateProfile}
+                    name="EmpTitle"
                     type="text"
                     className="form-control"
                     id="exampleFormControlInput2"
@@ -694,28 +686,28 @@ const [EmpList,setEmpList]= useState([]);
                 </div>
                 <div className="input-group mb-3">
 
-                    <div className="input-group-text ">
+                  <div className="input-group-text ">
 
-                      <input
-                        onChange={updateProfile}
-                        name="EmpStillWork"
-                        className="form-check-input mt-0 "
+                    <input
+                      onChange={updateProfile}
+                      name="EmpStillWork"
+                      className="form-check-input mt-0 "
 
-                        type="checkbox"
+                      type="checkbox"
 
-                        value=""
+                      value=""
 
-                        aria-label="Checkbox for following text input"
+                      aria-label="Checkbox for following text input"
 
-                      />
+                    />
 
                       I currently worked here
 
                     </div>
 
-                  </div>
+                </div>
 
-             {/* <div className="mb-3">
+                {/* <div className="mb-3">
                   <label
                     htmlFor="exampleFormControlTextarea1"
                     className="form-label"
@@ -745,7 +737,7 @@ const [EmpList,setEmpList]= useState([]);
                 Cancel
               </button>
               <button
-              onClick={UpdateEditEmployment}
+                onClick={UpdateEditEmployment}
                 type="button"
                 className="btn btn-default border rounded-border"
               >
@@ -755,12 +747,12 @@ const [EmpList,setEmpList]= useState([]);
           </div>
         </div>
       </div>
-   
-  
+
+
 
       {/* model for add employment */}
 
-     <div
+      <div
         className="modal fade"
         id="modalProfileTitleAndDescription"
         tabIndex={-1}
@@ -830,7 +822,7 @@ const [EmpList,setEmpList]= useState([]);
                 Cancel
               </button>
               <Link
-              to="/profile"
+                to="/profile"
                 onClick={UpdateEditprofileTitleOverView}
                 type="button"
                 className="btn btn-default border rounded-border"
@@ -924,7 +916,7 @@ const [EmpList,setEmpList]= useState([]);
                 Cancel
               </button>
               <Link
-              to="/profile"
+                to="/profile"
                 onClick={UpdateEditPortofolio}
                 type="button"
                 className="btn btn-default border rounded-border"
@@ -1006,6 +998,6 @@ const [EmpList,setEmpList]= useState([]);
           </div>
         </div>
       </div>
-     </>
+    </>
   );
 }

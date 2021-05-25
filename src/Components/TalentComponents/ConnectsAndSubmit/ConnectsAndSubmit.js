@@ -1,9 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { jobsDataAction } from "../../../Store/actions/jobsData";
 import { talentDataAction } from "../../../Store/actions/talentData";
 
 export default function ConnectsAndSubmit({ connects }) {
