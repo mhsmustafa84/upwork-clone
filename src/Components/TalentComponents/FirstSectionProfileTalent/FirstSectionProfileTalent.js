@@ -17,7 +17,7 @@ export default function FirstSectionProfileTalent() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(talentDataAction());
-  }, []);
+  }, [user]);
   // let data = Object.values(user.data);
 
   const { t } = useTranslation();
