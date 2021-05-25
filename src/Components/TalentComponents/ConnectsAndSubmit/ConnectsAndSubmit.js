@@ -2,7 +2,10 @@
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { useParams} from "react-router";
+import { Link } from "react-router-dom";
+
+
 import { jobsDataAction } from "../../../Store/actions/jobsData";
 import { talentDataAction } from "../../../Store/actions/talentData";
 

@@ -12,8 +12,9 @@ import Talent from "./../Pages/ClientPages/Talent/Talent";
 import Reports from "./../Pages/ClientPages/Reports/Reports";
 import PageNotFound from "./../Pages/PageNotFound/PageNotFound";
 import ReviewProposals from "../Pages/ClientPages/ReviewProposals/ReviewProposals";
-import EmailVerified from './../Pages/EmailVerification/EmailVerified';
+import EmailVerified from "./../Pages/EmailVerification/EmailVerified";
 import TransactionHistory from "../Pages/TalentPages/Reports/TransactionHistory/TransactionHistory";
+import TalentProfile from "../Pages/ClientPages/TalentProfile/talentProfile";
 import PleaseVerifiy from "../Pages/EmailVerification/PleaseVerifiy";
 
 export default function ClientRoutes() {
@@ -29,14 +30,23 @@ export default function ClientRoutes() {
         <Route path="/messages" exact component={Messages} />
         <Route path="/all-job-posts" exact component={AllJobPosts} />
         <Route path="/all-contracts" exact component={AllContract} />
-        <Route path="/bring-your-own-talent" exact component={BringYourTalent} />
+        <Route
+          path="/bring-your-own-talent"
+          exact
+          component={BringYourTalent}
+        />
         <Route path="/email-verification" component={EmailVerified} />
         <Route path="/sign-up/please-verify" exact component={PleaseVerifiy} />
         <Route path="/post-job" component={PostJob} />
         <Route path="/talent" component={Talent} />
+        <Route path="/talent-profile/:id" exact component={TalentProfile} />
         <Route path="/review-proposal/:id" exact component={ReviewProposals} />
         <Route path="/billing-history" exact component={Reports} />
-        <Route path="/transaction-history" exact component={TransactionHistory} />
+        <Route
+          path="/transaction-history"
+          exact
+          component={TransactionHistory}
+        />
         <Route path="**" component={PageNotFound} />
       </Switch>
       <Footer />
