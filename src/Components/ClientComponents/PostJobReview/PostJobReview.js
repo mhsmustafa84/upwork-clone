@@ -6,10 +6,12 @@ import { db } from "../../../firebase";
 import { updateJob } from "../../../Network/Network";
 import "./PostJobReview.css";
 import { useTranslation } from "react-i18next";
+
 export default function PostJobReview() {
+
   const { t } = useTranslation();
 
-  let [job, setJob] = useState({});
+  const [job, setJob] = useState({});
 
   const id = localStorage.getItem("docID");
 
@@ -32,20 +34,17 @@ export default function PostJobReview() {
     localStorage.removeItem("docID");
   };
 
-  // getCurrentPostJob(id).then(doc => {
-  //     job = doc;
-  //     setJob(job);
-  //     console.log(job);
-  // }).catch(err => console.log(err));
+  const deletePost = () => {
+    db.collection("job").doc(id).delete();
+    localStorage.removeItem("docID");
+  }
 
   return (
     <>
       <section className=" bg-white border rounded mt-3">
         <div className="ps-4 d-flex border-bottom justify-content-between align-items-center py-4">
           <h4>{t("Review and post")}</h4>
-          <Link className="btn bg-upwork me-4 px-5" to="/" onClick={publishJob}>
-            {t("Post Job Now")}
-          </Link>
+          <Link className="btn bg-upwork me-4 px-5" to="/" onClick={publishJob}>{t("Post Job Now")}</Link>
         </div>
         <div className="px-4 mt-4">
           <h5>{t("Title")}</h5>
@@ -128,36 +127,21 @@ export default function PostJobReview() {
 
       <section className="bg-white border rounded mt-4">
         <div className="px-4 mt-4">
-          <h5>
-            <i className="fas fa-user-plus text-success me-3"></i>
-            {t("Coworkers")}
-          </h5>
+          <h5><i className="fas fa-user-plus text-success me-3"></i>{t("Coworkers")}</h5>
           <div className="my-5">
             <h6>{t("Email Addresses")}</h6>
-            <input
-              type="text"
-              className="form-control shadow-none"
-              placeholder={t("Comma-separated emails")}
-            />
+            <input type="text" className="form-control shadow-none" placeholder={t("Comma-separated emails")} />
           </div>
           <div className="my-5">
             <h6>{t("Add a personal message (optional)")}</h6>
-            <textarea
-              placeholder="Comma-separated emails"
-              rows="5"
-              className="form-control shadow-none"
-            ></textarea>
+            <textarea placeholder={t("Comma-separated emails")} rows="5" className="form-control shadow-none"></textarea>
           </div>
         </div>
         <div className="ps-4 my-3 border-top pt-4">
-          <Link className="btn bg-upwork me-4 px-5" to="/" onClick={publishJob}>
-            {t("Post Job Now")}
-          </Link>
-          <Link className="btn border text-success px-5" to="/home">
-            {t("Save & Exit")}
-          </Link>
+          <Link className="btn bg-upwork me-4 px-5" to="/" onClick={publishJob}>{t("Post Job Now")}</Link>
+          <Link className="btn border text-success px-5" to="/home" onClick={deletePost}>{t("Delete & Exit")}</Link>
         </div>
       </section>
     </>
-  );
+  )
 }
