@@ -116,7 +116,7 @@ export default function Proposals(props) {
         </div>
         <div className="container list-group-item py-lg-4 mb-3">
           {talentData?.map((task, index) => (
-            <ProposalCard job={task.data().jobId} />
+            <ProposalCard jobId={task.data().jobId} />
           ))}
         </div>
       </div>
