@@ -322,8 +322,8 @@ export default function SearchClient() {
                             <SearchBarJobsClient />
                         </div>
                     </div>
-                    <div className="row">
-                        <div onClick={clickHandler}>
+                    <div >
+                        <div onClick={clickHandler} className="mx-3" >
                         <TalentCardSearch/>
                         </div>
                     </div>
