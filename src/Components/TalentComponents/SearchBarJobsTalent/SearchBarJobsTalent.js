@@ -1,7 +1,10 @@
-import React,{ useContext, useEffect } from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable array-callback-return */
+import React, { useContext, useEffect } from "react";
 import { db } from "../../../firebase";
 import { Link, useHistory } from "react-router-dom";
-import { useTranslation } from "react-i18next";  
+import { useTranslation } from "react-i18next";
 import { SearchContext } from '../../../Context/SearchContext';
 import { updateUserData } from '../../../Network/Network'
 import { useDispatch, useSelector } from "react-redux";
@@ -9,12 +12,13 @@ import { talentDataAction } from "../../../Store/actions/talentData";
 
 
 export default function SearchBarJobsTalent(props) {
-  const { t }=useTranslation();
+  const { t } = useTranslation();
   const { push } = useHistory();
   const { arr, setarr, itemSearchList, setitemSearchList } = useContext(SearchContext)
   const user = useSelector((state) => state.talentData);
   const dispatch = useDispatch();
   useEffect(() => {
+    sessionStorage.setItem('searchArray', JSON.stringify(user.searchHistory))
     console.log(arr);
     dispatch(talentDataAction());
     console.log(user);
