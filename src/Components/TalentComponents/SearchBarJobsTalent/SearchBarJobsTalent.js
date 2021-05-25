@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable array-callback-return */
 import React, { useContext, useEffect } from "react";
 import { db } from "../../../firebase";
 import { Link, useHistory } from "react-router-dom";
@@ -16,6 +19,7 @@ export default function SearchBarJobsTalent(props) {
   const dispatch = useDispatch();
   useEffect(() => {
     sessionStorage.setItem('searchArray', JSON.stringify(user.searchHistory))
+    console.log(arr);
     dispatch(talentDataAction());
     console.log(user);
   }, []);
@@ -33,13 +37,19 @@ export default function SearchBarJobsTalent(props) {
           item => {
             tempArr.push(item.data())
             push({ pathname: "/search", state: tempArr })
-          }))
+          })
+      )
+    if (tempArr.length <= 0) {
 
+      push('/search')
+    }
     if (itemSearchList !== "") {
-      let arr2 = [itemSearchList, ...arr];
+      let arr2 = []
+      arr != null ? arr2 = [itemSearchList, ...arr] :
+        arr2 = [itemSearchList]
       updateUserData('talent', { searchHistory: [...user?.searchHistory, ...arr2] })
-      setarr(arr2);
       sessionStorage.setItem('searchArray', JSON.stringify(arr2))
+      setarr([...arr2])
     }
   }
 

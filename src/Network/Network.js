@@ -3,18 +3,21 @@ import { auth, db } from "../firebase";
 const createDocument = (collectionName, data) => {
   db.collection(collectionName)
     .add(data)
-    .then(res => {
-      console.log("Document added in " + collectionName + " collection with id: " + res.id);
+    .then((res) => {
+      console.log(
+        "Document added in " + collectionName + " collection with id: " + res.id
+      );
       collectionName === "job" && localStorage.setItem("docID", res.id);
     })
-    .catch(error => console.log(error));
+    .catch((error) => console.log(error));
 };
 
 // Create New Document - auto id
 export const createDocumentWithId = (collectionName, data, id) => {
   if (id) {
     db.collection(collectionName)
-      .doc(id).set(data)
+      .doc(id)
+      .set(data)
       .then(() => {
         console.log("Document added in " + collectionName);
       })
@@ -29,7 +32,6 @@ export const updateUserData = (collectionName, newData) => {
     .update(newData)
     .then(() => console.log("user data updated"))
     .catch(() => console.log("fail to update user data"));
-
 };
 
 // Update Job
@@ -41,30 +43,48 @@ export const updateJob = (newData, docID) => {
     .catch((err) => console.log("fail to update job", err));
 };
 // new proposal
-export const subCollection = (collectionName,subCollectionName,data, docId) => {
+export const subCollection = (
+  collectionName,
+  subCollectionName,
+  data,
+  docId
+) => {
   db.collection(collectionName)
-  .doc(docId)
-  .collection(subCollectionName)
-  .add(data)
-  .then((res)=>console.log(res,'add new subCollection'))
-  .catch((e)=>console.log(e))
+    .doc(docId)
+    .collection(subCollectionName)
+    .add(data)
+    .then((res) => console.log(res.id, "add new subCollection"))
+    .catch((e) => console.log(e));
+};
+
+export const deletesubCollection = (
+  collectionName,
+  subCollectionName,
+  docId,
+  docIds
+) => {
+  db.collection(collectionName)
+    .doc(docId)
+    .collection(subCollectionName)
+    .doc(docIds)
+    .delete()
+    .then(() => console.log("document deleted"))
+    .catch((e) => console.log(e));
 };
 
 export const getCurrentUser = async () => {
   return auth.currentUser;
-}
+};
 
 //getJobData
-export const getJobData = async (jobId)=>{
+export const getJobData = async (jobId) => {
+  const res = db.collection("job");
+  const data = await res
+    .doc(jobId)
+    .get()
+    .then((res) => res.data());
 
-  const res=db.collection('job');
-  const data =await res.doc(jobId).get().then((res)=>res.data())
-
- return data;
-}
-
- 
-  
- 
+  return data;
+};
 
 export default createDocument;
