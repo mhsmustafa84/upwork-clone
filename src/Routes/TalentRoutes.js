@@ -25,6 +25,7 @@ import EmailVerified from "./../Pages/EmailVerification/EmailVerified";
 import SubmitProposal from "../Pages/Submit Proposal/SubmitProposal";
 import ReviewProposalsCard from "../Components/ClientComponents/ReviewProposalsCard/ReviewProposalsCard";
 import { SearchContextProvider } from "../Context/SearchContext";
+import PleaseVerifiy from "../Pages/EmailVerification/PleaseVerifiy";
 
 export default function TalentRoutes() {
   const [arr, setarr] = useState([]);
@@ -56,6 +57,7 @@ export default function TalentRoutes() {
           <Route path="/proposals" exact component={Proposals} />
           <Route path="/profile" exact component={Profile} />
           <Route path="/email-verification" component={EmailVerified} />
+          <Route path="/sign-up/please-verify" exact component={PleaseVerifiy} />
           <Route path="/my-stats" exact component={MyStats} />
           <Route path="/my-jobs" exact component={MyJobs} />
           <Route path="/all-contract" exact component={AllContracts} />
