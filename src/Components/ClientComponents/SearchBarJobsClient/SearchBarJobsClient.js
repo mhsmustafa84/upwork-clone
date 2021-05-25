@@ -9,7 +9,7 @@ import { SearchContext } from "../../../Context/SearchContext";
 export default function SearchBarJobsClient() {
   const { t } = useTranslation();
   const [verify, setverify] = useState(false);
-  const { talentSearchList, settalentSearchList, settalentArr } = useContext(SearchContext)
+  const { talentSearchList, settalentSearchList, settalentArr,talentArr } = useContext(SearchContext)
   firebaseApp.auth().onAuthStateChanged((user) => {
     if (user) {
       var verf = user.emailVerified;
@@ -19,8 +19,9 @@ export default function SearchBarJobsClient() {
   const handle = (e) => {
     settalentSearchList(e.target.value)
   }
-  useEffect(() => {
-  }, [talentSearchList])
+  // useEffect(() => {
+  //   console.log(talentArr);
+  // }, [talentSearchList,talentArr])
   const searchDatabase = () => {
     let tempArr = [];
     db.collection('talent')
@@ -28,14 +29,16 @@ export default function SearchBarJobsClient() {
       .onSnapshot(
         jobs => jobs.docs.map(
           item => {
-            console.log(item.data());
+            // console.log(item.data());
             tempArr.push(item.data())
+            if (talentSearchList != "") {
+              settalentArr([...tempArr])
+            }
           })
       )
-    if (talentSearchList != "") {
-      console.log(tempArr);
-      settalentArr([...tempArr])
-    }
+    // if (talentSearchList != "") {
+    //   settalentArr([...tempArr])
+    // }
   }
 
   return (

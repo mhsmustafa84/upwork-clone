@@ -29,7 +29,7 @@ export default function AllJobPosts() {
           <JobPostsFilters />
         </div>
         <div className="row border border-1 py-4 bg-white">
-          {jobs && jobs.map(job => <JobPostLi job={job.data} id={job.docID} key={job.docID} />)}
+          {jobs && jobs?.map(job => <JobPostLi job={job.data} id={job.docID} key={job.docID} />)}
 
         </div>
         <div className="row border border-1 py-4  bg-white">
