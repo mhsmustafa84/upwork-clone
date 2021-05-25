@@ -30,7 +30,6 @@ export default function PostJobExpertise({ setBtns, btns }) {
     setskillsList(arr2);
     console.log(skillsList);
     setJob({...job,jobSkills:skillsList})
- 
   };
 
   const addData = () => {

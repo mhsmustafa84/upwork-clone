@@ -5,11 +5,13 @@ import { useParams } from "react-router";
 import SubmitProposalContractType from "../../Components/TalentComponents/SubmitProposalContractType/SubmitProposalContractType";
 import { auth, db, storage } from "../../firebase";
 import { subCollection, updateUserData } from "../../Network/Network";
+import { Link } from "react-router-dom";
 
 export default function SubmitProposal() {
   const { id } = useParams();
   const [job, setjob] = useState({});
   let [proposal, setProposal] = useState("");
+  let [talent, setTalent] = useState("");
   const user = useSelector((state) => state.talentData);
   let idd = auth.currentUser.uid;
   const [proposalData, setproposalData] = useState({ proposalImages: [] });
@@ -41,6 +43,24 @@ export default function SubmitProposal() {
               .doc(proposal)
               .delete();
             console.log(proposal);
+          })
+        );
+      await db
+        .collection("talent")
+        .doc(auth.currentUser.uid)
+        .collection("jobProposal")
+        .where("jobId", "==", id)
+        .get()
+        .then((res) =>
+          res.docs.map((e) => {
+            talent = e.id;
+            setTalent(talent);
+            db.collection("talent")
+              .doc(auth.currentUser.uid)
+              .collection("jobProposal")
+              .doc(talent)
+              .delete();
+            console.log(talent);
           })
         );
     } catch (err) {
@@ -174,15 +194,15 @@ export default function SubmitProposal() {
                 <h2 className="h4 border-bottom p-4">Job details</h2>
                 <div className="ps-4 pt-2 d-flex">
                   <div className="w-75">
-                    <p className="fw-bold">{job.jobTitle}</p>
+                    <p className="fw-bold">{job?.jobTitle}</p>
                     <div className="mb-3">
                       <span className="bg-cat-cn py-1 px-2 me-3 rounded-pill">
-                        {job.jobCategory}
+                        {job?.jobCategory}
                       </span>
                       {/* <span>{date.setSeconds(job?.postTime?.seconds)}</span> */}
                     </div>
                     <div className="mb-3">
-                      <p>{job.jobDescription}</p>
+                      <p>{job?.jobDescription}</p>
                       <a className="upw-c-cn" href>
                         View job posting
                       </a>
@@ -196,7 +216,7 @@ export default function SubmitProposal() {
                       <span className="ps-2">
                         <strong>Expert</strong>
                       </span>
-                      <p className="ps-4">{job.jobExperienceLevel}</p>
+                      <p className="ps-4">{job?.jobExperienceLevel}</p>
                     </div>
                     <div>
                       <span>
@@ -205,14 +225,14 @@ export default function SubmitProposal() {
                       <span className="ps-2">
                         <strong>Hours to be determined</strong>
                       </span>
-                      <p className="ps-4">{job.jobPaymentType}</p>
+                      <p className="ps-4">{job?.jobPaymentType}</p>
                     </div>
                     <div>
                       <span>
                         <i className="far fa-calendar-alt" />
                       </span>
                       <span className="ps-2">
-                        <strong>{job.jobDuration}</strong>
+                        <strong>{job?.jobDuration}</strong>
                       </span>
                       <p className="ps-4">Project Length</p>
                     </div>
@@ -231,7 +251,7 @@ export default function SubmitProposal() {
                 <h2 className="h4 border-bottom p-4">Terms</h2>
                 <div className="ps-4 pt-2 d-flex">
                   <SubmitProposalContractType
-                    ContractType={job.jobPaymentType}
+                    ContractType={job?.jobPaymentType}
                   />
                   <div className="w-25 m-3 ps-3 d-flex flex-column justify-content-center align-items-center">
                     <svg
@@ -359,14 +379,14 @@ export default function SubmitProposal() {
                         <div class="modal-body">
                           <div className="ps-4 pt-2 d-flex">
                             <div className="w-75">
-                              <p className="fw-bold">{job.jobTitle}</p>
+                              <p className="fw-bold">{job?.jobTitle}</p>
                               <div className="mb-3">
                                 <span className="bg-cat-cn py-1 px-2 me-3 rounded-pill">
-                                  {job.jobCategory}
+                                  {job?.jobCategory}
                                 </span>
                               </div>
                               <div className="mb-3">
-                                <p>{job.jobDescription}</p>
+                                <p>{job?.jobDescription}</p>
                               </div>
                             </div>
                             <div className="w-25 border-start m-3 ps-3">
@@ -377,7 +397,7 @@ export default function SubmitProposal() {
                                 <span className="ps-2">
                                   <strong>Expert</strong>
                                 </span>
-                                <p className="ps-4">{job.jobExperienceLevel}</p>
+                                <p className="ps-4">{job?.jobExperienceLevel}</p>
                               </div>
                               <div>
                                 <span>
@@ -386,14 +406,14 @@ export default function SubmitProposal() {
                                 <span className="ps-2">
                                   <strong>Hours to be determined</strong>
                                 </span>
-                                <p className="ps-4">{job.jobPaymentType}</p>
+                                <p className="ps-4">{job?.jobPaymentType}</p>
                               </div>
                               <div>
                                 <span>
                                   <i className="far fa-calendar-alt" />
                                 </span>
                                 <span className="ps-2">
-                                  <strong>{job.jobDuration}</strong>
+                                  <strong>{job?.jobDuration}</strong>
                                 </span>
                                 <p className="ps-4">Project Length</p>
                               </div>
@@ -402,7 +422,7 @@ export default function SubmitProposal() {
                           <div>
                             <p className="fw-bold">Cover Litter</p>
                             <div className="mb-3">
-                              <p>{proposalData.coverLitter}</p>
+                              <p>{proposalData?.coverLitter}</p>
                             </div>
                           </div>
                         </div>
@@ -415,9 +435,13 @@ export default function SubmitProposal() {
                           >
                             WithDraw proposal
                           </button>
-                          <button type="button" class="btn bg-upwork">
+                          <Link
+                            to={{ pathname: "/proposals", state: id }}
+                            className="btn bg-upwork"
+                            type="button"
+                          >
                             Save changes
-                          </button>
+                          </Link>
                         </div>
                       </div>
                     </div>
