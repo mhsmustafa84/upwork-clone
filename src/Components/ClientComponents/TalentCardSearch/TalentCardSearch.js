@@ -1,12 +1,22 @@
 /* eslint-disable */
-import React from 'react'
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-
 import ImgWithActiveStatus from "./../../../Components/ClientComponents/ImgWithActiveStatus/ImgWithActiveStatus";
+import { useDispatch, useSelector } from "react-redux";
+import { talentDataAction } from "../../../Store/actions/talentData";
+import ShowMore from 'react-show-more-button/dist/module';
+
+
 
 
 export default function TalentCardSearch() {
     const { t } = useTranslation();
+    const user = useSelector((state) => state.talentData);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(talentDataAction());
+  }, []);
+
 
   return (
     <div>
@@ -54,6 +64,20 @@ export default function TalentCardSearch() {
                 </span>
                 <span className="text-primary"> {t("RISING TALENT")}</span>
               </div>
+              <div className="col progress " style={{width:50, height: 10, display: "inline",float:"left"}}>
+          <div
+            className="progress-bar bg-primary"
+            role="progressbar"
+            style={{ width: `${user.profileCompletion}%` }}
+            aria-valuenow={100}
+            aria-valuemin={0}
+            aria-valuemax={80}
+          >
+            <div style={{ fontSize: "0.7em", display: "start" }}>
+              {`${user.profileCompletion}%`}
+            </div>
+          </div>
+        </div>
           </div>
         </div>
         <div className="col py-3">
@@ -67,61 +91,47 @@ export default function TalentCardSearch() {
               aria-controls="collapseTwo"
             >
               <i
-                className="far fa-thumbs-up"
+                className="far fa-heart"
                 aria-hidden="true"
                 onclick="this.classList.toggle('fas')"
               />
             </button>
           </div>
-          <div className="btn-group float-start">
-            <button
-              type="button"
-              className="btn btn-light dropdown-toggle border border-1 rounded-circle"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <i className="far fa-thumbs-down" />
-            </button>
-            <ul className="dropdown-menu ">
-              <li>
-                <a className="dropdown-item" href="#">
-                  Candidate will not be notified
-                </a>
-              </li>
-            </ul>
           </div>
-        </div>
+        
         <div className="col py-3">
-          <button type="button" className="btn bg-white btn-outline-secondary">
-            <span className="text-success fw-bold">Messages</span>
-          </button>
-        </div>
-        <div className="col py-3">
-          <button type="button" className="btn bg-upwork px-5">
-            Hire
+          <button type="button" className="btn bg-upwork px-3">
+            invite to job
           </button>
         </div>
 
         <div className="col-lg-1 pt-lg-3"></div>
         <div className="col-lg-10 pt-lg-3 mx-3">
-          <p className="text-muted">
-            <span>
-              <i className="fas fa-star" /> Specialized in
-            </span>
-            <span> Graphic Design</span>
-          </p>
-          <p id="Cover-Letter">
-            <span className="fw-bold">Cover Letter - </span>
-            Hi, I like how you described what you're looking for - it seems to
-            be an exciting project! What's your main goal? Do you have any extra
-            wishes? Best wishes, Anna Dembov P.S. https://behance.net/annadembov
-            https://www.linkedin.com/in<span id="dots">...</span>
-            <span id="more">
-              /anna-dembov-91a32b1b3
-            </span>
-          </p>
+        
         </div>
+        <ShowMore style={{ fontFamily: "Gotham SSm" }} className="" maxHeight={100} button={<button id="seemorebutton" classname="advanced-search-link " style={{ color: 'green', position: 'absolute', left: 0 }}>
+                more
+      </button>}>
+      loremip loremiploremip loremip oremip loremiploremip loremip loremip loremiploremip loremip loremip loremiploremip loremip loremip loremiploremip loremip loremip loremiploremip loremip loremip loremiploremip loremip
+loremip loremiploremip loremip oremip loremiploremip loremip loremip loremiploremip loremip loremip loremiploremip loremip loremip loremiploremip loremip loremip loremiploremip loremip loremip loremiploremip loremip
+loremip loremiploremip loremip oremip loremiploremip loremip loremip loremiploremip loremip loremip loremiploremip loremip loremip loremiploremip loremip loremip loremiploremip loremip loremip loremiploremip loremip
+
+              </ShowMore>
+              <div className="d-flex justify-content-start">
+                  {/* {user?.skills?.map((item) => */}
+                    <div className="chip mb-3 ms">
+                      <span>vsss</span>
+                    </div>
+                    <div className="chip mb-3 ms">
+                      <span>vsss</span>
+                    </div>
+                    <div className="chip mb-3 ms">
+                      <span>vsss</span>
+                    </div>
+                  {/* )} */}
+                </div>
       </div>
+     
 
     </div>
   )
