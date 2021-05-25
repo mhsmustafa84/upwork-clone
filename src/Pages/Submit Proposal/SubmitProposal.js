@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import SubmitProposalContractType from "../../Components/TalentComponents/SubmitProposalContractType/SubmitProposalContractType";
 import { auth, db, storage } from "../../firebase";
 import { subCollection, updateUserData } from "../../Network/Network";
@@ -9,15 +9,16 @@ import { subCollection, updateUserData } from "../../Network/Network";
 export default function SubmitProposal() {
   const { id } = useParams();
   const [job, setjob] = useState({});
+  const [user, setuser] = useState({})
   let [proposal, setProposal] = useState("");
-  const user = useSelector((state) => state.talentData);
-  let idd = auth.currentUser.uid;
   const [proposalData, setproposalData] = useState({ coverLetter:'',proposalImages: [] });
   useEffect(() => {
     db.collection("job")
       .doc(id)
       .get()
       .then((res) => setjob(res.data()));
+      //talent data
+    db.collection('talent').doc(auth.currentUser.uid).get().then(res=>setuser(res.data()))
   }, []);
 
   const handlewithdrawProposal = async () => {
@@ -47,30 +48,48 @@ export default function SubmitProposal() {
 
   let arr = ["s"];
   arr = job?.skills;
+
   const handlVal = (e) => {
+    const val = e.target.value;
+    const name = e.target.name;
     const files = e.target.files;
 
-    if (e.target.name == "coverLetter")
-      setproposalData({ coverLetter: e.target.value });
-    else {
-      if (files[0]) {
-        const upload = storage.ref(`proposalImages/${files[0].name}`).put(files[0]);
-        upload.on(
-          "state_changed",
-          (snapshot) => { },
-          (err) => {
-            console.log(err);
-          },
-          () => {
-            storage.ref("proposalImages")
-              .child(files[0].name)
-              .getDownloadURL()
-              .then(url => {
-                proposalData.proposalImages.push(url);
-                setproposalData({ ...proposalData, proposalImages: [...proposalData.proposalImages] })
-              });
-          })
-      }
+    switch (name) {
+      case "coverLetter":
+        proposalData.coverLetter=val
+        setproposalData({...proposalData, coverLetter: proposalData.coverLetter });  
+        break;
+        case "images":
+          if (files[0]) {
+            const upload = storage.ref(`proposalImages/${files[0].name}`).put(files[0]);
+            upload.on(
+              "state_changed",
+              (snapshot) => { },
+              (err) => {
+                console.log(err);
+              },
+              () => {
+                storage.ref("proposalImages")
+                  .child(files[0].name)
+                  .getDownloadURL()
+                  .then(url => {
+                    proposalData.proposalImages.push(url);
+                    setproposalData({ ...proposalData, proposalImages: proposalData.proposalImages })
+                  });
+              })
+          }
+        break;
+        // case "coverLetter":
+        // proposalData.coverLetter=val
+        // setproposalData({...proposalData, coverLetter: proposalData.coverLetter });  
+        // break;
+        
+    
+      default:
+        break;
+    }
+     {
+      
     }
   };
 
@@ -148,7 +167,7 @@ export default function SubmitProposal() {
                   </p>
                   <p>
                     When you submit this proposal, you'll have
-                    <strong> {user.firstName} </strong>remaining
+                    <strong> {user.connects} </strong>remaining
                   </p>
                 </div>
               </div>
@@ -169,9 +188,12 @@ export default function SubmitProposal() {
                     </div>
                     <div className="mb-3">
                       <p>{job.jobDescription}</p>
-                      <a className="upw-c-cn" href>
+                      <Link  to={{
+                    pathname: `/job/${id}`,
+                    state: `${id}`,
+                  }} className="upw-c-cn" href>
                         View job posting
-                      </a>
+                      </Link>
                     </div>
                   </div>
                   <div className="w-25 border-start m-3 ps-3">
@@ -180,7 +202,7 @@ export default function SubmitProposal() {
                         <i className="fas fa-head-side-virus" />
                       </span>
                       <span className="ps-2">
-                        <strong>Expert</strong>
+                        <strong>Experience Level</strong>
                       </span>
                       <p className="ps-4">{job.jobExperienceLevel}</p>
                     </div>

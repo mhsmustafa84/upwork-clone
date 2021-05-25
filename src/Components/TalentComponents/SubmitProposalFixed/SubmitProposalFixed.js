@@ -8,6 +8,8 @@ export default function SubmitProposalFixed() {
     const rateNum = (e) => {
         rate = e.target.value;
         setrate(rate);
+        console.log("asdas");
+        console.log(rate);
     };
     const addRate = () => {
         console.log(rate);
@@ -35,7 +37,7 @@ export default function SubmitProposalFixed() {
                                 className="form-control text-end"
                                 type="number"
                                 placeholder="00.00"
-                                onInput={rateNum}
+                                onChange={rateNum}
                             />
                         </div>
                     </div>
