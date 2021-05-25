@@ -6,9 +6,10 @@ export default function CreateProfileEducationAndEmployment({ setBtns, btns }) {
 
   const [user, setuser] = useState({
     school: "",
-    company: { companyName: "", jobTitile: "", stillWork: false },
+    company: [{ companyName: "", jobTitile: "", stillWork: false }],
     profileCompletion: 40,
   });
+
   const getUserData = (e) => {
     const val = e.target.value;
     const name = e.target.name;
@@ -17,26 +18,28 @@ export default function CreateProfileEducationAndEmployment({ setBtns, btns }) {
         setuser({ ...user, school: val });
         break;
       case "company":
-        setuser({ ...user, company: { ...user.company, companyName: val } });
+        setuser({ ...user, company: [{ ...user.company[0], companyName: val }] });
         break;
       case "title":
-        setuser({ ...user, company: { ...user.company, jobTitile: val } });
+        setuser({ ...user, company: [{ ...user.company[0], jobTitile: val }] });
         break;
       case "stillwork":
         setuser({
           ...user,
-          company: { ...user.company, stillWork: e.target.checked },
+          company: [{ ...user.company[0], stillWork: e.target.checked }],
         });
         break;
       default:
         break;
     }
   };
+
   const updateUser = () => {
     console.log(user);
     updateUserData("talent", user);
     setBtns({ ...btns, language: false })
   };
+
   return (
     <section className="bg-white border rounded mt-3 pt-4">
       <div className="border-bottom ps-4 pb-3">
