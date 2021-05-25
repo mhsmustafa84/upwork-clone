@@ -80,7 +80,7 @@ export default function ReviewProposalsCard() {
               </div>
             </div>
             <div className="col py-3">
-              <Link to="/messagess" className="btn bg-white btn-outline-secondary" onClick={() => sendMSG(talent[index]?.authID)}>
+              <Link to={{ pathname: "/messages", state: talent[index]?.authID }} className="btn bg-white btn-outline-secondary" onClick={() => sendMSG(talent[index]?.authID)}>
                 <span className="text-success fw-bold">Messages</span>
               </Link>
             </div>

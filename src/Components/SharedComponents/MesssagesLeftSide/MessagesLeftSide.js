@@ -1,12 +1,24 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable */
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { db } from "../../../firebase";
 
-export default function MessagesLeftSide() {
+export default function MessagesLeftSide({ talentID }) {
+    console.log(talentID);
+
+    const [talent, setTalent] = useState({});
+
+    useEffect(() => {
+        if (talentID) {
+            db.collection("talent").doc(talentID).get().then(doc => setTalent(doc.data()));
+        }
+    }, []);
+
     return (
         <>
             <div className="card bg-white mt-2">
-                <div className="card-header" style={{ height: 100 }}>
+                {/* <div className="card-header" style={{ height: 100 }}>
                     <div className="row">
                         <div className="col-3">
                             <div className="dropdown">
@@ -122,7 +134,7 @@ export default function MessagesLeftSide() {
                             </button>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div className="card-body">
                     <div className="row">
                         <div className="input-group col-12">
@@ -222,7 +234,7 @@ export default function MessagesLeftSide() {
                                             <span className="msg-uname">Belal Khaled, incen </span>
                                             <span className="topic">
                                                 Design Blog articles in Elementor - Arabic speaker
-                                            <br />
+                        <br />
                                             </span>
                                             <p className="smallmsg">You:ok sir</p>
                                         </div>
@@ -234,13 +246,13 @@ export default function MessagesLeftSide() {
                                         <div className="col-3">
                                             <button className="btn btn-circle btn-xl mx-auto border-gray bg-gray">
                                                 B
-                                            </button>
+                      </button>
                                         </div>
                                         <div className="col-9">
                                             <span className="msg-uname">Belal Khaled, incen </span>
                                             <span className="topic">
                                                 Design Blog articles in Elementor - Arabic speaker
-                                                <br />
+                        <br />
                                             </span>
                                             <p className="font-1 pt-2">You:ok sir</p>
                                         </div>
@@ -251,7 +263,7 @@ export default function MessagesLeftSide() {
                                 </li>
                                 <li className="list-group-item d-flex justify-content-between align-items-center">
                                     A third list item
-                                    <span className="badge bg-upwork rounded-pill">1</span>
+                  <span className="badge bg-upwork rounded-pill">1</span>
                                 </li>
                             </ul>
                         </div>
