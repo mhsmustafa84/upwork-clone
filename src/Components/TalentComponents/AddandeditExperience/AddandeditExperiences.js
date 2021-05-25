@@ -1,17 +1,45 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React from "react";
-import { useTranslation } from "react-i18next";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { talentDataAction } from "../../../Store/actions/talentData";
+import { useTranslation } from "react-i18next";
+import ShowMore from 'react-show-more-button/dist/module';
+import { updateUserData } from "../../../Network/Network";
 
 export default function AddandeditExperience() {
   const user = useSelector((state) => state.talentData);
+  const [otherExperienceSubject, setotherExperienceSubject] = useState("");
+  const [otherExperienceDescription, setotherExperienceDescription] = useState("");
   const dispatch = useDispatch();
+  const { t } = useTranslation();
+
   useEffect(() => {
     dispatch(talentDataAction());
   }, []);
-  const { t } = useTranslation();
+  
+
+  const updateAddandeditExperience = (e) => {
+    const val = e.target.value;
+    const name = e.target.name;
+    switch (name) {
+      case "subject":
+        setotherExperienceSubject(val);
+
+        break;
+      case "description":
+        setotherExperienceDescription(val);
+
+        break;
+      default:
+        break;
+    }
+  };
+
+  // const UpdateEditAddandeditExperience = () => {
+  //   updateUserData("talent", { otherExperience: [{ description: otherExperienceDescription, subject: otherExperienceSubject }] })
+  // }
+
+
   return (
     <>
       {/* <style
@@ -215,6 +243,8 @@ export default function AddandeditExperience() {
                     Subject
                   </label>
                   <input
+                  onChange={updateAddandeditExperience}
+                  name="subject"
                     type="text"
                     className="form-control"
                     id="exampleFormControlInput1"
@@ -228,6 +258,8 @@ export default function AddandeditExperience() {
                     Description
                   </label>
                   <textarea
+                  onChange={updateAddandeditExperience}
+                  name="description"
                     className="form-control"
                     id="exampleFormControlTextarea1"
                     rows={5}
@@ -249,7 +281,7 @@ export default function AddandeditExperience() {
               >
                 Cancel
               </button>
-              <button type="button" className="btn btn-default border rounded">
+              <button  type="button" className="btn btn-default border rounded">
                 Save{" "}
               </button>
             </div>

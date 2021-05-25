@@ -9,8 +9,8 @@ export default function Profile() {
       <FirstSectionProfileTalent />
       {/* <TestimonialsProfileTalent />
       <CertificatProfileTalent /> */}
-      <AddandeditEmployementHistory />
-      <AddandeditExperience />
+      {/* <AddandeditEmployementHistory /> */}
+      {/* <AddandeditExperience /> */}
     </>
   );
 }
