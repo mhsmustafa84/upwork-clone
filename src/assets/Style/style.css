@@ -80,7 +80,12 @@
   color: white;
   transition: all 0.3s;
 }
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
 
+   opacity: 0;
+
+}
 .bg-upwork:hover {
   background-color: #008329;
   color: white;

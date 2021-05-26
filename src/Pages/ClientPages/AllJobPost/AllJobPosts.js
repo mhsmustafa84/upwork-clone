@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import SearchJobPosts from "./../../../Components/ClientComponents/SearchJobPosts/SearchJobPosts";
 import JobPostsFilters from "./../../../Components/ClientComponents/JobPostsFilters/JobPostsFilters";
@@ -9,10 +10,10 @@ import { clientJobsAction } from "../../../Store/actions/clientJobAction";
 import { auth } from "../../../firebase";
 
 export default function AllJobPosts() {
-  const jobs = useSelector(state => state.clientJobs);
+  const jobs = useSelector((state) => state.clientJobs);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(clientJobsAction('authID', '==', auth.currentUser.uid));
+    dispatch(clientJobsAction("authID", "==", auth.currentUser.uid));
     console.log(jobs);
   }, []);
   return (
@@ -29,8 +30,10 @@ export default function AllJobPosts() {
           <JobPostsFilters />
         </div>
         <div className="row border border-1 py-4 bg-white">
-          {jobs && jobs?.map(job => <JobPostLi job={job.data} id={job.docID} key={job.docID} />)}
-
+          {jobs &&
+            jobs?.map((job) => (
+              <JobPostLi job={job.data} id={job.docID} key={job.docID} />
+            ))}
         </div>
         <div className="row border border-1 py-4  bg-white">
           <JobPostingsPagination />

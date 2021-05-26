@@ -4,23 +4,12 @@
 import { Link } from "react-router-dom";
 
 export default function JobPostLi({ job, id }) {
-
-  // const [myJobs, setMyJobs] = useState([]);
-
-  // const allJobs = useSelector((state) => state.jobsData);
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(jobsDataAction());
-  //   const arr = allJobs.filter(job => job.authID === auth.currentUser?.uid);
-  //   setMyJobs([...arr]);
-  // }, []);
-
   return (
     <div>
       <div className="row">
         <div className="col-lg-5 col-md-6 col-sm-10 col-xs-9">
           <h4 className="m-0-bottom" id="all-postings-list-opening-title-0">
-            <Link to={`/review-proposal/${id}`}>
+            <Link to={{pathname:`/JobJobDetailsBeforeProposals/${id}`,state: id}}>
               {job.jobTitle}
             </Link>
           </h4>
@@ -29,7 +18,10 @@ export default function JobPostLi({ job, id }) {
             id="all-postings-list-created-by-block-0"
           >
             Posted
-              <span className=""> {new Date(job.postTime.seconds * 1000).toLocaleString()} </span>
+            <span className="">
+              {" "}
+              {new Date(job.postTime.seconds * 1000).toLocaleString()}{" "}
+            </span>
           </p>
           <p className="m-xs-bottom m-0-top ng-binding">
             <span
@@ -43,7 +35,7 @@ export default function JobPostLi({ job, id }) {
         <div className="d-block col-sm-2 col-xs-3">
           <div className="fw-bold">
             <span>0</span> (<span> 0 </span> new)
-            </div>
+          </div>
           <div className="text-muted">Proposals</div>
         </div>
         <div className="d-block col-sm-1 col-xs-3">
@@ -55,9 +47,9 @@ export default function JobPostLi({ job, id }) {
           <div className="text-muted">Hired</div>
         </div>
         <div className="d-block col-sm-2 col-xs-3">
-          <button type="button" className="btn bg-upwork" >
+          <button type="button" className="btn bg-upwork">
             View Proposals
-            </button>
+          </button>
         </div>
         <div className="d-block col-sm-1 col-xs-3 btn-group float-sm-end ">
           <button
@@ -72,47 +64,47 @@ export default function JobPostLi({ job, id }) {
             <li>
               <a className="dropdown-item" href="#">
                 View Proposals
-                </a>
+              </a>
             </li>
             <li>
               <a className="dropdown-item" href="#">
                 Invite freelancers
-                </a>
+              </a>
             </li>
             <li>
               <a className="dropdown-item" href="#">
                 Make Private
-                </a>
+              </a>
             </li>
             <li>
               <a className="dropdown-item" href="#">
                 Share job posting
-                </a>
+              </a>
             </li>
             <li>
               <a className="dropdown-item" href="#">
                 Upgrade to Featured
-                </a>
+              </a>
             </li>
             <li>
               <a className="dropdown-item" href="#">
                 View Job posting
-                </a>
+              </a>
             </li>
             <li>
               <a className="dropdown-item" href="#">
                 Edit posting
-                </a>
+              </a>
             </li>
             <li>
               <a className="dropdown-item" href="#">
                 Reuse posting
-                </a>
+              </a>
             </li>
             <li>
               <a className="dropdown-item" href="#">
                 Remove posting
-                </a>
+              </a>
             </li>
           </ul>
         </div>

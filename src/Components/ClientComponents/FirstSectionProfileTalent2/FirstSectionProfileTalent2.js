@@ -1,12 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import img from "../../../assets/img/icon-user.svg";
 import { useTranslation } from "react-i18next";
-import { Link, useHistory } from "react-router-dom";
-import { updateUserData } from "../../../Network/Network";
-import { auth, storage } from "../../../firebase";
+import { Link } from "react-router-dom";
 import { db } from "../../../firebase";
 import { useParams } from "react-router";
 import ShowMore from "react-show-more-button/dist/module";
@@ -34,7 +31,7 @@ export default function FirstSectionProfileTalent2() {
               <img
                 alt=""
                 className="mb-3 ms-3 rounded avatar vertical-align-middle m-0 avatar-sm avatar-responsive"
-                src={user.profilePhoto ? user.profilePhoto : img}
+                src={user?.profilePhoto ? user.profilePhoto : img}
               />
             </div>
           </div>
@@ -45,16 +42,16 @@ export default function FirstSectionProfileTalent2() {
               className="link-dark job-title-hover "
             >
               <h2 className="fw-bold">
-                {user.firstName + " "} {user.lastName}.
+                {user?.firstName + " "} {user?.lastName}.
               </h2>
             </a>
-            <div className={user.location && "fas fa-map-marker-alt"}>
+            <div className={user?.location && "fas fa-map-marker-alt"}>
               <span>
-                {user.location && (
+                {user?.location && (
                   <>
                     {" "}
-                    {user.location.city} -{" "}
-                    <strong>{user.location.country} – </strong>
+                    {user?.location.city} -{" "}
+                    <strong>{user?.location.country} – </strong>
                   </>
                 )}
                 {new Date().toLocaleTimeString()} {t("local time")}
@@ -97,22 +94,22 @@ export default function FirstSectionProfileTalent2() {
             <div className="col-4 row border-end border-2 me-1">
               <div className="row">
                 <div className="col">
-                  <div className="fw-bold fs-5">${user.totalEarnings}</div>
+                  <div className="fw-bold fs-5">${user?.totalEarnings}</div>
                   <div className="fs-6">{t("Earnings")}</div>
                 </div>
                 <div className="col">
-                  <div className="fw-bold fs-5">{user.totalJobs}</div>
+                  <div className="fw-bold fs-5">{user?.totalJobs}</div>
                   <div className="fs-6">{t("Total Jobs")}</div>
                 </div>
                 <div className="col">
-                  <div className="fw-bold fs-5">{user.totalHours}</div>
+                  <div className="fw-bold fs-5">{user?.totalHours}</div>
                   <div className="fs-6">{t("Total Hours")}</div>
                 </div>
               </div>
               <hr />
               <h5 className="fw-bold">{t("Availability")}</h5>
               <h6 className="fw-bold">
-                {user?.Availabilty == true ? "available" : "not available"}
+                {user?.Availabilty === true ? "available" : "not available"}
               </h6>
               <p>
                 {user?.Availabilty
