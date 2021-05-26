@@ -41,18 +41,7 @@ export default function RightSidebarTalentHome() {
       <div className="my-lg-1 ">
         <i className="fas fa-globe"> </i>
         <span> {t("Public")}</span>
-        <span className="btn-group float-sm-end px-lg-1">
-          <button
-            type="button"
-            className="btn btn-light dropdown-toggle border border-1 rounded-circle collapsed"
-            data-toggle="collapse"
-            data-target="#collapse"
-            aria-expanded="false"
-            aria-controls="collapseTwo"
-          >
-            <i className="fas fa-pen" aria-hidden="true" />
-          </button>
-        </span>
+
       </div>
       <div className="my-3" />
       <div className="my-lg-1 fw-bold">
@@ -62,18 +51,6 @@ export default function RightSidebarTalentHome() {
         <i className="far fa-clock" />
         <span>
           As Needed
-          <span className="btn-group float-sm-end px-lg-1">
-            <button
-              type="button"
-              className="btn btn-light dropdown-toggle border border-1 rounded-circle collapsed"
-              data-toggle="collapse"
-              data-target="#collapse"
-              aria-expanded="false"
-              aria-controls="collapseTwo"
-            >
-              <i className="fas fa-pen" aria-hidden="true" />
-            </button>
-          </span>
         </span>
         <div className="progress" style={{ height: 5, display: "inline" }}>
           <div
