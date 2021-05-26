@@ -23,6 +23,7 @@ export default function SubmitProposal() {
       .doc(id)
       .get()
       .then((res) => setjob(res.data()));
+      handlewithdrawProposal();
   }, []);
 
   const handlewithdrawProposal = async () => {
@@ -132,7 +133,7 @@ export default function SubmitProposal() {
   return (
     <>
       <main>
-        {/* {console.log(job)} */}
+ 
         <div className="container">
           <h1 className="h3 py-4">Submit a proposal</h1>
           <div className="row">

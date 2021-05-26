@@ -3,17 +3,14 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 import { auth, db, storage } from "../../../firebase";
+import { Link } from "react-router-dom";
 
-export default function ProposalCard({ job }) {
-  console.log(job);
+export default function ProposalCard({ jobId }) {
   const [jobdata, setJobData] = useState({});
   const { t } = useTranslation();
   useEffect(() => {
-    let id = job;
-    
-    console.log(id);
     db.collection("job")
-      .doc(id)
+      .doc(jobId)
       .get()
       .then((res) => {
         setJobData(res.data());
@@ -28,9 +25,12 @@ export default function ProposalCard({ job }) {
             {new Date(jobdata?.postTime?.seconds * 1000).toLocaleString()}
           </div>
         </div>
-        <a href="#" className="col-6 fw-bold text-success ">
+        <Link
+          to={`/job/applied/${jobId}`}
+          className="col-6 fw-bold text-success "
+        >
           {jobdata?.jobTitle}
-        </a>
+        </Link>
         <div className="col text muted">{jobdata?.jobCategory}</div>
       </div>
       <hr />
