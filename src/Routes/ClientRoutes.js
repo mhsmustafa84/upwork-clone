@@ -17,6 +17,7 @@ import TransactionHistory from "../Pages/TalentPages/Reports/TransactionHistory/
 import TalentProfile from "../Pages/ClientPages/TalentProfile/talentProfile";
 import PleaseVerifiy from "../Pages/EmailVerification/PleaseVerifiy";
 import JobJobDetailsBeforeProposals from "../Pages/ClientPages/JobDetailsBeforeProposols/JobDetailsBeforeProposals";
+import CreateContract from "../Components/ClientComponents/CreateContract/CreateContract";
 export default function ClientRoutes() {
   const { pathname } = useLocation();
   const { push } = useHistory();
@@ -36,7 +37,7 @@ export default function ClientRoutes() {
           component={BringYourTalent}
         />
         <Route
-          path="/JobJobDetailsBeforeProposals/:id"
+          path="/job-details/:id"
           exact
           component={JobJobDetailsBeforeProposals}
         />
@@ -52,6 +53,7 @@ export default function ClientRoutes() {
           exact
           component={TransactionHistory}
         />
+        <Route path="/create-contract" component={CreateContract} />
         <Route path="**" component={PageNotFound} />
       </Switch>
       <Footer />
