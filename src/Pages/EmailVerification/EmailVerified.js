@@ -8,15 +8,12 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 export default function EmailVerified() {
   const { push } = useHistory();
-  const [verified, setverify] = useState(false);
   const userr = auth.currentUser;
 userr.reload().then(() => {
  console.log({emailVerified: userr.emailVerified})
 })
 
   useEffect(() => {
-    userr && setverify(userr.emailVerified);
-    console.log(verified);
   }, [userr]);
 
 
