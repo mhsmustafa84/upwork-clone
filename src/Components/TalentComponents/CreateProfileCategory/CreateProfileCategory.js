@@ -28,6 +28,7 @@ export default function CreateProfileCategory({ setBtns, btns }) {
   const addskills = () => {
     let arr2=[...skillsList,inputVal];
     setskillsList(arr2);
+    setinputVal("")
     console.log(skillsList);
   //  setskillsList([...skillsList,inputVal]);
   //  console.log(skillsList);
@@ -47,9 +48,11 @@ export default function CreateProfileCategory({ setBtns, btns }) {
           onChange={catVal}
         >
           <option selected value="Select a category">Select a category</option>
+          <option value="Mobile Development">Front-End Development</option>
           <option value="Web Development">Web Development</option>
           <option value="Web Design">Web Design</option>
           <option value="Graphic Design">Graphic Design</option>
+          <option value="Mobile Development">Mobile Development</option>
         </select>
         <>
           <p className="fw-bold mt-2">About your skills?</p>
@@ -58,6 +61,7 @@ export default function CreateProfileCategory({ setBtns, btns }) {
               className="form-control w-75 shadow-none"
               type="text"
               name="jobSkills"
+              value={inputVal}
               onChange={skillVal}
             />
             <button className="btn bg-upwork px-5" onClick={addskills}>

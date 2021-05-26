@@ -1,18 +1,15 @@
 /* eslint-disable */
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { updateUserData } from './../../../Network/Network';
 
-export default function SubmitProposalFixed() {
-    let [rate, setrate] = useState(0);
+export default function SubmitProposalFixed({rate,setrate}) {
+    // let [rate, setrate] = useState(0);
     const rateNum = (e) => {
         rate = e.target.value;
         setrate(rate);
-    };
-    const addRate = () => {
         console.log(rate);
-        updateUserData("talent", { hourlyRate: rate });
-    }
+    };
+    
     return (
         <section className=" bg-white mt-3 pt-4">
             <div className="ps-1 pb-3">
@@ -35,7 +32,7 @@ export default function SubmitProposalFixed() {
                                 className="form-control text-end"
                                 type="number"
                                 placeholder="00.00"
-                                onInput={rateNum}
+                                onChange={rateNum}
                             />
                         </div>
                     </div>
