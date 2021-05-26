@@ -20,7 +20,7 @@ export default function SavedJobsJobComponent({ jobId }) {
       .then((res) => {
         setJobData(res.data());
       });
-    console.log(jobdata);
+    // console.log(jobdata);
   }, []);
 
   return (

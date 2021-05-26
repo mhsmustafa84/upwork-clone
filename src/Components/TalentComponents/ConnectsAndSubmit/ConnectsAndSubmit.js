@@ -13,17 +13,44 @@ export default function ConnectsAndSubmit({ connects }) {
   const { id } = useParams();
   const user = useSelector((state) => state.talentData);
   const dispatch = useDispatch();
-  const [savedJobs, setSavedJobs] = useState([]);
+  //  const [savedJobs, setSavedJobs] = useState([]);
+  let [text, setText] = useState("");
   useEffect(() => {
-    dispatch(talentDataAction());
-  }, []);
+    dispatch(talentDataAction(user));
+    if (user) {
+      user?.savedJobs?.length === 0
+        ? (text = "Saved Job")
+        : (text = "Unsave Job");
+      setText(text);
+    }
+  }, [user]);
 
   const savedjobs = () => {
-    console.log(id);
-    let arr2 = [...savedJobs, id];
-    setSavedJobs(arr2);
-    console.log(savedJobs);
-    updateUserData("talent", { savedJobs: [...user?.savedJobs, ...arr2] });
+    if (text === "Saved Job") {
+      updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
+      text = "Unsave Job";
+      setText(text);
+      console.log(text);
+    } else {
+      user?.savedJobs.forEach((item, index) => {
+        if (item === id) {
+          user?.savedJobs?.splice(index, 1);
+          console.log(user?.savedJobs);
+          text = "Saved Job";
+
+          setText(text);
+          console.log(text);
+        }
+      });
+    }
+
+    // if (user?.savedJobs.length === 0) {
+    //
+    //     }
+    //   });
+    // } else {
+
+    //}
   };
 
   return (
@@ -37,7 +64,9 @@ export default function ConnectsAndSubmit({ connects }) {
           type="button"
           onClick={savedjobs}
         >
-          <i className="far fa-heart" aria-hidden="true" /> {t("Save Job")}
+          <i className="far fa-heart" aria-hidden="true" />
+          {/* {t("Save Job")} */}
+          {text}
         </button>
       </div>
       <a href="#" className="advanced-search-link">

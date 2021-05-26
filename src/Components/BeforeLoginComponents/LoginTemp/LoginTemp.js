@@ -3,12 +3,10 @@ import { Link } from "react-router-dom";
 import firebaseApp, { auth, googleProvider } from "../../../firebase";
 import apple from "../../../assets/svg/apple.svg";
 import { useState } from "react";
-import { useHistory } from 'react-router-dom';
-import { useTranslation } from "react-i18next";  
-
+import { useHistory } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function LoginTemp() {
-
   const [user, setUser] = useState({ email: "", password: "" });
   const [emailError, setEmailErorr] = useState("");
   const [PasswordError, setPasswordErrorr] = useState("");
@@ -17,7 +15,7 @@ export default function LoginTemp() {
 
   const { t } = useTranslation();
 
-  const getUserData = e => {
+  const getUserData = (e) => {
     const name = e.target.name;
     const val = e.target.value;
     switch (name) {
@@ -27,8 +25,13 @@ export default function LoginTemp() {
           email: val,
         });
         setEmailErorr(
-          val === "" ? t("Email required") : !val.match(/^([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/)
-            ? t("Please inter Valid Email") : null
+          val === ""
+            ? t("Email required")
+            : !val.match(
+                /^([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/
+              )
+            ? t("Please inter Valid Email")
+            : null
         );
         break;
       case "password":
@@ -40,8 +43,8 @@ export default function LoginTemp() {
           val === ""
             ? t("This is Required")
             : val.length < 8
-              ? t("Password Should be More 8 Character")
-              : null
+            ? t("Password Should be More 8 Character")
+            : null
         );
         break;
       default:
@@ -49,31 +52,30 @@ export default function LoginTemp() {
     }
   };
 
-  const login = e => {
+  const login = (e) => {
     console.log(user);
     e.preventDefault();
-    auth.signInWithEmailAndPassword(user.email, user.password)
-      .then(res => {
-      
+    auth
+      .signInWithEmailAndPassword(user.email, user.password)
+      .then((res) => {
         if (res.user) {
-          localStorage.setItem('userType',res.user.displayName)
-          res.user.displayName === "talent" ?
-            push("/find-work") 
-            :push("/home");
+          localStorage.setItem("userType", res.user.displayName);
+          res.user.displayName === "talent"
+            ? push("/find-work")
+            : push("/home");
         }
       })
       .catch((error) => {
-        setErrorMessage(error.message)
+        setErrorMessage(error.message);
         console.log(error.message);
         console.log(error.code);
-        
       });
   };
 
   const googleLogin = () => {
     auth
       .signInWithPopup(googleProvider)
-      .then(result => {
+      .then((result) => {
         console.log(result.user.displayName);
         /** @type {firebaseApp.auth.OAuthCredential} */
         var credential = result.credential;
@@ -98,30 +100,33 @@ export default function LoginTemp() {
             <div className="shadow-sm p-5 mb-5 bg-white rounded mx-auto mt-5 w-100  border ">
               <h5 data-v-904d5b16 className="text-center m-0">
                 <span data-v-733406b2 data-v-44072c38>
-                {t("Login and get to work")}
-                
+                  {t("Login and get to work")}
                 </span>
               </h5>
               <form>
-              <span className="text-danger text-center">{errorMessage}</span>
+                <span className="text-danger text-center">{errorMessage}</span>
 
                 <div className="form-group col-8 mx-auto mt-3">
                   <span className="text-danger">{emailError}</span>
                   <input
                     type="email"
                     name="email"
-                    className={`form-control shadow-none ${emailError  ? "border-danger" : ""}`}
+                    className={`form-control shadow-none ${
+                      emailError ? "border-danger" : ""
+                    }`}
                     aria-describedby="emailHelp"
                     placeholder={t("User name or Email")}
                     onInput={getUserData}
                   />
                 </div>
                 <div className="form-group col-8 mx-auto mt-3">
-                  <span className="text-danger">{PasswordError}</span> 
+                  <span className="text-danger">{PasswordError}</span>
                   <input
                     type="password"
                     name="password"
-                    className={`form-control shadow-none ${PasswordError ? "border-danger" : ""}`}
+                    className={`form-control shadow-none ${
+                      PasswordError ? "border-danger" : ""
+                    }`}
                     aria-describedby="emailHelp"
                     placeholder={t("Password")}
                     onInput={getUserData}
@@ -145,25 +150,26 @@ export default function LoginTemp() {
                 </div>
                 <div className="d-grid gap-2 col-8 mx-auto mt-3">
                   <Link to="" className="text-center">
-                  {t("Not you")}
+                    {t("Not you")}
                   </Link>
                 </div>
                 <div className="separator mt-4 col-8 mx-auto">or</div>
                 <div
                   className="google-btn  gap-2 mx-auto mt-3 rounded hitbtn-className col-sm-12"
-                  style={{height:'40px'}}
+                  style={{ height: "40px" }}
                   onClick={googleLogin}
                 >
-                  <div className="google-icon-wrapper" style={{marginRight:'1px'}}>
+                  <div
+                    className="google-icon-wrapper"
+                    style={{ marginRight: "1px" }}
+                  >
                     <img
                       className="google-icon me-2"
                       src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
                     />
                   </div>
                   <div className="text-justify ">
-                    <p
-                      className="text-center text-white pt-2"
-                    >
+                    <p className="text-center text-white pt-2">
                       {t("Sign in with google")}
                     </p>
                   </div>
@@ -171,18 +177,18 @@ export default function LoginTemp() {
                 <div className="mb-5 d-grid gap-2 col-8 mx-auto mt-3 border border-dark rounded">
                   <button className="btn bg-light " type="button">
                     {" "}
-                    <img src={apple} className="apple-icon" />
-                    {" "}{t("sign in with apple")}
+                    <img src={apple} className="apple-icon" />{" "}
+                    {t("sign in with apple")}
                   </button>
                 </div>
                 <hr />
                 <div>
                   <div className="separator mt-4 col-8 mx-auto">
-                  {t("New To Upwork")}
+                    {t("New To Upwork")}
                   </div>
                   <div className="d-grid gap-2 col-md-5 col-sm-10 mx-auto mt-3   rounded mb-5">
                     <Link className="btn signup" to="/sign-up">
-                    {t("Sign Up")}
+                      {t("Sign Up")}
                     </Link>
                   </div>
                 </div>
