@@ -2,6 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable array-callback-return */
 import React, { useContext, useEffect } from "react";
+import './SearchBarJobsTalent.css'
 import { db } from "../../../firebase";
 import { Link, useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -13,6 +14,7 @@ import { talentDataAction } from "../../../Store/actions/talentData";
 
 export default function SearchBarJobsTalent(props) {
   const { t } = useTranslation();
+  let lang = useSelector(state => state.lang);
   const { push } = useHistory();
   const { arr, setarr, itemSearchList, setitemSearchList } = useContext(SearchContext)
   const user = useSelector((state) => state.talentData);
@@ -64,17 +66,19 @@ export default function SearchBarJobsTalent(props) {
           value={itemSearchList}
           id="input"
           type="search"
-          className="form-control text-dark bg-white btn-outline-success"
+          style={{height: "35.5px" , borderRadius : 0 }}
+          className={`form-control text-dark bg-white ${lang =='ar' ?"rounded-end" :  "rounded-start"}`}
           placeholder={t("Search For Jobs")}
         />
         <Link onClick={searchDatabase}>
           <button
             id="search-button"
             type="button"
-            className="btn bg-upwork bg-invert search"
+            style = {{borderRadius : 0 , fontSize:'10px' }}
+            className={`btn bg-upwork bg-invert search  ${lang =='ar' ?"rounded-start" :  "rounded-end"}`}
           >
 
-            <i className="fas fa-search" />
+            <i className="fas fa-search" style={{lineHeight : '22px'}} />
           </button>
         </Link>
       </div>

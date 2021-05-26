@@ -11,13 +11,8 @@ import { SearchContext } from "../../../Context/SearchContext";
 
 
 export default function TalentCardSearch() {
-    const { t } = useTranslation();
-    const user = useSelector((state) => state.talentData);
   const { talentArr } = useContext(SearchContext)
-  useEffect(() => {
-    console.log(talentArr);
-   
-  }, [talentArr])
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(talentDataAction());
@@ -33,7 +28,7 @@ export default function TalentCardSearch() {
         </div>
         <div className="col-lg-6 pt-lg-3 ">
         <a
-        href
+        href="#"
         id="job-title-home-page "
         className="link-dark job-title-hover "
         >
@@ -42,14 +37,14 @@ export default function TalentCardSearch() {
         <a href id="job-title-home-page " className="link-dark">
         <p className="fw-bold ">{item.title}</p>
         </a>
-        <span className="text-muted">{item.location.country}</span>
+        <span className="text-muted">{item.location?.country}</span>
         <div className="row py-3">
         <div className="col">
         <span className="fw-bold">${item.hourlyRate}</span>
         <span className="text-muted"> /hr</span>
         </div>
         <div className="col">
-        <span className="fw-bold">$30</span> +{" "}
+        <span className="fw-bold">${item.totalEarnings}</span> +{" "}
         <span className="text-muted"> earned</span>
         </div>
         <div className="col">
@@ -69,19 +64,19 @@ export default function TalentCardSearch() {
         />
         </svg>
         </span>
-        <span className="text-primary"> {t("RISING TALENT")}</span>
+        <span className="text-primary"> {item.badge?.risingTalent}</span>
         </div>
         <div className="col progress " style={{width:50, height: 10, display: "inline",float:"left"}}>
         <div
         className="progress-bar bg-primary"
         role="progressbar"
-        style={{ width: `${user.profileCompletion}%` }}
+        style={{ width: `${item.profileCompletion}%` }}
         aria-valuenow={100}
         aria-valuemin={0}
         aria-valuemax={80}
         >
               <div style={{ fontSize: "0.7em", display: "start" }}>
-                {`${user.profileCompletion}%`}
+                {`${item.profileCompletion}%`}
               </div>
             </div>
           </div>
@@ -119,23 +114,15 @@ export default function TalentCardSearch() {
           <ShowMore style={{ fontFamily: "Gotham SSm" }} className="" maxHeight={100} button={<button id="seemorebutton" classname="advanced-search-link " style={{ color: 'green', position: 'absolute', left: 0 }}>
                   more
         </button>}>
-        loremip loremiploremip loremip oremip loremiploremip loremip loremip loremiploremip loremip loremip loremiploremip loremip loremip loremiploremip loremip loremip loremiploremip loremip loremip loremiploremip loremip
-  loremip loremiploremip loremip oremip loremiploremip loremip loremip loremiploremip loremip loremip loremiploremip loremip loremip loremiploremip loremip loremip loremiploremip loremip loremip loremiploremip loremip
-  loremip loremiploremip loremip oremip loremiploremip loremip loremip loremiploremip loremip loremip loremiploremip loremip loremip loremiploremip loremip loremip loremiploremip loremip loremip loremiploremip loremip
+        {item.overview}
   
                 </ShowMore>
                 <div className="d-flex justify-content-start">
-                    {/* {user?.skills?.map((item) => */}
+                    {item.skills?.map((e) =>
                       <div className="chip mb-3 ms">
-                        <span>vsss</span>
+                        <span>{e}</span>
                       </div>
-                      <div className="chip mb-3 ms">
-                        <span>vsss</span>
-                      </div>
-                      <div className="chip mb-3 ms">
-                        <span>vsss</span>
-                      </div>
-                    {/* )} */}
+                    )} 
                   
                   </div>
         </div>

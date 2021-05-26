@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Switch, Route, useLocation, useHistory } from "react-router-dom";
 import Messages from "../Pages/Messages/Messages";
 import Header from "./../Components/TalentComponents/Header/Header";
@@ -34,13 +34,13 @@ export default function TalentRoutes() {
   const { pathname } = useLocation();
   const { push } = useHistory();
   pathname === "/" && push("/find-work");
-
   return (
     <>
-      <Header />
       <SearchContextProvider
         value={{ arr, setarr, itemSearchList, setitemSearchList }}
       >
+      <Header />
+      <div className="px-5 mx-5">
         <Switch>
           <Route path="/create-profile" component={CreateProfile} />
           <Route path="/find-work" exact component={HomeTalent} />
@@ -81,6 +81,7 @@ export default function TalentRoutes() {
           <Route path="/messages" exact component={Messages} />
           {/* <Route path="**" component={PageNotFound} /> */}
         </Switch>
+      </div>
       </SearchContextProvider>
       <Footer />
     </>

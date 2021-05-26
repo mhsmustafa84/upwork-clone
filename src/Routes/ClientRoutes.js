@@ -27,8 +27,8 @@ export default function ClientRoutes() {
 
   return (
     <>
-      <Header />
       <SearchContextProvider  value={{talentSearchList, settalentSearchList , talentArr, settalentArr}}>
+      <Header />
       <Switch>
         <Route path="/home" exact component={Jobs} />
         <Route path="/messages" exact component={Messages} />

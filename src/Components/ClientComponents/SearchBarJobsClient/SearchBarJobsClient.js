@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
-import firebaseApp, { db } from "../../../firebase";
-import { Link, NavLink } from "react-router-dom";
+import React, { useContext, useEffect} from "react";
+import  { db } from "../../../firebase";
+import { Link, useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { SearchContext } from "../../../Context/SearchContext";
 
@@ -8,56 +8,40 @@ import { SearchContext } from "../../../Context/SearchContext";
 
 export default function SearchBarJobsClient() {
   const { t } = useTranslation();
-  const [verify, setverify] = useState(false);
+  const { push } = useHistory();
   const { talentSearchList, settalentSearchList, settalentArr,talentArr } = useContext(SearchContext)
-  firebaseApp.auth().onAuthStateChanged((user) => {
-    if (user) {
-      var verf = user.emailVerified;
-      setverify(verf);
-    }
-  });
   const handle = (e) => {
     settalentSearchList(e.target.value)
   }
-  // useEffect(() => {
-  //   console.log(talentArr);
-  // }, [talentSearchList,talentArr])
-  const searchDatabase = () => {
-    let tempArr = [];
-    db.collection('talent')
-      .where('firstName', '==', talentSearchList)
-      .onSnapshot(
-        jobs => jobs.docs.map(
-          item => {
-            // console.log(item.data());
-            tempArr.push(item.data())
-            if (talentSearchList != "") {
-              settalentArr([...tempArr])
-            }
-          })
+useEffect(() => {
+    settalentArr([])
+}, [talentSearchList])
+const searchDatabase = () => {
+  let tempArr = [];
+db.collection('talent')
+  .where('firstName', '==', talentSearchList)
+  .onSnapshot(
+    jobs => jobs.docs.map(
+      item => {
+        tempArr.push(item.data())
+        if (talentSearchList != "") {
+          settalentArr([...tempArr])
+          push({pathname:"/talent/searchclient"})
+      }
+
+  })
       )
-    // if (talentSearchList != "") {
-    //   settalentArr([...tempArr])
-    // }
+  if(tempArr.length<=0){
+      settalentArr(null)
+    push('/talent/searchclient')
   }
+}
+
 
   return (
 
     <div>
-      {!verify && (
-        <div
-          class="alert alert-warning alert-dismissible fade show"
-          role="alert"
-        >
-          <strong>Email Verification</strong> Your mail is not verified
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-          ></button>
-        </div>
-      )}
+    
       <div className="col-8 input-group form-outline has-success">
         <input
           id="input"
