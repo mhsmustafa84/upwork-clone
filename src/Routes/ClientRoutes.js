@@ -16,7 +16,7 @@ import EmailVerified from "./../Pages/EmailVerification/EmailVerified";
 import TransactionHistory from "../Pages/TalentPages/Reports/TransactionHistory/TransactionHistory";
 import TalentProfile from "../Pages/ClientPages/TalentProfile/talentProfile";
 import PleaseVerifiy from "../Pages/EmailVerification/PleaseVerifiy";
-
+import JobJobDetailsBeforeProposals from "../Pages/ClientPages/JobDetailsBeforeProposols/JobDetailsBeforeProposals";
 export default function ClientRoutes() {
   const { pathname } = useLocation();
   const { push } = useHistory();
@@ -34,6 +34,11 @@ export default function ClientRoutes() {
           path="/bring-your-own-talent"
           exact
           component={BringYourTalent}
+        />
+        <Route
+          path="/JobJobDetailsBeforeProposals/:id"
+          exact
+          component={JobJobDetailsBeforeProposals}
         />
         <Route path="/email-verification" component={EmailVerified} />
         <Route path="/sign-up/please-verify" exact component={PleaseVerifiy} />
