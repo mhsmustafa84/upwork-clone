@@ -92,7 +92,7 @@ export default function LeftSidebarTalentHome() {
             >
               <a
                 onClick={() => handleVal(item)}
-                className=" list-group-item-action advanced-search-link"
+                className=" list-group-item-action advanced-search-link text-upwork"
                 aria-current="true"
               >
                 {item}
