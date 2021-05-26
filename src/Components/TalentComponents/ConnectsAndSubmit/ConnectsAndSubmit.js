@@ -1,12 +1,13 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams ,useHistory} from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { talentDataAction } from "../../../Store/actions/talentData";
 import { updateUserData } from "../../../Network/Network";
-import { db,auth } from "../../../firebase";
+import { db, auth } from "../../../firebase";
 
 export default function ConnectsAndSubmit({ connects }) {
   const { t } = useTranslation();
@@ -16,16 +17,16 @@ export default function ConnectsAndSubmit({ connects }) {
   let [text, setText] = useState("");
   let [proposal, setProposal] = useState("");
   let [talent, setTalent] = useState("");
-  const[ jobProposal, setjobProposal] = useState(false);
+  const [jobProposal, setjobProposal] = useState(false);
   const { push } = useHistory()
 
   useEffect(() => {
     db.collection('talent').doc(auth.currentUser.uid).collection('jobProposal')
-     .where('jobId',"==",id).onSnapshot((res=>{
-     if(res?.docs.length>0)
-       setjobProposal(true)
-     }
-    ))
+      .where('jobId', "==", id).onSnapshot((res => {
+        if (res?.docs.length > 0)
+          setjobProposal(true)
+      }
+      ))
     dispatch(talentDataAction(user));
     if (user?.savedJobs?.length > 0) {
       user?.savedJobs?.forEach((item) => {
@@ -109,14 +110,14 @@ export default function ConnectsAndSubmit({ connects }) {
   return (
     <div className="bg-white py-lg-4 px-4 border border-1 row py-sm-3">
       <div className="d-lg-grid gap-2  mx-auto d-none">
-      {!jobProposal?
-        <button className="btn bg-upwork" onClick={handleRout=>push(`/job/apply/${id}`)} >
-          {t("Submit a proposal")}
-        </button>
-        :
-        <button className="btn bg-upwork-dark"  onClick={handlewithdrawProposal}>
-          {t("Withdraw")}
-        </button>
+        {!jobProposal ?
+          <button className="btn bg-upwork" onClick={handleRout => push(`/job/apply/${id}`)} >
+            {t("Submit a proposal")}
+          </button>
+          :
+          <button className="btn bg-upwork-dark" onClick={handlewithdrawProposal}>
+            {t("Withdraw")}
+          </button>
         }
         <button
           className="btn btn-light border border-1 my-lg-2"
@@ -125,8 +126,8 @@ export default function ConnectsAndSubmit({ connects }) {
         >
           <i
             className={`me-2 ${text === "Unsave Job"
-                ? "fas fa-heart text-upwork"
-                : "far fa-heart"
+              ? "fas fa-heart text-upwork"
+              : "far fa-heart"
               }`}
             aria-hidden="true"
           />

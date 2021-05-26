@@ -44,14 +44,14 @@ export default function RightSidebarTalentHome() {
           <i className="fas fa-eye"> </i> {t("View Profile")}
         </Link>
       </div>
-      <div className="my-lg-1 fw-bold">
+      {/* <div className="my-lg-1 fw-bold">
         <p>{t("Visibility")}</p>
       </div>
       <div className="my-lg-1 ">
         <i className="fas fa-globe"> </i>
         <span> {t("Public")}</span>
 
-      </div>
+      </div> */}
       <div className="my-3" />
       <div className="my-lg-1 fw-bold">
         <p>{t("Availability")}</p>
@@ -63,7 +63,7 @@ export default function RightSidebarTalentHome() {
         </span>
         <div className="progress" style={{ height: 5, display: "inline" }}>
           <div
-            className="progress-bar bg-upwork"
+            className="progress-bar bg-upwork my-3"
             role="progressbar"
             style={{ width: `${user.profileCompletion}%` }}
             aria-valuenow={60}
@@ -103,18 +103,6 @@ export default function RightSidebarTalentHome() {
             aria-current="true"
           >
             {user.connects} availabale connects
-          </a>
-        </li>
-        <li
-          className="list-group-item sidebar-homebage-ul-li"
-          aria-current="true"
-        >
-          <a
-            href="#"
-            className=" list-group-item-action advanced-search-link"
-            aria-current="true"
-          >
-            <i className="fas fa-stopwatch" /> Track time with the desktop app
           </a>
         </li>
       </ul>
