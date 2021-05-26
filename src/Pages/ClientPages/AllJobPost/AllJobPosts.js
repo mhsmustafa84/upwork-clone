@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import SearchJobPosts from "./../../../Components/ClientComponents/SearchJobPosts/SearchJobPosts";
 import JobPostsFilters from "./../../../Components/ClientComponents/JobPostsFilters/JobPostsFilters";

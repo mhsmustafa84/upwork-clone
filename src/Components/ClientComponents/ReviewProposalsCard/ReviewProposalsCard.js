@@ -9,6 +9,7 @@ import Loader from './../../SharedComponents/Loader/Loader';
 import img from "../../../assets/img/icon-user.svg";
 import ReviewProposalsPageHeader from './../ReviewProposalsPageHeader/ReviewProposalsPageHeader';
 import { Link } from "react-router-dom";
+let noProposals = true;
 
 export default function ReviewProposalsCard() {
 
@@ -20,6 +21,7 @@ export default function ReviewProposalsCard() {
   useEffect(async () => {
     await db.collection("job").doc(id).collection("proposals").get().then(res => {
       res.docs.map(async proposal => {
+        proposal && (noProposals = false);
         proposals.push(proposal.data());
         await db.collection("talent").doc(proposal.data().talentId).get().then(doc => {
           talent.push(doc.data())
@@ -32,6 +34,10 @@ export default function ReviewProposalsCard() {
 
   const sendMSG = talentDocID => {
     console.log(talentDocID);
+  }
+
+  const hire = () => {
+
   }
 
 
@@ -85,7 +91,7 @@ export default function ReviewProposalsCard() {
               </Link>
             </div>
             <div className="col py-3">
-              <button type="button" className="btn bg-upwork px-5">
+              <button type="button" className="btn bg-upwork px-5" onClick={hire}>
                 Hire
           </button>
             </div>
@@ -100,12 +106,12 @@ export default function ReviewProposalsCard() {
               </p>
               <p id="Cover-Letter">
                 <span className="fw-bold">Cover Letter - </span>
-                {proposal.coverLitter}
+                {proposal.coverLetter}
               </p>
             </div>
           </div>
         })
-        : <Loader />
+        : noProposals ? <div className="row border bg-white border-1 ms-0 py-3"><p className="text-muted text-center h1">No proposals</p></div> : <Loader />
       }
     </>
   )

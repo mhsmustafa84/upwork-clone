@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { updateJob } from "../../../Network/Network";
 import "./PostJobExpertise.css";
 import { useTranslation } from "react-i18next";
+
 export default function PostJobExpertise({ setBtns, btns }) {
+
   const [inputVal, setInputVal] = useState("");
   const [skillsList, setSkillsList] = useState([]);
   const [job, setJob] = useState({ jobExperienceLevel: "", jobSkills: [] });
@@ -25,9 +27,11 @@ export default function PostJobExpertise({ setBtns, btns }) {
   };
 
   const addSkills = () => {
-    setSkillsList([...skillsList, inputVal]);
+    skillsList.push(inputVal);
+    setSkillsList([...skillsList]);
     setJob({ ...job, skills: skillsList });
     setInputVal("");
+    console.log(skillsList);
   };
 
   const addData = () => {

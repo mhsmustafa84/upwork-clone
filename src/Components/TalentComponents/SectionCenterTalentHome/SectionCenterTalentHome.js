@@ -5,17 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 import HeadOfCenterSection from "./../HeadOfCenterSection/HeadOfCenterSection";
 import { jobsDataAction } from "./../../../Store/actions/jobsData";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import "./SectionCenterTalentHome.css";
 import ShowMore from "react-show-more-button/dist/module";
+import "./SectionCenterTalentHome.css";
 
 export default function SectionCenterTalentHome() {
-  const { t } = useTranslation();
   const jobs = useSelector((state) => state.jobsData);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(jobsDataAction());
-    // console.log(jobs);
   }, []);
 
   return (
@@ -50,14 +47,6 @@ export default function SectionCenterTalentHome() {
                   </button>
                 </div>
                 <div className="btn-group float-sm-end  px-lg-1">
-                  <button
-                    type="button"
-                    className="btn btn-light dropdown-toggle border border-1 rounded-circle"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    <i className="far fa-thumbs-down" />
-                  </button>
                   <ul className="dropdown-menu">
                     <li>
                       <a className="dropdown-item" href="#">

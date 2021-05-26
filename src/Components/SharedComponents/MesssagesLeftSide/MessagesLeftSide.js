@@ -168,22 +168,22 @@ export default function MessagesLeftSide({ talentID }) {
                                     aria-expanded="false"
                                 >
                                     Start date
-                </button>
+                                </button>
                                 <ul className="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
                                     <li>
                                         <button className="dropdown-item" type="button">
                                             Action
-                    </button>
+                                </button>
                                     </li>
                                     <li>
                                         <button className="dropdown-item" type="button">
                                             Another action
-                    </button>
+                                </button>
                                     </li>
                                     <li>
                                         <button className="dropdown-item" type="button">
                                             Something else here
-                    </button>
+                            </button>
                                     </li>
                                 </ul>
                             </div>
