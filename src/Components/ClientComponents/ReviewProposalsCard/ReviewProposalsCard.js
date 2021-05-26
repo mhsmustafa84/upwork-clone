@@ -37,7 +37,7 @@ export default function ReviewProposalsCard() {
   }
 
   const hire = () => {
-
+    db.collection("job").doc(id).update({ status: "hired" });
   }
 
 
