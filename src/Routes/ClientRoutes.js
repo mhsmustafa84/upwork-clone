@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Switch, Route, useLocation, useHistory } from "react-router-dom";
 import AllJobPosts from "../Pages/ClientPages/AllJobPost/AllJobPosts";
 import Jobs from "../Pages/ClientPages/Jobs/Jobs";
@@ -16,15 +16,20 @@ import EmailVerified from "./../Pages/EmailVerification/EmailVerified";
 import TransactionHistory from "../Pages/TalentPages/Reports/TransactionHistory/TransactionHistory";
 import TalentProfile from "../Pages/ClientPages/TalentProfile/talentProfile";
 import PleaseVerifiy from "../Pages/EmailVerification/PleaseVerifiy";
+import { SearchContextProvider } from "../Context/SearchContext";
+
 import JobJobDetailsBeforeProposals from "../Pages/ClientPages/JobDetailsBeforeProposols/JobDetailsBeforeProposals";
 import CreateContract from "../Components/ClientComponents/CreateContract/CreateContract";
 export default function ClientRoutes() {
+  const [talentArr, settalentArr] = useState([]);
+  const [talentSearchList, settalentSearchList] = useState("");
   const { pathname } = useLocation();
   const { push } = useHistory();
   pathname === "/" && push("/home");
 
   return (
     <>
+      <SearchContextProvider  value={{talentSearchList, settalentSearchList , talentArr, settalentArr}}>
       <Header />
       <Switch>
         <Route path="/home" exact component={Jobs} />
@@ -56,6 +61,7 @@ export default function ClientRoutes() {
         <Route path="/create-contract" component={CreateContract} />
         <Route path="**" component={PageNotFound} />
       </Switch>
+      </SearchContextProvider>
       <Footer />
     </>
   );

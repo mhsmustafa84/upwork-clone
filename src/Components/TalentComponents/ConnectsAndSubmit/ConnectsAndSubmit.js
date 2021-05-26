@@ -8,15 +8,28 @@ import { talentDataAction } from "../../../Store/actions/talentData";
 import { updateUserData } from "../../../Network/Network";
 
 export default function ConnectsAndSubmit({ connects }) {
-
   const { t } = useTranslation();
   const { id } = useParams();
   const user = useSelector((state) => state.talentData);
   const dispatch = useDispatch();
-  let [text, setText] = useState(user?.savedJobs?.length === 0 ? "Saved Job" : "Unsave Job");
+  let [text, setText] = useState("");
 
   useEffect(() => {
     dispatch(talentDataAction(user));
+    if (user?.savedJobs?.length > 0) {
+      user?.savedJobs?.forEach((item) => {
+        if (item === id) {
+          text = "Unsave Job";
+          setText(text);
+        } else {
+          text = "Saved Job";
+          setText(text);
+        }
+      });
+    } else {
+      text = "Saved Job";
+      setText(text);
+    }
   }, [user]);
 
   const savedjobs = () => {
@@ -50,7 +63,14 @@ export default function ConnectsAndSubmit({ connects }) {
           type="button"
           onClick={savedjobs}
         >
-          <i className={`me-2 ${text === "Unsave Job" ? "fas fa-heart text-upwork" : "far fa-heart"}`} aria-hidden="true" />
+          <i
+            className={`me-2 ${
+              text === "Unsave Job"
+                ? "fas fa-heart text-upwork"
+                : "far fa-heart"
+            }`}
+            aria-hidden="true"
+          />
           {/* {t("Save Job")} */}
           {text}
         </button>

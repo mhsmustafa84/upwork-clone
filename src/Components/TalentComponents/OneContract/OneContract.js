@@ -1,6 +1,8 @@
 /* eslint-disable no-script-url */
 /* eslint-disable */
 import React from "react";
+import { Link } from "react-router-dom";
+
 
 export default function OneContract() {
   return (
@@ -27,19 +29,11 @@ export default function OneContract() {
                   data-ng-className="{'col-xs-9' : contract.catalogProject, 'col-xs-12' : !contract.catalogProject}"
                   className="col-xs-12"
                 >
-                  <p className="m-0">
-                    <a
-                      data-ng-href="/ab/f/contracts/26184114"
-                      data-ng-click="freelancerLogging.onClickTile(contract);"
-                      className="ellipsis d-block ng-binding"
-                      title="Design Blog articles in Elementor - Arabic speaker"
-                      target="_self"
-                      data-wm-stop-propagation
-                      href="/ab/f/contracts/26184114"
-                    >
+                  <Link to="/contract" className="m-0">
+                    
                       Design Blog articles in Elementor - Arabic speaker
-                    </a>
-                  </p>
+                   
+                  </Link>
                 </div>
               </div>
               <div className="row qa-wm-fl-cl-client m-sm-bottom ng-scope">
