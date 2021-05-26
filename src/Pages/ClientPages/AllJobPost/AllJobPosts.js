@@ -8,6 +8,7 @@ import JobPostsHeader from "../../../Components/ClientComponents/JobPostsHeader/
 import { useDispatch, useSelector } from "react-redux";
 import { clientJobsAction } from "../../../Store/actions/clientJobAction";
 import { auth } from "../../../firebase";
+import Loader from "../../../Components/SharedComponents/Loader/Loader";
 
 export default function AllJobPosts() {
   const jobs = useSelector((state) => state.clientJobs);
@@ -30,10 +31,13 @@ export default function AllJobPosts() {
           <JobPostsFilters />
         </div>
         <div className="row border border-1 py-4 bg-white">
-          {jobs &&
-            jobs?.map((job) => (
-              <JobPostLi job={job.data} id={job.docID} key={job.docID} />
-            ))}
+          {
+            jobs?.length > 0 ?
+              jobs?.map((job) => (
+                <JobPostLi job={job.data} id={job.docID} key={job.docID} />
+              ))
+              : <Loader />
+          }
         </div>
         <div className="row border border-1 py-4  bg-white">
           <JobPostingsPagination />

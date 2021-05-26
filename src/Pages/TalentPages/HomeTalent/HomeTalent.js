@@ -18,16 +18,14 @@ export default function HomeTalent() {
 
   }, [lang]);
   return (
-    <div  dir={lang === 'ar' ? 'rtl' : 'ltr'} >
-      <div className="container-md container-fluid-sm my-lg-4 px-5 pt-1">
-        <div className="px-5 mx-5">
+    <div dir={lang === 'ar' ? 'rtl' : 'ltr'} >
+      <div className="container-md container-fluid-sm my-lg-4">
         <FindWorkTalentHome />
         <SmallScreenOnlyTalentHome />
         <div className="row">
           <LeftSidebarTalentHome />
           <SectionCenterTalentHome />
           <RightSidebarTalentHome />
-        </div>
         </div>
       </div>
     </div>

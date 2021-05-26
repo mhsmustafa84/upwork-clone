@@ -4,12 +4,13 @@
 import { Link } from "react-router-dom";
 
 export default function JobPostLi({ job, id }) {
+
   return (
     <div>
       <div className="row">
         <div className="col-lg-5 col-md-6 col-sm-10 col-xs-9">
           <h4 className="m-0-bottom" id="all-postings-list-opening-title-0">
-            <Link to={{pathname:`/JobJobDetailsBeforeProposals/${id}`,state: id}}>
+            <Link to={{ pathname: `/job-details/${id}`, state: id }}>
               {job.jobTitle}
             </Link>
           </h4>
@@ -47,9 +48,9 @@ export default function JobPostLi({ job, id }) {
           <div className="text-muted">Hired</div>
         </div>
         <div className="d-block col-sm-2 col-xs-3">
-          <button type="button" className="btn bg-upwork">
+          <Link to={{ pathname: `/review-proposal/${id}`, state: id }} className="btn bg-upwork">
             View Proposals
-          </button>
+          </Link>
         </div>
         <div className="d-block col-sm-1 col-xs-3 btn-group float-sm-end ">
           <button

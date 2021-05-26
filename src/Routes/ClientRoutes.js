@@ -19,6 +19,7 @@ import PleaseVerifiy from "../Pages/EmailVerification/PleaseVerifiy";
 import { SearchContextProvider } from "../Context/SearchContext";
 
 import JobJobDetailsBeforeProposals from "../Pages/ClientPages/JobDetailsBeforeProposols/JobDetailsBeforeProposals";
+import CreateContract from "../Components/ClientComponents/CreateContract/CreateContract";
 export default function ClientRoutes() {
   const [talentArr, settalentArr] = useState([]);
   const [talentSearchList, settalentSearchList] = useState("");
@@ -41,7 +42,7 @@ export default function ClientRoutes() {
           component={BringYourTalent}
         />
         <Route
-          path="/JobJobDetailsBeforeProposals/:id"
+          path="/job-details/:id"
           exact
           component={JobJobDetailsBeforeProposals}
         />
@@ -57,6 +58,7 @@ export default function ClientRoutes() {
           exact
           component={TransactionHistory}
         />
+        <Route path="/create-contract" component={CreateContract} />
         <Route path="**" component={PageNotFound} />
       </Switch>
       </SearchContextProvider>

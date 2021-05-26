@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import HeadOfCenterSection from "./../HeadOfCenterSection/HeadOfCenterSection";
 import { jobsDataAction } from "./../../../Store/actions/jobsData";
@@ -10,7 +10,6 @@ import "./SectionCenterTalentHome.css";
 
 export default function SectionCenterTalentHome() {
   const jobs = useSelector((state) => state.jobsData);
-
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(jobsDataAction());
