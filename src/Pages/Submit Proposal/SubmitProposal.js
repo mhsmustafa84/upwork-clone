@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
-import { auth, db, storage } from "../../firebase";
+import  { auth, db, storage } from "../../firebase";
+import firebase from 'firebase/app';
 import { subCollection, updateUserData } from "../../Network/Network";
 import { Link } from "react-router-dom";
 import SubmitProposalFixed from "../../Components/TalentComponents/SubmitProposalFixed/SubmitProposalFixed";
@@ -85,53 +86,39 @@ export default function SubmitProposal() {
 
     switch (name) {
       case "coverLetter":
-        proposalData.coverLetter = val;
-        setproposalData({
-          ...proposalData,
-          coverLetter: proposalData.coverLetter,
-        });
+        proposalData.coverLetter = val
+        setproposalData({ ...proposalData, coverLetter: proposalData.coverLetter });
         break;
       case "images":
         if (files[0]) {
-          const upload = storage
-            .ref(`proposalImages/${files[0].name}`)
-            .put(files[0]);
+          const upload = storage.ref(`proposalImages/${files[0].name}`).put(files[0]);
           upload.on(
             "state_changed",
-            (snapshot) => {},
+            (snapshot) => { },
             (err) => {
               console.log(err);
             },
             () => {
-              storage
-                .ref("proposalImages")
+              storage.ref("proposalImages")
                 .child(files[0].name)
                 .getDownloadURL()
-                .then((url) => {
+                .then(url => {
                   proposalData.proposalImages.push(url);
-                  setproposalData({
-                    ...proposalData,
-                    proposalImages: proposalData.proposalImages,
-                  });
+                  setproposalData({ ...proposalData, proposalImages: proposalData.proposalImages })
                 });
-            }
-          );
+            })
         }
         break;
-      // case "coverLetter":
-      // proposalData.coverLetter=val
-      // setproposalData({...proposalData, coverLetter: proposalData.coverLetter });
-      // break;
-
       default:
         break;
     }
     {
+
     }
   };
   const handleRout = () => {
-    push({ pathname: "/proposals", state: id });
-  };
+    push({ pathname: "/proposals", state: id })
+  }
 
   const handleProposal = () => {
     subCollection(
@@ -154,7 +141,7 @@ export default function SubmitProposal() {
         clientId: job.authID,
         budget: parseInt(rate),
         jobPaymentType: job.jobPaymentType,
-        //budged:proposalData.price,
+        proposalTime:firebase.firestore.Timestamp.now(),
       },
       id
     );
@@ -174,16 +161,21 @@ export default function SubmitProposal() {
                 </div>
 
                 <div className="ps-4 py-2">
-                  <p>
-                    This proposal requires <strong>2 Connects </strong>
-                    <span className="upw-c-cn">
-                      <i className="fas fa-question-circle" />
-                    </span>
-                  </p>
-                  <p>
-                    When you submit this proposal, you'll have
+                  {user.connects > 0 ? <>
+                    <p>
+                      This proposal requires <strong>2 Connects </strong>
+                      <span className="upw-c-cn">
+                        <i className="fas fa-question-circle" />
+                      </span>
+                    </p>
+                    <p>
+                      When you submit this proposal, you'll have
                     <strong> {user.connects} </strong>remaining
                   </p>
+                  </>
+                    : <p className="fw-bold text-alert">You Don't Have Enough Connects</p>
+                  }
+
                 </div>
               </div>
             </div>
@@ -207,14 +199,10 @@ export default function SubmitProposal() {
                     </div>
                     <div className="mb-3">
                       <p>{job.jobDescription}</p>
-                      <Link
-                        to={{
-                          pathname: `/job/${id}`,
-                          state: `${id}`,
-                        }}
-                        className="upw-c-cn"
-                        href
-                      >
+                      <Link to={{
+                        pathname: `/job/${id}`,
+                        state: `${id}`,
+                      }} className="upw-c-cn" href>
                         View job posting
                       </Link>
                     </div>
@@ -261,11 +249,8 @@ export default function SubmitProposal() {
               <div className="bg-white border rounded-bottom rounded-top">
                 <h2 className="h4 border-bottom p-4">Terms</h2>
                 <div className="ps-4 pt-2 d-flex">
-                  {job?.jobPaymentType == "Fixed Price" ? (
-                    <SubmitProposalFixed rate={rate} setrate={setrate} />
-                  ) : (
-                    <SubmitProposalHourly rate={rate} setrate={setrate} />
-                  )}
+                  {job?.jobPaymentType == "Fixed Price" ? <SubmitProposalFixed rate={rate} setrate={setrate} /> : <SubmitProposalHourly rate={rate} setrate={setrate} />}
+
 
                   <div className="w-25 m-3 ps-3 d-flex flex-column justify-content-center align-items-center">
                     <svg
@@ -365,6 +350,7 @@ export default function SubmitProposal() {
                     style={{ backgroundColor: "#37a000" }}
                     data-bs-toggle="modal"
                     data-bs-target="#exampleModal"
+                    disabled={!user.connects > 0}
                   >
                     Submit Proposal
                   </button>
@@ -383,12 +369,12 @@ export default function SubmitProposal() {
                           <h5 class="modal-title" id="exampleModalLabel">
                             Review proposal
                           </h5>
-                          <button
+                          {/* <button
                             type="button"
                             class="btn-close"
                             data-bs-dismiss="modal"
                             aria-label="Close"
-                          ></button>
+                          ></button> */}
                         </div>
                         <div class="modal-body">
                           <div className="ps-4 pt-2 d-flex">
