@@ -25,64 +25,11 @@ console.log(jobProposal);
      }
     ))
   }, []);
-  const handlewithdrawProposal = async () => {
-    try {
-      await db
-        .collection("job")
-        .doc(id)
-        .collection("proposals")
-        .where("talentId", "==", auth.currentUser.uid)
-        .get()
-        .then((res) =>
-          res.docs.map((e) => {
-            proposal = e.id;
-            setProposal(proposal);
-            db.collection("job")
-              .doc(id)
-              .collection("proposals")
-              .doc(proposal)
-              .delete();
-            console.log(proposal);
-          })
-        );
-      await db
-        .collection("talent")
-        .doc(auth.currentUser.uid)
-        .collection("jobProposal")
-        .where("jobId", "==", id)
-        .get()
-        .then((res) =>
-          res.docs.map((e) => {
-            talent = e.id;
-            setTalent(talent);
-            db.collection("talent")
-              .doc(auth.currentUser.uid)
-              .collection("jobProposal")
-              .doc(talent)
-              .delete();
-            console.log(talent);
-          })
-        );
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   return (
     <div className="bg-white py-lg-4 px-4 border border-1 row py-sm-3">
       <div className="d-lg-grid gap-2  mx-auto d-none">
-        {!jobProposal?
-        <button className="btn bg-upwork" onClick={handleRout=>push(`/job/apply/${id}`)} >
-          {t("Submit a proposal")}
-        </button>
-        :
-        <button className="btn bg-upwork-dark"  onClick={handlewithdrawProposal}>
-          {t("Withdraw")}
-        </button>
-        }
-          {/* <button className="btn bg-upwork" onClick={handleRout=>push(`/job/apply/${id}`)} >
-          {t("Submit a proposal")}
-          </button> */}
+        {!jobProposal?<button className="btn bg-upwork" onClick={handleRout=>push(`/job/apply/${id}`)} >{t("Submit a proposal")} </button>:<button className="btn bg-upwork-dark"  onClick={handlewithdrawProposal}>{t("Withdraw")}</button>}
         <button className="btn btn-light border border-1 my-lg-2" type="button">
           <i className="far fa-heart" aria-hidden="true" /> {t("Save Job")}
         </button>
