@@ -1,20 +1,29 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { talentDataAction } from "../../../Store/actions/talentData";
+import { auth, db, storage } from "../../../firebase";
 import img from "../../../assets/img/icon-user.svg";
 
 export default function RightSidebarTalentHome() {
   const { t } = useTranslation();
 
   const user = useSelector((state) => state.talentData);
+  const [talentData, setTalentData] = useState([]);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(talentDataAction());
+    db.collection("talent")
+      .doc(auth.currentUser.uid)
+      .collection("jobProposal")
+      .where("status", "==", "proposal")
+      .get()
+      .then((res) => {
+        setTalentData(res.docs);
+      });
   }, []);
 
   return (
@@ -99,13 +108,13 @@ export default function RightSidebarTalentHome() {
           className="list-group-item sidebar-homebage-ul-li "
           aria-current="true"
         >
-          <a
-            href="#"
+          <Link
+            to={`/proposals`}
             className=" list-group-item-action advanced-search-link"
             aria-current="true"
           >
-            4 submitted proposals
-          </a>
+            {talentData?.length} submitted proposals
+          </Link>
         </li>
         <li
           className="list-group-item sidebar-homebage-ul-li"
@@ -116,7 +125,7 @@ export default function RightSidebarTalentHome() {
             className=" list-group-item-action advanced-search-link"
             aria-current="true"
           >
-            60 availabale connects
+            {user.connects} availabale connects
           </a>
         </li>
         <li

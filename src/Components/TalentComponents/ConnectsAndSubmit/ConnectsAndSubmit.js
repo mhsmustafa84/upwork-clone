@@ -1,19 +1,57 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import { db } from "../../../firebase";
 import { talentDataAction } from "../../../Store/actions/talentData";
+import { updateUserData } from "../../../Network/Network";
 
 export default function ConnectsAndSubmit({ connects }) {
   const { t } = useTranslation();
   const { id } = useParams();
   const user = useSelector((state) => state.talentData);
   const dispatch = useDispatch();
+  //  const [savedJobs, setSavedJobs] = useState([]);
+  let [text, setText] = useState("");
   useEffect(() => {
-    dispatch(talentDataAction());
-  }, []);
+    dispatch(talentDataAction(user));
+    if (user) {
+      user?.savedJobs?.length === 0
+        ? (text = "Saved Job")
+        : (text = "Unsave Job");
+      setText(text);
+    }
+  }, [user]);
+
+  const savedjobs = () => {
+    if (text === "Saved Job") {
+      updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
+      text = "Unsave Job";
+      setText(text);
+      console.log(text);
+    } else {
+      user?.savedJobs.forEach((item, index) => {
+        if (item === id) {
+          user?.savedJobs?.splice(index, 1);
+          console.log(user?.savedJobs);
+          text = "Saved Job";
+
+          setText(text);
+          console.log(text);
+        }
+      });
+    }
+
+    // if (user?.savedJobs.length === 0) {
+    //
+    //     }
+    //   });
+    // } else {
+
+    //}
+  };
 
   return (
     <div className="bg-white py-lg-4 px-4 border border-1 row py-sm-3">
@@ -21,8 +59,14 @@ export default function ConnectsAndSubmit({ connects }) {
         <Link to={`/job/apply/${id}`} className="btn bg-upwork" type="button">
           {t("Submit a proposal")}
         </Link>
-        <button className="btn btn-light border border-1 my-lg-2" type="button">
-          <i className="far fa-heart" aria-hidden="true" /> {t("Save Job")}
+        <button
+          className="btn btn-light border border-1 my-lg-2"
+          type="button"
+          onClick={savedjobs}
+        >
+          <i className="far fa-heart" aria-hidden="true" />
+          {/* {t("Save Job")} */}
+          {text}
         </button>
       </div>
       <a href="#" className="advanced-search-link">

@@ -11,7 +11,7 @@ export default function SubmitProposal() {
   const { id } = useParams();
   const { push } = useHistory();
   const [job, setjob] = useState({});
-  const [user, setuser] = useState({})
+  const [user, setuser] = useState({});
   let [proposal, setProposal] = useState("");
   let [talent, setTalent] = useState("");
   const [proposalData, setproposalData] = useState({
@@ -25,10 +25,12 @@ export default function SubmitProposal() {
       .doc(id)
       .get()
       .then((res) => setjob(res.data()));
-      //talent data
-    db.collection('talent').doc(auth.currentUser.uid).get().then(res=>setuser(res.data()))
+    //talent data
+    db.collection("talent")
+      .doc(auth.currentUser.uid)
+      .get()
+      .then((res) => setuser(res.data()));
   }, []);
-  
 
   const handlewithdrawProposal = async () => {
     try {
@@ -83,45 +85,53 @@ export default function SubmitProposal() {
 
     switch (name) {
       case "coverLetter":
-        proposalData.coverLetter=val
-        setproposalData({...proposalData, coverLetter: proposalData.coverLetter });  
+        proposalData.coverLetter = val;
+        setproposalData({
+          ...proposalData,
+          coverLetter: proposalData.coverLetter,
+        });
         break;
-        case "images":
-          if (files[0]) {
-            const upload = storage.ref(`proposalImages/${files[0].name}`).put(files[0]);
-            upload.on(
-              "state_changed",
-              (snapshot) => { },
-              (err) => {
-                console.log(err);
-              },
-              () => {
-                storage.ref("proposalImages")
-                  .child(files[0].name)
-                  .getDownloadURL()
-                  .then(url => {
-                    proposalData.proposalImages.push(url);
-                    setproposalData({ ...proposalData, proposalImages: proposalData.proposalImages })
+      case "images":
+        if (files[0]) {
+          const upload = storage
+            .ref(`proposalImages/${files[0].name}`)
+            .put(files[0]);
+          upload.on(
+            "state_changed",
+            (snapshot) => {},
+            (err) => {
+              console.log(err);
+            },
+            () => {
+              storage
+                .ref("proposalImages")
+                .child(files[0].name)
+                .getDownloadURL()
+                .then((url) => {
+                  proposalData.proposalImages.push(url);
+                  setproposalData({
+                    ...proposalData,
+                    proposalImages: proposalData.proposalImages,
                   });
-              })
-          }
+                });
+            }
+          );
+        }
         break;
-        // case "coverLetter":
-        // proposalData.coverLetter=val
-        // setproposalData({...proposalData, coverLetter: proposalData.coverLetter });  
-        // break;
-        
-    
+      // case "coverLetter":
+      // proposalData.coverLetter=val
+      // setproposalData({...proposalData, coverLetter: proposalData.coverLetter });
+      // break;
+
       default:
         break;
     }
-     {
-      
+    {
     }
   };
-  const handleRout=()=>{
-    push({ pathname: "/proposals", state: id })
-  }                            
+  const handleRout = () => {
+    push({ pathname: "/proposals", state: id });
+  };
 
   const handleProposal = () => {
     subCollection(
@@ -129,31 +139,30 @@ export default function SubmitProposal() {
       "jobProposal",
       { jobId: id, status: "proposal" },
       auth.currentUser.uid
-      );
-      updateUserData("talent", { connects: user.connects - 2 });
-      
-      //subcollection proposal
-      subCollection(
-        "job",
-        "proposals",
-        {
-          talentName: user.firstName + " " + user.lastName,
-          talentId: auth.currentUser.uid,
-          coverLetter: proposalData.coverLetter,
-          images: proposalData?.proposalImages,
-          clientId: job.authID,
-          budget:parseInt(rate),
-          jobPaymentType:job.jobPaymentType,
-          //budged:proposalData.price,
-        },
-        id
-        );
-      };
-      
-      return (
-        <>
+    );
+    updateUserData("talent", { connects: user.connects - 2 });
+
+    //subcollection proposal
+    subCollection(
+      "job",
+      "proposals",
+      {
+        talentName: user.firstName + " " + user.lastName,
+        talentId: auth.currentUser.uid,
+        coverLetter: proposalData.coverLetter,
+        images: proposalData?.proposalImages,
+        clientId: job.authID,
+        budget: parseInt(rate),
+        jobPaymentType: job.jobPaymentType,
+        //budged:proposalData.price,
+      },
+      id
+    );
+  };
+
+  return (
+    <>
       <main>
- 
         <div className="container">
           <h1 className="h3 py-4">Submit a proposal</h1>
           <div className="row">
@@ -163,7 +172,7 @@ export default function SubmitProposal() {
                 <div className="ps-4 pt-2">
                   <p className="fw-bold">Propose with a Specialized profile</p>
                 </div>
-               
+
                 <div className="ps-4 py-2">
                   <p>
                     This proposal requires <strong>2 Connects </strong>
@@ -198,10 +207,14 @@ export default function SubmitProposal() {
                     </div>
                     <div className="mb-3">
                       <p>{job.jobDescription}</p>
-                      <Link  to={{
-                    pathname: `/job/${id}`,
-                    state: `${id}`,
-                  }} className="upw-c-cn" href>
+                      <Link
+                        to={{
+                          pathname: `/job/${id}`,
+                          state: `${id}`,
+                        }}
+                        className="upw-c-cn"
+                        href
+                      >
                         View job posting
                       </Link>
                     </div>
@@ -248,9 +261,12 @@ export default function SubmitProposal() {
               <div className="bg-white border rounded-bottom rounded-top">
                 <h2 className="h4 border-bottom p-4">Terms</h2>
                 <div className="ps-4 pt-2 d-flex">
-                {job?.jobPaymentType == "Fixed Price" ?  <SubmitProposalFixed rate={rate} setrate={setrate}/>  : <SubmitProposalHourly rate={rate} setrate={setrate}/>}
+                  {job?.jobPaymentType == "Fixed Price" ? (
+                    <SubmitProposalFixed rate={rate} setrate={setrate} />
+                  ) : (
+                    <SubmitProposalHourly rate={rate} setrate={setrate} />
+                  )}
 
-          
                   <div className="w-25 m-3 ps-3 d-flex flex-column justify-content-center align-items-center">
                     <svg
                       width="120px"
@@ -436,7 +452,7 @@ export default function SubmitProposal() {
                             WithDraw proposal
                           </button>
                           <button
-                          onClick={handleRout}
+                            onClick={handleRout}
                             className="btn bg-upwork"
                             type="button"
                             data-bs-dismiss="modal"
