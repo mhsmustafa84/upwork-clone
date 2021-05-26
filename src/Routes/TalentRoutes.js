@@ -27,6 +27,7 @@ import ReviewProposalsCard from "../Components/ClientComponents/ReviewProposalsC
 import { SearchContextProvider } from "../Context/SearchContext";
 import PleaseVerifiy from "../Pages/EmailVerification/PleaseVerifiy";
 import JobAppliedDetails from "../Pages/TalentPages/JobAppliedDetails/JobAppliedDetails";
+import Contract from "../Pages/TalentPages/Contract/Contract";
 
 export default function TalentRoutes() {
   const [arr, setarr] = useState([]);
@@ -79,6 +80,8 @@ export default function TalentRoutes() {
             component={TransactionHistory}
           />
           <Route path="/messages" exact component={Messages} />
+          <Route path="/contract" component={Contract} />
+
           {/* <Route path="**" component={PageNotFound} /> */}
         </Switch>
       </SearchContextProvider>
