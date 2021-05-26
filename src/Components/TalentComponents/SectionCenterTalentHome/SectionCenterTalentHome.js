@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import HeadOfCenterSection from "./../HeadOfCenterSection/HeadOfCenterSection";
 import { jobsDataAction } from "./../../../Store/actions/jobsData";
@@ -10,6 +10,7 @@ import "./SectionCenterTalentHome.css";
 
 export default function SectionCenterTalentHome() {
   const jobs = useSelector((state) => state.jobsData);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(jobsDataAction());
@@ -34,18 +35,6 @@ export default function SectionCenterTalentHome() {
                 </Link>
               </div>
               <div className="col-lg-3">
-                <div className="btn-group float-sm-end px-lg-1">
-                  <button
-                    type="button"
-                    className="btn btn-light dropdown-toggle border border-1 rounded-circle collapsed"
-                    data-toggle="collapse"
-                    data-target="#collapse"
-                    aria-expanded="false"
-                    aria-controls="collapseTwo"
-                  >
-                    <i className="far fa-heart" aria-hidden="true" />
-                  </button>
-                </div>
                 <div className="btn-group float-sm-end  px-lg-1">
                   <ul className="dropdown-menu">
                     <li>
