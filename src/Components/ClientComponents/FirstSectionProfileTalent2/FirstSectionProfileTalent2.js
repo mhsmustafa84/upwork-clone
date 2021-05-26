@@ -1,12 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import img from "../../../assets/img/icon-user.svg";
 import { useTranslation } from "react-i18next";
-import { Link, useHistory } from "react-router-dom";
-import { updateUserData } from "../../../Network/Network";
-import { auth, storage } from "../../../firebase";
+import { Link } from "react-router-dom";
 import { db } from "../../../firebase";
 import { useParams } from "react-router";
 import ShowMore from "react-show-more-button/dist/module";
