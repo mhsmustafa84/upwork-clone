@@ -5,15 +5,6 @@ import { Link } from "react-router-dom";
 
 export default function JobPostLi({ job, id }) {
 
-  // const [myJobs, setMyJobs] = useState([]);
-
-  // const allJobs = useSelector((state) => state.jobsData);
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(jobsDataAction());
-  //   const arr = allJobs.filter(job => job.authID === auth.currentUser?.uid);
-  //   setMyJobs([...arr]);
-  // }, []);
 
   return (
     <div>
