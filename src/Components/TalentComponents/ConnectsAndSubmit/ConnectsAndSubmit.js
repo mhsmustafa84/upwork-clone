@@ -4,25 +4,19 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { db } from "../../../firebase";
 import { talentDataAction } from "../../../Store/actions/talentData";
 import { updateUserData } from "../../../Network/Network";
 
 export default function ConnectsAndSubmit({ connects }) {
+
   const { t } = useTranslation();
   const { id } = useParams();
   const user = useSelector((state) => state.talentData);
   const dispatch = useDispatch();
-  //  const [savedJobs, setSavedJobs] = useState([]);
-  let [text, setText] = useState("");
+  let [text, setText] = useState(user?.savedJobs?.length === 0 ? "Saved Job" : "Unsave Job");
+
   useEffect(() => {
     dispatch(talentDataAction(user));
-    if (user) {
-      user?.savedJobs?.length === 0
-        ? (text = "Saved Job")
-        : (text = "Unsave Job");
-      setText(text);
-    }
   }, [user]);
 
   const savedjobs = () => {
@@ -30,27 +24,19 @@ export default function ConnectsAndSubmit({ connects }) {
       updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
       text = "Unsave Job";
       setText(text);
-      console.log(text);
+      console.log(user?.savedJobs?.length);
     } else {
       user?.savedJobs.forEach((item, index) => {
         if (item === id) {
           user?.savedJobs?.splice(index, 1);
+          updateUserData("talent", { savedJobs: [...user?.savedJobs] });
           console.log(user?.savedJobs);
           text = "Saved Job";
-
           setText(text);
           console.log(text);
         }
       });
     }
-
-    // if (user?.savedJobs.length === 0) {
-    //
-    //     }
-    //   });
-    // } else {
-
-    //}
   };
 
   return (
@@ -64,7 +50,7 @@ export default function ConnectsAndSubmit({ connects }) {
           type="button"
           onClick={savedjobs}
         >
-          <i className="far fa-heart" aria-hidden="true" />
+          <i className={`me-2 ${text === "Unsave Job" ? "fas fa-heart text-upwork" : "far fa-heart"}`} aria-hidden="true" />
           {/* {t("Save Job")} */}
           {text}
         </button>

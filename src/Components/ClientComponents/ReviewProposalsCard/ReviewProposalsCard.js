@@ -16,6 +16,7 @@ export default function ReviewProposalsCard() {
 
   const [proposals, setProposals] = useState([]);
   const [talent, setTalent] = useState([]);
+  const [hired, setHired] = useState(false);
 
   useEffect(async () => {
     await db
@@ -46,103 +47,116 @@ export default function ReviewProposalsCard() {
 
   const hire = () => {
     db.collection("job").doc(id).update({ status: "hired" });
+    setHired(true);
   };
 
   return (
     <>
-      <ReviewProposalsPageHeader proposals={proposals.length} />
+      {
+        !hired &&
+        <ReviewProposalsPageHeader proposals={proposals.length} />
+      }
       {proposals.length > 0 && talent.length > 0 ? (
-        proposals.map((proposal, index) => {
-          return (
-            <div className="row border bg-white border-1 ms-0 pt-2" key={index}>
-              <div className="col-1 pt-lg-3">
-                <img
-                  className="circle"
-                  src={
-                    talent[index]?.profilePhoto
-                      ? talent[index]?.profilePhoto
-                      : img
-                  }
-                  style={{ width: "70px", height: "70px" }}
-                />
-              </div>
-              <div className="col-lg-6 pt-lg-3 ">
-                <Link
-                  to={`/talent-profile/${talent[index]?.authID}`}
-                  id="job-title-home-page "
-                  className="link-dark job-title-hover fw-bold text-success"
-                >
-                  {talent[index]?.firstName +
-                    " " +
-                    talent[index]?.lastName[0].toUpperCase() +
-                    "."}
-                </Link>
-                <p id="job-title-home-page" className="fw-bold link-dark my-1">
-                  {talent[index]?.title}
-                </p>
-                <span className="text-muted">
-                  {talent[index]?.location?.country}
-                </span>
-                <div className="row py-3">
-                  <div className="col">
-                    <span className="fw-bold">
-                      Hourly Rate: {talent[index]?.hourlyRate}
-                    </span>
-                    <span className="text-muted"> /hr</span>
-                  </div>
-                  <div className="col">
-                    <span className="fw-bold">
-                      {talent[index]?.totalEarnings}
-                    </span>
-                    <span className="text-muted"> earned</span>
-                  </div>
-                </div>
-              </div>
-              <div className="col py-3">
-                <div className="btn-group float-end "></div>
-                <div className="btn-group float-start">
-                  <ul className="dropdown-menu ">
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        Candidate will not be notified
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className="col py-3">
-                <Link
-                  to={{ pathname: "/messages", state: talent[index]?.authID }}
-                  className="btn bg-white btn-outline-secondary"
-                  onClick={() => sendMSG(talent[index]?.authID)}
-                >
-                  <span className="text-success fw-bold">Messages</span>
-                </Link>
-              </div>
-              <div className="col py-3">
-                <button
-                  type="button"
-                  className="btn bg-upwork px-5"
-                  onClick={hire}
-                >
-                  Hire
-                </button>
-              </div>
-
-              <div className="col-lg-1 pt-lg-3"></div>
-              <div className="col-lg-10 pt-lg-3 mx-3">
-                <p className="text-muted">
-                  <strong>Specialized in:</strong>
-                  <span> {talent[index]?.jobCategory}</span>
-                </p>
-                <p id="Cover-Letter">
-                  <span className="fw-bold">Cover Letter - </span>
-                  {proposal.coverLetter}
-                </p>
-              </div>
+        hired ?
+          <div className="alert text-upwork d-flex align-items-center" role="alert">
+            <svg width="30" id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"></path>
+            </svg>
+            <div className="ms-2">
+              An example success alert with an icon
             </div>
-          );
-        })
+          </div>
+          : proposals.map((proposal, index) => {
+            return (
+              <div className="row border bg-white border-1 ms-0 pt-2" key={index}>
+                <div className="col-1 pt-lg-3">
+                  <img
+                    className="circle"
+                    src={
+                      talent[index]?.profilePhoto
+                        ? talent[index]?.profilePhoto
+                        : img
+                    }
+                    style={{ width: "70px", height: "70px" }}
+                  />
+                </div>
+                <div className="col-lg-6 pt-lg-3 ">
+                  <Link
+                    to={`/talent-profile/${talent[index]?.authID}`}
+                    id="job-title-home-page "
+                    className="link-dark job-title-hover fw-bold text-success"
+                  >
+                    {talent[index]?.firstName +
+                      " " +
+                      talent[index]?.lastName[0].toUpperCase() +
+                      "."}
+                  </Link>
+                  <p id="job-title-home-page" className="fw-bold link-dark my-1">
+                    {talent[index]?.title}
+                  </p>
+                  <span className="text-muted">
+                    {talent[index]?.location?.country}
+                  </span>
+                  <div className="row py-3">
+                    <div className="col">
+                      <span className="fw-bold">
+                        Hourly Rate: {talent[index]?.hourlyRate}
+                      </span>
+                      <span className="text-muted"> /hr</span>
+                    </div>
+                    <div className="col">
+                      <span className="fw-bold">
+                        {talent[index]?.totalEarnings}
+                      </span>
+                      <span className="text-muted"> earned</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="col py-3">
+                  <div className="btn-group float-end "></div>
+                  <div className="btn-group float-start">
+                    <ul className="dropdown-menu ">
+                      <li>
+                        <a className="dropdown-item" href="#">
+                          Candidate will not be notified
+                      </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="col py-3">
+                  <Link
+                    to={{ pathname: "/messages", state: talent[index]?.authID }}
+                    className="btn bg-white btn-outline-secondary"
+                    onClick={() => sendMSG(talent[index]?.authID)}
+                  >
+                    <span className="text-success fw-bold">Messages</span>
+                  </Link>
+                </div>
+                <div className="col py-3">
+                  <button
+                    type="button"
+                    className="btn bg-upwork px-5"
+                    onClick={hire}
+                  >
+                    Hire
+                </button>
+                </div>
+
+                <div className="col-lg-1 pt-lg-3"></div>
+                <div className="col-lg-10 pt-lg-3 mx-3">
+                  <p className="text-muted">
+                    <strong>Specialized in:</strong>
+                    <span> {talent[index]?.jobCategory}</span>
+                  </p>
+                  <p id="Cover-Letter">
+                    <span className="fw-bold">Cover Letter - </span>
+                    {proposal.coverLetter}
+                  </p>
+                </div>
+              </div>
+            );
+          })
       ) : noProposals ? (
         <div className="row border bg-white border-1 ms-0 py-3">
           <p className="text-muted text-center h1">No proposals</p>

@@ -109,7 +109,7 @@ export default function FirstSectionProfileTalent2() {
               <hr />
               <h5 className="fw-bold">{t("Availability")}</h5>
               <h6 className="fw-bold">
-                {user?.Availabilty == true ? "available" : "not available"}
+                {user?.Availabilty === true ? "available" : "not available"}
               </h6>
               <p>
                 {user?.Availabilty
