@@ -1,19 +1,30 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import { db } from "../../../firebase";
 import { talentDataAction } from "../../../Store/actions/talentData";
+import { updateUserData } from "../../../Network/Network";
 
 export default function ConnectsAndSubmit({ connects }) {
   const { t } = useTranslation();
   const { id } = useParams();
   const user = useSelector((state) => state.talentData);
   const dispatch = useDispatch();
+  const [savedJobs, setSavedJobs] = useState([]);
   useEffect(() => {
     dispatch(talentDataAction());
   }, []);
+
+  const savedjobs = () => {
+    console.log(id);
+    let arr2 = [...savedJobs, id];
+    setSavedJobs(arr2);
+    console.log(savedJobs);
+    updateUserData("talent", { savedJobs: [...user?.savedJobs, ...arr2] });
+  };
 
   return (
     <div className="bg-white py-lg-4 px-4 border border-1 row py-sm-3">
@@ -21,7 +32,11 @@ export default function ConnectsAndSubmit({ connects }) {
         <Link to={`/job/apply/${id}`} className="btn bg-upwork" type="button">
           {t("Submit a proposal")}
         </Link>
-        <button className="btn btn-light border border-1 my-lg-2" type="button">
+        <button
+          className="btn btn-light border border-1 my-lg-2"
+          type="button"
+          onClick={savedjobs}
+        >
           <i className="far fa-heart" aria-hidden="true" /> {t("Save Job")}
         </button>
       </div>

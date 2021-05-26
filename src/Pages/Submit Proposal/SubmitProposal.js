@@ -23,7 +23,6 @@ export default function SubmitProposal() {
       .doc(id)
       .get()
       .then((res) => setjob(res.data()));
-      handlewithdrawProposal();
   }, []);
 
   const handlewithdrawProposal = async () => {
