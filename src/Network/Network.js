@@ -1,4 +1,5 @@
 import { auth, db } from "../firebase";
+
 // Create New Document - auto id
 const createDocument = (collectionName, data) => {
   db.collection(collectionName)
@@ -42,6 +43,20 @@ export const updateJob = (newData, docID) => {
     .then(() => console.log("job updated"))
     .catch((err) => console.log("fail to update job", err));
 };
+
+// get Collection Docs
+export const getCollectionDocs = collectionName => {
+  return db.collection(collectionName).get();
+};
+
+// get Document by doc id
+// export const getDocumentByDocID = async (collectionName, docID) => {
+//   let docData;
+//   await db.collection(collectionName).doc(docID).get().then(doc => docData = doc.data())
+//   console.log(docData);
+//   return docData;
+// };
+
 // new proposal
 export const subCollection = (
   collectionName,
@@ -70,10 +85,6 @@ export const deletesubCollection = (
     .delete()
     .then(() => console.log("document deleted"))
     .catch((e) => console.log(e));
-};
-
-export const getCurrentUser = async () => {
-  return auth.currentUser;
 };
 
 //getJobData

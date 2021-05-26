@@ -2,7 +2,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-export default function JobDescriptionJobDetails({ job }) {
+export default function JobDescriptionJobDetails2({ job }) {
   const { t } = useTranslation();
   return (
     <div className="col-lg-9 col-xs-12  mt-lg-0">

@@ -7,12 +7,48 @@ import { useTranslation } from "react-i18next";
 
 export default function AddandeditEmployementHistory() {
   const user = useSelector((state) => state.talentData);
+  const [EmpTitle,setEmpTitle]= useState("");
+  const [EmpCompany,setEmpCompany]= useState("");
+    const [EmpStillWork,setEmpStillWork]= useState(false);
+const [EmpList,setEmpList]= useState([]);
+
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(talentDataAction());
-  }, []);
+  }, [user]);
 
   const { t } = useTranslation();
+  const EditEmploymentHistoryonChange = (e) => {
+    const val = e.target.value;
+    const name = e.target.name;
+    switch (name) {
+      case "EmpTitle":
+        setEmpTitle(val);
+        break;
+      case "EmpCompany":
+        setEmpCompany(val);
+        break;
+      case "EmpStillWork":
+        setEmpStillWork(val);
+        break;
+        default:
+        break;
+    }
+  };
+
+
+  
+
+  const UpdateEditEmployment = () => {
+    if (EmpTitle != "" && EmpCompany != "") {
+      let arr4 = [...EmpList, { jobTitile: EmpTitle, companyName: EmpCompany,stillWork:EmpStillWork }];
+      setEmpList(arr4);
+      console.log(EmpList);
+        updateUserData("talent", { company: [...arr4] })
+    }
+  }
+
   return (
     <>
       <style
@@ -27,7 +63,7 @@ export default function AddandeditEmployementHistory() {
             <h2 className="mb-3">{t("Employment history")}</h2>
           </div>
           <div className="col d-flex justify-content-end">
-            <button
+            {/* <button
               type="button"
               className="btn btn-default me-4 d-flex justify-content-center border rounded-circle"
               style={{
@@ -43,7 +79,7 @@ export default function AddandeditEmployementHistory() {
               <div>
                 <i className="fas fa-plus" />
               </div>
-            </button>
+            </button> */}
           </div>
           <hr />
           <div className="row">
@@ -77,13 +113,13 @@ export default function AddandeditEmployementHistory() {
                   paddingBottom: 3,
                 }}
                 data-bs-toggle="modal"
-                data-bs-target="#exampleModal13"
+                data-bs-target="#editEmploymentHistory"
               >
                 <div>
                   <i className="fas fa-pen" />
                 </div>
               </button>
-              <button
+              {/* <button
                 type="button"
                 className="btn btn-default d-flex justify-content-center border rounded-circle mb-3"
                 style={{
@@ -97,422 +133,14 @@ export default function AddandeditEmployementHistory() {
                 <div>
                   <i className="far fa-trash-alt" />
                 </div>
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
       </div>
-
-      {/* model for add employment */}
-
       <div
         className="modal fade"
-        id="exampleModal2"
-        tabIndex={-1}
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">
-                Add Employment
-              </h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              />
-            </div>
-            <div className="modal-body">
-              <form>
-                <div className="mb-3">
-                  <label
-                    htmlFor="exampleFormControlInput1"
-                    className="form-label fw-bold"
-                  >
-                    Company
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="exampleFormControlInput1"
-                  />
-                </div>
-                <div className="mb-3">
-                  <label
-                    htmlFor="exampleFormControlInput2"
-                    className="form-label fw-bold"
-                  >
-                    Title
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="exampleFormControlInput2"
-                  />
-                </div>
-
-                <div className="row">
-                  <h5 className="fw-blod">Period</h5>
-                  <div className="col-md-6">
-                    <div className="dropdown">
-                      <a
-                        className="btn btn-light dropdown-toggle"
-                        href="#"
-                        role="button"
-                        id="dropdownMenuLink"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        month
-                      </a>
-                      <ul
-                        className="dropdown-menu"
-                        aria-labelledby="dropdownMenuLink"
-                      >
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            January
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            february
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            March
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            Apirl
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            May
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            June
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            July
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            August
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            October
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            November
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            Decemeber
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div className="col-md-6">
-                    <div className="dropdown">
-                      <a
-                        className="btn btn-light dropdown-toggle"
-                        href="#"
-                        role="button"
-                        id="dropdownMenuLink"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        year
-                      </a>
-                      <ul
-                        className="dropdown-menu"
-                        aria-labelledby="dropdownMenuLink"
-                      >
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            2021
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            2020
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            2019
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            2018
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            2017
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            2016
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            2015
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            2014
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            2013
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            2012
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            2011
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div className="row">
-                    <h5 className="fw-blod">Through</h5>
-                    <div className="col-md-6">
-                      <div className="dropdown">
-                        <a
-                          className="btn btn-light dropdown-toggle"
-                          href="#"
-                          role="button"
-                          id="dropdownMenuLink"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          month
-                        </a>
-                        <ul
-                          className="dropdown-menu"
-                          aria-labelledby="dropdownMenuLink"
-                        >
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              January
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              february
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              March
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              Apirl
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              May
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              June
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              July
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              August
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              October
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              November
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              Decemeber
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-
-                    <div className="col-md-6">
-                      <div className="dropdown">
-                        <a
-                          className="btn btn-light dropdown-toggle"
-                          href="#"
-                          role="button"
-                          id="dropdownMenuLink"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          year
-                        </a>
-                        <ul
-                          className="dropdown-menu"
-                          aria-labelledby="dropdownMenuLink"
-                        >
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              2021
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              2020
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              2019
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              2018
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              2017
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              2016
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              2015
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              2014
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              2013
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              2012
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              2011
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="input-group mb-3">
-                    <div className="input-group-text ">
-                      <input
-                        className="form-check-input mt-0 "
-                        type="checkbox"
-                        value=""
-                        aria-label="Checkbox for following text input"
-                      />
-                      I currently worked here
-                    </div>
-                  </div>
-                  <div className="mb-3">
-                    <label
-                      htmlFor="exampleFormControlTextarea1"
-                      className="form-label"
-                    >
-                      Description
-                    </label>
-                    <textarea
-                      className="form-control"
-                      id="exampleFormControlTextarea1"
-                      rows={5}
-                      defaultValue={""}
-                    />
-                  </div>
-                </div>
-              </form>
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-link border rounded-border "
-                data-bs-dismiss="modal"
-                style={{
-                  color: "#008329",
-                  backgroundColor: "white",
-                  textDecoration: "none",
-                }}
-              >
-                Cancel
-              </button>
-              <button
-                type="button"
-                className="btn btn-default border rounded-border"
-              >
-                Save{" "}
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div
-        className="modal fade"
-        id="exampleModal13"
+        id="editEmploymentHistory"
         tabIndex={-1}
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
@@ -540,6 +168,8 @@ export default function AddandeditEmployementHistory() {
                     Company
                   </label>
                   <input
+                   onChange={EditEmploymentHistoryonChange}
+                   name="EmpCompany"
                     type="text"
                     className="form-control"
                     id="exampleFormControlInput1"
@@ -550,169 +180,40 @@ export default function AddandeditEmployementHistory() {
                     htmlFor="exampleFormControlInput2"
                     className="form-label fw-bold"
                   >
-                    Location
+                    Title
                   </label>
                   <input
+                  onChange={EditEmploymentHistoryonChange}
+                  name="EmpTitle"
                     type="text"
                     className="form-control"
                     id="exampleFormControlInput2"
                   />
                 </div>
+                <div className="input-group mb-3">
 
-                <div className="row">
-                  <h5 className="fw-blod">Period</h5>
-                  <div className="col-md-6">
-                    <div className="dropdown">
-                      <a
-                        className="btn btn-light dropdown-toggle"
-                        href="#"
-                        role="button"
-                        id="dropdownMenuLink"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        month
-                      </a>
-                      <ul
-                        className="dropdown-menu"
-                        aria-labelledby="dropdownMenuLink"
-                      >
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            January
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            february
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            March
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            Apirl
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            May
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            June
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            July
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            August
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            October
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            November
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            Decemeber
-                          </a>
-                        </li>
-                      </ul>
+                    <div className="input-group-text ">
+
+                      <input
+                        onChange={EditEmploymentHistoryonChange}
+                        name="EmpStillWork"
+                        className="form-check-input mt-0 "
+
+                        type="checkbox"
+
+                        value=""
+
+                        aria-label="Checkbox for following text input"
+
+                      />
+
+                      I currently worked here
+
                     </div>
+
                   </div>
 
-                  <div className="col-md-6">
-                    <div className="dropdown">
-                      <a
-                        className="btn btn-light dropdown-toggle"
-                        href="#"
-                        role="button"
-                        id="dropdownMenuLink"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        year
-                      </a>
-                      <ul
-                        className="dropdown-menu"
-                        aria-labelledby="dropdownMenuLink"
-                      >
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            2021
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            2020
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            2019
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            2018
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            2017
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            2016
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            2015
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            2014
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            2013
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            2012
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            2011
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mb-3">
+             {/* <div className="mb-3">
                   <label
                     htmlFor="exampleFormControlTextarea1"
                     className="form-label"
@@ -725,7 +226,7 @@ export default function AddandeditEmployementHistory() {
                     rows={5}
                     defaultValue={""}
                   />
-                </div>
+                </div> */}
               </form>
             </div>
             <div className="modal-footer">
@@ -742,10 +243,11 @@ export default function AddandeditEmployementHistory() {
                 Cancel
               </button>
               <button
+              onClick={UpdateEditEmployment}
                 type="button"
                 className="btn btn-default border rounded-border"
               >
-                Save{" "}
+                EditEmployment{" "}
               </button>
             </div>
           </div>

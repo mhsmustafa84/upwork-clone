@@ -19,7 +19,7 @@ export default function LeftSidebarTalentHome() {
   useEffect(() => {
     dispatch(talentDataAction());
     user.searchHistory != null ?
-     sessionStorage.setItem("searchArray",user?.searchHistory):
+     sessionStorage.setItem("searchArray", user?.searchHistory):
      setarr(user?.searchHistory)
     //setarr(JSON.parse(sessionStorage.getItem("searchArray")))
   }, []);

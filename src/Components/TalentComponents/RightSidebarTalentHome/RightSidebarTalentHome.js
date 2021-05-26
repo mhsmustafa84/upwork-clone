@@ -6,6 +6,8 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { talentDataAction } from "../../../Store/actions/talentData";
+import img from "../../../assets/svg/createProfileSubmit.svg";
+
 
 export default function RightSidebarTalentHome() {
   const { t } = useTranslation();
@@ -20,7 +22,7 @@ export default function RightSidebarTalentHome() {
     <div className="col d-none d-lg-block">
       <div className="my-lg-1">
         <img
-          src={user.profilePhoto}
+          src={user?user.profilePhoto:img}
           alt=""
           className="rounded-circle d-inline"
           width="50px"

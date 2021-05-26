@@ -1,17 +1,25 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
-import { Link } from "react-router-dom";
-import SubmitProposalContractType from "../../Components/TalentComponents/SubmitProposalContractType/SubmitProposalContractType";
+import { useHistory, useParams } from "react-router";
 import { auth, db, storage } from "../../firebase";
 import { subCollection, updateUserData } from "../../Network/Network";
+import { Link } from "react-router-dom";
+import SubmitProposalFixed from "../../Components/TalentComponents/SubmitProposalFixed/SubmitProposalFixed";
+import SubmitProposalHourly from "../../Components/TalentComponents/SubmitProposalHourly/SubmitProposalHourly";
 
 export default function SubmitProposal() {
   const { id } = useParams();
+  const { push } = useHistory();
   const [job, setjob] = useState({});
   const [user, setuser] = useState({})
   let [proposal, setProposal] = useState("");
-  const [proposalData, setproposalData] = useState({ coverLetter:'',proposalImages: [] });
+  let [talent, setTalent] = useState("");
+  const [proposalData, setproposalData] = useState({
+    coverLetter: "",
+    proposalImages: [],
+  });
+  let [rate, setrate] = useState(0);
+
   useEffect(() => {
     db.collection("job")
       .doc(id)
@@ -20,6 +28,7 @@ export default function SubmitProposal() {
       //talent data
     db.collection('talent').doc(auth.currentUser.uid).get().then(res=>setuser(res.data()))
   }, []);
+  
 
   const handlewithdrawProposal = async () => {
     try {
@@ -39,6 +48,24 @@ export default function SubmitProposal() {
               .doc(proposal)
               .delete();
             console.log(proposal);
+          })
+        );
+      await db
+        .collection("talent")
+        .doc(auth.currentUser.uid)
+        .collection("jobProposal")
+        .where("jobId", "==", id)
+        .get()
+        .then((res) =>
+          res.docs.map((e) => {
+            talent = e.id;
+            setTalent(talent);
+            db.collection("talent")
+              .doc(auth.currentUser.uid)
+              .collection("jobProposal")
+              .doc(talent)
+              .delete();
+            console.log(talent);
           })
         );
     } catch (err) {
@@ -92,6 +119,9 @@ export default function SubmitProposal() {
       
     }
   };
+  const handleRout=()=>{
+    push({ pathname: "/proposals", state: id })
+  }                            
 
   const handleProposal = () => {
     subCollection(
@@ -99,29 +129,31 @@ export default function SubmitProposal() {
       "jobProposal",
       { jobId: id, status: "proposal" },
       auth.currentUser.uid
-    );
-    updateUserData("talent", { connects: user.connects - 2 });
-
-    //subcollection proposal
-    subCollection(
-      "job",
-      "proposals",
-      {
-        talentName: user.firstName + " " + user.lastName,
-        talentId: auth.currentUser.uid,
-        coverLetter: proposalData.coverLetter,
-        images: proposalData?.proposalImages,
-        clientId: job.authID,
-        //budged:proposalData.price,
-      },
-      id
-    );
-  };
-
-  return (
-    <>
+      );
+      updateUserData("talent", { connects: user.connects - 2 });
+      
+      //subcollection proposal
+      subCollection(
+        "job",
+        "proposals",
+        {
+          talentName: user.firstName + " " + user.lastName,
+          talentId: auth.currentUser.uid,
+          coverLetter: proposalData.coverLetter,
+          images: proposalData?.proposalImages,
+          clientId: job.authID,
+          budget:parseInt(rate),
+          jobPaymentType:job.jobPaymentType,
+          //budged:proposalData.price,
+        },
+        id
+        );
+      };
+      
+      return (
+        <>
       <main>
-        {/* {console.log(job)} */}
+ 
         <div className="container">
           <h1 className="h3 py-4">Submit a proposal</h1>
           <div className="row">
@@ -131,33 +163,7 @@ export default function SubmitProposal() {
                 <div className="ps-4 pt-2">
                   <p className="fw-bold">Propose with a Specialized profile</p>
                 </div>
-                <div className="btn-group w-50 ps-4 pb-2" role="group">
-                  <button
-                    id="btnGroupDrop1"
-                    type="button"
-                    className="btn dropdown-toggle shadow-none border text-start py-2"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    General Profile
-                    <i className="fa fa-sort-down float-end" />
-                  </button>
-                  <ul
-                    className="dropdown-menu w-75"
-                    aria-labelledby="btnGroupDrop1"
-                  >
-                    <li className="border-start border-4 border-success">
-                      <a className="dropdown-item" href="#">
-                        General Profile
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        {user.title}
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+               
                 <div className="ps-4 py-2">
                   <p>
                     This proposal requires <strong>2 Connects </strong>
@@ -179,12 +185,16 @@ export default function SubmitProposal() {
                 <h2 className="h4 border-bottom p-4">Job details</h2>
                 <div className="ps-4 pt-2 d-flex">
                   <div className="w-75">
-                    <p className="fw-bold">{job.jobTitle}</p>
+                    <p className="fw-bold">{job?.jobTitle}</p>
                     <div className="mb-3">
                       <span className="bg-cat-cn py-1 px-2 me-3 rounded-pill">
-                        {job.jobCategory}
+                        {job?.jobCategory}
                       </span>
-                      <span>{new Date(job?.postTime?.seconds*1000).toLocaleString()}</span>
+                      <span>
+                        {new Date(
+                          job?.postTime?.seconds * 1000
+                        ).toLocaleString()}
+                      </span>
                     </div>
                     <div className="mb-3">
                       <p>{job.jobDescription}</p>
@@ -204,7 +214,7 @@ export default function SubmitProposal() {
                       <span className="ps-2">
                         <strong>Experience Level</strong>
                       </span>
-                      <p className="ps-4">{job.jobExperienceLevel}</p>
+                      <p className="ps-4">{job?.jobExperienceLevel}</p>
                     </div>
                     <div>
                       <span>
@@ -213,14 +223,14 @@ export default function SubmitProposal() {
                       <span className="ps-2">
                         <strong>Hours to be determined</strong>
                       </span>
-                      <p className="ps-4">{job.jobPaymentType}</p>
+                      <p className="ps-4">{job?.jobPaymentType}</p>
                     </div>
                     <div>
                       <span>
                         <i className="far fa-calendar-alt" />
                       </span>
                       <span className="ps-2">
-                        <strong>{job.jobDuration}</strong>
+                        <strong>{job?.jobDuration}</strong>
                       </span>
                       <p className="ps-4">Project Length</p>
                     </div>
@@ -238,9 +248,9 @@ export default function SubmitProposal() {
               <div className="bg-white border rounded-bottom rounded-top">
                 <h2 className="h4 border-bottom p-4">Terms</h2>
                 <div className="ps-4 pt-2 d-flex">
-                  <SubmitProposalContractType
-                    ContractType={job.jobPaymentType}
-                  />
+                {job?.jobPaymentType == "Fixed Price" ?  <SubmitProposalFixed rate={rate} setrate={setrate}/>  : <SubmitProposalHourly rate={rate} setrate={setrate}/>}
+
+          
                   <div className="w-25 m-3 ps-3 d-flex flex-column justify-content-center align-items-center">
                     <svg
                       width="120px"
@@ -367,14 +377,14 @@ export default function SubmitProposal() {
                         <div class="modal-body">
                           <div className="ps-4 pt-2 d-flex">
                             <div className="w-75">
-                              <p className="fw-bold">{job.jobTitle}</p>
+                              <p className="fw-bold">{job?.jobTitle}</p>
                               <div className="mb-3">
                                 <span className="bg-cat-cn py-1 px-2 me-3 rounded-pill">
-                                  {job.jobCategory}
+                                  {job?.jobCategory}
                                 </span>
                               </div>
                               <div className="mb-3">
-                                <p>{job.jobDescription}</p>
+                                <p>{job?.jobDescription}</p>
                               </div>
                             </div>
                             <div className="w-25 border-start m-3 ps-3">
@@ -385,7 +395,9 @@ export default function SubmitProposal() {
                                 <span className="ps-2">
                                   <strong>Expert</strong>
                                 </span>
-                                <p className="ps-4">{job.jobExperienceLevel}</p>
+                                <p className="ps-4">
+                                  {job?.jobExperienceLevel}
+                                </p>
                               </div>
                               <div>
                                 <span>
@@ -394,14 +406,14 @@ export default function SubmitProposal() {
                                 <span className="ps-2">
                                   <strong>Hours to be determined</strong>
                                 </span>
-                                <p className="ps-4">{job.jobPaymentType}</p>
+                                <p className="ps-4">{job?.jobPaymentType}</p>
                               </div>
                               <div>
                                 <span>
                                   <i className="far fa-calendar-alt" />
                                 </span>
                                 <span className="ps-2">
-                                  <strong>{job.jobDuration}</strong>
+                                  <strong>{job?.jobDuration}</strong>
                                 </span>
                                 <p className="ps-4">Project Length</p>
                               </div>
@@ -423,7 +435,13 @@ export default function SubmitProposal() {
                           >
                             WithDraw proposal
                           </button>
-                          <button type="button" class="btn bg-upwork">
+                          <button
+                          onClick={handleRout}
+                            className="btn bg-upwork"
+                            type="button"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                          >
                             Save changes
                           </button>
                         </div>
