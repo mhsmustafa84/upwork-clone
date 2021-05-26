@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Switch, Route, useLocation, useHistory } from "react-router-dom";
 import Messages from "../Pages/Messages/Messages";
 import Header from "./../Components/TalentComponents/Header/Header";
@@ -27,6 +27,7 @@ import ReviewProposalsCard from "../Components/ClientComponents/ReviewProposalsC
 import { SearchContextProvider } from "../Context/SearchContext";
 import PleaseVerifiy from "../Pages/EmailVerification/PleaseVerifiy";
 import JobAppliedDetails from "../Pages/TalentPages/JobAppliedDetails/JobAppliedDetails";
+import Contract from "../Pages/TalentPages/Contract/Contract";
 
 export default function TalentRoutes() {
   const [arr, setarr] = useState([]);
@@ -34,13 +35,13 @@ export default function TalentRoutes() {
   const { pathname } = useLocation();
   const { push } = useHistory();
   pathname === "/" && push("/find-work");
-
   return (
     <>
-      <Header />
       <SearchContextProvider
         value={{ arr, setarr, itemSearchList, setitemSearchList }}
       >
+      <Header />
+      <div className="px-5 mx-5">
         <Switch>
           <Route path="/create-profile" component={CreateProfile} />
           <Route path="/find-work" exact component={HomeTalent} />
@@ -79,8 +80,11 @@ export default function TalentRoutes() {
             component={TransactionHistory}
           />
           <Route path="/messages" exact component={Messages} />
+          <Route path="/contract" component={Contract} />
+
           {/* <Route path="**" component={PageNotFound} /> */}
         </Switch>
+      </div>
       </SearchContextProvider>
       <Footer />
     </>

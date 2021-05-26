@@ -7,6 +7,7 @@ import { Link, useHistory, useParams } from "react-router-dom";
 import { db,auth } from "../../../firebase";
 
 export default function ConnectsAndSubmit({ connects }) {
+
   const { t } = useTranslation();
   const { id } = useParams();
   const user = useSelector((state) => state.talentData);

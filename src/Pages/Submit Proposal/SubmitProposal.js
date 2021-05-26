@@ -12,7 +12,7 @@ export default function SubmitProposal() {
   const { id } = useParams();
   const { push } = useHistory();
   const [job, setjob] = useState({});
-  const [user, setuser] = useState({})
+  const [user, setuser] = useState({});
   let [proposal, setProposal] = useState("");
   let [talent, setTalent] = useState("");
   const [proposalData, setproposalData] = useState({
@@ -27,9 +27,11 @@ export default function SubmitProposal() {
       .get()
       .then((res) => setjob(res.data()));
     //talent data
-    db.collection('talent').doc(auth.currentUser.uid).get().then(res => setuser(res.data()))
+    db.collection("talent")
+      .doc(auth.currentUser.uid)
+      .get()
+      .then((res) => setuser(res.data()));
   }, []);
-
 
   const handlewithdrawProposal = async () => {
     try {
@@ -107,12 +109,6 @@ export default function SubmitProposal() {
             })
         }
         break;
-      // case "coverLetter":
-      // proposalData.coverLetter=val
-      // setproposalData({...proposalData, coverLetter: proposalData.coverLetter });  
-      // break;
-
-
       default:
         break;
     }
@@ -154,7 +150,6 @@ export default function SubmitProposal() {
   return (
     <>
       <main>
-
         <div className="container">
           <h1 className="h3 py-4">Submit a proposal</h1>
           <div className="row">
