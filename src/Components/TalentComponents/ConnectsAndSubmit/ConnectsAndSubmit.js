@@ -3,21 +3,29 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams ,useHistory} from "react-router-dom";
 import { talentDataAction } from "../../../Store/actions/talentData";
 import { updateUserData } from "../../../Network/Network";
+import { db,auth } from "../../../firebase";
 
 export default function ConnectsAndSubmit({ connects }) {
-
-  const mostafa = "asd";
-
   const { t } = useTranslation();
   const { id } = useParams();
   const user = useSelector((state) => state.talentData);
   const dispatch = useDispatch();
   let [text, setText] = useState("");
+  let [proposal, setProposal] = useState("");
+  let [talent, setTalent] = useState("");
+  const[ jobProposal, setjobProposal] = useState(false);
+  const { push } = useHistory()
 
   useEffect(() => {
+    db.collection('talent').doc(auth.currentUser.uid).collection('jobProposal')
+     .where('jobId',"==",id).onSnapshot((res=>{
+     if(res?.docs.length>0)
+       setjobProposal(true)
+     }
+    ))
     dispatch(talentDataAction(user));
     if (user?.savedJobs?.length > 0) {
       user?.savedJobs?.forEach((item) => {
@@ -55,12 +63,61 @@ export default function ConnectsAndSubmit({ connects }) {
     }
   };
 
+  const handlewithdrawProposal = async () => {
+    try {
+      await db
+        .collection("job")
+        .doc(id)
+        .collection("proposals")
+        .where("talentId", "==", auth.currentUser.uid)
+        .get()
+        .then((res) =>
+          res.docs.map((e) => {
+            proposal = e.id;
+            setProposal(proposal);
+            db.collection("job")
+              .doc(id)
+              .collection("proposals")
+              .doc(proposal)
+              .delete();
+            console.log(proposal);
+          })
+        );
+      await db
+        .collection("talent")
+        .doc(auth.currentUser.uid)
+        .collection("jobProposal")
+        .where("jobId", "==", id)
+        .get()
+        .then((res) =>
+          res.docs.map((e) => {
+            talent = e.id;
+            setTalent(talent);
+            db.collection("talent")
+              .doc(auth.currentUser.uid)
+              .collection("jobProposal")
+              .doc(talent)
+              .delete();
+            console.log(talent);
+          })
+        );
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="bg-white py-lg-4 px-4 border border-1 row py-sm-3">
       <div className="d-lg-grid gap-2  mx-auto d-none">
-        <Link to={`/job/apply/${id}`} className="btn bg-upwork" type="button">
+      {!jobProposal?
+        <button className="btn bg-upwork" onClick={handleRout=>push(`/job/apply/${id}`)} >
           {t("Submit a proposal")}
-        </Link>
+        </button>
+        :
+        <button className="btn bg-upwork-dark"  onClick={handlewithdrawProposal}>
+          {t("Withdraw")}
+        </button>
+        }
         <button
           className="btn btn-light border border-1 my-lg-2"
           type="button"

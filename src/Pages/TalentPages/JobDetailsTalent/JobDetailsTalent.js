@@ -38,9 +38,9 @@ export default function JobDetailsTalent() {
   </div>
   <div className="row">
     <div className="col-lg-12 col-xs-12">
-      <ClientRecentHistory />
-      <OtherOpenJobsByThisClient />
-      <SimilarJobsOnUpwork />
+      {/* <ClientRecentHistory /> */}
+      {/* <OtherOpenJobsByThisClient /> */}
+      {/* <SimilarJobsOnUpwork /> */}
     </div>
   </div>
 </div> : <Loader />
