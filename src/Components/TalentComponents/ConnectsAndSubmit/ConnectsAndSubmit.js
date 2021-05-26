@@ -8,6 +8,9 @@ import { talentDataAction } from "../../../Store/actions/talentData";
 import { updateUserData } from "../../../Network/Network";
 
 export default function ConnectsAndSubmit({ connects }) {
+
+  const mostafa = "asd";
+
   const { t } = useTranslation();
   const { id } = useParams();
   const user = useSelector((state) => state.talentData);
@@ -64,11 +67,10 @@ export default function ConnectsAndSubmit({ connects }) {
           onClick={savedjobs}
         >
           <i
-            className={`me-2 ${
-              text === "Unsave Job"
+            className={`me-2 ${text === "Unsave Job"
                 ? "fas fa-heart text-upwork"
                 : "far fa-heart"
-            }`}
+              }`}
             aria-hidden="true"
           />
           {/* {t("Save Job")} */}
