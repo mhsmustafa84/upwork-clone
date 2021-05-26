@@ -42,10 +42,6 @@ export default function ReviewProposalsCard() {
     console.log(talentDocID);
   };
 
-  const hire = () => {
-    db.collection("job").doc(id).update({ status: "hired" });
-  };
-
   return (
     <>
       <ReviewProposalsPageHeader proposals={proposals.length} />
@@ -122,8 +118,10 @@ export default function ReviewProposalsCard() {
                   <Link
                     type="button"
                     className="btn bg-upwork px-5"
-                    to="/create-contract"
-                    onClick={hire}
+                    to={{
+                      pathname: "/create-contract",
+                      state: { talentID: talent[index]?.authID, jobID: id }
+                    }}
                   >
                     Hire
                 </Link>
