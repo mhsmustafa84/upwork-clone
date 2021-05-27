@@ -194,7 +194,7 @@ export default function NavSmallScreen() {
               </li>
               <li>
                 <a className="dropdown-item" href="#">
-                  {t("Pending Contracts")}
+                  {t("Offerss")}
                 </a>
               </li>
             </ul>

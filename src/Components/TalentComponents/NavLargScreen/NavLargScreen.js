@@ -85,7 +85,7 @@ export default function NavLargScreen() {
               className={
                 `nav-link
                 ${lang === 'ar' && "fs-5"}
-                ${pathname === "/all-contract" || pathname === "/pending-contracts" ? "active" : ""}`
+                ${pathname === "/all-contract" || pathname === "/offers" ? "active" : ""}`
               }
               to="/my-jobs"
             >
@@ -104,8 +104,8 @@ export default function NavLargScreen() {
                 </Link>
               </li>
               <li>
-                <Link className={`dropdown-item  ${lang === 'ar' && "fs-5"}`} to="/pending-contracts">
-                  {t("Pending Contracts")}
+                <Link className={`dropdown-item  ${lang === 'ar' && "fs-5"}`} to="/offers">
+                  {t("Offerss")}
                 </Link>
               </li>
             </ul>
