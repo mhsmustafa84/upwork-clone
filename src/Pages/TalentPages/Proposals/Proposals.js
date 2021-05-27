@@ -1,14 +1,13 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, NavLink } from "react-router-dom";
 import ProposalCard from "../../../Components/TalentComponents/ProposalCard/ProposalCard";
 import ProposalCard2 from "../../../Components/TalentComponents/ProposalCard2/ProposalCard2";
 import { useEffect } from "react";
-import { auth, db, storage } from "../../../firebase";
+import { auth, db } from "../../../firebase";
 
 export default function Proposals(props) {
   const { t } = useTranslation();
-  const [jobData, setJobData] = useState({});
   const [talentData, setTalentData] = useState([]);
   const [talentDatas, setTalentDatas] = useState([]);
   useEffect(() => {
@@ -30,10 +29,11 @@ export default function Proposals(props) {
       });
     console.log(talentDatas);
   }, []);
+
   return (
     <div className="row">
       <div className="col"></div>
-      <div className="col-7">
+      <div className="col-9">
         <h3 className="my-5">{t("My proposals")}</h3>
 
         {/* <div className="list-group-item py-lg-4">

@@ -41,7 +41,7 @@ export default function TalentRoutes() {
         value={{ arr, setarr, itemSearchList, setitemSearchList }}
       >
         <Header />
-        <div className="px-5 mx-5">
+        <div>
           <Switch>
             <Route path="/create-profile" component={CreateProfile} />
             <Route path="/find-work" exact component={HomeTalent} />

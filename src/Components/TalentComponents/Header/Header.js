@@ -1,12 +1,13 @@
-/* eslint-disable */
 import React, { useEffect, useState } from "react";
 import Logo from "./../../SharedComponents/Logo/Logo";
 import HeaderSearchLg from "../../SharedComponents/HeaderSearchLg/HeaderSearchLg";
 import NavLargScreen from './../NavLargScreen/NavLargScreen';
 import NavSmallScreen from './../NavSmallScreen/NavSmallScreen';
-import "./Header.css";
 import HeaderSearchSm from './../../SharedComponents/HeaderSearchSm/HeaderSearchSm';
+import "./Header.css";
+
 export default function Header() {
+
 
     const [showSearch, setShowSearch] = useState(false);
     const [showSearchIcon, setShowSearchIcon] = useState(true);
