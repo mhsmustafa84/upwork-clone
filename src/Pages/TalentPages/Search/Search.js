@@ -5,9 +5,17 @@ import { SearchContext } from '../../../Context/SearchContext'
 import searchSvg from '../../../assets/svg/search.svg'
 import SearchBarJobsTalent from "../../../Components/TalentComponents/SearchBarJobsTalent/SearchBarJobsTalent";
 import ShowMore from "react-show-more-button/dist/module";
+import { useDispatch, useSelector } from "react-redux";
+import { talentDataAction } from "../../../Store/actions/talentData";
 
 export default function Search(props) {
     const { t } = useTranslation();
+    const user = useSelector((state) => state.talentData);
+    const dispatch = useDispatch();
+  
+    useEffect(() => {
+      dispatch(talentDataAction());
+    }, []);
     const [searchData, setsearchData] = useState([]);
     const [filterSearch, setfilterSearch] = useState([]);
     const { itemSearchList } = useContext(SearchContext);
@@ -400,7 +408,7 @@ export default function Search(props) {
                                             className=" list-group-item-action saved-homebage-ul-li-aa bg-white"
                                             aria-current="true"
                                         >
-                                            {t("SAVEDJOBS")}(2)
+                                            {t("SAVEDJOBS")}({user?.savedJobs?.length})
                                         </a></Link>
                                 </li>
                             </ul>

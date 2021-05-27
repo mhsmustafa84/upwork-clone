@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import HeadOfCenterSection from "./../HeadOfCenterSection/HeadOfCenterSection";
 import { jobsDataAction } from "./../../../Store/actions/jobsData";
@@ -9,18 +9,22 @@ import ShowMore from "react-show-more-button/dist/module";
 import "./SectionCenterTalentHome.css";
 
 export default function SectionCenterTalentHome() {
+  const [love, setlove] = useState(false)
   const jobs = useSelector((state) => state.jobsData);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(jobsDataAction());
   }, []);
-
+  const toggleHeart=()=>
+  {
+    setlove(!love)
+  }
   return (
     <div className="col-lg-8 col-xs-12">
       <HeadOfCenterSection />
       {jobs.map((item) => (
         <div>
-          <div className="list-group-item">
+          <div className="list-group-item p-4">
             <div className="row align-items-center">
               <div className="col-lg-9 pt-lg-2">
                 <Link
@@ -34,6 +38,19 @@ export default function SectionCenterTalentHome() {
                 </Link>
               </div>
               <div className="col-lg-3">
+                <div className="btn-group float-sm-end">
+                  <button
+                    type="button"
+                    className="btn btn-light dropdown-toggle border border-1 rounded-circle collapsed"
+                    data-toggle="collapse"
+                    data-target="#collapse"
+                    aria-expanded="false"
+                    aria-controls="collapseTwo"
+                    onClick={toggleHeart}
+                  >
+                    <i className= {`${love? 'fas fa-heart text-danger' :'far fa-heart' }`} aria-hidden="true" />
+                  </button>
+                </div>
                 <div className="btn-group float-sm-end  px-lg-1">
                   <ul className="dropdown-menu">
                     <li>
