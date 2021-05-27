@@ -20,7 +20,7 @@ export default function FindWorkTalentHome() {
     <div className="d-none d-lg-block" >
       <div className="row my-lg-4">
         <div className="col">
-          <h3>{t("FindWork")}</h3>
+          <h4 style={{fontWeight:'500'}}>{t("FindWork")}</h4>
         </div>
         <div className="col-8">
         <SearchBarJobsTalent/>

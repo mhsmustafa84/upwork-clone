@@ -82,10 +82,10 @@ export default function SearchBarJobsTalent(props) {
           </button>
         </Link>
       </div>
-      <span>
-        <a href="#" className="advanced-search-link">
+      <span className="d-block pt-2">
+        <Link to='/Search' className="advanced-search-link" style={{fontSize:'13.5px' , color:'#3CAF24', fontWeight:"600"}}>
           {t("AdvancedSearch")}
-        </a>
+        </Link>
       </span>
     </div>
 
