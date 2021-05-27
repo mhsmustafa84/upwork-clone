@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
@@ -73,7 +74,7 @@ export default function FirstSectionProfileTalent() {
 
 
   const addskills = () => {
-    if (inputVal != "") {
+    if (inputVal !== "") {
       let arr2 = [...skillsList, inputVal];
       setskillsList(arr2);
       console.log(skillsList);
@@ -119,7 +120,7 @@ export default function FirstSectionProfileTalent() {
     push('/profile')
   }
   const UpdateEditPortofolio = () => {
-    if (imageItself != "" && imgTitle != "") {
+    if (imageItself !== "" && imgTitle !== "") {
       let arr3 = [...portfolioList, { image: imgUrl, imagetitle: imgTitle }];
       setportfolioList(arr3);
       console.log(portfolioList);
@@ -127,7 +128,7 @@ export default function FirstSectionProfileTalent() {
     }
   }
   const UpdateEditEmployment = () => {
-    if (EmpTitle != "" && EmpCompany != "") {
+    if (EmpTitle !== "" && EmpCompany !== "") {
       let arr4 = [...EmpList, { jobTitile: EmpTitle, companyName: EmpCompany, stillWork: EmpStillWork }];
       setEmpList(arr4);
       console.log(EmpList);
@@ -140,14 +141,14 @@ export default function FirstSectionProfileTalent() {
 
     <>
 
-      <div className="container card mb-3 mt-5">
-        {console.log("abc")}
+      <div className="container card mb-3 mt-5 ">
         <div className="row mt-3">
           <div className="col-lg-2 pt-lg-3">
             <div>
               <img
                 alt=""
-                className="mb-3 ms-3 rounded avatar vertical-align-middle m-0 avatar-sm avatar-responsive"
+                style={{ width: "100px", height: "100px", borderRadius: "50%" }}
+                className="mb-3 ms-3 avatar vertical-align-middle m-0 avatar-sm avatar-responsive"
                 src={user.profilePhoto ? user.profilePhoto : img}
               />
               {/* <span className="hotspotimg">
@@ -229,7 +230,7 @@ export default function FirstSectionProfileTalent() {
               <hr />
               <h5 className="fw-bold">{t("Availability")}</h5>
               <h6 className="fw-bold">
-                {user?.Availabilty == true ? "available" : "not available"}
+                {user?.Availabilty === true ? "available" : "not available"}
               </h6>
               <p>
                 {user?.Availabilty

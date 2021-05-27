@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { auth } from "../../../firebase";
 import { useHistory } from 'react-router-dom';
 import LanguageList from "../../SharedComponents/LanguageBtn/LanguageList";
@@ -12,6 +12,10 @@ import img from "../../../assets/img/icon-user.svg";
 
 
 export default function NavLargScreen() {
+
+  const { pathname } = useLocation();
+  const { t } = useTranslation();
+  const { push } = useHistory();
   let lang = useSelector(state => state.lang);
   const user = useSelector(state => state.talentData);
   const dispatch = useDispatch();
@@ -19,8 +23,7 @@ export default function NavLargScreen() {
     dispatch(talentDataAction());
   }, []);
 
-  const { t } = useTranslation();
-  const { push } = useHistory();
+
   const logout = () => {
     auth.signOut()
       .then((res) => {
@@ -38,7 +41,14 @@ export default function NavLargScreen() {
       <div className="navbar-expand" id="navbarNav-id">
         <ul className="navbar-nav align-items-center">
           <li className="nav-item hov-cn ">
-            <NavLink className={`nav-link  ${lang === 'ar' && "fs-5"}`} to="/find-work">
+            <NavLink
+              className={
+                `nav-link
+                ${lang === 'ar' && "fs-5"}
+                ${pathname === "/saved-jobs" || pathname === "/proposals" ? "active" : ""}`
+              }
+              to="/find-work"
+            >
               {t("FindWork")}
             </NavLink>
             <ul className={`dropdown-menu findWork-cn ${lang === 'ar' && 'text-end'}`}>
@@ -71,7 +81,14 @@ export default function NavLargScreen() {
             </ul>
           </li>
           <li className="nav-item hov-cn mx-3">
-            <NavLink className={`nav-link  ${lang === 'ar' && "fs-5"}`} to="/my-jobs">
+            <NavLink
+              className={
+                `nav-link
+                ${lang === 'ar' && "fs-5"}
+                ${pathname === "/all-contract" || pathname === "/pending-contracts" ? "active" : ""}`
+              }
+              to="/my-jobs"
+            >
               {t("My Jobs")}
             </NavLink>
             <ul className={`dropdown-menu myJobs-cn ${lang === 'ar' && 'text-end'}`}>
