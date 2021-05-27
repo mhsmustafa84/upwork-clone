@@ -74,11 +74,30 @@
 .hitbtn-class {
   height: 40px;
 }
+.form-control:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: rgb(89, 255, 0);
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgb(168 255 124 / 25%);
+}
 
 .bg-upwork {
   background-color: #37a000;
   color: white;
   transition: all 0.3s;
+}
+.bg-upwork-dark {
+  color: white;
+  transition: all 0.3s;
+  background: #1d4354;
+}
+.bg-upwork-dark:hover {
+  background: #1e2b31;
+  color: white;
+}
+.text-upwork{
+  color: #37a000;
 }
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button {  
@@ -117,9 +136,6 @@ hr {
 .signup:hover {
   color: #008329;
   background-color: #ececec;
-}
-.bg-upwork-dark {
-  background: #1d4354;
 }
 .bg-gray {
   background: #f9f9f9;

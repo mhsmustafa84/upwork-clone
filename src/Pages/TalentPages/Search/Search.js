@@ -4,14 +4,23 @@ import { useTranslation } from "react-i18next";
 import { SearchContext } from '../../../Context/SearchContext'
 import searchSvg from '../../../assets/svg/search.svg'
 import SearchBarJobsTalent from "../../../Components/TalentComponents/SearchBarJobsTalent/SearchBarJobsTalent";
+import ShowMore from "react-show-more-button/dist/module";
+import { useDispatch, useSelector } from "react-redux";
+import { talentDataAction } from "../../../Store/actions/talentData";
 
 export default function Search(props) {
     const { t } = useTranslation();
+    const user = useSelector((state) => state.talentData);
+    const dispatch = useDispatch();
+  
+    useEffect(() => {
+      dispatch(talentDataAction());
+    }, []);
     const [searchData, setsearchData] = useState([]);
     const [filterSearch, setfilterSearch] = useState([]);
     const { itemSearchList } = useContext(SearchContext);
     const [filtered, setfiltered] = useState(false)
-    
+
 
     useEffect(() => {
         let arr = props.location.state
@@ -21,47 +30,47 @@ export default function Search(props) {
 
     useEffect(() => {
         // console.log(filterSearch);
-    }, [itemSearchList,filterSearch])
+    }, [itemSearchList, filterSearch])
     //filter level expereince
-const handleLevel=(e)=>{
-    let val=e.target.checked;
-    let name=e.target.name;
-    switch (name) {
-        case 'entry level':
-            setfilterSearch(searchData.filter((item)=>item.jobExperienceLevel==name &&val && item))
-            setfiltered(val); 
-            // //f-search =[.....] val =true [...arr ,e]
-            // if(filterSearch.length!=0 && val){
-            //     setfilterSearch([...filterSearch,(searchData.filter((item)=>item.jobExperienceLevel==name  && item))])
-            // }else
-            // //f-search =[.....] val =false [...arr , -e]
-            //  if(filterSearch.length!=0 && val==false){
-            // setfilterSearch([...filterSearch,(filterSearch.filter((item)=>item.jobExperienceLevel!=name  && item))])
-            //  }else 
-            //  //f-search =[] val =true [e]
-            //  if(filterSearch.length==0 && val){
-            //     setfilterSearch(searchData.filter((item)=>item.jobExperienceLevel==name  && item))
-            //  }
-            //  //f-search =[] val =false sea
-            //  else{
-            //     setfilterSearch(searchData)
-            //  }     
-               
-            break;
-            case 'intermediate':       
-                 setfilterSearch(searchData.filter((item)=>item.jobExperienceLevel==name &&val && item))
-                 setfiltered(val)
+    const handleLevel = (e) => {
+        let val = e.target.checked;
+        let name = e.target.name;
+        switch (name) {
+            case 'entry level':
+                setfilterSearch(searchData.filter((item) => item.jobExperienceLevel == name && val && item))
+                setfiltered(val);
+                // //f-search =[.....] val =true [...arr ,e]
+                // if(filterSearch.length!=0 && val){
+                //     setfilterSearch([...filterSearch,(searchData.filter((item)=>item.jobExperienceLevel==name  && item))])
+                // }else
+                // //f-search =[.....] val =false [...arr , -e]
+                //  if(filterSearch.length!=0 && val==false){
+                // setfilterSearch([...filterSearch,(filterSearch.filter((item)=>item.jobExperienceLevel!=name  && item))])
+                //  }else 
+                //  //f-search =[] val =true [e]
+                //  if(filterSearch.length==0 && val){
+                //     setfilterSearch(searchData.filter((item)=>item.jobExperienceLevel==name  && item))
+                //  }
+                //  //f-search =[] val =false sea
+                //  else{
+                //     setfilterSearch(searchData)
+                //  }     
+
                 break;
-                case 'expert':
-                    setfilterSearch(searchData.filter((item)=>item.jobExperienceLevel==name &&val && item))
-                    setfiltered(val);
-            break;
-    
-        default:
-            break;
+            case 'intermediate':
+                setfilterSearch(searchData.filter((item) => item.jobExperienceLevel == name && val && item))
+                setfiltered(val)
+                break;
+            case 'expert':
+                setfilterSearch(searchData.filter((item) => item.jobExperienceLevel == name && val && item))
+                setfiltered(val);
+                break;
+
+            default:
+                break;
+        }
+        // console.log(e.target.name, e.target.checked);
     }
-    // console.log(e.target.name, e.target.checked);
-}
     return (
         <div className="container-md container-fluid-sm my-lg-4">
             <div className="row">
@@ -399,7 +408,7 @@ const handleLevel=(e)=>{
                                             className=" list-group-item-action saved-homebage-ul-li-aa bg-white"
                                             aria-current="true"
                                         >
-                                            {t("SAVEDJOBS")}(2)
+                                            {t("SAVEDJOBS")}({user?.savedJobs?.length})
                                         </a></Link>
                                 </li>
                             </ul>
@@ -409,141 +418,148 @@ const handleLevel=(e)=>{
                             <SearchBarJobsTalent />
                         </div>
                     </div>
-                    {searchData==null ?
-                     <div className='col-12 bg-white'>
+                    {searchData == null ?
+                        <div className='col-12 bg-white'>
 
-                     <h3 className="fw-bold text-center py-2 pt-5 " style={{color: '#124C82'}}>There are no results that match your search</h3>
-                 
-                     <h6 className="text-center " style={{color: '#124C82'}}>Please try adjusting your search keywords or filters</h6>
-                 
-                     <img className='mx-auto d-block' src={searchSvg} /> 
-                 
-                 </div>
-                    :
-                    null
+                            <h3 className="fw-bold text-center py-2 pt-5 " style={{ color: '#124C82' }}>There are no results that match your search</h3>
+
+                            <h6 className="text-center " style={{ color: '#124C82' }}>Please try adjusting your search keywords or filters</h6>
+
+                            <img className='mx-auto d-block' src={searchSvg} />
+
+                        </div>
+                        :
+                        null
                     }
-                    {                      
-                        (filtered?filterSearch:searchData)?.map((item) => (
-                        <div>
-                            <div className="list-group-item">
-                                <div className="row align-items-center">
-                                    <div className="col-lg-9 pt-lg-2">
-                                        <Link to={{
-                                            pathname:
-                                                `/job/${item.jobID}`,
-                                            state: `${item.jobID}`
-                                        }}
-                                            className="job-title-link fw-bold">
-                                            {item?.jobTitle}
-                                        </Link>
-                                    </div>
-                                    <div className="col-lg-3">
-                                        <div className="btn-group float-sm-end px-lg-1">
-                                            <button
-                                                type="button"
-                                                className="btn btn-light dropdown-toggle border border-1 rounded-circle collapsed"
-                                                data-toggle="collapse"
-                                                data-target="#collapse"
-                                                aria-expanded="false"
-                                                aria-controls="collapseTwo"
-                                            >
-                                                <i className="far fa-heart" aria-hidden="true" />
-                                            </button>
+                    {
+                        (filtered ? filterSearch : searchData)?.map((item) => (
+                            <div>
+                                <div className="list-group-item">
+                                    <div className="row align-items-center">
+                                        <div className="col-lg-9 pt-lg-2">
+                                            <Link to={{
+                                                pathname:
+                                                    `/job/${item.jobID}`,
+                                                state: `${item.jobID}`
+                                            }}
+                                                className="job-title-link fw-bold">
+                                                {item?.jobTitle}
+                                            </Link>
                                         </div>
-                                        <div className="btn-group float-sm-end  px-lg-1">
-                                            <button
-                                                type="button"
-                                                className="btn btn-light dropdown-toggle border border-1 rounded-circle"
-                                                data-bs-toggle="dropdown"
-                                                aria-expanded="false"
-                                            >
-                                                <i className="far fa-thumbs-down" />
-                                            </button>
-                                            <ul className="dropdown-menu">
-                                                <li>
-                                                    <a className="dropdown-item" href="#">
-                                                        RSS
+                                        <div className="col-lg-3">
+                                            <div className="btn-group float-sm-end px-lg-1">
+                                                <button
+                                                    type="button"
+                                                    className="btn btn-light dropdown-toggle border border-1 rounded-circle collapsed"
+                                                    data-toggle="collapse"
+                                                    data-target="#collapse"
+                                                    aria-expanded="false"
+                                                    aria-controls="collapseTwo"
+                                                >
+                                                    <i className="far fa-heart" aria-hidden="true" />
+                                                </button>
+                                            </div>
+                                            <div className="btn-group float-sm-end  px-lg-1">
+                                                <button
+                                                    type="button"
+                                                    className="btn btn-light dropdown-toggle border border-1 rounded-circle"
+                                                    data-bs-toggle="dropdown"
+                                                    aria-expanded="false"
+                                                >
+                                                    <i className="far fa-thumbs-down" />
+                                                </button>
+                                                <ul className="dropdown-menu">
+                                                    <li>
+                                                        <a className="dropdown-item" href="#">
+                                                            RSS
                       </a>
-                                                </li>
-                                                <li>
-                                                    <a className="dropdown-item" href="#">
-                                                        Atom
+                                                    </li>
+                                                    <li>
+                                                        <a className="dropdown-item" href="#">
+                                                            Atom
                       </a>
-                                                </li>
-                                            </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <p style={{ fontSize: "0.9em" }}>
-                                    <span className="text-muted">
-                                        <span className="fw-bold" id="contract-type">
-                                            {item?.jobPaymentType}
-                                        </span>
-                                        <span> - </span>
-                                        <span id="experience-level">{item?.jobExperienceLevel}</span>
-                                        <span> - </span>
-                                        <span>Est. Budget: </span>
-                                        <span id="client-budget">{item?.jobBudget}</span> - posted
+                                    <p style={{ fontSize: "0.9em" }}>
+                                        <span className="text-muted">
+                                            <span className="fw-bold" id="contract-type">
+                                                {item?.jobPaymentType}
+                                            </span>
+                                            <span> - </span>
+                                            <span id="experience-level">{item?.jobExperienceLevel}</span>
+                                            <span> - </span>
+                                            <span>Est. Budget: </span>
+                                            <span id="client-budget">{item?.jobBudget}</span> - posted
                 <span id="posting-time"> 4 Hours ago</span>
-                                    </span>
-                                </p>
-                                <p id="job-description">
-                                    {item.jobDescription?.length > 300
-                                        ? item.jobDescription?.substr(1, 300)
-                                        : item.jobDescription}
-                                    {item.jobDescription?.length > 300 && (
-                                        <>
-                                            <span id="dots">...</span>
-                                            <span id="more">{item.jobDescription}</span>
-                                            <span className="advanced-search-link ">more</span>
-                                        </>
-                                    )}
-                                </p>
-                                {item?.skills?.map((skill, index) =>
-                                    <button
-                                        key={index}
-                                        type="button"
-                                        className="btn btn-secondary btn-sm rounded-pill skills"
+                                        </span>
+                                    </p>
+
+
+
+
+                                    <ShowMore
+                                        maxHeight={100}
+                                        button={
+                                            <button
+                                                id="seemorebutton"
+                                                classname="advanced-search-link "
+                                                style={{ color: "green", position: "absolute", left: 0 }}
+                                            >
+                                                more
+                                            </button>
+                                        }
                                     >
-                                        {skill}
-                                    </button>
+                                        {item?.jobDescription}
+                                    </ShowMore>
 
-                                )}
+                                    {item?.skills?.map((skill, index) =>
+                                        <button
+                                            key={index}
+                                            type="button"
+                                            className="btn btn-secondary btn-sm rounded-pill skills"
+                                        >
+                                            {skill}
+                                        </button>
+
+                                    )}
 
 
-                                <p style={{ fontSize: "0.9em" }} className="my-lg-1">
-                                    <span className="text-muted">
-                                        <span>Proposals: </span>
-                                        <span className="fw-bold ">Less than </span>
-                                        <span className="fw-bold " id="proposals-numbers">
-                                            5
+                                    <p style={{ fontSize: "0.9em" }} className="my-lg-1">
+                                        <span className="text-muted">
+                                            <span>Proposals: </span>
+                                            <span className="fw-bold ">Less than </span>
+                                            <span className="fw-bold " id="proposals-numbers">
+                                                5
                 </span>
-                                    </span>
-                                </p>
-                                <p style={{ fontSize: "0.85em" }} className="my-lg-1 mb-lg-2">
-                                    <span className="fw-bold" style={{ color: "#14bff4" }}>
-                                        <i className="fas fa-check-circle primary me-1" />
+                                        </span>
+                                    </p>
+                                    <p style={{ fontSize: "0.85em" }} className="my-lg-1 mb-lg-2">
+                                        <span className="fw-bold" style={{ color: "#14bff4" }}>
+                                            <i className="fas fa-check-circle primary me-1" />
                 Payment verified
               </span>
-                                    <span className="text-muted">
-                                        <span className="mx-2">
-                                            <i className="fas fa-star" />
-                                            <i className="fas fa-star" />
-                                            <i className="fas fa-star" />
-                                            <i className="fas fa-star" />
-                                            <i className="fas fa-star" />
-                                        </span>
-                                        <span className="fw-bold "> $0 </span>
-                                        <span> spent </span>
-                                        <span className="fw-bold ">
-                                            <i className="fas fa-map-marker-alt ms-2" /> United States
+                                        <span className="text-muted">
+                                            <span className="mx-2">
+                                                <i className="fas fa-star" />
+                                                <i className="fas fa-star" />
+                                                <i className="fas fa-star" />
+                                                <i className="fas fa-star" />
+                                                <i className="fas fa-star" />
+                                            </span>
+                                            <span className="fw-bold "> $0 </span>
+                                            <span> spent </span>
+                                            <span className="fw-bold ">
+                                                <i className="fas fa-map-marker-alt ms-2" /> United States
                 </span>
-                                    </span>
-                                </p>
+                                        </span>
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                    ))
-            }
+                        ))
+                    }
                 </div>
             </div>
         </div>

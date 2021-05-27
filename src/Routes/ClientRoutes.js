@@ -17,8 +17,9 @@ import TransactionHistory from "../Pages/TalentPages/Reports/TransactionHistory/
 import TalentProfile from "../Pages/ClientPages/TalentProfile/talentProfile";
 import PleaseVerifiy from "../Pages/EmailVerification/PleaseVerifiy";
 import { SearchContextProvider } from "../Context/SearchContext";
-
 import JobJobDetailsBeforeProposals from "../Pages/ClientPages/JobDetailsBeforeProposols/JobDetailsBeforeProposals";
+import CreateContract from "../Pages/ClientPages/CreateContract/CreateContract";
+
 export default function ClientRoutes() {
   const [talentArr, settalentArr] = useState([]);
   const [talentSearchList, settalentSearchList] = useState("");
@@ -28,37 +29,38 @@ export default function ClientRoutes() {
 
   return (
     <>
-      <SearchContextProvider  value={{talentSearchList, settalentSearchList , talentArr, settalentArr}}>
-      <Header />
-      <Switch>
-        <Route path="/home" exact component={Jobs} />
-        <Route path="/messages" exact component={Messages} />
-        <Route path="/all-job-posts" exact component={AllJobPosts} />
-        <Route path="/all-contracts" exact component={AllContract} />
-        <Route
-          path="/bring-your-own-talent"
-          exact
-          component={BringYourTalent}
-        />
-        <Route
-          path="/JobJobDetailsBeforeProposals/:id"
-          exact
-          component={JobJobDetailsBeforeProposals}
-        />
-        <Route path="/email-verification" component={EmailVerified} />
-        <Route path="/sign-up/please-verify" exact component={PleaseVerifiy} />
-        <Route path="/post-job" component={PostJob} />
-        <Route path="/talent" component={Talent} />
-        <Route path="/talent-profile/:id" exact component={TalentProfile} />
-        <Route path="/review-proposal/:id" exact component={ReviewProposals} />
-        <Route path="/billing-history" exact component={Reports} />
-        <Route
-          path="/transaction-history"
-          exact
-          component={TransactionHistory}
-        />
-        <Route path="**" component={PageNotFound} />
-      </Switch>
+      <SearchContextProvider value={{ talentSearchList, settalentSearchList, talentArr, settalentArr }}>
+        <Header />
+        <Switch>
+          <Route path="/home" exact component={Jobs} />
+          <Route path="/messages" exact component={Messages} />
+          <Route path="/all-job-posts" exact component={AllJobPosts} />
+          <Route path="/all-contracts" exact component={AllContract} />
+          <Route
+            path="/bring-your-own-talent"
+            exact
+            component={BringYourTalent}
+          />
+          <Route
+            path="/job-details/:id"
+            exact
+            component={JobJobDetailsBeforeProposals}
+          />
+          <Route path="/email-verification" component={EmailVerified} />
+          <Route path="/sign-up/please-verify" exact component={PleaseVerifiy} />
+          <Route path="/post-job" component={PostJob} />
+          <Route path="/talent" component={Talent} />
+          <Route path="/talent-profile/:id" exact component={TalentProfile} />
+          <Route path="/review-proposal/:id" exact component={ReviewProposals} />
+          <Route path="/billing-history" exact component={Reports} />
+          <Route
+            path="/transaction-history"
+            exact
+            component={TransactionHistory}
+          />
+          <Route path="/create-contract" component={CreateContract} />
+          <Route path="**" component={PageNotFound} />
+        </Switch>
       </SearchContextProvider>
       <Footer />
     </>

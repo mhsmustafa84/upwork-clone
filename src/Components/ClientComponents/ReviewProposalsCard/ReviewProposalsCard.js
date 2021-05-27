@@ -9,14 +9,12 @@ import Loader from "./../../SharedComponents/Loader/Loader";
 import img from "../../../assets/img/icon-user.svg";
 import ReviewProposalsPageHeader from "./../ReviewProposalsPageHeader/ReviewProposalsPageHeader";
 import { Link } from "react-router-dom";
-let noProposals = true;
 
 export default function ReviewProposalsCard() {
   const { id } = useParams();
 
   const [proposals, setProposals] = useState([]);
   const [talent, setTalent] = useState([]);
-  const [hired, setHired] = useState(false);
 
   useEffect(async () => {
     await db
@@ -26,7 +24,6 @@ export default function ReviewProposalsCard() {
       .get()
       .then((res) => {
         res.docs.map(async (proposal) => {
-          proposal && (noProposals = false);
           proposals.push(proposal.data());
           await db
             .collection("talent")
@@ -45,28 +42,12 @@ export default function ReviewProposalsCard() {
     console.log(talentDocID);
   };
 
-  const hire = () => {
-    db.collection("job").doc(id).update({ status: "hired" });
-    setHired(true);
-  };
-
   return (
     <>
+      <ReviewProposalsPageHeader proposals={proposals.length} />
       {
-        !hired &&
-        <ReviewProposalsPageHeader proposals={proposals.length} />
-      }
-      {proposals.length > 0 && talent.length > 0 ? (
-        hired ?
-          <div className="alert text-upwork d-flex align-items-center" role="alert">
-            <svg width="30" id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"></path>
-            </svg>
-            <div className="ms-2">
-              An example success alert with an icon
-            </div>
-          </div>
-          : proposals.map((proposal, index) => {
+        proposals.length > 0 && talent.length > 0 ?
+          proposals.map((proposal, index) => {
             return (
               <div className="row border bg-white border-1 ms-0 pt-2" key={index}>
                 <div className="col-1 pt-lg-3">
@@ -134,15 +115,17 @@ export default function ReviewProposalsCard() {
                   </Link>
                 </div>
                 <div className="col py-3">
-                  <button
+                  <Link
                     type="button"
                     className="btn bg-upwork px-5"
-                    onClick={hire}
+                    to={{
+                      pathname: "/create-contract",
+                      state: { talentID: talent[index]?.authID, jobID: id }
+                    }}
                   >
                     Hire
-                </button>
+                </Link>
                 </div>
-
                 <div className="col-lg-1 pt-lg-3"></div>
                 <div className="col-lg-10 pt-lg-3 mx-3">
                   <p className="text-muted">
@@ -155,15 +138,17 @@ export default function ReviewProposalsCard() {
                   </p>
                 </div>
               </div>
-            );
+            )
           })
-      ) : noProposals ? (
-        <div className="row border bg-white border-1 ms-0 py-3">
-          <p className="text-muted text-center h1">No proposals</p>
-        </div>
-      ) : (
-        <Loader />
-      )}
+          :
+          // <div className="row border bg-white border-1 ms-0 py-3">
+          //   <p className="text-muted text-center h1">No proposals</p>
+          // </div>
+          <Loader />
+
+
+
+      }
     </>
   );
 }
