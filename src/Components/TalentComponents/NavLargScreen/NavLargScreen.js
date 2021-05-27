@@ -1,20 +1,28 @@
-/* eslint-disable */
-import React from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
-import firebaseApp from "../../../firebase";
+import { auth } from "../../../firebase";
 import { useHistory } from 'react-router-dom';
 import LanguageList from "../../SharedComponents/LanguageBtn/LanguageList";
-import { useTranslation } from "react-i18next";  
-import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { talentDataAction } from "../../../Store/actions/talentData";
+import img from "../../../assets/img/icon-user.svg";
 
 
 export default function NavLargScreen() {
-let lang = useSelector(state => state.lang);
+  let lang = useSelector(state => state.lang);
+  const user = useSelector(state => state.talentData);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(talentDataAction());
+  }, []);
 
-  const { t }=useTranslation();
+  const { t } = useTranslation();
   const { push } = useHistory();
   const logout = () => {
-    firebaseApp.auth().signOut()
+    auth.signOut()
       .then((res) => {
         console.log(res);
         push("/login");
@@ -28,20 +36,20 @@ let lang = useSelector(state => state.lang);
   return (
     <>
       <div className="navbar-expand" id="navbarNav-id">
-        <ul className="navbar-nav">
+        <ul className="navbar-nav align-items-center">
           <li className="nav-item hov-cn ">
-            <NavLink className={`nav-link  ${lang ==='ar' && "fs-5"}`} to="/find-work">
+            <NavLink className={`nav-link  ${lang === 'ar' && "fs-5"}`} to="/find-work">
               {t("FindWork")}
             </NavLink>
-            <ul className={`dropdown-menu findWork-cn ${lang=== 'ar' && 'text-end'}`}>
+            <ul className={`dropdown-menu findWork-cn ${lang === 'ar' && 'text-end'}`}>
               <div className="nav-dd-cn"></div>
               <li>
-                <Link className={`dropdown-item  ${lang ==='ar' && "fs-5"}`} to="/find-work">
+                <Link className={`dropdown-item  ${lang === 'ar' && "fs-5"}`} to="/find-work">
                   {t("FindWork")}
                 </Link>
               </li>
               <li>
-                <Link className={`dropdown-item  ${lang ==='ar' && "fs-5"}`} to="/saved-jobs">
+                <Link className={`dropdown-item  ${lang === 'ar' && "fs-5"}`} to="/saved-jobs">
                   {t("Saved Jobs")}
                 </Link>
               </li>
@@ -51,7 +59,7 @@ let lang = useSelector(state => state.lang);
                 </Link>
               </li>
               <li>
-                <Link className={`dropdown-item  ${lang ==='ar' && "fs-5"}`} to="/profile">
+                <Link className={`dropdown-item  ${lang === 'ar' && "fs-5"}`} to="/profile">
                   {t("Profile")}
                 </Link>
               </li>
@@ -62,85 +70,88 @@ let lang = useSelector(state => state.lang);
               </li> */}
             </ul>
           </li>
-          <li className="nav-item hov-cn">
-            <NavLink className={`nav-link  ${lang ==='ar' && "fs-5"}`} to="/my-jobs">
+          <li className="nav-item hov-cn mx-3">
+            <NavLink className={`nav-link  ${lang === 'ar' && "fs-5"}`} to="/my-jobs">
               {t("My Jobs")}
             </NavLink>
-            <ul className={`dropdown-menu myJobs-cn ${lang=== 'ar' && 'text-end'}`}>
+            <ul className={`dropdown-menu myJobs-cn ${lang === 'ar' && 'text-end'}`}>
               <div className="nav-dd-cn"></div>
               <li>
-                <Link className={`dropdown-item  ${lang ==='ar' && "fs-5"}`} to="/my-jobs">
+                <Link className={`dropdown-item  ${lang === 'ar' && "fs-5"}`} to="/my-jobs">
                   {t("My Jobs")}
                 </Link>
               </li>
               <li>
-                <Link className={`dropdown-item  ${lang ==='ar' && "fs-5"}`} to="/all-contract">
+                <Link className={`dropdown-item  ${lang === 'ar' && "fs-5"}`} to="/all-contract">
                   {t("All Contracts")}
                 </Link>
               </li>
               <li>
-                <Link className={`dropdown-item  ${lang ==='ar' && "fs-5"}`} to="/work-diary">
-                  {t("Work Diary")}
+                <Link className={`dropdown-item  ${lang === 'ar' && "fs-5"}`} to="/pending-contracts">
+                  {t("Pending Contracts")}
                 </Link>
               </li>
             </ul>
           </li>
           <li className="nav-item hov-cn">
-            <NavLink className={`nav-link reports-cn ${lang ==='ar' && "fs-5"}`} to="/overview">
+            <NavLink className={`nav-link reports-cn ${lang === 'ar' && "fs-5"}`} to="/overview">
               {t("Reports")}
             </NavLink>
-            <ul className={`dropdown-menu Reports-cn ${lang=== 'ar' && 'text-end'}`}>
+            <ul className={`dropdown-menu Reports-cn ${lang === 'ar' && 'text-end'}`}>
               <div className="nav-dd-cn"></div>
               <li>
-                <Link className={`dropdown-item  ${lang ==='ar' && "fs-5"}`} to="/overview">
+                <Link className={`dropdown-item  ${lang === 'ar' && "fs-5"}`} to="/overview">
                   {t("Overview")}
                 </Link>
               </li>
               <li>
-                <Link className={`dropdown-item  ${lang ==='ar' && "fs-5"}`} to="/my-reports">
+                <Link className={`dropdown-item  ${lang === 'ar' && "fs-5"}`} to="/my-reports">
                   {t("My Reports")}
                 </Link>
               </li>
               <li>
-                <Link className={`dropdown-item  ${lang ==='ar' && "fs-5"}`} to="/life-time-billing">
+                <Link className={`dropdown-item  ${lang === 'ar' && "fs-5"}`} to="/life-time-billing">
                   {t("Lifetime Billings by Client")}
                 </Link>
               </li>
               <li>
-                <Link className={`dropdown-item  ${lang ==='ar' && "fs-5"}`} to="/connects-history">
+                <Link className={`dropdown-item  ${lang === 'ar' && "fs-5"}`} to="/connects-history">
                   {t("Connects History")}
                 </Link>
               </li>
               <li>
-                <Link className={`dropdown-item  ${lang ==='ar' && "fs-5"}`} to="/transaction-history">
+                <Link className={`dropdown-item  ${lang === 'ar' && "fs-5"}`} to="/transaction-history">
                   {t("Transaction History")}
                 </Link>
               </li>
               {/* <li><a className="dropdown-item" href="#">Certificate of Earnings</a></li> */}
             </ul>
           </li>
-          <li className="nav-item me-5">
-            <NavLink className={`nav-link  ${lang ==='ar' && "fs-5"}`} to="/messages">
+          {/* <li className="nav-item me-5">
+            <NavLink className={`nav-link  ${lang === 'ar' && "fs-5"}`} to="/messages">
               {t("Messages")}
             </NavLink>
-          </li>
-          <li className="nav-item">
+          </li> */}
+          {/* <li className="nav-item">
             <a className="nav-link" href="#">
               <i className="fas fa-question fs-5"></i>
             </a>
-          </li>
-          <li className="nav-item">
+          </li> */}
+          {/* <li className="nav-item">
             <a className="nav-link" href="#">
               <i className="far fa-bell fs-5"></i>
             </a>
-          </li>
-          <li className="nav-item">
+          </li> */}
+          <li className="nav-item ms-5 me-3">
             <Link className="nav-link" to="/messages">
               <i
                 className="far fa-paper-plane fs-5"
                 style={{ transform: "scaleX(-1)" }}
               ></i>
             </Link>
+          </li>
+          <li className="ms-1 me-3">
+            <LanguageList />
           </li>
           <li className="dropdown">
             <a
@@ -151,20 +162,7 @@ let lang = useSelector(state => state.lang);
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 14 14"
-                width="40"
-                height="40"
-                role="img"
-                style={{ marginTop: "-10px" }}
-              >
-                <path
-                  fillRule="evenodd"
-                  fill="white"
-                  d="M7 12.6a5.6 5.6 0 0 1-4.64-2.47C2.94 8.78 4.49 7.88 7 7.88s4.06.9 4.64 2.25A5.6 5.6 0 0 1 7 12.6M7 1.45a2.76 2.76 0 1 1 0 5.53 2.76 2.76 0 0 1 0-5.53M7 0a7 7 0 1 0 .02 14.02A7 7 0 0 0 7 0"
-                ></path>
-              </svg>
+              <img style={{ height: "40px", width: "40px" }} className="circle bg-white" src={user.profilePhoto ? user.profilePhoto : img} alt="" />
             </a>
             <ul
               id="acc-id"
@@ -172,7 +170,7 @@ let lang = useSelector(state => state.lang);
               aria-labelledby="navbarDropdownMenuLink"
             >
               <div className="nav-dd-acc-cn"></div>
-              <li className="px-4 py-3">
+              {/* <li className="px-4 py-3">
                 <div
                   id="acc-btns-id"
                   className="btn-group w-100"
@@ -182,12 +180,12 @@ let lang = useSelector(state => state.lang);
                   <button type="button" className={`btn ${lang === 'ar' && "fs-5 "}`}>
                     {t("Online")}
                   </button>
-                  <span style={{ padding: "0 1px"}}></span>
+                  <span style={{ padding: "0 1px" }}></span>
                   <button type="button" className={`btn invisible-cn ${lang === 'ar' && "fs-5"}`} >
                     {t("Invisible")}
                   </button>
                 </div>
-              </li>
+              </li> */}
               <li>
                 <NavLink className={`dropdown-item px-4 ${lang === 'ar' && "text-end"}`} to="/find-work">
                   <div className="d-flex align-items-center">
@@ -203,8 +201,7 @@ let lang = useSelector(state => state.lang);
               </li>
               <li>
                 <NavLink
-                  className={`dropdown-item px-4 mb-1 ${lang === 'ar' && "text-end"}`} 
-                  // onClick={changeLayOut}
+                  className={`dropdown-item px-4 mb-1 ${lang === 'ar' && "text-end"}`}
                   to="/home"
                 >
                   <div className="d-flex align-items-center">
@@ -212,8 +209,8 @@ let lang = useSelector(state => state.lang);
                       <i className={`fa fa-user-circle fs-3 ${lang === 'ar' && "px-3"}`}></i>
                     </span>
                     <div className="acc-cn ms-2">
-                      <p  className={`${lang === 'ar' && "fs-5"}`} >{t("Name")}</p>
-                      <p  className={`${lang === 'ar' && "fs-5"}`} >{t("Client")}</p>
+                      <p className={`${lang === 'ar' && "fs-5"}`} >{t("Name")}</p>
+                      <p className={`${lang === 'ar' && "fs-5"}`} >{t("Client")}</p>
                     </div>
                   </div>
                 </NavLink>
@@ -227,7 +224,7 @@ let lang = useSelector(state => state.lang);
                 </Link>
               </li>
               <li>
-                <button className={`dropdown-item px-4 ${lang === 'ar' && "fs-5 text-end"}`}  onClick={logout}>
+                <button className={`dropdown-item px-4 ${lang === 'ar' && "fs-5 text-end"}`} onClick={logout}>
                   <span>
                     <i className={`fas fa-sign-out-alt ${lang === 'ar' && "px-3"}`}></i>
                   </span>
@@ -235,9 +232,6 @@ let lang = useSelector(state => state.lang);
                 </button>
               </li>
             </ul>
-          </li>
-          <li>
-              <LanguageList />
           </li>
         </ul>
       </div>
