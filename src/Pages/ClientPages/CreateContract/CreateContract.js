@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom'
 import { db } from '../../../firebase';
 
 export default function CreateContract({ location }) {
@@ -41,7 +40,6 @@ export default function CreateContract({ location }) {
     const startContract = () => {
         const { jobID, talentID } = location.state;
         setDone(true)
-        db.collection("job").doc(jobID).get().then(doc => console.log(doc.data()))
         db.collection("talent")
             .doc(talentID)
             .collection("jobProposal")
@@ -49,12 +47,11 @@ export default function CreateContract({ location }) {
             .get()
             .then(res => {
                 if (res.docs[0].exists) {
-                    db.collection("job").doc(jobID).update({ status: "hired", hired: 1 });
                     db.collection("talent")
                         .doc(talentID)
                         .collection("jobProposal")
                         .doc(res.docs[0].id)
-                        .update({ status: "active" })
+                        .update({ status: "pending" })
                 }
             })
     }
