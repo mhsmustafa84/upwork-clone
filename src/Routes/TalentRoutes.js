@@ -27,7 +27,7 @@ import { SearchContextProvider } from "../Context/SearchContext";
 import PleaseVerifiy from "../Pages/EmailVerification/PleaseVerifiy";
 import JobAppliedDetails from "../Pages/TalentPages/JobAppliedDetails/JobAppliedDetails";
 import Contract from "../Pages/TalentPages/Contract/Contract";
-import PendingContract from "../Pages/TalentPages/PendingContract/PendingContract";
+import Offers from "../Pages/TalentPages/Offers/Offers";
 
 export default function TalentRoutes() {
   const [arr, setarr] = useState([]);
@@ -68,7 +68,7 @@ export default function TalentRoutes() {
             <Route path="/my-stats" exact component={MyStats} />
             <Route path="/my-jobs" exact component={MyJobs} />
             <Route path="/all-contract" exact component={AllContracts} />
-            <Route path="/pending-contracts" exact component={PendingContract} />
+            <Route path="/offers" exact component={Offers} />
             <Route path="/overview" component={OverviewReports} />
             <Route path="/my-reports" exact component={Reports} />
             <Route path="/life-time-billing" exact component={BillingByClients} />

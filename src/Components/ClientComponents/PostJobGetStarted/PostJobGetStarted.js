@@ -13,7 +13,7 @@ export default function PostJobGetStarted({ start, isStart, setBtns, btns }) {
 
   const createJob = () => {
     isStart();
-    createDocument("job", { authID: auth.currentUser.uid, postTime: "", status: "private", hired: 0 });
+    createDocument("job", { jobID: "", authID: auth.currentUser.uid, postTime: "", status: "private", hired: 0, dueDate: "" });
   }
 
   const getData = ({ target }) => {
