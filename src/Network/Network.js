@@ -98,4 +98,41 @@ export const getJobData = async (jobId) => {
   return data;
 };
 
+
+export const savedjobs = (text,setText,id,user) => {
+  if (text === "Saved Job") {
+    updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
+    text = "Unsave Job";
+    setText(text);
+    console.log(user?.savedJobs?.length);
+  } else {
+    user?.savedJobs?.forEach((item, index) => {
+      if (item === id) {
+        user?.savedJobs?.splice(index, 1);
+        updateUserData("talent", { savedJobs: [...user?.savedJobs] });
+        console.log(user?.savedJobs);
+        text = "Saved Job";
+        setText(text);
+        console.log(text);
+      }
+     });
+  }
+};
+ export const changeSavedJobsText =(text, setText, id,user)=>
+ {
+if (user?.savedJobs?.length > 0) {
+  user?.savedJobs?.forEach((item) => {
+    if (item === id) {
+      text = "Unsave Job";
+      setText(text);
+    } else {
+      text = "Saved Job";
+      setText(text);
+    }
+  });
+} else {
+  text = "Saved Job";
+  setText(text);
+}
+ }
 export default createDocument;

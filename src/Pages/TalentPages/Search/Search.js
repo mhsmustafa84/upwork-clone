@@ -7,15 +7,19 @@ import SearchBarJobsTalent from "../../../Components/TalentComponents/SearchBarJ
 import ShowMore from "react-show-more-button/dist/module";
 import { useDispatch, useSelector } from "react-redux";
 import { talentDataAction } from "../../../Store/actions/talentData";
+import { updateUserData } from "../../../Network/Network";
+import { jobsDataAction } from "../../../Store/actions/jobsData";
 
 export default function Search(props) {
     const { t } = useTranslation();
+    // const jobs = useSelector((state) => state.jobsData);
     const user = useSelector((state) => state.talentData);
     const dispatch = useDispatch();
-  
+
     useEffect(() => {
-      dispatch(talentDataAction());
-    }, []);
+        // dispatch(jobsDataAction());
+        dispatch(talentDataAction());
+    }, [user]);
     const [searchData, setsearchData] = useState([]);
     const [filterSearch, setfilterSearch] = useState([]);
     const { itemSearchList } = useContext(SearchContext);
@@ -28,9 +32,9 @@ export default function Search(props) {
         //console.log(arr);
     }, [props.location.state])
 
-    useEffect(() => {
+    // useEffect(() => {
         // console.log(filterSearch);
-    }, [itemSearchList, filterSearch])
+    // }, [itemSearchList, filterSearch])
     //filter level expereince
     const handleLevel = (e) => {
         let val = e.target.checked;
@@ -71,6 +75,28 @@ export default function Search(props) {
         }
         // console.log(e.target.name, e.target.checked);
     }
+    const saveJob = (e, id) => {
+        if (e.target.className === 'far fa-heart') {
+            updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
+            e.target.className = 'fas fa-heart text-upwork'
+            console.log("add")
+        }
+        else {
+            user?.savedJobs?.forEach((item, index) => {
+                if (item === id) {
+                    user?.savedJobs?.splice(index, 1);
+                    updateUserData("talent", { savedJobs: [...user?.savedJobs] });
+                    e.target.className = 'far fa-heart'
+            console.log("delete")
+
+                }
+            })
+        }
+        // dispatch(talentDataAction());
+        console.log("fire")
+
+    }
+
     return (
         <div className="container-md container-fluid-sm my-lg-4">
             <div className="row">
@@ -456,18 +482,11 @@ export default function Search(props) {
                                                     aria-expanded="false"
                                                     aria-controls="collapseTwo"
                                                 >
-                                                    <i className="far fa-heart" aria-hidden="true" />
+                                                    <i onClick={(e) => saveJob(e, item.jobID)} className={`${user?.savedJobs?.includes(item.jobID) ? 'fas fa-heart text-upwork' : 'far fa-heart'}`} aria-hidden="true" />
                                                 </button>
                                             </div>
                                             <div className="btn-group float-sm-end  px-lg-1">
-                                                <button
-                                                    type="button"
-                                                    className="btn btn-light dropdown-toggle border border-1 rounded-circle"
-                                                    data-bs-toggle="dropdown"
-                                                    aria-expanded="false"
-                                                >
-                                                    <i className="far fa-thumbs-down" />
-                                                </button>
+
                                                 <ul className="dropdown-menu">
                                                     <li>
                                                         <a className="dropdown-item" href="#">
