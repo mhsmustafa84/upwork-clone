@@ -27,7 +27,7 @@ export default function ConnectsAndSubmit({ connects }) {
           setjobProposal(true)
       }
       ))
-    dispatch(talentDataAction(user));
+
     if (user?.savedJobs?.length > 0) {
       user?.savedJobs?.forEach((item) => {
         if (item === id) {
@@ -42,7 +42,25 @@ export default function ConnectsAndSubmit({ connects }) {
       text = "Saved Job";
       setText(text);
     }
-  }, [user]);
+  }, []);
+
+  // useEffect(() => {
+  //   dispatch(talentDataAction(user));
+  //   if (user?.savedJobs?.length > 0) {
+  //     user?.savedJobs?.forEach((item) => {
+  //       if (item === id) {
+  //         text = "Unsave Job";
+  //         setText(text);
+  //       } else {
+  //         text = "Saved Job";
+  //         setText(text);
+  //       }
+  //     });
+  //   } else {
+  //     text = "Saved Job";
+  //     setText(text);
+  //   }
+  // }, [user])
 
   const savedjobs = () => {
     if (text === "Saved Job") {
@@ -62,6 +80,7 @@ export default function ConnectsAndSubmit({ connects }) {
         }
       });
     }
+    dispatch(talentDataAction(user));
   };
 
   const handlewithdrawProposal = async () => {

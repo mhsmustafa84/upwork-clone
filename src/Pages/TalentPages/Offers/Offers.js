@@ -28,6 +28,13 @@ export default function Offers() {
 
     const accept = jobID => {
         console.log(jobID);
+        db.collection("job")
+            .doc(jobID)
+            .update({ status: "hired" })
+        db.collection("talent")
+            .doc(auth.currentUser.uid)
+            .collection("jobProposal")
+            .where("jobId", "==", jobID).get().then()
     }
 
     return (
