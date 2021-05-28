@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { talentDataAction } from "../../../Store/actions/talentData";
-import { updateUserData } from "../../../Network/Network";
+import { savedjobs, updateUserData } from "../../../Network/Network";
 import { db, auth } from "../../../firebase";
 
 export default function ConnectsAndSubmit({ connects }) {
@@ -18,15 +18,16 @@ export default function ConnectsAndSubmit({ connects }) {
   let [proposal, setProposal] = useState("");
   let [talent, setTalent] = useState("");
   const [jobProposal, setjobProposal] = useState(false);
-  const { push } = useHistory()
+  const { push } = useHistory();
 
   useEffect(() => {
-    db.collection('talent').doc(auth.currentUser.uid).collection('jobProposal')
-      .where('jobId', "==", id).onSnapshot((res => {
-        if (res?.docs.length > 0)
-          setjobProposal(true)
-      }
-      ))
+    db.collection("talent")
+      .doc(auth.currentUser.uid)
+      .collection("jobProposal")
+      .where("jobId", "==", id)
+      .onSnapshot((res) => {
+        if (res?.docs.length > 0) setjobProposal(true);
+      });
 
     if (user?.savedJobs?.length > 0) {
       user?.savedJobs?.forEach((item) => {
@@ -43,24 +44,6 @@ export default function ConnectsAndSubmit({ connects }) {
       setText(text);
     }
   }, []);
-
-  // useEffect(() => {
-  //   dispatch(talentDataAction(user));
-  //   if (user?.savedJobs?.length > 0) {
-  //     user?.savedJobs?.forEach((item) => {
-  //       if (item === id) {
-  //         text = "Unsave Job";
-  //         setText(text);
-  //       } else {
-  //         text = "Saved Job";
-  //         setText(text);
-  //       }
-  //     });
-  //   } else {
-  //     text = "Saved Job";
-  //     setText(text);
-  //   }
-  // }, [user])
 
   const savedjobs = () => {
     if (text === "Saved Job") {
@@ -129,28 +112,34 @@ export default function ConnectsAndSubmit({ connects }) {
   return (
     <div className="bg-white py-lg-4 px-4 border border-1 row py-sm-3">
       <div className="d-lg-grid gap-2  mx-auto d-none">
-        {!jobProposal ?
-          <button className="btn bg-upwork" onClick={handleRout => push(`/job/apply/${id}`)} >
+        {!jobProposal ? (
+          <button
+            className="btn bg-upwork"
+            onClick={(handleRout) => push(`/job/apply/${id}`)}
+          >
             {t("Submit a proposal")}
           </button>
-          :
-          <button className="btn bg-upwork-dark" onClick={handlewithdrawProposal}>
+        ) : (
+          <button
+            className="btn bg-upwork-dark"
+            onClick={handlewithdrawProposal}
+          >
             {t("Withdraw")}
           </button>
-        }
+        )}
         <button
           className="btn btn-light border border-1 my-lg-2"
           type="button"
-          onClick={savedjobs}
+          onClick={() => savedjobs(text, setText, id, user)}
         >
           <i
-            className={`me-2 ${text === "Unsave Job"
-              ? "fas fa-heart text-upwork"
-              : "far fa-heart"
-              }`}
+            className={`me-2 ${
+              text === "Unsave Job"
+                ? "fas fa-heart text-upwork"
+                : "far fa-heart"
+            }`}
             aria-hidden="true"
           />
-          {/* {t("Save Job")} */}
           {text}
         </button>
       </div>

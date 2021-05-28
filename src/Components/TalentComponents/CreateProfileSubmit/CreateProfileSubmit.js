@@ -72,9 +72,9 @@ export default function CreateProfileSubmit() {
               </div>
               <div className="mt-4">
                 { }
-                <h4>{user.company[0]?.companyName}</h4>
-                <h5>{user.company[0]?.jobTitile}</h5>
-                {user.company[0]?.stillWork ? <p>Still Work</p> :null}
+                <h4>{user.company?.companyName}</h4>
+                <h5>{user.company?.jobTitile}</h5>
+                {user.company?.stillWork ? <p>Still Work</p> :null}
               </div>
             </div>
             <div className="bg-white border rounded p-4 mt-5">
@@ -100,7 +100,7 @@ export default function CreateProfileSubmit() {
               <div className="mt-5">
                 <h4>Language</h4>
                 <p>English: {user.englishProficiency}</p>
-                {user?.otherLanguages.map(lang=><p>
+                {user?.otherLanguages?.map(lang=><p>
                   {lang.language} : {lang.langProf}
                 </p>)}
                 {/* <p>(Language): (Level)</p> */}
