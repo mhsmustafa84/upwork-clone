@@ -18,7 +18,7 @@ export default function HeaderSearchSm(props) {
                         </button>
                 }
                 <div className="dropdown search-type-cn">
-                    {
+                    {/* {
                         props.bg
                             ? <a className="nav-link dropdown-toggle" style={{ marginLeft: "-25px" }} href="#" id="navbarDropdownMenuLink" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -28,8 +28,8 @@ export default function HeaderSearchSm(props) {
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <i className="fa fa-sort-down text-white search-icon-cn"></i>
                             </a>
-                    }
-                    <ul className="dropdown-menu header-s-s-cn" aria-labelledby="navbarDropdownMenuLink">
+                    } */}
+                    {/* <ul className="dropdown-menu header-s-s-cn" aria-labelledby="navbarDropdownMenuLink">
                         <a className="dropdown-item px-4" href="#">
                             <div className="d-flex align-items-center">
                                 <span className="me-2 mb-3"><i className="fas fa-user fs-6"></i></span>
@@ -59,7 +59,7 @@ export default function HeaderSearchSm(props) {
                                 </div>
                             </div>
                         </a>
-                    </ul>
+                    </ul> */}
                 </div>
                 {
                     props.bg

@@ -3,11 +3,11 @@ import React from "react";
 import HeaderSearchSm from "../../SharedComponents/HeaderSearchSm/HeaderSearchSm";
 import { Link, useHistory } from "react-router-dom";
 import firebaseApp from "../../../firebase";
-import { useTranslation } from "react-i18next";  
+import { useTranslation } from "react-i18next";
 
 
 export default function NavSmallScreen() {
-  const { t }=useTranslation();
+  const { t } = useTranslation();
   const { push } = useHistory();
   const logout = () => {
     firebaseApp
@@ -62,7 +62,7 @@ export default function NavSmallScreen() {
               className="dropdown-menu"
               aria-labelledby="navbarDropdownMenuLink"
             >
-              <li className="px-4 py-3">
+              {/* <li className="px-4 py-3">
                 <div
                   id="acc-btns-id"
                   className="btn-group w-100"
@@ -77,7 +77,7 @@ export default function NavSmallScreen() {
                     {t("Invisible")}
                   </button>
                 </div>
-              </li>
+              </li> */}
               <li>
                 <Link
                   className="dropdown-item px-4"
@@ -141,11 +141,11 @@ export default function NavSmallScreen() {
                   {t("All Contracts")}
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link className="dropdown-item" to="/bring-your-own-talent">
                   {t("Bring Your Own Talent")}
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link className="dropdown-item" to="/post-job">
                   {t("Post a Job")}
@@ -278,19 +278,19 @@ export default function NavSmallScreen() {
               {t("Messages")}
             </Link>
           </li>
-          <li className="nav-item px-3">
+          {/* <li className="nav-item px-3">
             <a className="nav-link mt-2 pt-3 border-top-cn" href="#">
               {t("Help")}
               <i className="fas fa-question float-end"></i>
             </a>
-          </li>
-          <li className="nav-item px-3">
+          </li> */}
+          {/* <li className="nav-item px-3">
             <a className="nav-link mt-2 pt-3 border-top-cn" href="#">
               {t("Notification")}
               <i className="far fa-bell float-end"></i>
             </a>
-          </li>
-          <li className="nav-item px-3">
+          </li> */}
+          {/* <li className="nav-item px-3">
             <a className="nav-link mt-2 pt-3 border-top-cn" href="#">
               {t("Invite a Coworker")}
               <i
@@ -298,15 +298,15 @@ export default function NavSmallScreen() {
                 style={{ transform: "scaleX(-1)" }}
               ></i>
             </a>
-          </li>
-          <li className="nav-item">
+          </li> */}
+          {/* <li className="nav-item">
             <a className="dropdown-item mt-2 pt-3 border-top-cn" href="#">
               <span>
                 <i className="fa fa-cog"></i>
               </span>
               <span className="ps-3">{t("Settings")}</span>
             </a>
-          </li>
+          </li> */}
           <li className="nav-item pb-2" onClick={logout}>
             <a className="dropdown-item mt-2 pt-3 border-top-cn" href="#">
               <span>

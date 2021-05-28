@@ -1,13 +1,22 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, NavLink, useHistory } from "react-router-dom";
 import firebaseApp from "../../../firebase";
 import LanguageList from "../../SharedComponents/LanguageBtn/LanguageList";
+import img from "../../../assets/img/icon-user.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { clientDataAction } from "../../../Store/actions/clientData";
 
 export default function NavLargScreen() {
   const { t } = useTranslation();
   const { push } = useHistory();
+  const user = useSelector((state) => state.clientData);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(clientDataAction());
+  }, []);
 
   const logout = () => {
     firebaseApp
@@ -27,7 +36,7 @@ export default function NavLargScreen() {
   return (
     <>
       <div className="navbar-expand" id="navbarNav-id">
-        <ul className="navbar-nav">
+        <ul className="navbar-nav align-items-center">
           <li className="nav-item hov-cn">
             <NavLink className="nav-link" to="/home">
               {t("Jobs")}
@@ -56,7 +65,7 @@ export default function NavLargScreen() {
               </li>
             </ul>
           </li>
-          <li className="nav-item hov-cn">
+          <li className="nav-item hov-cn mx-3">
             <NavLink className="nav-link" to="/talent">
               {t("Talent")}
             </NavLink>
@@ -152,12 +161,20 @@ export default function NavLargScreen() {
               </li>
             </ul>
           </li>
-          <li className="nav-item me-5">
+          <li className="nav-item ms-5 me-3">
+            <Link className="nav-link" to="/messages">
+              <i
+                className="far fa-paper-plane fs-5"
+                style={{ transform: "scaleX(-1)" }}
+              ></i>
+            </Link>
+          </li>
+          {/* <li className="nav-item me-5">
             <NavLink className="nav-link" to="/messages">
               {t("Messages")}
             </NavLink>
-          </li>
-          <li className="nav-item">
+          </li> */}
+          {/* <li className="nav-item">
             <a className="nav-link" href="#">
               <i className="fas fa-question fs-5"></i>
             </a>
@@ -166,11 +183,14 @@ export default function NavLargScreen() {
             <a className="nav-link" href="#">
               <i className="far fa-bell fs-5"></i>
             </a>
-          </li>
-          <li className="nav-item border-start border-secondary ps-2">
+          </li> */}
+          {/* <li className="nav-item border-start border-secondary ps-2">
             <a className="nav-link" href="#">
               <i className="fas fa-user-plus fs-5"></i>
             </a>
+          </li> */}
+          <li className="me-3">
+            <LanguageList />
           </li>
           <li className="dropdown">
             <a
@@ -181,20 +201,7 @@ export default function NavLargScreen() {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 14 14"
-                width="40"
-                height="40"
-                role="img"
-                style={{ marginTop: "-10px" }}
-              >
-                <path
-                  fillRule="evenodd"
-                  fill="white"
-                  d="M7 12.6a5.6 5.6 0 0 1-4.64-2.47C2.94 8.78 4.49 7.88 7 7.88s4.06.9 4.64 2.25A5.6 5.6 0 0 1 7 12.6M7 1.45a2.76 2.76 0 1 1 0 5.53 2.76 2.76 0 0 1 0-5.53M7 0a7 7 0 1 0 .02 14.02A7 7 0 0 0 7 0"
-                ></path>
-              </svg>
+              <img style={{ height: "40px", width: "40px" }} className="circle bg-white" src={user.profilePhoto ? user.profilePhoto : img} alt="" />
             </a>
             <ul
               id="acc-id"
@@ -202,7 +209,7 @@ export default function NavLargScreen() {
               aria-labelledby="navbarDropdownMenuLink"
             >
               <div className="nav-dd-acc-cn"></div>
-              <li className="px-4 py-3">
+              {/* <li className="px-4 py-3">
                 <div
                   id="acc-btns-id"
                   className="btn-group w-100"
@@ -217,7 +224,7 @@ export default function NavLargScreen() {
                     {t("Invisible")}
                   </button>
                 </div>
-              </li>
+              </li> */}
               <li>
                 <NavLink
                   className="dropdown-item px-4"
@@ -264,9 +271,6 @@ export default function NavLargScreen() {
                 </a>
               </li>
             </ul>
-          </li>
-          <li>
-          <LanguageList />
           </li>
         </ul>
       </div>

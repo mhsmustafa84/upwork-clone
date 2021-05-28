@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import { auth, db } from "../firebase";
+import { auth } from "../firebase";
 import BeforeLoginRoutes from "../Routes/BeforeLoginRoutes";
 import ClientRoutes from "../Routes/ClientRoutes";
 import TalentRoutes from "./../Routes/TalentRoutes";
@@ -15,7 +15,7 @@ export default function LayOut() {
       if (user) {
         setUsr(user);
         setUsrType(localStorage.getItem('userType'));
-       
+
       }
     });
   }, [])
