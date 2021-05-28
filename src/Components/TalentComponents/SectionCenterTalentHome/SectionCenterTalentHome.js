@@ -15,8 +15,7 @@ export default function SectionCenterTalentHome() {
   useEffect(() => {
     dispatch(jobsDataAction());
   }, []);
-  const toggleHeart=()=>
-  {
+  const toggleHeart = () => {
     setlove(!love)
   }
   return (
@@ -48,7 +47,7 @@ export default function SectionCenterTalentHome() {
                     aria-controls="collapseTwo"
                     onClick={toggleHeart}
                   >
-                    <i className= {`${love? 'fas fa-heart text-danger' :'far fa-heart' }`} aria-hidden="true" />
+                    <i className={`${love ? 'fas fa-heart text-danger' : 'far fa-heart'}`} aria-hidden="true" />
                   </button>
                 </div>
                 <div className="btn-group float-sm-end  px-lg-1">
