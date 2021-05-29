@@ -12,7 +12,7 @@ import { talentDataAction } from "../../../Store/actions/talentData";
 import { updateUserData } from "../../../Network/Network";
 
 export default function SectionCenterTalentHome() {
-  
+
   const jobs = useSelector((state) => state.jobsData);
   const user = useSelector((state) => state.talentData);
   const dispatch = useDispatch();
@@ -20,22 +20,20 @@ export default function SectionCenterTalentHome() {
     dispatch(jobsDataAction());
     dispatch(talentDataAction())
   }, [user])
-  const saveJob =(e ,id)=>
-  {
-if(e.target.className === 'far fa-heart'){
-updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
-e.target.className = 'fas fa-heart text-upwork'
-}
-else
-{
-  user?.savedJobs?.forEach((item, index) => {
-    if (item === id) {
-      user?.savedJobs?.splice(index, 1);
-      updateUserData("talent", { savedJobs: [...user?.savedJobs] });
-      e.target.className = 'far fa-heart'
-      }
-    })
-}
+  const saveJob = (e, id) => {
+    if (e.target.className === 'far fa-heart') {
+      updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
+      e.target.className = 'fas fa-heart text-upwork'
+    }
+    else {
+      user?.savedJobs?.forEach((item, index) => {
+        if (item === id) {
+          user?.savedJobs?.splice(index, 1);
+          updateUserData("talent", { savedJobs: [...user?.savedJobs] });
+          e.target.className = 'far fa-heart'
+        }
+      })
+    }
   }
 
   return (
@@ -66,8 +64,8 @@ else
                     aria-expanded="false"
                     aria-controls="collapseTwo"
                   >
-                    <i onClick={(e)=>saveJob(e,item.jobID)} className={`${user.savedJobs.includes(item.jobID)?'fas fa-heart text-upwork' : 'far fa-heart'}`} aria-hidden="true" />
-                    
+                    <i onClick={(e) => saveJob(e, item.jobID)} className={`${user.savedJobs.includes(item.jobID) ? 'fas fa-heart text-upwork' : 'far fa-heart'}`} aria-hidden="true" />
+
                   </button>
                 </div>
                 <div className="btn-group float-sm-end  px-lg-1">
