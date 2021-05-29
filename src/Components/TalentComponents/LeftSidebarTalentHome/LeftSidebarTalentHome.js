@@ -44,27 +44,27 @@ export default function LeftSidebarTalentHome() {
 
   return (
     <div className="col d-none d-lg-block">
-      <ul id="list-homepage" className="list-group sidebar-homebage-ul mb-lg-4">
+      <ul id="list-homepage" className="list-group sidebar-homebage-ul mb-lg-4" >
         <li
           className="list-group-item sidebar-homebage-ul-li"
-          aria-current="true"
+          aria-current="true" style={{background:'#F1F2F4'}}
         >
           <a
             href="#"
             className=" list-group-item-action sidebar-homebage-ul-li-aa activeside"
-            aria-current="true"
+            aria-current="true" style={{background:'#F1F2F4',  fontSize:'14px'}}
           >
             {t("My Feed")}
           </a>
         </li>
         <li
           className="list-group-item sidebar-homebage-ul-li"
-          aria-current="true"
+          aria-current="true" style={{background:'#F1F2F4'}}
         >
           <a
             href="#"
             className=" list-group-item-action sidebar-homebage-ul-li-aa"
-            aria-current="true"
+            aria-current="true" style={{background:'#F1F2F4' , fontSize:'14px'}}
           >
             {t("Best Matches")}
           </a>
@@ -110,12 +110,12 @@ export default function LeftSidebarTalentHome() {
       >
         <li
           className="list-group-item sidebar-homebage-ul-li "
-          aria-current="true"
+          aria-current="true" style={{background:'#F1F2F4'}}
         >
           <a
             href="#"
             className=" list-group-item-action advanced-search-link"
-            aria-current="true"
+            aria-current="true" style={{background:'#F1F2F4'}}
           >
             {user.jobCategory}
           </a>

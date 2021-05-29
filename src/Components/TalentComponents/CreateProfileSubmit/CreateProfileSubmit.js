@@ -1,17 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Link } from "react-router-dom";
-import img from "../../../assets/svg/createProfileSubmit.svg";
-import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { talentDataAction } from '../../../Store/actions/talentData';
+import img from "../../../assets/svg/createProfileSubmit.svg";
 
 export default function CreateProfileSubmit() {
   const user = useSelector(state => state.talentData);
-  // const dispatch = useDispatch();
-  useEffect(() => {
-    //dispatch(talentDataAction());
-  }, []);
 
   return (
     <>

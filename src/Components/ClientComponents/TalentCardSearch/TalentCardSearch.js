@@ -6,18 +6,43 @@ import { useDispatch, useSelector } from "react-redux";
 import { talentDataAction } from "../../../Store/actions/talentData";
 import ShowMore from 'react-show-more-button/dist/module';
 import { SearchContext } from "../../../Context/SearchContext";
+import { updateUserData } from "../../../Network/Network";
+import { clientDataAction } from "../../../Store/actions/clientData";
 
 
 
 
 export default function TalentCardSearch() {
   const { talentArr } = useContext(SearchContext)
+  const user = useSelector((state) => state.talentData);
+  const client = useSelector((state) => state.clientData);
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(talentDataAction());
-  }, []);
-
+    //  dispatch(clientDataAction())
+     dispatch(talentDataAction())
+  }, [client]);
+ 
+const saveTalent =(e, id)=>
+{
+  if (e.target.className === 'far fa-heart') {
+    // (client.savedTalents === undefined)?updateUserData("client", { savedTalents: [client?.savedTalents, id] }):
+    updateUserData("client", { savedTalents: [...client?.savedTalents, id] });
+    e.target.className = 'fas fa-heart text-upwork'
+    console.log("add")
+  }
+  else {
+    client?.savedTalents?.forEach((item, index) => {
+      if (item === id) {
+        console.log("delete")
+        client?.savedTalents?.splice(index, 1);
+        updateUserData("client", { savedTalents: [...client?.savedTalents] });
+        e.target.className = 'far fa-heart'
+      }
+    })
+  }
+     dispatch(clientDataAction())
+}
 
   return (
       <div>
@@ -92,11 +117,7 @@ export default function TalentCardSearch() {
                 aria-expanded="false"
                 aria-controls="collapseTwo"
                 >
-                <i
-                  className="far fa-heart"
-                  aria-hidden="true"
-                  onclick="this.classList.toggle('fas')"
-                  />
+               <i onClick={(e)=>saveTalent(e,item.authID)} className={`${client?.savedTalents?.includes(item.authID)?'fas fa-heart text-upwork' : 'far fa-heart'}`} aria-hidden="true" />
               </button>
             </div>
             </div>
