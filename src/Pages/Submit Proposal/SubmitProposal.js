@@ -1,7 +1,9 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
-import  { auth, db, storage } from "../../firebase";
+import { auth, db, storage } from "../../firebase";
 import firebase from 'firebase/app';
 import { subCollection, updateUserData } from "../../Network/Network";
 import { Link } from "react-router-dom";
@@ -26,7 +28,6 @@ export default function SubmitProposal() {
       .doc(id)
       .get()
       .then((res) => setjob(res.data()));
-    //talent data
     db.collection("talent")
       .doc(auth.currentUser.uid)
       .get()
@@ -76,8 +77,6 @@ export default function SubmitProposal() {
     }
   };
 
-  let arr = ["s"];
-  arr = job?.skills;
 
   const handlVal = (e) => {
     const val = e.target.value;
@@ -112,9 +111,6 @@ export default function SubmitProposal() {
       default:
         break;
     }
-    {
-
-    }
   };
   const handleRout = () => {
     push({ pathname: "/proposals", state: id })
@@ -141,7 +137,7 @@ export default function SubmitProposal() {
         clientId: job.authID,
         budget: parseInt(rate),
         jobPaymentType: job.jobPaymentType,
-        proposalTime:firebase.firestore.Timestamp.now(),
+        proposalTime: firebase.firestore.Timestamp.now(),
       },
       id
     );

@@ -3,10 +3,9 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { talentDataAction } from "../../../Store/actions/talentData";
-import { auth, db, storage } from "../../../firebase";
+import { auth, db } from "../../../firebase";
 import img from "../../../assets/img/icon-user.svg";
 
 export default function RightSidebarTalentHome() {
@@ -14,7 +13,7 @@ export default function RightSidebarTalentHome() {
 
   const user = useSelector((state) => state.talentData);
   const [talentData, setTalentData] = useState([]);
-  const dispatch = useDispatch();
+
   useEffect(() => {
     db.collection("talent")
       .doc(auth.currentUser.uid)

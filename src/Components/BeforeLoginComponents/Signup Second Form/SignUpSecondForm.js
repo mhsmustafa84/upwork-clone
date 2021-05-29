@@ -1,19 +1,23 @@
 /* eslint-disable react/jsx-no-target-blank */
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { auth } from "../../../firebase";
 import { createDocumentWithId } from "../../../Network/Network";
 import { useTranslation } from "react-i18next";
 import firebase from 'firebase/app';
+import CountrySelect from "react-bootstrap-country-select";
 export default function SignUpSecondForm() {
   const { t } = useTranslation();
   const [errorMessage, setErrorMessage] = useState("");
   const [validate, setValidate] = useState({ firstName: "", lastName: "", password: "", terms: false });
+  const terms = useRef(null);
+  const [country, setCountry] = useState("");
   const userEmail = useSelector(state => state.signUpData.email);
   const { push } = useHistory();
 
   const [usr, setuser] = useState({
+    authID: "",
     email: userEmail,
     firstName: "",
     lastName: "",
@@ -66,6 +70,13 @@ export default function SignUpSecondForm() {
       case "userType":
         setuser({ ...usr, userType: val });
         break;
+      case "terms":
+        console.log(terms.current.checked);
+        setValidate({
+          ...validate,
+          terms: terms.current.checked
+        });
+        break;
       default:
         break;
     }
@@ -85,6 +96,7 @@ export default function SignUpSecondForm() {
               usr.userType,
               {
                 ...usr,
+                authID: auth.currentUser.uid,
                 totalJobs: 0,
                 totalEarnings: 0,
                 totalHours: 0,
@@ -112,16 +124,17 @@ export default function SignUpSecondForm() {
               usr.userType,
               {
                 ...usr,
+                authID: auth.currentUser.uid,
                 paymentVerified: false,
                 review: {},
                 spentMoney: 0,
-                location: "",
+                location: country.name,
               },
               auth.currentUser.uid
             );
           }
           push("/sign-up/please-verify");
-          sessionStorage.setItem("searchArray",[' '])
+          sessionStorage.setItem("searchArray", [' '])
         }
       })
       .catch(err => {
@@ -259,17 +272,21 @@ export default function SignUpSecondForm() {
               </label>
             </div>
           </div>
+          <div className={`my-3 text-dark ${usr.userType !== "client" && "d-none"}`}>
+            <i className="fas fa-map-marker-alt border rounded" style={{ padding: "10px 15px" }}></i>
+            <CountrySelect className="w-50 d-inline-block" value={country} onChange={setCountry} />
+          </div>
           <div className="form-check mt-3">
             <input
+              ref={terms}
               name="terms"
               className="form-check-input"
               type="checkbox"
-
               onChange={getUserData}
               id="flexCheckDefault"
             />
             <label className="form-check-label" htmlFor="flexCheckDefault">
-              <p>
+              <p className="text-dark">
                 {t("Yes I understand and agree to the")}
                 <a
                   className="m-1"
@@ -298,16 +315,16 @@ export default function SignUpSecondForm() {
             </label>
           </div>
 
-          <  ><div className="d-grid gap-2 col-8 mx-auto mt-3 hitbtn-class loginpcolor mb-4" >
+          <div className="d-grid gap-2 col-8 mx-auto mt-3 hitbtn-class loginpcolor mb-4" >
             <button
-              className="btn bg-upwork "
+              className="btn bg-upwork"
               type="button"
-              disabled={validate.password != null || validate.firstName || validate.lastName}
+              disabled={validate.password != null || validate.firstName || validate.lastName || (usr.userType === "client" && !country) || !validate.terms}
               onClick={signUpComplete}
             >
               {t("Continue with Email")}
             </button>
-          </div> </>
+          </div>
         </form>
       </div>
     </div>

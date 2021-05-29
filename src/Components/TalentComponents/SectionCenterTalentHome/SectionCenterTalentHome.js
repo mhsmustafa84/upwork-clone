@@ -21,8 +21,8 @@ export default function SectionCenterTalentHome() {
   return (
     <div className="col-lg-8 col-xs-12">
       <HeadOfCenterSection />
-      {jobs.map((item) => (
-        <div>
+      {jobs.map((item, index) => (
+        <div key={index}>
           <div className="list-group-item p-4">
             <div className="row align-items-center">
               <div className="col-lg-9 pt-lg-2">

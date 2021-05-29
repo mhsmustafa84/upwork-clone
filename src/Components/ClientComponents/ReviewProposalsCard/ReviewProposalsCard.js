@@ -5,40 +5,41 @@
 import { useEffect, useState } from "react";
 import { db } from "../../../firebase";
 import { useParams } from "react-router";
-import Loader from "./../../SharedComponents/Loader/Loader";
 import img from "../../../assets/img/icon-user.svg";
 import ReviewProposalsPageHeader from "./../ReviewProposalsPageHeader/ReviewProposalsPageHeader";
 import { Link } from "react-router-dom";
 
 export default function ReviewProposalsCard() {
-  const { id } = useParams();
 
+  const { id } = useParams();
   const [proposals, setProposals] = useState([]);
   const [talent, setTalent] = useState([]);
 
-  useEffect(async () => {
-    await db
-      .collection("job")
+  useEffect(() => {
+    const arr = []
+    db.collection("job")
       .doc(id)
       .collection("proposals")
-      .get()
-      .then((res) => {
-        res.docs.map(async (proposal) => {
-          proposals.push(proposal.data());
-          await db
-            .collection("talent")
-            .doc(proposal.data().talentId)
-            .get()
-            .then((doc) => {
-              talent.push(doc.data());
-              setTalent([...talent]);
-            });
+      .onSnapshot(res => {
+        res.docs.map(async proposal => {
+          if (proposal.exists) {
+            proposals.push(proposal.data());
+            await db.collection("talent")
+              .doc(proposal.data().talentId)
+              .get()
+              .then(doc => {
+                if (doc.exists) {
+                  arr.push(doc.data());
+                  setTalent([...arr]);
+                }
+              });
+          }
         });
-        setProposals([...proposals]);
+        arr.length > 0 && setProposals([...proposals]);
       });
   }, []);
 
-  const sendMSG = (talentDocID) => {
+  const sendMSG = talentDocID => {
     console.log(talentDocID);
   };
 
@@ -46,8 +47,8 @@ export default function ReviewProposalsCard() {
     <>
       <ReviewProposalsPageHeader proposals={proposals.length} />
       {
-        proposals.length > 0 && talent.length > 0 ?
-          proposals.map((proposal, index) => {
+        talent.length > 0
+          ? proposals.map((proposal, index) => {
             return (
               <div className="row border bg-white border-1 ms-0 pt-2" key={index}>
                 <div className="col-1 pt-lg-3">
@@ -72,24 +73,27 @@ export default function ReviewProposalsCard() {
                       talent[index]?.lastName[0].toUpperCase() +
                       "."}
                   </Link>
-                  <p id="job-title-home-page" className="fw-bold link-dark my-1">
-                    {talent[index]?.title}
+                  <p id="job-title-home-page" className="link-dark my-1">
+                    <span className="text-muted">Title: </span>
+                    <span className="fw-bold">{talent[index]?.title}</span>
                   </p>
-                  <span className="text-muted">
-                    {talent[index]?.location?.country}
-                  </span>
+                  <p>
+                    <span className="text-muted">Country: </span>
+                    <span className="fw-bold">{talent[index]?.location?.country}</span>
+
+                  </p>
                   <div className="row py-3">
                     <div className="col">
-                      <span className="fw-bold">
-                        Hourly Rate: {talent[index]?.hourlyRate}
+                      <span className="text-muted">
+                        Hourly Rate:
                       </span>
-                      <span className="text-muted"> /hr</span>
+                      <span className="fw-bold"> {talent[index]?.hourlyRate} /hr</span>
                     </div>
                     <div className="col">
+                      <span className="text-muted">earned: </span>
                       <span className="fw-bold">
                         {talent[index]?.totalEarnings}
                       </span>
-                      <span className="text-muted"> earned</span>
                     </div>
                   </div>
                 </div>
@@ -100,7 +104,7 @@ export default function ReviewProposalsCard() {
                       <li>
                         <a className="dropdown-item" href="#">
                           Candidate will not be notified
-                      </a>
+                              </a>
                       </li>
                     </ul>
                   </div>
@@ -124,31 +128,28 @@ export default function ReviewProposalsCard() {
                     }}
                   >
                     Hire
-                </Link>
+                        </Link>
                 </div>
                 <div className="col-lg-1 pt-lg-3"></div>
                 <div className="col-lg-10 pt-lg-3 mx-3">
-                  <p className="text-muted">
-                    <strong>Specialized in:</strong>
-                    <span> {talent[index]?.jobCategory}</span>
+                  <p>
+                    <span className="text-muted">Specialized in:</span>
+                    <span className="fw-bold"> {talent[index]?.jobCategory}</span>
                   </p>
                   <p id="Cover-Letter">
-                    <span className="fw-bold">Cover Letter - </span>
-                    {proposal.coverLetter}
+                    <span className="text-muted">Cover Letter - </span>
+                    <span className="fw-bold">{proposal.coverLetter}</span>
                   </p>
                 </div>
               </div>
             )
           })
           :
-          // <div className="row border bg-white border-1 ms-0 py-3">
-          //   <p className="text-muted text-center h1">No proposals</p>
-          // </div>
-          <Loader />
-
-
-
+          <div className="row border bg-white border-1 ms-0 py-3">
+            <p className="text-muted text-center h1">No proposals</p>
+          </div>
       }
+      {/* <Loader /> */}
     </>
   );
 }
