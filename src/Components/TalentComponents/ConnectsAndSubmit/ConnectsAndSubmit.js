@@ -116,6 +116,7 @@ export default function ConnectsAndSubmit({ connects }) {
           <button
             className="btn bg-upwork"
             onClick={(handleRout) => push(`/job/apply/${id}`)}
+            disabled={!user.connects > 0 || user.accepted === false}
           >
             {t("Submit a proposal")}
           </button>
@@ -133,11 +134,10 @@ export default function ConnectsAndSubmit({ connects }) {
           onClick={() => savedjobs(text, setText, id, user)}
         >
           <i
-            className={`me-2 ${
-              text === "Unsave Job"
+            className={`me-2 ${text === "Unsave Job"
                 ? "fas fa-heart text-upwork"
                 : "far fa-heart"
-            }`}
+              }`}
             aria-hidden="true"
           />
           {text}

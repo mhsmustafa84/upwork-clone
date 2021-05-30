@@ -15,17 +15,17 @@ export default function CreateProfileEducationAndEmployment({ setBtns, btns }) {
     const name = e.target.name;
     switch (name) {
       case "school":
-        setuser({ ...user, school: { ...user.school, school: val } });
+        setuser({ ...user, education: { ...user.school, school: val } });
         break;
       case "area":
-        setuser({ ...user, school: { ...user.school, areaOfSudy: val } });
+        setuser({ ...user, education: { ...user.school, areaOfSudy: val } });
         break;
       case "degree":
-        setuser({ ...user, school: { ...user.school, degree: val } });
+        setuser({ ...user, education: { ...user.school, degree: val } });
         break;
       case "year":
         console.log(val);
-        setuser({ ...user, school: { ...user.school, gradYear: val } });
+        setuser({ ...user, education: { ...user.school, gradYear: val } });
         break;
       case "company":
         setuser({ ...user, company: [{ ...user.company[0], companyName: val }] });

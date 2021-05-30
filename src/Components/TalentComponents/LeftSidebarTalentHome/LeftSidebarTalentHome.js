@@ -2,26 +2,21 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useContext } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { talentDataAction } from "../../../Store/actions/talentData";
 import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
 import { SearchContext } from "../../../Context/SearchContext";
 import { db } from "../../../firebase";
 
-export default function LeftSidebarTalentHome() {
+export default function LeftSidebarTalentHome({ user }) {
+
   const { arr, setarr, setitemSearchList } = useContext(SearchContext);
   const { t } = useTranslation();
-  const user = useSelector((state) => state.talentData);
   const { push } = useHistory();
-  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(talentDataAction());
     user.searchHistory != null ?
       sessionStorage.setItem("searchArray", user?.searchHistory) :
       setarr(user?.searchHistory)
-    //setarr(JSON.parse(sessionStorage.getItem("searchArray")))
   }, []);
 
   const handleVal = (textSearch) => {
@@ -37,7 +32,6 @@ export default function LeftSidebarTalentHome() {
           })
       )
     if (tempArr.length <= 0) {
-
       push('/search')
     }
   };
@@ -47,24 +41,24 @@ export default function LeftSidebarTalentHome() {
       <ul id="list-homepage" className="list-group sidebar-homebage-ul mb-lg-4" >
         <li
           className="list-group-item sidebar-homebage-ul-li"
-          aria-current="true" style={{background:'#F1F2F4'}}
+          aria-current="true" style={{ background: '#F1F2F4' }}
         >
           <a
             href="#"
             className=" list-group-item-action sidebar-homebage-ul-li-aa activeside"
-            aria-current="true" style={{background:'#F1F2F4',  fontSize:'14px'}}
+            aria-current="true" style={{ background: '#F1F2F4', fontSize: '14px' }}
           >
             {t("My Feed")}
           </a>
         </li>
         <li
           className="list-group-item sidebar-homebage-ul-li"
-          aria-current="true" style={{background:'#F1F2F4'}}
+          aria-current="true" style={{ background: '#F1F2F4' }}
         >
           <a
             href="#"
             className=" list-group-item-action sidebar-homebage-ul-li-aa"
-            aria-current="true" style={{background:'#F1F2F4' , fontSize:'14px'}}
+            aria-current="true" style={{ background: '#F1F2F4', fontSize: '14px' }}
           >
             {t("Best Matches")}
           </a>
@@ -110,12 +104,12 @@ export default function LeftSidebarTalentHome() {
       >
         <li
           className="list-group-item sidebar-homebage-ul-li "
-          aria-current="true" style={{background:'#F1F2F4'}}
+          aria-current="true" style={{ background: '#F1F2F4' }}
         >
           <a
             href="#"
             className=" list-group-item-action advanced-search-link"
-            aria-current="true" style={{background:'#F1F2F4'}}
+            aria-current="true" style={{ background: '#F1F2F4' }}
           >
             {user.jobCategory}
           </a>

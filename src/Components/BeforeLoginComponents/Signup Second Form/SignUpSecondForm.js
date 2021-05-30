@@ -97,6 +97,7 @@ export default function SignUpSecondForm() {
               {
                 ...usr,
                 authID: auth.currentUser.uid,
+                accepted: false,
                 totalJobs: 0,
                 totalEarnings: 0,
                 totalHours: 0,

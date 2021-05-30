@@ -6,20 +6,16 @@ import HeadOfCenterSection from "./../HeadOfCenterSection/HeadOfCenterSection";
 import { jobsDataAction } from "./../../../Store/actions/jobsData";
 import { Link } from "react-router-dom";
 import ShowMore from "react-show-more-button/dist/module";
+import { updateUserData } from "../../../Network/Network";
 import "./SectionCenterTalentHome.css";
 
-import { talentDataAction } from "../../../Store/actions/talentData";
-import { updateUserData } from "../../../Network/Network";
-
-export default function SectionCenterTalentHome() {
+export default function SectionCenterTalentHome({ user }) {
 
   const jobs = useSelector((state) => state.jobsData);
-  const user = useSelector((state) => state.talentData);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(jobsDataAction());
-    dispatch(talentDataAction());
-  }, [user])
+  }, [])
 
   const saveJob = (e, id) => {
     if (e.target.className === 'far fa-heart') {
@@ -65,7 +61,7 @@ export default function SectionCenterTalentHome() {
                     aria-expanded="false"
                     aria-controls="collapseTwo"
                   >
-                    <i onClick={(e) => saveJob(e, job.jobID)} className={`${user.savedJobs.includes(job.jobID) ? 'fas fa-heart text-upwork' : 'far fa-heart'}`} aria-hidden="true" />
+                    <i onClick={(e) => saveJob(e, job.jobID)} className={`${user.savedJobs?.includes(job.jobID) ? 'fas fa-heart text-upwork' : 'far fa-heart'}`} aria-hidden="true" />
 
                   </button>
                 </div>
