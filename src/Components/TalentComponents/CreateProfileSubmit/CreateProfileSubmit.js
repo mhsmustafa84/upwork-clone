@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { talentDataAction } from './../../../Store/actions/talentData';
 
 export default function CreateProfileSubmit() {
+
   const user = useSelector(state => state.talentData);
   const dispatch = useDispatch()
 
@@ -28,9 +29,6 @@ export default function CreateProfileSubmit() {
               Make any necessary edits and then submit your profile. You can
               still edit it after you submit it.
               </p>
-            <Link className="btn bg-upwork px-5" to="/find-work">
-              Submit Profile
-              </Link>
           </div>
           <div className="col-md-3 text-center">
             <img src={img} className="w-50" alt="" />
@@ -60,15 +58,11 @@ export default function CreateProfileSubmit() {
               <div className="mt-5">
                 <h4>{user.title}</h4>
                 <p>{user.overview}</p>
-                <div>
-                  <h5>${user.hourlyRate}</h5>
-                  <span>Hourly Rate</span>
-                </div>
               </div>
             </div>
             <div className="bg-white border rounded p-4 mt-5">
               <div className="border-bottom pb-3">
-                <h4>Employment History</h4>
+                <h4 className="text-muted">Employment History</h4>
               </div>
               {user?.company?.map(e =>
                 <div className="mt-4">
@@ -78,40 +72,52 @@ export default function CreateProfileSubmit() {
                   {e?.stillWork ? <p>Still Work</p> : null}
                 </div>
               )}
-
             </div>
             <div className="bg-white border rounded p-4 mt-5">
               <div className="border-bottom pb-3">
-                <h4>Education</h4>
+                <h4 className="text-muted">Education</h4>
               </div>
               <div className="mt-4">
                 <h4>{user?.education?.school}</h4>
-                <h4>{user?.education?.areaOfStudy}</h4>
-                <h4>{user?.education?.degree}</h4>
-                <h4>{user?.education?.gradYear}</h4>
+                <h5>{user?.education?.areaOfStudy}</h5>
+                <h6>{user?.education?.degree}</h6>
+                <h6>{user?.education?.gradYear}</h6>
               </div>
-            </div>
-            <div className="my-3 text-end">
-              <Link className="btn bg-upwork px-5" to="/find-work">
-                Submit Profile
-                </Link>
             </div>
           </div>
           <div className="col-md-3 ">
             <div className="border-top" style={{ backgroundColor: "#F1F2F4" }}>
               <div className="border-bottom py-4">
-                <h4>Location</h4>
+                <h4 className="text-muted">Location</h4>
                 <p>{user.location?.country + ", "} <strong>{user.location?.city}</strong></p>
               </div>
               <div className="mt-5">
-                <h4>Language</h4>
-                <p>English: {user.englishProficiency}</p>
+                <h4 className="text-muted">Languages</h4>
+                <p className="mt-3">English: {user.englishProficiency}</p>
                 {user?.otherLanguages?.map(lang => <p>
                   {lang.language} : {lang.langProf}
                 </p>)}
-                {/* <p>(Language): (Level)</p> */}
+              </div>
+              <div className="border-top pt-5">
+                <h5>
+                  <span className="text-muted">Hourly rate: </span>
+                    ${user.hourlyRate}
+                </h5>
+                <h5 className="my-3">
+                  <span className="text-muted">Category: </span>
+                  {user.jobCategory}
+                </h5>
+                <h5 className="my-">
+                  <span className="text-muted">Experience level: </span>
+                  {user.expertiseLevel}
+                </h5>
               </div>
             </div>
+          </div>
+          <div className="my-3 text-start mt-5">
+            <Link className="btn bg-upwork px-5" to="/find-work">
+              Submit Profile
+            </Link>
           </div>
         </div>
       </section>
