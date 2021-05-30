@@ -25,7 +25,7 @@ export default function PostJobGetStarted({ start, isStart, setBtns, btns }) {
     console.log(job);
     const id = localStorage.getItem("docID");
     console.log(id);
-    updateJob({ jobID: id, jobDuration: job.jobDuration }, id);
+    updateJob({ jobID: id, jobDuration: job.jobDuration, jobDurationAr: job.jobDuration === "short term" ? "فترة قصيرة" : "فترة طويلة" }, id);
     setBtns({ ...btns, title: false });
   };
 
