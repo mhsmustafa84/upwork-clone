@@ -12,26 +12,25 @@ export default function CreateProfileCategory({ setBtns, btns }) {
     cat = e.target.value;
     setCat(cat);
   };
-  const skillVal=(e)=>{
+  const skillVal = (e) => {
     setinputVal(e.target.value)
   }
 
   const addData = () => {
     updateUserData("talent", {
-       jobCategory: cat,
-       authID:auth.currentUser.uid ,
-       skills:skillsList,
+      jobCategory: cat,
+      skills: skillsList,
       profileCompletion: 20
     });
     setBtns({ ...btns, expertiseLevel: false })
   }
   const addskills = () => {
-    let arr2=[...skillsList,inputVal];
+    let arr2 = [...skillsList, inputVal];
     setskillsList(arr2);
     setinputVal("")
     console.log(skillsList);
-  //  setskillsList([...skillsList,inputVal]);
-  //  console.log(skillsList);
+    //  setskillsList([...skillsList,inputVal]);
+    //  console.log(skillsList);
   };
 
   return (
@@ -48,7 +47,7 @@ export default function CreateProfileCategory({ setBtns, btns }) {
           onChange={catVal}
         >
           <option selected value="Select a category">Select a category</option>
-          <option value="Mobile Development">Front-End Development</option>
+          <option value="Front-End Development">Front-End Development</option>
           <option value="Web Development">Web Development</option>
           <option value="Web Design">Web Design</option>
           <option value="Graphic Design">Graphic Design</option>
@@ -68,13 +67,13 @@ export default function CreateProfileCategory({ setBtns, btns }) {
               Add
             </button>
           </div>
-        <div className="my-4 d-flex justify-content-start">
-          {skillsList.map((item)=>
-          <div  className="chip mb-3 ms">
-            <span>{item}</span>
+          <div className="my-4 d-flex justify-content-start flex-wrap">
+            {skillsList.map((item) =>
+              <div className="chip mb-3 ms">
+                <span>{item}</span>
+              </div>
+            )}
           </div>
-          )}
-          </div>  
         </>
       </div>
       <div className="px-4 my-3 pt-4 border-top d-flex justify-content-end">

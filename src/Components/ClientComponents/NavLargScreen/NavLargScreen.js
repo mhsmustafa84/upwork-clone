@@ -41,7 +41,7 @@ export default function NavLargScreen() {
             <NavLink className="nav-link" to="/home">
               {t("Jobs")}
             </NavLink>
-            <ul className="dropdown-menu">
+            <ul className="dropdown-menu" style={{ marginTop: "-8px" }}>
               <div className="nav-dd-cn"></div>
               <li>
                 <Link className="dropdown-item" to="/home">
@@ -69,7 +69,7 @@ export default function NavLargScreen() {
             <NavLink className="nav-link" to="/talent">
               {t("Talent")}
             </NavLink>
-            <ul className="dropdown-menu">
+            <ul className="dropdown-menu" style={{ marginTop: "-8px" }}>
               <div className="nav-dd-cn"></div>
               <li>
                 <Link className="dropdown-item" to="/talent/my-hires">
@@ -84,13 +84,14 @@ export default function NavLargScreen() {
             </ul>
           </li>
           <li className="nav-item hov-cn">
-            <Link className="nav-link" to="/transaction-history">
+            <NavLink className="nav-link" to="/transaction-history">
               {t("Reports")}
-            </Link>
+            </NavLink>
             <ul
               id="reports-dd-id"
               className="dropdown-menu"
               aria-labelledby="navbarDropdownMenuLink"
+              style={{ marginTop: "-8px" }}
             >
               <div className="nav-dd-cn"></div>
               <li className="fw-bold py-1 ms-3">{t("FINANCIALS")}</li>
@@ -178,12 +179,12 @@ export default function NavLargScreen() {
             <a className="nav-link" href="#">
               <i className="fas fa-question fs-5"></i>
             </a>
-          </li>
-          <li className="nav-item me-4">
-            <a className="nav-link" href="#">
-              <i className="far fa-bell fs-5"></i>
-            </a>
           </li> */}
+          <li className="nav-item me-3">
+            <Link to="/notifications" className="nav-link" href="#">
+              <i className="far fa-bell fs-5"></i>
+            </Link>
+          </li>
           {/* <li className="nav-item border-start border-secondary ps-2">
             <a className="nav-link" href="#">
               <i className="fas fa-user-plus fs-5"></i>

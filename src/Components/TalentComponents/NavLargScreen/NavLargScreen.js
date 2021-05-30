@@ -51,7 +51,7 @@ export default function NavLargScreen() {
             >
               {t("FindWork")}
             </NavLink>
-            <ul className={`dropdown-menu findWork-cn ${lang === 'ar' && 'text-end'}`}>
+            <ul className={`dropdown-menu findWork-cn ${lang === 'ar' && 'text-end'}`} style={{ marginTop: "-8px" }}>
               <div className="nav-dd-cn"></div>
               <li>
                 <Link className={`dropdown-item  ${lang === 'ar' && "fs-5"}`} to="/find-work">
@@ -91,7 +91,7 @@ export default function NavLargScreen() {
             >
               {t("My Jobs")}
             </NavLink>
-            <ul className={`dropdown-menu myJobs-cn ${lang === 'ar' && 'text-end'}`}>
+            <ul className={`dropdown-menu myJobs-cn ${lang === 'ar' && 'text-end'}`} style={{ marginTop: "-8px" }}>
               <div className="nav-dd-cn"></div>
               <li>
                 <Link className={`dropdown-item  ${lang === 'ar' && "fs-5"}`} to="/my-jobs">
@@ -114,7 +114,7 @@ export default function NavLargScreen() {
             <NavLink className={`nav-link reports-cn ${lang === 'ar' && "fs-5"}`} to="/overview">
               {t("Reports")}
             </NavLink>
-            <ul className={`dropdown-menu Reports-cn ${lang === 'ar' && 'text-end'}`}>
+            <ul className={`dropdown-menu Reports-cn ${lang === 'ar' && 'text-end'}`} style={{ marginTop: "-8px" }}>
               <div className="nav-dd-cn"></div>
               <li>
                 <Link className={`dropdown-item  ${lang === 'ar' && "fs-5"}`} to="/overview">
@@ -154,17 +154,17 @@ export default function NavLargScreen() {
               <i className="fas fa-question fs-5"></i>
             </a>
           </li> */}
-          {/* <li className="nav-item">
-            <a className="nav-link" href="#">
-              <i className="far fa-bell fs-5"></i>
-            </a>
-          </li> */}
           <li className="nav-item ms-5 me-3">
             <Link className="nav-link" to="/messages">
               <i
                 className="far fa-paper-plane fs-5"
                 style={{ transform: "scaleX(-1)" }}
               ></i>
+            </Link>
+          </li>
+          <li className="nav-item me-2">
+            <Link to="/notifications" className="nav-link" href="#">
+              <i className="far fa-bell fs-5"></i>
             </Link>
           </li>
           <li className="ms-1 me-3">

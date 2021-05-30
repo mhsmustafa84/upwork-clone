@@ -4,7 +4,7 @@ import img from "../../../assets/img/loader.gif"
 export default function Loader() {
     return (
         <div className="text-center mt-2">
-            <img width="100" src={img} alt="loader" />
+            <img width="80" src={img} alt="loader" />
         </div>
     )
 }

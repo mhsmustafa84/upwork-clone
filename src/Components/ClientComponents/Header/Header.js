@@ -24,7 +24,7 @@ export default function Header() {
 
     return (
         <>
-            <header className="nav-bg-cn py-3">
+            <header className="nav-bg-cn py-1">
                 {/* Header in large screen */}
                 <div
                     id="nav-lg-id"

@@ -381,7 +381,7 @@ export default function FirstSectionProfileTalent2() {
             {/*  employment skills */}
             {user?.company?.map((item) => (
               <div className="container">
-                <h5>{item.jobTitile}</h5>
+                <h5>{item.jobTitle}</h5>
                 <p style={{ fontFamily: "Gotham SSm" }} className="mb-0 ">
                   {item.companyName}
                 </p>

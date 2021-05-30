@@ -23,6 +23,7 @@ export default function LeftSidebarTalentHome() {
       setarr(user?.searchHistory)
     //setarr(JSON.parse(sessionStorage.getItem("searchArray")))
   }, []);
+
   const handleVal = (textSearch) => {
     setitemSearchList(textSearch);
     let tempArr = [];

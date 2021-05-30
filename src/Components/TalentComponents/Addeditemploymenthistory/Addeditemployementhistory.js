@@ -7,10 +7,10 @@ import { useTranslation } from "react-i18next";
 
 export default function AddandeditEmployementHistory() {
   const user = useSelector((state) => state.talentData);
-  const [EmpTitle,setEmpTitle]= useState("");
-  const [EmpCompany,setEmpCompany]= useState("");
-    const [EmpStillWork,setEmpStillWork]= useState(false);
-const [EmpList,setEmpList]= useState([]);
+  const [EmpTitle, setEmpTitle] = useState("");
+  const [EmpCompany, setEmpCompany] = useState("");
+  const [EmpStillWork, setEmpStillWork] = useState(false);
+  const [EmpList, setEmpList] = useState([]);
 
 
   const dispatch = useDispatch();
@@ -32,20 +32,20 @@ const [EmpList,setEmpList]= useState([]);
       case "EmpStillWork":
         setEmpStillWork(val);
         break;
-        default:
+      default:
         break;
     }
   };
 
 
-  
+
 
   const UpdateEditEmployment = () => {
     if (EmpTitle != "" && EmpCompany != "") {
-      let arr4 = [...EmpList, { jobTitile: EmpTitle, companyName: EmpCompany,stillWork:EmpStillWork }];
+      let arr4 = [...EmpList, { jobTitle: EmpTitle, companyName: EmpCompany, stillWork: EmpStillWork }];
       setEmpList(arr4);
       console.log(EmpList);
-        updateUserData("talent", { company: [...arr4] })
+      updateUserData("talent", { company: [...arr4] })
     }
   }
 
@@ -85,7 +85,7 @@ const [EmpList,setEmpList]= useState([]);
           <div className="row">
             {/*  employment skills */}
             <div className="col-md-6">
-              <h5>{user?.company?.jobTitile}</h5>
+              <h5>{user?.company?.jobTitle}</h5>
               <p style={{ fontFamily: "Gotham SSm" }} className="mb-0 ">
                 {user?.company?.companyName}
               </p>
@@ -168,8 +168,8 @@ const [EmpList,setEmpList]= useState([]);
                     Company
                   </label>
                   <input
-                   onChange={EditEmploymentHistoryonChange}
-                   name="EmpCompany"
+                    onChange={EditEmploymentHistoryonChange}
+                    name="EmpCompany"
                     type="text"
                     className="form-control"
                     id="exampleFormControlInput1"
@@ -183,8 +183,8 @@ const [EmpList,setEmpList]= useState([]);
                     Title
                   </label>
                   <input
-                  onChange={EditEmploymentHistoryonChange}
-                  name="EmpTitle"
+                    onChange={EditEmploymentHistoryonChange}
+                    name="EmpTitle"
                     type="text"
                     className="form-control"
                     id="exampleFormControlInput2"
@@ -192,28 +192,28 @@ const [EmpList,setEmpList]= useState([]);
                 </div>
                 <div className="input-group mb-3">
 
-                    <div className="input-group-text ">
+                  <div className="input-group-text ">
 
-                      <input
-                        onChange={EditEmploymentHistoryonChange}
-                        name="EmpStillWork"
-                        className="form-check-input mt-0 "
+                    <input
+                      onChange={EditEmploymentHistoryonChange}
+                      name="EmpStillWork"
+                      className="form-check-input mt-0 "
 
-                        type="checkbox"
+                      type="checkbox"
 
-                        value=""
+                      value=""
 
-                        aria-label="Checkbox for following text input"
+                      aria-label="Checkbox for following text input"
 
-                      />
+                    />
 
                       I currently worked here
 
                     </div>
 
-                  </div>
+                </div>
 
-             {/* <div className="mb-3">
+                {/* <div className="mb-3">
                   <label
                     htmlFor="exampleFormControlTextarea1"
                     className="form-label"
@@ -243,7 +243,7 @@ const [EmpList,setEmpList]= useState([]);
                 Cancel
               </button>
               <button
-              onClick={UpdateEditEmployment}
+                onClick={UpdateEditEmployment}
                 type="button"
                 className="btn btn-default border rounded-border"
               >

@@ -1,17 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
 import img from "../../../assets/svg/createProfileSubmit.svg";
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { talentDataAction } from '../../../Store/actions/talentData';
+import { useEffect } from "react";
+import { talentDataAction } from './../../../Store/actions/talentData';
 
 export default function CreateProfileSubmit() {
   const user = useSelector(state => state.talentData);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
+
   useEffect(() => {
     dispatch(talentDataAction());
-  }, []);
+  }, [])
 
   return (
     <>
@@ -70,19 +70,25 @@ export default function CreateProfileSubmit() {
               <div className="border-bottom pb-3">
                 <h4>Employment History</h4>
               </div>
-              <div className="mt-4">
-                { }
-                <h4>{user.company?.companyName}</h4>
-                <h5>{user.company?.jobTitile}</h5>
-                {user.company?.stillWork ? <p>Still Work</p> :null}
-              </div>
+              {user?.company?.map(e =>
+                <div className="mt-4">
+
+                  <h4>{e?.companyName}</h4>
+                  <h5>{e?.jobTitle}</h5>
+                  {e?.stillWork ? <p>Still Work</p> : null}
+                </div>
+              )}
+
             </div>
             <div className="bg-white border rounded p-4 mt-5">
               <div className="border-bottom pb-3">
                 <h4>Education</h4>
               </div>
               <div className="mt-4">
-                <h4>{user.school}</h4>
+                <h4>{user?.education?.school}</h4>
+                <h4>{user?.education?.areaOfStudy}</h4>
+                <h4>{user?.education?.degree}</h4>
+                <h4>{user?.education?.gradYear}</h4>
               </div>
             </div>
             <div className="my-3 text-end">
@@ -100,7 +106,7 @@ export default function CreateProfileSubmit() {
               <div className="mt-5">
                 <h4>Language</h4>
                 <p>English: {user.englishProficiency}</p>
-                {user?.otherLanguages?.map(lang=><p>
+                {user?.otherLanguages?.map(lang => <p>
                   {lang.language} : {lang.langProf}
                 </p>)}
                 {/* <p>(Language): (Level)</p> */}

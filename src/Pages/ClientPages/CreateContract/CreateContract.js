@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next';
-import { db } from '../../../firebase';
+import { auth, db } from '../../../firebase';
 
 export default function CreateContract({ location }) {
     const { t } = useTranslation();
@@ -51,9 +51,14 @@ export default function CreateContract({ location }) {
                         .doc(talentID)
                         .collection("jobProposal")
                         .doc(res.docs[0].id)
-                        .update({ status: "pending" })
+                        .update({ status: "offer" })
                 }
             })
+        // db.collection("talent").doc(talentID).collection("notification").add({
+        //     masg: "new job offer",
+        //     clientID: auth.currentUser.uid,
+        //     isShow: false
+        // })
     }
 
     return (
