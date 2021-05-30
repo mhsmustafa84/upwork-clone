@@ -108,7 +108,7 @@ export default function SignUpSecondForm() {
                 },
                 // jobHistory: [],
                 employmentHistory: [],
-                education: { school: "", areaOfSudy: "", degree: "", gradYear: "" },
+                education: { school: "", areaOfStudy: "", degree: "", gradYear: "" },
                 portfolio: [],
                 skills: [],
                 // otherExperience: [],

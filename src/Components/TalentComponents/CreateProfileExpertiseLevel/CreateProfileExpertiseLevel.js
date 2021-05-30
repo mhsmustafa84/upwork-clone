@@ -4,15 +4,28 @@ import { updateUserData } from "../../../Network/Network";
 
 export default function CreateProfileExpertiseLevel({ setBtns, btns }) {
 
-  const [state, setState] = useState("")
+  const [state, setState] = useState({availability: "",expertiseLevel:""})
 
-  const onChangeVal = ({ target }) => {
-    setState(target.value)
+  const onChangeVal = (e) => {
+    const val = e.target.value;
+    const name = e.target.name;
+    switch (name) {
+      case "expertise-level":
+        setState({...state,expertiseLevel:val});
+        break;
+      case "availability":
+        setState({...state,availability:e.target.checked});
+        console.log(e.target.checked)
+        break;
+      default:
+        break;
+    }
   };
 
   const addData = () => {
     updateUserData("talent", {
-      expertiseLevel: state,
+      expertiseLevel: state.expertiseLevel,
+      availability: state.availability,
       profileCompletion: 30,
     });
     setBtns({ ...btns, eduAndEmp: false })
@@ -63,6 +76,18 @@ export default function CreateProfileExpertiseLevel({ setBtns, btns }) {
           </label>
         </div>
       </div>
+      <div className="row mx-4 justify-content-start align-items-center">
+      <label className="w-50 fw-bold">
+            Are you available to work immediately
+            </label>
+            <input
+              type="checkbox"
+              name="availability"
+              className="w-25 form-check shadow-none"
+              onChange={onChangeVal}
+            />
+         
+          </div>
       <div className="px-4 my-3 pt-4 border-top d-flex justify-content-between">
         <button className="btn">
           <Link

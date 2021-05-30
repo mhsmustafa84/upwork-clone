@@ -5,7 +5,7 @@ import { updateUserData } from "../../../Network/Network";
 export default function CreateProfileEducationAndEmployment({ setBtns, btns }) {
 
   const [user, setuser] = useState({
-    education: { school: "", areaOfSudy: "", degree: "", gradYear: "" },
+    education: { school: "", areaOfStudy: "", degree: "", gradYear: "" },
     company: [{ companyName: "", jobTitle: "", stillWork: false }],
     profileCompletion: 40,
   });
@@ -18,7 +18,7 @@ export default function CreateProfileEducationAndEmployment({ setBtns, btns }) {
         setuser({ ...user, school: { ...user.school, school: val } });
         break;
       case "area":
-        setuser({ ...user, school: { ...user.school, areaOfSudy: val } });
+        setuser({ ...user, school: { ...user.school, areaOfStudy: val } });
         break;
       case "degree":
         setuser({ ...user, school: { ...user.school, degree: val } });
