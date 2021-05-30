@@ -101,6 +101,7 @@ export default function SignUpSecondForm() {
                 totalJobs: 0,
                 totalEarnings: 0,
                 totalHours: 0,
+                availability: "",
                 badge: {
                   none: "",
                   risingTalent: "Rising Talent",
@@ -109,7 +110,7 @@ export default function SignUpSecondForm() {
                 },
                 // jobHistory: [],
                 employmentHistory: [],
-                education: { school: "", areaOfSudy: "", degree: "", gradYear: "" },
+                education: { school: "", areaOfStudy: "", degree: "", gradYear: "" },
                 portfolio: [],
                 skills: [],
                 // otherExperience: [],

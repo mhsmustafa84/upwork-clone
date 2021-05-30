@@ -28,7 +28,7 @@ import PleaseVerifiy from "../Pages/EmailVerification/PleaseVerifiy";
 import JobAppliedDetails from "../Pages/TalentPages/JobAppliedDetails/JobAppliedDetails";
 import Contract from "../Pages/TalentPages/Contract/Contract";
 import Offers from "../Pages/TalentPages/Offers/Offers";
-import Notification from './../Pages/ClientPages/ClientNotification/Notification';
+import Notifications from './../Pages//Notifications/Notifications';
 
 export default function TalentRoutes() {
   const [arr, setarr] = useState([]);
@@ -82,7 +82,7 @@ export default function TalentRoutes() {
             />
             <Route path="/messages" exact component={Messages} />
             <Route path="/contract" component={Contract} />
-            <Route path="/notifications" exact component={Notification} />
+            <Route path="/notifications" exact component={Notifications} />
 
             {/* <Route path="**" component={PageNotFound} /> */}
           </Switch>

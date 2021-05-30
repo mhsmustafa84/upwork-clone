@@ -238,66 +238,27 @@ export default function FirstSectionProfileTalent() {
                   <hr />
                   <h5 className="fw-bold">{t("Availability")}</h5>
                   <h6 className="fw-bold">
-                    {user?.Availabilty === true ? "available" : "not available"}
+                    {user?.availability === true ? "available" : "not available"}
                   </h6>
                   <p>
-                    {user?.Availabilty
+                    {user?.availability
                       ? "As Needed - Open to Offers"
                       : "not available for 3 months"}
                   </p>
+
+
                   <h5 className="fw-bold">{t("Languages")}</h5>
-                  <span className="fw-bold fs-5">English:</span>
-                  <span>Fluent</span>
+                  <p>English: {user.englishProficiency}</p>
+                  {user?.otherLanguages?.map(lang => <p>
+                    {lang.language} : {lang.langProf}
+                  </p>)}
+
 
                   <h5 className="fw-bold mt-3">{t("Education")}</h5>
-                  <h5 className="fw-bold">{user?.school}</h5>
-                  <p>{user?.school} 1975-1977</p>
-                  <h5 className="fw-bold">
-                    Toynbee Secondary School, Eastleigh, Hants, UK.
-              </h5>
-                  <p>1970-1975</p>
-                  <ul className="list-unstyled">
-                    <li className="d-flex">
-                      <div>
-                        <h5 className=" fw-bold">
-                          Information Technology Institute (Egypt)
-                    </h5>{" "}
-                        <div>
-                          Introduction to software testing concepts &amp; techniques
-                    </div>{" "}
-                        <div className="text-muted">2020-2020</div>
-                      </div>{" "}
-                    </li>
-                    <li className="d-flex">
-                      <div>
-                        <h5 className=" fw-bold">
-                          Information Technology Institute (Egypt)
-                    </h5>{" "}
-                        <div>Python Programming Basics</div>{" "}
-                        <div className="text-muted">2020-2020</div>
-                      </div>{" "}
-                    </li>
-                    <li className="d-flex">
-                      <div>
-                        <h5 className=" fw-bold">
-                          Information Technology Institute (Egypt)
-                    </h5>{" "}
-                        <div>Database fundamentals</div>{" "}
-                        <div className="text-muted">2020-2020</div>
-                      </div>{" "}
-                    </li>
-                    <li className="d-flex">
-                      <div>
-                        <h5 className=" fw-bold">computer science</h5>{" "}
-                        <div>
-                          Bachelor of Computer Science (BCompSc), Designing and
-                          developing
-                    </div>{" "}
-                        <div className="text-muted">2014-2018</div>
-                      </div>{" "}
-                    </li>{" "}
-                    {/**/}
-                  </ul>
+                  <h5 className="fw-bold">{user?.education?.areaOfStudy}</h5>
+                  <h5 className="fw-bold">{user?.education?.school}</h5>
+                  <h5>{user?.education?.degree}{"   "} {user?.education?.gradYear}</h5>
+                
                 </div>
 
                 <div className="col-6">
@@ -534,7 +495,7 @@ export default function FirstSectionProfileTalent() {
 
                     </div>
 
-                    <div className="my-4 d-flex justify-content-start">
+                    <div className="my-4 d-flex justify-content-start flex-wrap">
                       {user?.skills?.map((item) =>
                         <div className="chip mb-3 ms">
                           <span>{item}</span>
@@ -544,7 +505,7 @@ export default function FirstSectionProfileTalent() {
                   </div>
                 </div>
 
-                <h5 className=" mt-4 fw-bold col"> {t("$20/hr")}</h5>
+                <h5 className=" mt-4 fw-bold col"> ${user?.hourlyRate} \ hr</h5>
                 {/* icons */}
 
                 <div className="col d-flex justify-content-end">
