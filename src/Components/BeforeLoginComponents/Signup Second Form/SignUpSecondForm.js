@@ -106,12 +106,12 @@ export default function SignUpSecondForm() {
                   topRated: "Top Rated",
                   expert: "Expert-Vetted"
                 },
-                jobHistory: [],
+                // jobHistory: [],
                 employmentHistory: [],
-                education: [],
+                education: { school: "", areaOfSudy: "", degree: "", gradYear: "" },
                 portfolio: [],
                 skills: [],
-                otherExperience: [],
+                // otherExperience: [],
                 connects: 20,
                 connectsHistory: [],
                 profileCompletion: 0,
@@ -129,6 +129,7 @@ export default function SignUpSecondForm() {
                 review: {},
                 spentMoney: 0,
                 location: country.name,
+                savedTalent: []
               },
               auth.currentUser.uid
             );

@@ -51,7 +51,7 @@ export default function NavLargScreen() {
             >
               {t("FindWork")}
             </NavLink>
-            <ul className={`dropdown-menu findWork-cn ${lang === 'ar' && 'text-end'}`} style={{ marginTop: "-5px" }}>
+            <ul className={`dropdown-menu findWork-cn ${lang === 'ar' && 'text-end'}`} style={{ marginTop: "-8px" }}>
               <div className="nav-dd-cn"></div>
               <li>
                 <Link className={`dropdown-item  ${lang === 'ar' && "fs-5"}`} to="/find-work">
@@ -91,7 +91,7 @@ export default function NavLargScreen() {
             >
               {t("My Jobs")}
             </NavLink>
-            <ul className={`dropdown-menu myJobs-cn ${lang === 'ar' && 'text-end'}`} style={{ marginTop: "-5px" }}>
+            <ul className={`dropdown-menu myJobs-cn ${lang === 'ar' && 'text-end'}`} style={{ marginTop: "-8px" }}>
               <div className="nav-dd-cn"></div>
               <li>
                 <Link className={`dropdown-item  ${lang === 'ar' && "fs-5"}`} to="/my-jobs">
@@ -114,7 +114,7 @@ export default function NavLargScreen() {
             <NavLink className={`nav-link reports-cn ${lang === 'ar' && "fs-5"}`} to="/overview">
               {t("Reports")}
             </NavLink>
-            <ul className={`dropdown-menu Reports-cn ${lang === 'ar' && 'text-end'}`} style={{ marginTop: "-5px" }}>
+            <ul className={`dropdown-menu Reports-cn ${lang === 'ar' && 'text-end'}`} style={{ marginTop: "-8px" }}>
               <div className="nav-dd-cn"></div>
               <li>
                 <Link className={`dropdown-item  ${lang === 'ar' && "fs-5"}`} to="/overview">

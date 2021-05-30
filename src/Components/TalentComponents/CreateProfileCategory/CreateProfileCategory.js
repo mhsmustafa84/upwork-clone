@@ -47,7 +47,7 @@ export default function CreateProfileCategory({ setBtns, btns }) {
           onChange={catVal}
         >
           <option selected value="Select a category">Select a category</option>
-          <option value="Mobile Development">Front-End Development</option>
+          <option value="Front-End Development">Front-End Development</option>
           <option value="Web Development">Web Development</option>
           <option value="Web Design">Web Design</option>
           <option value="Graphic Design">Graphic Design</option>
@@ -67,7 +67,7 @@ export default function CreateProfileCategory({ setBtns, btns }) {
               Add
             </button>
           </div>
-          <div className="my-4 d-flex justify-content-start">
+          <div className="my-4 d-flex justify-content-start flex-wrap">
             {skillsList.map((item) =>
               <div className="chip mb-3 ms">
                 <span>{item}</span>

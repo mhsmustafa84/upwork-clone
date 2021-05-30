@@ -15,8 +15,8 @@ export default function HomeTalent() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(langAction(lang));
-
   }, [lang]);
+
   return (
     <div dir={lang === 'ar' ? 'rtl' : 'ltr'} >
       <div className="container-md container-fluid-sm my-lg-4 px-3 pt-1">

@@ -41,7 +41,7 @@ export default function NavLargScreen() {
             <NavLink className="nav-link" to="/home">
               {t("Jobs")}
             </NavLink>
-            <ul className="dropdown-menu" style={{ marginTop: "-5px" }}>
+            <ul className="dropdown-menu" style={{ marginTop: "-8px" }}>
               <div className="nav-dd-cn"></div>
               <li>
                 <Link className="dropdown-item" to="/home">
@@ -69,7 +69,7 @@ export default function NavLargScreen() {
             <NavLink className="nav-link" to="/talent">
               {t("Talent")}
             </NavLink>
-            <ul className="dropdown-menu" style={{ marginTop: "-5px" }}>
+            <ul className="dropdown-menu" style={{ marginTop: "-8px" }}>
               <div className="nav-dd-cn"></div>
               <li>
                 <Link className="dropdown-item" to="/talent/my-hires">
@@ -91,7 +91,7 @@ export default function NavLargScreen() {
               id="reports-dd-id"
               className="dropdown-menu"
               aria-labelledby="navbarDropdownMenuLink"
-              style={{ marginTop: "-5px" }}
+              style={{ marginTop: "-8px" }}
             >
               <div className="nav-dd-cn"></div>
               <li className="fw-bold py-1 ms-3">{t("FINANCIALS")}</li>

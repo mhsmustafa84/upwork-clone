@@ -28,6 +28,7 @@ import PleaseVerifiy from "../Pages/EmailVerification/PleaseVerifiy";
 import JobAppliedDetails from "../Pages/TalentPages/JobAppliedDetails/JobAppliedDetails";
 import Contract from "../Pages/TalentPages/Contract/Contract";
 import Offers from "../Pages/TalentPages/Offers/Offers";
+import Notification from './../Pages/ClientPages/ClientNotification/Notification';
 
 export default function TalentRoutes() {
   const [arr, setarr] = useState([]);

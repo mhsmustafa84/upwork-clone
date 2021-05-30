@@ -1,10 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Link } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import img from "../../../assets/svg/createProfileSubmit.svg";
+import { useEffect } from "react";
+import { talentDataAction } from './../../../Store/actions/talentData';
 
 export default function CreateProfileSubmit() {
   const user = useSelector(state => state.talentData);
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(talentDataAction());
+  }, [])
 
   return (
     <>
@@ -67,7 +74,7 @@ export default function CreateProfileSubmit() {
                 <div className="mt-4">
 
                   <h4>{e?.companyName}</h4>
-                  <h5>{e?.jobTitile}</h5>
+                  <h5>{e?.jobTitle}</h5>
                   {e?.stillWork ? <p>Still Work</p> : null}
                 </div>
               )}
@@ -78,7 +85,10 @@ export default function CreateProfileSubmit() {
                 <h4>Education</h4>
               </div>
               <div className="mt-4">
-                <h4>{user.school}</h4>
+                <h4>{user?.education?.school}</h4>
+                <h4>{user?.education?.areaOfStudy}</h4>
+                <h4>{user?.education?.degree}</h4>
+                <h4>{user?.education?.gradYear}</h4>
               </div>
             </div>
             <div className="my-3 text-end">

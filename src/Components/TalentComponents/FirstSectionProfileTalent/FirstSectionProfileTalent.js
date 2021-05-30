@@ -133,10 +133,10 @@ export default function FirstSectionProfileTalent() {
   }
   const UpdateEditEmployment = () => {
     if (EmpTitle !== "" && EmpCompany !== "") {
-      let arr4 = [...EmpList, { jobTitile: EmpTitle, companyName: EmpCompany, stillWork: EmpStillWork }];
+      let arr4 = [...EmpList, { jobTitle: EmpTitle, companyName: EmpCompany, stillWork: EmpStillWork }];
       setEmpList(arr4);
       console.log(EmpList);
-      updateUserData("talent", { company: [...user?.company, { jobTitile: EmpTitle, companyName: EmpCompany, stillWork: EmpStillWork }] })
+      updateUserData("talent", { company: [...user?.company, { jobTitle: EmpTitle, companyName: EmpCompany, stillWork: EmpStillWork }] })
     }
   }
 
@@ -602,7 +602,7 @@ export default function FirstSectionProfileTalent() {
                 {/*  employment skills */}
                 {user?.company?.map((item) =>
                   <div className="container">
-                    <h5>{item.jobTitile}</h5>
+                    <h5>{item.jobTitle}</h5>
                     <p style={{ fontFamily: "Gotham SSm" }} className="mb-0 ">
                       {item.companyName}
                     </p>
