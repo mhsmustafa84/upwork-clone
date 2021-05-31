@@ -5,7 +5,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import { useSelector } from "react-redux";
-
 import { auth, db, storage } from "../../firebase";
 import firebase from 'firebase/app';
 import { subCollection, updateUserData } from "../../Network/Network";
@@ -124,7 +123,13 @@ export default function SubmitProposal() {
     subCollection(
       "talent",
       "jobProposal",
-      { jobId: id, status: "proposal" },
+      {
+        jobId: id,
+        status: "proposal",
+        proposalTime: firebase.firestore.Timestamp.now(),
+        startContractTime: "",
+        endContractTime: ""
+      },
       auth.currentUser.uid
     );
     updateUserData("talent", { connects: user.connects - 2 });

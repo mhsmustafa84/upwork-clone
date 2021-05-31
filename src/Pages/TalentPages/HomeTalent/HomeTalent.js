@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Loader from "../../../Components/SharedComponents/Loader/Loader";
 import AcceptedAlert from "../../../Components/TalentComponents/AcceptedAlert/AcceptedAlert";
 import FindWorkTalentHome from "../../../Components/TalentComponents/FindWorkTalentHome/FindWorkTalentHome";
 import LeftSidebarTalentHome from "../../../Components/TalentComponents/LeftSidebarTalentHome/LeftSidebarTalentHome";
@@ -15,6 +16,7 @@ export default function HomeTalent() {
   const lang = useSelector(state => state.lang);
   const user = useSelector(state => state.talentData);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(talentDataAction(user));
     dispatch(langAction(lang));
@@ -23,18 +25,25 @@ export default function HomeTalent() {
   return (
     <div dir={lang === 'ar' ? 'rtl' : 'ltr'} >
       <div className="container-md container-fluid-sm my-lg-4 px-3 pt-1">
-        <div className="mx-3">
-          {
-            user.accepted === false &&
-            <AcceptedAlert widthh="66%" />
-          }
-          <FindWorkTalentHome />
-          <div className="row">
-            <LeftSidebarTalentHome user={user} />
-            <SectionCenterTalentHome user={user} />
-            <RightSidebarTalentHome user={user} />
-          </div>
-        </div>
+        {
+          user.firstName
+            ? <div className="mx-3">
+              {
+                user.accepted === false &&
+                <AcceptedAlert widthh="66%" />
+              }
+              <FindWorkTalentHome />
+              <div className="row">
+                <LeftSidebarTalentHome user={user} />
+                <SectionCenterTalentHome user={user} />
+                <RightSidebarTalentHome user={user} />
+              </div>
+            </div>
+            : <div className="d-flex justify-content-center align-items-center" style={{ height: "90vh" }}>
+              <Loader />
+            </div>
+        }
+
       </div>
     </div>
   );

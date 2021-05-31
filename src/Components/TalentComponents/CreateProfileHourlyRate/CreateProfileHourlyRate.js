@@ -5,9 +5,9 @@ import { updateUserData } from "./../../../Network/Network";
 import "./CreateProfileHourlyRate.css";
 
 export default function CreateProfileHourlyRate({ setBtns, btns }) {
-  let [rate, setRate] = useState("");
-  const rateNum = (e) => {
-    rate = e.target.value;
+  let [rate, setRate] = useState(0);
+  const rateNum = ({ target }) => {
+    rate = parseInt(target.value);
     setRate(rate);
   };
   const addRate = () => {
