@@ -34,7 +34,8 @@ export default function PostJobBudget({ setBtns, btns }) {
         console.log(job);
         const id = localStorage.getItem("docID");
         console.log(id);
-        updateJob(job, id);
+        updateJob({jobBudget: job.jobBudget, jobPaymentType: job.jobPaymentType,jobPaymentTypeAr:job.jobPaymentType === "Fixed Price" ? "عمل بميزانية ثابتة" : "عمل بالساعة" }, id);
+
         setBtns({ ...btns, review: false });
     };
 
