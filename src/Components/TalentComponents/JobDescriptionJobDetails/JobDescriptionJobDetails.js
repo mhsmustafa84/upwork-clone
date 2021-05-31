@@ -1,8 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
+
 
 export default function JobDescriptionJobDetails({ job }) {
+  const lang = useSelector(state => state.lang);
+
   const { t } = useTranslation();
   return (
     <div className="col-lg-9 col-xs-12  mt-lg-0">
@@ -11,7 +15,7 @@ export default function JobDescriptionJobDetails({ job }) {
       </div>
       <div className="bg-white py-lg-4 px-4 border border-1 row py-sm-3">
         <a href="#" className="advanced-search-link">
-          {job?.jobCategory}
+          {lang === "ar" ? job?.jobCategoryAr : job?.jobCategory}
         </a>
 
         <p className="text-muted">
@@ -46,7 +50,7 @@ export default function JobDescriptionJobDetails({ job }) {
             <strong>${job?.jobBudget}</strong>
           </div>{" "}
           <small className="text-muted">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{job?.jobPaymentType}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{lang === "ar" ? job?.jobPaymentTypeAr : job?.jobPaymentType}
           </small>
         </li>
         {/**/}
@@ -64,7 +68,7 @@ export default function JobDescriptionJobDetails({ job }) {
                 <circle cx="6.3" cy="5.3" r=".9" />
               </svg>
             </span>{" "}
-            <strong>{job?.jobExperienceLevel}</strong>
+            <strong>{lang === "ar" ? job?.jobExperienceLevelAr : job?.jobExperienceLevel}</strong>
           </div>{" "}
           <small className="text-muted">
             <span className="d-none d-lg-inline">
@@ -88,7 +92,7 @@ export default function JobDescriptionJobDetails({ job }) {
                 <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
               </svg>
             </span>{" "}
-            <strong>{job?.jobDuration}</strong>
+            <strong>{lang === "ar" ? job?.jobDurationAr : job?.jobDuration}</strong>
           </div>
           <small className="text-muted">
             <span className="d-none d-lg-inline">
@@ -99,7 +103,7 @@ export default function JobDescriptionJobDetails({ job }) {
       </ul>
       <div className="bg-white py-lg-4 px-4 border border-1 row py-sm-3 py-xs-5">
         <span className="fw-bold">
-          {t("Project type")}: <span className="fw-normal">{job?.jobType}</span>
+          {t("Project type")}: <span className="fw-normal">{lang === "ar" ? job?.jobTypeAr : job?.jobType}</span>
         </span>
       </div>
       <div className="bg-white py-lg-4 px-4 border border-1 row pb-sm-3 py-xs-5">
