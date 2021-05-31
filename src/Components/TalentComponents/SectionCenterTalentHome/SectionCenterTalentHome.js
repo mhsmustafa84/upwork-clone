@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import HeadOfCenterSection from "./../HeadOfCenterSection/HeadOfCenterSection";
 import { jobsDataAction } from "./../../../Store/actions/jobsData";
@@ -154,9 +154,7 @@ export default function SectionCenterTalentHome() {
               </span>
             </p>
           </div>
-          </div>
-  ))
-}
-    </div >
+        ))}
+    </div>
   );
 }
