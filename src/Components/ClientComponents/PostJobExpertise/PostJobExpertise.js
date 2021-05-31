@@ -37,7 +37,7 @@ export default function PostJobExpertise({ setBtns, btns }) {
   const addData = () => {
     const id = localStorage.getItem("docID");
     console.log(id);
-    updateJob({jobExperienceLevel: job.jobExperienceLevel, jobExperienceLevelAr: job.jobExperienceLevel === "expert" ? "خبير" : job.jobExperienceLevel === "intermediate" ? "متوسط" : "بدائي"}, id);
+    updateJob({jobExperienceLevel: job.jobExperienceLevel, jobExperienceLevelAr: job.jobExperienceLevel === "expert" ? "خبير" : job.jobExperienceLevel === "intermediate" ? "متوسط" : "مبتدئ"}, id);
     setBtns({ ...btns, visibility: false });
   };
 

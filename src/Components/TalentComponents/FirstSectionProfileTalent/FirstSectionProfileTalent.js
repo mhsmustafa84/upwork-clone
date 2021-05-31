@@ -12,10 +12,13 @@ import { auth, db, storage } from "../../../firebase";
 import img from "../../../assets/img/icon-user.svg";
 import Loader from "../../SharedComponents/Loader/Loader";
 
+
 export default function FirstSectionProfileTalent() {
 
   const { push } = useHistory();
   // const user = useSelector((state) => state.talentData);
+  const lang = useSelector(state => state.lang);
+
   const [imgUrl, setimgUrl] = useState(null);
   const [progress, setprogress] = useState(0);
   const [profileTitle, setprofileTitle] = useState("");
@@ -220,7 +223,7 @@ export default function FirstSectionProfileTalent() {
 
               <hr />
               <div className="row my-3">
-                <div className="col-4 row border-end border-2 me-1">
+                <div className="col-3 row border-end border-2 me-1">
                   <div className="row">
                     <div className="col">
                       <div className="fw-bold fs-5">${user?.totalEarnings}</div>
@@ -238,19 +241,21 @@ export default function FirstSectionProfileTalent() {
                   <hr />
                   <h5 className="fw-bold">{t("Availability")}</h5>
                   <h6 className="fw-bold">
-                    {user?.availability === true ? "available" : "not available"}
+                    {lang === "ar" ? user?.availability === true ? "متاح" : "غير متاح" : user?.availability === true ? "available" : "not available"}
                   </h6>
                   <p>
-                    {user?.availability
+                    {lang === "ar" ? user?.availability
+                      ? "متاح لتقديم العروض إليه"
+                      : "غير متاح لمدة 3 أشهر" : user?.availability
                       ? "As Needed - Open to Offers"
                       : "not available for 3 months"}
                   </p>
 
 
                   <h5 className="fw-bold">{t("Languages")}</h5>
-                  <p>English: {user.englishProficiency}</p>
-                  {user?.otherLanguages?.map(lang => <p>
-                    {lang.language} : {lang.langProf}
+                  <p>{t("English")} {" : "} {lang === "ar" ? user.englishProficiencyAr : user.englishProficiency}</p>
+                  {user?.otherLanguages?.map(langItem => <p>
+                    {lang === "ar" ? [langItem.languageAr, ' ', ':', ' ', langItem.langProfAr] : [langItem.language, ' ', ':', ' ', langItem.langProf]}
                   </p>)}
 
 
@@ -258,7 +263,7 @@ export default function FirstSectionProfileTalent() {
                   <h5 className="fw-bold">{user?.education?.areaOfStudy}</h5>
                   <h5 className="fw-bold">{user?.education?.school}</h5>
                   <h5>{user?.education?.degree}{"   "} {user?.education?.gradYear}</h5>
-                
+
                 </div>
 
                 <div className="col-6">
@@ -505,10 +510,10 @@ export default function FirstSectionProfileTalent() {
                   </div>
                 </div>
 
-                <h5 className=" mt-4 fw-bold col"> ${user?.hourlyRate} \ hr</h5>
+                <h5 className=" mt-4 fw-bold col-2"> {t("$")} {user?.hourlyRate} \ {t("hr")}</h5>
                 {/* icons */}
 
-                <div className="col d-flex justify-content-end">
+                <div className="col-1 d-flex justify-content-end">
                   <button
                     type="button"
                     className="btn btn-default me-2 d-flex justify-content-center border rounded-circle"
