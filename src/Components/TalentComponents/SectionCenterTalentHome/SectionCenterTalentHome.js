@@ -9,34 +9,41 @@ import ShowMore from "react-show-more-button/dist/module";
 import { talentDataAction } from "../../../Store/actions/talentData";
 import { updateUserData } from "../../../Network/Network";
 import "./SectionCenterTalentHome.css";
+import Loader from "../../SharedComponents/Loader/Loader";
+import StarsRating from "../../SharedComponents/StarsRating/StarsRating";
 
 
-export default function SectionCenterTalentHome({ x }) {
+export default function SectionCenterTalentHome({ user }) {
 
   const jobs = useSelector(state => state.jobsData);
   const lang = useSelector(state => state.lang);
-  const user = useSelector(state => state.talentData);
+  // const user = useSelector(state => state.talentData);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(jobsDataAction());
-    dispatch(talentDataAction());
+    // dispatch(talentDataAction());
+    console.log(jobs);
   }, [])
 
-  const saveJob = (e, id) => {
-    if (e.target.className === 'far fa-heart') {
-      updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
-      e.target.className = 'fas fa-heart text-upwork'
-    }
-    else {
-      user?.savedJobs?.forEach((item, index) => {
-        if (item === id) {
-          user?.savedJobs?.splice(index, 1);
-          updateUserData("talent", { savedJobs: [...user?.savedJobs] });
-          e.target.className = 'far fa-heart'
-        }
-      })
-    }
+  // const saveJob = (e, id) => {
+  //   if (e.target.className === 'far fa-heart') {
+  //     updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
+  //     e.target.className = 'fas fa-heart text-upwork'
+  //   }
+  //   else {
+  //     user?.savedJobs?.forEach((item, index) => {
+  //       if (item === id) {
+  //         user?.savedJobs?.splice(index, 1);
+  //         updateUserData("talent", { savedJobs: [...user?.savedJobs] });
+  //         e.target.className = 'far fa-heart'
+  //       }
+  //     })
+  //   }
+  // }
+
+  const star = (clientReview, index) => {
+    return <StarsRating clientReview={clientReview} index={index} />
   }
 
   return (
@@ -45,7 +52,7 @@ export default function SectionCenterTalentHome({ x }) {
       {
         jobs[0]?.jobID
           ? jobs.map((item, index) => (
-            <div>
+            <div key={index}>
               <div className="list-group-item p-4">
                 <div className="row align-items-center">
                   <div className="col-lg-9 pt-lg-2">
@@ -69,7 +76,12 @@ export default function SectionCenterTalentHome({ x }) {
                         aria-expanded="false"
                         aria-controls="collapseTwo"
                       >
-                        <i onClick={(e) => saveJob(e, item.jobID)} className={`${user.savedJobs?.includes(item.jobID) ? 'fas fa-heart text-upwork' : 'far fa-heart'}`} aria-hidden="true" />
+                        <i
+                          onClick={() => { }
+                            // (e) => saveJob(e, item.jobID)
+                          }
+                          className={`${user.savedJobs?.includes(item.jobID) ? 'fas fa-heart text-upwork' : 'far fa-heart'}`
+                          } aria-hidden="true" />
 
                       </button>
                     </div>
@@ -107,7 +119,7 @@ export default function SectionCenterTalentHome({ x }) {
                   button={
                     <button
                       id="seemorebutton"
-                      classname="advanced-search-link "
+                      className="advanced-search-link "
                       style={{ color: "green", position: "absolute", left: 0 }}
                     >
                       more
@@ -142,23 +154,26 @@ export default function SectionCenterTalentHome({ x }) {
               </span>
                   <span className="text-muted">
                     <span className="mx-2">
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
+                      {/* {console.log(item.clientAllReviews)} */}
+                      {star(item.clientAllReviews, 1)}
+                      {star(item.clientAllReviews, 2)}
+                      {star(item.clientAllReviews, 3)}
+                      {star(item.clientAllReviews, 4)}
+                      {star(item.clientAllReviews, 5)}
                     </span>
-                    <span className="fw-bold "> $0 </span>
+                    <span className="fw-bold "> ${item.clientSpentMoney} </span>
                     <span> spent </span>
                     <span className="fw-bold ">
-                      <i className="fas fa-map-marker-alt ms-2" /> United States
-                </span>
+                      <i className="fas fa-map-marker-alt ms-2" /> {item?.clientCountry}
+                    </span>
                   </span>
                 </p>
               </div>
             </div>
           ))
-          : ""
+          : <div className="d-flex justify-content-center align-items-center" style={{ height: "10vh" }}>
+            <Loader />
+          </div>
       }
     </div >
   );
