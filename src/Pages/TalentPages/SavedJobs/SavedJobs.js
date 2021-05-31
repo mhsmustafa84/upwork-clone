@@ -12,13 +12,13 @@ export default function SavedJobs() {
 
   useEffect(() => {
     dispatch(talentDataAction());
-  }, []);
+  }, [user]);
   return (
     <div className="container-md container-fluid-sm my-lg-4">
       <div className="col-12">
         <SavedJobsHeader jobs={user?.savedJobs?.length} />
         {user?.savedJobs?.map((item) => (
-          <SavedJobsJobComponent jobId={item} />
+          <SavedJobsJobComponent jobId={item} key={item} />
         ))}
       </div>
     </div>

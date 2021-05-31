@@ -12,7 +12,6 @@ const firebaseApp = firebase.initializeApp({
   appId: "1:1063777536149:web:ac906c833922665c00739c",
   measurementId: "G-8BVMCH1W3X",
 });
-
 // const firebaseApp = firebase.initializeApp({
 //   apiKey: "AIzaSyBBPGPgCccB4UhYkEZokCERfbp1hmFe8BU",
 //   authDomain: "final-project-3c172.firebaseapp.com",
@@ -22,7 +21,6 @@ const firebaseApp = firebase.initializeApp({
 //   appId: "1:74521246195:web:8017c290a8aea85e743a86",
 //   measurementId: "G-KGP31WZWFS"
 // });
-
 // const firebaseApp = firebase.initializeApp({
 //   apiKey: "AIzaSyCCdkSGBa4tFyXYrOyfbLkNgrV79l-niEo",
 //   authDomain: "limit-test-e3abd.firebaseapp.com",

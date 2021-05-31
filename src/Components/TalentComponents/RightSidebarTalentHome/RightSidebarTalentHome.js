@@ -3,15 +3,13 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { auth, db } from "../../../firebase";
 import img from "../../../assets/img/icon-user.svg";
 
-export default function RightSidebarTalentHome() {
-  const { t } = useTranslation();
+export default function RightSidebarTalentHome({ user }) {
 
-  const user = useSelector((state) => state.talentData);
+  const { t } = useTranslation();
   const [talentData, setTalentData] = useState([]);
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import HeadOfCenterSection from "./../HeadOfCenterSection/HeadOfCenterSection";
 import { jobsDataAction } from "./../../../Store/actions/jobsData";
@@ -18,9 +18,8 @@ export default function SectionCenterTalentHome() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(jobsDataAction());
-    dispatch(talentDataAction());
+    dispatch(talentDataAction())
   }, [user])
-
   const saveJob = (e, id) => {
     if (e.target.className === 'far fa-heart') {
       updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
@@ -40,19 +39,19 @@ export default function SectionCenterTalentHome() {
   return (
     <div className="col-lg-8 col-xs-12">
       <HeadOfCenterSection />
-      {jobs.map((job, index) => (
-        <div key={index}>
+      {jobs.map((item) => (
+        <div>
           <div className="list-group-item p-4">
             <div className="row align-items-center">
               <div className="col-lg-9 pt-lg-2">
                 <Link
                   to={{
-                    pathname: `/job/${job.jobID}`,
-                    state: `${job.jobID}`,
+                    pathname: `/job/${item.jobID}`,
+                    state: `${item.jobID}`,
                   }}
                   className="job-title-link fw-bold"
                 >
-                  {job?.jobTitle}
+                  {item?.jobTitle}
                 </Link>
               </div>
               <div className="col-lg-3">
@@ -65,7 +64,7 @@ export default function SectionCenterTalentHome() {
                     aria-expanded="false"
                     aria-controls="collapseTwo"
                   >
-                    <i onClick={(e) => saveJob(e, job.jobID)} className={`${user.savedJobs?.includes(job.jobID) ? 'fas fa-heart text-upwork' : 'far fa-heart'}`} aria-hidden="true" />
+                    <i onClick={(e) => saveJob(e, item.jobID)} className={`${user.savedJobs?.includes(item.jobID) ? 'fas fa-heart text-upwork' : 'far fa-heart'}`} aria-hidden="true" />
 
                   </button>
                 </div>
@@ -88,13 +87,13 @@ export default function SectionCenterTalentHome() {
             <p style={{ fontSize: "0.9em" }}>
               <span className="text-muted">
                 <span className="fw-bold" id="contract-type">
-                  {job?.jobPaymentType}
+                  {item?.jobPaymentType}
                 </span>
                 <span> - </span>
-                <span id="experience-level">{job?.jobExperienceLevel}</span>
+                <span id="experience-level">{item?.jobExperienceLevel}</span>
                 <span> - </span>
                 <span>Est. Budget: </span>
-                <span id="client-budget">{job?.jobBudget}</span> - posted
+                <span id="client-budget">{item?.jobBudget}</span> - posted
                 <span id="posting-time"> 4 Hours ago</span>
               </span>
             </p>
@@ -110,9 +109,9 @@ export default function SectionCenterTalentHome() {
                 </button>
               }
             >
-              {job?.jobDescription}
+              {item?.jobDescription}
             </ShowMore>
-            {job?.skills?.map((skill, index) => (
+            {item?.skills?.map((skill, index) => (
               <button
                 key={index}
                 type="button"
