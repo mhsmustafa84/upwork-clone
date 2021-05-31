@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:500);
+/* @import url(https://fonts.googleapis.com/css?family=Roboto:500); */
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css");
 
 @media only screen and (max-width: 890px) {
@@ -11,10 +11,11 @@
   font-family: myFont;
   src: url(../fonts/GothamMedium.ttf);
 } */
-[dir="rtl"] *{
+[dir="rtl"] * {
   /* font-family: 'Tajawal', sans-serif; */
   /* font-size: 14px !important; */
-  font-family: 'Lateef', cursive;
+  /* font-family: 'Lateef', cursive; */
+  font-family: "Cairo", sans-serif;
 }
 .container-fluid {
   background: #f1f2f4;
@@ -38,7 +39,7 @@
   width: 38px;
   height: 38px;
   border-radius: 4px;
-  background-color: #fff ;
+  background-color: #fff;
 }
 
 .google-btn .google-icon {
@@ -48,8 +49,7 @@
   width: 17px;
   height: 17px;
 }
-[dir="rtl"] .google-btn .google-icon 
-{
+[dir="rtl"] .google-btn .google-icon {
   margin-right: 10px;
 }
 .google-btn .btn-text {
@@ -96,14 +96,12 @@
   background: #1e2b31;
   color: white;
 }
-.text-upwork{
+.text-upwork {
   color: #37a000;
 }
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button {  
-
-   opacity: 0;
-
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  opacity: 0;
 }
 .bg-upwork:hover {
   background-color: #008329;

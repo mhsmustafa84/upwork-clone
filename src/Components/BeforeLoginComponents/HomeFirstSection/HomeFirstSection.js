@@ -9,11 +9,11 @@ import img5 from '../../../assets/svg/bissell.svg'
 import img6 from '../../../assets/img/susan-desktop.webp'
 import img7 from '../../../assets/img/john-desktop.webp'
 import { Link } from 'react-router-dom'
-import { useTranslation } from "react-i18next";  
+import { useTranslation } from "react-i18next";
 import { useSelector } from 'react-redux'
 export default function HomeFirstSection() {
     let lang = useSelector(state => state.lang);
-    const { t }=useTranslation();
+    const { t } = useTranslation();
     return (
         <section style={{ marginTop: "10%" }} className="overflow-hidden">
             <div className="container">
@@ -22,11 +22,11 @@ export default function HomeFirstSection() {
                         <div>
                             <h1 className="my-5 fs-h1-cn">{t("Theworldsworkmarketplace")}</h1>
                             <p className="fs-3 fs-p-cn">
-                            {t("Engagethelargestnetwork")}
+                                {t("Engagethelargestnetwork")}
                             </p>
                             <div className="my-5">
                                 <Link className="btn py-3 px-4 me-4 fs-btns-cn text-decoration-none" to="/freelance-jobs">{t("FindTalent")}</Link>
-                                <button className={`btn py-3 px-4 border text-success ${lang ==='ar' && "fs-5"}`}>{t("FindWork")}</button>
+                                <button className={`btn py-3 px-4 border text-success ${lang === 'ar' && "fs-6"}`}>{t("FindWork")}</button>
                             </div>
                             <ul className="d-flex justify-content-between p-0">
                                 <li><img src={img1} width="70" height="26" /></li>
