@@ -22,6 +22,7 @@ export default function CreateProfileLanguage({ setBtns, btns }) {
   const updateUser = () => {
     updateUserData("talent", {
       englishProficiency: language,
+      englishProficiencyAr: language === "English proficiency" ? "إجادة اللغة الإنجليزية" : language === "Basic" ? "أساسي": language ==="Conversational"? "محادثة":language ==="Fluent"? "فصيح":"اللغة الأم",
       otherLanguages: languagesList,
       profileCompletion: 50,
     });
