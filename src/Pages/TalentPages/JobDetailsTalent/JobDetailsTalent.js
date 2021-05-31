@@ -36,7 +36,7 @@ export default function JobDetailsTalent() {
         <div className="container-md container-fluid-sm my-lg-4 my-sm-4 py-xs-5">
           <div className="d-lg-block">
             <div className="row my-lg-4 px-0 mx-0 d-lg-block d-none py-xs-5">
-            {
+              {
                 user.accepted === false &&
                 <AcceptedAlert widthh="100%" />
               }
@@ -54,7 +54,11 @@ export default function JobDetailsTalent() {
               {/* <SimilarJobsOnUpwork /> */}
             </div>
           </div>
-        </div> : <Loader />
+        </div>
+        :
+        <div className="d-flex justify-content-center align-items-center" style={{ height: "90vh" }}>
+          <Loader />
+        </div>
       }
 
     </>
