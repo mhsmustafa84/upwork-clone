@@ -54,11 +54,12 @@ export default function CreateContract({ location }) {
                         .update({ status: "offer" })
                 }
             })
-        // db.collection("talent").doc(talentID).collection("notification").add({
-        //     masg: "new job offer",
-        //     clientID: auth.currentUser.uid,
-        //     isShow: false
-        // })
+        db.collection("talent").doc(talentID).collection("notification").add({
+            message: "New job offer, check it now.",
+            type: "offer",
+            clientID: auth.currentUser.uid,
+            isShow: false
+        })
     }
 
     return (

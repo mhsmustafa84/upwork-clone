@@ -22,7 +22,7 @@ export default function PostJobBudget({ setBtns, btns }) {
                 setJob({ ...job, jobPaymentType: job.jobPaymentType });
                 break;
             case "budget":
-                job.jobBudget = val;
+                job.jobBudget = parseInt(val);
                 setJob({ ...job, jobBudget: job.jobBudget });
                 break;
             default:
