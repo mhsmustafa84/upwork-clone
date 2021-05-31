@@ -64,7 +64,7 @@ export default function SectionCenterTalentHome() {
                     aria-expanded="false"
                     aria-controls="collapseTwo"
                   >
-                    <i onClick={(e) => saveJob(e, item.jobID)} className={`${user.savedJobs.includes(item.jobID) ? 'fas fa-heart text-upwork' : 'far fa-heart'}`} aria-hidden="true" />
+                    <i onClick={(e) => saveJob(e, item.jobID)} className={`${user.savedJobs?.includes(item.jobID) ? 'fas fa-heart text-upwork' : 'far fa-heart'}`} aria-hidden="true" />
 
                   </button>
                 </div>
