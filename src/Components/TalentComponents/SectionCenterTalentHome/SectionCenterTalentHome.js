@@ -14,6 +14,7 @@ import { updateUserData } from "../../../Network/Network";
 export default function SectionCenterTalentHome() {
 
   const jobs = useSelector((state) => state.jobsData);
+  const lang = useSelector(state => state.lang);
   const user = useSelector((state) => state.talentData);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -87,10 +88,10 @@ export default function SectionCenterTalentHome() {
             <p style={{ fontSize: "0.9em" }}>
               <span className="text-muted">
                 <span className="fw-bold" id="contract-type">
-                  {item?.jobPaymentType}
+                  {lang === "ar" ? item?.jobPaymentTypeAr : item?.jobPaymentType}
                 </span>
                 <span> - </span>
-                <span id="experience-level">{item?.jobExperienceLevel}</span>
+                <span id="experience-level">{lang === "ar" ? item?.jobExperienceLevelAr : item?.jobExperienceLevel}</span>
                 <span> - </span>
                 <span>Est. Budget: </span>
                 <span id="client-budget">{item?.jobBudget}</span> - posted
