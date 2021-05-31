@@ -16,7 +16,7 @@ export default function PostJobDetails({ setBtns, btns }) {
     console.log(job);
     const id = localStorage.getItem("docID");
     console.log(id);
-    updateJob(job, id);
+    updateJob({jobType: job.jobType, jobTypeAr: job.jobType === "one time project" ? "مشروع مرة واحدة" : job.jobType === "ongoing project" ? "مشروع مستمر" : "مشروع معقد"}, id);
     setBtns({ ...btns, expertise: false });
   };
 

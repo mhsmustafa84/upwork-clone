@@ -31,7 +31,7 @@ export default function PostJobVisibility({ setBtns, btns }) {
     console.log(job);
     const id = localStorage.getItem("docID");
     console.log(id);
-    updateJob(job, id);
+    updateJob({jobVisibility: job.jobVisibility, jobVisibilityAr: job.jobVisibility === "anyone" ? "أى شخص" : job.jobVisibility === "invite only" ? "دعوة فقط": "مستخدم أبورك فقط",freelancerNeed: job.freelancerNeed, freelancerNeedAr: job.freelancerNeed === "one freelancer" ? "مستقل واحد" : "أكثر من مستقل"}, id);
     setBtns({ ...btns, budget: false });
   };
 
