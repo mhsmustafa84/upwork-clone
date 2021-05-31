@@ -102,6 +102,7 @@ export default function SignUpSecondForm() {
                 totalEarnings: 0,
                 totalHours: 0,
                 availability: "",
+                hourlyRate: 0,
                 badge: {
                   none: "",
                   risingTalent: "Rising Talent",
@@ -128,7 +129,7 @@ export default function SignUpSecondForm() {
                 ...usr,
                 authID: auth.currentUser.uid,
                 paymentVerified: false,
-                review: {},
+                review: 0,
                 spentMoney: 0,
                 location: country.name,
                 savedTalent: []

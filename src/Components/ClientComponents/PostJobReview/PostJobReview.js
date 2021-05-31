@@ -19,12 +19,10 @@ export default function PostJobReview() {
   useEffect(() => {
     db.collection("job")
       .doc(id)
-      .get()
-      .then((doc) => {
+      .onSnapshot((doc) => {
         setJob({ ...doc.data() });
         console.log(job);
       })
-      .catch((err) => console.log(err));
   }, []);
 
   const publishJob = () => {

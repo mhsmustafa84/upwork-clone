@@ -19,7 +19,7 @@ export default function CreateProfileLanguage({ setBtns, btns }) {
     setLanguage(target.value);
   };
 
-  const updateuser = () => {
+  const updateUser = () => {
     updateUserData("talent", {
       englishProficiency: language,
       englishProficiencyAr: language === "English proficiency" ? "إجادة اللغة الإنجليزية" : language === "Basic" ? "أساسي": language ==="Conversational"? "محادثة":language ==="Fluent"? "فصيح":"اللغة الأم",
@@ -33,7 +33,7 @@ export default function CreateProfileLanguage({ setBtns, btns }) {
 
   const addlangToList = newLang => {
     languagesList.push(newLang);
-    setlanguagesList(languagesList);
+    setlanguagesList([...languagesList]);
   };
 
   const deleteLang = index => setlanguagesList(
@@ -84,7 +84,7 @@ export default function CreateProfileLanguage({ setBtns, btns }) {
           <Link
             className="btn bg-upwork px-5"
             to="/create-profile/hourly-rate"
-            onClick={updateuser}
+            onClick={updateUser}
           >
             Next
         </Link>

@@ -1,15 +1,10 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom'
-// import { auth, db } from '../../../firebase';
 import { updateJob } from '../../../Network/Network';
 import './PostJobBudget.css'
 
 export default function PostJobBudget({ setBtns, btns }) {
-    // const [userData, setUserData] = useState({})
-
-    // db.collection('client').doc(auth.currentUser.uid).get().then(res => setUserData(res.data()))
-    // console.log(userData)
     const { t } = useTranslation();
     const [job, setJob] = useState({ jobPaymentType: "", jobBudget: "" });
 
@@ -34,7 +29,7 @@ export default function PostJobBudget({ setBtns, btns }) {
         console.log(job);
         const id = localStorage.getItem("docID");
         console.log(id);
-        updateJob({jobBudget: job.jobBudget, jobPaymentType: job.jobPaymentType,jobPaymentTypeAr:job.jobPaymentType === "Fixed Price" ? "عمل بميزانية ثابتة" : "عمل بالساعة" }, id);
+        updateJob({ ...job, jobPaymentTypeAr: job.jobPaymentType === "Fixed Price" ? "عمل بميزانية ثابتة" : "عمل بالساعة" }, id);
 
         setBtns({ ...btns, review: false });
     };
