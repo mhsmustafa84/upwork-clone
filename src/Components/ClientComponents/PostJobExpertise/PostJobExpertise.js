@@ -8,7 +8,7 @@ export default function PostJobExpertise({ setBtns, btns }) {
 
   const [inputVal, setInputVal] = useState("");
   const [skillsList, setSkillsList] = useState([]);
-  const [job, setJob] = useState({ jobExperienceLevel: "", jobSkills: [] });
+  const [job, setJob] = useState({ jobExperienceLevel: "", skills: [] });
   const { t } = useTranslation();
 
   const getData = (e) => {

@@ -1,8 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useTranslation } from "react-i18next";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { db } from "../../../firebase";
 import { talentDataAction } from "../../../Store/actions/talentData";
 import { updateUserData } from "../../../Network/Network";
@@ -23,22 +24,21 @@ export default function SavedJobsJobComponent({ jobId }) {
       });
     // console.log(jobdata);
   }, []);
-  const saveJob =(e ,id)=>
-  {
-if(e.target.className === 'far fa-heart'){
-updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
-e.target.className = 'fas fa-heart text-upwork'
-}
-else
-{
-  user?.savedJobs?.forEach((item, index) => {
-    if (item === id) {
-      user?.savedJobs?.splice(index, 1);
-      updateUserData("talent", { savedJobs: [...user?.savedJobs] });
-      e.target.className = 'far fa-heart'
-      }
-    })
-}
+
+  const saveJob = (e, id) => {
+    // if (e.target.className === 'far fa-heart') {
+    //   updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
+    //   e.target.className = 'fas fa-heart text-upwork'
+    // }
+    // else {
+    //   user?.savedJobs?.forEach((item, index) => {
+    //     if (item === id) {
+    //       user?.savedJobs?.splice(index, 1);
+    //       updateUserData("talent", { savedJobs: [...user?.savedJobs] });
+    //       e.target.className = 'far fa-heart'
+    //     }
+    //   })
+    // }
   }
 
   return (
@@ -63,7 +63,7 @@ else
               aria-expanded="false"
               aria-controls="collapseTwo"
             >
-              <i onClick={(e)=>saveJob(e,jobdata.jobID)} className={`${user.savedJobs.includes(jobdata.jobID)?'fas fa-heart text-upwork' : 'far fa-heart'}`} aria-hidden="true" />
+              <i onClick={(e) => saveJob(e, jobdata.jobID)} className={`${user.savedJobs.includes(jobdata.jobID) ? 'fas fa-heart text-upwork' : 'far fa-heart'}`} aria-hidden="true" />
             </button>
           </div>
           <div className="btn-group float-sm-end  px-lg-1">
