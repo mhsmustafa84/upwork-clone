@@ -1,6 +1,4 @@
-/* eslint-disable array-callback-return */
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable jsx-a11y/anchor-is-valid */
+
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
@@ -28,42 +26,40 @@ export default function ConnectsAndSubmit({ connects }) {
       .onSnapshot((res) => {
         if (res?.docs.length > 0) setjobProposal(true);
       });
-
-    if (user?.savedJobs?.length > 0) {
-      user?.savedJobs?.forEach((item) => {
-        if (item === id) {
-          text = "Unsave Job";
-          setText(text);
-        } else {
-          text = "Saved Job";
-          setText(text);
-        }
-      });
-    } else {
-      text = "Saved Job";
-      setText(text);
-    }
+     (user?.savedJobs?.includes(id))?setText("Unsave Job"): setText("Save Job")
+    // if (user?.savedJobs?.length > 0) {
+    //   user?.savedJobs?.forEach((item) => {
+    //     if (item === id) {
+    //       text = "Unsave Job";
+    //       setText(text);
+    //     } else {
+    //       text = "Saved Job";
+    //       setText(text);
+    //     }
+    //   });
+    // } else {
+    //   text = "Saved Job";
+    //   setText(text);
+    // }
   }, []);
 
+
+
   const savedjobs = () => {
-    if (text === "Saved Job") {
+    if (!user?.savedJobs?.includes(id)) {
       updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
-      text = "Unsave Job";
-      setText(text);
-      console.log(user?.savedJobs?.length);
+      setText("Unsave Job");
     } else {
       user?.savedJobs.forEach((item, index) => {
         if (item === id) {
           user?.savedJobs?.splice(index, 1);
           updateUserData("talent", { savedJobs: [...user?.savedJobs] });
           console.log(user?.savedJobs);
-          text = "Saved Job";
-          setText(text);
-          console.log(text);
+          setText("Save Job");
         }
       });
     }
-    dispatch(talentDataAction(user));
+    dispatch(talentDataAction());
   };
 
   const handlewithdrawProposal = async () => {
@@ -116,7 +112,6 @@ export default function ConnectsAndSubmit({ connects }) {
           <button
             className="btn bg-upwork"
             onClick={(handleRout) => push(`/job/apply/${id}`)}
-            disabled={!user.connects > 0 || user.accepted === false}
           >
             {t("Submit a proposal")}
           </button>
@@ -128,20 +123,24 @@ export default function ConnectsAndSubmit({ connects }) {
             {t("Withdraw")}
           </button>
         )}
-        <button
+       
+       <button
           className="btn btn-light border border-1 my-lg-2"
           type="button"
-          onClick={() => savedjobs(text, setText, id, user)}
+          onClick={() => savedjobs()}
         >
           <i
-            className={`me-2 ${text === "Unsave Job"
+            className={`me-2 ${
+              //  user.savedJobs.includes(id)
+              text==="Unsave Job"
                 ? "fas fa-heart text-upwork"
                 : "far fa-heart"
-              }`}
+            }`}
             aria-hidden="true"
           />
           {text}
         </button>
+        
       </div>
       <a href="#" className="advanced-search-link">
         <svg
