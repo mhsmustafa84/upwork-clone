@@ -49,7 +49,6 @@ export default function Proposals() {
               <ProposalCard jobId={task.jobId} key={index} />
             ))}
           </div>
-
           <div className="list-group-item py-lg-4 mt-3">
             <h4>
               {t("Submited proposals")} ({talentData?.submited?.length})

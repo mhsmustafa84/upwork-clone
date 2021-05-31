@@ -40,48 +40,50 @@ export default function SectionCenterTalentHome() {
   return (
     <div className="col-lg-8 col-xs-12">
       <HeadOfCenterSection />
-      {jobs.map((item) => (
-        <div>
-          <div className="list-group-item p-4">
-            <div className="row align-items-center">
-              <div className="col-lg-9 pt-lg-2">
-                <Link
-                  to={{
-                    pathname: `/job/${item.jobID}`,
-                    state: `${item.jobID}`,
-                  }}
-                  className="job-title-link fw-bold"
-                >
-                  {item?.jobTitle}
-                </Link>
-              </div>
-              <div className="col-lg-3">
-                <div className="btn-group float-sm-end">
-                  <button
-                    type="button"
-                    className="btn btn-light dropdown-toggle border border-1 rounded-circle collapsed"
-                    data-toggle="collapse"
-                    data-target="#collapse"
-                    aria-expanded="false"
-                    aria-controls="collapseTwo"
+      {
+        jobs.map((item) => (
+          <div>
+            <div className="list-group-item p-4">
+              <div className="row align-items-center">
+                <div className="col-lg-9 pt-lg-2">
+                  <Link
+                    to={{
+                      pathname: `/job/${item.jobID}`,
+                      state: `${item.jobID}`,
+                    }}
+                    className="job-title-link fw-bold"
                   >
-                    <i onClick={(e) => saveJob(e, item.jobID)} className={`${user.savedJobs?.includes(item.jobID) ? 'fas fa-heart text-upwork' : 'far fa-heart'}`} aria-hidden="true" />
-
-                  </button>
+                    {item?.jobTitle}
+                  </Link>
                 </div>
-                <div className="btn-group float-sm-end  px-lg-1">
-                  <ul className="dropdown-menu">
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        RSS
+                <div className="col-lg-3">
+                  <div className="btn-group float-sm-end">
+                    <button
+                      type="button"
+                      className="btn btn-light dropdown-toggle border border-1 rounded-circle collapsed"
+                      data-toggle="collapse"
+                      data-target="#collapse"
+                      aria-expanded="false"
+                      aria-controls="collapseTwo"
+                    >
+                      <i onClick={(e) => saveJob(e, item.jobID)} className={`${user.savedJobs?.includes(item.jobID) ? 'fas fa-heart text-upwork' : 'far fa-heart'}`} aria-hidden="true" />
+
+                    </button>
+                  </div>
+                  <div className="btn-group float-sm-end  px-lg-1">
+                    <ul className="dropdown-menu">
+                      <li>
+                        <a className="dropdown-item" href="#">
+                          RSS
                       </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        Atom
+                      </li>
+                      <li>
+                        <a className="dropdown-item" href="#">
+                          Atom
                       </a>
-                    </li>
-                  </ul>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -152,8 +154,9 @@ export default function SectionCenterTalentHome() {
               </span>
             </p>
           </div>
-        </div>
-      ))}
-    </div>
+          </div>
+  ))
+}
+    </div >
   );
 }

@@ -35,10 +35,7 @@ export default function HomeLayout() {
     })
   }, []);
 
-
-
   const job = jobs[0]?.data;
-  console.log(proposals);
 
   return (
     <>
@@ -409,48 +406,6 @@ export default function HomeLayout() {
                     </div>
                   </div>
                 </div>
-
-                {/* <ul
-              className="list-group sidebar-homebage-ul mb-lg-3 d-none d-lg-block d-xl-none"
-              style={{ fontSize: "0.9em" }}
-            >
-              <li
-                className="list-group-item sidebar-homebage-ul-li"
-                aria-current="true"
-              >
-                <a
-                  href="#"
-                  className="list-group-item-action advanced-search-link"
-                  aria-current="true"
-                >
-                  {t("4 submitted proposals")}
-                </a>
-              </li>
-              <li
-                className="list-group-item sidebar-homebage-ul-li"
-                aria-current="true"
-              >
-                <a
-                  href="#"
-                  className="list-group-item-action advanced-search-link"
-                  aria-current="true"
-                >
-                  {t("60 availabale connects")}
-                </a>
-              </li>
-              <li
-                className="list-group-item sidebar-homebage-ul-li"
-                aria-current="true"
-              >
-                <a
-                  href="#"
-                  className="list-group-item-action advanced-search-link"
-                  aria-current="true"
-                >
-                  <i className="fas fa-stopwatch"></i> {t("Track time with the desktop app")}
-                </a>
-              </li>
-            </ul> */}
               </div>
             </div>
           </div>
