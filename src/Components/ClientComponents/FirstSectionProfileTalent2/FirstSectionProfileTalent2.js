@@ -109,10 +109,10 @@ export default function FirstSectionProfileTalent2() {
               <hr />
               <h5 className="fw-bold">{t("Availability")}</h5>
               <h6 className="fw-bold">
-                {user?.Availabilty === true ? "available" : "not available"}
+                {user?.availability === true ? "available" : "not available"}
               </h6>
               <p>
-                {user?.Availabilty
+                {user?.availability
                   ? "As Needed - Open to Offers"
                   : "not available for 3 months"}
               </p>
@@ -381,7 +381,7 @@ export default function FirstSectionProfileTalent2() {
             {/*  employment skills */}
             {user?.company?.map((item) => (
               <div className="container">
-                <h5>{item.jobTitile}</h5>
+                <h5>{item.jobTitle}</h5>
                 <p style={{ fontFamily: "Gotham SSm" }} className="mb-0 ">
                   {item.companyName}
                 </p>

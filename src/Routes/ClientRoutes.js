@@ -59,6 +59,7 @@ export default function ClientRoutes() {
             component={TransactionHistory}
           />
           <Route path="/create-contract" component={CreateContract} />
+          <Route path="/notifications" exact component={Notification} />
           <Route path="**" component={PageNotFound} />
         </Switch>
       </SearchContextProvider>

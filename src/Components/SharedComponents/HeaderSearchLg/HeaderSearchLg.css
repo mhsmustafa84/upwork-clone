@@ -1,5 +1,4 @@
-input::placeholder,
-input.form-control::placeholder {
+.place-h-cn {
   color: #fff !important;
   opacity: 1;
 }

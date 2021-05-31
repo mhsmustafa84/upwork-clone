@@ -130,7 +130,7 @@ export default function PostJobReview() {
             </section>
 
             <section className="bg-white border rounded mt-4">
-              <div className="px-4 mt-4">
+              {/* <div className="px-4 mt-4">
                 <h5><i className="fas fa-user-plus text-success me-3"></i>{t("Coworkers")}</h5>
                 <div className="my-5">
                   <h6>{t("Email Addresses")}</h6>
@@ -140,8 +140,8 @@ export default function PostJobReview() {
                   <h6>{t("Add a personal message (optional)")}</h6>
                   <textarea placeholder={t("Comma-separated emails")} rows="5" className="form-control shadow-none"></textarea>
                 </div>
-              </div>
-              <div className="ps-4 my-3 border-top pt-4">
+              </div> */}
+              <div className="ps-4 my-3 py-2">
                 <Link className="btn bg-upwork me-4 px-5" to="/" onClick={publishJob}>{t("Post Job Now")}</Link>
                 <Link className="btn border text-success px-5" to="/home" onClick={deletePost}>{t("Delete & Exit")}</Link>
               </div>

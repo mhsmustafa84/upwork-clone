@@ -2,12 +2,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-script-url */
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clientDataAction } from "./../../../Store/actions/clientData";
 import { useTranslation } from "react-i18next";
-import { auth } from "../../../firebase";
+import { auth, db } from "../../../firebase";
 import { clientJobsAction } from "../../../Store/actions/clientJobAction";
 import "./HomeLayout.css";
 import j1 from "../../../assets/svg/jobs1.svg";
@@ -21,19 +21,27 @@ import Loader from "../../SharedComponents/Loader/Loader";
 
 export default function HomeLayout() {
   const { t } = useTranslation();
-  const user = useSelector((state) => state.clientData);
-  const jobs = useSelector((state) => state.clientJobs);
+  const user = useSelector(state => state.clientData);
+  const jobs = useSelector(state => state.clientJobs);
   const dispatch = useDispatch();
+  const [proposals, setProposals] = useState(0);
+
   useEffect(() => {
     dispatch(clientDataAction());
     dispatch(clientJobsAction("authID", "==", auth.currentUser.uid));
-    console.log(jobs);
+    db.collection("job").doc(jobs[0]?.docID).collection("proposals").get().then(res => {
+      const length = res.docs.length;
+      setProposals(length)
+    })
   }, []);
 
+
+
   const job = jobs[0]?.data;
+  console.log(proposals);
+
   return (
     <>
-      {console.log(user)}
       {
         user.firstName
           ?
@@ -84,7 +92,7 @@ export default function HomeLayout() {
                             id="all-postings-list-created-by-block-0"
                           >
                             Posted
-                        <span className="">
+                        <span className="ms-2">
                               {new Date(
                                 job?.postTime.seconds * 1000
                               ).toLocaleString()}
@@ -101,8 +109,8 @@ export default function HomeLayout() {
                         </div>
                         <div className="d-block col-sm-2 col-xs-3">
                           <div className="fw-bold">
-                            <span>0</span> (<span> 0 </span> new)
-                      </div>
+                            <span>{proposals}</span>
+                          </div>
                           <div className="text-muted">Proposals</div>
                         </div>
                         <div className="d-block col-sm-2 col-xs-3">
@@ -110,7 +118,7 @@ export default function HomeLayout() {
                           <div className="text-muted">Messaged</div>
                         </div>
                         <div className="d-block col-sm-2 col-xs-3">
-                          <div className="fw-bold">{job?.hired}0</div>
+                          <div className="fw-bold">{job?.hired}</div>
                           <div className="text-muted">Hired</div>
                         </div>
 
@@ -454,3 +462,5 @@ export default function HomeLayout() {
     </>
   );
 }
+
+

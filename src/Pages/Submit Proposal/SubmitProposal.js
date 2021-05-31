@@ -1,7 +1,10 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable array-callback-return */
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
-import  { auth, db, storage } from "../../firebase";
+import { auth, db, storage } from "../../firebase";
 import firebase from 'firebase/app';
 import { subCollection, updateUserData } from "../../Network/Network";
 import { Link } from "react-router-dom";
@@ -26,7 +29,6 @@ export default function SubmitProposal() {
       .doc(id)
       .get()
       .then((res) => setjob(res.data()));
-    //talent data
     db.collection("talent")
       .doc(auth.currentUser.uid)
       .get()
@@ -76,8 +78,6 @@ export default function SubmitProposal() {
     }
   };
 
-  let arr = ["s"];
-  arr = job?.skills;
 
   const handlVal = (e) => {
     const val = e.target.value;
@@ -112,9 +112,6 @@ export default function SubmitProposal() {
       default:
         break;
     }
-    {
-
-    }
   };
   const handleRout = () => {
     push({ pathname: "/proposals", state: id })
@@ -141,7 +138,7 @@ export default function SubmitProposal() {
         clientId: job.authID,
         budget: parseInt(rate),
         jobPaymentType: job.jobPaymentType,
-        proposalTime:firebase.firestore.Timestamp.now(),
+        proposalTime: firebase.firestore.Timestamp.now(),
       },
       id
     );
@@ -249,7 +246,11 @@ export default function SubmitProposal() {
               <div className="bg-white border rounded-bottom rounded-top">
                 <h2 className="h4 border-bottom p-4">Terms</h2>
                 <div className="ps-4 pt-2 d-flex">
-                  {job?.jobPaymentType == "Fixed Price" ? <SubmitProposalFixed rate={rate} setrate={setrate} /> : <SubmitProposalHourly rate={rate} setrate={setrate} />}
+                  {
+                    job?.jobPaymentType === "Fixed Price"
+                      ? <SubmitProposalFixed rate={rate} setrate={setrate} />
+                      : <SubmitProposalHourly rate={rate} setrate={setrate} />
+                  }
 
 
                   <div className="w-25 m-3 ps-3 d-flex flex-column justify-content-center align-items-center">
@@ -300,7 +301,8 @@ export default function SubmitProposal() {
                 <div className="mx-4 mt-3 py-2 pb-4">
                   <p className="fw-bold">Attachments</p>
                   <div className="d-flex mb-3">
-                    {proposalData.proposalImages &&
+                    {
+                      proposalData.proposalImages &&
                       proposalData.proposalImages.map((url) => {
                         return (
                           <div
@@ -313,7 +315,8 @@ export default function SubmitProposal() {
                             />
                           </div>
                         );
-                      })}
+                      })
+                    }
                   </div>
                   <div className="attachments-cn">
                     <p className="py-2 text-center mt-2">
@@ -350,7 +353,6 @@ export default function SubmitProposal() {
                     style={{ backgroundColor: "#37a000" }}
                     data-bs-toggle="modal"
                     data-bs-target="#exampleModal"
-                    disabled={!user.connects > 0}
                   >
                     Submit Proposal
                   </button>

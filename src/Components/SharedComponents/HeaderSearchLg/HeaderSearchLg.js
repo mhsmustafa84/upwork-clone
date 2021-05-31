@@ -80,7 +80,7 @@ export default function HeaderSearchLg() {
           </Link>
         </div>
         <input
-          className="form-control ms-1 ps-5 py-1 border-0 text-white search-input-cnn"
+          className="form-control ms-1 ps-5 py-1 border-0 text-white search-input-cnn place-h-cn"
           type="search"
           onChange={handle}
           value={itemSearchList}

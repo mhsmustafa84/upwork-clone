@@ -60,7 +60,9 @@ export default function CreateProfilePhoto({ setBtns, btns }) {
                     {/* <progress className="w-100" value={progress} max="100" /> */}
                     <div className="mb-3" style={{ width: progress * 2, height: "5px", backgroundColor: "#37A000" }}></div>
                     {imgUrl ? (
-                        <img src={imgUrl} />
+                        <div style={{ width: "100px", height: "100px", margin: "0 auto" }}>
+                            <img className="w-100 h-100 circle" src={imgUrl} />
+                        </div>
                     ) : (
                         <i
                             className="fas fa-user-circle fa-7x"

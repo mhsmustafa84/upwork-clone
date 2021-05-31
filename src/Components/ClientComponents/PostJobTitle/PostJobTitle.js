@@ -86,9 +86,11 @@ export default function PostJobTitle({ setBtns, btns }) {
           )}</p>
           <select className="form-select form-select-lg mb-3 shadow-none w-50" aria-label=".form-select-lg example" name="JobCategory" onChange={getData}>
             <option defaultValue value="Select a category">{t("Select a category")}</option>
+            <option value="Front-End Development">Front-End Development</option>
             <option value="Web Development">{t("Web Development")}</option>
             <option value="Web Design">{t("Web Design")}</option>
             <option value="Graphic Design">{t("Graphic Design")}</option>
+            <option value="Mobile Development">Mobile Development</option>
           </select>
         </div>
         <div className="ps-4 my-3">
