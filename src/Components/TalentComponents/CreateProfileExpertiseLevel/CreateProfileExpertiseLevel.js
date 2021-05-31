@@ -25,10 +25,7 @@ export default function CreateProfileExpertiseLevel({ setBtns, btns }) {
   const addData = () => {
     updateUserData("talent", {
       expertiseLevel: state.expertiseLevel,
-      expertiseLevelAr: state.expertiseLevel === "Entry-level"
-        ? "مبتدىء"
-        : state.expertiseLevel === "Intermediate"
-          ? "متوسط" : "محترف",
+      expertiseLevelAr: state.expertiseLevel === "Expert" ? "خبير" : state.expertiseLevel === "Intermediate" ? "متوسط" : "مبتدئ",
       availability: state.availability,
       profileCompletion: 30,
     });

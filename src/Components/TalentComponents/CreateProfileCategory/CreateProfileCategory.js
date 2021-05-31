@@ -19,6 +19,7 @@ export default function CreateProfileCategory({ setBtns, btns }) {
   const addData = () => {
     updateUserData("talent", {
       jobCategory: cat,
+      jobCategoryAr: cat === "Graphic Design" ? "تصميم الجرافيك" : cat === "Web Development" ? "تطوير الويب": cat ==="Front-End Development"? "تطوير الواجهة الأمامية":cat ==="Web Design"? "تصميم الويب":"تطوير الهاتف",
       skills: skillsList,
       profileCompletion: 20
     });
