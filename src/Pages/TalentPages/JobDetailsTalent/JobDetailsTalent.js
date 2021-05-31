@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useParams } from "react-router";
-// import ClientRecentHistory from "../../../Components/TalentComponents/ClientRecentHistory/ClientRecentHistory";
+import ClientRecentHistory from "../../../Components/TalentComponents/ClientRecentHistory/ClientRecentHistory";
 import JobDescriptionJobDetails from "../../../Components/TalentComponents/JobDescriptionJobDetails/JobDescriptionJobDetails";
 import RightSidebarJobDetails from "../../../Components/TalentComponents/RightSidebarJobDetails/RightSidebarJobDetails";
-// import OtherOpenJobsByThisClient from "../../../Components/TalentComponents/OtherOpenJobsByThisClient/OtherOpenJobsByThisClient";
-// import SimilarJobsOnUpwork from "./../../../Components/TalentComponents/SimilarJobsOnUpwork/SimilarJobsOnUpwork";
+import OtherOpenJobsByThisClient from "../../../Components/TalentComponents/OtherOpenJobsByThisClient/OtherOpenJobsByThisClient";
+import SimilarJobsOnUpwork from "./../../../Components/TalentComponents/SimilarJobsOnUpwork/SimilarJobsOnUpwork";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import { db } from "../../../firebase";
@@ -15,7 +15,7 @@ import { talentDataAction } from "../../../Store/actions/talentData";
 
 export default function JobDetailsTalent() {
   const { id } = useParams();
-  const [jobData, setJobData] = useState(null);
+  const [jobData, setJobData] = useState(null)
   const user = useSelector((state) => state.talentData);
   const dispatch = useDispatch();
 
@@ -35,7 +35,7 @@ export default function JobDetailsTalent() {
         <div className="container-md container-fluid-sm my-lg-4 my-sm-4 py-xs-5">
           <div className="d-lg-block">
             <div className="row my-lg-4 px-0 mx-0 d-lg-block d-none py-xs-5">
-              {
+            {
                 user.accepted === false &&
                 <div class="alert alert-warning d-flex align-items-center mt-4" role="alert">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="red" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
