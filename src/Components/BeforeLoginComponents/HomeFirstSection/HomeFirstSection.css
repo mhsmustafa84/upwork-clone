@@ -1,5 +1,5 @@
 .fs-h1-cn {
-  font-size: 65px;
+  font-size: 45px;
   line-height: 95px;
   color: #1d4354;
 }
@@ -33,13 +33,12 @@
   padding: 10px;
   background-color: white;
 }
-[dir = "rtl"] .fs-h1-cn {
+[dir="rtl"] .fs-h1-cn {
   font-weight: bold;
 }
-[dir = "rtl"] .fs-abs-img-cn {
+[dir="rtl"] .fs-abs-img-cn {
   left: -15%;
 }
-[dir="rtl"] .fs-btns-cn
-{
-  font-size: 20px;
+[dir="rtl"] .fs-btns-cn {
+  font-size: 15px;
 }

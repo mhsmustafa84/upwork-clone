@@ -114,6 +114,7 @@ export default function ConnectsAndSubmit({ connects }) {
           <button
             className="btn bg-upwork"
             onClick={(handleRout) => push(`/job/apply/${id}`)}
+            disabled={user.accepted === false || user.connects < 2}
           >
             {t("Submit a proposal")}
           </button>
