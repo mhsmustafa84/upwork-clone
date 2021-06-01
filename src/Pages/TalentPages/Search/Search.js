@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -8,11 +9,9 @@ import ShowMore from "react-show-more-button/dist/module";
 import { useDispatch, useSelector } from "react-redux";
 import { talentDataAction } from "../../../Store/actions/talentData";
 import { updateUserData } from "../../../Network/Network";
-import { jobsDataAction } from "../../../Store/actions/jobsData";
 
 export default function Search(props) {
     const { t } = useTranslation();
-    // const jobs = useSelector((state) => state.jobsData);
     const user = useSelector((state) => state.talentData);
     const dispatch = useDispatch();
 
@@ -29,51 +28,27 @@ export default function Search(props) {
     useEffect(() => {
         let arr = props.location.state
         setsearchData(arr)
-        //console.log(arr);
     }, [props.location.state])
 
-    // useEffect(() => {
-        // console.log(filterSearch);
-    // }, [itemSearchList, filterSearch])
-    //filter level expereince
     const handleLevel = (e) => {
         let val = e.target.checked;
         let name = e.target.name;
         switch (name) {
             case 'entry level':
-                setfilterSearch(searchData.filter((item) => item.jobExperienceLevel == name && val && item))
+                setfilterSearch(searchData.filter((item) => item.jobExperienceLevel === name && val && item))
                 setfiltered(val);
-                // //f-search =[.....] val =true [...arr ,e]
-                // if(filterSearch.length!=0 && val){
-                //     setfilterSearch([...filterSearch,(searchData.filter((item)=>item.jobExperienceLevel==name  && item))])
-                // }else
-                // //f-search =[.....] val =false [...arr , -e]
-                //  if(filterSearch.length!=0 && val==false){
-                // setfilterSearch([...filterSearch,(filterSearch.filter((item)=>item.jobExperienceLevel!=name  && item))])
-                //  }else 
-                //  //f-search =[] val =true [e]
-                //  if(filterSearch.length==0 && val){
-                //     setfilterSearch(searchData.filter((item)=>item.jobExperienceLevel==name  && item))
-                //  }
-                //  //f-search =[] val =false sea
-                //  else{
-                //     setfilterSearch(searchData)
-                //  }     
-
                 break;
             case 'intermediate':
-                setfilterSearch(searchData.filter((item) => item.jobExperienceLevel == name && val && item))
+                setfilterSearch(searchData.filter((item) => item.jobExperienceLevel === name && val && item))
                 setfiltered(val)
                 break;
             case 'expert':
-                setfilterSearch(searchData.filter((item) => item.jobExperienceLevel == name && val && item))
+                setfilterSearch(searchData.filter((item) => item.jobExperienceLevel === name && val && item))
                 setfiltered(val);
                 break;
-
             default:
                 break;
         }
-        // console.log(e.target.name, e.target.checked);
     }
     const saveJob = (e, id) => {
         if (e.target.className === 'far fa-heart') {
@@ -87,14 +62,12 @@ export default function Search(props) {
                     user?.savedJobs?.splice(index, 1);
                     updateUserData("talent", { savedJobs: [...user?.savedJobs] });
                     e.target.className = 'far fa-heart'
-            console.log("delete")
+                    console.log("delete")
 
                 }
             })
         }
-        // dispatch(talentDataAction());
         console.log("fire")
-
     }
 
     return (

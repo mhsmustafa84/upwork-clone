@@ -11,18 +11,22 @@ import { updateUserData } from "../../../Network/Network";
 import "./SectionCenterTalentHome.css";
 import Loader from "../../SharedComponents/Loader/Loader";
 import StarsRating from "../../SharedComponents/StarsRating/StarsRating";
+import { db } from "../../../firebase";
+import JobProposalsNumber from "./JobProposalsNumber";
 
 
 export default function SectionCenterTalentHome({ user }) {
 
   const jobs = useSelector(state => state.jobsData);
   const lang = useSelector(state => state.lang);
+  // const [numOfProposals, setNumOfProposals] = useState(0)
   // const user = useSelector(state => state.talentData);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(jobsDataAction());
     // dispatch(talentDataAction());
+    // setNumOfProposals(getProposalsNumber())
     console.log(jobs);
   }, [])
 
@@ -48,7 +52,7 @@ export default function SectionCenterTalentHome({ user }) {
 
   return (
     <div className="col-lg-8 col-xs-12">
-      <HeadOfCenterSection />
+      {/* <HeadOfCenterSection /> */}
       {
         jobs[0]?.jobID
           ? jobs.map((item, index) => (
@@ -110,8 +114,8 @@ export default function SectionCenterTalentHome({ user }) {
                     <span id="experience-level">{lang === "ar" ? item?.jobExperienceLevelAr : item?.jobExperienceLevel}</span>
                     <span> - </span>
                     <span>Est. Budget: </span>
-                    <span id="client-budget">{item?.jobBudget}</span> - posted
-                <span id="posting-time"> 4 Hours ago</span>
+                    <span id="client-budget">${item?.jobBudget}</span> - posted
+                <span id="posting-time"> {new Date(item.postTime.seconds * 1000).toLocaleString()}</span>
                   </span>
                 </p>
                 <ShowMore
@@ -132,29 +136,30 @@ export default function SectionCenterTalentHome({ user }) {
                   <button
                     key={index}
                     type="button"
-                    className="btn btn-secondary btn-sm rounded-pill skills"
+                    className="btn bg-secondary text-light btn-sm rounded-pill skills mx-1"
                   >
                     {skill}
                   </button>
                 ))}
 
-                <p style={{ fontSize: "0.9em" }} className="my-lg-1">
+                <p style={{ fontSize: "0.9em" }} className="my-lg-1 py-2">
                   <span className="text-muted">
                     <span>Proposals: </span>
-                    <span className="fw-bold ">Less than </span>
                     <span className="fw-bold " id="proposals-numbers">
-                      5
-                </span>
+                      <JobProposalsNumber jobID={item?.jobID} />
+                    </span>
                   </span>
                 </p>
-                <p style={{ fontSize: "0.85em" }} className="my-lg-1 mb-lg-2">
-                  <span className="fw-bold" style={{ color: "#14bff4" }}>
-                    <i className="fas fa-check-circle primary me-1" />
-                Payment verified
-              </span>
+                <div style={{ fontSize: "0.85em" }} className="my-lg-1 mb-lg-2">
+                  <span className="fw-bold" style={{ color: item.clientPaymentVerified ? "#14bff4" : "red" }}>
+                    <i
+                      className={`${item.clientPaymentVerified ? "fas fa-check-circle" : "far fa-times-circle"} me-1`}
+                      style={{ color: item.clientPaymentVerified ? "#14bff4" : "red" }}
+                    />
+                    {item.clientPaymentVerified ? "Payment verified" : "Payment unverified"}
+                  </span>
                   <span className="text-muted">
                     <span className="mx-2">
-                      {/* {console.log(item.clientAllReviews)} */}
                       {star(item.clientAllReviews, 1)}
                       {star(item.clientAllReviews, 2)}
                       {star(item.clientAllReviews, 3)}
@@ -167,7 +172,7 @@ export default function SectionCenterTalentHome({ user }) {
                       <i className="fas fa-map-marker-alt ms-2" /> {item?.clientCountry}
                     </span>
                   </span>
-                </p>
+                </div>
               </div>
             </div>
           ))

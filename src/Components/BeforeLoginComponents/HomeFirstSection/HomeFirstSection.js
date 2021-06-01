@@ -20,7 +20,7 @@ export default function HomeFirstSection() {
                 <div className="row">
                     <div className="col-md-6 col-sm-12">
                         <div>
-                            <h1 className="my-5 fs-h1-cn">{t("Theworldsworkmarketplace")}</h1>
+                            <p className="my-5 h1">{t("Theworldsworkmarketplace")}</p>
                             <p className="fs-3 fs-p-cn">
                                 {t("Engagethelargestnetwork")}
                             </p>

@@ -84,7 +84,7 @@ export default function PostJobDescription({ setBtns, btns }) {
           {
             job.jobImages &&
             job.jobImages.map(url => {
-              return <div className="mx-2" style={{ maxWidth: "50px", maxHeight: "50px" }}>
+              return <div className="mx-2 circle" style={{ width: "50px", height: "50px" }}>
                 <img className="w-100 h-100 rounded-circle" src={url} />
               </div>
             })

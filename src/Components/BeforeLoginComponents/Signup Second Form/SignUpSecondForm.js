@@ -106,8 +106,11 @@ export default function SignUpSecondForm() {
                 badge: {
                   none: "",
                   risingTalent: "Rising Talent",
+                  risingTalentAr: "موهبة صاعدة",
                   topRated: "Top Rated",
-                  expert: "Expert-Vetted"
+                  topRatedAr: "تقييم عالي",
+                  expert: "Expert-Vetted",
+                  expertAr: "خبير"
                 },
                 // jobHistory: [],
                 employmentHistory: [],

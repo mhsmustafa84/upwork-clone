@@ -8,18 +8,18 @@ export default function CreateProfileCategory({ setBtns, btns }) {
   const [inputVal, setinputVal] = useState("");
   const [skillsList, setskillsList] = useState([]);
   let [cat, setCat] = useState("");
-  const catVal = (e) => {
-    cat = e.target.value;
+  const catVal = ({ target }) => {
+    cat = target.value;
     setCat(cat);
   };
-  const skillVal = (e) => {
-    setinputVal(e.target.value)
+  const skillVal = ({ target }) => {
+    setinputVal(target.value)
   }
 
   const addData = () => {
     updateUserData("talent", {
       jobCategory: cat,
-      jobCategoryAr: cat === "Graphic Design" ? "تصميم الجرافيك" : cat === "Web Development" ? "تطوير الويب": cat ==="Front-End Development"? "تطوير الواجهة الأمامية":cat ==="Web Design"? "تصميم الويب":"تطوير الهاتف",
+      jobCategoryAr: cat === "Graphic Design" ? "تصميم الجرافيك" : cat === "Web Development" ? "تطوير الويب" : cat === "Front-End Development" ? "تطوير الواجهة الأمامية" : cat === "Web Design" ? "تصميم الويب" : "تطوير الهاتف",
       skills: skillsList,
       profileCompletion: 20
     });
@@ -30,8 +30,6 @@ export default function CreateProfileCategory({ setBtns, btns }) {
     setskillsList(arr2);
     setinputVal("")
     console.log(skillsList);
-    //  setskillsList([...skillsList,inputVal]);
-    //  console.log(skillsList);
   };
 
   return (
@@ -64,7 +62,7 @@ export default function CreateProfileCategory({ setBtns, btns }) {
               value={inputVal}
               onChange={skillVal}
             />
-            <button className="btn bg-upwork px-5" onClick={addskills}>
+            <button className="btn bg-upwork px-5" onClick={addskills} disabled={!inputVal}>
               Add
             </button>
           </div>
