@@ -59,12 +59,12 @@ export default function CertificatProfileTalent() {
               <h5>Upwork Skill Certification - Graphic Design</h5>
               <p className="mb-0 fw-bold">UPWORK</p>
               <p
-                style={{ fontFamily: "Gotham SSm" }}
+
                 className="mb-0 text-muted"
               >
                 Issued February 2021
               </p>
-              <p style={{ fontFamily: "Gotham SSm" }} className="mb-0">
+              <p className="mb-0">
                 Certified talent demonstrate proficiency in graphic design
                 through portfolio reviews which look for stellar layouts, a
                 distinctive style, and clear visual concepts. Their work

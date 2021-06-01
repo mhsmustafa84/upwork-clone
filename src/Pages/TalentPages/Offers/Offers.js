@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import Loader from "../../../Components/SharedComponents/Loader/Loader"
 import { auth, db } from "../../../firebase"
+import firebase from 'firebase/app';
 
 export default function Offers() {
 
@@ -51,7 +52,10 @@ export default function Offers() {
                     db.collection("talent")
                         .doc(auth.currentUser.uid)
                         .collection("jobProposal")
-                        .doc(res.docs[0]?.id).update({ status: "contract" })
+                        .doc(res.docs[0]?.id).update({
+                            status: "contract",
+                            startContractTime: firebase.firestore.Timestamp.now()
+                        })
                     getOffers();
                 }
             })

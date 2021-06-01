@@ -42,7 +42,7 @@ export default function TestimonialsProfileTalent() {
             {/*  employment skills */}
             <div className="col-md-6">
               <h5>Romany Mounir</h5>
-              <p style={{ fontFamily: "Gotham SSm" }} className="mb-3">
+              <p className="mb-3">
                 He was a great freelancer to work with
               </p>
             </div>

@@ -6,7 +6,7 @@ import { db } from "../../../firebase";
 import { Link } from "react-router-dom";
 import Loader from './../../SharedComponents/Loader/Loader';
 
-export default function ProposalCard({ jobId }) {
+export default function ProposalCard({ proposal, jobId, ind }) {
 
   const [jobData, setJobData] = useState({});
 
@@ -28,7 +28,11 @@ export default function ProposalCard({ jobId }) {
             <div className="row">
               <div className="col">
                 <div>
-                  {new Date(jobData.postTime?.seconds * 1000).toLocaleString()}
+                  {
+                    proposal.status === "proposal"
+                      ? new Date(proposal.proposalTime?.seconds * 1000).toLocaleString()
+                      : new Date(proposal.startContractTime?.seconds * 1000).toLocaleString()
+                  }
                 </div>
               </div>
               <Link
@@ -41,7 +45,7 @@ export default function ProposalCard({ jobId }) {
             </div>
             <hr />
           </div>
-          : <Loader />
+          : ind === 0 && <Loader />
       }
     </>
   );

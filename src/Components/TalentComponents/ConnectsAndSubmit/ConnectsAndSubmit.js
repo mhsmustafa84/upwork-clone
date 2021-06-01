@@ -1,10 +1,12 @@
-
+/* eslint-disable array-callback-return */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { talentDataAction } from "../../../Store/actions/talentData";
-import { savedjobs, updateUserData } from "../../../Network/Network";
+import { updateUserData } from "../../../Network/Network";
 import { db, auth } from "../../../firebase";
 
 export default function ConnectsAndSubmit({ connects }) {
@@ -27,8 +29,21 @@ export default function ConnectsAndSubmit({ connects }) {
       .onSnapshot((res) => {
         if (res?.docs.length > 0) setjobProposal(true);
       });
-     (user?.savedJobs?.includes(id))?setText("Unsave Job"): setText("Save Job")
-    setisliked(!isliked)
+    // (user?.savedJobs?.includes(id)) ? setText("Unsave Job") : setText("Save Job")
+    // if (user?.savedJobs?.length > 0) {
+    //   user?.savedJobs?.forEach((item) => {
+    //     if (item === id) {
+    //       text = "Unsave Job";
+    //       setText(text);
+    //     } else {
+    //       text = "Saved Job";
+    //       setText(text);
+    //     }
+    //   });
+    // } else {
+    //   text = "Saved Job";
+    //   setText(text);
+    // }
   }, []);
 
   useEffect(() => {
@@ -54,22 +69,23 @@ export default function ConnectsAndSubmit({ connects }) {
   //   // dispatch(talentDataAction());
   // };
 
-  const saveJob = (e) => {
-    setisliked(!isliked)
-    if (e.target.className === 'far fa-heart') {
-      updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
-      e.target.className = 'fas fa-heart text-upwork'
-    }
-    else {
-      user?.savedJobs?.forEach((item, index) => {
-        if (item === id) {
-          user?.savedJobs?.splice(index, 1);
-          updateUserData("talent", { savedJobs: [...user?.savedJobs] });
-          e.target.className = 'far fa-heart'
-        }
-      })
-    }
-  }
+  const savedjobs = () => {
+    //   if (!user?.savedJobs?.includes(id)) {
+    //     updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
+    //     setText("Unsave Job");
+    //   } else {
+    //     user?.savedJobs.forEach((item, index) => {
+    //       if (item === id) {
+    //         user?.savedJobs?.splice(index, 1);
+    //         updateUserData("talent", { savedJobs: [...user?.savedJobs] });
+    //         console.log(user?.savedJobs);
+    //         setText("Save Job");
+    //       }
+    //     });
+    //   }
+    //   dispatch(talentDataAction());
+  };
+
   const handlewithdrawProposal = async () => {
     try {
       await db
@@ -120,6 +136,7 @@ export default function ConnectsAndSubmit({ connects }) {
           <button
             className="btn bg-upwork"
             onClick={(handleRout) => push(`/job/apply/${id}`)}
+            disabled={user.accepted === false || user.connects < 2}
           >
             {t("Submit a proposal")}
           </button>
@@ -132,17 +149,23 @@ export default function ConnectsAndSubmit({ connects }) {
           </button>
         )}
 
-       <button
+        <button
           className="btn btn-light border border-1 my-lg-2"
           type="button"
           onClick={() => savedjobs()}
         >
-         
-           
-         <i onClick={(e) => saveJob(e)} className={`${user.savedJobs?.includes(id) ? 'fas fa-heart text-upwork' : 'far fa-heart'}`} aria-hidden="true" />
-
+          <i
+            className={`me-2 ${
+              //  user.savedJobs.includes(id)
+              text === "Unsave Job"
+                ? "fas fa-heart text-upwork"
+                : "far fa-heart"
+              }`}
+            aria-hidden="true"
+          />
+          {text}
         </button>
-        
+
       </div>
       <a href="#" className="advanced-search-link">
         <svg

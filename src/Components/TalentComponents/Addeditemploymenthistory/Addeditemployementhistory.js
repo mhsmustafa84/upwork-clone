@@ -86,10 +86,10 @@ export default function AddandeditEmployementHistory() {
             {/*  employment skills */}
             <div className="col-md-6">
               <h5>{user?.company?.jobTitle}</h5>
-              <p style={{ fontFamily: "Gotham SSm" }} className="mb-0 ">
+              <p className="mb-0 ">
                 {user?.company?.companyName}
               </p>
-              <p style={{ fontFamily: "Gotham SSm" }} className="mb-2 ">
+              <p className="mb-2 ">
                 {user?.company?.stillWork ? "present" : ""}
               </p>
 

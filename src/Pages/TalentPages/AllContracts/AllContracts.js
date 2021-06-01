@@ -38,7 +38,7 @@ export default function AllContracts() {
             <h4 className="col-12 mt-5">{t("Contracts")}</h4>
             <div className="card mt-4 mb-5">
               <div className="card-header bg-white p-3">
-                <SearchContract />
+                {data && <SearchContract />}
               </div>
               <div className="card-body row">
                 <div className="col-12 card-list">
@@ -51,9 +51,9 @@ export default function AllContracts() {
                           return <OneContract contract={contract} key={index} ind={index} />
                         })
                         :
-                        <p className="h3">No contracts yet.</p>
+                        <Loader />
                       :
-                      <Loader />
+                      <p className="h3">No contracts yet.</p>
                   }
                 </div>
               </div>

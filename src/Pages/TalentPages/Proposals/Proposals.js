@@ -45,11 +45,10 @@ export default function Proposals() {
             </h4>
           </div>
           <div className="container list-group-item py-lg-4 mb-3">
-            {talentData?.active?.map((task, index) => (
-              <ProposalCard jobId={task.jobId} key={index} />
+            {talentData?.active?.map((proposal, index) => (
+              <ProposalCard jobId={proposal.jobId} proposal={proposal} key={index} ind={index} />
             ))}
           </div>
-
           <div className="list-group-item py-lg-4 mt-3">
             <h4>
               {t("Submited proposals")} ({talentData?.submited?.length})
@@ -59,8 +58,8 @@ export default function Proposals() {
             </h4>
           </div>
           <div className="container list-group-item py-lg-4 mb-3">
-            {talentData?.submited?.map((task, index) => (
-              <ProposalCard jobId={task.jobId} key={index} />
+            {talentData?.submited?.map((proposal, index) => (
+              <ProposalCard jobId={proposal.jobId} proposal={proposal} key={index} ind={index} />
             ))}
           </div>
         </div>

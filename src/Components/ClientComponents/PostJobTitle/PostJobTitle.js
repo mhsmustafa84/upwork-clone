@@ -30,7 +30,7 @@ export default function PostJobTitle({ setBtns, btns }) {
     console.log(job);
     const id = localStorage.getItem("docID");
     console.log(id);
-    updateJob(job, id);
+    updateJob({ jobTitle: job.jobTitle, jobCategory: job.jobCategory, jobCategoryAr: job.jobCategory === "Graphic Design" ? "تصميم الجرافيك" : job.jobCategory === "Web Development" ? "تطوير الويب" : job.jobCategory === "Front-End Development" ? "تطوير الواجهة الأمامية" : job.jobCategory === "Web Design" ? "تصميم الويب" : "تطوير الهاتف" }, id);
     setBtns({ ...btns, description: false });
   };
 

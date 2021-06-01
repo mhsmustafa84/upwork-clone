@@ -8,7 +8,7 @@ export default function PostJobExpertise({ setBtns, btns }) {
 
   const [inputVal, setInputVal] = useState("");
   const [skillsList, setSkillsList] = useState([]);
-  const [job, setJob] = useState({ jobExperienceLevel: "", jobSkills: [] });
+  const [job, setJob] = useState({ jobExperienceLevel: "", skills: [] });
   const { t } = useTranslation();
 
   const getData = (e) => {
@@ -37,7 +37,7 @@ export default function PostJobExpertise({ setBtns, btns }) {
   const addData = () => {
     const id = localStorage.getItem("docID");
     console.log(id);
-    updateJob(job, id);
+    updateJob({ skills: job.skills, jobExperienceLevel: job.jobExperienceLevel, jobExperienceLevelAr: job.jobExperienceLevel === "expert" ? "خبير" : job.jobExperienceLevel === "intermediate" ? "متوسط" : "مبتدئ" }, id);
     setBtns({ ...btns, visibility: false });
   };
 

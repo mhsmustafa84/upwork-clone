@@ -17,7 +17,7 @@ export default function NewLang(props)
        const add =() =>
        {
         props.toggleAddLang();
-        props.addlangToList({"language": language, "langProf": proficiency});
+        props.addlangToList({"language": language,"languageAr": language === "Arabic" ? "اللغة العربية" : language === "French" ? "اللغة الفرنسية": language ==="Spanish"? "اللغة الأسبانية":"اللغة الهندية", "langProf": proficiency,"langProfAr": proficiency === "proficiency" ? "إجادة اللغة" : proficiency === "Basic" ? "أساسي": proficiency ==="Conversational"? "محادثة":proficiency ==="Fluent"? "فصيح":"اللغة الأم"});
        }
     return(
         <>

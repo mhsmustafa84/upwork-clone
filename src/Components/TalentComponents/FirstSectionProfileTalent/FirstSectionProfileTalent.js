@@ -12,10 +12,13 @@ import { auth, db, storage } from "../../../firebase";
 import img from "../../../assets/img/icon-user.svg";
 import Loader from "../../SharedComponents/Loader/Loader";
 
+
 export default function FirstSectionProfileTalent() {
 
   const { push } = useHistory();
   // const user = useSelector((state) => state.talentData);
+  const lang = useSelector(state => state.lang);
+
   const [imgUrl, setimgUrl] = useState(null);
   const [progress, setprogress] = useState(0);
   const [profileTitle, setprofileTitle] = useState("");
@@ -220,7 +223,7 @@ export default function FirstSectionProfileTalent() {
 
               <hr />
               <div className="row my-3">
-                <div className="col-4 row border-end border-2 me-1">
+                <div className="col-3 row border-end border-2 me-1">
                   <div className="row">
                     <div className="col">
                       <div className="fw-bold fs-5">${user?.totalEarnings}</div>
@@ -238,19 +241,21 @@ export default function FirstSectionProfileTalent() {
                   <hr />
                   <h5 className="fw-bold">{t("Availability")}</h5>
                   <h6 className="fw-bold">
-                    {user?.availability === true ? "available" : "not available"}
+                    {lang === "ar" ? user?.availability === true ? "متاح" : "غير متاح" : user?.availability === true ? "available" : "not available"}
                   </h6>
                   <p>
-                    {user?.availability
+                    {lang === "ar" ? user?.availability
+                      ? "متاح لتقديم العروض إليه"
+                      : "غير متاح لمدة 3 أشهر" : user?.availability
                       ? "As Needed - Open to Offers"
                       : "not available for 3 months"}
                   </p>
 
 
                   <h5 className="fw-bold">{t("Languages")}</h5>
-                  <p>English: {user.englishProficiency}</p>
-                  {user?.otherLanguages?.map(lang => <p>
-                    {lang.language} : {lang.langProf}
+                  <p>{t("English")} {" : "} {lang === "ar" ? user.englishProficiencyAr : user.englishProficiency}</p>
+                  {user?.otherLanguages?.map(langItem => <p>
+                    {lang === "ar" ? [langItem.languageAr, ' ', ':', ' ', langItem.langProfAr] : [langItem.language, ' ', ':', ' ', langItem.langProf]}
                   </p>)}
 
 
@@ -258,13 +263,13 @@ export default function FirstSectionProfileTalent() {
                   <h5 className="fw-bold">{user?.education?.areaOfStudy}</h5>
                   <h5 className="fw-bold">{user?.education?.school}</h5>
                   <h5>{user?.education?.degree}{"   "} {user?.education?.gradYear}</h5>
-                
+
                 </div>
 
                 <div className="col-6">
                   <h4 className="fw-bold"> {user?.title}</h4>
 
-                  <ShowMore style={{ fontFamily: "Gotham SSm" }} className="mb-0 mt-4" maxHeight={100} button={<button id="seemorebutton" classname="advanced-search-link " style={{ color: 'green', position: 'absolute', left: 0 }}>
+                  <ShowMore className="mb-0 mt-4" maxHeight={100} button={<button id="seemorebutton" classname="advanced-search-link " style={{ color: 'green', position: 'absolute', left: 0 }}>
                     more
       </button>}>
                     {user?.overview}
@@ -505,10 +510,10 @@ export default function FirstSectionProfileTalent() {
                   </div>
                 </div>
 
-                <h5 className=" mt-4 fw-bold col"> ${user?.hourlyRate} \ hr</h5>
+                <h5 className=" mt-4 fw-bold col-2"> {t("$")} {user?.hourlyRate} \ {t("hr")}</h5>
                 {/* icons */}
 
-                <div className="col d-flex justify-content-end">
+                <div className="col-1 d-flex justify-content-end">
                   <button
                     type="button"
                     className="btn btn-default me-2 d-flex justify-content-center border rounded-circle"
@@ -560,44 +565,19 @@ export default function FirstSectionProfileTalent() {
               </div>
               <hr />
               <div className="row">
-                {/*  employment skills */}
                 {user?.company?.map((item) =>
                   <div className="container">
                     <h5>{item.jobTitle}</h5>
-                    <p style={{ fontFamily: "Gotham SSm" }} className="mb-0 ">
+                    <p className="mb-0 ">
                       {item.companyName}
                     </p>
-                    <p style={{ fontFamily: "Gotham SSm" }} className="mb-2 ">
+                    <p className="mb-2 ">
                       {item.stillWork ? "present" : ""}
                     </p>
                     <hr />
                   </div>
                 )}
-                {/* <button
-                className="btn btn-link mb-3 border rounded-border"
-                style={{ textDecoration: "none", color: "#008329" }}
-              >
-                {t("more")}
-              </button> */}
-
-                {/* icons */}
                 <div className="col-md-6 d-flex justify-content-end">
-
-                  {/* <button
-                type="button"
-                className="btn btn-default d-flex justify-content-center border rounded-circle mb-3"
-                style={{
-                  width: 30,
-                  height: 30,
-                  textAlign: "center",
-                  paddingTop: 3,
-                  paddingBottom: 3,
-                }}
-              >
-                <div>
-                  <i className="far fa-trash-alt" />
-                </div>
-              </button> */}
                 </div>
               </div>
             </div>
@@ -662,35 +642,13 @@ export default function FirstSectionProfileTalent() {
                           onChange={updateProfile}
                           name="EmpStillWork"
                           className="form-check-input mt-0 "
-
                           type="checkbox"
-
                           value=""
-
                           aria-label="Checkbox for following text input"
-
                         />
-
                       I currently worked here
-
                     </div>
-
                     </div>
-
-                    {/* <div className="mb-3">
-                  <label
-                    htmlFor="exampleFormControlTextarea1"
-                    className="form-label"
-                  >
-                    Description
-                  </label>
-                  <textarea
-                    className="form-control"
-                    id="exampleFormControlTextarea1"
-                    rows={5}
-                    defaultValue={""}
-                  />
-                </div> */}
                   </form>
                 </div>
                 <div className="modal-footer">
@@ -717,10 +675,6 @@ export default function FirstSectionProfileTalent() {
               </div>
             </div>
           </div>
-
-
-
-          {/* model for add employment */}
 
           <div
             className="modal fade"

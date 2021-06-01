@@ -80,7 +80,6 @@ export default function AddandeditExperience() {
                   <div className="row">
                     <div className="col-8">
                       <p
-                        style={{ fontFamily: "Gotham SSm" }}
                         key={index}
                         className="mb-0"
                       >

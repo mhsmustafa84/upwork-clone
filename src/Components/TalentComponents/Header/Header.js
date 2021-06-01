@@ -8,7 +8,6 @@ import "./Header.css";
 
 export default function Header() {
 
-
     const [showSearch, setShowSearch] = useState(false);
     const [showSearchIcon, setShowSearchIcon] = useState(true);
 

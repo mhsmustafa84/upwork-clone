@@ -163,12 +163,12 @@ export default function NavLargScreen() {
             </ul>
           </li>
           <li className="nav-item ms-5 me-3">
-            <Link className="nav-link" to="/messages">
+            <NavLink className="nav-link" to="/messages">
               <i
                 className="far fa-paper-plane fs-5"
                 style={{ transform: "scaleX(-1)" }}
               ></i>
-            </Link>
+            </NavLink>
           </li>
           {/* <li className="nav-item me-5">
             <NavLink className="nav-link" to="/messages">
@@ -181,9 +181,9 @@ export default function NavLargScreen() {
             </a>
           </li> */}
           <li className="nav-item me-3">
-            <Link to="/notifications" className="nav-link" href="#">
+            <NavLink to="/notifications" className="nav-link" href="#">
               <i className="far fa-bell fs-5"></i>
-            </Link>
+            </NavLink>
           </li>
           {/* <li className="nav-item border-start border-secondary ps-2">
             <a className="nav-link" href="#">

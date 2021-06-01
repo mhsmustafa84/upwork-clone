@@ -31,7 +31,7 @@ export default function PostJobVisibility({ setBtns, btns }) {
     console.log(job);
     const id = localStorage.getItem("docID");
     console.log(id);
-    updateJob(job, id);
+    updateJob({ jobVisibility: job.jobVisibility, jobVisibilityAr: job.jobVisibility === "anyone" ? "أى شخص" : job.jobVisibility === "invite only" ? "دعوة فقط" : "مستخدم أبورك فقط", freelancerNeed: job.freelancerNeed, freelancerNeedAr: job.freelancerNeed === "one freelancer" ? "مستقل واحد" : "أكثر من مستقل" }, id);
     setBtns({ ...btns, budget: false });
   };
 
@@ -78,23 +78,6 @@ export default function PostJobVisibility({ setBtns, btns }) {
               <h6 className="my-3">{t("Only Upwork talent")}</h6>
               <small className="fw-normal">
                 {t("Only Upwork users can find this job.")}
-              </small>
-            </label>
-            <label className="border border-success rounded p-3 text-center w-50">
-              <input
-                type="radio"
-                className="float-end"
-                name="visibility"
-                value="invite only"
-              />
-              <div>
-                <i className="fas fa-lock mt-4"></i>
-              </div>
-              <h6 className="my-3">{t("Invite-only")}</h6>
-              <small className="fw-normal">
-                {t(
-                  "Only freelancers and agencies you have invited can find this job."
-                )}
               </small>
             </label>
           </div>

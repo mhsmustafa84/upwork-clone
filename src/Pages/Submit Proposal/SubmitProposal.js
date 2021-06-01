@@ -4,6 +4,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
+import { useSelector } from "react-redux";
 import { auth, db, storage } from "../../firebase";
 import firebase from 'firebase/app';
 import { subCollection, updateUserData } from "../../Network/Network";
@@ -12,6 +13,7 @@ import SubmitProposalFixed from "../../Components/TalentComponents/SubmitProposa
 import SubmitProposalHourly from "../../Components/TalentComponents/SubmitProposalHourly/SubmitProposalHourly";
 
 export default function SubmitProposal() {
+  const lang = useSelector(state => state.lang);
   const { id } = useParams();
   const { push } = useHistory();
   const [job, setjob] = useState({});
@@ -121,7 +123,13 @@ export default function SubmitProposal() {
     subCollection(
       "talent",
       "jobProposal",
-      { jobId: id, status: "proposal" },
+      {
+        jobId: id,
+        status: "proposal",
+        proposalTime: firebase.firestore.Timestamp.now(),
+        startContractTime: "",
+        endContractTime: ""
+      },
       auth.currentUser.uid
     );
     updateUserData("talent", { connects: user.connects - 2 });
@@ -186,7 +194,7 @@ export default function SubmitProposal() {
                     <p className="fw-bold">{job?.jobTitle}</p>
                     <div className="mb-3">
                       <span className="bg-cat-cn py-1 px-2 me-3 rounded-pill">
-                        {job?.jobCategory}
+                        {lang === "ar" ? job?.jobCategoryAr : job?.jobCategory}
                       </span>
                       <span>
                         {new Date(
@@ -195,7 +203,7 @@ export default function SubmitProposal() {
                       </span>
                     </div>
                     <div className="mb-3">
-                      <p>{job.jobDescription}</p>
+                      <p>{job?.jobDescription}</p>
                       <Link to={{
                         pathname: `/job/${id}`,
                         state: `${id}`,
@@ -212,7 +220,7 @@ export default function SubmitProposal() {
                       <span className="ps-2">
                         <strong>Experience Level</strong>
                       </span>
-                      <p className="ps-4">{job?.jobExperienceLevel}</p>
+                      <p className="ps-4">{lang === "ar" ? job?.jobExperienceLevelAr : job?.jobExperienceLevel}</p>
                     </div>
                     <div>
                       <span>
@@ -221,14 +229,14 @@ export default function SubmitProposal() {
                       <span className="ps-2">
                         <strong>Hours to be determined</strong>
                       </span>
-                      <p className="ps-4">{job?.jobPaymentType}</p>
+                      <p className="ps-4">{lang === "ar" ? job?.jobPaymentTypeAr : job?.jobPaymentType}</p>
                     </div>
                     <div>
                       <span>
                         <i className="far fa-calendar-alt" />
                       </span>
                       <span className="ps-2">
-                        <strong>{job?.jobDuration}</strong>
+                        <strong>{lang === "ar" ? job?.jobDurationAr : job?.jobDuration}</strong>
                       </span>
                       <p className="ps-4">Project Length</p>
                     </div>

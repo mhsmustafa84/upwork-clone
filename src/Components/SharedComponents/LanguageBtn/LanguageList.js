@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import i18next from 'i18next';
@@ -28,8 +29,8 @@ export default function LanguageList() {
   const change = (code) => {
     dispatch(langAction(lang));
     localStorage.setItem("lang", JSON.stringify(code));
-    i18next.changeLanguage(code)
-    // window.location.reload();
+    i18next.changeLanguage(code);
+    window.location.reload();
   }
 
   return (

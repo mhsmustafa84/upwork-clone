@@ -9,7 +9,7 @@ import './Header.css'
 export default function Header() {
     let lang = useSelector(state => state.lang);
     const { t } = useTranslation();
-    
+
     return (
         <header className="py-3 fixed-top bg-white">
             <div className="container">
@@ -27,11 +27,11 @@ export default function Header() {
                             <div className="collapse navbar-collapse" id="navbarNavDropdown">
                                 <ul className="navbar-nav">
                                     <li className="nav-item dropdown">
-                                        <a className="nav-link n-l-c-cn dropdown-toggle"  href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <a className="nav-link n-l-c-cn dropdown-toggle fs-6" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             {t("Find Talent")}
-                                        <i className="fa fa-sort-down ms-1 px-2"></i>
+                                            <i className="fa fa-sort-down ms-1 px-2"></i>
                                         </a>
-                                        <ul id="find-talent-dd-id"  className={`dropdown-menu pb-4 ${lang==='ar' && "text-end"}`} aria-labelledby="navbarDropdownMenuLink">
+                                        <ul id="find-talent-dd-id" className={`dropdown-menu pb-4 ${lang === 'ar' && "text-end"}`} aria-labelledby="navbarDropdownMenuLink">
                                             <ul className="mt-3 d-inline-block typeOfwork-cn" >
                                                 <span className="fw-bold">{t("TYPE OF WORK")}</span>
                                                 <li><Link className="dropdown-item" to="dev-it">{t("Development & IT")}</Link></li>
@@ -42,42 +42,45 @@ export default function Header() {
                                                 <li><a className="dropdown-item" href="#">{t("Finance & Accounting")}</a></li>
                                                 <li><a className="dropdown-item" href="#">{t("See all specializations")}</a></li>
                                             </ul>
-                                            <div className="mt-3 ms-5 ps-4 d-inline-block waysToHire-cn">
-                                                <span className="fw-bold">{t("WAYS TO HIRE")}</span>
-                                                <div className="d-flex mt-3 pb-5">
-                                                    <div>
-                                                        <a href="#">
-                                                            <p className="fw-bold">{t("Talent Marketplace")}</p>
-                                                            <p className="">{t("Post a job and get proposals")}</p>
-                                                        </a>
-                                                        <a href="#">
-                                                            <p className="fw-bold">{t("Talent Scout")}</p>
-                                                            <p>{t("Have us find you an expert")}</p>
-                                                        </a>
+                                            {
+                                                lang !== "ar" &&
+                                                <div className="mt-3 ms-5 ps-4 d-inline-block waysToHire-cn">
+                                                    <span className="fw-bold">{t("WAYS TO HIRE")}</span>
+                                                    <div className="d-flex mt-3 pb-5">
+                                                        <div>
+                                                            <a href="#">
+                                                                <p className="fw-bold">{t("Talent Marketplace")}</p>
+                                                                <p className="">{t("Post a job and get proposals")}</p>
+                                                            </a>
+                                                            <a href="#">
+                                                                <p className="fw-bold">{t("Talent Scout")}</p>
+                                                                <p>{t("Have us find you an expert")}</p>
+                                                            </a>
+                                                        </div>
+                                                        <div className="ms-5">
+                                                            <a href="#">
+                                                                <p className="fw-bold">{t("Talent Scout")}</p>
+                                                                <p className="">{t("Have us find you an expert")}</p>
+                                                            </a>
+                                                            <a href="#">
+                                                                <p className="fw-bold">{t("Enterprise Suite")}</p>
+                                                                <p>{t("Revamp the way you hire")}</p>
+                                                            </a>
+                                                        </div>
                                                     </div>
-                                                    <div className="ms-5">
-                                                        <a href="#">
-                                                            <p className="fw-bold">{t("Talent Scout")}</p>
-                                                            <p className="">{t("Have us find you an expert")}</p>
-                                                        </a>
-                                                        <a href="#">
-                                                            <p className="fw-bold">{t("Enterprise Suite")}</p>
-                                                            <p>{t("Revamp the way you hire")}</p>
-                                                        </a>
+                                                    <div className={`border-top mt-5 pt-4 ${lang === 'ar' && "fs-6"}`}>
+                                                        <a href="#">{t("Learn how to hire on Upwork")}
+                                                            <i className={`fa ${lang === 'ar' ? "fa-arrow-left pe-3 " : "fa-arrow-right"} ms-3 text-success `}></i></a>
+
                                                     </div>
                                                 </div>
-                                                <div className={`border-top mt-5 pt-4 ${lang==='ar' && "fs-5"}`}>
-                                                    <a href="#">{t("Learn how to hire on Upwork")}
-                                                    <i className={`fa ${lang==='ar' ? "fa-arrow-left pe-3 " : "fa-arrow-right"} ms-3 text-success `}></i></a>
-                                                    
-                                                </div>
-                                            </div>
+                                            }
                                         </ul>
                                     </li>
                                     <li className="nav-item dropdown">
-                                        <a className="nav-link n-l-c-cn dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <a className="nav-link n-l-c-cn dropdown-toggle fs-6" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             {t("FindWork")}
-                                        <i className="fa fa-sort-down ms-1  px-2"></i>
+                                            <i className="fa fa-sort-down ms-1  px-2"></i>
                                         </a>
                                         <ul id="find-work-dd-id" className="dropdown-menu pb-4" aria-labelledby="navbarDropdownMenuLink">
                                             <div className="d-flex text-end">
@@ -96,20 +99,20 @@ export default function Header() {
                                             </div>
                                             <div className="mt-3 ps-4 d-inline-block">
                                                 <div className="border-top pt-3">
-                                                    <a href="#" className={` pt-4 ${lang==='ar' && "fs-5"}`}>
+                                                    <a href="#" className={` pt-4 ${lang === 'ar' && "fs-6"}`}>
                                                         {t("Learn how to get hired on Upwork")}
-                                                        <i className={`fa ${lang==='ar' ? "fa-arrow-left pe-3 " : "fa-arrow-right"} ms-3 text-success `}></i>
+                                                        <i className={`fa ${lang === 'ar' ? "fa-arrow-left pe-3 " : "fa-arrow-right"} ms-3 text-success `}></i>
                                                     </a>
                                                 </div>
                                             </div>
                                         </ul>
                                     </li>
                                     <li className="nav-item dropdown">
-                                        <a className="nav-link n-l-c-cn dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <a className="nav-link n-l-c-cn dropdown-toggle fs-6" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             {t("Why Upwork")}
-                                        <i className="fa fa-sort-down ms-1  px-2"></i>
+                                            <i className="fa fa-sort-down ms-1  px-2"></i>
                                         </a>
-                                        <ul id="why-work-dd-id" className={`dropdown-menu mt-3 ${lang==='ar' && "fs-5"}`} aria-labelledby="navbarDropdownMenuLink">
+                                        <ul id="why-work-dd-id" className={`dropdown-menu mt-3 ${lang === 'ar' && "fs-6 text-end"}`} aria-labelledby="navbarDropdownMenuLink">
                                             <li><a className="dropdown-item py-2 mt-3" href="#">{t("Success Stories")}</a></li>
                                             <li><a className="dropdown-item py-2" href="#">{t("Reviews")}</a></li>
                                             <li><a className="dropdown-item py-2" href="#">{t("Learn")}</a></li>
@@ -163,9 +166,8 @@ export default function Header() {
                             <input className="form-control ms-1 ps-5 py-1 search-inputt-cn" type="search" placeholder={t("Search")} aria-label="Search" />
                         </form>
                         <div className="col-md-5 border-start ps-2 d-flex j justify-content-end">
-                            {/* <button className="btn login-btn-cn"></button> */}
-                            <Link className={`btn login-btn-cn ${lang === 'ar' && "fs-5"}`} to="/login">{t("Log In")}</Link>
-                            <Link className={`btn signup-btn-cn px-3 py-2 ${lang === 'ar' && "fs-5"}`}to="/sign-up">{t("Sign Up")}</Link>
+                            <Link className={`btn login-btn-cn ${lang === 'ar' && "fs-6"}`} to="/login">{t("Log In")}</Link>
+                            <Link className={`btn signup-btn-cn px-3 py-2 ${lang === 'ar' && "fs-6"}`} to="/sign-up">{t("Sign Up")}</Link>
                             <LanguageList />
                         </div>
                     </div>
@@ -174,12 +176,12 @@ export default function Header() {
             <div className="second-nav-cn pt-2 pb-1">
                 <div className="container">
                     <ul className="d-flex align-items-center ms-0 ps-0">
-                        <li><a href="#">{t("Development & IT")}</a></li>
-                        <li><a href="#">{t("Design & Creative")}</a></li>
-                        <li><a href="#">{t("Sales & Marketing")}</a></li>
-                        <li><a href="#">{t("Writing & Translation")}</a></li>
-                        <li><a href="#">{t("Admin & Customer Support")}</a></li>
-                        <li><a href="#">{t("Finance & Accounting")}</a></li>
+                        <li><a href="#" className="fs-6">{t("Development & IT")}</a></li>
+                        <li><a href="#" className="fs-6">{t("Design & Creative")}</a></li>
+                        <li><a href="#" className="fs-6">{t("Sales & Marketing")}</a></li>
+                        <li><a href="#" className="fs-6">{t("Writing & Translation")}</a></li>
+                        <li><a href="#" className="fs-6">{t("Admin & Customer Support")}</a></li>
+                        <li><a href="#" className="fs-6">{t("Finance & Accounting")}</a></li>
                     </ul>
                 </div>
             </div>

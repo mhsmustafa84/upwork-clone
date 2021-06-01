@@ -4,16 +4,32 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import createDocument, { updateJob } from "../../../Network/Network";
 import { auth } from "./../../../firebase";
+import { useSelector } from "react-redux";
 
 export default function PostJobGetStarted({ start, isStart, setBtns, btns }) {
 
   const { t } = useTranslation();
-
+  const client = useSelector(state => state.clientData)
   const [job, setJob] = useState({ jobDuration: "" });
 
   const createJob = () => {
     isStart();
-    createDocument("job", { jobID: "", authID: auth.currentUser.uid, postTime: "", status: "private", hired: 0, dueDate: "" });
+    console.log();
+    createDocument("job",
+      {
+        jobID: "",
+        authID: auth.currentUser.uid,
+        postTime: "",
+        status: "private",
+        hired: 0,
+        dueDate: "",
+        clientCountry: client.location,
+        clientAllReviews: client.review,
+        clientSpentMoney: client.spentMoney,
+        clientPaymentVerified: client.paymentVerified,
+        talentJobReview: {},
+        clientJobReview: {},
+      });
   }
 
   const getData = ({ target }) => {
@@ -25,7 +41,7 @@ export default function PostJobGetStarted({ start, isStart, setBtns, btns }) {
     console.log(job);
     const id = localStorage.getItem("docID");
     console.log(id);
-    updateJob({ jobID: id, jobDuration: job.jobDuration }, id);
+    updateJob({ jobID: id, jobDuration: job.jobDuration, jobDurationAr: job.jobDuration === "short term" ? "فترة قصيرة" : "فترة طويلة" }, id);
     setBtns({ ...btns, title: false });
   };
 

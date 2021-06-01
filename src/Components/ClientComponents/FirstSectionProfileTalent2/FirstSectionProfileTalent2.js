@@ -175,7 +175,6 @@ export default function FirstSectionProfileTalent2() {
               <h4 className="fw-bold"> {user?.title}</h4>
 
               <ShowMore
-                style={{ fontFamily: "Gotham SSm" }}
                 className="mb-0 mt-4"
                 maxHeight={100}
                 button={
@@ -382,10 +381,10 @@ export default function FirstSectionProfileTalent2() {
             {user?.company?.map((item) => (
               <div className="container">
                 <h5>{item.jobTitle}</h5>
-                <p style={{ fontFamily: "Gotham SSm" }} className="mb-0 ">
+                <p className="mb-0 ">
                   {item.companyName}
                 </p>
-                <p style={{ fontFamily: "Gotham SSm" }} className="mb-2 ">
+                <p className="mb-2 ">
                   {item.stillWork ? "present" : ""}
                 </p>
                 <hr />
