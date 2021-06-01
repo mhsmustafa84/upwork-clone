@@ -21,9 +21,7 @@ export default function HeaderSearchLg() {
   const dispatch = useDispatch();
   useEffect(() => {
     sessionStorage.setItem('searchArray', JSON.stringify(user.searchHistory))
-    console.log(arr);
     dispatch(talentDataAction());
-    console.log(user);
   }, []);
 
   const handle = (e) => {
@@ -42,6 +40,7 @@ export default function HeaderSearchLg() {
         jobs => jobs.docs.map(
           item => {
             tempArr.push(item.data())
+            console.log(tempArr);
             push({ pathname: "/search", state: tempArr })
           })
       )

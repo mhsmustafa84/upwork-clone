@@ -18,12 +18,15 @@ export default function Search(props) {
     useEffect(() => {
         // dispatch(jobsDataAction());
         dispatch(talentDataAction());
-    }, [user]);
+    }, []);
     const [searchData, setsearchData] = useState([]);
     const [filterSearch, setfilterSearch] = useState([]);
     const { itemSearchList } = useContext(SearchContext);
     const [filtered, setfiltered] = useState(false)
-
+    const [isliked, setisliked] = useState(false)
+    useEffect(() => {
+        dispatch(talentDataAction());
+      }, [isliked,user ]);
 
     useEffect(() => {
         let arr = props.location.state
@@ -51,6 +54,7 @@ export default function Search(props) {
         }
     }
     const saveJob = (e, id) => {
+    setisliked(!isliked)
         if (e.target.className === 'far fa-heart') {
             updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
             e.target.className = 'fas fa-heart text-upwork'
