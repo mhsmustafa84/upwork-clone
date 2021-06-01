@@ -1,49 +1,70 @@
-import React from "react";
+/* eslint-disable array-callback-return */
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { db } from "../../../firebase";
+import StarsRating from './../../SharedComponents/StarsRating/StarsRating';
 
-export default function ClientInfo() {
+export default function ClientInfo({ clientID }) {
+
+  console.log(clientID);
   const { t } = useTranslation();
+  const [client, setClient] = useState()
+  const [clientJobs, setClientJobs] = useState({ closed: 0, hired: 0, public: 0, allJobs: 0 })
+
+  useEffect(() => {
+    db.collection("client")
+      .doc(clientID)
+      .get().then(doc => setClient(doc.data()))
+
+    db.collection("job")
+      .where("authID", "==", clientID)
+      .get().then(res => {
+        const closed = [];
+        const puplic = [];
+        const hired = [];
+        res.docs.map(job => {
+          job.data().status === "public" && puplic.push(job.data())
+          job.data().status === "hired" && hired.push(job.data())
+          job.data().status === "closed" && closed.push(job.data())
+        })
+        setClientJobs({ allJobs: res.docs.length, hired: hired.length, public: puplic.length, closed: closed.length })
+      })
+  }, [])
+
+  const star = (clientReview, index) => {
+    return <StarsRating clientReview={clientReview} index={index} />
+  }
+
   return (
-    <div className="bg-white py-lg-4 px-4 border border-1 row py-sm-3 py-xs-5">
+    <div className="bg-white py-lg-4 px-4 border border-1 py-sm-3 py-xs-5">
       <h5>{t("About the client")}</h5>
       <h6 className="fw-bold py-sm-3">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 14 14"
-          aria-hidden="true"
-          role="img"
-          width="15px"
-          fill="green"
-        >
-          <path d="M13.72 7.03c.45-.56.34-1.39-.24-1.82l-.55-.41c-.34-.25-.53-.66-.51-1.08l.03-.68c.03-.72-.53-1.32-1.25-1.33h-.68c-.42 0-.81-.22-1.05-.57L9.11.57c-.39-.6-1.2-.75-1.79-.33l-.55.4c-.34.24-.79.3-1.18.15L4.95.55c-.67-.25-1.41.11-1.64.79l-.21.65c-.14.4-.46.71-.87.82l-.65.18C.89 3.19.5 3.92.71 4.6l.21.65c.13.41.04.85-.22 1.18l-.42.54c-.45.56-.34 1.39.24 1.81l.55.41c.34.25.53.66.51 1.08l-.03.68c-.03.72.54 1.32 1.25 1.33h.68c.42 0 .81.22 1.05.57l.37.57c.39.6 1.21.75 1.79.33l.55-.4c.34-.25.78-.31 1.18-.16l.64.24c.67.25 1.41-.1 1.64-.79l.21-.65c.13-.4.45-.71.86-.82l.65-.17c.69-.19 1.09-.92.87-1.61l-.21-.65c-.13-.4-.05-.85.22-1.18l.42-.53zM6.06 9.84L3.5 7.27l1.23-1.23 1.33 1.33 3.21-3.21L10.5 5.4 6.06 9.84z"></path>
-        </svg>{" "}
-        Payment method verified
+        <span className="fw-bold" style={{ color: client?.paymentVerified ? "#14bff4" : "red" }}>
+          <i
+            className={`${client?.paymentVerified ? "fas fa-check-circle" : "far fa-times-circle"} me-1`}
+            style={{ color: client?.paymentVerified ? "#14bff4" : "red" }}
+          />
+          {client?.paymentVerified ? "Payment verified" : "Payment unverified"}
+        </span>
       </h6>
       <p className="text-muted">
-        <svg id="up-rs" viewBox="0 0 14 14" width="15px" fill="green">
-          <polygon points="7,0.5 9,4.8 13.5,5.5 10.2,8.8 11,13.5 7,11.3 3,13.5 3.8,8.8 0.5,5.5 5,4.8"></polygon>
-        </svg>
-        <svg id="up-rs" viewBox="0 0 14 14" width="15px" fill="green">
-          <polygon points="7,0.5 9,4.8 13.5,5.5 10.2,8.8 11,13.5 7,11.3 3,13.5 3.8,8.8 0.5,5.5 5,4.8"></polygon>
-        </svg>
-        <svg id="up-rs" viewBox="0 0 14 14" width="15px" fill="green">
-          <polygon points="7,0.5 9,4.8 13.5,5.5 10.2,8.8 11,13.5 7,11.3 3,13.5 3.8,8.8 0.5,5.5 5,4.8"></polygon>
-        </svg>
-        <svg id="up-rs" viewBox="0 0 14 14" width="15px" fill="green">
-          <polygon points="7,0.5 9,4.8 13.5,5.5 10.2,8.8 11,13.5 7,11.3 3,13.5 3.8,8.8 0.5,5.5 5,4.8"></polygon>
-        </svg>
-        <svg id="up-rs" viewBox="0 0 14 14" width="15px" fill="green">
-          <polygon points="7,0.5 9,4.8 13.5,5.5 10.2,8.8 11,13.5 7,11.3 3,13.5 3.8,8.8 0.5,5.5 5,4.8"></polygon>
-        </svg>{" "}
-        5.00 of 6 reviews
+        {star(client?.review, 1)}
+        {star(client?.review, 2)}
+        {star(client?.review, 3)}
+        {star(client?.review, 4)}
+        {star(client?.review, 5)}
       </p>
-      <p className="fw-bold">France</p>
-      <p className="text-muted">Marseille 06:50 pm</p>
-      <p className="fw-bold">10 jobs posted</p>
-      <p className="text-muted">70% hire rate, 5 open jobs</p>
-      <p className="fw-bold">$100+ total spent</p>
-      <p className="text-muted">7 hires, 1 active</p>
-      <p className="text-muted">Member since Jan 31, 2021</p>
+      <p className="fw-bold"><span className="fw-bold ">
+        <i className="fas fa-map-marker-alt me-2" /> {client?.location}
+      </span></p>
+      <p><span className="text-muted">Jobs posted: </span><strong>{clientJobs?.allJobs}</strong></p>
+      <p><span className="text-muted">Hired: </span><strong>{clientJobs?.closed}</strong></p>
+      <p><span className="text-muted">Hire rate: </span><strong>{clientJobs?.closed * 100 / clientJobs?.allJobs}%</strong></p>
+      <p><span className="text-muted">Open jobs: </span><strong>{clientJobs?.public}</strong></p>
+      <p><span className="text-muted">Spent: </span><strong>${client?.spentMoney}</strong></p>
+      <p><span className="text-muted">Active: </span><strong>{clientJobs?.hired}</strong></p>
+      <p><span className="text-muted">Member since: </span><strong>{new Date(client?.createdAt?.seconds * 1000).toLocaleDateString()}</strong></p>
     </div>
   );
 }
