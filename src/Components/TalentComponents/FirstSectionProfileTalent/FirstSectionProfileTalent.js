@@ -2,10 +2,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { talentDataAction } from "../../../Store/actions/talentData";
 import { useTranslation } from "react-i18next";
 import { Link, useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 import ShowMore from 'react-show-more-button/dist/module';
 import { updateUserData } from "../../../Network/Network";
 import { auth, db, storage } from "../../../firebase";
@@ -16,7 +15,6 @@ import Loader from "../../SharedComponents/Loader/Loader";
 export default function FirstSectionProfileTalent() {
 
   const { push } = useHistory();
-  // const user = useSelector((state) => state.talentData);
   const lang = useSelector(state => state.lang);
 
   const [imgUrl, setimgUrl] = useState(null);
@@ -26,7 +24,6 @@ export default function FirstSectionProfileTalent() {
   const [profileOverview, setprofileOverview] = useState("");
   const [imgTitle, setimgTitle] = useState("");
   const [imageItself, setimageItself] = useState("");
-  const dispatch = useDispatch();
   const [inputVal, setinputVal] = useState("");
   const [skillsList, setskillsList] = useState([]);
   const [EmpTitle, setEmpTitle] = useState("");
@@ -39,7 +36,6 @@ export default function FirstSectionProfileTalent() {
   const { t } = useTranslation();
 
   useEffect(() => {
-    // dispatch(talentDataAction());
     db.collection("talent").doc(auth.currentUser.uid).onSnapshot(doc => {
       user = doc.data();
       setUser(user)
@@ -149,8 +145,6 @@ export default function FirstSectionProfileTalent() {
     <>{
       user !== null
         ?
-
-
         <>
           <div className="container card mb-3 mt-5 ">
             <div className="row mt-3">
@@ -168,15 +162,9 @@ export default function FirstSectionProfileTalent() {
                 </div>
               </div>
               <div className="col-lg-4 pt-lg-3 mx-3">
-                <a
-                  href=""
-                  id="job-title-home-page "
-                  className="link-dark job-title-hover "
-                >
-                  <h2 className="fw-bold">
-                    {user?.firstName + " "} {user?.lastName}.
-              </h2>
-                </a>
+                <h2 className="fw-bold">
+                  {user?.firstName + " "} {user?.lastName}.
+                </h2>
                 <div className={user?.location && "fas fa-map-marker-alt"}>
                   <span>
                     {user?.location && (
@@ -193,33 +181,48 @@ export default function FirstSectionProfileTalent() {
                   <div className="col">
                     <span>
                       {" "}
-                      <svg
-                        width="15px"
-                        data-name="Layer 1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 14 14"
-                        aria-hidden="true"
-                        role="img"
-                      >
-                        <polygon
-                          points="7 0 0 0 0 9.21 7 14 14 9.21 14 0 7 0"
-                          fill="#1caf9d"
-                        />
-                      </svg>
+                      {
+                        user?.employmentHistory?.length !== 0 &&
+                        <svg
+                          width="15px"
+                          data-name="Layer 1"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 14 14"
+                          aria-hidden="true"
+                          role="img"
+                        >
+                          <polygon
+                            points="7 0 0 0 0 9.21 7 14 14 9.21 14 0 7 0"
+                            fill="#1caf9d"
+                          />
+                        </svg>
+                      }
                     </span>
-                    <span className="text-primary"> {t("RISING TALENT")}</span>
+                    <span className="text-primary">
+                      {
+                        user?.employmentHistory?.length === 0
+                          ? user?.badge?.none
+                          : user?.employmentHistory?.legnth <= 5
+                            ? (lang === "ar" ? user?.badge?.risingTalentAr : user?.badge?.risingTalent)
+                            : user?.employmentHistory?.legnth <= 10
+                              ? (lang === "ar" ? user?.badge?.topRatedAr : user?.badge?.topRated)
+                              : user?.employmentHistory?.legnth <= 15
+                                ? (lang === "ar" ? user?.badge?.expertAr : user?.badge?.expert)
+                                : ""
+                      }
+                    </span>
                   </div>
                 </div>
               </div>
               <div className="col-2"></div>
 
-              <div className="col py-3 mx-1 float-end ">
+              {/* <div className="col py-3 mx-1 float-end ">
                 <Link to="/settings">
                   <button type="button" className="btn btn-success px-4  mx-3">
                     {t("Profile Settings")}
                   </button>
                 </Link>
-              </div>
+              </div> */}
 
               <hr />
               <div className="row my-3">
@@ -239,30 +242,33 @@ export default function FirstSectionProfileTalent() {
                     </div>
                   </div>
                   <hr />
-                  <h5 className="fw-bold">{t("Availability")}</h5>
-                  <h6 className="fw-bold">
+                  <h5 className="fw-bold text-muted">
+                    {t("Availability")}
+                  </h5>
+                  <h6 >
                     {lang === "ar" ? user?.availability === true ? "متاح" : "غير متاح" : user?.availability === true ? "available" : "not available"}
                   </h6>
-                  <p>
+                  {/* <p>
                     {lang === "ar" ? user?.availability
                       ? "متاح لتقديم العروض إليه"
                       : "غير متاح لمدة 3 أشهر" : user?.availability
                       ? "As Needed - Open to Offers"
                       : "not available for 3 months"}
-                  </p>
+                  </p> */}
 
 
-                  <h5 className="fw-bold">{t("Languages")}</h5>
-                  <p>{t("English")} {" : "} {lang === "ar" ? user.englishProficiencyAr : user.englishProficiency}</p>
+                  <h5 className="fw-bold text-muted">{t("Languages")}</h5>
+                  <p><span className="text-muted">{t("English")}: </span> {lang === "ar" ? user.englishProficiencyAr : user.englishProficiency}</p>
                   {user?.otherLanguages?.map(langItem => <p>
                     {lang === "ar" ? [langItem.languageAr, ' ', ':', ' ', langItem.langProfAr] : [langItem.language, ' ', ':', ' ', langItem.langProf]}
                   </p>)}
 
 
-                  <h5 className="fw-bold mt-3">{t("Education")}</h5>
-                  <h5 className="fw-bold">{user?.education?.areaOfStudy}</h5>
-                  <h5 className="fw-bold">{user?.education?.school}</h5>
-                  <h5>{user?.education?.degree}{"   "} {user?.education?.gradYear}</h5>
+                  <h5 className="fw-bold mt-3 text-muted">{t("Education")}</h5>
+                  <p><span className="text-muted">University: </span>{user?.education?.school}</p>
+                  <p><span className="text-muted">Study: </span>{user?.education?.areaOfStudy}</p>
+                  <p><span className="text-muted">Degree: </span>{user?.education?.degree}</p>
+                  <p><span className="text-muted">Year: </span>{user?.education?.gradYear}</p>
 
                 </div>
 
@@ -271,7 +277,7 @@ export default function FirstSectionProfileTalent() {
 
                   <ShowMore className="mb-0 mt-4" maxHeight={100} button={<button id="seemorebutton" classname="advanced-search-link " style={{ color: 'green', position: 'absolute', left: 0 }}>
                     more
-      </button>}>
+                  </button>}>
                     {user?.overview}
                   </ShowMore>
 
@@ -280,7 +286,7 @@ export default function FirstSectionProfileTalent() {
                   <hr />
 
                   <div className="row">
-                    <h3 className="col mx-0">{t("Work History")}</h3>
+                    <h3 className="col mx-0 text-muted">{t("Work History")}</h3>
                     <button
                       type="button"
                       className=" col-1 btn btn-default d-flex justify-content-center border rounded-circle"
@@ -433,7 +439,7 @@ export default function FirstSectionProfileTalent() {
                     </div>
                     <hr />
                     <div className="row">
-                      <h3 className="col-4 mx-0">{t("Portfolio")}</h3>
+                      <h3 className="col-4 mx-0 text-muted">{t("Portfolio")}</h3>
 
                       <button
                         type="button"
@@ -473,9 +479,9 @@ export default function FirstSectionProfileTalent() {
                     </div>
 
 
-                    <hr />
-                    <div className="row">
-                      <h3 className="col-4 mx-0">{t("skills")}</h3>
+                    <div className="row mt-5">
+                      <hr />
+                      <h3 className="col-4 mx-0 text-muted">{t("skills")}</h3>
 
                       <button
                         type="button"
@@ -495,11 +501,7 @@ export default function FirstSectionProfileTalent() {
                           <i className="fas fa-plus"></i>{" "}
                         </div>
                       </button>
-
-
-
                     </div>
-
                     <div className="my-4 d-flex justify-content-start flex-wrap">
                       {user?.skills?.map((item) =>
                         <div className="chip mb-3 ms">
@@ -509,10 +511,7 @@ export default function FirstSectionProfileTalent() {
                     </div>
                   </div>
                 </div>
-
-                <h5 className=" mt-4 fw-bold col-2"> {t("$")} {user?.hourlyRate} \ {t("hr")}</h5>
-                {/* icons */}
-
+                <h5 className=" mt-2 fw-bold col-2"> {t("$")} {user?.hourlyRate} / {t("hr")}</h5>
                 <div className="col-1 d-flex justify-content-end">
                   <button
                     type="button"
@@ -543,7 +542,7 @@ export default function FirstSectionProfileTalent() {
               <div className="row">
 
                 <div className="col d-flex justify-content-between ">
-                  <h2 className="mb-3">{t("Employment history")}</h2>
+                  <h2 className="mb-3 text-muted">{t("Employment history")}</h2>
                   <button
                     type="button"
                     className="btn btn-default me-2 d-flex justify-content-center border rounded-circle"
@@ -566,15 +565,14 @@ export default function FirstSectionProfileTalent() {
               <hr />
               <div className="row">
                 {user?.company?.map((item) =>
-                  <div className="container">
-                    <h5>{item.jobTitle}</h5>
+                  <div className="container p-3">
+                    <h5>Title: {item.jobTitle}</h5>
                     <p className="mb-0 ">
-                      {item.companyName}
+                      Company: {item.companyName}
                     </p>
                     <p className="mb-2 ">
                       {item.stillWork ? "present" : ""}
                     </p>
-                    <hr />
                   </div>
                 )}
                 <div className="col-md-6 d-flex justify-content-end">

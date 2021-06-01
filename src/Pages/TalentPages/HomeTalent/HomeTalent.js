@@ -36,7 +36,7 @@ export default function HomeTalent() {
               <div className="row">
                 <LeftSidebarTalentHome user={user} />
                 <SectionCenterTalentHome user={user} />
-                <RightSidebarTalentHome user={user} />
+                <RightSidebarTalentHome user={user} lang={lang} />
               </div>
             </div>
             : <div className="d-flex justify-content-center align-items-center" style={{ height: "90vh" }}>

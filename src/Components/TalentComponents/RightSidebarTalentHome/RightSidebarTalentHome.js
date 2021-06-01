@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { auth, db } from "../../../firebase";
 import img from "../../../assets/img/icon-user.svg";
 
-export default function RightSidebarTalentHome({ user }) {
+export default function RightSidebarTalentHome({ user, lang }) {
 
   const { t } = useTranslation();
   const [talentData, setTalentData] = useState([]);
@@ -33,11 +33,10 @@ export default function RightSidebarTalentHome({ user }) {
           width="50px"
           height="50px"
         />
-
         <h5 className="d-inline ps-1">{`${user.firstName}`}</h5>
       </div>
       <div className="my-lg-1">
-        <Link to="/profile" className="advanced-search-link ">
+        <Link to="/profile" className="advanced-search-link">
           <i className="fas fa-eye"> </i> {t("View Profile")}
         </Link>
       </div>
@@ -51,12 +50,12 @@ export default function RightSidebarTalentHome({ user }) {
       </div> */}
       <div className="my-3" />
       <div className="my-lg-1 fw-bold">
-        <p>{t("Availability")}</p>
+        <p className="text-muted">{t("Availability")}</p>
       </div>
       <div className="my-lg-1">
-        <i className="far fa-clock" />
+        <i className="far fa-clock me-2" />
         <span>
-          As Needed
+          {lang === "ar" ? user?.availability === true ? "متاح" : "غير متاح" : user?.availability === true ? "available" : "not available"}
         </span>
         <div className="progress" style={{ height: 5, display: "inline" }}>
           <div
