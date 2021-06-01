@@ -7,13 +7,14 @@ import { db } from "../../../firebase";
 import { talentDataAction } from "../../../Store/actions/talentData";
 import { updateUserData } from "../../../Network/Network";
 
-export default function SavedJobsJobComponent({ jobId }) {
+export default function SavedJobsJobComponent({ jobId , setisliked ,  isliked}) {
   const { t } = useTranslation();
   const [jobdata, setJobData] = useState({});
   const user = useSelector((state) => state.talentData);
   const dispatch = useDispatch();
 
   useEffect(() => {
+
     dispatch(talentDataAction());
     db.collection("job")
       .doc(jobId)
@@ -23,22 +24,23 @@ export default function SavedJobsJobComponent({ jobId }) {
       });
     // console.log(jobdata);
   }, []);
-  const saveJob =(e ,id)=>
+  const saveJob =(id)=>
   {
-if(e.target.className === 'far fa-heart'){
-updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
-e.target.className = 'fas fa-heart text-upwork'
-}
-else
-{
-  user?.savedJobs?.forEach((item, index) => {
-    if (item === id) {
-      user?.savedJobs?.splice(index, 1);
-      updateUserData("talent", { savedJobs: [...user?.savedJobs] });
-      e.target.className = 'far fa-heart'
-      }
-    })
-}
+    if(!user.savedJobs?.includes(id)){
+      updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
+      // e.target.className = 'fas fa-heart text-upwork'
+    }
+    else
+    {
+      user?.savedJobs?.forEach((item, index) => {
+        if (item === id) {
+          user?.savedJobs?.splice(index, 1);
+          updateUserData("talent", { savedJobs: [...user?.savedJobs] });
+          // e.target.className = 'far fa-heart'
+        }
+      })
+    }
+    setisliked(!isliked)
   }
 
   return (
@@ -62,8 +64,8 @@ else
               data-target="#collapse"
               aria-expanded="false"
               aria-controls="collapseTwo"
-            >
-              <i onClick={(e)=>saveJob(e,jobdata.jobID)} className={`${user.savedJobs.includes(jobdata.jobID)?'fas fa-heart text-upwork' : 'far fa-heart'}`} aria-hidden="true" />
+              onClick={()=>saveJob(jobdata.jobID)}>
+              <i  className='fas fa-heart text-upwork' aria-hidden="false" />
             </button>
           </div>
           <div className="btn-group float-sm-end  px-lg-1">

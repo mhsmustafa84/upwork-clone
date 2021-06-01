@@ -16,11 +16,13 @@ export default function SectionCenterTalentHome() {
   const jobs = useSelector((state) => state.jobsData);
   const user = useSelector((state) => state.talentData);
   const dispatch = useDispatch();
+  const [isliked, setisliked] = useState(false)
   useEffect(() => {
     dispatch(jobsDataAction());
     dispatch(talentDataAction())
-  }, [user])
+  }, [isliked])
   const saveJob = (e, id) => {
+    setisliked(!isliked)
     if (e.target.className === 'far fa-heart') {
       updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
       e.target.className = 'fas fa-heart text-upwork'

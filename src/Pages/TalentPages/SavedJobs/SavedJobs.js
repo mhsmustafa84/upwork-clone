@@ -9,16 +9,16 @@ import { talentDataAction } from "../../../Store/actions/talentData";
 export default function SavedJobs() {
   const user = useSelector((state) => state.talentData);
   const dispatch = useDispatch();
-
+  const [isliked, setisliked] = useState(false)
   useEffect(() => {
     dispatch(talentDataAction());
-  }, [user]);
+  }, [isliked]);
   return (
     <div className="container-md container-fluid-sm my-lg-4">
       <div className="col-12">
         <SavedJobsHeader jobs={user?.savedJobs?.length} />
         {user?.savedJobs?.map((item) => (
-          <SavedJobsJobComponent jobId={item} key={item} />
+          <SavedJobsJobComponent jobId={item} key={item} isliked={isliked} setisliked={setisliked} />
         ))}
       </div>
     </div>

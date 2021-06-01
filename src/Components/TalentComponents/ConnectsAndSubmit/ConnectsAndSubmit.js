@@ -17,6 +17,7 @@ export default function ConnectsAndSubmit({ connects }) {
   let [talent, setTalent] = useState("");
   const [jobProposal, setjobProposal] = useState(false);
   const { push } = useHistory();
+  const [isliked, setisliked] = useState(false)
 
   useEffect(() => {
     db.collection("talent")
@@ -27,41 +28,48 @@ export default function ConnectsAndSubmit({ connects }) {
         if (res?.docs.length > 0) setjobProposal(true);
       });
      (user?.savedJobs?.includes(id))?setText("Unsave Job"): setText("Save Job")
-    // if (user?.savedJobs?.length > 0) {
-    //   user?.savedJobs?.forEach((item) => {
-    //     if (item === id) {
-    //       text = "Unsave Job";
-    //       setText(text);
-    //     } else {
-    //       text = "Saved Job";
-    //       setText(text);
-    //     }
-    //   });
-    // } else {
-    //   text = "Saved Job";
-    //   setText(text);
-    // }
+    setisliked(!isliked)
   }, []);
 
+  useEffect(() => {
+    // dispatch(jobsDataAction());
+    dispatch(talentDataAction())
+  }, [isliked])
 
+  // const savedjobs = () => {
+  //   if (!user?.savedJobs?.includes(id)) {
+  //     updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
+  //     setText("Unsave Job");
+  //   } else {
+  //     user?.savedJobs.forEach((item, index) => {
+  //       if (item === id) {
+  //         user?.savedJobs?.splice(index, 1);
+  //         updateUserData("talent", { savedJobs: [...user?.savedJobs] });
+  //         // console.log(user?.savedJobs);
+  //         setText("Save Job");
+  //       }
+  //     });
+  //   }
+  //   setisliked(!isliked)
+  //   // dispatch(talentDataAction());
+  // };
 
-  const savedjobs = () => {
-    if (!user?.savedJobs?.includes(id)) {
+  const saveJob = (e) => {
+    setisliked(!isliked)
+    if (e.target.className === 'far fa-heart') {
       updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
-      setText("Unsave Job");
-    } else {
-      user?.savedJobs.forEach((item, index) => {
+      e.target.className = 'fas fa-heart text-upwork'
+    }
+    else {
+      user?.savedJobs?.forEach((item, index) => {
         if (item === id) {
           user?.savedJobs?.splice(index, 1);
           updateUserData("talent", { savedJobs: [...user?.savedJobs] });
-          console.log(user?.savedJobs);
-          setText("Save Job");
+          e.target.className = 'far fa-heart'
         }
-      });
+      })
     }
-    dispatch(talentDataAction());
-  };
-
+  }
   const handlewithdrawProposal = async () => {
     try {
       await db
@@ -123,22 +131,16 @@ export default function ConnectsAndSubmit({ connects }) {
             {t("Withdraw")}
           </button>
         )}
-       
+
        <button
           className="btn btn-light border border-1 my-lg-2"
           type="button"
           onClick={() => savedjobs()}
         >
-          <i
-            className={`me-2 ${
-              //  user.savedJobs.includes(id)
-              text==="Unsave Job"
-                ? "fas fa-heart text-upwork"
-                : "far fa-heart"
-            }`}
-            aria-hidden="true"
-          />
-          {text}
+         
+           
+         <i onClick={(e) => saveJob(e)} className={`${user.savedJobs?.includes(id) ? 'fas fa-heart text-upwork' : 'far fa-heart'}`} aria-hidden="true" />
+
         </button>
         
       </div>
