@@ -13,7 +13,7 @@ export default function SavedJobs() {
   const [isliked, setisliked] = useState(false)
   useEffect(() => {
     dispatch(talentDataAction());
-  }, [user]);
+  }, [isliked]);
 
   return (
     <div className="container-md container-fluid-sm my-lg-4">
@@ -22,7 +22,7 @@ export default function SavedJobs() {
         {
           user?.savedJobs ?
             user?.savedJobs?.map((item) => (
-              <SavedJobsJobComponent jobId={item} key={item} />
+              <SavedJobsJobComponent jobId={item} key={item} isliked={isliked} setisliked={setisliked}/>
             ))
             :
             <div className="d-flex justify-content-center align-items-center" style={{ height: "70vh" }}>

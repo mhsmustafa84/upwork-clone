@@ -15,36 +15,40 @@ import { db } from "../../../firebase";
 import JobProposalsNumber from "./JobProposalsNumber";
 
 
-export default function SectionCenterTalentHome({ user }) {
+export default function SectionCenterTalentHome() {
 
   const jobs = useSelector(state => state.jobsData);
   const lang = useSelector(state => state.lang);
   // const [numOfProposals, setNumOfProposals] = useState(0)
-  // const user = useSelector(state => state.talentData);
+  const [isliked, setisliked] = useState(false)
+  const user = useSelector(state => state.talentData);
   const dispatch = useDispatch();
-
+  useEffect(() => {
+    dispatch(talentDataAction());
+  }, [isliked]);
   useEffect(() => {
     dispatch(jobsDataAction());
-    // dispatch(talentDataAction());
+    dispatch(talentDataAction());
     // setNumOfProposals(getProposalsNumber())
     console.log(jobs);
   }, [])
 
-  // const saveJob = (e, id) => {
-  //   if (e.target.className === 'far fa-heart') {
-  //     updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
-  //     e.target.className = 'fas fa-heart text-upwork'
-  //   }
-  //   else {
-  //     user?.savedJobs?.forEach((item, index) => {
-  //       if (item === id) {
-  //         user?.savedJobs?.splice(index, 1);
-  //         updateUserData("talent", { savedJobs: [...user?.savedJobs] });
-  //         e.target.className = 'far fa-heart'
-  //       }
-  //     })
-  //   }
-  // }
+  const saveJob = (e, id) => {
+    setisliked(!isliked)
+    if (e.target.className === 'far fa-heart') {
+      updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
+      e.target.className = 'fas fa-heart text-upwork'
+    }
+    else {
+      user?.savedJobs?.forEach((item, index) => {
+        if (item === id) {
+          user?.savedJobs?.splice(index, 1);
+          updateUserData("talent", { savedJobs: [...user?.savedJobs] });
+          e.target.className = 'far fa-heart'
+        }
+      })
+    }
+  }
 
   const star = (clientReview, index) => {
     return <StarsRating clientReview={clientReview} index={index} />
@@ -81,8 +85,8 @@ export default function SectionCenterTalentHome({ user }) {
                         aria-controls="collapseTwo"
                       >
                         <i
-                          onClick={() => { }
-                            // (e) => saveJob(e, item.jobID)
+                          onClick={
+                             (e) => saveJob(e, item.jobID)
                           }
                           className={`${user.savedJobs?.includes(item.jobID) ? 'fas fa-heart text-upwork' : 'far fa-heart'}`
                           } aria-hidden="true" />

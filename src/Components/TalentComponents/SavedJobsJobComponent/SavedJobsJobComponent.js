@@ -15,7 +15,6 @@ export default function SavedJobsJobComponent({ jobId , setisliked ,  isliked}) 
   const dispatch = useDispatch();
 
   useEffect(() => {
-
     dispatch(talentDataAction());
     db.collection("job")
       .doc(jobId)
@@ -26,20 +25,27 @@ export default function SavedJobsJobComponent({ jobId , setisliked ,  isliked}) 
     // console.log(jobdata);
   }, []);
 
+
+  useEffect(() => {
+    dispatch(talentDataAction());
+  }, [isliked])
+
+  
   const saveJob = (e, id) => {
-    // if (e.target.className === 'far fa-heart') {
-    //   updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
-    //   e.target.className = 'fas fa-heart text-upwork'
-    // }
-    // else {
-    //   user?.savedJobs?.forEach((item, index) => {
-    //     if (item === id) {
-    //       user?.savedJobs?.splice(index, 1);
-    //       updateUserData("talent", { savedJobs: [...user?.savedJobs] });
-    //       e.target.className = 'far fa-heart'
-    //     }
-    //   })
-    // }
+    setisliked(!isliked)
+    if (e.target.className === 'far fa-heart') {
+      updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
+      e.target.className = 'fas fa-heart text-upwork'
+    }
+    else {
+      user?.savedJobs?.forEach((item, index) => {
+        if (item === id) {
+          user?.savedJobs?.splice(index, 1);
+          updateUserData("talent", { savedJobs: [...user?.savedJobs] });
+          e.target.className = 'far fa-heart'
+        }
+      })
+    }
   }
 
   return (
