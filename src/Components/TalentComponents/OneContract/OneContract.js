@@ -2,38 +2,40 @@
 /* eslint-disable no-script-url */
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { auth, db } from "../../../firebase";
+import { db } from "../../../firebase";
 import Loader from "../../SharedComponents/Loader/Loader";
 
 export default function OneContract({ contract, ind }) {
 
   const [job, setJob] = useState([]);
-  const [client, setClient] = useState({});
-  // const [client, setClient] = useState({});
+  const [client, setClient] = useState();
+  const [clientContract, setClientContract] = useState();
 
   useEffect(async () => {
     await db.collection("job")
       .doc(contract.jobId)
       .get().then(async job => {
+
         setJob(job.data());
+
         await db.collection("client")
           .doc(job.data().authID)
-          .get().then(doc => setClient({ ...client, data: doc.data() }))
+          .get().then(doc => setClient(doc.data()))
+
         await db.collection("client")
           .doc(job.data().authID)
           .collection("contracts")
-          .where("talentID", "==", auth.currentUser.uid)
-          .get().then(res => setClient({ ...client, clientContract: res.docs[0].data() }))
-
+          .where("talentResponse", "==", "accept")
+          .get().then(res => setClientContract(res.docs[0].data()))
+        console.log(clientContract);
       });
   }, []);
 
   return (
     <section className="air-card-hover py-3" id="contract26184114" style={{ borderTop: ind !== 0 && "1px solid #00000020" }}>
-      {console.log(client?.data)}
       <div className="row">
         {
-          client?.data
+          client
             ?
             <>
               <div className="col-lg-4 col-md-5 col-xs-10 qa-wm-fl-cl-tile d-flex flex-direction-column justify-content-space-between">
@@ -48,7 +50,7 @@ export default function OneContract({ contract, ind }) {
                   <div className="row qa-wm-fl-cl-client m-sm-bottom my-2">
                     <div className="col-xs-6">
                       <strong className="m-0 ellipsis d-block ng-binding">
-                        {client?.data?.firstName + " " + client?.data?.lastName}
+                        {client?.firstName + " " + client?.lastName}
                       </strong>
                     </div>
                   </div>
@@ -69,7 +71,7 @@ export default function OneContract({ contract, ind }) {
                 <div className="row">
                   <div className="col-xs-6 qa-wm-fl-cl-terms col-xs-12">
                     <div>
-                      <strong>${client?.clientContract?.jobBudget}</strong>/hr
+                      <strong>${clientContract?.jobBudget}</strong>/hr
                 </div>
                     <div>5 max hrs/wk</div>
                     <p className="m-0-top-bottom ng-binding ">Completed Feb 4</p>

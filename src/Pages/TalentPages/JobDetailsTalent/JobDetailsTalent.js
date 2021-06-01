@@ -40,18 +40,18 @@ export default function JobDetailsTalent() {
               }
               <h3>{t("Job details")}</h3>
             </div>
-            <div className="row ">
+            <div className="row">
               <JobDescriptionJobDetails job={jobData} />
               <RightSidebarJobDetails job={jobData} />
             </div>
           </div>
-          <div className="row">
-            <div className="col-lg-12 col-xs-12">
-              {/* <ClientRecentHistory /> */}
-              {/* <OtherOpenJobsByThisClient /> */}
-              {/* <SimilarJobsOnUpwork /> */}
-            </div>
-          </div>
+          {/* <div className="row">
+            <div className="col-lg-12 col-xs-12"> */}
+          {/* <ClientRecentHistory /> */}
+          {/* <OtherOpenJobsByThisClient /> */}
+          {/* <SimilarJobsOnUpwork /> */}
+          {/* </div>
+          </div> */}
         </div>
         :
         <div className="d-flex justify-content-center align-items-center" style={{ height: "90vh" }}>
