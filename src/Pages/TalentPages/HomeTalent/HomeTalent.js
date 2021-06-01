@@ -43,7 +43,6 @@ export default function HomeTalent() {
               <Loader />
             </div>
         }
-
       </div>
     </div>
   );

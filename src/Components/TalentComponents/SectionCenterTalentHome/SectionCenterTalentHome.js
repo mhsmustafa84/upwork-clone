@@ -19,7 +19,6 @@ export default function SectionCenterTalentHome() {
 
   const jobs = useSelector(state => state.jobsData);
   const lang = useSelector(state => state.lang);
-  // const [numOfProposals, setNumOfProposals] = useState(0)
   const [isliked, setisliked] = useState(false)
   const user = useSelector(state => state.talentData);
   const dispatch = useDispatch();
@@ -29,7 +28,6 @@ export default function SectionCenterTalentHome() {
   useEffect(() => {
     dispatch(jobsDataAction());
     dispatch(talentDataAction());
-    // setNumOfProposals(getProposalsNumber())
     console.log(jobs);
   }, [])
 
@@ -86,7 +84,7 @@ export default function SectionCenterTalentHome() {
                       >
                         <i
                           onClick={
-                             (e) => saveJob(e, item.jobID)
+                            (e) => saveJob(e, item.jobID)
                           }
                           className={`${user.savedJobs?.includes(item.jobID) ? 'fas fa-heart text-upwork' : 'far fa-heart'}`
                           } aria-hidden="true" />

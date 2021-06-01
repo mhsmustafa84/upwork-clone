@@ -1,5 +1,4 @@
 import React from 'react'
-import { useTranslation } from "react-i18next";
 import {
     Route,
     Switch,
@@ -12,10 +11,9 @@ import ContractFeedback from '../../../Components/TalentComponents/ContractFeedb
 import "../../ClientPages/Talent/Talent.css";
 
 export default function Contract() {
-    const { t } = useTranslation();
     const { pathname } = useLocation();
     const { push } = useHistory();
-     pathname === "/contract" && push("/contract/earnings");
+    pathname === "/contract" && push("/contract/earnings");
 
     return (
         <div className="container bg-gray">

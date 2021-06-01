@@ -24,6 +24,7 @@ export default function ReviewProposalsCard() {
       .onSnapshot(res => {
         res.docs.map(async proposal => {
           if (proposal.exists) {
+            console.log(proposal.data().talentId);
             proposals.push(proposal.data());
             await db.collection("talent")
               .doc(proposal.data().talentId)
@@ -31,6 +32,7 @@ export default function ReviewProposalsCard() {
               .then(doc => {
                 if (doc.exists) {
                   arr.push(doc.data());
+                  console.log(doc.data())
                   setTalent([...arr]);
                 }
               });
@@ -47,12 +49,13 @@ export default function ReviewProposalsCard() {
   return (
     <>
       <ReviewProposalsPageHeader proposals={proposals.length} />
+      {console.log(talent[0])}
       {
         proposals.length > 0
           ?
           proposals.map((proposal, index) => {
             return (
-              talent[index]?.profilePhoto
+              talent[index]
                 ?
                 <div className="row border bg-white border-1 ms-0 pt-2" key={index}>
                   <div className="col-1 pt-lg-3">
@@ -150,6 +153,7 @@ export default function ReviewProposalsCard() {
                 index === 0 && <Loader />
             )
           })
+
           :
           <div className="row border bg-white border-1 ms-0 py-3">
             <p className="text-muted text-center h1">No proposals</p>

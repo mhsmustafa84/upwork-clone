@@ -175,7 +175,7 @@ export default function SubmitProposal() {
                     </p>
                     <p>
                       When you submit this proposal, you'll have
-                    <strong> {user.connects} </strong>remaining
+                    <strong> {user.connects - 2} </strong>remaining
                   </p>
                   </>
                     : <p className="fw-bold text-alert">You Don't Have Enough Connects</p>

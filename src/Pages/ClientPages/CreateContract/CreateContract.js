@@ -1,24 +1,37 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
+import { useHistory } from 'react-router';
 import { auth, db } from '../../../firebase';
+import { subCollection } from '../../../Network/Network';
+import firebase from 'firebase/app';
 
 export default function CreateContract({ location }) {
+    const { jobID, talentID } = location.state;
     const { t } = useTranslation();
-    const [job, setJob] = useState({ jobPaymentType: "", jobBudget: "" });
+    const [contract, setContract] = useState({ jobPaymentType: "", jobBudget: "", dueDate: "" });
+    const [job, setJob] = useState();
     const [edit, setEdit] = useState({ budget: false, paymentType: false });
     const [done, setDone] = useState(false);
+    const { push } = useHistory();
 
-    const getData = (e) => {
-        const val = e.target.value;
-        const name = e.target.name;
+    useEffect(() => {
+        db.collection("job")
+            .doc(jobID)
+            .get().then(doc => setJob(doc.data()))
+    }, [])
+
+    const getData = ({ target }) => {
+        const val = target.value;
+        const name = target.name;
         switch (name) {
             case "jobPaymentType":
-                job.jobPaymentType = val;
-                setJob({ ...job, jobPaymentType: job.jobPaymentType });
+                setContract({ ...contract, jobPaymentType: val });
                 break;
             case "budget":
-                job.jobBudget = val;
-                setJob({ ...job, jobBudget: job.jobBudget });
+                setContract({ ...contract, jobBudget: parseInt(val) });
+                break;
+            case "date":
+                setContract({ ...contract, dueDate: val });
                 break;
             default:
                 break;
@@ -35,10 +48,11 @@ export default function CreateContract({ location }) {
 
     const cancel = () => {
         setEdit({ budget: false, paymentType: false })
+        setContract({ ...contract, jobBudget: "", jobPaymentType: "" })
     }
 
     const startContract = () => {
-        const { jobID, talentID } = location.state;
+
         setDone(true)
         db.collection("talent")
             .doc(talentID)
@@ -54,23 +68,47 @@ export default function CreateContract({ location }) {
                         .update({ status: "offer" })
                 }
             })
-        db.collection("talent").doc(talentID).collection("notification").add({
-            message: "New job offer, check it now.",
-            type: "offer",
+
+        db.collection("talent")
+            .doc(talentID)
+            .collection("notification")
+            .add({
+                message: "New job offer, check it now.",
+                type: "offer",
+                clientID: auth.currentUser.uid,
+                isShow: false
+            })
+
+        subCollection(
+            "client",
+            "contracts", {
+            sentTime: firebase.firestore.Timestamp.now(),
+            jobID: jobID,
+            talentID: talentID,
+            talentResponse: "",
             clientID: auth.currentUser.uid,
-            isShow: false
-        })
+            dueDate: contract.dueDate,
+            jobBudget: contract.jobBudget || job.jobBudget,
+            jobPaymentType: contract.jobPaymentType || job.jobPaymentType,
+            jobPaymentTypeAr: (contract.jobPaymentType === "Fixed Price" ? "عمل بميزانية ثابتة" : "عمل بالساعة") || job.jobPaymentTypeAr
+        },
+            auth.currentUser.uid
+        )
+        setContract({ jobPaymentType: "", jobBudget: "", dueDate: "" })
+        setTimeout(() => {
+            push("/all-job-posts");
+        }, 2500);
     }
 
     return (
-        <div className="container my-5">
+        <div className="container my-5 px-5">
             <h3>Create Contract</h3>
             <div className="bg-white py-5">
                 <div className="mx-auto w-50">
                     <p>Do you want to edit budget or job payment type before you start the contract?</p>
                     <div className="text-center">
-                        <button className="btn bg-upwork" onClick={editBudget}>Change Job Budget</button>
-                        <button className="btn bg-upwork mx-3" onClick={editPaymentType}>Change Job Payment Type</button>
+                        <button className="btn btn-outline-secondary" onClick={editBudget}>Change Job Budget</button>
+                        <button className="btn btn-outline-secondary mx-3" onClick={editPaymentType}>Change Job Payment Type</button>
                         {
                             edit.budget || edit.paymentType ?
                                 <button className="btn btn-danger" onClick={cancel}>Cancel</button>
@@ -81,7 +119,12 @@ export default function CreateContract({ location }) {
                         edit.budget &&
                         <label className="text-center d-block mt-4">
                             Budget:
-                        <input className="form-control d-inline w-50 my-3 ms-2" type="text" />
+                        <input
+                                className="form-control d-inline w-50 my-3 ms-2"
+                                type="text"
+                                name="budget"
+                                onInput={getData}
+                            />
                         </label>
                     }
                     <div>
@@ -126,7 +169,13 @@ export default function CreateContract({ location }) {
                     </div>
                     <label className="text-center d-block mt-4">
                         Due to:
-                        <input className="form-control d-inline w-50 my-3 ms-2" type="date" />
+                        <input
+                            className="form-control d-inline w-50 my-3 ms-2"
+                            type="date"
+                            name="date"
+                            value={contract.dueDate}
+                            onInput={getData}
+                        />
                     </label>
                     {
                         done &&
@@ -135,11 +184,15 @@ export default function CreateContract({ location }) {
                                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"></path>
                             </svg>
                             <div className="ms-2">
-                                An example success alert with an icon
+                                The offer was sent to the freelancer
                             </div>
                         </div>
                     }
-                    <button className="btn bg-upwork text-white d-block mx-auto w-50 mt-4" onClick={startContract}>
+                    <button
+                        className="btn bg-upwork text-white d-block mx-auto w-50 mt-4"
+                        onClick={startContract}
+                        disabled={!contract.dueDate}
+                    >
                         Start Contract
                     </button>
                 </div>
