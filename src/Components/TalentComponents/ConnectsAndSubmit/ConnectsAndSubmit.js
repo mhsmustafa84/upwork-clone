@@ -19,6 +19,7 @@ export default function ConnectsAndSubmit({ connects }) {
   let [talent, setTalent] = useState("");
   const [jobProposal, setjobProposal] = useState(false);
   const { push } = useHistory();
+  const [isliked, setisliked] = useState(false)
 
   useEffect(() => {
     db.collection("talent")
@@ -45,7 +46,28 @@ export default function ConnectsAndSubmit({ connects }) {
     // }
   }, []);
 
+  useEffect(() => {
+    // dispatch(jobsDataAction());
+    dispatch(talentDataAction())
+  }, [isliked])
 
+  // const savedjobs = () => {
+  //   if (!user?.savedJobs?.includes(id)) {
+  //     updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
+  //     setText("Unsave Job");
+  //   } else {
+  //     user?.savedJobs.forEach((item, index) => {
+  //       if (item === id) {
+  //         user?.savedJobs?.splice(index, 1);
+  //         updateUserData("talent", { savedJobs: [...user?.savedJobs] });
+  //         // console.log(user?.savedJobs);
+  //         setText("Save Job");
+  //       }
+  //     });
+  //   }
+  //   setisliked(!isliked)
+  //   // dispatch(talentDataAction());
+  // };
 
   const savedjobs = () => {
     //   if (!user?.savedJobs?.includes(id)) {

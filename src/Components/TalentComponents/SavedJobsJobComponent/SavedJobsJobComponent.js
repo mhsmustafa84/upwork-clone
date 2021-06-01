@@ -8,7 +8,7 @@ import { db } from "../../../firebase";
 import { talentDataAction } from "../../../Store/actions/talentData";
 import { updateUserData } from "../../../Network/Network";
 
-export default function SavedJobsJobComponent({ jobId }) {
+export default function SavedJobsJobComponent({ jobId , setisliked ,  isliked}) {
   const { t } = useTranslation();
   const [jobdata, setJobData] = useState({});
   const user = useSelector((state) => state.talentData);
@@ -25,20 +25,27 @@ export default function SavedJobsJobComponent({ jobId }) {
     // console.log(jobdata);
   }, []);
 
+
+  useEffect(() => {
+    dispatch(talentDataAction());
+  }, [isliked])
+
+  
   const saveJob = (e, id) => {
-    // if (e.target.className === 'far fa-heart') {
-    //   updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
-    //   e.target.className = 'fas fa-heart text-upwork'
-    // }
-    // else {
-    //   user?.savedJobs?.forEach((item, index) => {
-    //     if (item === id) {
-    //       user?.savedJobs?.splice(index, 1);
-    //       updateUserData("talent", { savedJobs: [...user?.savedJobs] });
-    //       e.target.className = 'far fa-heart'
-    //     }
-    //   })
-    // }
+    setisliked(!isliked)
+    if (e.target.className === 'far fa-heart') {
+      updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
+      e.target.className = 'fas fa-heart text-upwork'
+    }
+    else {
+      user?.savedJobs?.forEach((item, index) => {
+        if (item === id) {
+          user?.savedJobs?.splice(index, 1);
+          updateUserData("talent", { savedJobs: [...user?.savedJobs] });
+          e.target.className = 'far fa-heart'
+        }
+      })
+    }
   }
 
   return (
