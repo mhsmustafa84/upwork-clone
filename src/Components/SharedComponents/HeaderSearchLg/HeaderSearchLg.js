@@ -38,6 +38,8 @@ export default function HeaderSearchLg() {
     jobs.map((e) => e.skills.includes(itemSearchList) && tempArr.push(e))
     setsearchList(tempArr)
     push({ pathname: "/search" })
+
+    
     if (itemSearchList !== "") {
       let arr2 = []
       arr != null ? arr2 = [itemSearchList, ...arr] :

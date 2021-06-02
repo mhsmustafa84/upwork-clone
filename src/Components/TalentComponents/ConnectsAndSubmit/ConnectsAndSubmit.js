@@ -37,26 +37,26 @@ export default function ConnectsAndSubmit() {
   }, [isliked])
   const saveJob = (e) => {
     setisliked(!isliked)
-    if (e.target.className === 'far fa-heart') {
-      updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
-      e.target.className = 'fas fa-heart text-upwork'
-
-    }
-    else {
-      user?.savedJobs?.forEach((item, index) => {
-        if (item === id) {
-          user?.savedJobs?.splice(index, 1);
-          updateUserData("talent", { savedJobs: [...user?.savedJobs] });
-          e.target.className = 'far fa-heart'
+        if (e.target.className === 'far fa-heart') {
+            updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
+            e.target.className = 'fas fa-heart text-upwork'
 
         }
-      })
+        else {
+            user?.savedJobs?.forEach((item, index) => {
+                if (item === id) {
+                    user?.savedJobs?.splice(index, 1);
+                    updateUserData("talent", { savedJobs: [...user?.savedJobs] });
+                    e.target.className = 'far fa-heart'
+
+                }
+            })
+        }
     }
-  }
 
+  
 
-
-
+ 
 
   const handlewithdrawProposal = async () => {
     try {
@@ -124,17 +124,16 @@ export default function ConnectsAndSubmit() {
         <button
           className="btn btn-light border border-1 my-lg-2"
           type="button"
-        >
+          >
           <i
-            onClick={(e) => saveJob(e)}
-            className={`${user?.savedJobs?.includes(id) ? 'fas fa-heart text-upwork' : 'far fa-heart'}`}
+          onClick={(e) => saveJob(e)}
+          className={`${user?.savedJobs?.includes(id) ? 'fas fa-heart text-upwork' : 'far fa-heart'}`}
             aria-hidden="true"
           />
           {text}
         </button>
 
       </div>
-
       <p>
         {t("Required Connects to submit a proposal")}: 2
       </p>
