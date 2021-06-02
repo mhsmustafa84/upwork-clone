@@ -2,6 +2,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
+import JobProposalsNumber from './../SectionCenterTalentHome/JobProposalsNumber';
 
 
 export default function JobDescriptionJobDetails({ job }) {
@@ -9,7 +10,7 @@ export default function JobDescriptionJobDetails({ job }) {
 
   const { t } = useTranslation();
   return (
-    <div className="col-lg-9 col-xs-12  mt-lg-0">
+    <div className="col-lg-9 col-xs-12  mt-lg-0 d-flex flex-column">
       <div className="bg-white py-lg-4 px-4 border border-1 row py-sm-3 mt-lg-0 mt-sm-3 py-xs-5">
         <h4>{job?.jobTitle}</h4>
       </div>
@@ -109,7 +110,6 @@ export default function JobDescriptionJobDetails({ job }) {
       <div className="bg-white py-lg-4 px-4 border border-1 row pb-sm-3 py-xs-5">
         <h5 className="fw-bold my-4">{t("Skills and experties")}</h5>
         <div className="col">
-          {/* <div className="fw-bold">{t("Web Design languages")}</div> */}
           {job?.skills?.map((task, index) => (
             <button
               type="button"
@@ -121,46 +121,11 @@ export default function JobDescriptionJobDetails({ job }) {
           ))}
         </div>
       </div>
-      <div className="bg-white py-lg-2 py-md-4 px-4 border border-1 row py-xs-5">
-        {/* need to handl dynamic data */}
+      <div className="bg-white py-lg-2 py-md-4 px-4 border border-1 row py-xs-5 h-100">
         <h5 className="fw-bold my-4">{t("Activity on this job")}</h5>
-        <div>
+        <div className="pb-5">
           <p className="my-lg-1">
-            <span className="text-muted">Proposals: </span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 14 14"
-              aria-hidden="true"
-              role="img"
-              width="15px"
-              fill="green"
-            >
-              <path d="M7 0a7 7 0 100 14A7 7 0 007 0zm3.017 4.981c0 1.57-1.128 2.278-2.52 2.52l-.131 1.03h-.96l-.251-2.015.059-.06c1.608-.06 2.327-.588 2.327-1.44v-.023c0-.72-.551-1.236-1.462-1.236-.804 0-1.464.36-2.064 1.008l-.9-.948c.72-.827 1.644-1.39 3-1.39 1.738 0 2.902.983 2.902 2.53v.024zm-3.958 6.284V9.598h1.606v1.667H6.059z"></path>
-            </svg>{" "}
-            {t("Less than 5")}
-          </p>
-          <p className="my-lg-1">
-            <span className="text-muted">Last viewed by client: </span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 14 14"
-              aria-hidden="true"
-              role="img"
-              width="15px"
-              fill="green"
-            >
-              <path d="M7 0a7 7 0 100 14A7 7 0 007 0zm3.017 4.981c0 1.57-1.128 2.278-2.52 2.52l-.131 1.03h-.96l-.251-2.015.059-.06c1.608-.06 2.327-.588 2.327-1.44v-.023c0-.72-.551-1.236-1.462-1.236-.804 0-1.464.36-2.064 1.008l-.9-.948c.72-.827 1.644-1.39 3-1.39 1.738 0 2.902.983 2.902 2.53v.024zm-3.958 6.284V9.598h1.606v1.667H6.059z"></path>
-            </svg>{" "}
-            4 minutes ago
-          </p>
-          <p className="my-lg-1">
-            <span className="text-muted">Interviewing: </span> 0
-          </p>
-          <p className="my-lg-1">
-            <span className="text-muted">Invites sent: </span> 2
-          </p>
-          <p className="my-lg-1">
-            <span className="text-muted">Unanswered invites : </span> 2
+            Proposals: <JobProposalsNumber jobID={job?.jobID} />
           </p>
         </div>
       </div>

@@ -38,7 +38,7 @@ export default function RightSidebarTalentHome({  lang }) {
         <h5 className="d-inline ps-1">{`${user.firstName}`}</h5>
       </div>
       <div className="my-lg-1">
-        <Link to="/profile" className="advanced-search-link">
+        <Link to={`/profile/${auth.currentUser.uid}`} className="advanced-search-link">
           <i className="fas fa-eye"> </i> {t("View Profile")}
         </Link>
       </div>

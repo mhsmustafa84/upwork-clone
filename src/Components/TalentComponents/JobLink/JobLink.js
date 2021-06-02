@@ -4,20 +4,17 @@ import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router";
 
 export default function JobLink() {
-  let his =useHistory()
- 
+  let his = useHistory()
+
   const [state, setstate] = useState({
     value: `http://localhost:3000${his.location.pathname}`,
     copied: false,
   });
 
   const { t } = useTranslation();
-  // state = {
-  //       value: "https://www.upwork.com/jobs/~013341eba25b4755dd",
-  //       copied: false,
-  //     };
+
   return (
-    <div className="bg-white pb-lg-2 px-4 border border-1 row py-xs-5 ">
+    <div className="bg-white pb-lg-2 px-4 border border-1 py-xs-5 h-100">
       <h5 className="py-lg-2">{t("Job link")}</h5>
       <input
         onInput={({ target: { value } }) => setstate({ value, copied: false })}

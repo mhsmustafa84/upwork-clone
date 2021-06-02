@@ -61,7 +61,7 @@ export default function TalentRoutes() {
             <Route path="/job/applied/:id" exact component={JobAppliedDetails} />
             <Route path="/saved-jobs" exact component={SavedJobs} />
             <Route path="/proposals" exact component={Proposals} />
-            <Route path="/profile" exact component={Profile} />
+            <Route path="/profile/:id" exact component={Profile} />
             <Route path="/email-verification" component={EmailVerified} />
             <Route
               path="/sign-up/please-verify"

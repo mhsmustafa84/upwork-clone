@@ -76,7 +76,7 @@ export default function ConnectsAndSubmit2({ connects }) {
           <i className="far fa-heart" aria-hidden="true" /> {t("Save Job")}
         </button>
       </div>
-      <a href="#" className="advanced-search-link">
+      {/* <a href="#" className="advanced-search-link">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 14 14"
@@ -89,7 +89,7 @@ export default function ConnectsAndSubmit2({ connects }) {
           <path d="M10.559 3.97l2.31-3.757C12.94.095 12.888 0 12.753 0H4v8h8.753c.136 0 .187-.1.116-.217l-2.31-3.814zM1.999 0h1v14H1V0h1z"></path>
         </svg>{" "}
         Flag as inappropriate
-      </a>
+      </a> */}
     </div>
   );
 }

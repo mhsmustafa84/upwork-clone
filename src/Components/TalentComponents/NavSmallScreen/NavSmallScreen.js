@@ -2,7 +2,7 @@
 import React from "react";
 import HeaderSearchSm from "../../SharedComponents/HeaderSearchSm/HeaderSearchSm";
 import { Link, useHistory } from "react-router-dom";
-import firebaseApp from "../../../firebase";
+import firebaseApp, { auth } from "../../../firebase";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 
@@ -145,9 +145,9 @@ export default function NavSmallScreen() {
                 </a>
               </li>
               <li>
-                <a className="dropdown-item" href="#">
+                <Link className="dropdown-item" to={`/profile/${auth.currentUser.uid}`}>
                   {t("Profile")}
-                </a>
+                </Link>
               </li>
               {/* <li>
                 <a className="dropdown-item" href="#">
