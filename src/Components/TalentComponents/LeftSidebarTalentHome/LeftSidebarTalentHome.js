@@ -3,13 +3,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
 import { SearchContext } from "../../../Context/SearchContext";
 import { db } from "../../../firebase";
 
-export default function LeftSidebarTalentHome({ user }) {
+export default function LeftSidebarTalentHome() {
 
-  const { arr, setarr, setitemSearchList } = useContext(SearchContext);
+  const { arr, setarr, setitemSearchList, setsearchList, setswitchJobs} = useContext(SearchContext);
+  const user = useSelector((state) => state.talentData);
+  const jobs = useSelector((state) => state.jobsData);
   const { t } = useTranslation();
   const { push } = useHistory();
 
@@ -22,19 +25,26 @@ export default function LeftSidebarTalentHome({ user }) {
   const handleVal = (textSearch) => {
     setitemSearchList(textSearch);
     let tempArr = [];
-    db.collection('job')
-      .where('skills', 'array-contains', textSearch)
-      .onSnapshot(
-        jobs => jobs.docs.map(
-          item => {
-            tempArr.push(item.data())
-            push({ pathname: "/search", state: tempArr })
-          })
-      )
-    if (tempArr.length <= 0) {
-      push('/search')
-    }
+    jobs.map((e) => e.skills.includes(textSearch) && tempArr.push(e))
+    setsearchList(tempArr)
+    push({ pathname: "/search" })
   };
+
+const switchJobs =(txt)=>
+{
+switch (txt) {
+  case "Best Matches":
+    setswitchJobs("Best Matches")
+    break;
+    case "My Feed":
+      setswitchJobs("My Feed")
+      break;
+
+  default:setswitchJobs("My Feed")
+    break;
+}
+}
+
 
   return (
     <div className="col d-none d-lg-block">
@@ -43,25 +53,26 @@ export default function LeftSidebarTalentHome({ user }) {
           className="list-group-item sidebar-homebage-ul-li"
           aria-current="true" style={{ background: '#F1F2F4' }}
         >
-          <a
-            href="#"
+          <Link
             className=" list-group-item-action sidebar-homebage-ul-li-aa activeside"
             aria-current="true" style={{ background: '#F1F2F4', fontSize: '14px' }}
+            onClick={()=>switchJobs("My Feed")}
           >
             {t("My Feed")}
-          </a>
+          </Link>
         </li>
         <li
           className="list-group-item sidebar-homebage-ul-li"
           aria-current="true" style={{ background: '#F1F2F4' }}
         >
-          <a
-            href="#"
+          <Link
+            
             className=" list-group-item-action sidebar-homebage-ul-li-aa"
             aria-current="true" style={{ background: '#F1F2F4', fontSize: '14px' }}
+            onClick={()=>switchJobs("Best Matches")}
           >
             {t("Best Matches")}
-          </a>
+          </Link>
           <span className="hotspot">
             <button className="hotspot__btn" />
           </span>
@@ -77,19 +88,21 @@ export default function LeftSidebarTalentHome({ user }) {
       {arr?.slice().reverse()?.map((item, index) =>
         index >= arr.length - 4 ? (
           <ul
-            className="list-group sidebar-homebage-ul mb-lg-3 btn"
-            style={{ fontSize: "0.9em" }}
+          className="list-group sidebar-homebage-ul mb-lg-3 btn"
+          style={{ fontSize: "0.9em" }}
           >
             <li
               className="list-group-item sidebar-homebage-ul-li text-success "
               aria-current="true"
 
             >
+
               <a
                 onClick={() => handleVal(item)}
                 className=" list-group-item-action advanced-search-link text-upwork"
                 aria-current="true"
               >
+                
                 {item}
               </a>
             </li>

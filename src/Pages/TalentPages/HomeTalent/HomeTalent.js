@@ -34,9 +34,9 @@ export default function HomeTalent() {
               }
               <FindWorkTalentHome />
               <div className="row">
-                <LeftSidebarTalentHome user={user} />
+                <LeftSidebarTalentHome  />
                 <SectionCenterTalentHome />
-                <RightSidebarTalentHome user={user} lang={lang} />
+                <RightSidebarTalentHome lang={lang} />
               </div>
             </div>
             : <div className="d-flex justify-content-center align-items-center" style={{ height: "90vh" }}>

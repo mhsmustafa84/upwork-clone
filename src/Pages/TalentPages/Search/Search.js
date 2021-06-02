@@ -9,6 +9,7 @@ import ShowMore from "react-show-more-button/dist/module";
 import { useDispatch, useSelector } from "react-redux";
 import { talentDataAction } from "../../../Store/actions/talentData";
 import { updateUserData } from "../../../Network/Network";
+import { jobsDataAction } from "../../../Store/actions/jobsData";
 
 export default function Search(props) {
     const { t } = useTranslation();
@@ -21,17 +22,17 @@ export default function Search(props) {
     }, []);
     const [searchData, setsearchData] = useState([]);
     const [filterSearch, setfilterSearch] = useState([]);
-    const { itemSearchList } = useContext(SearchContext);
+    const { searchList, itemSearchList } = useContext(SearchContext);
     const [filtered, setfiltered] = useState(false)
     const [isliked, setisliked] = useState(false)
     useEffect(() => {
         dispatch(talentDataAction());
-      }, [isliked,user ]);
-
-    useEffect(() => {
-        let arr = props.location.state
-        setsearchData(arr)
-    }, [props.location.state])
+      }, [isliked, searchList ]);
+    
+        useEffect(() => {
+            setsearchData([...searchList])
+            dispatch(jobsDataAction());
+        }, [searchList])
 
     const handleLevel = (e) => {
         let val = e.target.checked;
@@ -58,7 +59,7 @@ export default function Search(props) {
         if (e.target.className === 'far fa-heart') {
             updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
             e.target.className = 'fas fa-heart text-upwork'
-            console.log("add")
+
         }
         else {
             user?.savedJobs?.forEach((item, index) => {
@@ -66,12 +67,10 @@ export default function Search(props) {
                     user?.savedJobs?.splice(index, 1);
                     updateUserData("talent", { savedJobs: [...user?.savedJobs] });
                     e.target.className = 'far fa-heart'
-                    console.log("delete")
 
                 }
             })
         }
-        console.log("fire")
     }
 
     return (
@@ -421,7 +420,7 @@ export default function Search(props) {
                             <SearchBarJobsTalent />
                         </div>
                     </div>
-                    {searchData == null ?
+                    {searchData.length === 0 && itemSearchList !== "" ?
                         <div className='col-12 bg-white'>
 
                             <h3 className="fw-bold text-center py-2 pt-5 " style={{ color: '#124C82' }}>There are no results that match your search</h3>
@@ -561,3 +560,4 @@ export default function Search(props) {
         </div>
     )
 }
+

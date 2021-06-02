@@ -33,13 +33,15 @@ import Notifications from './../Pages//Notifications/Notifications';
 export default function TalentRoutes() {
   const [arr, setarr] = useState([]);
   const [itemSearchList, setitemSearchList] = useState("");
+  const [searchList, setsearchList] = useState([]);
+  const [switchJobs, setswitchJobs] = useState("")
   const { pathname } = useLocation();
   const { push } = useHistory();
   pathname === "/" && push("/find-work");
   return (
     <>
       <SearchContextProvider
-        value={{ arr, setarr, itemSearchList, setitemSearchList }}
+        value={{ arr, setarr, itemSearchList, setitemSearchList , searchList, setsearchList, switchJobs, setswitchJobs}}
       >
         <Header />
         <div>

@@ -6,11 +6,13 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { auth, db } from "../../../firebase";
 import img from "../../../assets/img/icon-user.svg";
+import { useSelector } from "react-redux";
 
-export default function RightSidebarTalentHome({ user, lang }) {
+export default function RightSidebarTalentHome({  lang }) {
 
   const { t } = useTranslation();
   const [talentData, setTalentData] = useState([]);
+  const user = useSelector((state) => state.talentData);
 
   useEffect(() => {
     db.collection("talent")
