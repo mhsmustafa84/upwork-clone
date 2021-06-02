@@ -4,13 +4,13 @@
 import React, { useEffect, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { SearchContext } from "../../../Context/SearchContext";
 import { db } from "../../../firebase";
 
 export default function LeftSidebarTalentHome() {
 
-  const { arr, setarr, setitemSearchList, itemSearchList , setsearchList} = useContext(SearchContext);
+  const { arr, setarr, setitemSearchList, setsearchList, setswitchJobs} = useContext(SearchContext);
   const user = useSelector((state) => state.talentData);
   const jobs = useSelector((state) => state.jobsData);
   const { t } = useTranslation();
@@ -30,6 +30,22 @@ export default function LeftSidebarTalentHome() {
     push({ pathname: "/search" })
   };
 
+const switchJobs =(txt)=>
+{
+switch (txt) {
+  case "Best Matches":
+    setswitchJobs("Best Matches")
+    break;
+    case "My Feed":
+      setswitchJobs("My Feed")
+      break;
+
+  default:setswitchJobs("My Feed")
+    break;
+}
+}
+
+
   return (
     <div className="col d-none d-lg-block">
       <ul id="list-homepage" className="list-group sidebar-homebage-ul mb-lg-4" >
@@ -37,25 +53,26 @@ export default function LeftSidebarTalentHome() {
           className="list-group-item sidebar-homebage-ul-li"
           aria-current="true" style={{ background: '#F1F2F4' }}
         >
-          <a
-            href="#"
+          <Link
             className=" list-group-item-action sidebar-homebage-ul-li-aa activeside"
             aria-current="true" style={{ background: '#F1F2F4', fontSize: '14px' }}
+            onClick={()=>switchJobs("My Feed")}
           >
             {t("My Feed")}
-          </a>
+          </Link>
         </li>
         <li
           className="list-group-item sidebar-homebage-ul-li"
           aria-current="true" style={{ background: '#F1F2F4' }}
         >
-          <a
-            href="#"
+          <Link
+            
             className=" list-group-item-action sidebar-homebage-ul-li-aa"
             aria-current="true" style={{ background: '#F1F2F4', fontSize: '14px' }}
+            onClick={()=>switchJobs("Best Matches")}
           >
             {t("Best Matches")}
-          </a>
+          </Link>
           <span className="hotspot">
             <button className="hotspot__btn" />
           </span>
@@ -74,7 +91,6 @@ export default function LeftSidebarTalentHome() {
           className="list-group sidebar-homebage-ul mb-lg-3 btn"
           style={{ fontSize: "0.9em" }}
           >
-            {console.log(item)}
             <li
               className="list-group-item sidebar-homebage-ul-li text-success "
               aria-current="true"

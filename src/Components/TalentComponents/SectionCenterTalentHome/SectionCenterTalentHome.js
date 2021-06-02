@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import HeadOfCenterSection from "./../HeadOfCenterSection/HeadOfCenterSection";
 import { jobsDataAction } from "./../../../Store/actions/jobsData";
@@ -13,6 +13,7 @@ import Loader from "../../SharedComponents/Loader/Loader";
 import StarsRating from "../../SharedComponents/StarsRating/StarsRating";
 import { db } from "../../../firebase";
 import JobProposalsNumber from "./JobProposalsNumber";
+import { SearchContext } from "../../../Context/SearchContext";
 
 
 export default function SectionCenterTalentHome() {
@@ -21,15 +22,31 @@ export default function SectionCenterTalentHome() {
   const lang = useSelector(state => state.lang);
   const [isliked, setisliked] = useState(false)
   const user = useSelector(state => state.talentData);
+  const { switchJobs} = useContext(SearchContext);
+  const [switchedJobs, setswitchedJobs] = useState([])
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(talentDataAction());
   }, [isliked]);
   useEffect(() => {
+    setswitchedJobs([...jobs])
     dispatch(jobsDataAction());
     dispatch(talentDataAction());
-    console.log(jobs);
   }, [])
+
+useEffect(() => {
+
+  let tempArr = [];
+ if( switchJobs === "Best Matches"){
+    jobs.map((e) => e.jobCategory === user.jobCategory && tempArr.push(e))
+    setswitchedJobs([...tempArr]);
+    }
+    else  {
+      setswitchedJobs([...jobs])
+    };
+}, [switchJobs, jobs,user])
+
+
 
   const saveJob = (e, id) => {
     setisliked(!isliked)
@@ -57,7 +74,7 @@ export default function SectionCenterTalentHome() {
       {/* <HeadOfCenterSection /> */}
       {
         jobs[0]?.jobID
-          ? jobs.map((item, index) => (
+          ? switchedJobs.map((item, index) => (
             <div key={index}>
               <div className="list-group-item p-4">
                 <div className="row align-items-center">
