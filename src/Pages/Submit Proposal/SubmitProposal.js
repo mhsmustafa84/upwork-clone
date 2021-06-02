@@ -156,14 +156,14 @@ export default function SubmitProposal() {
   return (
     <>
       <main>
-        <div className="container">
-          <h1 className="h3 py-4">Submit a proposal</h1>
+        <div className="container px-5">
+          <p className="h3 py-2 mt-4">Submit a proposal</p>
           <div className="row">
             <div className="col">
               <div className="bg-white border rounded-bottom rounded-top">
                 <h2 className="h4 border-bottom p-4">Proposal settings</h2>
                 <div className="ps-4 pt-2">
-                  <p className="fw-bold">Propose with a Specialized profile</p>
+                  {/* <p className="fw-bold">Propose with a Specialized profile</p> */}
                 </div>
 
                 <div className="ps-4 py-2">
@@ -245,7 +245,14 @@ export default function SubmitProposal() {
                 </div>
                 <div className="mx-4 py-2 border-top pb-4">
                   <p className="fw-bold">Skills and expertise</p>
-                  {/* {arr.map((e)=><span className="bg-cat-cn py-1 px-2 me-3 rounded-pill">{e}</span>)} */}
+                  {job?.skills?.map((e, i) => <button
+                    key={i}
+                    type="button"
+                    className="btn text-light btn-sm rounded-pill skills mx-1"
+                    style={{ backgroundColor: "#9b9d9f" }}
+                  >
+                    {e}
+                  </button>)}
                 </div>
               </div>
             </div>
@@ -311,12 +318,12 @@ export default function SubmitProposal() {
                   <p className="fw-bold">Attachments</p>
                   <div className="d-flex mb-3">
                     {
-                      proposalData.proposalImages &&
-                      proposalData.proposalImages.map((url) => {
+                      proposalData?.proposalImages &&
+                      proposalData?.proposalImages.map((url) => {
                         return (
                           <div
                             className="mx-2"
-                            style={{ maxWidth: "50px", maxHeight: "50px" }}
+                            style={{ width: "50px", height: "50px" }}
                           >
                             <img
                               className="w-100 h-100 rounded-circle"

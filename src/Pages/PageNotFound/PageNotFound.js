@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from "react";
 import { useHistory } from "react-router";
 
@@ -62,10 +61,10 @@ export default function PageNotFound() {
             </svg>
             <h2 className="m-lg-top m-md-bottom text-muted">
               This page doesn't exist.
-            </h2>
+              </h2>
             <p className="text-muted m-sm-bottom">
               Please <button className="btn upw-c-cn p-0" onClick={goBack}>return</button> to
-              the previous page or visit <a href="/">Upwork.com</a>
+                the previous page or visit <a href="/">Upwork.com</a>
             </p>
             <small className="text-muted">Error 404 (OS)</small>
           </div>

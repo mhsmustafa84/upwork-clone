@@ -17,7 +17,7 @@ export default function ClientInfo({ clientID }) {
       .doc(clientID)
       .get().then(doc => setClient(doc.data()))
 
-    db.collection("job")
+    clientID && db.collection("job")
       .where("authID", "==", clientID)
       .get().then(res => {
         const closed = [];
@@ -60,7 +60,7 @@ export default function ClientInfo({ clientID }) {
       </span></p>
       <p><span className="text-muted">Jobs posted: </span><strong>{clientJobs?.allJobs}</strong></p>
       <p><span className="text-muted">Hired: </span><strong>{clientJobs?.closed}</strong></p>
-      <p><span className="text-muted">Hire rate: </span><strong>{clientJobs?.closed * 100 / clientJobs?.allJobs}%</strong></p>
+      <p><span className="text-muted">Hire rate: </span><strong>{clientJobs?.closed ? clientJobs?.closed * 100 / clientJobs?.allJobs : 0}%</strong></p>
       <p><span className="text-muted">Open jobs: </span><strong>{clientJobs?.public}</strong></p>
       <p><span className="text-muted">Spent: </span><strong>${client?.spentMoney}</strong></p>
       <p><span className="text-muted">Active: </span><strong>{clientJobs?.hired}</strong></p>

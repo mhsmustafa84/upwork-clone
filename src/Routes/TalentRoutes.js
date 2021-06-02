@@ -17,7 +17,6 @@ import ConnectsHistory from "../Pages/TalentPages/Reports/connectshistory/connec
 import BuyConnects from "../Pages/TalentPages/Reports/BuyConnects/BuyConnects";
 import HomeTalent from "../Pages/TalentPages/HomeTalent/HomeTalent";
 import JobDetailsTalent from "../Pages/TalentPages/JobDetailsTalent/JobDetailsTalent";
-import TransactionHistory from "../Pages/TalentPages/Reports/TransactionHistory/TransactionHistory";
 import CreateProfile from "../Pages/TalentPages/CreateProfile/CreateProfile";
 import Search from "../Pages/TalentPages/Search/Search";
 import EmailVerified from "./../Pages/EmailVerification/EmailVerified";
