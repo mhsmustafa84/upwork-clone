@@ -65,7 +65,7 @@ export default function NavLargScreen() {
               </li>
             </ul>
           </li>
-          <li className="nav-item hov-cn mx-3">
+          <li className="nav-item hov-cn ms-3">
             <NavLink className="nav-link" to="/talent">
               {t("Talent")}
             </NavLink>
@@ -83,7 +83,7 @@ export default function NavLargScreen() {
               </li>
             </ul>
           </li>
-          <li className="nav-item hov-cn">
+          {/* <li className="nav-item hov-cn">
             <NavLink className="nav-link" to="/transaction-history">
               {t("Reports")}
             </NavLink>
@@ -161,7 +161,7 @@ export default function NavLargScreen() {
                 </div>
               </li>
             </ul>
-          </li>
+          </li> */}
           <li className="nav-item ms-5 me-3">
             <NavLink className="nav-link" to="/messages">
               <i
@@ -202,7 +202,7 @@ export default function NavLargScreen() {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <img style={{ height: "40px", width: "40px" }} className="circle bg-white" src={user.profilePhoto ? user.profilePhoto : img} alt="" />
+              <img style={{ height: "40px", width: "40px" }} className="rounded-circle bg-white" src={user.profilePhoto ? user.profilePhoto : img} alt="" />
             </a>
             <ul
               id="acc-id"
@@ -233,16 +233,16 @@ export default function NavLargScreen() {
                 >
                   <div className="d-flex align-items-center">
                     <span style={{ marginLeft: "-5px" }}>
-                      <i className="fa fa-user-circle fs-3"></i>
+                      <img style={{ height: "30px", width: "30px" }} className="rounded-circle bg-white" src={user.profilePhoto ? user.profilePhoto : img} alt="" />
                     </span>
                     <div className="acc-cn ms-2">
-                      <p>{t("Name")}</p>
-                      <p>{t("Freelancer")}</p>
+                      <p>{user?.firstName + " " + user?.lastName}</p>
+                      <p>{t("Client")}</p>
                     </div>
                   </div>
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink className="dropdown-item px-4 mb-1" to="/home">
                   <div className="d-flex align-items-center">
                     <span style={{ marginLeft: "-5px" }}>
@@ -254,15 +254,15 @@ export default function NavLargScreen() {
                     </div>
                   </div>
                 </NavLink>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <a className="dropdown-item px-4" href="#">
                   <span>
                     <i className="fa fa-cog"></i>
                   </span>
                   <span className="ps-2">{t("Settings")}</span>
                 </a>
-              </li>
+              </li> */}
               <li onClick={logout}>
                 <a className="dropdown-item px-4" href="#">
                   <span>

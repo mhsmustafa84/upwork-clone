@@ -41,7 +41,7 @@ export default function TalentRoutes() {
   return (
     <>
       <SearchContextProvider
-        value={{ arr, setarr, itemSearchList, setitemSearchList , searchList, setsearchList, switchJobs, setswitchJobs}}
+        value={{ arr, setarr, itemSearchList, setitemSearchList, searchList, setsearchList, switchJobs, setswitchJobs }}
       >
         <Header />
         <div>
@@ -77,16 +77,15 @@ export default function TalentRoutes() {
             <Route path="/life-time-billing" exact component={BillingByClients} />
             <Route path="/connects-history" exact component={ConnectsHistory} />
             <Route path="/buyconnects" exact component={BuyConnects} />
-            <Route
+            {/* <Route
               path="/transaction-history"
               exact
               component={TransactionHistory}
-            />
+            /> */}
             <Route path="/messages" exact component={Messages} />
             <Route path="/contract" component={Contract} />
             <Route path="/notifications" exact component={Notifications} />
-
-            {/* <Route path="**" component={PageNotFound} /> */}
+            <Route path="**" component={PageNotFound} />
           </Switch>
         </div>
       </SearchContextProvider>

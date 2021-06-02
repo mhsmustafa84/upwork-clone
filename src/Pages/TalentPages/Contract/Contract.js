@@ -28,7 +28,8 @@ export default function Contract({ location }) {
                 message: `${user.firstName} ${user.lastName} finished the job and asked for payment.`,
                 type: "offer",
                 talentID: auth.currentUser.uid,
-                isShow: false
+                isShow: false,
+                route: "/all-contracts"
             })
     }
 

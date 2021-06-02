@@ -26,14 +26,15 @@ export default function HomeLayout() {
   const dispatch = useDispatch();
   const [proposals, setProposals] = useState(0);
 
-  useEffect(() => {
+  useEffect(async () => {
     dispatch(clientDataAction());
     dispatch(clientJobsAction("authID", "==", auth.currentUser.uid));
-    db.collection("job").doc(jobs[0]?.docID).collection("proposals").get().then(res => {
+    await db.collection("job").doc(jobs[0]?.docID).collection("proposals").get().then(res => {
       const length = res.docs.length;
       setProposals(length)
     })
   }, []);
+
 
   const job = jobs[0]?.data;
 
@@ -136,43 +137,20 @@ export default function HomeLayout() {
                             </li>
                             <li>
                               <a className="dropdown-item" href="#">
-                                Invite freelancers
-                          </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
                                 Make Private
-                          </a>
+                              </a>
                             </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Share job posting
-                          </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Upgrade to Featured
-                          </a>
-                            </li>
+
                             <li>
                               <a className="dropdown-item" href="#">
                                 View Job posting
-                          </a>
+                              </a>
                             </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Edit posting
-                          </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Reuse posting
-                          </a>
-                            </li>
+
                             <li>
                               <a className="dropdown-item" href="#">
                                 Remove posting
-                          </a>
+                              </a>
                             </li>
                           </ul>
                         </div>
