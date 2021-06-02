@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ShowMore from 'react-show-more-button/dist/module';
 import { updateUserData } from "../../../Network/Network";
@@ -14,6 +14,7 @@ import Loader from "../../SharedComponents/Loader/Loader";
 
 export default function FirstSectionProfileTalent() {
 
+  const { id } = useParams();
   const { push } = useHistory();
   const lang = useSelector(state => state.lang);
 
@@ -36,7 +37,7 @@ export default function FirstSectionProfileTalent() {
   const { t } = useTranslation();
 
   useEffect(() => {
-    db.collection("talent").doc(auth.currentUser.uid).onSnapshot(doc => {
+    db.collection("talent").doc(id).onSnapshot(doc => {
       user = doc.data();
       setUser(user)
     })
@@ -149,11 +150,11 @@ export default function FirstSectionProfileTalent() {
           <div className="container card mb-3 mt-5 ">
             <div className="row mt-3">
               <div className="col-lg-2 pt-lg-3">
-                <div>
+                <div className="ms-3 mb-3" style={{ width: "100px", height: "100px", borderRadius: "50%", overflow: "hidden" }}>
                   <img
                     alt=""
-                    style={{ width: "100px", height: "100px", borderRadius: "50%" }}
-                    className="mb-3 ms-3 avatar vertical-align-middle m-0 avatar-sm avatar-responsive"
+                    style={{ maxWidth: "100%", maxHeight: "100%" }}
+                    className=" avatar vertical-align-middle m-0 avatar-sm avatar-responsive"
                     src={user?.profilePhoto ? user?.profilePhoto : img}
                   />
                   {/* <span className="hotspotimg">

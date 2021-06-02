@@ -128,7 +128,8 @@ export default function SubmitProposal() {
         status: "proposal",
         proposalTime: firebase.firestore.Timestamp.now(),
         startContractTime: "",
-        endContractTime: ""
+        endContractTime: "",
+        budget: parseInt(rate)
       },
       auth.currentUser.uid
     );

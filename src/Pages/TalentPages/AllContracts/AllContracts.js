@@ -13,7 +13,7 @@ export default function AllContracts() {
   const [contracts, setContracts] = useState([]);
   const [data, setData] = useState(false);
 
-  useEffect(async () => {
+  useEffect(() => {
     db.collection("talent")
       .doc(auth.currentUser.uid)
       .collection("jobProposal")
@@ -32,9 +32,9 @@ export default function AllContracts() {
 
   return (
     <>
-      <div className=" bg-gray">
+      <div className="bg-gray">
         <div className="container">
-          <div className="row">
+          <div className="row px-5">
             <h4 className="col-12 mt-5">{t("Contracts")}</h4>
             <div className="card mt-4 mb-5">
               <div className="card-header bg-white p-3">
@@ -53,7 +53,9 @@ export default function AllContracts() {
                         :
                         <Loader />
                       :
-                      <p className="h3">No contracts yet.</p>
+                      <p className="h3">
+                        You haven't started any contracts yet.
+                      </p>
                   }
                 </div>
               </div>

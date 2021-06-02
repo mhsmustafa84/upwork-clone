@@ -1,9 +1,9 @@
-import FirstSectionProfileTalent2 from "../../../Components/ClientComponents/FirstSectionProfileTalent2/FirstSectionProfileTalent2";
+import FirstSectionProfileTalent from "../../../Components/TalentComponents/FirstSectionProfileTalent/FirstSectionProfileTalent";
 
 export default function TalentProfile() {
   return (
     <>
-      <FirstSectionProfileTalent2 />
+      <FirstSectionProfileTalent />
     </>
   );
 }

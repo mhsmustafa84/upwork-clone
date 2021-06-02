@@ -19,6 +19,7 @@ import PleaseVerifiy from "../Pages/EmailVerification/PleaseVerifiy";
 import { SearchContextProvider } from "../Context/SearchContext";
 import JobJobDetailsBeforeProposals from "../Pages/ClientPages/JobDetailsBeforeProposols/JobDetailsBeforeProposals";
 import CreateContract from "../Pages/ClientPages/CreateContract/CreateContract";
+import Notifications from "../Pages/Notifications/Notifications";
 
 export default function ClientRoutes() {
   const [talentArr, settalentArr] = useState([]);
@@ -59,7 +60,7 @@ export default function ClientRoutes() {
             component={TransactionHistory}
           />
           <Route path="/create-contract" component={CreateContract} />
-          <Route path="/notifications" exact component={Notification} />
+          <Route path="/notifications" exact component={Notifications} />
           <Route path="**" component={PageNotFound} />
         </Switch>
       </SearchContextProvider>

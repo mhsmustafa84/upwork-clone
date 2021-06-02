@@ -143,6 +143,10 @@ export default function ReviewProposalsCard() {
                       <span className="text-muted">Specialized in:</span>
                       <span className="fw-bold"> {talent[index]?.jobCategory}</span>
                     </p>
+                    <p>
+                      <span className="text-muted">Proposed bid:</span>
+                      <span className="fw-bold"> {proposal?.budget}</span>
+                    </p>
                     <p id="Cover-Letter">
                       <span className="text-muted">Cover Letter - </span>
                       <span className="fw-bold">{proposal.coverLetter}</span>
