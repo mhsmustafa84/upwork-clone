@@ -13,7 +13,7 @@ export default function SavedJobs() {
   const [isliked, setisliked] = useState(false)
   useEffect(() => {
     dispatch(talentDataAction());
-  }, [isliked]);
+  }, [isliked, user.SavedJobs]);
 
   return (
     <div className="container-md container-fluid-sm my-lg-4">

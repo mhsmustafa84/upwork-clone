@@ -3,13 +3,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useContext } from "react";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { SearchContext } from "../../../Context/SearchContext";
 import { db } from "../../../firebase";
 
-export default function LeftSidebarTalentHome({ user }) {
+export default function LeftSidebarTalentHome() {
 
-  const { arr, setarr, setitemSearchList } = useContext(SearchContext);
+  const { arr, setarr, setitemSearchList, itemSearchList , setsearchList} = useContext(SearchContext);
+  const user = useSelector((state) => state.talentData);
+  const jobs = useSelector((state) => state.jobsData);
   const { t } = useTranslation();
   const { push } = useHistory();
 
@@ -22,18 +25,9 @@ export default function LeftSidebarTalentHome({ user }) {
   const handleVal = (textSearch) => {
     setitemSearchList(textSearch);
     let tempArr = [];
-    db.collection('job')
-      .where('skills', 'array-contains', textSearch)
-      .onSnapshot(
-        jobs => jobs.docs.map(
-          item => {
-            tempArr.push(item.data())
-            push({ pathname: "/search", state: tempArr })
-          })
-      )
-    if (tempArr.length <= 0) {
-      push('/search')
-    }
+    jobs.map((e) => e.skills.includes(textSearch) && tempArr.push(e))
+    setsearchList(tempArr)
+    push({ pathname: "/search" })
   };
 
   return (
@@ -77,19 +71,22 @@ export default function LeftSidebarTalentHome({ user }) {
       {arr?.slice().reverse()?.map((item, index) =>
         index >= arr.length - 4 ? (
           <ul
-            className="list-group sidebar-homebage-ul mb-lg-3 btn"
-            style={{ fontSize: "0.9em" }}
+          className="list-group sidebar-homebage-ul mb-lg-3 btn"
+          style={{ fontSize: "0.9em" }}
           >
+            {console.log(item)}
             <li
               className="list-group-item sidebar-homebage-ul-li text-success "
               aria-current="true"
 
             >
+
               <a
                 onClick={() => handleVal(item)}
                 className=" list-group-item-action advanced-search-link text-upwork"
                 aria-current="true"
               >
+                
                 {item}
               </a>
             </li>
