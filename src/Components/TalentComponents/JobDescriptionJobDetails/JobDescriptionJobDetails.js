@@ -113,7 +113,8 @@ export default function JobDescriptionJobDetails({ job }) {
           {job?.skills?.map((task, index) => (
             <button
               type="button"
-              className="btn bg-secondary text-light btn-sm rounded-pill skills mx-1"
+              className="btn text-light btn-sm rounded-pill skills mx-1"
+              style={{ backgroundColor: "#9b9d9f" }}
               key={index}
             >
               {task}

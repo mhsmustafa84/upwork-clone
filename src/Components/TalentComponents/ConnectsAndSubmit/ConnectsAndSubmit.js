@@ -134,7 +134,6 @@ export default function ConnectsAndSubmit() {
         </button>
 
       </div>
-     
       <p>
         {t("Required Connects to submit a proposal")}: 2
       </p>

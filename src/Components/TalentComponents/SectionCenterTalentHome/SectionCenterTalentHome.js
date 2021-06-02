@@ -22,7 +22,7 @@ export default function SectionCenterTalentHome() {
   const lang = useSelector(state => state.lang);
   const [isliked, setisliked] = useState(false)
   const user = useSelector(state => state.talentData);
-  const { switchJobs} = useContext(SearchContext);
+  const { switchJobs } = useContext(SearchContext);
   const [switchedJobs, setswitchedJobs] = useState([])
   const dispatch = useDispatch();
   useEffect(() => {
@@ -34,17 +34,17 @@ export default function SectionCenterTalentHome() {
     dispatch(talentDataAction());
   }, [])
 
-useEffect(() => {
+  useEffect(() => {
 
-  let tempArr = [];
- if( switchJobs === "Best Matches"){
-    jobs.map((e) => e.jobCategory === user.jobCategory && tempArr.push(e))
-    setswitchedJobs([...tempArr]);
+    let tempArr = [];
+    if (switchJobs === "Best Matches") {
+      jobs.map((e) => e.jobCategory === user.jobCategory && tempArr.push(e))
+      setswitchedJobs([...tempArr]);
     }
-    else  {
+    else {
       setswitchedJobs([...jobs])
     };
-}, [switchJobs, jobs,user])
+  }, [switchJobs, jobs, user])
 
 
 
@@ -155,7 +155,8 @@ useEffect(() => {
                   <button
                     key={index}
                     type="button"
-                    className="btn bg-secondary text-light btn-sm rounded-pill skills mx-1"
+                    className="btn text-light btn-sm rounded-pill skills mx-1"
+                    style={{ backgroundColor: "#9b9d9f" }}
                   >
                     {skill}
                   </button>

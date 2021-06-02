@@ -1,9 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { SearchContext } from '../../../Context/SearchContext'
-import searchSvg from '../../../assets/svg/search.svg'
+import { SearchContext } from "../../../Context/SearchContext";
+import searchSvg from "../../../assets/svg/search.svg";
 import SearchBarJobsTalent from "../../../Components/TalentComponents/SearchBarJobsTalent/SearchBarJobsTalent";
 import ShowMore from "react-show-more-button/dist/module";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,55 +25,64 @@ export default function Search(props) {
     const [searchData, setsearchData] = useState([]);
     const [filterSearch, setfilterSearch] = useState([]);
     const { searchList, itemSearchList } = useContext(SearchContext);
-    const [filtered, setfiltered] = useState(false)
-    const [isliked, setisliked] = useState(false)
+    const [filtered, setfiltered] = useState(false);
+    const [isliked, setisliked] = useState(false);
     useEffect(() => {
         dispatch(talentDataAction());
-      }, [isliked, searchList ]);
-    
-        useEffect(() => {
-            setsearchData([...searchList])
-            dispatch(jobsDataAction());
-        }, [searchList])
+    }, [isliked, searchList]);
+
+    useEffect(() => {
+        setsearchData([...searchList]);
+        dispatch(jobsDataAction());
+    }, [searchList]);
 
     const handleLevel = (e) => {
         let val = e.target.checked;
         let name = e.target.name;
         switch (name) {
-            case 'entry level':
-                setfilterSearch(searchData.filter((item) => item.jobExperienceLevel === name && val && item))
+            case "entry level":
+                setfilterSearch(
+                    searchData.filter(
+                        (item) => item.jobExperienceLevel === name && val && item
+                    )
+                );
                 setfiltered(val);
                 break;
-            case 'intermediate':
-                setfilterSearch(searchData.filter((item) => item.jobExperienceLevel === name && val && item))
-                setfiltered(val)
+            case "intermediate":
+                setfilterSearch(
+                    searchData.filter(
+                        (item) => item.jobExperienceLevel === name && val && item
+                    )
+                );
+                setfiltered(val);
                 break;
-            case 'expert':
-                setfilterSearch(searchData.filter((item) => item.jobExperienceLevel === name && val && item))
+            case "expert":
+                setfilterSearch(
+                    searchData.filter(
+                        (item) => item.jobExperienceLevel === name && val && item
+                    )
+                );
                 setfiltered(val);
                 break;
             default:
                 break;
         }
-    }
+    };
     const saveJob = (e, id) => {
-    setisliked(!isliked)
-        if (e.target.className === 'far fa-heart') {
+        setisliked(!isliked);
+        if (e.target.className === "far fa-heart") {
             updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
-            e.target.className = 'fas fa-heart text-upwork'
-
-        }
-        else {
+            e.target.className = "fas fa-heart text-upwork";
+        } else {
             user?.savedJobs?.forEach((item, index) => {
                 if (item === id) {
                     user?.savedJobs?.splice(index, 1);
                     updateUserData("talent", { savedJobs: [...user?.savedJobs] });
-                    e.target.className = 'far fa-heart'
-
+                    e.target.className = "far fa-heart";
                 }
-            })
+            });
         }
-    }
+    };
 
     return (
         <div className="container-md container-fluid-sm my-lg-4">
@@ -79,12 +90,13 @@ export default function Search(props) {
                 <div className="col d-none d-lg-block">
                     <h5 className="mb-lg-4 display-inline-block">{t("FilterBy")}</h5>
                     <hr />
-                    <h6 className="mb-lg-2 display-inline-block mt-lg-2 fw-bold">{t("Category")}</h6>
+                    <h6 className="mb-lg-2 display-inline-block mt-lg-2 fw-bold">
+                        {t("Category")}
+                    </h6>
                     <ul
                         className="list-group sidebar-homebage-ul mb-lg-3 "
                         style={{ fontSize: "0.9em" }}
                     >
-
                         <li
                             className="list-group-item sidebar-homebage-ul-li"
                             aria-current="true"
@@ -111,7 +123,9 @@ export default function Search(props) {
                         </li>
                     </ul>
                     <hr />
-                    <h6 className="mb-lg-2 display-inline-block mt-lg-2 fw-bold">Freelancers needed</h6>
+                    <h6 className="mb-lg-2 display-inline-block mt-lg-2 fw-bold">
+                        Freelancers needed
+          </h6>
                     <div>
                         <div className="form-check py-2 my-0">
                             <input
@@ -148,7 +162,9 @@ export default function Search(props) {
                         </div>
                     </div>
                     <hr />
-                    <h6 className="mb-lg-2 display-inline-block mt-lg-3 fw-bold">{t("Experiencelevel")}</h6>
+                    <h6 className="mb-lg-2 display-inline-block mt-lg-3 fw-bold">
+                        {t("Experiencelevel")}
+                    </h6>
                     <div className="form-check py-2 my-0">
                         <input
                             className="form-check-input btn-outline-success"
@@ -162,7 +178,7 @@ export default function Search(props) {
                             {t("EntryLevel")}
                         </label>
                     </div>
-                    <div className="form-check py-2 my-0" >
+                    <div className="form-check py-2 my-0">
                         <input
                             className="form-check-input btn-outline-success"
                             type="checkbox"
@@ -170,7 +186,6 @@ export default function Search(props) {
                             defaultValue
                             id="flexCheckDefault"
                             onChange={handleLevel}
-
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
                             {t("Intermediate")}
@@ -184,7 +199,6 @@ export default function Search(props) {
                             defaultValue
                             id="flexCheckDefault"
                             onChange={handleLevel}
-
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
                             {t("Expert")}
@@ -192,7 +206,9 @@ export default function Search(props) {
                     </div>
                     <hr />
 
-                    <h6 className="mb-lg-2 display-inline-block mt-lg-3 fw-bold">{t("JobType")}</h6>
+                    <h6 className="mb-lg-2 display-inline-block mt-lg-3 fw-bold">
+                        {t("JobType")}
+                    </h6>
                     <div className="form-check py-2 my-0">
                         <input
                             className="form-check-input btn-outline-success"
@@ -216,7 +232,9 @@ export default function Search(props) {
                         </label>
                     </div>
                     <hr />
-                    <h6 className="mb-lg-2 display-inline-block mt-lg-3 fw-bold">{t("NumberofProposals")}</h6>
+                    <h6 className="mb-lg-2 display-inline-block mt-lg-3 fw-bold">
+                        {t("NumberofProposals")}
+                    </h6>
                     <div className="form-check py-2 my-0">
                         <input
                             className="form-check-input btn-outline-success"
@@ -273,7 +291,9 @@ export default function Search(props) {
                         </label>
                     </div>
                     <hr />
-                    <h6 className="mb-lg-2 display-inline-block mt-lg-3 fw-bold">{t("ClientInfo")}</h6>
+                    <h6 className="mb-lg-2 display-inline-block mt-lg-3 fw-bold">
+                        {t("ClientInfo")}
+                    </h6>
                     <div className="form-check py-2 my-0">
                         <input
                             className="form-check-input btn-outline-success"
@@ -298,7 +318,9 @@ export default function Search(props) {
                     </div>
                     <hr />
 
-                    <h6 className="mb-lg-2 display-inline-block mt-lg-2 fw-bold">{t("ClientLocation")}</h6>
+                    <h6 className="mb-lg-2 display-inline-block mt-lg-2 fw-bold">
+                        {t("ClientLocation")}
+                    </h6>
                     <div className="input-group rounded-3">
                         <select
                             className="form-select border border-secondary text-dark  btn-outline-light "
@@ -310,7 +332,9 @@ export default function Search(props) {
                         </select>
                     </div>
 
-                    <h6 className="mb-lg-2 display-inline-block mt-lg-3 fw-bold">{t("ProjectLength")}</h6>
+                    <h6 className="mb-lg-2 display-inline-block mt-lg-3 fw-bold">
+                        {t("ProjectLength")}
+                    </h6>
                     <div className="form-check py-2 my-0">
                         <input
                             className="form-check-input btn-outline-success"
@@ -356,7 +380,9 @@ export default function Search(props) {
                         </label>
                     </div>
                     <hr />
-                    <h6 className="mb-lg-2 display-inline-block mt-lg-3 fw-bold">Hours Per Week</h6>
+                    <h6 className="mb-lg-2 display-inline-block mt-lg-3 fw-bold">
+                        Hours Per Week
+          </h6>
                     <div className="form-check py-2 my-0">
                         <input
                             className="form-check-input btn-outline-success"
@@ -398,7 +424,8 @@ export default function Search(props) {
                                             aria-current="true"
                                         >
                                             {t("SEARCH")}
-                                        </a></Link>
+                                        </a>
+                                    </Link>
                                 </li>
                                 <li
                                     className="list-group-item sidebar-homebage-ul-li bg-white boder border-0"
@@ -411,153 +438,157 @@ export default function Search(props) {
                                             aria-current="true"
                                         >
                                             {t("SAVEDJOBS")}({user?.savedJobs?.length})
-                                        </a></Link>
+                    </a>
+                                    </Link>
                                 </li>
                             </ul>
-
                         </div>
                         <div className="list-group-item py-lg-4">
                             <SearchBarJobsTalent />
                         </div>
                     </div>
-                    {searchData.length === 0 && itemSearchList !== "" ?
-                        <div className='col-12 bg-white'>
+                    {searchData.length === 0 && itemSearchList !== "" ? (
+                        <div className="col-12 bg-white">
+                            <h3
+                                className="fw-bold text-center py-2 pt-5 "
+                                style={{ color: "#124C82" }}
+                            >
+                                There are no results that match your search
+              </h3>
 
-                            <h3 className="fw-bold text-center py-2 pt-5 " style={{ color: '#124C82' }}>There are no results that match your search</h3>
+                            <h6 className="text-center " style={{ color: "#124C82" }}>
+                                Please try adjusting your search keywords or filters
+              </h6>
 
-                            <h6 className="text-center " style={{ color: '#124C82' }}>Please try adjusting your search keywords or filters</h6>
-
-                            <img className='mx-auto d-block' src={searchSvg} />
-
+                            <img className="mx-auto d-block" src={searchSvg} />
                         </div>
-                        :
-                        null
-                    }
-                    {
-                        (filtered ? filterSearch : searchData)?.map((item) => (
-                            <div>
-                                <div className="list-group-item">
-                                    <div className="row align-items-center">
-                                        <div className="col-lg-9 pt-lg-2">
-                                            <Link to={{
-                                                pathname:
-                                                    `/job/${item.jobID}`,
-                                                state: `${item.jobID}`
+                    ) : null}
+                    {(filtered ? filterSearch : searchData)?.map((item) => (
+                        <div>
+                            <div className="list-group-item">
+                                <div className="row align-items-center">
+                                    <div className="col-lg-9 pt-lg-2">
+                                        <Link
+                                            to={{
+                                                pathname: `/job/${item.jobID}`,
+                                                state: `${item.jobID}`,
                                             }}
-                                                className="job-title-link fw-bold">
-                                                {item?.jobTitle}
-                                            </Link>
+                                            className="job-title-link fw-bold"
+                                        >
+                                            {item?.jobTitle}
+                                        </Link>
+                                    </div>
+                                    <div className="col-lg-3">
+                                        <div className="btn-group float-sm-end px-lg-1">
+                                            <button
+                                                type="button"
+                                                className="btn btn-light dropdown-toggle border border-1 rounded-circle collapsed"
+                                                data-toggle="collapse"
+                                                data-target="#collapse"
+                                                aria-expanded="false"
+                                                aria-controls="collapseTwo"
+                                            >
+                                                <i
+                                                    onClick={(e) => saveJob(e, item.jobID)}
+                                                    className={`${user?.savedJobs?.includes(item.jobID)
+                                                        ? "fas fa-heart text-upwork"
+                                                        : "far fa-heart"
+                                                        }`}
+                                                    aria-hidden="true"
+                                                />
+                                            </button>
                                         </div>
-                                        <div className="col-lg-3">
-                                            <div className="btn-group float-sm-end px-lg-1">
-                                                <button
-                                                    type="button"
-                                                    className="btn btn-light dropdown-toggle border border-1 rounded-circle collapsed"
-                                                    data-toggle="collapse"
-                                                    data-target="#collapse"
-                                                    aria-expanded="false"
-                                                    aria-controls="collapseTwo"
-                                                >
-                                                    <i onClick={(e) => saveJob(e, item.jobID)} className={`${user?.savedJobs?.includes(item.jobID) ? 'fas fa-heart text-upwork' : 'far fa-heart'}`} aria-hidden="true" />
-                                                </button>
-                                            </div>
-                                            <div className="btn-group float-sm-end  px-lg-1">
-
-                                                <ul className="dropdown-menu">
-                                                    <li>
-                                                        <a className="dropdown-item" href="#">
-                                                            RSS
-                      </a>
-                                                    </li>
-                                                    <li>
-                                                        <a className="dropdown-item" href="#">
-                                                            Atom
-                      </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                        <div className="btn-group float-sm-end  px-lg-1">
+                                            <ul className="dropdown-menu">
+                                                <li>
+                                                    <a className="dropdown-item" href="#">
+                                                        RSS
+                          </a>
+                                                </li>
+                                                <li>
+                                                    <a className="dropdown-item" href="#">
+                                                        Atom
+                          </a>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    <p style={{ fontSize: "0.9em" }}>
-                                        <span className="text-muted">
-                                            <span className="fw-bold" id="contract-type">
-                                                {item?.jobPaymentType}
-                                            </span>
-                                            <span> - </span>
-                                            <span id="experience-level">{item?.jobExperienceLevel}</span>
-                                            <span> - </span>
-                                            <span>Est. Budget: </span>
-                                            <span id="client-budget">{item?.jobBudget}</span> - posted
-                <span id="posting-time"> 4 Hours ago</span>
-                                        </span>
-                                    </p>
-
-
-
-
-                                    <ShowMore
-                                        maxHeight={100}
-                                        button={
-                                            <button
-                                                id="seemorebutton"
-                                                classname="advanced-search-link "
-                                                style={{ color: "green", position: "absolute", left: 0 }}
-                                            >
-                                                more
-                                            </button>
-                                        }
-                                    >
-                                        {item?.jobDescription}
-                                    </ShowMore>
-
-                                    {item?.skills?.map((skill, index) =>
-                                        <button
-                                            key={index}
-                                            type="button"
-                                            className="btn btn-secondary btn-sm rounded-pill skills"
-                                        >
-                                            {skill}
-                                        </button>
-
-                                    )}
-
-
-                                    <p style={{ fontSize: "0.9em" }} className="my-lg-1">
-                                        <span className="text-muted">
-                                            <span>Proposals: </span>
-                                            <span className="fw-bold ">Less than </span>
-                                            <span className="fw-bold " id="proposals-numbers">
-                                                5
-                </span>
-                                        </span>
-                                    </p>
-                                    <p style={{ fontSize: "0.85em" }} className="my-lg-1 mb-lg-2">
-                                        <span className="fw-bold" style={{ color: "#14bff4" }}>
-                                            <i className="fas fa-check-circle primary me-1" />
-                Payment verified
-              </span>
-                                        <span className="text-muted">
-                                            <span className="mx-2">
-                                                <i className="fas fa-star" />
-                                                <i className="fas fa-star" />
-                                                <i className="fas fa-star" />
-                                                <i className="fas fa-star" />
-                                                <i className="fas fa-star" />
-                                            </span>
-                                            <span className="fw-bold "> $0 </span>
-                                            <span> spent </span>
-                                            <span className="fw-bold ">
-                                                <i className="fas fa-map-marker-alt ms-2" /> United States
-                </span>
-                                        </span>
-                                    </p>
                                 </div>
+                                <p style={{ fontSize: "0.9em" }}>
+                                    <span className="text-muted">
+                                        <span className="fw-bold" id="contract-type">
+                                            {item?.jobPaymentType}
+                                        </span>
+                                        <span> - </span>
+                                        <span id="experience-level">
+                                            {item?.jobExperienceLevel}
+                                        </span>
+                                        <span> - </span>
+                                        <span>Est. Budget: </span>
+                                        <span id="client-budget">{item?.jobBudget}</span> - posted
+                    <span id="posting-time"> 4 Hours ago</span>
+                                    </span>
+                                </p>
+
+                                <ShowMore
+                                    maxHeight={100}
+                                    button={
+                                        <button
+                                            id="seemorebutton"
+                                            classname="advanced-search-link "
+                                            style={{ color: "green", position: "absolute", left: 0 }}
+                                        >
+                                            more
+                    </button>
+                                    }
+                                >
+                                    {item?.jobDescription}
+                                </ShowMore>
+
+                                {item?.skills?.map((skill, index) => (
+                                    <button
+                                        key={index}
+                                        type="button"
+                                        className="btn btn-secondary btn-sm rounded-pill skills"
+                                    >
+                                        {skill}
+                                    </button>
+                                ))}
+
+                                <p style={{ fontSize: "0.9em" }} className="my-lg-1">
+                                    <span className="text-muted">
+                                        <span>Proposals: </span>
+                                        <span className="fw-bold ">Less than </span>
+                                        <span className="fw-bold " id="proposals-numbers">
+                                            5
+                    </span>
+                                    </span>
+                                </p>
+                                <p style={{ fontSize: "0.85em" }} className="my-lg-1 mb-lg-2">
+                                    <span className="fw-bold" style={{ color: "#14bff4" }}>
+                                        <i className="fas fa-check-circle primary me-1" />
+                    Payment verified
+                  </span>
+                                    <span className="text-muted">
+                                        <span className="mx-2">
+                                            <i className="fas fa-star" />
+                                            <i className="fas fa-star" />
+                                            <i className="fas fa-star" />
+                                            <i className="fas fa-star" />
+                                            <i className="fas fa-star" />
+                                        </span>
+                                        <span className="fw-bold "> $0 </span>
+                                        <span> spent </span>
+                                        <span className="fw-bold ">
+                                            <i className="fas fa-map-marker-alt ms-2" /> United States
+                    </span>
+                                    </span>
+                                </p>
                             </div>
-                        ))
-                    }
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
-    )
+    );
 }
-
