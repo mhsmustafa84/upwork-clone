@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router';
@@ -65,7 +66,7 @@ export default function CreateContract({ location }) {
                         .doc(talentID)
                         .collection("jobProposal")
                         .doc(res.docs[0].id)
-                        .update({ status: "offer" })
+                        .update({ status: "offer", budget: contract.jobBudget || job.jobBudget })
                 }
             })
 
@@ -76,7 +77,8 @@ export default function CreateContract({ location }) {
                 message: "New job offer, check it now.",
                 type: "offer",
                 clientID: auth.currentUser.uid,
-                isShow: false
+                isShow: false,
+                route: "/offers"
             })
 
         subCollection(

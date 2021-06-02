@@ -7,22 +7,22 @@ import Loader from "../../SharedComponents/Loader/Loader";
 
 export default function OneContract({ contract, ind }) {
 
-  const [job, setJob] = useState([]);
+  const [job, setJob] = useState();
   const [client, setClient] = useState();
   const [clientContract, setClientContract] = useState();
 
-  useEffect(async () => {
-    await db.collection("job")
+  useEffect(() => {
+    db.collection("job")
       .doc(contract.jobId)
-      .get().then(async job => {
+      .get().then(job => {
 
         setJob(job.data());
 
-        await db.collection("client")
+        db.collection("client")
           .doc(job.data().authID)
           .get().then(doc => setClient(doc.data()))
 
-        await db.collection("client")
+        db.collection("client")
           .doc(job.data().authID)
           .collection("contracts")
           .where("talentResponse", "==", "accept")
@@ -38,11 +38,17 @@ export default function OneContract({ contract, ind }) {
           client
             ?
             <>
-              <div className="col-lg-4 col-md-5 col-xs-10 qa-wm-fl-cl-tile d-flex flex-direction-column justify-content-space-between">
+              <div className="col-lg-5 col-md-5 col-xs-10 qa-wm-fl-cl-tile d-flex flex-direction-column justify-content-space-between">
                 <div>
                   <div className="row qa-wm-fl-cl-title ">
                     <div className="col-xs-12">
-                      <Link to="/contract" className="m-0">
+                      <Link
+                        to={{
+                          pathname: "/contract",
+                          state: { job, client, clientContract }
+                        }}
+                        className="m-0 fw-bold"
+                      >
                         {job?.jobTitle}
                       </Link>
                     </div>
@@ -73,8 +79,7 @@ export default function OneContract({ contract, ind }) {
                     <div>
                       <strong>${clientContract?.jobBudget}</strong>/hr
                 </div>
-                    <div>5 max hrs/wk</div>
-                    <p className="m-0-top-bottom ng-binding ">Completed Feb 4</p>
+                    <p className="m-0-top-bottom ng-binding">Completed Feb 4</p>
                     <div>
                       <div className="stars" style={{ visibility: "visible" }}>
                         <i className="fas fa-star"></i>
