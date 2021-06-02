@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom'
 import { SearchContext } from '../../../Context/SearchContext';
-import { db } from '../../../firebase';
 import { talentsDataAction } from '../../../Store/actions/talentsDataAction';
 
 

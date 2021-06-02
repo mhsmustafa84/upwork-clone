@@ -1,14 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
 import ImgWithActiveStatus from "./../../../Components/ClientComponents/ImgWithActiveStatus/ImgWithActiveStatus";
 import { useDispatch, useSelector } from "react-redux";
-import { talentDataAction } from "../../../Store/actions/talentData";
 import ShowMore from 'react-show-more-button/dist/module';
 import { SearchContext } from "../../../Context/SearchContext";
 import { updateUserData } from "../../../Network/Network";
 import { clientDataAction } from "../../../Store/actions/clientData";
 import searchSvg from '../../../assets/svg/search.svg'
-import { auth, db } from "../../../firebase";
+
 
 
 
@@ -19,7 +17,6 @@ export default function TalentCardSearch() {
   const [isliked, setisliked] = useState(false)
   const dispatch = useDispatch();
   useEffect(() => {
-    // dispatch(jobsDataAction());
     dispatch(clientDataAction());
 }, []);
   
