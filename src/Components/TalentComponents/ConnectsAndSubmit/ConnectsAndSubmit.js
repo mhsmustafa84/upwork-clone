@@ -29,62 +29,34 @@ export default function ConnectsAndSubmit() {
       .onSnapshot((res) => {
         if (res?.docs.length > 0) setjobProposal(true);
       });
-    // (user?.savedJobs?.includes(id)) ? setText("Unsave Job") : setText("Save Job")
-    // if (user?.savedJobs?.length > 0) {
-    //   user?.savedJobs?.forEach((item) => {
-    //     if (item === id) {
-    //       text = "Unsave Job";
-    //       setText(text);
-    //     } else {
-    //       text = "Saved Job";
-    //       setText(text);
-    //     }
-    //   });
-    // } else {
-    //   text = "Saved Job";
-    //   setText(text);
-    // }
   }, []);
 
   useEffect(() => {
     // dispatch(jobsDataAction());
     dispatch(talentDataAction())
   }, [isliked])
+  const saveJob = (e) => {
+    setisliked(!isliked)
+        if (e.target.className === 'far fa-heart') {
+            updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
+            e.target.className = 'fas fa-heart text-upwork'
 
-  // const savedjobs = () => {
-  //   if (!user?.savedJobs?.includes(id)) {
-  //     updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
-  //     setText("Unsave Job");
-  //   } else {
-  //     user?.savedJobs.forEach((item, index) => {
-  //       if (item === id) {
-  //         user?.savedJobs?.splice(index, 1);
-  //         updateUserData("talent", { savedJobs: [...user?.savedJobs] });
-  //         // console.log(user?.savedJobs);
-  //         setText("Save Job");
-  //       }
-  //     });
-  //   }
-  //   setisliked(!isliked)
-  //   // dispatch(talentDataAction());
-  // };
+        }
+        else {
+            user?.savedJobs?.forEach((item, index) => {
+                if (item === id) {
+                    user?.savedJobs?.splice(index, 1);
+                    updateUserData("talent", { savedJobs: [...user?.savedJobs] });
+                    e.target.className = 'far fa-heart'
 
-  const savedjobs = () => {
-    //   if (!user?.savedJobs?.includes(id)) {
-    //     updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
-    //     setText("Unsave Job");
-    //   } else {
-    //     user?.savedJobs.forEach((item, index) => {
-    //       if (item === id) {
-    //         user?.savedJobs?.splice(index, 1);
-    //         updateUserData("talent", { savedJobs: [...user?.savedJobs] });
-    //         console.log(user?.savedJobs);
-    //         setText("Save Job");
-    //       }
-    //     });
-    //   }
-    //   dispatch(talentDataAction());
-  };
+                }
+            })
+        }
+    }
+
+  
+
+ 
 
   const handlewithdrawProposal = async () => {
     try {
@@ -152,36 +124,17 @@ export default function ConnectsAndSubmit() {
         <button
           className="btn btn-light border border-1 my-lg-2"
           type="button"
-          onClick={() => savedjobs()}
-        >
+          >
           <i
-            className={`me-2 ${
-              //  user.savedJobs.includes(id)
-              text === "Unsave Job"
-                ? "fas fa-heart text-upwork"
-                : "far fa-heart"
-              }`}
+          onClick={(e) => saveJob(e)}
+          className={`${user?.savedJobs?.includes(id) ? 'fas fa-heart text-upwork' : 'far fa-heart'}`}
             aria-hidden="true"
           />
           {text}
         </button>
 
       </div>
-      {/* <a href="#" className="advanced-search-link">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 14 14"
-          aria-hidden="true"
-          role="img"
-          fill="green"
-          width="15px"
-          className="my-lg-4"
-        >
-          <path d="M10.559 3.97l2.31-3.757C12.94.095 12.888 0 12.753 0H4v8h8.753c.136 0 .187-.1.116-.217l-2.31-3.814zM1.999 0h1v14H1V0h1z"></path>
-        </svg>{" "}
-        Flag as inappropriate
-      </a> */}
-
+     
       <p>
         {t("Required Connects to submit a proposal")}: 2
       </p>

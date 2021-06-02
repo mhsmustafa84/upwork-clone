@@ -7,59 +7,61 @@ import ShowMore from 'react-show-more-button/dist/module';
 import { SearchContext } from "../../../Context/SearchContext";
 import { updateUserData } from "../../../Network/Network";
 import { clientDataAction } from "../../../Store/actions/clientData";
+import searchSvg from '../../../assets/svg/search.svg'
 import { auth, db } from "../../../firebase";
 
 
 
 
 export default function TalentCardSearch() {
-  const { talentArr } = useContext(SearchContext)
-  // const user = useSelector((state) => state.talentData);
-  // const client = useSelector((state) => state.clientData);
-  // const [user, setuser] = useState(null)
-  let [client, setclient] = useState([])
-
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //    dispatch(clientDataAction())
-  //    dispatch(talentDataAction())
-  // }, [dispatch, user]);
-
+  const { talentArr , talentSearchList} = useContext(SearchContext)
+  const client = useSelector((state) => state.clientData);
+  const [isliked, setisliked] = useState(false)
+  const dispatch = useDispatch();
   useEffect(() => {
-    db.collection('client').doc(auth.currentUser.uid).onSnapshot((res) => {
-      client = res.data().savedTalents;
-      setclient(client)
-    }
-    );
-    console.log(client);
-  }, [])
+    // dispatch(jobsDataAction());
+    dispatch(clientDataAction());
+}, []);
+  
+  useEffect(() => {
+    dispatch(clientDataAction());
+  }, [isliked]);
 
   const saveTalent = (e, id) => {
-    if (e.target.className === 'far fa-heart' && !client.includes(id)) {
-      // (client.savedTalents === undefined)?updateUserData("client", { savedTalents: [client?.savedTalents, id] }):
-      // updateUserData("client", { savedTalents: [...client?.savedTalents, id] });
-      updateUserData("client", { savedTalents: [...client, id] });
-      e.target.className = 'fas fa-heart text-upwork'
-      console.log("add")
-    }
-    else {
-      client.forEach((item, index) => {
-        if (item === id) {
-          console.log("delete")
-          client.splice(index, 1);
-          updateUserData("client", { savedTalents: [...client] });
-          e.target.className = 'far fa-heart'
-        }
-      })
-    }
-    //  dispatch(clientDataAction())
-  }
+    setisliked(!isliked)
+        if (e.target.className === 'far fa-heart') {
+            updateUserData("client", { savedTalent: [...client?.savedTalent, id] });
+            e.target.className = 'fas fa-heart text-upwork'
 
+        }
+        else {
+            client?.savedTalent?.forEach((item, index) => {
+                if (item === id) {
+                    client?.savedTalent?.splice(index, 1);
+                    updateUserData("client", { savedTalent: [...client?.savedTalent] });
+                    e.target.className = 'far fa-heart'
+
+                }
+            })
+        }
+    }
   return (
     <div>
+      {talentArr.length === 0 && talentSearchList !== "" ?
+                        <div className='col-12 bg-white'>
+
+                            <h3 className="fw-bold text-center py-2 pt-5 " style={{ color: '#124C82' }}>There are no results that match your search</h3>
+
+                            <h6 className="text-center " style={{ color: '#124C82' }}>Please try adjusting your search keywords or filters</h6>
+
+                            <img className='mx-auto d-block' src={searchSvg} />
+
+                        </div>
+                        :
+                        null
+                    }
       {talentArr?.map((item) =>
-        <div className="row border bg-white border-1">
+        <div className="row border bg-white border-1" key={item.authID}>
           <div className="col-1 pt-lg-3">
             <ImgWithActiveStatus />
           </div>
@@ -129,7 +131,7 @@ export default function TalentCardSearch() {
                 aria-expanded="false"
                 aria-controls="collapseTwo"
               >
-                <i onClick={(e) => saveTalent(e, item.authID)} className={`${client?.includes(item.authID) ? 'fas fa-heart text-upwork' : 'far fa-heart'}`} aria-hidden="true" />
+                <i onClick={(e) => saveTalent(e, item.authID)} className={`${client?.savedTalent?.includes(item.authID) ? 'fas fa-heart text-upwork' : 'far fa-heart'}`} aria-hidden="true" />
               </button>
             </div>
           </div>
