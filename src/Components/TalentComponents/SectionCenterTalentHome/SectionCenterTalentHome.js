@@ -2,7 +2,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import HeadOfCenterSection from "./../HeadOfCenterSection/HeadOfCenterSection";
 import { jobsDataAction } from "./../../../Store/actions/jobsData";
 import { Link } from "react-router-dom";
 import ShowMore from "react-show-more-button/dist/module";
@@ -11,7 +10,6 @@ import { updateUserData } from "../../../Network/Network";
 import "./SectionCenterTalentHome.css";
 import Loader from "../../SharedComponents/Loader/Loader";
 import StarsRating from "../../SharedComponents/StarsRating/StarsRating";
-import { db } from "../../../firebase";
 import JobProposalsNumber from "./JobProposalsNumber";
 import { SearchContext } from "../../../Context/SearchContext";
 
