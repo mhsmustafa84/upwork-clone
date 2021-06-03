@@ -39,7 +39,29 @@ export default function Contract({ location }) {
     }
 
     const endContract = () => {
+        db.collection("job").doc(job?.jobID).update({ status: "closed" })
 
+        db.collection("talent")
+            .doc(user?.authID)
+            .collection("jobProposal")
+            .where("jobId", "==", job?.jobID)
+            .get().then(res => {
+                db.collection("talent")
+                    .doc(user?.authID)
+                    .collection("jobProposal")
+                    .doc(res.docs[0]?.id).update({ status: "closed", endContractTime: firebase.firestore.Timestamp.now() })
+            })
+
+        db.collection("client")
+            .doc(clientContract?.clientID)
+            .collection("contracts")
+            .where("jobID", "==", job?.jobID)
+            .get().then(res => {
+                db.collection("client")
+                    .doc(clientContract?.clientID)
+                    .collection("contracts")
+                    .doc(res.docs[0].data().id).update({ endContractTime: firebase.firestore.Timestamp.now() })
+            })
     }
 
     return (
