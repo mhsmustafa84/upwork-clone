@@ -69,7 +69,7 @@ export default function NavLargScreen() {
                 </Link>
               </li>
               <li>
-                <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to={`/profile/${auth.currentUser.uid}`}>
+                <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to={`/profile/${auth.currentUser?.uid}`}>
                   {t("Profile")}
                 </Link>
               </li>

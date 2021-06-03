@@ -36,7 +36,7 @@ export default function SearchBarJobsTalent(props) {
 
   const searchDatabase = () => {
     let tempArr = [];
-    jobs.map((e) => e.skills.includes(itemSearchList) && tempArr.push(e))
+    jobs.map((e) => e.skills?.includes(itemSearchList) && tempArr.push(e))
     console.log(tempArr);
     setsearchList(tempArr)
     push({ pathname: "/search" })
