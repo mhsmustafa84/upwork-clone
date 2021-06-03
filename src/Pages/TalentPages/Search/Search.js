@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
+
 import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -12,9 +13,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { talentDataAction } from "../../../Store/actions/talentData";
 import { updateUserData } from "../../../Network/Network";
 import { jobsDataAction } from "../../../Store/actions/jobsData";
+import JobCard from "../../../Components/TalentComponents/SectionCenterTalentHome/JobCard";
+import StarsRating from "../../../Components/SharedComponents/StarsRating/StarsRating";
 
 export default function Search(props) {
     const { t } = useTranslation();
+    const lang = useSelector(state => state.lang);
     const user = useSelector((state) => state.talentData);
     const dispatch = useDispatch();
 
@@ -68,6 +72,9 @@ export default function Search(props) {
                 break;
         }
     };
+    const star = (clientReview, index) => {
+        return <StarsRating clientReview={clientReview} index={index} />
+      }
     const saveJob = (e, id) => {
         setisliked(!isliked);
         if (e.target.className === "far fa-heart") {
@@ -465,7 +472,7 @@ export default function Search(props) {
                     ) : null}
                     {(filtered ? filterSearch : searchData)?.map((item) => (
                         <div>
-                            <div className="list-group-item">
+                            {/* <div className="list-group-item">
                                 <div className="row align-items-center">
                                     <div className="col-lg-9 pt-lg-2">
                                         <Link
@@ -584,7 +591,9 @@ export default function Search(props) {
                     </span>
                                     </span>
                                 </p>
-                            </div>
+                            </div> */}
+
+                           <JobCard item={item} saveJob={saveJob}  user={user}  lang={lang} star={star}/> 
                         </div>
                     ))}
                 </div>

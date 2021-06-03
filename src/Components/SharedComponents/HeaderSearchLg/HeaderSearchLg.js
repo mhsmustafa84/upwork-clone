@@ -35,7 +35,7 @@ export default function HeaderSearchLg() {
 
   const searchDatabase = () => {
     let tempArr = [];
-    jobs.map((e) => e.skills.includes(itemSearchList) && tempArr.push(e))
+    jobs.map((e) => e.skills?.includes(itemSearchList) && tempArr.push(e))
     setsearchList(tempArr)
     push({ pathname: "/search" })
 
