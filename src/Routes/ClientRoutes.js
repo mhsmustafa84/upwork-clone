@@ -24,9 +24,9 @@ import Notifications from "../Pages/Notifications/Notifications";
 export default function ClientRoutes() {
   const [talentArr, settalentArr] = useState([]);
   const [talentSearchList, settalentSearchList] = useState("");
-  const { pathname } = useLocation();
-  const { push } = useHistory();
-  pathname === "/" && push("/home");
+  // const { pathname } = useLocation();
+  // const { push } = useHistory();
+  // pathname === "/" && push("/home");
 
   return (
     <>
@@ -34,6 +34,7 @@ export default function ClientRoutes() {
         <Header />
         <Switch>
           <Route path="/home" exact component={Jobs} />
+          <Route path="/" exact component={Jobs} />
           <Route path="/messages" exact component={Messages} />
           <Route path="/all-job-posts" exact component={AllJobPosts} />
           <Route path="/all-contracts" exact component={AllContract} />

@@ -34,9 +34,9 @@ export default function TalentRoutes() {
   const [itemSearchList, setitemSearchList] = useState("");
   const [searchList, setsearchList] = useState([]);
   const [switchJobs, setswitchJobs] = useState("")
-  const { pathname } = useLocation();
-  const { push } = useHistory();
-  pathname === "/" && push("/find-work");
+  // const { pathname } = useLocation();
+  // const { push } = useHistory();
+  // pathname === "/" && push("/find-work");
   return (
     <>
       <SearchContextProvider
@@ -47,6 +47,7 @@ export default function TalentRoutes() {
           <Switch>
             <Route path="/create-profile" component={CreateProfile} />
             <Route path="/find-work" exact component={HomeTalent} />
+            <Route path="/" exact component={HomeTalent} />
             <Route path="/Search/:searchValue" exact component={Search} />
             <Route path="/Search" exact component={Search} />
             <Route path="/job/" exact component={JobDetailsTalent} />
@@ -84,7 +85,7 @@ export default function TalentRoutes() {
             <Route path="/messages" exact component={Messages} />
             <Route path="/contract" component={Contract} />
             <Route path="/notifications" exact component={Notifications} />
-            <Route path="**" component={PageNotFound} />
+            <Route path="*" component={PageNotFound} />
           </Switch>
         </div>
       </SearchContextProvider>
