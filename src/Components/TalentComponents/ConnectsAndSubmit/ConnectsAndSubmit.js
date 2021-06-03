@@ -14,7 +14,7 @@ export default function ConnectsAndSubmit() {
   const { id } = useParams();
   const user = useSelector((state) => state.talentData);
   const dispatch = useDispatch();
-  let [text, setText] = useState("");
+  // let [text, setText] = useState("");
   let [proposal, setProposal] = useState("");
   let [talent, setTalent] = useState("");
   const [jobProposal, setjobProposal] = useState(false);
@@ -130,7 +130,7 @@ export default function ConnectsAndSubmit() {
           className={`${user?.savedJobs?.includes(id) ? 'fas fa-heart text-upwork' : 'far fa-heart'}`}
             aria-hidden="true"
           />
-          {text}
+          {/* {text} */}
         </button>
 
       </div>

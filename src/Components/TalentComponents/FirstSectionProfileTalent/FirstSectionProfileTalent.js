@@ -148,7 +148,7 @@ export default function FirstSectionProfileTalent() {
         ?
         <>
           <div className="container card mb-3 mt-5 ">
-            <div className="row mt-3">
+            <div className="row mt-3 ps-4 pt-2">
               <div className="col-lg-2 pt-lg-3">
                 <div className="ms-3 mb-3" style={{ width: "100px", height: "100px", borderRadius: "50%", overflow: "hidden" }}>
                   <img
@@ -273,7 +273,7 @@ export default function FirstSectionProfileTalent() {
 
                 </div>
 
-                <div className="col-6">
+                <div className="col-6 px-4">
                   <h4 className="fw-bold"> {user?.title}</h4>
 
                   <ShowMore className="mb-0 mt-4" maxHeight={100} button={<button id="seemorebutton" classname="advanced-search-link " style={{ color: 'green', position: 'absolute', left: 0 }}>
@@ -308,7 +308,7 @@ export default function FirstSectionProfileTalent() {
                     </button>
                   </div>
                   <hr />
-                  <div className="bg-white py-lg-1 px-4 row py-xs-5">
+                  <div className="bg-white py-lg-1 row py-xs-5">
                     <div className="col-10 py-3">
                       <a className="advanced-search-link fw-bold">
                         I'm looking for video, carousel and image advertising
@@ -539,7 +539,7 @@ export default function FirstSectionProfileTalent() {
           </div>
 
           <div className="container card mb-3 mt-5">
-            <div className="row mt-3">
+            <div className="row mt-3 px-4">
               <div className="row">
 
                 <div className="col d-flex justify-content-between ">
