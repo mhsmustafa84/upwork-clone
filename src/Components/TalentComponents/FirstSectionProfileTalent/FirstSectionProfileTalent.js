@@ -121,7 +121,7 @@ export default function FirstSectionProfileTalent() {
   };
   const UpdateEditprofileTitleOverView = () => {
     updateUserData("talent", { title: profileTitle, overview: profileOverview });
-    push('/profile')
+    push(`/profile/${id}`)
   }
   const UpdateEditPortofolio = () => {
     if (imageItself !== "" && imgTitle !== "") {
@@ -744,14 +744,14 @@ export default function FirstSectionProfileTalent() {
                   >
                     Cancel
               </button>
-                  <Link
-                    to="/profile"
+                  <button
+                    
                     onClick={UpdateEditprofileTitleOverView}
                     type="button"
                     className="btn btn-default border rounded-border"
                   >
                     Save{" "}
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>

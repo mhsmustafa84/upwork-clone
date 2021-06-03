@@ -16,6 +16,7 @@ export default function TalentCardSearch() {
   const client = useSelector((state) => state.clientData);
   const [isliked, setisliked] = useState(false)
   const dispatch = useDispatch();
+  console.log(talentArr);
   useEffect(() => {
     dispatch(clientDataAction());
 }, []);
