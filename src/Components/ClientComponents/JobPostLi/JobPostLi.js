@@ -37,10 +37,10 @@ export default function JobPostLi({ job, id, index }) {
         <div className="d-block col-sm-2 col-xs-3">
         </div>
         <div className="d-block col-sm-1 col-xs-3">
-          <div className="fw-bold">
+          {/* <div className="fw-bold">
             <span>0</span>
-          </div>
-          <div className="text-muted">Proposals</div>
+          </div> */}
+          {/* <div className="text-muted">Proposals</div> */}
           {/* <div className="fw-bold">0</div> */}
           {/* <div className="text-muted">Messaged</div> */}
         </div>
