@@ -7,11 +7,11 @@ import { Link } from "react-router-dom";
 import ShowMore from "react-show-more-button/dist/module";
 import { talentDataAction } from "../../../Store/actions/talentData";
 import { updateUserData } from "../../../Network/Network";
-import "./SectionCenterTalentHome.css";
 import Loader from "../../SharedComponents/Loader/Loader";
 import StarsRating from "../../SharedComponents/StarsRating/StarsRating";
 import JobProposalsNumber from "./JobProposalsNumber";
 import { SearchContext } from "../../../Context/SearchContext";
+import "./SectionCenterTalentHome.css";
 
 
 export default function SectionCenterTalentHome() {
@@ -61,10 +61,6 @@ export default function SectionCenterTalentHome() {
         }
       })
     }
-  }
-
-  const star = (clientReview, index) => {
-    return <StarsRating clientReview={clientReview} index={index} />
   }
 
   return (
@@ -178,11 +174,11 @@ export default function SectionCenterTalentHome() {
                   </span>
                   <span className="text-muted">
                     <span className="mx-2">
-                      {star(item.clientAllReviews, 1)}
-                      {star(item.clientAllReviews, 2)}
-                      {star(item.clientAllReviews, 3)}
-                      {star(item.clientAllReviews, 4)}
-                      {star(item.clientAllReviews, 5)}
+                      <StarsRating clientReview={item?.clientAllReviews} index={1} />
+                      <StarsRating clientReview={item?.clientAllReviews} index={2} />
+                      <StarsRating clientReview={item?.clientAllReviews} index={3} />
+                      <StarsRating clientReview={item?.clientAllReviews} index={4} />
+                      <StarsRating clientReview={item?.clientAllReviews} index={5} />
                     </span>
                     <span className="fw-bold "> ${item.clientSpentMoney} </span>
                     <span> spent </span>

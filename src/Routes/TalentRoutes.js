@@ -85,7 +85,7 @@ export default function TalentRoutes() {
             <Route path="/messages" exact component={Messages} />
             <Route path="/contract" component={Contract} />
             <Route path="/notifications" exact component={Notifications} />
-            <Route path="*" component={PageNotFound} />
+            <Route path="**" component={PageNotFound} />
           </Switch>
         </div>
       </SearchContextProvider>

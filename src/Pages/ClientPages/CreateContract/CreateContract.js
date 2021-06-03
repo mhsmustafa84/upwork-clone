@@ -74,17 +74,20 @@ export default function CreateContract({ location }) {
             .doc(talentID)
             .collection("notification")
             .add({
+                time: firebase.firestore.Timestamp.now(),
                 message: "New job offer, check it now.",
                 type: "offer",
                 clientID: auth.currentUser.uid,
                 isShow: false,
-                route: "/offers"
+                route: "/offers",
+                userID: auth.currentUser.uid,
             })
 
         subCollection(
             "client",
             "contracts", {
             sentTime: firebase.firestore.Timestamp.now(),
+            startContractTime: "",
             jobID: jobID,
             talentID: talentID,
             talentResponse: "",
@@ -99,7 +102,7 @@ export default function CreateContract({ location }) {
         setContract({ jobPaymentType: "", jobBudget: "", dueDate: "" })
         setTimeout(() => {
             push("/all-job-posts");
-        }, 2500);
+        }, 1000);
     }
 
     return (

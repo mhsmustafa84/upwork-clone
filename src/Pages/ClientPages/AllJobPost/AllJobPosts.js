@@ -1,9 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
-import SearchJobPosts from "./../../../Components/ClientComponents/SearchJobPosts/SearchJobPosts";
 import JobPostsFilters from "./../../../Components/ClientComponents/JobPostsFilters/JobPostsFilters";
 import JobPostLi from "./../../../Components/ClientComponents/JobPostLi/JobPostLi";
-import JobPostingsPagination from "./../../../Components/ClientComponents/JobPostingsPagination/JobPostingsPagination";
 import JobPostsHeader from "../../../Components/ClientComponents/JobPostsHeader/JobPostsHeader";
 import { useDispatch, useSelector } from "react-redux";
 import { clientJobsAction } from "../../../Store/actions/clientJobAction";

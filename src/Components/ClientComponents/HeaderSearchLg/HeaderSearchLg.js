@@ -24,8 +24,8 @@ export default function HeaderSearchLg() {
     talents.map((tal) => tal.firstName.toLowerCase().includes(talentSearchList.toLowerCase()) && tempArr.push(tal))
     settalentArr([...tempArr])
     talentSearchList === "" && settalentArr([])
-   }, [talentSearchList])
- 
+  }, [talentSearchList])
+
   const handle = (e) => {
     settalentSearchList(e.target.value)
   }
@@ -34,18 +34,18 @@ export default function HeaderSearchLg() {
     let tempArr = [];
     talents.map((tal) => tal.firstName.toLowerCase().includes(talentSearchList.toLowerCase()) && tempArr.push(tal))
     settalentArr([...tempArr])
-      push({ pathname: "/talent/searchclient" })
+    push({ pathname: "/talent/searchclient" })
   }
 
 
   return (
     <div>
       <form id="search-form-id" className="d-flex ms-4">
-        <Link className="btn position-relative search-btn-cn"
+        <button className="btn position-relative search-btn-cn"
           onClick={searchDatabase}
         >
           <i className="fa fa-search text-white search-icon-cn"></i>
-        </Link>
+        </button>
         <div className="dropdown search-type-cn">
           <a
             className="nav-link dropdown-toggle"

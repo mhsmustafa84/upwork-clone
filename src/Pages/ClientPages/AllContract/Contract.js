@@ -12,28 +12,28 @@ import firebase from 'firebase/app';
 
 export default function Contract({ location }) {
 
-    const user = useSelector(state => state.talentData);
-    const [data, setData] = useState({ job: {}, client: {}, clientContract: {} })
+    const user = useSelector(state => state.clientData);
+    const [data, setData] = useState({ job: {}, talent: {}, clientContract: {} })
 
     useEffect(() => {
-        const { job, client, clientContract } = location?.state;
-        setData({ job, client, clientContract });
+        const { job, talent, clientContract } = location?.state;
+        setData({ job, talent, clientContract });
     }, [])
 
-    const { job, client, clientContract } = data;
+    const { job, talent, clientContract } = data;
 
-    const askPayment = () => {
-        db.collection("client")
-            .doc(client?.authID)
+    const pay = () => {
+        db.collection("talent")
+            .doc(talent.authID)
             .collection("notification").add({
                 time: firebase.firestore.Timestamp.now(),
-                message: `the job finished "${job?.jobTitle}" and he asked for payment.`,
-                type: "Payment Request",
+                message: `Your payment request for "${job?.jobTitle}" is approved.`,
+                type: "Payment approved",
                 userID: user.authID,
                 userName: user.firstName,
-                userPhoto: user.profilePhoto,
+                userPhoto: user?.profilePhoto,
                 isShow: false,
-                route: "/all-contracts"
+                route: "/all-contract"
             })
     }
 
@@ -48,7 +48,7 @@ export default function Contract({ location }) {
                     <div className="col-9">
                         <h3 className="">{job?.jobTitle}</h3>
                         {
-                            job?.clientJobReview?.review &&
+                            job?.talentJobReview?.review &&
                             <div>
                                 <small>
                                     <i className="fas fa-check-circle text-success"> </i>
@@ -65,14 +65,14 @@ export default function Contract({ location }) {
                     <div className="col-3">
                         <img style={{ height: "40px", width: "40px" }} className="circle bg-white" src={img} alt="" />
                         <span className="h4 ms-3">
-                            {client?.firstName + " " + client?.lastName}
+                            {talent?.firstName + " " + talent?.lastName}
                         </span>
-                        <p className="text-muted text-center">{client?.location}</p>
+                        <p className="text-muted text-center">{talent?.location}</p>
                     </div>
                 </div>
 
                 <div className="row px-5">
-                    <ul className="nav nav-tabs ">
+                    {/* <ul className="nav nav-tabs ">
                         <li className="nav-item">
                             <NavLink
                                 className="nav-link"
@@ -124,7 +124,7 @@ export default function Contract({ location }) {
                         <Route path="/contract/feedback" exact>
                             <ContractFeedback job={job} />
                         </Route>
-                    </Switch>
+                    </Switch> */}
                 </div>
 
             </div>
