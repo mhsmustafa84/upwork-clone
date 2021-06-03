@@ -7,7 +7,7 @@ import { Link, useHistory, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ShowMore from 'react-show-more-button/dist/module';
 import { updateUserData } from "../../../Network/Network";
-import { auth, db, storage } from "../../../firebase";
+import { db, storage } from "../../../firebase";
 import img from "../../../assets/img/icon-user.svg";
 import Loader from "../../SharedComponents/Loader/Loader";
 
@@ -15,7 +15,8 @@ import Loader from "../../SharedComponents/Loader/Loader";
 export default function FirstSectionProfileTalent() {
 
   const { id } = useParams();
-  const { push } = useHistory();
+  const { push, location } = useHistory();
+  const clientRoute = location.pathname.includes("talent-profile");
   const lang = useSelector(state => state.lang);
 
   const [imgUrl, setimgUrl] = useState(null);
@@ -288,24 +289,27 @@ export default function FirstSectionProfileTalent() {
 
                   <div className="row">
                     <h3 className="col mx-0 text-muted">{t("Work History")}</h3>
-                    <button
-                      type="button"
-                      className=" col-1 btn btn-default d-flex justify-content-center border rounded-circle"
-                      style={{
-                        width: 30,
-                        height: 30,
-                        textAlign: "center",
-                        paddingTop: 3,
-                        paddingBottom: 3,
-                        marginRight: 350,
-                      }}
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal13"
-                    >
-                      <div>
-                        <i className="fas fa-ellipsis-h"></i>{" "}
-                      </div>
-                    </button>
+                    {
+                      !clientRoute &&
+                      <button
+                        type="button"
+                        className=" col-1 btn btn-default d-flex justify-content-center border rounded-circle"
+                        style={{
+                          width: 30,
+                          height: 30,
+                          textAlign: "center",
+                          paddingTop: 3,
+                          paddingBottom: 3,
+                          marginRight: 350,
+                        }}
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal13"
+                      >
+                        <div>
+                          <i className="fas fa-ellipsis-h"></i>{" "}
+                        </div>
+                      </button>
+                    }
                   </div>
                   <hr />
                   <div className="bg-white py-lg-1 row py-xs-5">
@@ -441,25 +445,25 @@ export default function FirstSectionProfileTalent() {
                     <hr />
                     <div className="row">
                       <h3 className="col-4 mx-0 text-muted">{t("Portfolio")}</h3>
-
-                      <button
-                        type="button"
-                        className=" col-1 btn btn-default d-flex justify-content-center border rounded-circle"
-                        style={{
-                          width: 30,
-                          height: 30,
-                          textAlign: "center",
-                          paddingTop: 3,
-                          paddingBottom: 3,
-                          marginRight: 10,
-                        }}
-                        data-bs-toggle="modal"
-                        data-bs-target="#modalPortfolioWithImages"
-                      >
-                        <div>
-                          <i className="fas fa-plus"></i>{" "}
-                        </div>
-                      </button>
+                      {!clientRoute &&
+                        <button
+                          type="button"
+                          className=" col-1 btn btn-default d-flex justify-content-center border rounded-circle"
+                          style={{
+                            width: 30,
+                            height: 30,
+                            textAlign: "center",
+                            paddingTop: 3,
+                            paddingBottom: 3,
+                            marginRight: 10,
+                          }}
+                          data-bs-toggle="modal"
+                          data-bs-target="#modalPortfolioWithImages"
+                        >
+                          <div>
+                            <i className="fas fa-plus"></i>{" "}
+                          </div>
+                        </button>}
 
 
                     </div>
@@ -483,25 +487,25 @@ export default function FirstSectionProfileTalent() {
                     <div className="row mt-5">
                       <hr />
                       <h3 className="col-4 mx-0 text-muted">{t("skills")}</h3>
-
-                      <button
-                        type="button"
-                        className=" col-1 btn btn-default d-flex justify-content-center border rounded-circle"
-                        style={{
-                          width: 30,
-                          height: 30,
-                          textAlign: "center",
-                          paddingTop: 3,
-                          paddingBottom: 3,
-                          marginRight: 10,
-                        }}
-                        data-bs-toggle="modal"
-                        data-bs-target="#modalAddSkills"
-                      >
-                        <div>
-                          <i className="fas fa-plus"></i>{" "}
-                        </div>
-                      </button>
+                      {!clientRoute &&
+                        <button
+                          type="button"
+                          className=" col-1 btn btn-default d-flex justify-content-center border rounded-circle"
+                          style={{
+                            width: 30,
+                            height: 30,
+                            textAlign: "center",
+                            paddingTop: 3,
+                            paddingBottom: 3,
+                            marginRight: 10,
+                          }}
+                          data-bs-toggle="modal"
+                          data-bs-target="#modalAddSkills"
+                        >
+                          <div>
+                            <i className="fas fa-plus"></i>{" "}
+                          </div>
+                        </button>}
                     </div>
                     <div className="my-4 d-flex justify-content-start flex-wrap">
                       {user?.skills?.map((item) =>
@@ -514,23 +518,25 @@ export default function FirstSectionProfileTalent() {
                 </div>
                 <h5 className=" mt-2 fw-bold col-2"> {t("$")} {user?.hourlyRate} / {t("hr")}</h5>
                 <div className="col-1 d-flex justify-content-end">
-                  <button
-                    type="button"
-                    className="btn btn-default me-2 d-flex justify-content-center border rounded-circle"
-                    style={{
-                      width: 30,
-                      height: 30,
-                      textAlign: "center",
-                      paddingTop: 3,
-                      paddingBottom: 3,
-                    }}
-                    data-bs-toggle="modal"
-                    data-bs-target="#modalProfileTitleAndDescription"
-                  >
-                    <div>
-                      <i className="fas fa-pen" />
-                    </div>
-                  </button>
+                  {!clientRoute &&
+                    <button
+                      type="button"
+                      className="btn btn-default me-2 d-flex justify-content-center border rounded-circle"
+                      style={{
+                        width: 30,
+                        height: 30,
+                        textAlign: "center",
+                        paddingTop: 3,
+                        paddingBottom: 3,
+                      }}
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalProfileTitleAndDescription"
+                    >
+                      <div>
+                        <i className="fas fa-pen" />
+                      </div>
+                    </button>
+                  }
 
 
                 </div>
@@ -544,23 +550,24 @@ export default function FirstSectionProfileTalent() {
 
                 <div className="col d-flex justify-content-between ">
                   <h2 className="mb-3 text-muted">{t("Employment history")}</h2>
-                  <button
-                    type="button"
-                    className="btn btn-default me-2 d-flex justify-content-center border rounded-circle"
-                    style={{
-                      width: 30,
-                      height: 30,
-                      textAlign: "center",
-                      paddingTop: 3,
-                      paddingBottom: 3,
-                    }}
-                    data-bs-toggle="modal"
-                    data-bs-target="#editEmploymentHistory"
-                  >
-                    <div>
-                      <i className="fas fa-plus" />
-                    </div>
-                  </button>
+                  {!clientRoute &&
+                    <button
+                      type="button"
+                      className="btn btn-default me-2 d-flex justify-content-center border rounded-circle"
+                      style={{
+                        width: 30,
+                        height: 30,
+                        textAlign: "center",
+                        paddingTop: 3,
+                        paddingBottom: 3,
+                      }}
+                      data-bs-toggle="modal"
+                      data-bs-target="#editEmploymentHistory"
+                    >
+                      <div>
+                        <i className="fas fa-plus" />
+                      </div>
+                    </button>}
                 </div>
               </div>
               <hr />

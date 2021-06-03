@@ -2,6 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
 import { Link } from "react-router-dom";
+import { db } from "../../../firebase";
 
 export default function JobPostLi({ job, id, index }) {
 
@@ -63,26 +64,26 @@ export default function JobPostLi({ job, id, index }) {
           </button>
           <ul className="dropdown-menu">
             <li>
-              <a className="dropdown-item" href="#">
+              <Link className="dropdown-item" to={`/review-proposal/${job?.jobID}`}>
                 View Proposals
-                          </a>
+                              </Link>
             </li>
             <li>
-              <a className="dropdown-item" href="#">
+              <button className="dropdown-item" onClick={() => { db.collection("job").doc(job?.jobID).update({ status: "private" }) }} >
                 Make Private
-                              </a>
+                              </button>
             </li>
 
             <li>
-              <a className="dropdown-item" href="#">
+              <Link className="dropdown-item" to={`/job-details/${job?.jobID}`}>
                 View Job posting
-                              </a>
+                              </Link>
             </li>
 
             <li>
-              <a className="dropdown-item" href="#">
+              <button className="dropdown-item" onClick={() => { db.collection("job").doc(job?.jobID).delete() }}>
                 Remove posting
-                              </a>
+                              </button>
             </li>
           </ul>
         </div>

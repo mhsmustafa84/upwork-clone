@@ -46,11 +46,13 @@ export default function OneContract({ contract, ind }) {
                         </div>
                         <div className="row qa-wm-fl-cl-client m-sm-bottom my-2">
                             <div className="col-xs-6">
-                                <strong className="m-0 ellipsis d-block ng-binding">
-                                    {
-                                        talent?.firstName + " " + talent?.lastName
-                                    }
-                                </strong>
+                                <Link className="text-muted" to={`/talent-profile/${talent?.authID}`}>
+                                    <strong className="m-0 ellipsis d-block ng-binding">
+                                        {
+                                            talent?.firstName + " " + talent?.lastName
+                                        }
+                                    </strong>
+                                </Link>
                             </div>
                         </div>
                         <div className="row qa-wm-fl-cl-dates">

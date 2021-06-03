@@ -3,14 +3,16 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import { db } from "../../../firebase";
+import { useParams } from 'react-router';
 
 export default function JobDetailsBeforeProposals(props) {
+  const { id } = useParams();
   let jobid = props.location.state;
   const [job, setJob] = useState(null);
 
   useEffect(() => {
     db.collection("job")
-      .doc(jobid)
+      .doc(jobid || id)
       .get()
       .then((res) => {
         setJob(res.data());

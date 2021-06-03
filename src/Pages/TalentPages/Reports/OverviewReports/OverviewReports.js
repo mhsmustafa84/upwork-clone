@@ -26,16 +26,16 @@ export default function OverviewReports() {
     dispatch(inReviewAction());
     console.log(inreview);
   }, []);
- 
+
   return (
     <Router>
       <>
-        <style
+        {/* <style
           dangerouslySetInnerHTML={{
             __html:
               "\n @import url(//db.onlinewebfonts.com/c/3def92f7b2ad644bd382798ecc8ca4c7?family=Canela);              .container .nav-tabs>li>a.active h4 {\n            color: #73bb44\n        }\n\n        .container .nav-tabs>li>a.active span {\n            color: #73bb44;\n            \n        }\n        .container .nav-tabs>li>a.active{\n            background-color:#f1f2f4;\n        }\n\n\n        .container .nav-tabs>li>a h4 {\n            color: black;\n        }\n\n        .container .nav-tabs>li>a span {\n            color: black;\n        }\n\n        .container .nav-tabs>li>a h1 {\n            color: black;\n        }\n        body{\n            background-color:#f1f2f4\n        }\n    ",
           }}
-        />
+        /> */}
         <div className="W-100%">
           <br />
         </div>
@@ -45,7 +45,7 @@ export default function OverviewReports() {
               <li
                 className="nav-item"
                 role="presentation"
-                // style={{ backgroundColor: "#f1f2f4" }}
+              // style={{ backgroundColor: "#f1f2f4" }}
               >
                 <NavLink
                   id="ex2-tab-1"
