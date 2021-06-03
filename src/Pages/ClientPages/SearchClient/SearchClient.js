@@ -6,6 +6,7 @@ import { SearchContext } from "../../../Context/SearchContext";
 import { updateUserData } from "../../../Network/Network";
 import { clientDataAction } from "../../../Store/actions/clientData";
 import searchSvg from '../../../assets/svg/search.svg'
+import { Link } from "react-router-dom";
 
 
 
@@ -16,6 +17,7 @@ export default function TalentCardSearch() {
   const client = useSelector((state) => state.clientData);
   const [isliked, setisliked] = useState(false)
   const dispatch = useDispatch();
+  console.log(talentArr);
   useEffect(() => {
     dispatch(clientDataAction());
 }, []);
@@ -58,18 +60,18 @@ export default function TalentCardSearch() {
                         null
                     }
       {talentArr?.map((item) =>
-        <div className="row border bg-white border-1" key={item.authID}>
+        <div className="row border bg-white border-1 px-3 py-3" key={item.authID}>
           <div className="col-1 pt-lg-3">
-            <ImgWithActiveStatus />
+            <ImgWithActiveStatus avatar={item?.profilePhoto} />
           </div>
           <div className="col-lg-6 pt-lg-3 ">
-            <a
-              href="#"
+            <Link
+              to={`/talent-profile/${item.authID}`}
               id="job-title-home-page "
               className="link-dark job-title-hover "
             >
               <p className="fw-bold text-success">{item.firstName} {"  "} {item.lastName}</p>
-            </a>
+            </Link>
             <a href id="job-title-home-page " className="link-dark">
               <p className="fw-bold ">{item.title}</p>
             </a>
@@ -133,16 +135,17 @@ export default function TalentCardSearch() {
             </div>
           </div>
 
-          <div className="col py-3">
+          {/* <div className="col py-3">
             <button type="button" className="btn bg-upwork px-3">
               invite to job
             </button>
-          </div>
+          </div> */}
 
           <div className="col-lg-1 pt-lg-3"></div>
           <div className="col-lg-10 pt-lg-3 mx-3">
 
           </div>
+          <div className="row mx-5 px-5">
           <ShowMore className="" maxHeight={100} button={<button id="seemorebutton" classname="advanced-search-link " style={{ color: 'green', position: 'absolute', left: 0 }}>
             more
         </button>}>
@@ -157,7 +160,9 @@ export default function TalentCardSearch() {
             )}
 
           </div>
-        </div>
+        
+          </div>
+          </div>
       )}
     </div>
   )

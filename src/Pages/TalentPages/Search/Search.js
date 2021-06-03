@@ -94,7 +94,53 @@ export default function Search(props) {
     return (
         <div className="container-md container-fluid-sm my-lg-4">
             <div className="row">
-                <div className="col d-none d-lg-block">
+                <div className="col">
+                    
+                    <h6 className="mb-lg-2 display-inline-block mt-lg-3 fw-bold">
+                        {t("Experiencelevel")}
+                    </h6>
+                    <div className="form-check py-2 my-0">
+                        <input
+                            className="form-check-input btn-outline-success"
+                            type="checkbox"
+                            name="entry level"
+                            defaultValue
+                            id="flexCheckDefault"
+                            onChange={handleLevel}
+                        />
+                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                            {t("EntryLevel")}
+                        </label>
+                    </div>
+                    <div className="form-check py-2 my-0">
+                        <input
+                            className="form-check-input btn-outline-success"
+                            type="checkbox"
+                            name="intermediate"
+                            defaultValue
+                            id="flexCheckDefault"
+                            onChange={handleLevel}
+                        />
+                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                            {t("Intermediate")}
+                        </label>
+                    </div>
+                    <div className="form-check py-2 my-0">
+                        <input
+                            className="form-check-input btn-outline-success"
+                            type="checkbox"
+                            name="expert"
+                            defaultValue
+                            id="flexCheckDefault"
+                            onChange={handleLevel}
+                        />
+                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                            {t("Expert")}
+                        </label>
+                    </div>
+                    <hr />
+                </div>
+                <div className="col d-none">
                     <h5 className="mb-lg-4 display-inline-block">{t("FilterBy")}</h5>
                     <hr />
                     <h6 className="mb-lg-2 display-inline-block mt-lg-2 fw-bold">

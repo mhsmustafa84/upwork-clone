@@ -122,7 +122,7 @@ export default function FirstSectionProfileTalent() {
   };
   const UpdateEditprofileTitleOverView = () => {
     updateUserData("talent", { title: profileTitle, overview: profileOverview });
-    push('/profile')
+    push(`/profile/${id}`)
   }
   const UpdateEditPortofolio = () => {
     if (imageItself !== "" && imgTitle !== "") {
@@ -151,10 +151,10 @@ export default function FirstSectionProfileTalent() {
           <div className="container card mb-3 mt-5 ">
             <div className="row mt-3 ps-4 pt-2">
               <div className="col-lg-2 pt-lg-3">
-                <div className="ms-3 mb-3" style={{ width: "100px", height: "100px", borderRadius: "50%", overflow: "hidden" }}>
+                <div className="ms-3 mb-3" style={{ width: "100px", height: "100px",borderRadius: "50%", overflow: "hidden" }}>
                   <img
                     alt=""
-                    style={{ maxWidth: "100%", maxHeight: "100%" }}
+                    style={{ width: "100px", }}
                     className=" avatar vertical-align-middle m-0 avatar-sm avatar-responsive"
                     src={user?.profilePhoto ? user?.profilePhoto : img}
                   />
@@ -751,14 +751,14 @@ export default function FirstSectionProfileTalent() {
                   >
                     Cancel
               </button>
-                  <Link
-                    to="/profile"
+                  <button
+                    
                     onClick={UpdateEditprofileTitleOverView}
                     type="button"
                     className="btn btn-default border rounded-border"
                   >
                     Save{" "}
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>

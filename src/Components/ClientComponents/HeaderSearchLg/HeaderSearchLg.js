@@ -41,11 +41,11 @@ export default function HeaderSearchLg() {
   return (
     <div>
       <form id="search-form-id" className="d-flex ms-4">
-        <button className="btn position-relative search-btn-cn"
+        <Link className="btn position-relative search-btn-cn"
           onClick={searchDatabase}
         >
           <i className="fa fa-search text-white search-icon-cn"></i>
-        </button>
+        </Link>
         <div className="dropdown search-type-cn">
           <a
             className="nav-link dropdown-toggle"
