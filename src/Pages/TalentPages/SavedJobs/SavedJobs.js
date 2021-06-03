@@ -22,11 +22,12 @@ export default function SavedJobs() {
         {
           user?.savedJobs ?
             user?.savedJobs?.map((item) => (
-              <SavedJobsJobComponent jobId={item} key={item} isliked={isliked} setisliked={setisliked}/>
+              <SavedJobsJobComponent jobId={item} key={item} isliked={isliked} setisliked={setisliked} />
             ))
             :
             <div className="d-flex justify-content-center align-items-center" style={{ height: "70vh" }}>
               <Loader />
+              <p className="h3">No saved jobs.</p>
             </div>
         }
       </div>

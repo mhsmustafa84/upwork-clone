@@ -3,22 +3,7 @@
 import { useTranslation } from "react-i18next";
 
 export default function WorkinProgress() {
-  // const [Tablesdata, setTablesdata] = useState({
-  //   Dates: [
-  //     {
-  //       Day1: " MON 3/8",
-  //       Day2: "TUE 3/9",
-  //       Day3: "WED 3/10",
-  //       Day4: "THU 3/11",
-  //       Day5: "FRI 3/12",
-  //       Day6: "STA 3/13",
-  //       Day7: "SUN 3/14",
-  //       JOB: "Service fee for fixed price Ref id",
-  //       RATE: "$3/hr",
-  //       PRICE: "$20",
-  //     },
-  //   ],
-  // });
+
   const { t } = useTranslation();
   return (
     <>

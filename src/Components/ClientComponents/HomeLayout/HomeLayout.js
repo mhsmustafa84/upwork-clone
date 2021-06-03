@@ -57,7 +57,7 @@ export default function HomeLayout() {
                     {t("All Posts")}
                   </Link>
                 </div>
-                {jobs !== null ? (
+                {jobs ? (
                   <div className="list-group-item">
                     <div>
                       <div className="row">
@@ -114,26 +114,26 @@ export default function HomeLayout() {
                           </button>
                           <ul className="dropdown-menu">
                             <li>
-                              <a className="dropdown-item" href="#">
+                              <Link className="dropdown-item" to={`/review-proposal/${job?.jobID}`}>
                                 View Proposals
-                          </a>
+                              </Link>
                             </li>
                             <li>
-                              <a className="dropdown-item" href="#">
+                              <button className="dropdown-item" onClick={() => { db.collection("job").doc(job?.jobID).update({ status: "private" }) }} >
                                 Make Private
-                              </a>
+                              </button>
                             </li>
 
                             <li>
-                              <a className="dropdown-item" href="#">
+                              <Link className="dropdown-item" to={`/job-details/${job?.jobID}`}>
                                 View Job posting
-                              </a>
+                              </Link>
                             </li>
 
                             <li>
-                              <a className="dropdown-item" href="#">
+                              <button className="dropdown-item" onClick={() => { db.collection("job").doc(job?.jobID).delete() }}>
                                 Remove posting
-                              </a>
+                              </button>
                             </li>
                           </ul>
                         </div>
