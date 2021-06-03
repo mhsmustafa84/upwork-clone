@@ -4,11 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { jobsDataAction } from "./../../../Store/actions/jobsData";
 import { talentDataAction } from "../../../Store/actions/talentData";
 import { updateUserData } from "../../../Network/Network";
-import "./SectionCenterTalentHome.css";
 import Loader from "../../SharedComponents/Loader/Loader";
 import StarsRating from "../../SharedComponents/StarsRating/StarsRating";
+import JobProposalsNumber from "./JobProposalsNumber";
 import { SearchContext } from "../../../Context/SearchContext";
 import JobCard from "./JobCard";
+import "./SectionCenterTalentHome.css";
 
 
 export default function SectionCenterTalentHome() {
@@ -60,10 +61,6 @@ export default function SectionCenterTalentHome() {
     }
   }
 
-  const star = (clientReview, index) => {
-    return <StarsRating clientReview={clientReview} index={index} />
-  }
-
   return (
     <div className="col-lg-8 col-xs-12">
       {/* <HeadOfCenterSection /> */}
@@ -71,7 +68,7 @@ export default function SectionCenterTalentHome() {
         jobs[0]?.jobID
           ? switchedJobs.map((item, index) => (
             <div key={index}>
-              <JobCard item ={item} saveJob={saveJob} user={user} lang={lang} star={star}/>
+              <JobCard item={item} saveJob={saveJob} user={user} lang={lang} />
             </div>
           ))
           : <div className="d-flex justify-content-center align-items-center" style={{ height: "10vh" }}>

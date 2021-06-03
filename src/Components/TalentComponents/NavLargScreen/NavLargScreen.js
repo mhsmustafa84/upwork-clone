@@ -121,26 +121,26 @@ export default function NavLargScreen() {
                   {t("Overview")}
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to="/my-reports">
                   {t("My Reports")}
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to="/life-time-billing">
                   {t("Lifetime Billings by Client")}
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to="/connects-history">
                   {t("Connects History")}
                 </Link>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to="/transaction-history">
                   {t("Transaction History")}
                 </Link>
-              </li>
+              </li> */}
               {/* <li><a className="dropdown-item" href="#">Certificate of Earnings</a></li> */}
             </ul>
           </li>
@@ -179,7 +179,7 @@ export default function NavLargScreen() {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <img style={{ height: "40px", width: "40px" }} className="circle bg-white" src={user.profilePhoto ? user.profilePhoto : img} alt="" />
+              <img style={{ height: "40px", width: "40px" }} className="rounded-circle bg-white" src={user.profilePhoto ? user.profilePhoto : img} alt="" />
             </a>
             <ul
               id="acc-id"
@@ -207,16 +207,16 @@ export default function NavLargScreen() {
                 <NavLink className={`dropdown-item px-4 ${lang === 'ar' && "text-end"}`} to="/find-work">
                   <div className="d-flex align-items-center">
                     <span style={{ marginLeft: "-5px" }}>
-                      <i className={`fa fa-user-circle fs-3 ${lang === 'ar' && "px-3"}`}></i>
+                      <img style={{ height: "30px", width: "30px" }} className="rounded-circle bg-white" src={user.profilePhoto ? user.profilePhoto : img} alt="" />
                     </span>
                     <div className="acc-cn ms-2">
-                      <p className={`${lang === 'ar' && "fs-6"}`} >{t("Name")}</p>
+                      <p className={`${lang === 'ar' && "fs-6"}`} >{user?.firstName + " " + user?.lastName}</p>
                       <p className={`${lang === 'ar' && "fs-6"}`} >{t("Freelancer")}</p>
                     </div>
                   </div>
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink
                   className={`dropdown-item px-4 mb-1 ${lang === 'ar' && "text-end"}`}
                   to="/home"
@@ -231,15 +231,15 @@ export default function NavLargScreen() {
                     </div>
                   </div>
                 </NavLink>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <Link className={`dropdown-item px-4 ${lang === 'ar' && "fs-6 text-end"}`} to="settings">
                   <span>
                     <i className={`fa fa-cog ${lang === 'ar' && "px-3 fs-5"}`}></i>
                   </span>
                   <span className="ps-2">{t("Settings")}</span>
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <button className={`dropdown-item px-4 ${lang === 'ar' && "fs-6 text-end"}`} onClick={logout}>
                   <span>

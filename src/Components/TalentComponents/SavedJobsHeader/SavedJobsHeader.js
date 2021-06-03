@@ -36,7 +36,7 @@ export default function SavedJobsHeader({ jobs }) {
               className=" list-group-item-action saved-homebage-ul-li-aa bg-white"
               aria-current="true"
             >
-              {t("SAVEDJOBS")}({jobs})
+              {t("SAVEDJOBS")} ({jobs})
             </a>
           </Link>
         </li>

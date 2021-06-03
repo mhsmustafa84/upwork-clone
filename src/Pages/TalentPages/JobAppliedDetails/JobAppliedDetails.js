@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useParams } from "react-router";
-import JobDescriptionJobDetails2 from "../../../Components/TalentComponents/JobDescriptionJobDetails2/JobDescriptionJobDetails2";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import { db } from "../../../firebase";
-import RightSidebarJobDetails2 from "../../../Components/TalentComponents/RightSidebarJobDetails2/RightSidebarJobDetails2";
+import JobDescriptionJobDetails from "../../../Components/TalentComponents/JobDescriptionJobDetails/JobDescriptionJobDetails";
+import RightSidebarJobDetails from "../../../Components/TalentComponents/RightSidebarJobDetails/RightSidebarJobDetails";
 
 export default function JobAppliedDetails() {
   const { id } = useParams();
@@ -27,8 +27,8 @@ export default function JobAppliedDetails() {
           <h3>{t("Job details")}</h3>
         </div>
         <div className="row ">
-          <JobDescriptionJobDetails2 job={jobData} />
-          <RightSidebarJobDetails2 job={jobData} />
+          <JobDescriptionJobDetails job={jobData} />
+          <RightSidebarJobDetails job={jobData} />
         </div>
       </div>
     </div>

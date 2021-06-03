@@ -28,10 +28,10 @@ export default function LoginTemp() {
           val === ""
             ? t("Email required")
             : !val.match(
-                /^([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/
-              )
-            ? t("Please inter Valid Email")
-            : null
+              /^([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/
+            )
+              ? t("Please inter Valid Email")
+              : null
         );
         break;
       case "password":
@@ -43,8 +43,8 @@ export default function LoginTemp() {
           val === ""
             ? t("This is Required")
             : val.length < 8
-            ? t("Password Should be More 8 Character")
-            : null
+              ? t("Password Should be More 8 Character")
+              : null
         );
         break;
       default:
@@ -111,9 +111,8 @@ export default function LoginTemp() {
                   <input
                     type="email"
                     name="email"
-                    className={`form-control shadow-none ${
-                      emailError ? "border-danger" : ""
-                    }`}
+                    className={`form-control shadow-none ${emailError ? "border-danger" : ""
+                      }`}
                     aria-describedby="emailHelp"
                     placeholder={t("User name or Email")}
                     onInput={getUserData}
@@ -124,9 +123,8 @@ export default function LoginTemp() {
                   <input
                     type="password"
                     name="password"
-                    className={`form-control shadow-none ${
-                      PasswordError ? "border-danger" : ""
-                    }`}
+                    className={`form-control shadow-none ${PasswordError ? "border-danger" : ""
+                      }`}
                     aria-describedby="emailHelp"
                     placeholder={t("Password")}
                     onInput={getUserData}

@@ -21,7 +21,7 @@ export default function ReviewProposalsCard() {
     db.collection("job")
       .doc(id)
       .collection("proposals")
-      .onSnapshot(res => {
+      .get().then(res => {
         res.docs.map(async proposal => {
           if (proposal.exists) {
             console.log(proposal.data().talentId);
@@ -118,7 +118,7 @@ export default function ReviewProposalsCard() {
                   </div>
                   <div className="col py-3">
                     <Link
-                      to={{ pathname: "/messages", state: talent[index]?.authID }}
+                      to={{ pathname: "/messages", state: talent[index] }}
                       className="btn bg-white btn-outline-secondary"
                       onClick={() => sendMSG(talent[index]?.authID)}
                     >

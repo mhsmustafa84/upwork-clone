@@ -18,7 +18,7 @@ export default function BeforeLoginRoutes() {
         <Route path="/sign-up/details" exact component={SignupDetails} />
         <Route path="/freelance-jobs" exact component={FindFreelancingJob} />
         <Route path="/dev-it" exact component={DevelopmentItTalent} />
-        {/* <Route path="**" component={PageNotFoundBeforeLogin} /> */}
+        <Route path="**" component={PageNotFoundBeforeLogin} />
       </Switch>
     </>
   );

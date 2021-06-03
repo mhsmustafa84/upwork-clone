@@ -13,7 +13,7 @@ export default function OfferCard({ clientID, jobID, getOffers }) {
             .doc(clientID)
             .collection("contracts").where("jobID", "==", jobID)
             .get().then(res => {
-                setOffer({ data: res.docs[0].data(), contractId: res.docs[0].id })
+                setOffer({ data: res.docs[0]?.data(), contractId: res.docs[0]?.id })
             })
         await db.collection("job")
             .doc(jobID)
@@ -54,6 +54,7 @@ export default function OfferCard({ clientID, jobID, getOffers }) {
             .doc(contractId)
             .update({
                 talentResponse: "accept",
+                startContractTime: firebase.firestore.Timestamp.now()
             })
     }
 
@@ -79,9 +80,7 @@ export default function OfferCard({ clientID, jobID, getOffers }) {
             .doc(clientID)
             .collection("contracts")
             .doc(contractId)
-            .update({
-                talentResponse: "reject",
-            })
+            .delete()
     }
 
     return (
@@ -91,7 +90,7 @@ export default function OfferCard({ clientID, jobID, getOffers }) {
                 (offer && job) &&
                 <>
                     <p><strong>Contract Title: </strong>{job?.jobTitle}</p>
-                    <p><strong>Contract Budget: </strong>{offer?.data?.jobBudget}</p>
+                    <p><strong>Contract Budget: </strong>${offer?.data?.jobBudget}</p>
                     <p><strong>Contract Payment Type: </strong>{offer?.data?.jobPaymentType}</p>
                     <p><strong>Contract Due Date: </strong>{offer?.data?.dueDate}</p>
                     <button

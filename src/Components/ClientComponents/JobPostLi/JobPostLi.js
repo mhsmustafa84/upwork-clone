@@ -3,11 +3,11 @@
 
 import { Link } from "react-router-dom";
 
-export default function JobPostLi({ job, id }) {
+export default function JobPostLi({ job, id, index }) {
 
   return (
     <div>
-      <div className="row">
+      <div className={`row ps-4 my-2 ${index !== 0 && "border-top pt-4"}`}>
         <div className="col-lg-5 col-md-6 col-sm-10 col-xs-9">
           <h4 className="m-0-bottom" id="all-postings-list-opening-title-0">
             <Link to={{ pathname: `/job-details/${id}`, state: id }}>
@@ -34,18 +34,18 @@ export default function JobPostLi({ job, id }) {
           </p>
         </div>
         <div className="d-block col-sm-2 col-xs-3">
+        </div>
+        <div className="d-block col-sm-1 col-xs-3">
           <div className="fw-bold">
-            <span>0</span> (<span> 0 </span> new)
+            <span>0</span>
           </div>
           <div className="text-muted">Proposals</div>
+          {/* <div className="fw-bold">0</div> */}
+          {/* <div className="text-muted">Messaged</div> */}
         </div>
         <div className="d-block col-sm-1 col-xs-3">
-          <div className="fw-bold">0</div>
-          <div className="text-muted">Messaged</div>
-        </div>
-        <div className="d-block col-sm-1 col-xs-3">
-          <div className="fw-bold">{job.hired}</div>
-          <div className="text-muted">Hired</div>
+          {/* <div className="fw-bold">{job.hired}</div> */}
+          {/* <div className="text-muted">Hired</div> */}
         </div>
         <div className="d-block col-sm-2 col-xs-3">
           <Link to={{ pathname: `/review-proposal/${id}`, state: id }} className="btn bg-upwork">
@@ -65,47 +65,24 @@ export default function JobPostLi({ job, id }) {
             <li>
               <a className="dropdown-item" href="#">
                 View Proposals
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Invite freelancers
-              </a>
+                          </a>
             </li>
             <li>
               <a className="dropdown-item" href="#">
                 Make Private
-              </a>
+                              </a>
             </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Share job posting
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Upgrade to Featured
-              </a>
-            </li>
+
             <li>
               <a className="dropdown-item" href="#">
                 View Job posting
-              </a>
+                              </a>
             </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Edit posting
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Reuse posting
-              </a>
-            </li>
+
             <li>
               <a className="dropdown-item" href="#">
                 Remove posting
-              </a>
+                              </a>
             </li>
           </ul>
         </div>

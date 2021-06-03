@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { useTranslation } from "react-i18next";
@@ -122,6 +123,24 @@ export default function JobDescriptionJobDetails({ job }) {
           ))}
         </div>
       </div>
+      {
+        job?.jobImages?.length > 0 &&
+        <div className="bg-white py-lg-4 px-4 border border-1 row pb-sm-3 py-xs-5">
+          <h5 className="fw-bold my-4">Images</h5>
+          <div className="col">
+            {job?.jobImages?.map((img, index) => (
+              <p><a
+                target="_blank"
+                href={img}
+                className=" mx-1"
+                // style={{ backgroundColor: "#9b9d9f" }}
+                key={index}
+              >
+                {img}
+              </a></p>
+            ))}
+          </div>
+        </div>}
       <div className="bg-white py-lg-2 py-md-4 px-4 border border-1 row py-xs-5 h-100">
         <h5 className="fw-bold my-4">{t("Activity on this job")}</h5>
         <div className="pb-5">

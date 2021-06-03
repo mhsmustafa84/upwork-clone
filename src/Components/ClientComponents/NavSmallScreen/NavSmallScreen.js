@@ -1,14 +1,23 @@
-/* eslint-disable */
-import React from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react-hooks/exhaustive-deps */
+
+import React, { useEffect } from "react";
 import HeaderSearchSm from "../../SharedComponents/HeaderSearchSm/HeaderSearchSm";
-import { Link, useHistory } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
 import firebaseApp from "../../../firebase";
 import { useTranslation } from "react-i18next";
-
+import { useDispatch, useSelector } from "react-redux";
+import { clientDataAction } from "../../../Store/actions/clientData";
+import img from "../../../assets/img/icon-user.svg";
 
 export default function NavSmallScreen() {
   const { t } = useTranslation();
   const { push } = useHistory();
+  const user = useSelector((state) => state.clientData);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(clientDataAction());
+  }, []);
   const logout = () => {
     firebaseApp
       .auth()
@@ -40,29 +49,15 @@ export default function NavSmallScreen() {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 14 14"
-                width="40"
-                height="40"
-                role="img"
-                style={{ marginTop: "-10px" }}
-              >
-                <path
-                  fillRule="evenodd"
-                  fill="white"
-                  d="M7 12.6a5.6 5.6 0 0 1-4.64-2.47C2.94 8.78 4.49 7.88 7 7.88s4.06.9 4.64 2.25A5.6 5.6 0 0 1 7 12.6M7 1.45a2.76 2.76 0 1 1 0 5.53 2.76 2.76 0 0 1 0-5.53M7 0a7 7 0 1 0 .02 14.02A7 7 0 0 0 7 0"
-                ></path>
-              </svg>{" "}
-              {t("Name")}
-              <i className="fa fa-sort-down text-white float-end"></i>
+              <img style={{ height: "40px", width: "40px" }} className="rounded-circle bg-white" src={user.profilePhoto ? user.profilePhoto : img} alt="" />
+              <span className="ms-2">{user?.firstName + " " + user?.lastName}</span>
             </a>
-            <ul
+            {/* <ul
               id="acc-id"
               className="dropdown-menu"
               aria-labelledby="navbarDropdownMenuLink"
-            >
-              {/* <li className="px-4 py-3">
+            > */}
+            {/* <li className="px-4 py-3">
                 <div
                   id="acc-btns-id"
                   className="btn-group w-100"
@@ -78,7 +73,7 @@ export default function NavSmallScreen() {
                   </button>
                 </div>
               </li> */}
-              <li>
+            {/* <li>
                 <Link
                   className="dropdown-item px-4"
                   to="/find-work"
@@ -94,21 +89,21 @@ export default function NavSmallScreen() {
                     </div>
                   </div>
                 </Link>
-              </li>
-              <li>
+              </li> */}
+            {/* <li>
                 <Link className="dropdown-item px-4 mb-1" to="/home">
                   <div className="d-flex align-items-center">
                     <span style={{ marginLeft: "-5px" }}>
                       <i className="fa fa-user-circle fs-3"></i>
                     </span>
                     <div className="acc-cn ms-2">
-                      <p>{t("Name")}</p>
+                      <p>{user?.firstName + " " + user?.lastName}</p>
                       <p>{t("Client")}</p>
                     </div>
                   </div>
                 </Link>
-              </li>
-            </ul>
+              </li> */}
+            {/* </ul> */}
           </li>
           <li className="dropdown px-3">
             <a
@@ -181,7 +176,7 @@ export default function NavSmallScreen() {
               </li>
             </ul>
           </li>
-          <li className="dropdown px-3">
+          {/* <li className="dropdown px-3">
             <a
               className="nav-link dropdown-toggle mt-2 pt-3 border-top-cn"
               href="#"
@@ -272,11 +267,11 @@ export default function NavSmallScreen() {
                 </div>
               </li>
             </ul>
-          </li>
+          </li> */}
           <li className="nav-item px-3">
-            <Link className="nav-link mt-2 pt-3 border-top-cn" to="/messages">
+            <a className="nav-link mt-2 pt-3 border-top-cn" to="/messages">
               {t("Messages")}
-            </Link>
+            </a>
           </li>
           {/* <li className="nav-item px-3">
             <a className="nav-link mt-2 pt-3 border-top-cn" href="#">
@@ -284,12 +279,12 @@ export default function NavSmallScreen() {
               <i className="fas fa-question float-end"></i>
             </a>
           </li> */}
-          {/* <li className="nav-item px-3">
-            <a className="nav-link mt-2 pt-3 border-top-cn" href="#">
+          <li className="nav-item px-3">
+            <NavLink className="nav-link mt-2 pt-3 border-top-cn" to="/notifications">
               {t("Notification")}
               <i className="far fa-bell float-end"></i>
-            </a>
-          </li> */}
+            </NavLink>
+          </li>
           {/* <li className="nav-item px-3">
             <a className="nav-link mt-2 pt-3 border-top-cn" href="#">
               {t("Invite a Coworker")}

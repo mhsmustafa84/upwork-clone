@@ -20,13 +20,11 @@ import { SearchContextProvider } from "../Context/SearchContext";
 import JobJobDetailsBeforeProposals from "../Pages/ClientPages/JobDetailsBeforeProposols/JobDetailsBeforeProposals";
 import CreateContract from "../Pages/ClientPages/CreateContract/CreateContract";
 import Notifications from "../Pages/Notifications/Notifications";
+import Contract from './../Pages/ClientPages/AllContract/Contract';
 
 export default function ClientRoutes() {
   const [talentArr, settalentArr] = useState([]);
   const [talentSearchList, settalentSearchList] = useState("");
-  const { pathname } = useLocation();
-  const { push } = useHistory();
-  pathname === "/" && push("/home");
 
   return (
     <>
@@ -34,6 +32,7 @@ export default function ClientRoutes() {
         <Header />
         <Switch>
           <Route path="/home" exact component={Jobs} />
+          <Route path="/" exact component={Jobs} />
           <Route path="/messages" exact component={Messages} />
           <Route path="/all-job-posts" exact component={AllJobPosts} />
           <Route path="/all-contracts" exact component={AllContract} />
@@ -59,6 +58,7 @@ export default function ClientRoutes() {
             exact
             component={TransactionHistory}
           />
+          <Route path="/contract" component={Contract} />
           <Route path="/create-contract" component={CreateContract} />
           <Route path="/notifications" exact component={Notifications} />
           <Route path="**" component={PageNotFound} />

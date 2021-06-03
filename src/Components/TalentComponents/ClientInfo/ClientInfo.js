@@ -17,7 +17,7 @@ export default function ClientInfo({ clientID }) {
       .doc(clientID)
       .get().then(doc => setClient(doc.data()))
 
-    db.collection("job")
+    clientID && db.collection("job")
       .where("authID", "==", clientID)
       .get().then(res => {
         const closed = [];
@@ -32,10 +32,6 @@ export default function ClientInfo({ clientID }) {
       })
   }, [])
 
-  const star = (clientReview, index) => {
-    return <StarsRating clientReview={clientReview} index={index} />
-  }
-
   return (
     <div className="bg-white py-lg-4 px-4 border border-1 py-sm-3 py-xs-5">
       <h5>{t("About the client")}</h5>
@@ -49,18 +45,18 @@ export default function ClientInfo({ clientID }) {
         </span>
       </h6>
       <p className="text-muted">
-        {star(client?.review, 1)}
-        {star(client?.review, 2)}
-        {star(client?.review, 3)}
-        {star(client?.review, 4)}
-        {star(client?.review, 5)}
+        <StarsRating clientReview={client?.review} index={1} />
+        <StarsRating clientReview={client?.review} index={2} />
+        <StarsRating clientReview={client?.review} index={3} />
+        <StarsRating clientReview={client?.review} index={4} />
+        <StarsRating clientReview={client?.review} index={5} />
       </p>
       <p className="fw-bold"><span className="fw-bold ">
         <i className="fas fa-map-marker-alt me-2" /> {client?.location}
       </span></p>
       <p><span className="text-muted">Jobs posted: </span><strong>{clientJobs?.allJobs}</strong></p>
       <p><span className="text-muted">Hired: </span><strong>{clientJobs?.closed}</strong></p>
-      <p><span className="text-muted">Hire rate: </span><strong>{clientJobs?.closed * 100 / clientJobs?.allJobs}%</strong></p>
+      <p><span className="text-muted">Hire rate: </span><strong>{clientJobs?.closed ? clientJobs?.closed * 100 / clientJobs?.allJobs : 0}%</strong></p>
       <p><span className="text-muted">Open jobs: </span><strong>{clientJobs?.public}</strong></p>
       <p><span className="text-muted">Spent: </span><strong>${client?.spentMoney}</strong></p>
       <p><span className="text-muted">Active: </span><strong>{clientJobs?.hired}</strong></p>

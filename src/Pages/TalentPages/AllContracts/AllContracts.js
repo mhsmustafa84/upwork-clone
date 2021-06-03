@@ -2,16 +2,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import OneContract from "../../../Components/TalentComponents/OneContract/OneContract";
-import SearchContract from "../../../Components/TalentComponents/SearchContract/SearchContract";
 import { useTranslation } from "react-i18next";
 import { auth, db } from "../../../firebase";
-import Loader from './../../../Components/SharedComponents/Loader/Loader';
 
 export default function AllContracts() {
 
   const { t } = useTranslation();
   const [contracts, setContracts] = useState([]);
-  const [data, setData] = useState(false);
 
   useEffect(() => {
     db.collection("talent")
@@ -25,7 +22,6 @@ export default function AllContracts() {
             arr.push(contract.data());
           }
         });
-        arr.length > 0 && setData(true)
         setContracts([...arr]);
       });
   }, []);
@@ -37,23 +33,19 @@ export default function AllContracts() {
           <div className="row px-5">
             <h4 className="col-12 mt-5">{t("Contracts")}</h4>
             <div className="card mt-4 mb-5">
-              <div className="card-header bg-white p-3">
+              {/* <div className="card-header bg-white p-3">
                 {data && <SearchContract />}
-              </div>
+              </div> */}
               <div className="card-body row">
                 <div className="col-12 card-list">
                   {
-                    data
+                    contracts[0]?.jobId
                       ?
-                      contracts[0]?.jobId
-                        ?
-                        contracts.map((contract, index) => {
-                          return <OneContract contract={contract} key={index} ind={index} />
-                        })
-                        :
-                        <Loader />
+                      contracts.map((contract, index) => {
+                        return <OneContract contract={contract} key={index} ind={index} userType="talent" />
+                      })
                       :
-                      <p className="h3">
+                      <p className="h3 py-5">
                         You haven't started any contracts yet.
                       </p>
                   }

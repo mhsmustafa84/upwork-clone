@@ -100,7 +100,7 @@ export default function CreateProfileHourlyRate({ setBtns, btns }) {
             Back
           </Link>
         </button>
-        <button className={`btn ${rate === "0" || rate === "" ? "disabled" : ""}`}>
+        <button className={`btn ${rate === 0 || rate === "" ? "disabled" : ""}`}>
           <Link
             className="btn bg-upwork px-5"
             to="/create-profile/title-and-overview"
