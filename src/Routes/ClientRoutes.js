@@ -47,6 +47,7 @@ export default function ClientRoutes() {
             exact
             component={JobJobDetailsBeforeProposals}
           />
+          <Route path="/contract" component={Contract} />
           <Route path="/email-verification" component={EmailVerified} />
           <Route path="/sign-up/please-verify" exact component={PleaseVerifiy} />
           <Route path="/post-job" component={PostJob} />
@@ -59,7 +60,6 @@ export default function ClientRoutes() {
             exact
             component={TransactionHistory}
           />
-          <Route path="/contract" component={Contract} />
           <Route path="/create-contract" component={CreateContract} />
           <Route path="/notifications" exact component={Notifications} />
           <Route path="**" component={PageNotFound} />

@@ -87,7 +87,7 @@ export default function JobCard({ item, saveJob, user, lang }) {
           <button
             key={index}
             type="button"
-            className="btn text-light btn-sm rounded-pill skills mx-1"
+            className="btn text-light btn-sm rounded-pill skills mx-1 my-1"
             style={{ backgroundColor: "#9b9d9f" }}
           >
             {skill}

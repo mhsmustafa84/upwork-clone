@@ -9,6 +9,7 @@ import "../../ClientPages/Talent/Talent.css";
 import { db } from "../../../firebase";
 import { useSelector } from "react-redux";
 import firebase from 'firebase/app';
+import StarsRating from "../../../Components/SharedComponents/StarsRating/StarsRating";
 
 export default function Contract({ location }) {
 
@@ -53,11 +54,11 @@ export default function Contract({ location }) {
                                 <small>
                                     <i className="fas fa-check-circle text-success"> </i>
                                     {"  "}Completed Feb 21{"  "}
-                                    <i className="fas fa-star text-bgUpwork"></i>
-                                    <i className="fas fa-star text-bgUpwork"></i>
-                                    <i className="fas fa-star text-bgUpwork"></i>
-                                    <i className="fas fa-star text-bgUpwork"></i>
-                                    <i className="fas fa-star text-bgUpwork"></i>
+                                    <StarsRating clientReview={job?.clientJobReview?.review} index={1} />
+                                    <StarsRating clientReview={job?.clientJobReview?.review} index={2} />
+                                    <StarsRating clientReview={job?.clientJobReview?.review} index={3} />
+                                    <StarsRating clientReview={job?.clientJobReview?.review} index={4} />
+                                    <StarsRating clientReview={job?.clientJobReview?.review} index={5} />
                                 </small>
                             </div>
                         }
