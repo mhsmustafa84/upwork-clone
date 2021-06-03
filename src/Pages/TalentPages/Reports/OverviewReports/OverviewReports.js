@@ -1,3 +1,5 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState } from "react";
 import {
   BrowserRouter as Router,
@@ -14,6 +16,7 @@ import WorkinProgress from "../../../../Components/TalentComponents/WorkinProgre
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { inReviewAction } from "../../../../Store/actions/inReviewAction";
+import { auth, db } from "../../../../firebase";
 
 export default function OverviewReports() {
   const { pathname } = useLocation();
@@ -22,20 +25,22 @@ export default function OverviewReports() {
   const { t } = useTranslation();
   const inreview = useSelector((state) => state.inreview);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(inReviewAction());
     console.log(inreview);
+    // db.collection("talent")
+    //   .doc(auth.currentUser.uid)
+    //   .collection("jobProposal")
+    //   .where("status", "==", "contract").get().then(res => res.docs.map(item => {
+
+    //   }))
   }, []);
 
   return (
     <Router>
       <>
-        {/* <style
-          dangerouslySetInnerHTML={{
-            __html:
-              "\n @import url(//db.onlinewebfonts.com/c/3def92f7b2ad644bd382798ecc8ca4c7?family=Canela);              .container .nav-tabs>li>a.active h4 {\n            color: #73bb44\n        }\n\n        .container .nav-tabs>li>a.active span {\n            color: #73bb44;\n            \n        }\n        .container .nav-tabs>li>a.active{\n            background-color:#f1f2f4;\n        }\n\n\n        .container .nav-tabs>li>a h4 {\n            color: black;\n        }\n\n        .container .nav-tabs>li>a span {\n            color: black;\n        }\n\n        .container .nav-tabs>li>a h1 {\n            color: black;\n        }\n        body{\n            background-color:#f1f2f4\n        }\n    ",
-          }}
-        /> */}
+
         <div className="W-100%">
           <br />
         </div>

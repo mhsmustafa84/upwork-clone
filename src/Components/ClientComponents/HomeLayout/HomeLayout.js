@@ -95,10 +95,10 @@ export default function HomeLayout() {
                           <div className="text-muted">Messaged</div> */}
                         </div>
                         <div className="d-block col-sm-2 col-xs-3">
-                          <div className="fw-bold">
+                          {/* <div className="fw-bold">
                             <span>{proposals}</span>
                           </div>
-                          <div className="text-muted">Proposals</div>
+                          <div className="text-muted">Proposals</div> */}
                           {/* <div className="fw-bold">{job?.hired}</div>
                           <div className="text-muted">Hired</div> */}
                         </div>
