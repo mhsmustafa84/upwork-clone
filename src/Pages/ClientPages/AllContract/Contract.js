@@ -13,14 +13,14 @@ import firebase from 'firebase/app';
 export default function Contract({ location }) {
 
     const user = useSelector(state => state.clientData);
-    const [data, setData] = useState({ job: {}, talent: {}, clientContract: {} })
+    const [data, setData] = useState({ job: {}, talent: {}, contract: {} })
 
     useEffect(() => {
-        const { job, talent, clientContract } = location?.state;
-        setData({ job, talent, clientContract });
+        const { job, talent, contract } = location?.state;
+        setData({ job, talent, contract });
     }, [])
 
-    const { job, talent, clientContract } = data;
+    const { job, talent, contract } = data;
 
     const pay = () => {
         db.collection("talent")

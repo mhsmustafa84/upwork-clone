@@ -5,7 +5,7 @@ import ShowMore from 'react-show-more-button/dist/module'
 import StarsRating from '../../SharedComponents/StarsRating/StarsRating'
 import JobProposalsNumber from './JobProposalsNumber'
 
-export default function JobCard({ item, saveJob, user, lang, star }) {
+export default function JobCard({ item, saveJob, user, lang }) {
   return (
     <div>
       <div className="list-group-item p-4">
