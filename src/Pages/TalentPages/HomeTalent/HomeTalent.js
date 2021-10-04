@@ -35,7 +35,7 @@ export default function HomeTalent() {
               <FindWorkTalentHome />
               <div className="row">
                 <LeftSidebarTalentHome user={user} />
-                <SectionCenterTalentHome user={user} />
+                <SectionCenterTalentHome/>
                 <RightSidebarTalentHome user={user} lang={lang} />
               </div>
             </div>
