@@ -21,9 +21,10 @@ export default function ReviewProposalsCard() {
     db.collection("job")
       .doc(id)
       .collection("proposals")
-      .onSnapshot(res => {
+      .get().then(res => {
         res.docs.map(async proposal => {
           if (proposal.exists) {
+            console.log(proposal.data().talentId);
             proposals.push(proposal.data());
             await db.collection("talent")
               .doc(proposal.data().talentId)
@@ -31,6 +32,7 @@ export default function ReviewProposalsCard() {
               .then(doc => {
                 if (doc.exists) {
                   arr.push(doc.data());
+                  console.log(doc.data())
                   setTalent([...arr]);
                 }
               });
@@ -47,12 +49,13 @@ export default function ReviewProposalsCard() {
   return (
     <>
       <ReviewProposalsPageHeader proposals={proposals.length} />
+      {console.log(talent[0])}
       {
         proposals.length > 0
           ?
           proposals.map((proposal, index) => {
             return (
-              talent[index]?.profilePhoto
+              talent[index]
                 ?
                 <div className="row border bg-white border-1 ms-0 pt-2" key={index}>
                   <div className="col-1 pt-lg-3">
@@ -115,7 +118,7 @@ export default function ReviewProposalsCard() {
                   </div>
                   <div className="col py-3">
                     <Link
-                      to={{ pathname: "/messages", state: talent[index]?.authID }}
+                      to={{ pathname: "/messages", state: talent[index] }}
                       className="btn bg-white btn-outline-secondary"
                       onClick={() => sendMSG(talent[index]?.authID)}
                     >
@@ -140,6 +143,10 @@ export default function ReviewProposalsCard() {
                       <span className="text-muted">Specialized in:</span>
                       <span className="fw-bold"> {talent[index]?.jobCategory}</span>
                     </p>
+                    <p>
+                      <span className="text-muted">Proposed bid:</span>
+                      <span className="fw-bold"> {proposal?.budget}</span>
+                    </p>
                     <p id="Cover-Letter">
                       <span className="text-muted">Cover Letter - </span>
                       <span className="fw-bold">{proposal.coverLetter}</span>
@@ -150,6 +157,7 @@ export default function ReviewProposalsCard() {
                 index === 0 && <Loader />
             )
           })
+
           :
           <div className="row border bg-white border-1 ms-0 py-3">
             <p className="text-muted text-center h1">No proposals</p>

@@ -15,7 +15,6 @@ export default function LayOut() {
       if (user) {
         setUsr(user);
         setUsrType(localStorage.getItem('userType'));
-
       }
     });
   }, [])

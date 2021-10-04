@@ -18,9 +18,9 @@ export default function HomeTalent() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(talentDataAction(user));
+    // dispatch(talentDataAction(user));
     dispatch(langAction(lang));
-  }, [lang, user]);
+  }, [lang]);
 
   return (
     <div dir={lang === 'ar' ? 'rtl' : 'ltr'} >
@@ -34,16 +34,21 @@ export default function HomeTalent() {
               }
               <FindWorkTalentHome />
               <div className="row">
+<<<<<<< HEAD
                 <LeftSidebarTalentHome user={user} />
                 <SectionCenterTalentHome/>
                 <RightSidebarTalentHome user={user} lang={lang} />
+=======
+                <LeftSidebarTalentHome  />
+                <SectionCenterTalentHome />
+                <RightSidebarTalentHome lang={lang} />
+>>>>>>> 40dec7d628b59ee7b187724c3dac3205660754d7
               </div>
             </div>
             : <div className="d-flex justify-content-center align-items-center" style={{ height: "90vh" }}>
               <Loader />
             </div>
         }
-
       </div>
     </div>
   );

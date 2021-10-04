@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import Loader from "../../../Components/SharedComponents/Loader/Loader"
 import { auth, db } from "../../../firebase"
-import firebase from 'firebase/app';
+import OfferCard from "./OfferCard";
 
 export default function Offers() {
 
@@ -34,46 +34,6 @@ export default function Offers() {
                 } else {
                     setJobs([...arr]);
                 }
-
-            })
-    }
-
-    const accept = jobID => {
-        console.log(jobID);
-        db.collection("job")
-            .doc(jobID)
-            .update({ status: "hired" })
-        db.collection("talent")
-            .doc(auth.currentUser.uid)
-            .collection("jobProposal")
-            .where("jobId", "==", jobID)
-            .get().then(res => {
-                if (res.docs[0].exists) {
-                    db.collection("talent")
-                        .doc(auth.currentUser.uid)
-                        .collection("jobProposal")
-                        .doc(res.docs[0]?.id).update({
-                            status: "contract",
-                            startContractTime: firebase.firestore.Timestamp.now()
-                        })
-                    getOffers();
-                }
-            })
-    }
-
-    const decline = jobID => {
-        db.collection("talent")
-            .doc(auth.currentUser.uid)
-            .collection("jobProposal")
-            .where("jobId", "==", jobID)
-            .get().then(res => {
-                if (res.docs[0].exists) {
-                    db.collection("talent")
-                        .doc(auth.currentUser.uid)
-                        .collection("jobProposal")
-                        .doc(res.docs[0]?.id).update({ status: "proposal" })
-                    getOffers();
-                }
             })
     }
 
@@ -90,16 +50,9 @@ export default function Offers() {
                             jobs.length > 0 ?
                                 jobs[0]?.jobTitle ?
                                     <>
-                                        {jobs.map((job, index) => {
-                                            return <div className="col-11 mx-auto bg-gray border border-gray rounded p-5 mb-4 text-center" key={index}>
-                                                <p><strong>Contract Title: </strong>{job.jobTitle}</p>
-                                                <p><strong>Contract Budget: </strong>{job.jobBudget}</p>
-                                                <p><strong>Contract Payment Type: </strong>{job.jobPaymentType}</p>
-                                                <p><strong>Contract Due Date: </strong>{job.jobPaymentType}</p>
-                                                <button className="btn bg-upwork me-1" onClick={() => accept(job.jobID)}>Accept</button>
-                                                <button className="btn btn-danger ms-1" onClick={() => decline(job.jobID)}>Decline</button>
-                                            </div>
-                                        })}
+                                        {jobs.map((job, index) =>
+                                            <OfferCard clientID={job.authID} jobID={job.jobID} getOffers={getOffers} key={index} />
+                                        )}
                                     </>
                                     : <Loader />
                                 : <p className="h3 py-3">No offers yet.</p>

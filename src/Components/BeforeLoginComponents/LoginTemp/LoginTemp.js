@@ -28,10 +28,10 @@ export default function LoginTemp() {
           val === ""
             ? t("Email required")
             : !val.match(
-                /^([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/
-              )
-            ? t("Please inter Valid Email")
-            : null
+              /^([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/
+            )
+              ? t("Please inter Valid Email")
+              : null
         );
         break;
       case "password":
@@ -43,8 +43,8 @@ export default function LoginTemp() {
           val === ""
             ? t("This is Required")
             : val.length < 8
-            ? t("Password Should be More 8 Character")
-            : null
+              ? t("Password Should be More 8 Character")
+              : null
         );
         break;
       default:
@@ -111,9 +111,8 @@ export default function LoginTemp() {
                   <input
                     type="email"
                     name="email"
-                    className={`form-control shadow-none ${
-                      emailError ? "border-danger" : ""
-                    }`}
+                    className={`form-control shadow-none ${emailError ? "border-danger" : ""
+                      }`}
                     aria-describedby="emailHelp"
                     placeholder={t("User name or Email")}
                     onInput={getUserData}
@@ -124,21 +123,20 @@ export default function LoginTemp() {
                   <input
                     type="password"
                     name="password"
-                    className={`form-control shadow-none ${
-                      PasswordError ? "border-danger" : ""
-                    }`}
+                    className={`form-control shadow-none ${PasswordError ? "border-danger" : ""
+                      }`}
                     aria-describedby="emailHelp"
                     placeholder={t("Password")}
                     onInput={getUserData}
                   />
                 </div>
-                <div className="form-group col-8 mx-auto mt-3 d-flex justify-content-between">
+                {/* <div className="form-group col-8 mx-auto mt-3 d-flex justify-content-between">
                   <label>
                     <input type="checkbox" className="me-2" />
                     {t("Keep me logged in")}
                   </label>
                   <Link to="">{t("Forgot password")}</Link>
-                </div>
+                </div> */}
                 <div className="d-grid gap-2 col-8 mx-auto mt-3 hitbtn-className loginpcolor">
                   <button
                     className="btn bg-upwork "
@@ -148,11 +146,11 @@ export default function LoginTemp() {
                     {t("Log in")}
                   </button>
                 </div>
-                <div className="d-grid gap-2 col-8 mx-auto mt-3">
+                {/* <div className="d-grid gap-2 col-8 mx-auto mt-3">
                   <Link to="" className="text-center">
                     {t("Not you")}
                   </Link>
-                </div>
+                </div> */}
                 <div className="separator mt-4 col-8 mx-auto">or</div>
                 <div
                   className="google-btn  gap-2 mx-auto mt-3 rounded hitbtn-className col-sm-12"
@@ -174,13 +172,13 @@ export default function LoginTemp() {
                     </p>
                   </div>
                 </div>
-                <div className="mb-5 d-grid gap-2 col-8 mx-auto mt-3 border border-dark rounded">
+                {/* <div className="mb-5 d-grid gap-2 col-8 mx-auto mt-3 border border-dark rounded">
                   <button className="btn bg-light " type="button">
                     {" "}
                     <img src={apple} className="apple-icon" />{" "}
                     {t("sign in with apple")}
                   </button>
-                </div>
+                </div> */}
                 <hr />
                 <div>
                   <div className="separator mt-4 col-8 mx-auto">

@@ -26,14 +26,15 @@ export default function HomeLayout() {
   const dispatch = useDispatch();
   const [proposals, setProposals] = useState(0);
 
-  useEffect(() => {
+  useEffect(async () => {
     dispatch(clientDataAction());
     dispatch(clientJobsAction("authID", "==", auth.currentUser.uid));
-    db.collection("job").doc(jobs[0]?.docID).collection("proposals").get().then(res => {
+    await db.collection("job").doc(jobs[0]?.docID).collection("proposals").get().then(res => {
       const length = res.docs.length;
       setProposals(length)
     })
   }, []);
+
 
   const job = jobs[0]?.data;
 
@@ -43,37 +44,20 @@ export default function HomeLayout() {
         user.firstName
           ?
           <div className="container container-fluid-sm my-lg-4">
-            <div className="row">
+            <div className="row px-5 my-5">
               <div className="col-lg-8 col-xs-12">
                 <div className="row my-3">
                   <div className="col-4">
                     <h4>{user.firstName + " " + user.lastName}</h4>
                   </div>
-                  <div className="col-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="30"
-                      height="30"
-                      fill="#37a000"
-                      className="bi bi-person-plus"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
-                      <path
-                        fillRule="evenodd"
-                        d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"
-                      />
-                    </svg>
-                  </div>
                 </div>
-
                 <div className="list-group-item py-lg-4">
                   <h4 className="d-inline-block">{t("My Postings")}</h4>
                   <Link to="/all-job-posts" className="float-sm-end mt-0">
                     {t("All Posts")}
                   </Link>
                 </div>
-                {jobs !== null ? (
+                {jobs ? (
                   <div className="list-group-item">
                     <div>
                       <div className="row">
@@ -105,18 +89,18 @@ export default function HomeLayout() {
                           </p>
                         </div>
                         <div className="d-block col-sm-2 col-xs-3">
-                          <div className="fw-bold">
+                        </div>
+                        <div className="d-block col-sm-2 col-xs-3">
+                          {/* <div className="fw-bold">0</div>
+                          <div className="text-muted">Messaged</div> */}
+                        </div>
+                        <div className="d-block col-sm-2 col-xs-3">
+                          {/* <div className="fw-bold">
                             <span>{proposals}</span>
                           </div>
-                          <div className="text-muted">Proposals</div>
-                        </div>
-                        <div className="d-block col-sm-2 col-xs-3">
-                          <div className="fw-bold">0</div>
-                          <div className="text-muted">Messaged</div>
-                        </div>
-                        <div className="d-block col-sm-2 col-xs-3">
-                          <div className="fw-bold">{job?.hired}</div>
-                          <div className="text-muted">Hired</div>
+                          <div className="text-muted">Proposals</div> */}
+                          {/* <div className="fw-bold">{job?.hired}</div>
+                          <div className="text-muted">Hired</div> */}
                         </div>
 
                         <div className="d-block col-sm-1 col-xs-3 btn-group float-sm-end ">
@@ -130,49 +114,26 @@ export default function HomeLayout() {
                           </button>
                           <ul className="dropdown-menu">
                             <li>
-                              <a className="dropdown-item" href="#">
+                              <Link className="dropdown-item" to={`/review-proposal/${job?.jobID}`}>
                                 View Proposals
-                          </a>
+                              </Link>
                             </li>
                             <li>
-                              <a className="dropdown-item" href="#">
-                                Invite freelancers
-                          </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
+                              <button className="dropdown-item" onClick={() => { db.collection("job").doc(job?.jobID).update({ status: "private" }) }} >
                                 Make Private
-                          </a>
+                              </button>
                             </li>
+
                             <li>
-                              <a className="dropdown-item" href="#">
-                                Share job posting
-                          </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Upgrade to Featured
-                          </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
+                              <Link className="dropdown-item" to={`/job-details/${job?.jobID}`}>
                                 View Job posting
-                          </a>
+                              </Link>
                             </li>
+
                             <li>
-                              <a className="dropdown-item" href="#">
-                                Edit posting
-                          </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
-                                Reuse posting
-                          </a>
-                            </li>
-                            <li>
-                              <a className="dropdown-item" href="#">
+                              <button className="dropdown-item" onClick={() => { db.collection("job").doc(job?.jobID).delete() }}>
                                 Remove posting
-                          </a>
+                              </button>
                             </li>
                           </ul>
                         </div>
@@ -350,7 +311,7 @@ export default function HomeLayout() {
                   </Link>
                 </div>
 
-                <div className="my-3">
+                <div className="my-3 mt-4">
                   <div className="card">
                     <div className="" alt="...">
                       <div

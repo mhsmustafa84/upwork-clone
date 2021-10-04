@@ -6,11 +6,13 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { auth, db } from "../../../firebase";
 import img from "../../../assets/img/icon-user.svg";
+import { useSelector } from "react-redux";
 
-export default function RightSidebarTalentHome({ user, lang }) {
+export default function RightSidebarTalentHome({  lang }) {
 
   const { t } = useTranslation();
   const [talentData, setTalentData] = useState([]);
+  const user = useSelector((state) => state.talentData);
 
   useEffect(() => {
     db.collection("talent")
@@ -36,7 +38,7 @@ export default function RightSidebarTalentHome({ user, lang }) {
         <h5 className="d-inline ps-1">{`${user.firstName}`}</h5>
       </div>
       <div className="my-lg-1">
-        <Link to="/profile" className="advanced-search-link">
+        <Link to={`/profile/${auth.currentUser.uid}`} className="advanced-search-link">
           <i className="fas fa-eye"> </i> {t("View Profile")}
         </Link>
       </div>

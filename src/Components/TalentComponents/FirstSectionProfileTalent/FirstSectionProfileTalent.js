@@ -3,18 +3,20 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ShowMore from 'react-show-more-button/dist/module';
 import { updateUserData } from "../../../Network/Network";
-import { auth, db, storage } from "../../../firebase";
+import { db, storage } from "../../../firebase";
 import img from "../../../assets/img/icon-user.svg";
 import Loader from "../../SharedComponents/Loader/Loader";
 
 
 export default function FirstSectionProfileTalent() {
 
-  const { push } = useHistory();
+  const { id } = useParams();
+  const { push, location } = useHistory();
+  const clientRoute = location.pathname.includes("talent-profile");
   const lang = useSelector(state => state.lang);
 
   const [imgUrl, setimgUrl] = useState(null);
@@ -36,7 +38,7 @@ export default function FirstSectionProfileTalent() {
   const { t } = useTranslation();
 
   useEffect(() => {
-    db.collection("talent").doc(auth.currentUser.uid).onSnapshot(doc => {
+    db.collection("talent").doc(id).onSnapshot(doc => {
       user = doc.data();
       setUser(user)
     })
@@ -120,7 +122,7 @@ export default function FirstSectionProfileTalent() {
   };
   const UpdateEditprofileTitleOverView = () => {
     updateUserData("talent", { title: profileTitle, overview: profileOverview });
-    push('/profile')
+    push(`/profile/${id}`)
   }
   const UpdateEditPortofolio = () => {
     if (imageItself !== "" && imgTitle !== "") {
@@ -147,13 +149,13 @@ export default function FirstSectionProfileTalent() {
         ?
         <>
           <div className="container card mb-3 mt-5 ">
-            <div className="row mt-3">
+            <div className="row mt-3 ps-4 pt-2">
               <div className="col-lg-2 pt-lg-3">
-                <div>
+                <div className="ms-3 mb-3" style={{ width: "100px", height: "100px",borderRadius: "50%", overflow: "hidden" }}>
                   <img
                     alt=""
-                    style={{ width: "100px", height: "100px", borderRadius: "50%" }}
-                    className="mb-3 ms-3 avatar vertical-align-middle m-0 avatar-sm avatar-responsive"
+                    style={{ width: "100px", }}
+                    className=" avatar vertical-align-middle m-0 avatar-sm avatar-responsive"
                     src={user?.profilePhoto ? user?.profilePhoto : img}
                   />
                   {/* <span className="hotspotimg">
@@ -272,7 +274,7 @@ export default function FirstSectionProfileTalent() {
 
                 </div>
 
-                <div className="col-6">
+                <div className="col-6 px-4">
                   <h4 className="fw-bold"> {user?.title}</h4>
 
                   <ShowMore className="mb-0 mt-4" maxHeight={100} button={<button id="seemorebutton" classname="advanced-search-link " style={{ color: 'green', position: 'absolute', left: 0 }}>
@@ -287,27 +289,30 @@ export default function FirstSectionProfileTalent() {
 
                   <div className="row">
                     <h3 className="col mx-0 text-muted">{t("Work History")}</h3>
-                    <button
-                      type="button"
-                      className=" col-1 btn btn-default d-flex justify-content-center border rounded-circle"
-                      style={{
-                        width: 30,
-                        height: 30,
-                        textAlign: "center",
-                        paddingTop: 3,
-                        paddingBottom: 3,
-                        marginRight: 350,
-                      }}
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal13"
-                    >
-                      <div>
-                        <i className="fas fa-ellipsis-h"></i>{" "}
-                      </div>
-                    </button>
+                    {
+                      !clientRoute &&
+                      <button
+                        type="button"
+                        className=" col-1 btn btn-default d-flex justify-content-center border rounded-circle"
+                        style={{
+                          width: 30,
+                          height: 30,
+                          textAlign: "center",
+                          paddingTop: 3,
+                          paddingBottom: 3,
+                          marginRight: 350,
+                        }}
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal13"
+                      >
+                        <div>
+                          <i className="fas fa-ellipsis-h"></i>{" "}
+                        </div>
+                      </button>
+                    }
                   </div>
                   <hr />
-                  <div className="bg-white py-lg-1 px-4 row py-xs-5">
+                  <div className="bg-white py-lg-1 row py-xs-5">
                     <div className="col-10 py-3">
                       <a className="advanced-search-link fw-bold">
                         I'm looking for video, carousel and image advertising
@@ -440,25 +445,25 @@ export default function FirstSectionProfileTalent() {
                     <hr />
                     <div className="row">
                       <h3 className="col-4 mx-0 text-muted">{t("Portfolio")}</h3>
-
-                      <button
-                        type="button"
-                        className=" col-1 btn btn-default d-flex justify-content-center border rounded-circle"
-                        style={{
-                          width: 30,
-                          height: 30,
-                          textAlign: "center",
-                          paddingTop: 3,
-                          paddingBottom: 3,
-                          marginRight: 10,
-                        }}
-                        data-bs-toggle="modal"
-                        data-bs-target="#modalPortfolioWithImages"
-                      >
-                        <div>
-                          <i className="fas fa-plus"></i>{" "}
-                        </div>
-                      </button>
+                      {!clientRoute &&
+                        <button
+                          type="button"
+                          className=" col-1 btn btn-default d-flex justify-content-center border rounded-circle"
+                          style={{
+                            width: 30,
+                            height: 30,
+                            textAlign: "center",
+                            paddingTop: 3,
+                            paddingBottom: 3,
+                            marginRight: 10,
+                          }}
+                          data-bs-toggle="modal"
+                          data-bs-target="#modalPortfolioWithImages"
+                        >
+                          <div>
+                            <i className="fas fa-plus"></i>{" "}
+                          </div>
+                        </button>}
 
 
                     </div>
@@ -482,25 +487,25 @@ export default function FirstSectionProfileTalent() {
                     <div className="row mt-5">
                       <hr />
                       <h3 className="col-4 mx-0 text-muted">{t("skills")}</h3>
-
-                      <button
-                        type="button"
-                        className=" col-1 btn btn-default d-flex justify-content-center border rounded-circle"
-                        style={{
-                          width: 30,
-                          height: 30,
-                          textAlign: "center",
-                          paddingTop: 3,
-                          paddingBottom: 3,
-                          marginRight: 10,
-                        }}
-                        data-bs-toggle="modal"
-                        data-bs-target="#modalAddSkills"
-                      >
-                        <div>
-                          <i className="fas fa-plus"></i>{" "}
-                        </div>
-                      </button>
+                      {!clientRoute &&
+                        <button
+                          type="button"
+                          className=" col-1 btn btn-default d-flex justify-content-center border rounded-circle"
+                          style={{
+                            width: 30,
+                            height: 30,
+                            textAlign: "center",
+                            paddingTop: 3,
+                            paddingBottom: 3,
+                            marginRight: 10,
+                          }}
+                          data-bs-toggle="modal"
+                          data-bs-target="#modalAddSkills"
+                        >
+                          <div>
+                            <i className="fas fa-plus"></i>{" "}
+                          </div>
+                        </button>}
                     </div>
                     <div className="my-4 d-flex justify-content-start flex-wrap">
                       {user?.skills?.map((item) =>
@@ -513,23 +518,25 @@ export default function FirstSectionProfileTalent() {
                 </div>
                 <h5 className=" mt-2 fw-bold col-2"> {t("$")} {user?.hourlyRate} / {t("hr")}</h5>
                 <div className="col-1 d-flex justify-content-end">
-                  <button
-                    type="button"
-                    className="btn btn-default me-2 d-flex justify-content-center border rounded-circle"
-                    style={{
-                      width: 30,
-                      height: 30,
-                      textAlign: "center",
-                      paddingTop: 3,
-                      paddingBottom: 3,
-                    }}
-                    data-bs-toggle="modal"
-                    data-bs-target="#modalProfileTitleAndDescription"
-                  >
-                    <div>
-                      <i className="fas fa-pen" />
-                    </div>
-                  </button>
+                  {!clientRoute &&
+                    <button
+                      type="button"
+                      className="btn btn-default me-2 d-flex justify-content-center border rounded-circle"
+                      style={{
+                        width: 30,
+                        height: 30,
+                        textAlign: "center",
+                        paddingTop: 3,
+                        paddingBottom: 3,
+                      }}
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalProfileTitleAndDescription"
+                    >
+                      <div>
+                        <i className="fas fa-pen" />
+                      </div>
+                    </button>
+                  }
 
 
                 </div>
@@ -538,28 +545,29 @@ export default function FirstSectionProfileTalent() {
           </div>
 
           <div className="container card mb-3 mt-5">
-            <div className="row mt-3">
+            <div className="row mt-3 px-4">
               <div className="row">
 
                 <div className="col d-flex justify-content-between ">
                   <h2 className="mb-3 text-muted">{t("Employment history")}</h2>
-                  <button
-                    type="button"
-                    className="btn btn-default me-2 d-flex justify-content-center border rounded-circle"
-                    style={{
-                      width: 30,
-                      height: 30,
-                      textAlign: "center",
-                      paddingTop: 3,
-                      paddingBottom: 3,
-                    }}
-                    data-bs-toggle="modal"
-                    data-bs-target="#editEmploymentHistory"
-                  >
-                    <div>
-                      <i className="fas fa-plus" />
-                    </div>
-                  </button>
+                  {!clientRoute &&
+                    <button
+                      type="button"
+                      className="btn btn-default me-2 d-flex justify-content-center border rounded-circle"
+                      style={{
+                        width: 30,
+                        height: 30,
+                        textAlign: "center",
+                        paddingTop: 3,
+                        paddingBottom: 3,
+                      }}
+                      data-bs-toggle="modal"
+                      data-bs-target="#editEmploymentHistory"
+                    >
+                      <div>
+                        <i className="fas fa-plus" />
+                      </div>
+                    </button>}
                 </div>
               </div>
               <hr />
@@ -743,14 +751,14 @@ export default function FirstSectionProfileTalent() {
                   >
                     Cancel
               </button>
-                  <Link
-                    to="/profile"
+                  <button
+                    
                     onClick={UpdateEditprofileTitleOverView}
                     type="button"
                     className="btn btn-default border rounded-border"
                   >
                     Save{" "}
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>

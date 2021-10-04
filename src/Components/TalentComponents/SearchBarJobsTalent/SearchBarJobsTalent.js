@@ -15,49 +15,42 @@ import { talentDataAction } from "../../../Store/actions/talentData";
 export default function SearchBarJobsTalent(props) {
   const { t } = useTranslation();
   let lang = useSelector(state => state.lang);
+  const { arr, setarr, itemSearchList, setitemSearchList, setsearchList } = useContext(SearchContext)
   const { push } = useHistory();
-  const { arr, setarr, itemSearchList, setitemSearchList } = useContext(SearchContext)
   const user = useSelector((state) => state.talentData);
+  const jobs = useSelector((state) => state.jobsData);
   const dispatch = useDispatch();
   useEffect(() => {
     sessionStorage.setItem('searchArray', JSON.stringify(user.searchHistory))
-    console.log(arr);
     dispatch(talentDataAction());
-    console.log(user);
+
   }, []);
 
   const handle = (e) => {
     setitemSearchList(e.target.value)
   }
 
+  useEffect(() => {
+   itemSearchList === "" && setsearchList([])
+  }, [itemSearchList])
+
   const searchDatabase = () => {
     let tempArr = [];
-    db.collection('job')
-    .where('skills', 'array-contains', itemSearchList)
-    .onSnapshot(
-      jobs=>jobs.docs.map(
-        item=>{
-        tempArr.push(item.data())
-        push({pathname:"/search",state:tempArr})
-      })
-    )
-      if(tempArr.length<=0){
-        
-        push('/search')
-      }
-      if (itemSearchList !="") {
-        let  arr2=[]
-        arr != null ?arr2 = [itemSearchList,...arr] : 
-        arr2=[itemSearchList]
-        user.searchHistory !=null ?   
-        updateUserData('talent', { searchHistory: [...user?.searchHistory,...arr2] })
-        :updateUserData('talent', { searchHistory: [...arr2] })
-
-        sessionStorage.setItem('searchArray',JSON.stringify(arr2))
-        setarr([...arr2])
-      }
-}
-
+    jobs.map((e) => e.skills?.includes(itemSearchList) && tempArr.push(e))
+    console.log(tempArr);
+    setsearchList(tempArr)
+    push({ pathname: "/search" })
+    if (itemSearchList !== "") {
+      let arr2 = []
+      arr != null ? arr2 = [itemSearchList, ...arr] :
+        arr2 = [itemSearchList]
+      user.searchHistory != null ?
+        updateUserData('talent', { searchHistory: [...user?.searchHistory, ...arr2] })
+        : updateUserData('talent', { searchHistory: [...arr2] })
+      sessionStorage.setItem('searchArray', JSON.stringify(arr2))
+      setarr([...arr2])
+    }
+  }
   return (
     <div>
       <div className="col-8 input-group form-outline has-success">

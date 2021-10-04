@@ -17,7 +17,6 @@ import ConnectsHistory from "../Pages/TalentPages/Reports/connectshistory/connec
 import BuyConnects from "../Pages/TalentPages/Reports/BuyConnects/BuyConnects";
 import HomeTalent from "../Pages/TalentPages/HomeTalent/HomeTalent";
 import JobDetailsTalent from "../Pages/TalentPages/JobDetailsTalent/JobDetailsTalent";
-import TransactionHistory from "../Pages/TalentPages/Reports/TransactionHistory/TransactionHistory";
 import CreateProfile from "../Pages/TalentPages/CreateProfile/CreateProfile";
 import Search from "../Pages/TalentPages/Search/Search";
 import EmailVerified from "./../Pages/EmailVerification/EmailVerified";
@@ -33,19 +32,22 @@ import Notifications from './../Pages//Notifications/Notifications';
 export default function TalentRoutes() {
   const [arr, setarr] = useState([]);
   const [itemSearchList, setitemSearchList] = useState("");
-  const { pathname } = useLocation();
-  const { push } = useHistory();
-  pathname === "/" && push("/find-work");
+  const [searchList, setsearchList] = useState([]);
+  const [switchJobs, setswitchJobs] = useState("")
+  // const { pathname } = useLocation();
+  // const { push } = useHistory();
+  // pathname === "/" && push("/find-work");
   return (
     <>
       <SearchContextProvider
-        value={{ arr, setarr, itemSearchList, setitemSearchList }}
+        value={{ arr, setarr, itemSearchList, setitemSearchList, searchList, setsearchList, switchJobs, setswitchJobs }}
       >
         <Header />
         <div>
           <Switch>
             <Route path="/create-profile" component={CreateProfile} />
             <Route path="/find-work" exact component={HomeTalent} />
+            <Route path="/" exact component={HomeTalent} />
             <Route path="/Search/:searchValue" exact component={Search} />
             <Route path="/Search" exact component={Search} />
             <Route path="/job/" exact component={JobDetailsTalent} />
@@ -59,7 +61,7 @@ export default function TalentRoutes() {
             <Route path="/job/applied/:id" exact component={JobAppliedDetails} />
             <Route path="/saved-jobs" exact component={SavedJobs} />
             <Route path="/proposals" exact component={Proposals} />
-            <Route path="/profile" exact component={Profile} />
+            <Route path="/profile/:id" exact component={Profile} />
             <Route path="/email-verification" component={EmailVerified} />
             <Route
               path="/sign-up/please-verify"
@@ -75,16 +77,15 @@ export default function TalentRoutes() {
             <Route path="/life-time-billing" exact component={BillingByClients} />
             <Route path="/connects-history" exact component={ConnectsHistory} />
             <Route path="/buyconnects" exact component={BuyConnects} />
-            <Route
+            {/* <Route
               path="/transaction-history"
               exact
               component={TransactionHistory}
-            />
+            /> */}
             <Route path="/messages" exact component={Messages} />
             <Route path="/contract" component={Contract} />
             <Route path="/notifications" exact component={Notifications} />
-
-            {/* <Route path="**" component={PageNotFound} /> */}
+            <Route path="**" component={PageNotFound} />
           </Switch>
         </div>
       </SearchContextProvider>
