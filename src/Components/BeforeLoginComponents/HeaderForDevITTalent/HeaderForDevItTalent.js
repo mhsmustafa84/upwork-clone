@@ -4,6 +4,7 @@ import talentHeaderDevIT from '../../../assets/Img/talent-header-Dev-IT.png'
 import talentHeaderBgSvg1DevIT from "../../../assets/Img/talent-header-bg-svg1-Dev-IT.svg"
 import talentHeaderBgSvg2DevIT from "../../../assets/Img/talent-header-bg-svg2-Dev-IT.svg"
 import { Link } from 'react-router-dom'
+import { BASE_ROUTE } from './../../../constant';
 
 export default function HeaderForDevItTalent() {
     return (
@@ -20,7 +21,7 @@ export default function HeaderForDevItTalent() {
                                 talent.
                             </p>
                             <div className="row" id="header-buttons-ID">
-                                <Link to="/login" className="btn col-lg-3 col-10 mx-lg-0 mx-auto fw-bolder me-lg-4 ms-lg-2 mb-3" type="button" id="header-btn-1">
+                                <Link to={`${BASE_ROUTE}/login`} className="btn col-lg-3 col-10 mx-lg-0 mx-auto fw-bolder me-lg-4 ms-lg-2 mb-3" type="button" id="header-btn-1">
                                     Post a Job
                                 </Link>
                                 <button className="btn col-lg-5 col-10 mx-lg-0 mx-auto fw-bolder mb-3" type="button" id="header-btn-2">

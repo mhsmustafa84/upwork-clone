@@ -2,11 +2,12 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import Logo from '../../SharedComponents/Logo/Logo';
-import { useTranslation } from "react-i18next";  
+import { useTranslation } from "react-i18next";
+import { BASE_ROUTE } from './../../../constant';
 
 
 export default function LoginHeader() {
-    const { t }=useTranslation();
+    const { t } = useTranslation();
 
     const { pathname } = useLocation();
 
@@ -16,8 +17,8 @@ export default function LoginHeader() {
                 <Logo />
                 <div>
                     {
-                        pathname === "/sign-up" &&
-                        <p className="text-white">{t("Already have an account")}<Link to="/login">{" "}{t("Log In")}</Link></p>
+                        pathname === `${BASE_ROUTE}/sign-up` &&
+                        <p className="text-white">{t("Already have an account")}<Link to={`${BASE_ROUTE}/login`}>{" "}{t("Log In")}</Link></p>
                     }
                 </div>
             </div>

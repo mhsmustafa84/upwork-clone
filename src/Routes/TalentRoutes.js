@@ -28,68 +28,68 @@ import JobAppliedDetails from "../Pages/TalentPages/JobAppliedDetails/JobApplied
 import Contract from "../Pages/TalentPages/Contract/Contract";
 import Offers from "../Pages/TalentPages/Offers/Offers";
 import Notifications from './../Pages//Notifications/Notifications';
+import { BASE_ROUTE } from './../constant';
 
 export default function TalentRoutes() {
-  const [arr, setarr] = useState([]);
-  const [itemSearchList, setitemSearchList] = useState("");
-  const [searchList, setsearchList] = useState([]);
-  const [switchJobs, setswitchJobs] = useState("")
-  // const { pathname } = useLocation();
-  // const { push } = useHistory();
-  // pathname === "/" && push("/find-work");
-  return (
-    <>
-      <SearchContextProvider
-        value={{ arr, setarr, itemSearchList, setitemSearchList, searchList, setsearchList, switchJobs, setswitchJobs }}
-      >
-        <Header />
-        <div>
-          <Switch>
-            <Route path="/create-profile" component={CreateProfile} />
-            <Route path="/find-work" exact component={HomeTalent} />
-            <Route path="/" exact component={HomeTalent} />
-            <Route path="/Search/:searchValue" exact component={Search} />
-            <Route path="/Search" exact component={Search} />
-            <Route path="/job/" exact component={JobDetailsTalent} />
-            <Route path="/job/:id" exact component={JobDetailsTalent} />
-            <Route path="/job/apply/:id" exact component={SubmitProposal} />
-            <Route
-              path="/job/review-proposal/:id"
-              exact
-              component={ReviewProposalsCard}
-            />
-            <Route path="/job/applied/:id" exact component={JobAppliedDetails} />
-            <Route path="/saved-jobs" exact component={SavedJobs} />
-            <Route path="/proposals" exact component={Proposals} />
-            <Route path="/profile/:id" exact component={Profile} />
-            <Route path="/email-verification" component={EmailVerified} />
-            <Route
-              path="/sign-up/please-verify"
-              exact
-              component={PleaseVerifiy}
-            />
-            <Route path="/my-stats" exact component={MyStats} />
-            <Route path="/my-jobs" exact component={MyJobs} />
-            <Route path="/all-contract" exact component={AllContracts} />
-            <Route path="/offers" exact component={Offers} />
-            <Route path="/overview" component={OverviewReports} />
-            <Route path="/my-reports" exact component={Reports} />
-            <Route path="/life-time-billing" exact component={BillingByClients} />
-            <Route path="/connects-history" exact component={ConnectsHistory} />
-            <Route path="/buyconnects" exact component={BuyConnects} />
-            {/* <Route
+    const [arr, setarr] = useState([]);
+    const [itemSearchList, setitemSearchList] = useState("");
+    const [searchList, setsearchList] = useState([]);
+    const [switchJobs, setswitchJobs] = useState("")
+    // const { pathname } = useLocation();
+    // const { push } = useHistory();
+    // pathname ===  && push("/find-work");
+    return (
+        <>
+            <SearchContextProvider
+                value={{ arr, setarr, itemSearchList, setitemSearchList, searchList, setsearchList, switchJobs, setswitchJobs }}
+            >
+                <Header />
+                <div>
+                    <Switch>
+                        <Route path={`${BASE_ROUTE}/create-profile`} component={CreateProfile} />
+                        <Route path={`${BASE_ROUTE}/find-work`} exact component={HomeTalent} />
+                        <Route path={`${BASE_ROUTE}/Search/:searchValue`} exact component={Search} />
+                        <Route path={`${BASE_ROUTE}/Search`} exact component={Search} />
+                        <Route path={`${BASE_ROUTE}/job/`} exact component={JobDetailsTalent} />
+                        <Route path={`${BASE_ROUTE}/job/:id`} exact component={JobDetailsTalent} />
+                        <Route path={`${BASE_ROUTE}/job/apply/:id`} exact component={SubmitProposal} />
+                        <Route
+                            path={`${BASE_ROUTE}/job/review-proposal/:id`}
+                            exact
+                            component={ReviewProposalsCard}
+                        />
+                        <Route path={`${BASE_ROUTE}/job/applied/:id`} exact component={JobAppliedDetails} />
+                        <Route path={`${BASE_ROUTE}/saved-jobs`} exact component={SavedJobs} />
+                        <Route path={`${BASE_ROUTE}/proposals`} exact component={Proposals} />
+                        <Route path={`${BASE_ROUTE}/profile/:id`} exact component={Profile} />
+                        <Route path={`${BASE_ROUTE}/email-verification`} component={EmailVerified} />
+                        <Route
+                            path={`${BASE_ROUTE}/sign-up/please-verify`}
+                            exact
+                            component={PleaseVerifiy}
+                        />
+                        <Route path={`${BASE_ROUTE}/my-stats`} exact component={MyStats} />
+                        <Route path={`${BASE_ROUTE}/my-jobs`} exact component={MyJobs} />
+                        <Route path={`${BASE_ROUTE}/all-contract`} exact component={AllContracts} />
+                        <Route path={`${BASE_ROUTE}/offers`} exact component={Offers} />
+                        <Route path={`${BASE_ROUTE}/overview`} component={OverviewReports} />
+                        <Route path={`${BASE_ROUTE}/my-reports`} exact component={Reports} />
+                        <Route path={`${BASE_ROUTE}/life-time-billing`} exact component={BillingByClients} />
+                        <Route path={`${BASE_ROUTE}/connects-history`} exact component={ConnectsHistory} />
+                        <Route path={`${BASE_ROUTE}/buyconnects`} exact component={BuyConnects} />
+                        {/* <Route
               path="/transaction-history"
               exact
               component={TransactionHistory}
             /> */}
-            <Route path="/messages" exact component={Messages} />
-            <Route path="/contract" component={Contract} />
-            <Route path="/notifications" exact component={Notifications} />
-            <Route path="**" component={PageNotFound} />
-          </Switch>
-        </div>
-      </SearchContextProvider>
-      <Footer />
-    </>
-  );
+                        <Route path={`${BASE_ROUTE}/messages`} exact component={Messages} />
+                        <Route path={`${BASE_ROUTE}/contract`} component={Contract} />
+                        <Route path={`${BASE_ROUTE}/notifications`} exact component={Notifications} />
+                        <Route path="**" component={PageNotFound} />
+                    </Switch>
+                </div>
+            </SearchContextProvider>
+            <Footer />
+        </>
+    );
 }

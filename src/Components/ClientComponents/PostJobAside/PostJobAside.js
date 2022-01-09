@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import './PostJobAside.css'
 export default function PostJobAside({ btns }) {
-const{t} =useTranslation();
+    const { t } = useTranslation();
     return (
         <aside>
             <ul>

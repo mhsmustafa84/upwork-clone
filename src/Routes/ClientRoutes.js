@@ -21,51 +21,51 @@ import JobJobDetailsBeforeProposals from "../Pages/ClientPages/JobDetailsBeforeP
 import CreateContract from "../Pages/ClientPages/CreateContract/CreateContract";
 import Notifications from "../Pages/Notifications/Notifications";
 import Contract from './../Pages/ClientPages/AllContract/Contract';
+import { BASE_ROUTE } from './../constant';
 
 
 export default function ClientRoutes() {
-  const [talentArr, settalentArr] = useState([]);
-  const [talentSearchList, settalentSearchList] = useState("");
+    const [talentArr, settalentArr] = useState([]);
+    const [talentSearchList, settalentSearchList] = useState("");
 
-  return (
-    <>
-      <SearchContextProvider value={{ talentSearchList, settalentSearchList, talentArr, settalentArr }}>
-        <Header />
-        <Switch>
-          <Route path="/home" exact component={Jobs} />
-          <Route path="/" exact component={Jobs} />
-          <Route path="/messages" exact component={Messages} />
-          <Route path="/all-job-posts" exact component={AllJobPosts} />
-          <Route path="/all-contracts" exact component={AllContract} />
-          <Route
-            path="/bring-your-own-talent"
-            exact
-            component={BringYourTalent}
-          />
-          <Route
-            path="/job-details/:id"
-            exact
-            component={JobJobDetailsBeforeProposals}
-          />
-          <Route path="/contract" component={Contract} />
-          <Route path="/email-verification" component={EmailVerified} />
-          <Route path="/sign-up/please-verify" exact component={PleaseVerifiy} />
-          <Route path="/post-job" component={PostJob} />
-          <Route path="/talent" component={Talent} />
-          <Route path="/talent-profile/:id" exact component={TalentProfile} />
-          <Route path="/review-proposal/:id" exact component={ReviewProposals} />
-          <Route path="/billing-history" exact component={Reports} />
-          <Route
-            path="/transaction-history"
-            exact
-            component={TransactionHistory}
-          />
-          <Route path="/create-contract" component={CreateContract} />
-          <Route path="/notifications" exact component={Notifications} />
-          <Route path="**" component={PageNotFound} />
-        </Switch>
-      </SearchContextProvider>
-      <Footer />
-    </>
-  );
+    return (
+        <>
+            <SearchContextProvider value={{ talentSearchList, settalentSearchList, talentArr, settalentArr }}>
+                <Header />
+                <Switch>
+                    <Route path={`${BASE_ROUTE}/home`} exact component={Jobs} />
+                    <Route path={`${BASE_ROUTE}/messages`} exact component={Messages} />
+                    <Route path={`${BASE_ROUTE}/all-job-posts`} exact component={AllJobPosts} />
+                    <Route path={`${BASE_ROUTE}/all-contracts`} exact component={AllContract} />
+                    <Route
+                        path={`${BASE_ROUTE}/bring-your-own-talent`}
+                        exact
+                        component={BringYourTalent}
+                    />
+                    <Route
+                        path={`${BASE_ROUTE}/job-details/:id`}
+                        exact
+                        component={JobJobDetailsBeforeProposals}
+                    />
+                    <Route path={`${BASE_ROUTE}/contract`} component={Contract} />
+                    <Route path={`${BASE_ROUTE}/email-verification`} component={EmailVerified} />
+                    <Route path={`${BASE_ROUTE}/sign-up/please-verify`} exact component={PleaseVerifiy} />
+                    <Route path={`${BASE_ROUTE}/post-job`} component={PostJob} />
+                    <Route path={`${BASE_ROUTE}/talent`} component={Talent} />
+                    <Route path={`${BASE_ROUTE}/talent-profile/:id`} exact component={TalentProfile} />
+                    <Route path={`${BASE_ROUTE}/review-proposal/:id`} exact component={ReviewProposals} />
+                    <Route path={`${BASE_ROUTE}/billing-history`} exact component={Reports} />
+                    <Route
+                        path={`${BASE_ROUTE}/transaction-history`}
+                        exact
+                        component={TransactionHistory}
+                    />
+                    <Route path={`${BASE_ROUTE}/create-contract`} component={CreateContract} />
+                    <Route path={`${BASE_ROUTE}/notifications`} exact component={Notifications} />
+                    <Route path="**" component={PageNotFound} />
+                </Switch>
+            </SearchContextProvider>
+            <Footer />
+        </>
+    );
 }
