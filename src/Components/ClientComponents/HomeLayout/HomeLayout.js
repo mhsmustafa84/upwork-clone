@@ -14,9 +14,9 @@ import j1 from "../../../assets/svg/jobs1.svg";
 import j2 from "../../../assets/svg/jobs2.svg";
 import j3 from "../../../assets/svg/jobs3.svg";
 import j4 from "../../../assets/svg/jobs4.svg";
-import s1 from "../../../assets/img/jobslide1.jpg";
-import s2 from "../../../assets/img/jobslide2.jpg";
-import s3 from "../../../assets/img/jobslide2.jpg";
+import s1 from "../../../assets/Img/jobslide1.jpg";
+import s2 from "../../../assets/Img/jobslide2.jpg";
+import s3 from "../../../assets/Img/jobslide2.jpg";
 import Loader from "../../SharedComponents/Loader/Loader";
 
 export default function HomeLayout() {
@@ -73,7 +73,7 @@ export default function HomeLayout() {
                             id="all-postings-list-created-by-block-0"
                           >
                             Posted
-                        <span className="ms-2">
+                            <span className="ms-2">
                               {new Date(
                                 job?.postTime.seconds * 1000
                               ).toLocaleString()}
@@ -166,8 +166,8 @@ export default function HomeLayout() {
                             {t(
                               "Write a clear, detailed description of your job to share with qualified freelancers. Start receiving proposals in less than 24 hours"
                             )}
-                        .
-                      </p>
+                            .
+                          </p>
                           <a
                             href="https://www.upwork.com/hiring/writing-an-awesome-job-post/"
                             target="_blank"
@@ -243,7 +243,7 @@ export default function HomeLayout() {
                               {t("Work Diary")}
                             </a>{" "}
                             {t("tool")} .
-                      </p>
+                          </p>
                           <a
                             href="https://www.upwork.com/i/trust-safety-mission//#/clients"
                             target="_blank"
@@ -274,8 +274,8 @@ export default function HomeLayout() {
                             >
                               {t("Upwork Payment Protection")}
                             </a>
-                        , {t("only pay for work you authorize")} .
-                      </p>
+                            , {t("only pay for work you authorize")} .
+                          </p>
                           <a
                             href="https://www.upwork.com/i/pricing/"
                             target="_blank"

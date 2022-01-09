@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import img from "../../assets/img/icon-user.svg";
+import img from "../../assets/Img/icon-user.svg";
 import { auth, db } from '../../firebase';
 
 

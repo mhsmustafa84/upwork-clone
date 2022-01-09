@@ -1,9 +1,9 @@
 /* eslint-disable */
 import React from 'react'
 import ExpertsCard from '../ExpertsCard/ExpertsCard'
-import talentMainSectionExperts1DevIT from '../../../assets/img/talent_main-section-experts1-Dev-IT.jpeg'
-import talentMainSectionExperts2DevIT from '../../../assets/img/talent_main-section-experts2-Dev-IT.jpeg'
-import talentMainSectionExperts3DevIT from '../../../assets/img/talent_main-section-experts3-Dev-IT.jpeg'
+import talentMainSectionExperts1DevIT from '../../../assets/Img/talent_main-section-experts1-Dev-IT.jpeg'
+import talentMainSectionExperts2DevIT from '../../../assets/Img/talent_main-section-experts2-Dev-IT.jpeg'
+import talentMainSectionExperts3DevIT from '../../../assets/Img/talent_main-section-experts3-Dev-IT.jpeg'
 import EvaluationCard from '../EvaluationCard/EvaluationCard'
 
 
@@ -59,7 +59,7 @@ export default function TrustedRemote() {
                 </div>
                 <div className="d-flex fs-5 mb-5">
                     Looking for something else?
-                <a href="#" className="text-decoration-none">
+                    <a href="#" className="text-decoration-none">
                         Browse all skills <i className="fas fa-arrow-down" /></a>
                 </div>
             </div>

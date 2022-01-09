@@ -1,6 +1,6 @@
 import React from 'react'
-import talentMainSectionClientUseUpworkDevIT from '../../../assets/img/talent-main-section-client-use-upwork-Dev-IT.png'
-import talentMainSectionClientDeveloperDev from '../../../assets/img/talent_main-section-client-developer-Dev-IT.jpeg'
+import talentMainSectionClientUseUpworkDevIT from '../../../assets/Img/talent-main-section-client-use-upwork-Dev-IT.png'
+import talentMainSectionClientDeveloperDev from '../../../assets/Img/talent_main-section-client-developer-Dev-IT.jpeg'
 
 export default function ProjectExamples() {
   return (
@@ -26,8 +26,8 @@ export default function ProjectExamples() {
             <i className="fas fa-star fs-6" />
             <i className="fas fa-star fs-6" />
             <span className="fw-bold">5/5
-        <pre className="d-inline-block" />
-        Budget:$14,520</span>
+              <pre className="d-inline-block" />
+              Budget:$14,520</span>
           </div>
           <div className="ms-0 my-4 mb-3" id="quates">
             <i className="fas fa-quote-left display-4 text-secondary" />
@@ -39,20 +39,20 @@ export default function ProjectExamples() {
             re-designs of landing pages that needed more information based on
             requirements. Best part is he's dedicated and interested in whatever
             project he is working on."
-    </div>
+          </div>
           <div className="row my-4 small text-secondary ms-0 mb-3">
             <div className="col-2 bg-light rounded-pill text-center py-1 me-md-2 me-1">
               Sketch
-      </div>
+            </div>
             <div className="col-2 bg-light rounded-pill text-center py-1 me-md-2 me-1">
               Swift
-      </div>
+            </div>
             <div className="col-md-3 col-5 bg-light rounded-pill text-center py-1 me-md-2 me-1">
               iOS Development
-      </div>
+            </div>
             <div className="col-2 bg-light rounded-pill text-center py-1 me-md-2 me-1">
               Cocoa
-      </div>
+            </div>
           </div>
         </div>
         <div className="col-5 position-relative">

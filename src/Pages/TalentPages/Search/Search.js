@@ -6,15 +6,14 @@ import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { SearchContext } from "../../../Context/SearchContext";
-import searchSvg from "../../../assets/svg/search.svg";
 import SearchBarJobsTalent from "../../../Components/TalentComponents/SearchBarJobsTalent/SearchBarJobsTalent";
-import ShowMore from "react-show-more-button/dist/module";
 import { useDispatch, useSelector } from "react-redux";
 import { talentDataAction } from "../../../Store/actions/talentData";
 import { updateUserData } from "../../../Network/Network";
 import { jobsDataAction } from "../../../Store/actions/jobsData";
 import JobCard from "../../../Components/TalentComponents/SectionCenterTalentHome/JobCard";
 import StarsRating from "../../../Components/SharedComponents/StarsRating/StarsRating";
+import SearchIcon from "../../../Components/SVG/SearchIcon";
 
 export default function Search(props) {
     const { t } = useTranslation();
@@ -74,7 +73,7 @@ export default function Search(props) {
     };
     const star = (clientReview, index) => {
         return <StarsRating clientReview={clientReview} index={index} />
-      }
+    }
     const saveJob = (e, id) => {
         setisliked(!isliked);
         if (e.target.className === "far fa-heart") {
@@ -95,7 +94,7 @@ export default function Search(props) {
         <div className="container-md container-fluid-sm my-lg-4">
             <div className="row">
                 <div className="col">
-                    
+
                     <h6 className="mb-lg-2 display-inline-block mt-lg-3 fw-bold">
                         {t("Experiencelevel")}
                     </h6>
@@ -178,7 +177,7 @@ export default function Search(props) {
                     <hr />
                     <h6 className="mb-lg-2 display-inline-block mt-lg-2 fw-bold">
                         Freelancers needed
-          </h6>
+                    </h6>
                     <div>
                         <div className="form-check py-2 my-0">
                             <input
@@ -435,7 +434,7 @@ export default function Search(props) {
                     <hr />
                     <h6 className="mb-lg-2 display-inline-block mt-lg-3 fw-bold">
                         Hours Per Week
-          </h6>
+                    </h6>
                     <div className="form-check py-2 my-0">
                         <input
                             className="form-check-input btn-outline-success"
@@ -491,7 +490,7 @@ export default function Search(props) {
                                             aria-current="true"
                                         >
                                             {t("SAVEDJOBS")}({user?.savedJobs?.length})
-                    </a>
+                                        </a>
                                     </Link>
                                 </li>
                             </ul>
@@ -507,13 +506,15 @@ export default function Search(props) {
                                 style={{ color: "#124C82" }}
                             >
                                 There are no results that match your search
-              </h3>
+                            </h3>
 
                             <h6 className="text-center " style={{ color: "#124C82" }}>
                                 Please try adjusting your search keywords or filters
-              </h6>
+                            </h6>
 
-                            <img className="mx-auto d-block" src={searchSvg} />
+                            <div className='mx-auto d-block'>
+                                <SearchIcon />
+                            </div>
                         </div>
                     ) : null}
                     {(filtered ? filterSearch : searchData)?.map((item) => (
@@ -639,7 +640,7 @@ export default function Search(props) {
                                 </p>
                             </div> */}
 
-                           <JobCard item={item} saveJob={saveJob}  user={user}  lang={lang} star={star}/> 
+                            <JobCard item={item} saveJob={saveJob} user={user} lang={lang} star={star} />
                         </div>
                     ))}
                 </div>

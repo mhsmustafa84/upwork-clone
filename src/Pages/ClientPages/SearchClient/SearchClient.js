@@ -5,60 +5,62 @@ import ShowMore from 'react-show-more-button/dist/module';
 import { SearchContext } from "../../../Context/SearchContext";
 import { updateUserData } from "../../../Network/Network";
 import { clientDataAction } from "../../../Store/actions/clientData";
-import searchSvg from '../../../assets/svg/search.svg'
 import { Link } from "react-router-dom";
+import SearchIcon from "../../../Components/SVG/SearchIcon";
 
 
 
 
 
 export default function TalentCardSearch() {
-  const { talentArr , talentSearchList} = useContext(SearchContext)
+  const { talentArr, talentSearchList } = useContext(SearchContext)
   const client = useSelector((state) => state.clientData);
   const [isliked, setisliked] = useState(false)
   const dispatch = useDispatch();
   console.log(talentArr);
   useEffect(() => {
     dispatch(clientDataAction());
-}, []);
-  
+  }, []);
+
   useEffect(() => {
     dispatch(clientDataAction());
   }, [isliked]);
 
   const saveTalent = (e, id) => {
     setisliked(!isliked)
-        if (e.target.className === 'far fa-heart') {
-            updateUserData("client", { savedTalent: [...client?.savedTalent, id] });
-            e.target.className = 'fas fa-heart text-upwork'
+    if (e.target.className === 'far fa-heart') {
+      updateUserData("client", { savedTalent: [...client?.savedTalent, id] });
+      e.target.className = 'fas fa-heart text-upwork'
 
-        }
-        else {
-            client?.savedTalent?.forEach((item, index) => {
-                if (item === id) {
-                    client?.savedTalent?.splice(index, 1);
-                    updateUserData("client", { savedTalent: [...client?.savedTalent] });
-                    e.target.className = 'far fa-heart'
-
-                }
-            })
-        }
     }
+    else {
+      client?.savedTalent?.forEach((item, index) => {
+        if (item === id) {
+          client?.savedTalent?.splice(index, 1);
+          updateUserData("client", { savedTalent: [...client?.savedTalent] });
+          e.target.className = 'far fa-heart'
+
+        }
+      })
+    }
+  }
   return (
     <div>
       {talentArr.length === 0 && talentSearchList !== "" ?
-                        <div className='col-12 bg-white'>
+        <div className='col-12 bg-white'>
 
-                            <h3 className="fw-bold text-center py-2 pt-5 " style={{ color: '#124C82' }}>There are no results that match your search</h3>
+          <h3 className="fw-bold text-center py-2 pt-5 " style={{ color: '#124C82' }}>There are no results that match your search</h3>
 
-                            <h6 className="text-center " style={{ color: '#124C82' }}>Please try adjusting your search keywords or filters</h6>
+          <h6 className="text-center " style={{ color: '#124C82' }}>Please try adjusting your search keywords or filters</h6>
 
-                            <img className='mx-auto d-block' src={searchSvg} />
+          <div className='mx-auto d-block'>
+            <SearchIcon />
+          </div>
 
-                        </div>
-                        :
-                        null
-                    }
+        </div>
+        :
+        null
+      }
       {talentArr?.map((item) =>
         <div className="row border bg-white border-1 px-3 py-3" key={item.authID}>
           <div className="col-1 pt-lg-3">
@@ -146,23 +148,23 @@ export default function TalentCardSearch() {
 
           </div>
           <div className="row mx-5 px-5">
-          <ShowMore className="" maxHeight={100} button={<button id="seemorebutton" classname="advanced-search-link " style={{ color: 'green', position: 'absolute', left: 0 }}>
-            more
-        </button>}>
-            {item.overview}
+            <ShowMore className="" maxHeight={100} button={<button id="seemorebutton" classname="advanced-search-link " style={{ color: 'green', position: 'absolute', left: 0 }}>
+              more
+            </button>}>
+              {item.overview}
 
-          </ShowMore>
-          <div className="d-flex justify-content-start">
-            {item.skills?.map((e) =>
-              <div className="chip mb-3 ms">
-                <span>{e}</span>
-              </div>
-            )}
+            </ShowMore>
+            <div className="d-flex justify-content-start">
+              {item.skills?.map((e) =>
+                <div className="chip mb-3 ms">
+                  <span>{e}</span>
+                </div>
+              )}
+
+            </div>
 
           </div>
-        
-          </div>
-          </div>
+        </div>
       )}
     </div>
   )

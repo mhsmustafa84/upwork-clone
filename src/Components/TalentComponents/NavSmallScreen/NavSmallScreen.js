@@ -6,7 +6,7 @@ import { Link, NavLink, useHistory } from "react-router-dom";
 import firebaseApp, { auth } from "../../../firebase";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import img from "../../../assets/img/icon-user.svg";
+import img from "../../../assets/Img/icon-user.svg";
 import { talentDataAction } from "../../../Store/actions/talentData";
 
 

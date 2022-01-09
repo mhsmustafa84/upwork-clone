@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Switch, Route, useLocation, useHistory } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import AllJobPosts from "../Pages/ClientPages/AllJobPost/AllJobPosts";
 import Jobs from "../Pages/ClientPages/Jobs/Jobs";
 import Header from "./../Components/ClientComponents/Header/Header";

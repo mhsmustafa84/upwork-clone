@@ -5,12 +5,12 @@ import img1 from '../../../assets/svg/Microsoft_logo.svg'
 import img2 from '../../../assets/svg/Airbnb_Logo.svg'
 import img3 from '../../../assets/svg/godaddy.d9459f1.svg'
 import img4 from '../../../assets/svg/ge.svg'
-import img5 from '../../../assets/svg/bissell.svg'
-import img6 from '../../../assets/img/susan-desktop.webp'
-import img7 from '../../../assets/img/john-desktop.webp'
+import img6 from '../../../assets/Img/susan-desktop.webp'
+import img7 from '../../../assets/Img/john-desktop.webp'
 import { Link } from 'react-router-dom'
 import { useTranslation } from "react-i18next";
 import { useSelector } from 'react-redux'
+import Bissell from './../../SVG/Bissell';
 export default function HomeFirstSection() {
     let lang = useSelector(state => state.lang);
     const { t } = useTranslation();
@@ -33,7 +33,10 @@ export default function HomeFirstSection() {
                                 <li><img src={img2} width="70" height="26" /></li>
                                 <li><img src={img3} width="70" height="26" /></li>
                                 <li><img src={img4} width="70" height="26" /></li>
-                                <li><img src={img5} width="70" height="26" /></li>
+                                <li><span width="70" height="26">
+                                    <Bissell />
+                                </span></li>
+
                             </ul>
                         </div>
                     </div>

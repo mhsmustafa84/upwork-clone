@@ -3,7 +3,6 @@
 
 import React, { useContext, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { db } from '../../../firebase';
 import { SearchContext } from '../../../Context/SearchContext';
 import { useHistory } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
@@ -30,7 +29,7 @@ export default function HeaderSearchLg() {
   }
 
   useEffect(() => {
-   itemSearchList === "" && setsearchList([])
+    itemSearchList === "" && setsearchList([])
   }, [itemSearchList])
 
   const searchDatabase = () => {
@@ -39,7 +38,7 @@ export default function HeaderSearchLg() {
     setsearchList(tempArr)
     push({ pathname: "/search" })
 
-    
+
     if (itemSearchList !== "") {
       let arr2 = []
       arr != null ? arr2 = [itemSearchList, ...arr] :

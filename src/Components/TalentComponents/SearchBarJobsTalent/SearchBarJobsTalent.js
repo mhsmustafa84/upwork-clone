@@ -3,7 +3,6 @@
 /* eslint-disable array-callback-return */
 import React, { useContext, useEffect } from "react";
 import './SearchBarJobsTalent.css'
-import { db } from "../../../firebase";
 import { Link, useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { SearchContext } from '../../../Context/SearchContext';
@@ -31,7 +30,7 @@ export default function SearchBarJobsTalent(props) {
   }
 
   useEffect(() => {
-   itemSearchList === "" && setsearchList([])
+    itemSearchList === "" && setsearchList([])
   }, [itemSearchList])
 
   const searchDatabase = () => {
@@ -42,9 +41,9 @@ export default function SearchBarJobsTalent(props) {
     push({ pathname: "/search" })
     if (itemSearchList !== "") {
       let arr2 = []
-      arr != null ? arr2 = [itemSearchList, ...arr] :
+      arr !== null ? arr2 = [itemSearchList, ...arr] :
         arr2 = [itemSearchList]
-      user.searchHistory != null ?
+      user.searchHistory !== null ?
         updateUserData('talent', { searchHistory: [...user?.searchHistory, ...arr2] })
         : updateUserData('talent', { searchHistory: [...arr2] })
       sessionStorage.setItem('searchArray', JSON.stringify(arr2))
@@ -59,24 +58,24 @@ export default function SearchBarJobsTalent(props) {
           value={itemSearchList}
           id="input"
           type="search"
-          style={{height: "35.5px" , borderRadius : 0 }}
-          className={`form-control text-dark bg-white ${lang =='ar' ?"rounded-end" :  "rounded-start"}`}
+          style={{ height: "35.5px", borderRadius: 0 }}
+          className={`form-control text-dark bg-white ${lang === 'ar' ? "rounded-end" : "rounded-start"}`}
           placeholder={t("Search For Jobs")}
         />
         <Link onClick={searchDatabase}>
           <button
             id="search-button"
             type="button"
-            style = {{borderRadius : 0 , fontSize:'10px' }}
-            className={`btn bg-upwork bg-invert search  ${lang =='ar' ?"rounded-start" :  "rounded-end"}`}
+            style={{ borderRadius: 0, fontSize: '10px' }}
+            className={`btn bg-upwork bg-invert search  ${lang === 'ar' ? "rounded-start" : "rounded-end"}`}
           >
 
-            <i className="fas fa-search" style={{lineHeight : '22px'}} />
+            <i className="fas fa-search" style={{ lineHeight: '22px' }} />
           </button>
         </Link>
       </div>
       <span className="d-block pt-2">
-        <Link to='/Search' className="advanced-search-link" style={{fontSize:'13.5px' , color:'#3CAF24', fontWeight:"600"}}>
+        <Link to='/Search' className="advanced-search-link" style={{ fontSize: '13.5px', color: '#3CAF24', fontWeight: "600" }}>
           {t("AdvancedSearch")}
         </Link>
       </span>

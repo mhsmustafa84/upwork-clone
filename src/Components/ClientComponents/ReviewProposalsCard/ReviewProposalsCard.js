@@ -5,7 +5,7 @@
 import { useEffect, useState } from "react";
 import { db } from "../../../firebase";
 import { useParams } from "react-router";
-import img from "../../../assets/img/icon-user.svg";
+import img from "../../../assets/Img/icon-user.svg";
 import ReviewProposalsPageHeader from "./../ReviewProposalsPageHeader/ReviewProposalsPageHeader";
 import { Link } from "react-router-dom";
 import Loader from './../../SharedComponents/Loader/Loader';
@@ -93,7 +93,7 @@ export default function ReviewProposalsCard() {
                       <div className="col">
                         <span className="text-muted">
                           Hourly Rate:
-                      </span>
+                        </span>
                         <span className="fw-bold"> {talent[index]?.hourlyRate} /hr</span>
                       </div>
                       <div className="col">
@@ -111,7 +111,7 @@ export default function ReviewProposalsCard() {
                         <li>
                           <a className="dropdown-item" href="#">
                             Candidate will not be notified
-                              </a>
+                          </a>
                         </li>
                       </ul>
                     </div>
@@ -135,7 +135,7 @@ export default function ReviewProposalsCard() {
                       }}
                     >
                       Hire
-                        </Link>
+                    </Link>
                   </div>
                   <div className="col-lg-1 pt-lg-3"></div>
                   <div className="col-lg-10 pt-lg-3 mx-3">

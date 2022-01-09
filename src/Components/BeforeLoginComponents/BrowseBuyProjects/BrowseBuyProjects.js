@@ -1,7 +1,7 @@
 import React from "react";
 import "./BrowseBuyProject.css";
-import talentMainSectionBuyProjectByDevIT from "../../../assets/img/talent-main-section-buy-project-by-Dev-IT.png";
-import talentMainSectionBuyProjectDevIT from "../../../assets/img/talent-main-section-buy-project-Dev-IT.png";
+import talentMainSectionBuyProjectByDevIT from "../../../assets/Img/talent-main-section-buy-project-by-Dev-IT.png";
+import talentMainSectionBuyProjectDevIT from "../../../assets/Img/talent-main-section-buy-project-Dev-IT.png";
 
 export default function BrowseBuyProjects() {
   return (

@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../../Components/SharedComponents/Loader/Loader";
 import AcceptedAlert from "../../../Components/TalentComponents/AcceptedAlert/AcceptedAlert";
@@ -8,7 +8,6 @@ import LeftSidebarTalentHome from "../../../Components/TalentComponents/LeftSide
 import RightSidebarTalentHome from "../../../Components/TalentComponents/RightSidebarTalentHome/RightSidebarTalentHome";
 import SectionCenterTalentHome from "../../../Components/TalentComponents/SectionCenterTalentHome/SectionCenterTalentHome";
 import { langAction } from "../../../Store/actions/lang";
-import { talentDataAction } from "../../../Store/actions/talentData";
 import "./HomeTalent.css";
 
 export default function HomeTalent() {
@@ -34,15 +33,9 @@ export default function HomeTalent() {
               }
               <FindWorkTalentHome />
               <div className="row">
-<<<<<<< HEAD
-                <LeftSidebarTalentHome user={user} />
-                <SectionCenterTalentHome/>
-                <RightSidebarTalentHome user={user} lang={lang} />
-=======
-                <LeftSidebarTalentHome  />
+                <LeftSidebarTalentHome />
                 <SectionCenterTalentHome />
                 <RightSidebarTalentHome lang={lang} />
->>>>>>> 40dec7d628b59ee7b187724c3dac3205660754d7
               </div>
             </div>
             : <div className="d-flex justify-content-center align-items-center" style={{ height: "90vh" }}>

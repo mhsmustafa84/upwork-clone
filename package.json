@@ -1,6 +1,6 @@
 {
-  "name": "client-pages",
-  "version": "0.1.0",
+  "name": "final-project",
+  "version": "1.0.0",
   "private": true,
   "homepage": "http://mhsmustafa84.github.io/front-final-project-reactJS",
   "dependencies": {
@@ -16,7 +16,7 @@
     "i18next-browser-languagedetector": "^6.1.1",
     "i18next-http-backend": "^1.2.4",
     "js-cookie": "^2.2.1",
-    "node-sass": "^5.0.0",
+    "node-sass": "^7.0.1",
     "react": "^17.0.2",
     "react-bootstrap": "^1.5.2",
     "react-bootstrap-country-select": "^0.7.12",
@@ -27,7 +27,7 @@
     "react-phone-number-input": "^3.1.19",
     "react-redux": "^7.2.3",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
+    "react-scripts": "^5.0.0",
     "react-show-more-button": "^1.0.0",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.9",

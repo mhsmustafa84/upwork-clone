@@ -6,11 +6,10 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { SearchContext } from "../../../Context/SearchContext";
-import { db } from "../../../firebase";
 
 export default function LeftSidebarTalentHome() {
 
-  const { arr, setarr, setitemSearchList, setsearchList, setswitchJobs} = useContext(SearchContext);
+  const { arr, setarr, setitemSearchList, setsearchList, setswitchJobs } = useContext(SearchContext);
   const user = useSelector((state) => state.talentData);
   const jobs = useSelector((state) => state.jobsData);
   const { t } = useTranslation();
@@ -30,20 +29,19 @@ export default function LeftSidebarTalentHome() {
     push({ pathname: "/search" })
   };
 
-const switchJobs =(txt)=>
-{
-switch (txt) {
-  case "Best Matches":
-    setswitchJobs("Best Matches")
-    break;
-    case "My Feed":
-      setswitchJobs("My Feed")
-      break;
+  const switchJobs = (txt) => {
+    switch (txt) {
+      case "Best Matches":
+        setswitchJobs("Best Matches")
+        break;
+      case "My Feed":
+        setswitchJobs("My Feed")
+        break;
 
-  default:setswitchJobs("My Feed")
-    break;
-}
-}
+      default: setswitchJobs("My Feed")
+        break;
+    }
+  }
 
 
   return (
@@ -56,7 +54,7 @@ switch (txt) {
           <Link
             className=" list-group-item-action sidebar-homebage-ul-li-aa activeside"
             aria-current="true" style={{ background: '#F1F2F4', fontSize: '14px' }}
-            onClick={()=>switchJobs("My Feed")}
+            onClick={() => switchJobs("My Feed")}
           >
             {t("My Feed")}
           </Link>
@@ -66,10 +64,10 @@ switch (txt) {
           aria-current="true" style={{ background: '#F1F2F4' }}
         >
           <Link
-            
+
             className=" list-group-item-action sidebar-homebage-ul-li-aa"
             aria-current="true" style={{ background: '#F1F2F4', fontSize: '14px' }}
-            onClick={()=>switchJobs("Best Matches")}
+            onClick={() => switchJobs("Best Matches")}
           >
             {t("Best Matches")}
           </Link>
@@ -88,8 +86,8 @@ switch (txt) {
       {arr?.slice().reverse()?.map((item, index) =>
         index >= arr.length - 4 ? (
           <ul
-          className="list-group sidebar-homebage-ul mb-lg-3 btn"
-          style={{ fontSize: "0.9em" }}
+            className="list-group sidebar-homebage-ul mb-lg-3 btn"
+            style={{ fontSize: "0.9em" }}
           >
             <li
               className="list-group-item sidebar-homebage-ul-li text-success "
@@ -102,7 +100,7 @@ switch (txt) {
                 className=" list-group-item-action advanced-search-link text-upwork"
                 aria-current="true"
               >
-                
+
                 {item}
               </a>
             </li>

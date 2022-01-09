@@ -3,13 +3,13 @@ import micro from "../../../assets/svg/Microsoft_logo.svg";
 import air from "../../../assets/svg/Airbnb_Logo.svg";
 import General from "../../../assets/svg/General_Electric_logo.svg";
 import automattic from "../../../assets/svg/automattic.svg";
-import bissell from "../../../assets/svg/bissell.svg";
-import coty from "../../../assets/svg/Coty_logo.svg";
-import { useTranslation } from "react-i18next";  
+import { useTranslation } from "react-i18next";
+import Bissell from './../../SVG/Bissell';
+import CotyLogo from './../../SVG/CotyLogo';
 
 
 export default function SignupLogos() {
-  const { t }=useTranslation();
+  const { t } = useTranslation();
   return (
     <>
       <div className="container ">
@@ -22,8 +22,12 @@ export default function SignupLogos() {
             <img src={air} className="" width="113px" alt="" />
             <img src={General} className="" width="55px" alt="" />
             <img src={automattic} className="d-none-md" width="200px" alt="" />
-            <img src={bissell} className="d-none-md" width="80px" alt="" />
-            <img src={coty} className="" width="180px" alt="" />
+            <span className="d-none-md" width="80px">
+              <Bissell />
+            </span>
+            <span className="" width="180px">
+              <CotyLogo />
+            </span>
           </div>
         </div>
       </div>
@@ -124,7 +128,7 @@ export default function SignupLogos() {
           <div className="col-sm-10 col-md-2">
             <h6>{t("Find what your need")}</h6>
             <p className="font-2">
-            {t("Choosefromspecializedfreelancers")}
+              {t("Choosefromspecializedfreelancers")}
             </p>
           </div>
           <div className="col-sm-2 col-md-1">
@@ -162,7 +166,7 @@ export default function SignupLogos() {
           <div className="col-sm-10 col-md-2">
             <h6>{t("Post today hire tomorrow")}</h6>
             <p className="font-2">
-            {t("Get custom quotes right away")}
+              {t("Get custom quotes right away")}
             </p>
           </div>
           <div className="col-sm-2 col-md-1">
@@ -217,7 +221,7 @@ export default function SignupLogos() {
           <div className="col-sm-10 col-md-2">
             <h6>{t("Engage with confidence")}</h6>
             <p className="font-2">
-            {t("Only pay for work you authorize")}
+              {t("Only pay for work you authorize")}
             </p>
           </div>
         </div>

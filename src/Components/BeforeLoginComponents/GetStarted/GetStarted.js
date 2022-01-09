@@ -1,5 +1,5 @@
 import React from 'react'
-import talentMainSectionVideoPreviewDevIT from '../../../assets/img/talent_main-section-video-preview-Dev-IT.jpeg'
+import talentMainSectionVideoPreviewDevIT from '../../../assets/Img/talent_main-section-video-preview-Dev-IT.jpeg'
 import VID from '../../../assets/videos/VID-20210318-WA0020.mp4'
 export default function GetStarted() {
     return (
@@ -15,7 +15,7 @@ export default function GetStarted() {
                     <div className="row mb-3" id="get-started-header-ID">
                         <h1 className="fw-bolder">
                             Tap into the world's largest talent network
-      </h1>
+                        </h1>
                     </div>
                     <div className="row mb-3" id="get-started-sub-header-ID">
                         <h4 className="fw-bold">Find and hire specialized talent.</h4>
@@ -30,15 +30,15 @@ export default function GetStarted() {
                     <div className="row mb-3 mx-1" id="get-started-button-ID">
                         <button className="btn col-lg-6 col-12 mx-lg-0 mx-auto fw-bolder mb-3 bg-upwork" type="button">
                             Connect with Talent
-      </button>
+                        </button>
                     </div>
                 </div>
                 <div className="col-lg-7 col-12">
                     <video className="w-100" poster={talentMainSectionVideoPreviewDevIT} controls>
                         <source src={VID} type="video/mp4" />
                         <source src={VID} type="video/ogg" />
-      Your browser does not support the video tag.
-    </video>
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
 

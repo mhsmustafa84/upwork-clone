@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react'
 import './PlayingField.css'
-import talentHeaderPlayingFieldDevIT from '../../../assets/img/talent-header-playing-field-Dev-IT.svg'
+import talentHeaderPlayingFieldDevIT from '../../../assets/Img/talent-header-playing-field-Dev-IT.svg'
 
 export default function PlayingField() {
   return (
@@ -14,7 +14,7 @@ export default function PlayingField() {
           <div className="row mb-3 mx-1 fs-6 text-secondary" id="playing-field-paragraph-ID">
             Our Enterprise Suite empowers everyone across your organization to
             work strategically with independent talent.
-    </div>
+          </div>
           <div className="d-flex fs-5 mx-1">
             <a href="#" className="text-decoration-none">
               Schedule a Call <i className="fas fa-arrow-right" /></a>

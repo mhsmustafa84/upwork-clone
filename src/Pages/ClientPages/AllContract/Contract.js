@@ -3,15 +3,14 @@
 import { useEffect, useState } from "react";
 import { Route, Switch, NavLink } from "react-router-dom";
 import ContractFeedback from '../../../Components/TalentComponents/ContractFeedback/ContractFeedback';
-import img from "../../../assets/img/icon-user.svg";
+import img from "../../../assets/Img/icon-user.svg";
 import "../../ClientPages/Talent/Talent.css";
-import { useSelector } from "react-redux";
 import StarsRating from "../../../Components/SharedComponents/StarsRating/StarsRating";
 import Payment from "./Payment";
 
 export default function Contract({ location }) {
 
-    const user = useSelector(state => state.clientData);
+    // const user = useSelector(state => state.clientData);
     const [data, setData] = useState({ job: {}, talent: {}, contract: {} })
 
     useEffect(() => {

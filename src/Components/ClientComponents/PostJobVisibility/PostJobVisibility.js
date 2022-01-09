@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./PostJobVisibility.css";
-import upwork from "../../../assets/img/TLpZ1jf.png";
+import upwork from "../../../assets/Img/TLpZ1jf.png";
 import { updateJob } from "../../../Network/Network";
 import { useTranslation } from "react-i18next";
 

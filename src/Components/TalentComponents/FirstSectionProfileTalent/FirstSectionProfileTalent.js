@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import ShowMore from 'react-show-more-button/dist/module';
 import { updateUserData } from "../../../Network/Network";
 import { db, storage } from "../../../firebase";
-import img from "../../../assets/img/icon-user.svg";
+import img from "../../../assets/Img/icon-user.svg";
 import Loader from "../../SharedComponents/Loader/Loader";
 
 
@@ -151,7 +151,7 @@ export default function FirstSectionProfileTalent() {
           <div className="container card mb-3 mt-5 ">
             <div className="row mt-3 ps-4 pt-2">
               <div className="col-lg-2 pt-lg-3">
-                <div className="ms-3 mb-3" style={{ width: "100px", height: "100px",borderRadius: "50%", overflow: "hidden" }}>
+                <div className="ms-3 mb-3" style={{ width: "100px", height: "100px", borderRadius: "50%", overflow: "hidden" }}>
                   <img
                     alt=""
                     style={{ width: "100px", }}
@@ -317,7 +317,7 @@ export default function FirstSectionProfileTalent() {
                       <a className="advanced-search-link fw-bold">
                         I'm looking for video, carousel and image advertising
                         creation with branding to make facebook ads
-                  </a>
+                      </a>
                       <p className="my-3">
                         <svg
                           id="up-rs"
@@ -362,7 +362,7 @@ export default function FirstSectionProfileTalent() {
                         <span className="fw-bold"> 5.00</span>{" "}
                         <span className="text-muted">
                           Mar 22 2021 - April 21 2021
-                    </span>
+                        </span>
                       </p>
                       <div className="row mb-3">
                         <div className="col">
@@ -382,7 +382,7 @@ export default function FirstSectionProfileTalent() {
                       <a className="advanced-search-link fw-bold">
                         I'm looking for video, carousel and image advertising
                         creation with branding to make facebook ads
-                  </a>
+                      </a>
                       <p className="my-3">
                         <svg
                           id="up-rs"
@@ -427,7 +427,7 @@ export default function FirstSectionProfileTalent() {
                         <span className="fw-bold"> 5.00</span>{" "}
                         <span className="text-muted">
                           Mar 22 2021 - April 21 2021
-                    </span>
+                        </span>
                       </p>
                       <div className="row mb-3">
                         <div className="col">
@@ -600,7 +600,7 @@ export default function FirstSectionProfileTalent() {
                 <div className="modal-header">
                   <h5 className="modal-title" id="exampleModalLabel">
                     Edit Employment
-              </h5>
+                  </h5>
                   <button
                     type="button"
                     className="btn-close"
@@ -616,7 +616,7 @@ export default function FirstSectionProfileTalent() {
                         className="form-label fw-bold"
                       >
                         Company
-                  </label>
+                      </label>
                       <input
                         onChange={updateProfile}
                         name="EmpCompany"
@@ -631,7 +631,7 @@ export default function FirstSectionProfileTalent() {
                         className="form-label fw-bold"
                       >
                         Title
-                  </label>
+                      </label>
                       <input
                         onChange={updateProfile}
                         name="EmpTitle"
@@ -652,8 +652,8 @@ export default function FirstSectionProfileTalent() {
                           value=""
                           aria-label="Checkbox for following text input"
                         />
-                      I currently worked here
-                    </div>
+                        I currently worked here
+                      </div>
                     </div>
                   </form>
                 </div>
@@ -669,7 +669,7 @@ export default function FirstSectionProfileTalent() {
                     }}
                   >
                     Cancel
-              </button>
+                  </button>
                   <button
                     onClick={UpdateEditEmployment}
                     type="button"
@@ -694,7 +694,7 @@ export default function FirstSectionProfileTalent() {
                 <div className="modal-header">
                   <h5 className="modal-title" id="exampleModalLabel">
                     Edit Profile
-              </h5>
+                  </h5>
                   <button
                     type="button"
                     className="btn-close"
@@ -710,7 +710,7 @@ export default function FirstSectionProfileTalent() {
                         className="form-label fw-bold"
                       >
                         Profile title
-                  </label>
+                      </label>
                       <input
                         onChange={updateProfile}
                         name="title"
@@ -726,7 +726,7 @@ export default function FirstSectionProfileTalent() {
                         className="form-label"
                       >
                         Overview
-                  </label>
+                      </label>
                       <textarea
                         onChange={updateProfile}
                         name="overview"
@@ -750,9 +750,9 @@ export default function FirstSectionProfileTalent() {
                     }}
                   >
                     Cancel
-              </button>
+                  </button>
                   <button
-                    
+
                     onClick={UpdateEditprofileTitleOverView}
                     type="button"
                     className="btn btn-default border rounded-border"
@@ -775,7 +775,7 @@ export default function FirstSectionProfileTalent() {
                 <div className="modal-header">
                   <h5 className="modal-title" id="exampleModalLabel">
                     Add Portofolio Item
-              </h5>
+                  </h5>
                   <button
                     type="button"
                     className="btn-close"
@@ -791,7 +791,7 @@ export default function FirstSectionProfileTalent() {
                         className="form-label fw-bold"
                       >
                         Item Title
-                  </label>
+                      </label>
                       <input
                         onChange={updateProfile}
                         name="imgTitle"
@@ -806,7 +806,7 @@ export default function FirstSectionProfileTalent() {
                         className="form-label fw-bold"
                       >
                         Add Image
-                  </label>
+                      </label>
                       <input
                         onChange={updateProfile}
                         onInput={getData}
@@ -844,7 +844,7 @@ export default function FirstSectionProfileTalent() {
                     }}
                   >
                     Cancel
-              </button>
+                  </button>
                   <Link
                     to="/profile"
                     onClick={UpdateEditPortofolio}
@@ -869,7 +869,7 @@ export default function FirstSectionProfileTalent() {
                 <div className="modal-header">
                   <h5 className="modal-title" id="exampleModalLabel">
                     Add Skills
-              </h5>
+                  </h5>
                   <button
                     type="button"
                     className="btn-close"
@@ -885,7 +885,7 @@ export default function FirstSectionProfileTalent() {
                         className="form-label fw-bold"
                       >
                         Skill name
-                  </label>
+                      </label>
                       <input
                         type="text"
                         className="form-control"
@@ -916,7 +916,7 @@ export default function FirstSectionProfileTalent() {
                     }}
                   >
                     Cancel
-              </button>
+                  </button>
                   <button
                     onClick={addskills}
                     type="button"

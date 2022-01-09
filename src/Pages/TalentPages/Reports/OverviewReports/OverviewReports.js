@@ -1,6 +1,6 @@
 /* eslint-disable array-callback-return */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState } from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -16,7 +16,6 @@ import WorkinProgress from "../../../../Components/TalentComponents/WorkinProgre
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { inReviewAction } from "../../../../Store/actions/inReviewAction";
-import { auth, db } from "../../../../firebase";
 
 export default function OverviewReports() {
   const { pathname } = useLocation();
