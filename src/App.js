@@ -6,17 +6,17 @@ import "./App.css";
 
 
 function App() {
-  let lang = useSelector(state => state.lang)
-  return (
-    <BrowserRouter>
-      <div
-        dir={lang === "ar" ? "rtl" : "ltr"}
-        lang={lang === "ar" ? "ar" : "en"}
-        style={{ fontFamily: "'Cairo', sans-serif !important" }}>
-        <LayOut />
-      </div>
-    </BrowserRouter>
-  );
+    let lang = useSelector(state => state.lang)
+    return (
+        <BrowserRouter>
+            <div
+                dir={lang === "ar" ? "rtl" : "ltr"}
+                lang={lang === "ar" ? "ar" : "en"}
+                style={{ fontFamily: "'Cairo', sans-serif !important" }}>
+                <LayOut />
+            </div>
+        </BrowserRouter>
+    );
 }
 
 export default App;

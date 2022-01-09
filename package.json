@@ -1,67 +1,68 @@
 {
-  "name": "final-project",
-  "version": "1.0.0",
-  "private": true,
-  "homepage": "http://mhsmustafa84.github.io/front-final-project-reactJS",
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.10",
-    "@testing-library/react": "^11.2.6",
-    "@testing-library/user-event": "^12.8.3",
-    "axios": "^0.21.1",
-    "date-fns": "^2.21.1",
-    "firebase": "^8.4.1",
-    "flag-icon-css": "^3.5.0",
-    "i18n": "^0.13.3",
-    "i18next": "^20.2.4",
-    "i18next-browser-languagedetector": "^6.1.1",
-    "i18next-http-backend": "^1.2.4",
-    "js-cookie": "^2.2.1",
-    "node-sass": "^7.0.1",
-    "react": "^17.0.2",
-    "react-bootstrap": "^1.5.2",
-    "react-bootstrap-country-select": "^0.7.12",
-    "react-copy-to-clipboard": "^5.0.3",
-    "react-dom": "^17.0.2",
-    "react-firebase-hooks": "^3.0.4",
-    "react-i18next": "^11.8.15",
-    "react-phone-number-input": "^3.1.19",
-    "react-redux": "^7.2.3",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^5.0.0",
-    "react-show-more-button": "^1.0.0",
-    "redux": "^4.0.5",
-    "redux-devtools-extension": "^2.13.9",
-    "redux-thunk": "^2.3.0",
-    "web-vitals": "^1.1.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "chunks-webpack-plugin": "^7.0.2",
-    "gh-pages": "^3.2.0"
-  }
+    "name": "final-project",
+    "version": "1.0.0",
+    "private": true,
+    "homepage": "http://mhsmustafa84.github.io/front-final-project-reactJS",
+    "dependencies": {
+        "@testing-library/jest-dom": "^5.11.10",
+        "@testing-library/react": "^11.2.6",
+        "@testing-library/user-event": "^12.8.3",
+        "axios": "^0.21.1",
+        "date-fns": "^2.21.1",
+        "firebase": "^8.10.0",
+        "flag-icon-css": "^3.5.0",
+        "i18n": "^0.13.3",
+        "i18next": "^20.2.4",
+        "i18next-browser-languagedetector": "^6.1.1",
+        "i18next-http-backend": "^1.2.4",
+        "js-cookie": "^2.2.1",
+        "node-sass": "^7.0.1",
+        "react": "^17.0.2",
+        "react-bootstrap": "^1.5.2",
+        "react-bootstrap-country-select": "^0.7.12",
+        "react-copy-to-clipboard": "^5.0.3",
+        "react-dom": "^17.0.2",
+        "react-firebase-hooks": "^3.0.4",
+        "react-i18next": "^11.8.15",
+        "react-phone-number-input": "^3.1.19",
+        "react-redux": "^7.2.3",
+        "react-router-dom": "^5.2.0",
+        "react-scripts": "^5.0.0",
+        "react-show-more-button": "^1.0.0",
+        "redux": "^4.0.5",
+        "redux-devtools-extension": "^2.13.9",
+        "redux-thunk": "^2.3.0",
+        "source-map-loader": "^3.0.1",
+        "web-vitals": "^1.1.1"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "chunks-webpack-plugin": "^7.0.2",
+        "gh-pages": "^3.2.0"
+    }
 }

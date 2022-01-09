@@ -7,28 +7,30 @@ import TalentRoutes from "./../Routes/TalentRoutes";
 import Loader from "./../Components/SharedComponents/Loader/Loader";
 
 export default function LayOut() {
-  const [usr, setUsr] = useState(null);
-  const [usrType, setUsrType] = useState("");
+    const [usr, setUsr] = useState(null);
+    const [usrType, setUsrType] = useState(null);
 
-  useEffect(() => {
-    auth.onAuthStateChanged(user => {
-      if (user) {
-        setUsr(user);
-        setUsrType(localStorage.getItem('userType'));
-      }
-    });
-  }, [])
+    useEffect(() => {
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                setUsr(user);
+                setUsrType(localStorage.getItem('userType') || null);
+            }
+        });
+    }, []);
 
 
-  if (usr) {
-    if (usrType === "talent") {
-      return <TalentRoutes />
-    } else if (usrType === "client") {
-      return <ClientRoutes />
+    if (usr) {
+        if (usrType === "talent") {
+            return <TalentRoutes />
+        } else if (usrType === "client") {
+            return <ClientRoutes />
+        } else if (usrType === null) {
+            return <BeforeLoginRoutes />
+        } else {
+            return <Loader />
+        }
     } else {
-      return <Loader />
+        return <BeforeLoginRoutes />;
     }
-  } else {
-    return <BeforeLoginRoutes />
-  }
 }
