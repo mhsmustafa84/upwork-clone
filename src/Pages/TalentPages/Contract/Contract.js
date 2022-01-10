@@ -10,6 +10,7 @@ import { db } from "../../../firebase";
 import { useSelector } from "react-redux";
 import firebase from 'firebase/app';
 import StarsRating from "../../../Components/SharedComponents/StarsRating/StarsRating";
+import { BASE_ROUTE } from './../../../constant';
 
 export default function Contract({ location }) {
 
@@ -101,7 +102,7 @@ export default function Contract({ location }) {
                                 className="nav-link"
                                 activeClassName="active"
                                 exact
-                                to="/contract"
+                                to={`${BASE_ROUTE}/contract`}
                             >
                                 Earnings
                             </NavLink>
@@ -111,7 +112,7 @@ export default function Contract({ location }) {
                                 className="nav-link"
                                 activeClassName="active"
                                 exact
-                                to="/contract/feedback"
+                                to={`${BASE_ROUTE}/contract/feedback`}
                             >
                                 Feedback
                             </NavLink>

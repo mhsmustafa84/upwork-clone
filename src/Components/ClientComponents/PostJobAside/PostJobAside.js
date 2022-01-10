@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import './PostJobAside.css'
+import { BASE_ROUTE } from './../../../constant';
 export default function PostJobAside({ btns }) {
     const { t } = useTranslation();
     return (
@@ -9,7 +10,7 @@ export default function PostJobAside({ btns }) {
                 <li className="py-1 my-2">
                     <button className="btn w-100" disabled={btns.title}>
                         <Link
-                            to="/post-job/title"
+                            to={`${BASE_ROUTE}/post-job/title`}
                             className={`d-flex justify-content-between ${!btns.title && "border-start border-4 border-success"}`}
                         >
                             <span className="text-dark">
@@ -23,7 +24,7 @@ export default function PostJobAside({ btns }) {
                 <li className="py-1 my-2">
                     <button className="btn w-100" disabled={btns.description}>
                         <Link
-                            to="/post-job/description"
+                            to={`${BASE_ROUTE}/post-job/description`}
                             className={`d-flex justify-content-between ${!btns.description && "border-start border-4 border-success"}`}
                         >
                             <span className="text-dark">
@@ -37,7 +38,7 @@ export default function PostJobAside({ btns }) {
                 <li className="py-1 my-2">
                     <button className="btn w-100" disabled={btns.details}>
                         <Link
-                            to="/post-job/details"
+                            to={`${BASE_ROUTE}/post-job/details`}
                             className={`d-flex justify-content-between ${!btns.details && "border-start border-4 border-success"}`}
                         >
                             <span className="text-dark">
@@ -51,7 +52,7 @@ export default function PostJobAside({ btns }) {
                 <li className="py-1 my-2">
                     <button className="btn w-100" disabled={btns.expertise}>
                         <Link
-                            to="/post-job/expertise"
+                            to={`${BASE_ROUTE}/post-job/expertise`}
                             className={`d-flex justify-content-between ${!btns.expertise && "border-start border-4 border-success"}`}
                         >
                             <span className="text-dark">
@@ -65,7 +66,7 @@ export default function PostJobAside({ btns }) {
                 <li className="py-1 my-2">
                     <button className="btn w-100" disabled={btns.visibility}>
                         <Link
-                            to="/post-job/visibility"
+                            to={`${BASE_ROUTE}/post-job/visibility`}
                             className={`d-flex justify-content-between ${!btns.visibility && "border-start border-4 border-success"}`}
                         >
                             <span className="text-dark">
@@ -79,7 +80,7 @@ export default function PostJobAside({ btns }) {
                 <li className="py-1 my-2">
                     <button className="btn w-100" disabled={btns.budget}>
                         <Link
-                            to="/post-job/budget"
+                            to={`${BASE_ROUTE}/post-job/budget`}
                             className={`d-flex justify-content-between ${!btns.budget && "border-start border-4 border-success"}`}
                         >
                             <span className="text-dark">
@@ -93,7 +94,7 @@ export default function PostJobAside({ btns }) {
                 <li className="py-1 my-2">
                     <button className="btn w-100" disabled={btns.review}>
                         <Link
-                            to="/post-job/review"
+                            to={`${BASE_ROUTE}/post-job/review`}
                             className={`d-flex justify-content-between ${!btns.review && "border-start border-4 border-success"}`}
                         >
                             <span className="text-dark">
