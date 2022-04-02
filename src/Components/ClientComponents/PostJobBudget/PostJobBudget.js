@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom'
+import { BASE_ROUTE } from '../../../constant';
 import { updateJob } from '../../../Network/Network';
 import './PostJobBudget.css'
 
