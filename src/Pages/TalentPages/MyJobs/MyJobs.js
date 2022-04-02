@@ -5,6 +5,7 @@ import MyJobsActiveContractFixed from '../../../Components/TalentComponents/MyJo
 import MyJobsActiveContractHourly from '../../../Components/TalentComponents/MyJobsActiveContractHourly/MyJobsActiveContractHourly';
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { BASE_ROUTE } from "../../../constant";
 
 export default function MyJobs() {
     const user = useSelector((state) => state.talentData);
