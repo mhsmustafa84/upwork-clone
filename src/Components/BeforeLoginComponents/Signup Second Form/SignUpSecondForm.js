@@ -84,8 +84,7 @@ export default function SignUpSecondForm() {
     };
 
     const signUpComplete = () => {
-        auth
-            .createUserWithEmailAndPassword(usr.email, usr.password)
+        fbAuth.createUserWithEmailAndPassword(fbAuth.auth, usr.email, usr.password)
             .then(res => {
                 if (res.user) {
                     res.user.updateProfile({ displayName: usr.userType });

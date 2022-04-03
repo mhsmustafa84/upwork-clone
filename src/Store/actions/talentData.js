@@ -4,7 +4,7 @@ export const talentDataAction = () => (dispatch) => {
     try {
         let res;
         db.collection("talent")
-            .doc(auth?.currentUser?.uid)
+            .doc(fbAuth.auth?.currentUser?.uid)
             .onSnapshot(doc => {
                 res = doc.data();
                 dispatch({
