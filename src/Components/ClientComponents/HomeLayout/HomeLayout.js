@@ -25,7 +25,7 @@ export default function HomeLayout() {
     const user = useSelector(state => state.clientData);
     const jobs = useSelector(state => state.clientJobs);
     const dispatch = useDispatch();
-    const [proposals, setProposals] = useState(0);
+    const [, setProposals] = useState(0);
 
     useEffect(async () => {
         dispatch(clientDataAction());
