@@ -5,5 +5,3 @@ Cloning Upwork platform using React and Firebase
 [![CodeQL](https://github.com/mhsmustafa84/upwork-clone/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/mhsmustafa84/upwork-clone/actions/workflows/codeql-analysis.yml)
 
 [![pages-build-deployment](https://github.com/mhsmustafa84/upwork-clone/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/mhsmustafa84/upwork-clone/actions/workflows/pages/pages-build-deployment)
-
-[![Node.js CI](https://github.com/mhsmustafa84/upwork-clone/actions/workflows/node.js.yml/badge.svg)](https://github.com/mhsmustafa84/upwork-clone/actions/workflows/node.js.yml)
