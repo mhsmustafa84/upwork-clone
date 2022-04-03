@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import { useTranslation } from "react-i18next";
+
 import { useEffect, useState } from "react";
 import { db } from "../../../firebase";
 import { useParams } from 'react-router';
@@ -19,7 +19,7 @@ export default function JobDetailsBeforeProposals(props) {
                 setJob(res.data());
             });
     }, []);
-    const { t } = useTranslation();
+
     return (
         <div className="col-lg-9 mx-auto col-xs-12 mt-3 ">
             <div className="bg-white py-lg-4 px-4 border border-1 row py-sm-3 mt-lg-0 mt-sm-3 py-xs-5">
@@ -37,7 +37,7 @@ export default function JobDetailsBeforeProposals(props) {
                     <i className="fas fa-street-view" style={{ color: "#14bff4" }}>
                         {" "}
                     </i>{" "}
-                    {t("Worldwide")}
+                    "Worldwide"
                 </span>
             </div>
             <div className="bg-white py-lg-4 px-4 border border-1 row py-xs-5">
@@ -84,7 +84,7 @@ export default function JobDetailsBeforeProposals(props) {
                     </div>{" "}
                     <small className="text-muted">
                         <span className="d-none d-lg-inline">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{t("Experience Level")}
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Experience Level"
                         </span>{" "}
                     </small>
                 </li>
@@ -108,20 +108,20 @@ export default function JobDetailsBeforeProposals(props) {
                     </div>
                     <small className="text-muted">
                         <span className="d-none d-lg-inline">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{t("Job Duration")}
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Job Duration"
                         </span>{" "}
                     </small>
                 </li>
             </ul>
             <div className="bg-white py-lg-4 px-4 border border-1 row py-sm-3 py-xs-5">
                 <span className="fw-bold">
-                    {t("Project type")}: <span className="fw-normal">{job?.jobType}</span>
+                    "Project type": <span className="fw-normal">{job?.jobType}</span>
                 </span>
             </div>
             <div className="bg-white py-lg-4 px-4 border border-1 row pb-sm-3 py-xs-5">
-                <h5 className="fw-bold my-4">{t("Skills and experties")}</h5>
+                <h5 className="fw-bold my-4">Skills and experties</h5>
                 <div className="col">
-                    <div className="fw-bold">{t("Web Design languages")}</div>
+                    <div className="fw-bold">Web Design languages</div>
                     {job?.skills?.map((task, index) => (
                         <button
                             type="button"

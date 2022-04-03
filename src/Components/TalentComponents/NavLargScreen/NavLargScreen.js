@@ -4,8 +4,6 @@ import React, { useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { fbAuth } from "../../../firebase";
 import { useNavigate } from 'react-router-dom';
-import LanguageList from "../../SharedComponents/LanguageBtn/LanguageList";
-import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { talentDataAction } from "../../../Store/actions/talentData";
 import img from "../../../assets/Img/icon-user.svg";
@@ -14,7 +12,7 @@ import img from "../../../assets/Img/icon-user.svg";
 export default function NavLargScreen() {
 
     const { pathname } = useLocation();
-    const { t } = useTranslation();
+
     let navigate = useNavigate();
     let lang = useSelector(state => state.lang);
     const user = useSelector(state => state.talentData);
@@ -49,28 +47,28 @@ export default function NavLargScreen() {
                             }
                             to="/find-work"
                         >
-                            {t("FindWork")}
+                            "FindWork"
                         </NavLink>
                         <ul className={`dropdown-menu findWork-cn ${lang === 'ar' && 'text-end'}`} style={{ marginTop: "-8px" }}>
                             <div className="nav-dd-cn"></div>
                             <li>
                                 <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to="/find-work">
-                                    {t("FindWork")}
+                                    "FindWork"
                                 </Link>
                             </li>
                             <li>
                                 <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to="/saved-jobs">
-                                    {t("Saved Jobs")}
+                                    "Saved Jobs"
                                 </Link>
                             </li>
                             <li>
                                 <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to="/proposals">
-                                    {t("Proposals")}
+                                    "Proposals"
                                 </Link>
                             </li>
                             <li>
                                 <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to={`/profile/${fbAuth.auth.currentUser?.uid}`}>
-                                    {t("Profile")}
+                                    "Profile"
                                 </Link>
                             </li>
                             {/* <li>
@@ -89,56 +87,56 @@ export default function NavLargScreen() {
                             }
                             to="/my-jobs"
                         >
-                            {t("My Jobs")}
+                            "My Jobs"
                         </NavLink>
                         <ul className={`dropdown-menu myJobs-cn ${lang === 'ar' && 'text-end'}`} style={{ marginTop: "-8px" }}>
                             <div className="nav-dd-cn"></div>
                             <li>
                                 <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to="/my-jobs">
-                                    {t("My Jobs")}
+                                    "My Jobs"
                                 </Link>
                             </li>
                             <li>
                                 <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to="/all-contract">
-                                    {t("All Contracts")}
+                                    "All Contracts"
                                 </Link>
                             </li>
                             <li>
                                 <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to="/offers">
-                                    {t("Offerss")}
+                                    "Offerss"
                                 </Link>
                             </li>
                         </ul>
                     </li>
                     <li className="nav-item hov-cn">
                         <NavLink className={`nav-link reports-cn ${lang === 'ar' && "fs-6"}`} to="/overview">
-                            {t("Reports")}
+                            "Reports"
                         </NavLink>
                         <ul className={`dropdown-menu Reports-cn ${lang === 'ar' && 'text-end'}`} style={{ marginTop: "-8px" }}>
                             <div className="nav-dd-cn"></div>
                             <li>
                                 <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to="/overview">
-                                    {t("Overview")}
+                                    "Overview"
                                 </Link>
                             </li>
                             {/* <li>
                 <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to="/my-reports">
-                  {t("My Reports")}
+                  "My Reports"
                 </Link>
               </li> */}
                             <li>
                                 <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to="/life-time-billing">
-                                    {t("Lifetime Billings by Client")}
+                                    "Lifetime Billings by Client"
                                 </Link>
                             </li>
                             {/* <li>
                 <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to="/connects-history">
-                  {t("Connects History")}
+                  "Connects History"
                 </Link>
               </li> */}
                             {/* <li>
                 <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to="/transaction-history">
-                  {t("Transaction History")}
+                  "Transaction History"
                 </Link>
               </li> */}
                             {/* <li><a className="dropdown-item" href="#">Certificate of Earnings</a></li> */}
@@ -146,7 +144,7 @@ export default function NavLargScreen() {
                     </li>
                     {/* <li className="nav-item me-5">
             <NavLink className={`nav-link  ${lang === 'ar' && "fs-6"}`} to="/messages">
-              {t("Messages")}
+              "Messages"
             </NavLink>
           </li> */}
                     {/* <li className="nav-item">
@@ -166,9 +164,6 @@ export default function NavLargScreen() {
                         <NavLink to="/notifications" className="nav-link">
                             <i className="far fa-bell fs-5"></i>
                         </NavLink>
-                    </li>
-                    <li className="ms-1 me-3">
-                        <LanguageList />
                     </li>
                     <li className="dropdown">
                         <a
@@ -195,11 +190,11 @@ export default function NavLargScreen() {
                   aria-label="Basic example"
                 >
                   <button type="button" className={`btn ${lang === 'ar' && "fs-5 "}`}>
-                    {t("Online")}
+                    "Online"
                   </button>
                   <span style={{ padding: "0 1px" }}></span>
                   <button type="button" className={`btn invisible-cn ${lang === 'ar' && "fs-6"}`} >
-                    {t("Invisible")}
+                    "Invisible"
                   </button>
                 </div>
               </li> */}
@@ -211,7 +206,7 @@ export default function NavLargScreen() {
                                         </span>
                                         <div className="acc-cn ms-2">
                                             <p className={`${lang === 'ar' && "fs-6"}`} >{user?.firstName + " " + user?.lastName}</p>
-                                            <p className={`${lang === 'ar' && "fs-6"}`} >{t("Freelancer")}</p>
+                                            <p className={`${lang === 'ar' && "fs-6"}`} >Freelancer</p>
                                         </div>
                                     </div>
                                 </NavLink>
@@ -226,8 +221,8 @@ export default function NavLargScreen() {
                       <i className={`fa fa-user-circle fs-3 ${lang === 'ar' && "px-3"}`}></i>
                     </span>
                     <div className="acc-cn ms-2">
-                      <p className={`${lang === 'ar' && "fs-6"}`} >{t("Name")}</p>
-                      <p className={`${lang === 'ar' && "fs-6"}`} >{t("Client")}</p>
+                      <p className={`${lang === 'ar' && "fs-6"}`} >Name</p>
+                      <p className={`${lang === 'ar' && "fs-6"}`} >Client</p>
                     </div>
                   </div>
                 </NavLink>
@@ -237,7 +232,7 @@ export default function NavLargScreen() {
                   <span>
                     <i className={`fa fa-cog ${lang === 'ar' && "px-3 fs-5"}`}></i>
                   </span>
-                  <span className="ps-2">{t("Settings")}</span>
+                  <span className="ps-2">Settings</span>
                 </Link>
               </li> */}
                             <li>
@@ -245,7 +240,7 @@ export default function NavLargScreen() {
                                     <span>
                                         <i className={`fas fa-sign-out-alt ${lang === 'ar' && "px-3 fs-5"}`}></i>
                                     </span>
-                                    <span className="ps-2">{t("Log Out")}</span>
+                                    <span className="ps-2">Log Out</span>
                                 </button>
                             </li>
                         </ul>

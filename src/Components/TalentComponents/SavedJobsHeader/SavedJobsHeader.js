@@ -2,10 +2,10 @@
 import React from "react";
 import "./SavedJobsHeader.css";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+
 
 export default function SavedJobsHeader({ jobs }) {
-  const { t } = useTranslation();
+
   return (
     <div>
       <ul
@@ -22,7 +22,7 @@ export default function SavedJobsHeader({ jobs }) {
               className=" list-group-item-action saved-homebage-ul-li bg-white"
               aria-current="true"
             >
-              {t("SEARCH")}
+              "SEARCH"
             </a>
           </Link>
         </li>
@@ -36,7 +36,7 @@ export default function SavedJobsHeader({ jobs }) {
               className=" list-group-item-action saved-homebage-ul-li-aa bg-white"
               aria-current="true"
             >
-              {t("SAVEDJOBS")} ({jobs})
+              "SAVEDJOBS" ({jobs})
             </a>
           </Link>
         </li>

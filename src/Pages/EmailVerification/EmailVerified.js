@@ -14,16 +14,17 @@ export default function EmailVerified() {
     useEffect(() => {
     }, [user]);
 
-
     return (
         <div className="text-center" style={{ margin: "67px 0" }}>
             <img src={verify} style={{ width: "150px" }} />
             <h3 className="my-3">Email is verfied successfully</h3>
-            <button className="btn bg-upwork"
-                onClick={() => user.displayName === "talent" ? navigate("/create-profile") : navigate("/post-job")} >
+            <button
+                className="btn bg-upwork"
+                onClick={() => user.displayName === "talent" ? navigate("/create-profile") : navigate("/post-job")}
+            >
                 {user.displayName === "talent" ? "Compelete your profile data" : "Post a job"}
             </button>
             <br />
-        </div>
+        </div >
     );
 }

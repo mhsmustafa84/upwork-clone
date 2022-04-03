@@ -1,13 +1,13 @@
 import React, { useContext, useEffect } from "react";
 import { db } from "../../../firebase";
 import { Link, useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+
 import { SearchContext } from "../../../Context/SearchContext";
 
 
 
 export default function SearchBarJobsClient() {
-  const { t } = useTranslation();
+
   let navigate = useNavigate();
   const { talentSearchList, settalentSearchList, settalentArr, talentArr } = useContext(SearchContext)
   const handle = (e) => {
@@ -49,7 +49,7 @@ export default function SearchBarJobsClient() {
           onChange={handle}
           value={talentSearchList}
           className="form-control text-dark bg-white btn-outline-success"
-          placeholder={t("Search For Jobs")}
+          placeholder="Search For Jobs"
         />
         <Link >
           <button
@@ -64,7 +64,7 @@ export default function SearchBarJobsClient() {
       </div>
       <span>
         <a href="#" className="advanced-search-link">
-          {t("AdvancedSearch")}
+          "AdvancedSearch"
         </a>
       </span>
     </div>

@@ -2,11 +2,11 @@
 /* eslint-disable */
 import React from "react";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+
 
 
 export default function AllContractsBottomSection() {
-    const { t } = useTranslation();
+
     return (
         <div className="text-center">
             <svg
@@ -57,14 +57,14 @@ export default function AllContractsBottomSection() {
                     fill="#34ba08"
                 ></path>
             </svg>
-            <h3>{t("You haven't started any contracts yet.")}</h3>
+            <h3>You haven't started any contracts yet.</h3>
             <h3>
                 <Link to={`${process.env.REACT_APP_BASE_ROUTE}/post-job`} className="text-success">
-                    {t("Post a job")}
+                    "Post a job"
                 </Link>
-                {t("or")}
+                "or"
                 <a href="#" className="text-success">
-                    {t("check out who's applied to your existing job posts.")}
+                    "check out who's applied to your existing job posts."
                 </a>
             </h3>
         </div>

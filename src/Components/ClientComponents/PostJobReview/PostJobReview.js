@@ -5,13 +5,13 @@ import { Timestamp } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { updateJob } from "../../../Network/Network";
 import "./PostJobReview.css";
-import { useTranslation } from "react-i18next";
+
 import Loader from "../../SharedComponents/Loader/Loader";
 
 
 export default function PostJobReview() {
 
-    const { t } = useTranslation();
+
 
     const [job, setJob] = useState(null);
 
@@ -46,17 +46,17 @@ export default function PostJobReview() {
                     ? <>
                         <section className=" bg-white border rounded mt-3">
                             <div className="ps-4 d-flex border-bottom justify-content-between align-items-center py-4">
-                                <h4>{t("Review and post")}</h4>
-                                <Link className="btn bg-upwork me-4 px-5" to={`${process.env.REACT_APP_BASE_ROUTE}`} onClick={publishJob}>{t("Post Job Now")}</Link>
+                                <h4>Review and post</h4>
+                                <Link className="btn bg-upwork me-4 px-5" to={`${process.env.REACT_APP_BASE_ROUTE}`} onClick={publishJob}>Post Job Now</Link>
                             </div>
                             <div className="px-4 mt-4">
-                                <h5>{t("Title")}</h5>
+                                <h5>Title</h5>
                                 <div>
                                     <div className="my-4">
                                         <p>{job.jobTitle}</p>
                                     </div>
                                     <div>
-                                        <h6 className="text-muted">{t("Job Category")}</h6>
+                                        <h6 className="text-muted">Job Category</h6>
                                         <p>{job.jobCategory}</p>
                                     </div>
                                 </div>
@@ -65,7 +65,7 @@ export default function PostJobReview() {
 
                         <section className=" bg-white border rounded mt-4">
                             <div className="px-4 mt-4">
-                                <h5>{t("Description")}</h5>
+                                <h5>Description</h5>
                                 <div>
                                     <div className="my-4">
                                         <p>{job.jobDescription}</p>
@@ -76,7 +76,7 @@ export default function PostJobReview() {
 
                         <section className=" bg-white border rounded mt-4">
                             <div className="px-4 mt-4">
-                                <h5>{t("Details")}</h5>
+                                <h5>Details</h5>
                                 <div>
                                     <div className="my-4">
                                         <h6 className="text-muted">{"Type of Project"}</h6>
@@ -88,10 +88,10 @@ export default function PostJobReview() {
 
                         <section className=" bg-white border rounded mt-4">
                             <div className="px-4 mt-4">
-                                <h5>{t("Expertise")}</h5>
+                                <h5>Expertise</h5>
                                 <div>
                                     <div className="my-4">
-                                        <h6 className="text-muted">{t("Experience Level")}</h6>
+                                        <h6 className="text-muted">Experience Level</h6>
                                         <p>{job.jobExperienceLevel}</p>
                                     </div>
                                 </div>
@@ -100,10 +100,10 @@ export default function PostJobReview() {
 
                         <section className=" bg-white border rounded mt-4">
                             <div className="px-4 mt-4">
-                                <h5>{t("Visibility")}</h5>
+                                <h5>Visibility</h5>
                                 <div>
                                     <div className="my-4">
-                                        <h6 className="text-muted">{t("Job Posting Visibility")}</h6>
+                                        <h6 className="text-muted">Job Posting Visibility</h6>
                                         <p>{job.jobVisibility}</p>
                                     </div>
                                 </div>
@@ -112,10 +112,10 @@ export default function PostJobReview() {
 
                         <section className="bg-white border rounded mt-4">
                             <div className="px-4 mt-4">
-                                <h5>{t("Budget")}</h5>
+                                <h5>Budget</h5>
                                 <div className="d-flex">
                                     <div className="my-4 w-50">
-                                        <h6 className="text-muted">{t("JobHourly or Fixed-Price")}</h6>
+                                        <h6 className="text-muted">JobHourly or Fixed-Price</h6>
                                         <p>{job.jobPaymentType}</p>
                                     </div>
                                     <div className="my-4">
@@ -128,8 +128,8 @@ export default function PostJobReview() {
 
                         <section className="bg-white border rounded mt-4">
                             <div className="ps-4 my-3 py-2">
-                                <Link className="btn bg-upwork me-4 px-5" to={`${process.env.REACT_APP_BASE_ROUTE}`} onClick={publishJob}>{t("Post Job Now")}</Link>
-                                <Link className="btn border text-success px-5" to={`${process.env.REACT_APP_BASE_ROUTE}/home`} onClick={deletePost}>{t("Delete & Exit")}</Link>
+                                <Link className="btn bg-upwork me-4 px-5" to={`${process.env.REACT_APP_BASE_ROUTE}`} onClick={publishJob}>Post Job Now</Link>
+                                <Link className="btn border text-success px-5" to={`${process.env.REACT_APP_BASE_ROUTE}/home`} onClick={deletePost}>Delete & Exit</Link>
                             </div>
                         </section>
                     </>

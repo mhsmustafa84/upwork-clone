@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
+
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { talentDataAction } from "../../../Store/actions/talentData";
@@ -10,7 +10,7 @@ import { updateUserData } from "../../../Network/Network";
 import { db, fbAuth } from "../../../firebase";
 
 export default function ConnectsAndSubmit() {
-    const { t } = useTranslation();
+
     const { id } = useParams();
     const user = useSelector((state) => state.talentData);
     const dispatch = useDispatch();
@@ -110,14 +110,14 @@ export default function ConnectsAndSubmit() {
                         onClick={(handleRout) => navigate(`/job/apply/${id}`)}
                         disabled={user.accepted === false || user.connects < 2}
                     >
-                        {t("Submit a proposal")}
+                        "Submit a proposal"
                     </button>
                 ) : (
                     <button
                         className="btn bg-upwork-dark"
                         onClick={handlewithdrawProposal}
                     >
-                        {t("Withdraw")}
+                        "Withdraw"
                     </button>
                 )}
 
@@ -135,10 +135,10 @@ export default function ConnectsAndSubmit() {
 
             </div>
             <p>
-                {t("Required Connects to submit a proposal")}: 2
+                "Required Connects to submit a proposal": 2
             </p>
             <p>
-                {t("Available Connects")}: {user.connects}
+                "Available Connects": {user.connects}
             </p>
         </div>
     );

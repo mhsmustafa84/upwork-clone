@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
+
 import { Link } from "react-router-dom";
 import { fbAuth, db } from "../../../firebase";
 import img from "../../../assets/Img/icon-user.svg";
@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 
 export default function RightSidebarTalentHome({ lang }) {
 
-    const { t } = useTranslation();
+
     const [talentData, setTalentData] = useState([]);
     const user = useSelector((state) => state.talentData);
 
@@ -39,20 +39,20 @@ export default function RightSidebarTalentHome({ lang }) {
             </div>
             <div className="my-lg-1">
                 <Link to={`/profile/${fbAuth.auth.currentUser.uid}`} className="advanced-search-link">
-                    <i className="fas fa-eye"> </i> {t("View Profile")}
+                    <i className="fas fa-eye"> </i> "View Profile"
                 </Link>
             </div>
             {/* <div className="my-lg-1 fw-bold">
-        <p>{t("Visibility")}</p>
+        <p>Visibility</p>
       </div>
       <div className="my-lg-1 ">
         <i className="fas fa-globe"> </i>
-        <span> {t("Public")}</span>
+        <span> "Public</span>
 
       </div> */}
             <div className="my-3" />
             <div className="my-lg-1 fw-bold">
-                <p className="text-muted">{t("Availability")}</p>
+                <p className="text-muted">Availability</p>
             </div>
             <div className="my-lg-1">
                 <i className="far fa-clock me-2" />

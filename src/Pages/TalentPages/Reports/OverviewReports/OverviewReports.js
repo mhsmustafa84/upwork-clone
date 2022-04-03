@@ -9,7 +9,7 @@ import {
     useNavigate,
     Routes,
 } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+
 import Available from "../../../../Components/TalentComponents/Available/Available";
 import InReview from "../../../../Components/TalentComponents/InReviewComponent/InReview";
 import Pending from "../../../../Components/TalentComponents/Pending/pending";
@@ -22,7 +22,7 @@ export default function OverviewReports() {
     const { pathname } = useLocation();
     let navigate = useNavigate();
     pathname === "/overview" && navigate("/overview/work-in-progress");
-    const { t } = useTranslation();
+
     const inreview = useSelector((state) => state.inreview);
     const dispatch = useDispatch();
 
@@ -64,7 +64,7 @@ export default function OverviewReports() {
                                     }}
                                 >
                                     <h4 className="nowrap m-0-bottom">
-                                        {t("Work in progress")}
+                                        "Work in progress"
                                         <span className="m-0-left-right d-lg-inline">
                                             <i
                                                 className="far fa-question-circle"
@@ -76,7 +76,7 @@ export default function OverviewReports() {
                                         </span>
                                     </h4>
                                     <h1 className="m-xs-top-bottom nowrap ">
-                                        <strong className="lead-lg">{t("$0.00")}</strong>
+                                        <strong className="lead-lg">$0.00</strong>
                                     </h1>
                                     <p className="m-0-bottom text-muted nowrap d-none d-lg-block">
                                         &nbsp;
@@ -92,7 +92,7 @@ export default function OverviewReports() {
                                     style={{ textDecoration: "none" }}
                                 >
                                     <h4 className="nowrap m-0-bottom">
-                                        {t("In review")}
+                                        "In review"
                                         <span className="m-0-left-right d-lg-inline">
                                             <i
                                                 className="far fa-question-circle"
@@ -104,7 +104,7 @@ export default function OverviewReports() {
                                         </span>
                                     </h4>
                                     <h1 className="m-xs-top-bottom nowrap ">
-                                        <strong className="lead-lg">{t("$0.00")}</strong>
+                                        <strong className="lead-lg">$0.00</strong>
                                     </h1>
                                     <p className="m-0-bottom text-muted nowrap d-lg-block">
                                         &nbsp;
@@ -120,7 +120,7 @@ export default function OverviewReports() {
                                     style={{ textDecoration: "none" }}
                                 >
                                     <h4 className="nowrap m-0-bottom">
-                                        {t("Pending")}
+                                        "Pending"
                                         <span className="m-0-left-right  d-lg-inline">
                                             <i
                                                 className="far fa-question-circle"
@@ -152,7 +152,7 @@ export default function OverviewReports() {
                                     style={{ textDecoration: "none" }}
                                 >
                                     <h4 className="nowrap m-0-bottom">
-                                        {t("Available")}
+                                        "Available"
                                         <span className="m-0-left-right  d-lg-inline">
                                             <i
                                                 className="far fa-question-circle"
@@ -163,13 +163,13 @@ export default function OverviewReports() {
                                         </span>
                                     </h4>
                                     <h1 className="m-xs-top-bottom nowrap ">
-                                        <strong className="lead-lg">{t("$0.00")}</strong>
+                                        <strong className="lead-lg">$0.00</strong>
                                     </h1>
                                     <p className="m-0-bottom text-muted nowrap d-lg-block">
                                         &nbsp;
                                     </p>
                                     <p className="m-0-bottom text-muted nowrap d-lg-block">
-                                        {t("Last payment")} :$0.00
+                                        "Last payment" :$0.00
                                     </p>
                                 </NavLink>
                             </li>

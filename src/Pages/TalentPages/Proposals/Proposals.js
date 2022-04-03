@@ -1,14 +1,14 @@
 /* eslint-disable array-callback-return */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState } from "react";
-import { useTranslation } from "react-i18next";
+
 import ProposalCard from "../../../Components/TalentComponents/ProposalCard/ProposalCard";
 import { useEffect } from "react";
 import { fbAuth, db } from "../../../firebase";
 
 export default function Proposals() {
 
-    const { t } = useTranslation();
+
     const [talentData, setTalentData] = useState({ active: [], submited: [] });
 
     useEffect(async () => {
@@ -35,10 +35,10 @@ export default function Proposals() {
         <>
             <div className="row justify-content-center">
                 <div className="col-9">
-                    <h3 className="my-5">{t("My proposals")}</h3>
+                    <h3 className="my-5">My proposals</h3>
                     <div className="list-group-item py-lg-4 mt-3">
                         <h4>
-                            {t("Active proposals")} ({talentData?.active?.length})
+                            "Active proposals" ({talentData?.active?.length})
                             <span className="text-upwork ms-2">
                                 <i className="fas fa-question-circle"></i>
                             </span>
@@ -51,7 +51,7 @@ export default function Proposals() {
                     </div>
                     <div className="list-group-item py-lg-4 mt-3">
                         <h4>
-                            {t("Submited proposals")} ({talentData?.submited?.length})
+                            "Submited proposals" ({talentData?.submited?.length})
                             <span className="text-upwork ms-2">
                                 <i className="fas fa-question-circle"></i>
                             </span>

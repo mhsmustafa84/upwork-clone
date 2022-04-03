@@ -1,14 +1,14 @@
 /* eslint-disable array-callback-return */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
+
 import { fbAuth, db } from "../../../firebase";
 import OneContract from './OneContract';
 
 
 export default function AllContracts() {
 
-    const { t } = useTranslation();
+
     const [contracts, setContracts] = useState([]);
 
 
@@ -34,7 +34,7 @@ export default function AllContracts() {
             <div className="bg-gray">
                 <div className="container">
                     <div className="row px-5">
-                        <h4 className="col-12 mt-5">{t("Contracts")}</h4>
+                        <h4 className="col-12 mt-5">Contracts</h4>
                         <div className="card mt-4 mb-5">
                             {/* <div className="card-header bg-white p-3">
                 {data && <SearchContract />}

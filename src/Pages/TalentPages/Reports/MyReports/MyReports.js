@@ -1,12 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
-import { useTranslation } from "react-i18next";
+
 import { Link } from "react-router-dom";
 
 export default function Reports() {
 
-    const { t } = useTranslation();
+
 
     return (
         <div className="MyReports">
@@ -23,7 +23,7 @@ export default function Reports() {
                                     fontWeight: "700",
                                 }}
                             >
-                                {t("myReports")}
+                                "myReports"
                             </h1>
                         </div>
                     </div>
@@ -39,7 +39,7 @@ export default function Reports() {
                                 to={`${process.env.REACT_APP_BASE_ROUTE}/weeklysummary`}
                                 style={{ textDecoration: "none", color: "#38a000" }}
                             >
-                                {t("weekSummary")}
+                                "weekSummary"
                             </Link>
                         </h3>
                     </div>
@@ -47,7 +47,7 @@ export default function Reports() {
                         <div className="col-md-6">
                             <p className="mb-0">
                                 <i className="far fa-calendar-check me-2" />
-                                <span>{t("currentWeek")}</span>
+                                <span>currentWeek</span>
                             </p>
                         </div>
                         <div className="col-md-6 text-end">
@@ -68,7 +68,7 @@ export default function Reports() {
                                 href="#"
                                 style={{ textDecoration: "none", color: "black" }}
                             >
-                                {t("WeeklySummaryByClient")}
+                                "WeeklySummaryByClient"
                             </a>
                         </h3>
                     </div>
@@ -76,7 +76,7 @@ export default function Reports() {
                         <div className="col-md-6">
                             <p className="mb-0 text-muted">
                                 <i className="far fa-calendar-check me-2" />
-                                <span>{t("currentWeek")}</span>
+                                <span>currentWeek</span>
                             </p>
                         </div>
                         <div className="col-md-6 text-end text-muted">

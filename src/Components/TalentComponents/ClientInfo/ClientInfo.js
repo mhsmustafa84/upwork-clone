@@ -1,14 +1,14 @@
 /* eslint-disable array-callback-return */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
+
 import { db } from "../../../firebase";
 import StarsRating from './../../SharedComponents/StarsRating/StarsRating';
 
 export default function ClientInfo({ clientID }) {
 
   console.log(clientID);
-  const { t } = useTranslation();
+
   const [client, setClient] = useState()
   const [clientJobs, setClientJobs] = useState({ closed: 0, hired: 0, public: 0, allJobs: 0 })
 
@@ -34,7 +34,7 @@ export default function ClientInfo({ clientID }) {
 
   return (
     <div className="bg-white py-lg-4 px-4 border border-1 py-sm-3 py-xs-5">
-      <h5>{t("About the client")}</h5>
+      <h5>About the client</h5>
       <h6 className="fw-bold py-sm-3">
         <span className="fw-bold" style={{ color: client?.paymentVerified ? "#14bff4" : "red" }}>
           <i

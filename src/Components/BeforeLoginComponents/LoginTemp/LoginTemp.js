@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { fbAuth, googleProvider } from "../../../firebase";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-
 
 export default function LoginTemp() {
     const [user, setUser] = useState({ email: "", password: "" });
@@ -12,8 +10,6 @@ export default function LoginTemp() {
     const [PasswordError, setPasswordErrorr] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
     let navigate = useNavigate();
-
-    const { t } = useTranslation();
 
     const getUserData = (e) => {
         const name = e.target.name;
@@ -64,7 +60,6 @@ export default function LoginTemp() {
                         : navigate("/home")
                 }
             }).catch(error => {
-                console.log("file: LoginTemp.js => line 69 => login => error =>", error.code);
                 setErrorMessage(error.code);
             });
     };
@@ -77,7 +72,7 @@ export default function LoginTemp() {
                         <div className="shadow-sm p-5 mb-5 bg-white rounded mx-auto mt-5 w-100  border ">
                             <h5 data-v-904d5b16 className="text-center m-0">
                                 <span data-v-733406b2 data-v-44072c38>
-                                    {t("Login and get to work")}
+                                    "Login and get to work"
                                 </span>
                             </h5>
                             <form>
@@ -91,7 +86,7 @@ export default function LoginTemp() {
                                         className={`form-control shadow-none ${emailError ? "border-danger" : ""
                                             }`}
                                         aria-describedby="emailHelp"
-                                        placeholder={t("User name or Email")}
+                                        placeholder="User name or Email"
                                         onInput={getUserData}
                                     />
                                 </div>
@@ -103,7 +98,7 @@ export default function LoginTemp() {
                                         className={`form-control shadow-none ${PasswordError ? "border-danger" : ""
                                             }`}
                                         aria-describedby="emailHelp"
-                                        placeholder={t("Password")}
+                                        placeholder="Password"
                                         onInput={getUserData}
                                     />
                                 </div>
@@ -113,16 +108,16 @@ export default function LoginTemp() {
                                         onClick={login}
                                         disabled={PasswordError != null || emailError != null}
                                     >
-                                        {t("Log in")}
+                                        "Log in"
                                     </button>
                                 </div>
                                 <div>
                                     <div className="separator mt-4 col-8 mx-auto">
-                                        {t("New To Upwork")}
+                                        "New To Upwork"
                                     </div>
                                     <div className="d-grid gap-2 col-md-5 col-sm-10 mx-auto mt-3   rounded mb-5">
                                         <Link className="btn signup" to={`${process.env.REACT_APP_BASE_ROUTE}/sign-up`}>
-                                            {t("Sign Up")}
+                                            "Sign Up"
                                         </Link>
                                     </div>
                                 </div>

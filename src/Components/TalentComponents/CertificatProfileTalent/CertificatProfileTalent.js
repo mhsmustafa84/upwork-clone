@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from "react";
-import { useTranslation } from "react-i18next";
+
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { talentDataAction } from "../../../Store/actions/talentData";
@@ -11,7 +11,7 @@ export default function CertificatProfileTalent() {
   useEffect(() => {
     dispatch(talentDataAction());
   }, []);
-  const { t } = useTranslation();
+
   return (
     <>
       <style
@@ -23,7 +23,7 @@ export default function CertificatProfileTalent() {
       <div className="container card mb-3 mt-5">
         <div className="row mt-3">
           <div className="col">
-            <h2 className="mb-3">{t("Certifications")}</h2>
+            <h2 className="mb-3">Certifications</h2>
           </div>
           <div className="col d-flex justify-content-end">
             <button

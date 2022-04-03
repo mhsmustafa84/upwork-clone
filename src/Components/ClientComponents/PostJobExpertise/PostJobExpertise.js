@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { updateJob } from "../../../Network/Network";
 import "./PostJobExpertise.css";
-import { useTranslation } from "react-i18next";
+
 
 
 export default function PostJobExpertise({ setBtns, btns }) {
@@ -10,7 +10,7 @@ export default function PostJobExpertise({ setBtns, btns }) {
     const [inputVal, setInputVal] = useState("");
     const [skillsList, setSkillsList] = useState([]);
     const [job, setJob] = useState({ jobExperienceLevel: "", skills: [] });
-    const { t } = useTranslation();
+
 
     const getData = (e) => {
         const val = e.target.value;
@@ -46,12 +46,12 @@ export default function PostJobExpertise({ setBtns, btns }) {
         <>
             <section className=" bg-white border rounded mt-3 pt-4">
                 <div className="border-bottom ps-4">
-                    <h4>{t("Expertise")}</h4>
-                    <p>{t("Step 4 of 7")}</p>
+                    <h4>Expertise</h4>
+                    <p>Step 4 of 7</p>
                 </div>
                 <div className="px-4 mt-3">
                     <p className="fw-bold mt-2">
-                        {t("What level of experience should your freelancer have?")}
+                        "What level of experience should your freelancer have?"
                         <span className="text-danger"> *</span>
                     </p>
                     <div
@@ -65,8 +65,8 @@ export default function PostJobExpertise({ setBtns, btns }) {
                                 name="jobExperienceLevel"
                                 value="entry level"
                             />
-                            <h6 className="my-3">{t("Entry Level")}</h6>
-                            <div>{t("Looking for someone relatively new to this field")}</div>
+                            <h6 className="my-3">Entry Level</h6>
+                            <div>Looking for someone relatively new to this field</div>
                         </label>
                         <label className="border border-success rounded p-3 text-center mx-3">
                             <input
@@ -75,8 +75,8 @@ export default function PostJobExpertise({ setBtns, btns }) {
                                 name="jobExperienceLevel"
                                 value="intermediate"
                             />
-                            <h6 className="my-3">{t("Intermediate")}</h6>
-                            <div>{t("Looking for substantial experience in this field")}</div>
+                            <h6 className="my-3">Intermediate</h6>
+                            <div>Looking for substantial experience in this field</div>
                         </label>
                         <label className="border border-success rounded p-3 text-center">
                             <input
@@ -85,15 +85,15 @@ export default function PostJobExpertise({ setBtns, btns }) {
                                 name="jobExperienceLevel"
                                 value="expert"
                             />
-                            <h6 className="my-3">{t("Expert")}</h6>
+                            <h6 className="my-3">Expert</h6>
                             <div>
-                                {t(
-                                    "Looking for comprehensive and deep expertise in this field"
+
+                                "Looking for comprehensive and deep expertise in this field"
                                 )}
                             </div>
                         </label>
                     </div>
-                    <p className="fw-bold">{t("Enter the skills of your job post?")}</p>
+                    <p className="fw-bold">Enter the skills of your job post?</p>
                     <div className="my-4 d-flex justify-content-between">
                         <input
                             className="form-control w-75 shadow-none"
@@ -126,7 +126,7 @@ export default function PostJobExpertise({ setBtns, btns }) {
                             className="btn border text-success me-4 px-5"
                             to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/details`}
                         >
-                            {t("Back")}
+                            "Back"
                         </Link>
                     </button>
                     <button
@@ -137,7 +137,7 @@ export default function PostJobExpertise({ setBtns, btns }) {
                             to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/visibility`}
                             onClick={addData}
                         >
-                            {t("Next")}
+                            "Next"
                         </Link>
                     </button>
                 </div>

@@ -1,17 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import { useTranslation } from "react-i18next";
+
 
 export default function ClientRecentHistory() {
-  const { t } = useTranslation();
+
   return (
     <div>
       <div className="bg-white py-lg-4 px-4 mt-3 border border-1 row py-sm-3 py-xs-5">
-        <h4 className="fw-bold">{t("Client's recent history (7)")}</h4>
+        <h4 className="fw-bold">Client's recent history (7)</h4>
       </div>
       <div className="bg-white py-lg-1 px-4  border  row py-sm-3">
         <li className=" my-lg-2  rounded  d-grid gap-2" type="button">
-          <h6>{t("Jobs in progress")}</h6>
+          <h6>Jobs in progress</h6>
         </li>
       </div>
       <div className="bg-white py-lg-1 px-4  border  row py-xs-5">

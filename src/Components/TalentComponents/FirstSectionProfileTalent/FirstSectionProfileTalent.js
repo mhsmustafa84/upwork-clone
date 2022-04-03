@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
+
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ShowMore from 'react-show-more-button';
@@ -36,7 +36,7 @@ export default function FirstSectionProfileTalent() {
 
     const [EmpList, setEmpList] = useState([]);
 
-    const { t } = useTranslation();
+
 
     useEffect(() => {
         db.collection("talent").doc(id).onSnapshot(doc => {
@@ -177,7 +177,7 @@ export default function FirstSectionProfileTalent() {
                                                 <strong>{user?.location.country} – </strong>
                                             </>
                                         )}
-                                        {new Date().toLocaleTimeString()} {t("local time")}
+                                        {new Date().toLocaleTimeString()} "local time"
                                     </span>
                                 </div>
                                 <div className="row py-3">
@@ -222,7 +222,7 @@ export default function FirstSectionProfileTalent() {
                             {/* <div className="col py-3 mx-1 float-end ">
                 <Link to="/settings">
                   <button type="button" className="btn btn-success px-4  mx-3">
-                    {t("Profile Settings")}
+                    "Profile Settings"
                   </button>
                 </Link>
               </div> */}
@@ -233,20 +233,20 @@ export default function FirstSectionProfileTalent() {
                                     <div className="row">
                                         <div className="col">
                                             <div className="fw-bold fs-5">${user?.totalEarnings}</div>
-                                            <div className="fs-6">{t("Earnings")}</div>
+                                            <div className="fs-6">Earnings</div>
                                         </div>
                                         <div className="col">
                                             <div className="fw-bold fs-5">{user?.totalJobs}</div>
-                                            <div className="fs-6">{t("Total Jobs")}</div>
+                                            <div className="fs-6">Total Jobs</div>
                                         </div>
                                         <div className="col">
                                             <div className="fw-bold fs-5">{user?.totalHours}</div>
-                                            <div className="fs-6">{t("Total Hours")}</div>
+                                            <div className="fs-6">Total Hours</div>
                                         </div>
                                     </div>
                                     <hr />
                                     <h5 className="fw-bold text-muted">
-                                        {t("Availability")}
+                                        "Availability"
                                     </h5>
                                     <h6 >
                                         {lang === "ar" ? user?.availability === true ? "متاح" : "غير متاح" : user?.availability === true ? "available" : "not available"}
@@ -260,14 +260,14 @@ export default function FirstSectionProfileTalent() {
                   </p> */}
 
 
-                                    <h5 className="fw-bold text-muted">{t("Languages")}</h5>
-                                    <p><span className="text-muted">{t("English")}: </span> {lang === "ar" ? user.englishProficiencyAr : user.englishProficiency}</p>
+                                    <h5 className="fw-bold text-muted">Languages</h5>
+                                    <p><span className="text-muted">English": </span> {lang === "ar" ? user.englishProficiencyAr : user.englishProficiency}</p>
                                     {user?.otherLanguages?.map(langItem => <p>
                                         {lang === "ar" ? [langItem.languageAr, ' ', ':', ' ', langItem.langProfAr] : [langItem.language, ' ', ':', ' ', langItem.langProf]}
                                     </p>)}
 
 
-                                    <h5 className="fw-bold mt-3 text-muted">{t("Education")}</h5>
+                                    <h5 className="fw-bold mt-3 text-muted">Education</h5>
                                     <p><span className="text-muted">University: </span>{user?.education?.school}</p>
                                     <p><span className="text-muted">Study: </span>{user?.education?.areaOfStudy}</p>
                                     <p><span className="text-muted">Degree: </span>{user?.education?.degree}</p>
@@ -289,7 +289,7 @@ export default function FirstSectionProfileTalent() {
                                     <hr />
 
                                     <div className="row">
-                                        <h3 className="col mx-0 text-muted">{t("Work History")}</h3>
+                                        <h3 className="col mx-0 text-muted">Work History</h3>
                                         {
                                             !clientRoute &&
                                             <button
@@ -445,7 +445,7 @@ export default function FirstSectionProfileTalent() {
                                         </div>
                                         <hr />
                                         <div className="row">
-                                            <h3 className="col-4 mx-0 text-muted">{t("Portfolio")}</h3>
+                                            <h3 className="col-4 mx-0 text-muted">Portfolio</h3>
                                             {!clientRoute &&
                                                 <button
                                                     type="button"
@@ -487,7 +487,7 @@ export default function FirstSectionProfileTalent() {
 
                                         <div className="row mt-5">
                                             <hr />
-                                            <h3 className="col-4 mx-0 text-muted">{t("skills")}</h3>
+                                            <h3 className="col-4 mx-0 text-muted">skills</h3>
                                             {!clientRoute &&
                                                 <button
                                                     type="button"
@@ -517,7 +517,7 @@ export default function FirstSectionProfileTalent() {
                                         </div>
                                     </div>
                                 </div>
-                                <h5 className=" mt-2 fw-bold col-2"> {t("$")} {user?.hourlyRate} / {t("hr")}</h5>
+                                <h5 className=" mt-2 fw-bold col-2"> "$" {user?.hourlyRate} / "hr</h5>
                                 <div className="col-1 d-flex justify-content-end">
                                     {!clientRoute &&
                                         <button
@@ -550,7 +550,7 @@ export default function FirstSectionProfileTalent() {
                             <div className="row">
 
                                 <div className="col d-flex justify-content-between ">
-                                    <h2 className="mb-3 text-muted">{t("Employment history")}</h2>
+                                    <h2 className="mb-3 text-muted">Employment history</h2>
                                     {!clientRoute &&
                                         <button
                                             type="button"

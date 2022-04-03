@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import { useTranslation } from "react-i18next";
+
 import { useSelector } from "react-redux";
 import JobProposalsNumber from './../SectionCenterTalentHome/JobProposalsNumber';
 
@@ -9,7 +9,7 @@ import JobProposalsNumber from './../SectionCenterTalentHome/JobProposalsNumber'
 export default function JobDescriptionJobDetails({ job }) {
   const lang = useSelector(state => state.lang);
 
-  const { t } = useTranslation();
+
   return (
     <div className="col-lg-9 col-xs-12  mt-lg-0 d-flex flex-column">
       <div className="bg-white py-lg-4 px-4 border border-1 row py-sm-3 mt-lg-0 mt-sm-3 py-xs-5">
@@ -27,7 +27,7 @@ export default function JobDescriptionJobDetails({ job }) {
           <i className="fas fa-street-view" style={{ color: "#14bff4" }}>
             {" "}
           </i>{" "}
-          {t("Worldwide")}
+          "Worldwide"
         </span>
       </div>
       <div className="bg-white py-lg-4 px-4 border border-1 row py-xs-5">
@@ -74,7 +74,7 @@ export default function JobDescriptionJobDetails({ job }) {
           </div>{" "}
           <small className="text-muted">
             <span className="d-none d-lg-inline">
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{t("Experience Level")}
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Experience Level"
             </span>{" "}
           </small>
         </li>
@@ -98,18 +98,18 @@ export default function JobDescriptionJobDetails({ job }) {
           </div>
           <small className="text-muted">
             <span className="d-none d-lg-inline">
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{t("Job Duration")}
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Job Duration"
             </span>{" "}
           </small>
         </li>
       </ul>
       <div className="bg-white py-lg-4 px-4 border border-1 row py-sm-3 py-xs-5">
         <span className="fw-bold">
-          {t("Project type")}: <span className="fw-normal">{lang === "ar" ? job?.jobTypeAr : job?.jobType}</span>
+          "Project type": <span className="fw-normal">{lang === "ar" ? job?.jobTypeAr : job?.jobType}</span>
         </span>
       </div>
       <div className="bg-white py-lg-4 px-4 border border-1 row pb-sm-3 py-xs-5">
-        <h5 className="fw-bold my-4">{t("Skills and experties")}</h5>
+        <h5 className="fw-bold my-4">Skills and experties</h5>
         <div className="col">
           {job?.skills?.map((task, index) => (
             <button
@@ -142,7 +142,7 @@ export default function JobDescriptionJobDetails({ job }) {
           </div>
         </div>}
       <div className="bg-white py-lg-2 py-md-4 px-4 border border-1 row py-xs-5 h-100">
-        <h5 className="fw-bold my-4">{t("Activity on this job")}</h5>
+        <h5 className="fw-bold my-4">Activity on this job</h5>
         <div className="pb-5">
           <p className="my-lg-1">
             Proposals: <JobProposalsNumber jobID={job?.jobID} />

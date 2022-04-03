@@ -1,12 +1,12 @@
 /* eslint-disable */
 import React, { useState } from "react";
-import { useTranslation } from "react-i18next";
+
 import { fbAuth } from "../../../firebase";
 import SearchBarJobsTalent from "../SearchBarJobsTalent/SearchBarJobsTalent";
 
 
 export default function FindWorkTalentHome() {
-    const { t } = useTranslation();
+
 
     const [verify, setverify] = useState(false);
     fbAuth.auth.onAuthStateChanged(user => {
@@ -20,7 +20,7 @@ export default function FindWorkTalentHome() {
         <div className="d-none d-lg-block" >
             <div className="row my-lg-4">
                 <div className="col">
-                    <h4 style={{ fontWeight: '500' }}>{t("FindWork")}</h4>
+                    <h4 style={{ fontWeight: '500' }}>FindWork</h4>
                 </div>
                 <div className="col-8">
                     <SearchBarJobsTalent />
