@@ -8,26 +8,26 @@ import img4 from '../../../assets/svg/ge.svg'
 import img6 from '../../../assets/Img/susan-desktop.webp'
 import img7 from '../../../assets/Img/john-desktop.webp'
 import { Link } from 'react-router-dom'
-import { useTranslation } from "react-i18next";
+
 import { useSelector } from 'react-redux'
 import Bissell from './../../SVG/Bissell';
 
 export default function HomeFirstSection() {
     let lang = useSelector(state => state.lang);
-    const { t } = useTranslation();
+
     return (
         <section style={{ marginTop: "10%" }} className="overflow-hidden">
             <div className="container">
                 <div className="row">
                     <div className="col-md-6 col-sm-12">
                         <div>
-                            <p className="my-5 h1">{t("Theworldsworkmarketplace")}</p>
+                            <p className="my-5 h1">Theworldsworkmarketplace</p>
                             <p className="fs-3 fs-p-cn">
-                                {t("Engagethelargestnetwork")}
+                                "Engagethelargestnetwork"
                             </p>
                             <div className="my-5">
-                                <Link className="btn py-3 px-4 me-4 fs-btns-cn text-decoration-none" to={`${process.env.REACT_APP_BASE_ROUTE}/freelance-jobs`}>{t("FindTalent")}</Link>
-                                <button className={`btn py-3 px-4 border text-success ${lang === 'ar' && "fs-6"}`}>{t("FindWork")}</button>
+                                <Link className="btn py-3 px-4 me-4 fs-btns-cn text-decoration-none" to={`${process.env.REACT_APP_BASE_ROUTE}/freelance-jobs`}>FindTalent</Link>
+                                <button className={`btn py-3 px-4 border text-success ${lang === 'ar' && "fs-6"}`}>FindWork</button>
                             </div>
                             <ul className="d-flex justify-content-between p-0">
                                 <li><img src={img1} width="70" height="26" /></li>

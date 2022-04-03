@@ -4,7 +4,7 @@
 import React, { useContext, useEffect } from "react";
 import './SearchBarJobsTalent.css'
 import { Link, useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+
 import { SearchContext } from '../../../Context/SearchContext';
 import { updateUserData } from '../../../Network/Network'
 import { useDispatch, useSelector } from "react-redux";
@@ -12,7 +12,7 @@ import { talentDataAction } from "../../../Store/actions/talentData";
 
 
 export default function SearchBarJobsTalent(props) {
-    const { t } = useTranslation();
+
     let lang = useSelector(state => state.lang);
     const { arr, setarr, itemSearchList, setitemSearchList, setsearchList } = useContext(SearchContext)
     let navigate = useNavigate();
@@ -60,7 +60,7 @@ export default function SearchBarJobsTalent(props) {
                     type="search"
                     style={{ height: "35.5px", borderRadius: 0 }}
                     className={`form-control text-dark bg-white ${lang === 'ar' ? "rounded-end" : "rounded-start"}`}
-                    placeholder={t("Search For Jobs")}
+                    placeholder="Search For Jobs"
                 />
                 <Link onClick={searchDatabase}>
                     <button
@@ -76,7 +76,7 @@ export default function SearchBarJobsTalent(props) {
             </div>
             <span className="d-block pt-2">
                 <Link to='/Search' className="advanced-search-link" style={{ fontSize: '13.5px', color: '#3CAF24', fontWeight: "600" }}>
-                    {t("AdvancedSearch")}
+                    "AdvancedSearch"
                 </Link>
             </span>
         </div>

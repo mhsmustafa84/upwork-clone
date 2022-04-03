@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
 import React, { useContext, useEffect } from 'react'
-import { useTranslation } from 'react-i18next'
+
 import { SearchContext } from '../../../Context/SearchContext';
 import { useNavigate } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,7 +14,7 @@ import './HeaderSearchLg.css'
 export default function HeaderSearchLg() {
 
     const { arr, setarr, itemSearchList, setitemSearchList, setsearchList } = useContext(SearchContext)
-    const { t } = useTranslation();
+
     let navigate = useNavigate();
     const user = useSelector((state) => state.talentData);
     const jobs = useSelector((state) => state.jobsData);
@@ -73,7 +73,7 @@ export default function HeaderSearchLg() {
                     onChange={handle}
                     value={itemSearchList}
                     style={{ color: 'white' }}
-                    placeholder={t("Search")}
+                    placeholder="Search"
                     aria-label="Search"
                 />
             </form>

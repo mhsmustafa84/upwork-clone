@@ -4,11 +4,11 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { fbAuth } from "../../../firebase";
 import { createDocumentWithId } from "../../../Network/Network";
-import { useTranslation } from "react-i18next";
+
 import { Timestamp } from 'firebase/firestore';
 import CountrySelect from "react-bootstrap-country-select";
 export default function SignUpSecondForm() {
-    const { t } = useTranslation();
+
     const [errorMessage, setErrorMessage] = useState("");
     const [validate, setValidate] = useState({ firstName: "", lastName: "", password: "", terms: false });
     const terms = useRef(null);
@@ -183,7 +183,7 @@ export default function SignUpSecondForm() {
                                     type="text"
                                     name="firstName"
                                     className="form-control  border-start-0 d-inline"
-                                    placeholder={t("First Name")}
+                                    placeholder="First Name"
                                     aria-label="Input group example"
                                     aria-describedby="basic-addon1"
                                     onInput={getUserData}
@@ -209,7 +209,7 @@ export default function SignUpSecondForm() {
                                     type="text"
                                     name="lastName"
                                     className="form-control border-start-0 d-inline"
-                                    placeholder={t("Last Name")}
+                                    placeholder="Last Name"
                                     aria-label="Input group example"
                                     aria-describedby="basic-addon1"
                                     onInput={getUserData}
@@ -237,7 +237,7 @@ export default function SignUpSecondForm() {
                             type="password"
                             name="password"
                             className="form-control  border-start-0"
-                            placeholder={t("Password")}
+                            placeholder="Password"
                             aria-label="Input group example"
                             aria-describedby="basic-addon1"
                             onInput={getUserData}
@@ -245,7 +245,7 @@ export default function SignUpSecondForm() {
                     </div>
                     <p className='text-danger'>{validate.password}</p>
                     <div>
-                        <h3 className="text-center mt-3">{t("i want to :")}</h3>
+                        <h3 className="text-center mt-3">i want to :</h3>
                         <div
                             className="btn-group d-flex  border-gray rounded"
                             role="group"
@@ -262,7 +262,7 @@ export default function SignUpSecondForm() {
                                 onInput={getUserData}
                             />
                             <label className="btn btn-outline-upwork" htmlFor="btnradio1">
-                                {t("Hire for a project")}
+                                "Hire for a project"
                             </label>
                             <input
                                 type="radio"
@@ -274,7 +274,7 @@ export default function SignUpSecondForm() {
                                 onInput={getUserData}
                             />
                             <label className="btn btn-outline-upwork" htmlFor="btnradio2">
-                                {t("Work as a freelancer")}
+                                "Work as a freelancer"
                             </label>
                         </div>
                     </div>
@@ -293,29 +293,29 @@ export default function SignUpSecondForm() {
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
                             <p className="text-dark">
-                                {t("Yes I understand and agree to the")}
+                                "Yes I understand and agree to the"
                                 <a
                                     className="m-1"
                                     href="https://www.upwork.com/legal#terms"
                                     target="_blank"
                                 >
-                                    {t("Upwork Terms of Service")}
+                                    "Upwork Terms of Service"
                                 </a>
-                                {t(", including the")}
+                                ", including the"
                                 <a
                                     className="m-1"
                                     href="https://www.upwork.com/legal#useragreement"
                                     target="_blank"
                                 >
-                                    {t("User Agreement")}
+                                    "User Agreement"
                                 </a>
-                                {t("and")}
+                                "and"
                                 <a
                                     className="m-1"
                                     href="https://www.upwork.com/legal#privacy"
                                     target="_blank"
                                 >
-                                    {t("Privacy Policy")}
+                                    "Privacy Policy"
                                 </a>
                             </p>
                         </label>
@@ -328,7 +328,7 @@ export default function SignUpSecondForm() {
                             disabled={validate.password != null || validate.firstName || validate.lastName || (usr.userType === "client" && !country) || !validate.terms}
                             onClick={signUpComplete}
                         >
-                            {t("Continue with Email")}
+                            "Continue with Email"
                         </button>
                     </div>
                 </form>

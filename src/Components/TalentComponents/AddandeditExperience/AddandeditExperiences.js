@@ -2,14 +2,14 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { talentDataAction } from "../../../Store/actions/talentData";
-import { useTranslation } from "react-i18next";
+
 
 export default function AddandeditExperience() {
   const user = useSelector((state) => state.talentData);
   const [otherExperienceSubject, setotherExperienceSubject] = useState("");
   const [otherExperienceDescription, setotherExperienceDescription] = useState("");
   const dispatch = useDispatch();
-  const { t } = useTranslation();
+
 
   useEffect(() => {
     dispatch(talentDataAction());
@@ -49,7 +49,7 @@ export default function AddandeditExperience() {
       <div className="container card my-5">
         <div className="row mt-3">
           <div className="col-md-8">
-            <h2 className="mb-3">{t("Other Experiences")}</h2>
+            <h2 className="mb-3">Other Experiences</h2>
           </div>
           <div className="col-md-4 d-flex justify-content-end ">
             <button
@@ -74,7 +74,7 @@ export default function AddandeditExperience() {
           <div className="row">
             {/* soft skills */}
             <div className="col-md-6">
-              <h5>{t("Softskills")}</h5>
+              <h5>Softskills</h5>
               <div>
                 {user?.otherExperience?.map((task, index) => (
                   <div className="row">
@@ -93,7 +93,7 @@ export default function AddandeditExperience() {
                   className="btn btn-link border rounded-border mb-3"
                   style={{ textDecoration: "none", color: "#008329" }}
                 >
-                  {t("more")}
+                  "more"
                 </button>
               </div>
             </div>

@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clientDataAction } from "./../../../Store/actions/clientData";
-import { useTranslation } from "react-i18next";
+
 import { fbAuth, db } from "../../../firebase";
 import { clientJobsAction } from "../../../Store/actions/clientJobAction";
 import "./HomeLayout.css";
@@ -21,7 +21,7 @@ import Loader from "../../SharedComponents/Loader/Loader";
 
 
 export default function HomeLayout() {
-    const { t } = useTranslation();
+
     const user = useSelector(state => state.clientData);
     const jobs = useSelector(state => state.clientJobs);
     const dispatch = useDispatch();
@@ -53,9 +53,9 @@ export default function HomeLayout() {
                                     </div>
                                 </div>
                                 <div className="list-group-item py-lg-4">
-                                    <h4 className="d-inline-block">{t("My Postings")}</h4>
+                                    <h4 className="d-inline-block">My Postings</h4>
                                     <Link to={`${process.env.REACT_APP_BASE_ROUTE}/all-job-posts`} className="float-sm-end mt-0">
-                                        {t("All Posts")}
+                                        "All Posts"
                                     </Link>
                                 </div>
                                 {jobs ? (
@@ -151,7 +151,7 @@ export default function HomeLayout() {
 
                                 <div className="card mt-5">
                                     <div className="card-body">
-                                        <h5 className="card-title">{t("How it works")}</h5>
+                                        <h5 className="card-title">How it works</h5>
                                     </div>
                                     <ul className="list-group list-group-flush">
                                         <li className="list-group-item d-flex">
@@ -161,11 +161,11 @@ export default function HomeLayout() {
                                             <div className="col-6">
                                                 <div className="media-body">
                                                     <h4 className="m-0-top-bottom">
-                                                        {t("1. Post a job to get free quotes")}
+                                                        "1. Post a job to get free quotes"
                                                     </h4>
                                                     <p className="m-xs-top-bottom">
-                                                        {t(
-                                                            "Write a clear, detailed description of your job to share with qualified freelancers. Start receiving proposals in less than 24 hours"
+
+                                                        "Write a clear, detailed description of your job to share with qualified freelancers. Start receiving proposals in less than 24 hours"
                                                         )}
                                                         .
                                                     </p>
@@ -174,7 +174,7 @@ export default function HomeLayout() {
                                                         target="_blank"
                                                         rel="noreferrer"
                                                     >
-                                                        {t("View great job post examples")}
+                                                        "View great job post examples"
                                                     </a>
                                                 </div>
                                             </div>
@@ -186,11 +186,11 @@ export default function HomeLayout() {
                                             <div className="col-6">
                                                 <div className="media-body">
                                                     <h4 className="m-0-top-bottom">
-                                                        {t("2. Evaluate freelancers and hire")}
+                                                        "2. Evaluate freelancers and hire"
                                                     </h4>
                                                     <p className="m-xs-top-bottom">
-                                                        {t(
-                                                            "Review proposals or invite qualified freelancers to your project. Quickly chat live or video call with favorites, and offer a contract to the best match."
+
+                                                        "Review proposals or invite qualified freelancers to your project. Quickly chat live or video call with favorites, and offer a contract to the best match."
                                                         )}
                                                     </p>
                                                     <a
@@ -198,7 +198,7 @@ export default function HomeLayout() {
                                                         target="_blank"
                                                         rel="noreferrer"
                                                     >
-                                                        {t("Review tips on finding talent")}
+                                                        "Review tips on finding talent"
                                                     </a>
                                                     <br />
                                                     <a
@@ -206,10 +206,10 @@ export default function HomeLayout() {
                                                         target="_blank"
                                                         rel="noreferrer"
                                                     >
-                                                        {t("Prepare to interview freelancers")}
+                                                        "Prepare to interview freelancers"
                                                     </a>
                                                     <div className="ng-hide">
-                                                        <a href="#">{t("Contact your Talent Specialist")}</a>
+                                                        <a href="#">Contact your Talent Specialist</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -221,19 +221,19 @@ export default function HomeLayout() {
                                             <div className="col-6">
                                                 <div className="media-body">
                                                     <h4 className="m-0-top-bottom">
-                                                        {t("3. Work together")}
+                                                        "3. Work together"
                                                     </h4>
                                                     <p className="m-xs-top-bottom">
-                                                        {t("Use")}{" "}
+                                                        "Use"{" "}
                                                         <a
                                                             href="https://www.upwork.com/hiring/for-clients/upwork-messages-your-one-stop-collaboration-tool/"
                                                             target="_blank"
                                                             rel="noreferrer"
                                                         >
-                                                            {t("Upwork Messages")}
+                                                            "Upwork Messages"
                                                         </a>{" "}
-                                                        {t(
-                                                            "to securely chat, share files, and collaborate on projects. View progress against project goals with the"
+
+                                                        "to securely chat, share files, and collaborate on projects. View progress against project goals with the"
                                                         )}
                                                         <a
                                                             href="https://www.upwork.com/hiring/for-clients/whats-the-work-diary-and-why-to-use-it/"
@@ -241,16 +241,16 @@ export default function HomeLayout() {
                                                             rel="noreferrer"
                                                         >
                                                             {" "}
-                                                            {t("Work Diary")}
+                                                            "Work Diary"
                                                         </a>{" "}
-                                                        {t("tool")} .
+                                                        "tool" .
                                                     </p>
                                                     <a
                                                         href="https://www.upwork.com/i/trust-safety-mission//#/clients"
                                                         target="_blank"
                                                         rel="noreferrer"
                                                     >
-                                                        {t("See tips for staying safe on Upwork")}
+                                                        "See tips for staying safe on Upwork"
                                                     </a>
                                                 </div>
                                             </div>
@@ -262,27 +262,27 @@ export default function HomeLayout() {
                                             <div className="col-6">
                                                 <div className="media-body">
                                                     <h4 className="m-0-top-bottom">
-                                                        {t("4. Pay and invoice through Upwork")}
+                                                        "4. Pay and invoice through Upwork"
                                                     </h4>
                                                     <p className="m-xs-top-bottom">
-                                                        {t(
-                                                            "Get invoices and make payments after reviewing time billed or approving milestones. With"
+
+                                                        "Get invoices and make payments after reviewing time billed or approving milestones. With"
                                                         )}
                                                         <a
                                                             href="https://www.upwork.com/hiring/for-clients/how-to-manage-your-first-project-with-upwork-payment-protection/"
                                                             target="_blank"
                                                             rel="noreferrer"
                                                         >
-                                                            {t("Upwork Payment Protection")}
+                                                            "Upwork Payment Protection"
                                                         </a>
-                                                        , {t("only pay for work you authorize")} .
+                                                        , "only pay for work you authorize" .
                                                     </p>
                                                     <a
                                                         href="https://www.upwork.com/i/pricing/"
                                                         target="_blank"
                                                         rel="noreferrer"
                                                     >
-                                                        {t("Learn about Upwork pricing")}
+                                                        "Learn about Upwork pricing"
                                                     </a>
                                                     <br />
                                                     <a
@@ -290,17 +290,17 @@ export default function HomeLayout() {
                                                         target="_blank"
                                                         rel="noreferrer"
                                                     >
-                                                        {t("Determine how much to pay freelancers")}
+                                                        "Determine how much to pay freelancers"
                                                     </a>
                                                 </div>
                                             </div>
                                         </li>{" "}
                                     </ul>
                                     <div className="card-body">
-                                        <h4 className="card-link">{t("Question?")}</h4>
+                                        <h4 className="card-link">Question?</h4>
                                         <p>
-                                            {t("Visit")} <a className="card-link">{t("help center")}</a>{" "}
-                                            {t("to contact")}
+                                            "Visit" <a className="card-link">help center</a>{" "}
+                                            "to contact"
                                         </p>
                                     </div>
                                 </div>
@@ -308,7 +308,7 @@ export default function HomeLayout() {
                             <div className="col d-none d-lg-block">
                                 <div className="my-lg-1">
                                     <Link to={`${process.env.REACT_APP_BASE_ROUTE}/post-job`} className="btn bg-upwork">
-                                        {t("Post a job")}
+                                        "Post a job"
                                     </Link>
                                 </div>
 
@@ -341,7 +341,7 @@ export default function HomeLayout() {
                                                         className="carousel-control-prev-icon"
                                                         aria-hidden="true"
                                                     ></span>
-                                                    <span className="visually-hidden">{t("Previous")}</span>
+                                                    <span className="visually-hidden">Previous</span>
                                                 </button>
                                                 <button
                                                     className="carousel-control-next"
@@ -353,17 +353,17 @@ export default function HomeLayout() {
                                                         className="carousel-control-next-icon"
                                                         aria-hidden="true"
                                                     ></span>
-                                                    <span className="visually-hidden">{t("Next")}</span>
+                                                    <span className="visually-hidden">Next</span>
                                                 </button>
                                             </div>
                                         </div>
                                         <div className="card-body">
-                                            <h5 className="card-title">{t("Web Design")}</h5>
+                                            <h5 className="card-title">Web Design</h5>
                                             <p className="card-text">
-                                                {t("You think you might like help")}
+                                                "You think you might like help"
                                             </p>
                                             <a href="#" className="btn bg-upwork ">
-                                                {t("learn More")}
+                                                "learn More"
                                             </a>
                                         </div>
                                     </div>

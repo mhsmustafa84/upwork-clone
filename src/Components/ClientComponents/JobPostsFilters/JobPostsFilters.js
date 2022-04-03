@@ -1,18 +1,18 @@
 import React from "react";
 import "./JobPostsFilters.css";
-import { useTranslation } from "react-i18next";
+
 
 export default function JobPostsFilters() {
-  const { t } = useTranslation();
+
   return (
     <div>
       <table className="table table-borderless">
         <thead>
           <tr>
-            <th scope="col">{t("Posted by")}</th>
-            <th scope="col">{t("Visibility")}</th>
-            <th scope="col">{t("Status")}</th>
-            <th scope="col">{t("Type")}</th>
+            <th scope="col">Posted by</th>
+            <th scope="col">Visibility</th>
+            <th scope="col">Status</th>
+            <th scope="col">Type</th>
           </tr>
         </thead>
         <tbody>
@@ -23,8 +23,8 @@ export default function JobPostsFilters() {
                   className="form-select border border-secondary text-dark  btn-outline-light "
                   id="inputGroupSelect01"
                 >
-                  <option selected>{t("All cowworkers")}</option>
-                  <option value={1}> {t("Me")}</option>
+                  <option selected>All cowworkers</option>
+                  <option value={1}> "Me</option>
                 </select>
               </div>
             </td>
@@ -37,7 +37,7 @@ export default function JobPostsFilters() {
                   id="flexRadioDefault1"
                 />
                 <label className="form-check-label" htmlFor="flexRadioDefault1">
-                  {t("All")}
+                  "All"
                 </label>
               </div>
             </td>
@@ -50,7 +50,7 @@ export default function JobPostsFilters() {
                   id="flexCheckDefault"
                 />
                 <label className="form-check-label" htmlFor="flexCheckDefault">
-                  {t("All")}
+                  "All"
                 </label>
               </div>
             </td>
@@ -63,7 +63,7 @@ export default function JobPostsFilters() {
                   id="flexRadioDefault1"
                 />
                 <label className="form-check-label" htmlFor="flexRadioDefault1">
-                  {t("All")}
+                  "All"
                 </label>
               </div>
             </td>
@@ -79,7 +79,7 @@ export default function JobPostsFilters() {
                   id="flexRadioDefault1"
                 />
                 <label className="form-check-label" htmlFor="flexRadioDefault1">
-                  {t("Invite-only")}
+                  "Invite-only"
                 </label>
               </div>
             </td>
@@ -92,7 +92,7 @@ export default function JobPostsFilters() {
                   id="flexCheckDefault"
                 />
                 <label className="form-check-label" htmlFor="flexCheckDefault">
-                  {t("Drafts")}
+                  "Drafts"
                 </label>
               </div>
             </td>
@@ -105,7 +105,7 @@ export default function JobPostsFilters() {
                   id="flexRadioDefault1"
                 />
                 <label className="form-check-label" htmlFor="flexRadioDefault1">
-                  {t("Fixed-Price")}
+                  "Fixed-Price"
                 </label>
               </div>
             </td>
@@ -121,7 +121,7 @@ export default function JobPostsFilters() {
                   id="flexRadioDefault1"
                 />
                 <label className="form-check-label" htmlFor="flexRadioDefault1">
-                  {t("Public")}
+                  "Public"
                 </label>
               </div>
             </td>
@@ -134,7 +134,7 @@ export default function JobPostsFilters() {
                   id="flexCheckDefault"
                 />
                 <label className="form-check-label" htmlFor="flexCheckDefault">
-                  {t("Open")}
+                  "Open"
                 </label>
               </div>
             </td>
@@ -147,7 +147,7 @@ export default function JobPostsFilters() {
                   id="flexRadioDefault1"
                 />
                 <label className="form-check-label" htmlFor="flexRadioDefault1">
-                  {t("Hourly")}
+                  "Hourly"
                 </label>
               </div>
             </td>
@@ -155,7 +155,7 @@ export default function JobPostsFilters() {
         </tbody>
       </table>
       <button type="button" className="btn btn-success">
-        {t("Close Filters")}
+        "Close Filters"
       </button>
     </div>
   );

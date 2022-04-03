@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { useTranslation } from 'react-i18next';
+    ;
 import { Link } from 'react-router-dom'
 import { updateJob } from '../../../Network/Network';
 import './PostJobBudget.css'
 
 export default function PostJobBudget({ setBtns, btns }) {
-    const { t } = useTranslation();
+
     const [job, setJob] = useState({ jobPaymentType: "", jobBudget: "" });
 
     const getData = (e) => {
@@ -38,12 +38,12 @@ export default function PostJobBudget({ setBtns, btns }) {
         <>
             <section className=" bg-white border rounded mt-3 pt-4">
                 <div className="border-bottom ps-4">
-                    <h4>{t("Budget")}</h4>
-                    <p>{t("Step 6 of 7")}</p>
+                    <h4>Budget</h4>
+                    <p>Step 6 of 7</p>
                 </div>
                 <div className="px-4 mt-3">
                     <p className="fw-bold mt-2">
-                        {t("How would you like to pay your freelancer or agency?")}
+                        "How would you like to pay your freelancer or agency?"
                     </p>
                     <div
                         className="my-4 d-flex justify-content-between w-75"
@@ -59,8 +59,8 @@ export default function PostJobBudget({ setBtns, btns }) {
                             <div>
                                 <i className="fas fa-stopwatch mt-4"></i>
                             </div>
-                            <h6 className="my-3">{t("Pay by the hour")}</h6>
-                            <div>{t("Pay hourly to easily scale up and down.")}</div>
+                            <h6 className="my-3">Pay by the hour</h6>
+                            <div>Pay hourly to easily scale up and down.</div>
                         </label>
                         <label className="border border-success rounded p-3 text-center mx-3 w-50">
                             <input
@@ -72,10 +72,10 @@ export default function PostJobBudget({ setBtns, btns }) {
                             <div>
                                 <i className="fas fa-file-invoice-dollar mt-4"></i>
                             </div>
-                            <h6 className="my-3">{t("Pay a fixed price")}</h6>
+                            <h6 className="my-3">Pay a fixed price</h6>
                             <div>
-                                {t(
-                                    "Define payment before work begins and pay only when work is delivered."
+
+                                "Define payment before work begins and pay only when work is delivered."
                                 )}
                             </div>
                         </label>
@@ -84,7 +84,7 @@ export default function PostJobBudget({ setBtns, btns }) {
                 {job.jobPaymentType === "Fixed Price" ? (
                     <div className="px-4 my-3">
                         <p className="fw-bold mt-2">
-                            {t("Do you have a specific budget?")}
+                            "Do you have a specific budget?"
                         </p>
                         <div className="me-5 mt-2 position-relative jd-inp-cn w-25">
                             <div className="position-absolute">
@@ -102,7 +102,7 @@ export default function PostJobBudget({ setBtns, btns }) {
                 ) : (
                     job.jobPaymentType === "Hourly" && (
                         <div className="px-4 my-3">
-                            <p className="fw-bold mt-2">{t("Set your own hourly rate")}</p>
+                            <p className="fw-bold mt-2">Set your own hourly rate</p>
                             <div className="me-5 mt-2 position-relative jd-inp-cn w-25">
                                 <div className="position-absolute">
                                     <i className="fas fa-dollar-sign"></i>
@@ -124,10 +124,10 @@ export default function PostJobBudget({ setBtns, btns }) {
             <section className="bg-white border rounded mt-3">
                 <div className="ps-4 my-3">
                     <button className="btn">
-                        <Link className="btn border text-success me-4 px-5" to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/visibility`}>{t("Back")}</Link>
+                        <Link className="btn border text-success me-4 px-5" to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/visibility`}>Back</Link>
                     </button>
                     <button className={`btn ${job.jobPaymentType === "" || job.jobBudget === "" || job.jobBudget === "0" ? "disabled" : ""}`}>
-                        <Link className="btn bg-upwork px-5" to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/review`} onClick={addData}>{t("Next")}</Link>
+                        <Link className="btn bg-upwork px-5" to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/review`} onClick={addData}>Next</Link>
                     </button>
                 </div>
             </section>

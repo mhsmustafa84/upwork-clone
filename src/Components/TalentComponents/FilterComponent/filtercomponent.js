@@ -1,9 +1,9 @@
 /* eslint-disable */
 import React from "react";
-import { useTranslation } from "react-i18next";
+
 
 export default function Fillter({ headers }) {
-  const { t } = useTranslation();
+
   return (
     <div>
       <p>
@@ -26,7 +26,7 @@ export default function Fillter({ headers }) {
           >
             <path d="M11.91 2.48a3.18 3.18 0 00-6 0H0v2h5.86a3.18 3.18 0 006.05 0H14v-2zM5.39 7.32a3.2 3.2 0 00-3.1 2.45H0v2h2.45a3.2 3.2 0 005.88 0H14v-2H8.49a3.2 3.2 0 00-3.1-2.45z"></path>
           </svg>
-          <span>{t("Filters")}</span>
+          <span>Filters</span>
         </button>
       </p>
       <div className="collapse" id="collapseExample">
@@ -41,12 +41,12 @@ export default function Fillter({ headers }) {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  {t("search by transaction")}
+                  "search by transaction"
                 </button>
                 <ul
                   className="dropdown-menu fw-bold "
                   aria-labelledby="dropdownMenuButton2"
-                  //   style={{ width: "100%" }}
+                //   style={{ width: "100%" }}
                 >
                   <li>
                     <i
@@ -67,38 +67,38 @@ export default function Fillter({ headers }) {
                   </li>
                   <li className="fw-bold">
                     <a className="dropdown-item " link to="#">
-                      {t("All Transactions")}
+                      "All Transactions"
                     </a>
                   </li>
                   <li className="fw-bold">
                     <a className="dropdown-item" link to="#">
-                      {t("All Credits")}
+                      "All Credits"
                     </a>
                   </li>
                   <li className="fw-bold">
                     <a className="dropdown-item" link to="#">
-                      {t("All debits")}
+                      "All debits"
                     </a>
                   </li>
                   <li className="fw-bold">
                     <a className="dropdown-item" link to="#">
-                      {t("Hourly")}
+                      "Hourly"
                     </a>
                   </li>
                   <li className="fw-bold">
                     <a className="dropdown-item" link to="#">
-                      {t("Fixed Price")}
+                      "Fixed Price"
                     </a>
                   </li>
                   <li className="fw-bold">
                     <a className="dropdown-item" link to="#">
-                      {t("Bonus")}
+                      "Bonus"
                     </a>
                   </li>
-                  
+
                   <li className="fw-bold">
                     <a className="dropdown-item" link to="#">
-                      {t("Expense")}
+                      "Expense"
                     </a>
                   </li>
                 </ul>
@@ -135,13 +135,13 @@ export default function Fillter({ headers }) {
                       type="search"
                       id="form1"
                       className="form-control"
-                      //   style={{ width: "100%" }}
+                    //   style={{ width: "100%" }}
                     />
                   </li>
 
                   <li className="fw-bold">
                     <a className="dropdown-item " link to="#">
-                      {t("All clients")}
+                      "All clients"
                     </a>
                   </li>
                 </ul>

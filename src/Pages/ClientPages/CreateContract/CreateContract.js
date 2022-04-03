@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
-import { useTranslation } from 'react-i18next';
+    ;
 import { useNavigate } from 'react-router';
 import { fbAuth, db } from '../../../firebase';
 import { subCollection } from '../../../Network/Network';
@@ -8,7 +8,7 @@ import { Timestamp } from 'firebase/firestore';
 
 export default function CreateContract({ location }) {
     const { jobID, talentID } = location.state;
-    const { t } = useTranslation();
+
     const [contract, setContract] = useState({ jobPaymentType: "", jobBudget: "", dueDate: "" });
     const [job, setJob] = useState();
     const [edit, setEdit] = useState({ budget: false, paymentType: false });
@@ -149,8 +149,8 @@ export default function CreateContract({ location }) {
                                     <div>
                                         <i className="fas fa-stopwatch mt-4"></i>
                                     </div>
-                                    <h6 className="my-3">{t("Pay by the hour")}</h6>
-                                    <div>{t("Pay hourly to easily scale up and down.")}</div>
+                                    <h6 className="my-3">Pay by the hour</h6>
+                                    <div>Pay hourly to easily scale up and down.</div>
                                 </label>
                                 <label className="border border-success rounded p-3 text-center mx-3 w-50">
                                     <input
@@ -162,10 +162,10 @@ export default function CreateContract({ location }) {
                                     <div>
                                         <i className="fas fa-file-invoice-dollar mt-4"></i>
                                     </div>
-                                    <h6 className="my-3">{t("Pay a fixed price")}</h6>
+                                    <h6 className="my-3">Pay a fixed price</h6>
                                     <div>
-                                        {t(
-                                            "Define payment before work begins and pay only when work is delivered."
+
+                                        "Define payment before work begins and pay only when work is delivered."
                                         )}
                                     </div>
                                 </label>

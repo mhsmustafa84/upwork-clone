@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import img from "../../../assets/svg/createProfileSubmit.svg";
 import { useEffect } from "react";
 import { talentDataAction } from './../../../Store/actions/talentData';
-import { useTranslation } from "react-i18next";
+
 
 
 
 export default function CreateProfileSubmit() {
   const lang = useSelector(state => state.lang);
-  const { t } = useTranslation();
+
 
   const user = useSelector(state => state.talentData);
   const dispatch = useDispatch()
@@ -33,7 +33,7 @@ export default function CreateProfileSubmit() {
             <p className="my-4">
               Make any necessary edits and then submit your profile. You can
               still edit it after you submit it.
-              </p>
+            </p>
           </div>
           <div className="col-md-3 text-center">
             <img src={img} className="w-50" alt="" />
@@ -97,24 +97,24 @@ export default function CreateProfileSubmit() {
                 <p>{user.location?.country + ", "} <strong>{user.location?.city}</strong></p>
               </div>
               <div className="mt-5">
-              <h4 className="fw-bold">{t("Languages")}</h4>
-                  <p>{t("English")} {" : "} {lang === "ar" ? user.englishProficiencyAr : user.englishProficiency}</p>
-                  {user?.otherLanguages?.map(langItem => <p>
-                    {lang === "ar" ? [langItem.languageAr, ' ', ':', ' ', langItem.langProfAr] : [langItem.language, ' ', ':', ' ', langItem.langProf]}
-                  </p>)}
+                <h4 className="fw-bold">Languages</h4>
+                <p>English" {" : "} {lang === "ar" ? user.englishProficiencyAr : user.englishProficiency}</p>
+                {user?.otherLanguages?.map(langItem => <p>
+                  {lang === "ar" ? [langItem.languageAr, ' ', ':', ' ', langItem.langProfAr] : [langItem.language, ' ', ':', ' ', langItem.langProf]}
+                </p>)}
               </div>
               <div className="border-top pt-5">
                 <h5>
                   <span className="text-muted">Hourly rate: </span>
-                  {t("$")} {user?.hourlyRate} \ {t("hr")}
+                  "$" {user?.hourlyRate} \ "hr"
                 </h5>
                 <h5 className="my-3">
                   <span className="text-muted">Category: </span>
-                  {lang === "ar"?user.jobCategoryAr : user.jobCategory}
+                  {lang === "ar" ? user.jobCategoryAr : user.jobCategory}
                 </h5>
                 <h5 className="my-">
                   <span className="text-muted">Experience level: </span>
-                  {lang === "ar"?user.expertiseLevelAr : user.expertiseLevel}
+                  {lang === "ar" ? user.expertiseLevelAr : user.expertiseLevel}
                 </h5>
               </div>
             </div>

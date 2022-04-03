@@ -3,7 +3,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { talentDataAction } from "../../../Store/actions/talentData";
-import { useTranslation } from "react-i18next";
+
 
 export default function AddandeditEmployementHistory() {
   const user = useSelector((state) => state.talentData);
@@ -18,7 +18,7 @@ export default function AddandeditEmployementHistory() {
     dispatch(talentDataAction());
   }, [user]);
 
-  const { t } = useTranslation();
+
   const EditEmploymentHistoryonChange = (e) => {
     const val = e.target.value;
     const name = e.target.name;
@@ -60,7 +60,7 @@ export default function AddandeditEmployementHistory() {
       <div className="container card mb-3 mt-5">
         <div className="row mt-3">
           <div className="col">
-            <h2 className="mb-3">{t("Employment history")}</h2>
+            <h2 className="mb-3">Employment history</h2>
           </div>
           <div className="col d-flex justify-content-end">
             {/* <button
@@ -97,7 +97,7 @@ export default function AddandeditEmployementHistory() {
                 className="btn btn-link mb-3 border rounded-border"
                 style={{ textDecoration: "none", color: "#008329" }}
               >
-                {t("more")}
+                "more"
               </button> */}
             </div>
             {/* icons */}
@@ -207,9 +207,9 @@ export default function AddandeditEmployementHistory() {
 
                     />
 
-                      I currently worked here
+                    I currently worked here
 
-                    </div>
+                  </div>
 
                 </div>
 

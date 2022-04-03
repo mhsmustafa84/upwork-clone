@@ -3,7 +3,7 @@
 import { useParams } from "react-router";
 import JobDescriptionJobDetails from "../../../Components/TalentComponents/JobDescriptionJobDetails/JobDescriptionJobDetails";
 import RightSidebarJobDetails from "../../../Components/TalentComponents/RightSidebarJobDetails/RightSidebarJobDetails";
-import { useTranslation } from "react-i18next";
+
 import { useEffect, useState } from "react";
 import { db } from "../../../firebase";
 import Loader from "../../../Components/SharedComponents/Loader/Loader";
@@ -25,7 +25,7 @@ export default function JobDetailsTalent() {
         })
     }, [])
 
-    const { t } = useTranslation();
+
 
     return (
         <>
@@ -37,7 +37,7 @@ export default function JobDetailsTalent() {
                                 user.accepted === false &&
                                 <AcceptedAlert widthh="100%" />
                             }
-                            <h3 className="mt-4">{t("Job details")}</h3>
+                            <h3 className="mt-4">Job details</h3>
                         </div>
                         <div className="row">
                             <JobDescriptionJobDetails job={jobData} />

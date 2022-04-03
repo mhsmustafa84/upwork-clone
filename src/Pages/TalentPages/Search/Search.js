@@ -4,7 +4,7 @@
 
 import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+
 import { SearchContext } from "../../../Context/SearchContext";
 import SearchBarJobsTalent from "../../../Components/TalentComponents/SearchBarJobsTalent/SearchBarJobsTalent";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,7 +17,7 @@ import SearchIcon from "../../../Components/SVG/SearchIcon";
 
 
 export default function Search(props) {
-    const { t } = useTranslation();
+
     const lang = useSelector(state => state.lang);
     const user = useSelector((state) => state.talentData);
     const dispatch = useDispatch();
@@ -97,7 +97,7 @@ export default function Search(props) {
                 <div className="col">
 
                     <h6 className="mb-lg-2 display-inline-block mt-lg-3 fw-bold">
-                        {t("Experiencelevel")}
+                        "Experiencelevel"
                     </h6>
                     <div className="form-check py-2 my-0">
                         <input
@@ -109,7 +109,7 @@ export default function Search(props) {
                             onChange={handleLevel}
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
-                            {t("EntryLevel")}
+                            "EntryLevel"
                         </label>
                     </div>
                     <div className="form-check py-2 my-0">
@@ -122,7 +122,7 @@ export default function Search(props) {
                             onChange={handleLevel}
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
-                            {t("Intermediate")}
+                            "Intermediate"
                         </label>
                     </div>
                     <div className="form-check py-2 my-0">
@@ -135,16 +135,16 @@ export default function Search(props) {
                             onChange={handleLevel}
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
-                            {t("Expert")}
+                            "Expert"
                         </label>
                     </div>
                     <hr />
                 </div>
                 <div className="col d-none">
-                    <h5 className="mb-lg-4 display-inline-block">{t("FilterBy")}</h5>
+                    <h5 className="mb-lg-4 display-inline-block">FilterBy</h5>
                     <hr />
                     <h6 className="mb-lg-2 display-inline-block mt-lg-2 fw-bold">
-                        {t("Category")}
+                        "Category"
                     </h6>
                     <ul
                         className="list-group sidebar-homebage-ul mb-lg-3 "
@@ -159,7 +159,7 @@ export default function Search(props) {
                                 className=" list-group-item-action advanced-search-link"
                                 aria-current="true"
                             >
-                                {t("EcommerceDevelopment")}
+                                "EcommerceDevelopment"
                             </a>{" "}
                         </li>
                         <li
@@ -171,7 +171,7 @@ export default function Search(props) {
                                 className=" list-group-item-action advanced-search-link"
                                 aria-current="true"
                             >
-                                {t("EcommerceDevelopment")}
+                                "EcommerceDevelopment"
                             </a>{" "}
                         </li>
                     </ul>
@@ -188,7 +188,7 @@ export default function Search(props) {
                                 id="flexRadioDefault1"
                             />
                             <label className="form-check-label" htmlFor="flexRadioDefault1">
-                                {t("All")}
+                                "All"
                             </label>
                         </div>
                         <div className="form-check py-2 my-0">
@@ -199,7 +199,7 @@ export default function Search(props) {
                                 id="flexRadioDefault1"
                             />
                             <label className="form-check-label" htmlFor="flexRadioDefault1">
-                                {t("Singlefreelancer")}
+                                "Singlefreelancer"
                             </label>
                         </div>
                         <div className="form-check py-2 my-0">
@@ -210,13 +210,13 @@ export default function Search(props) {
                                 id="flexRadioDefault1"
                             />
                             <label className="form-check-label" htmlFor="flexRadioDefault1">
-                                {t("Multiplefreelancers")}
+                                "Multiplefreelancers"
                             </label>
                         </div>
                     </div>
                     <hr />
                     <h6 className="mb-lg-2 display-inline-block mt-lg-3 fw-bold">
-                        {t("Experiencelevel")}
+                        "Experiencelevel"
                     </h6>
                     <div className="form-check py-2 my-0">
                         <input
@@ -228,7 +228,7 @@ export default function Search(props) {
                             onChange={handleLevel}
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
-                            {t("EntryLevel")}
+                            "EntryLevel"
                         </label>
                     </div>
                     <div className="form-check py-2 my-0">
@@ -241,7 +241,7 @@ export default function Search(props) {
                             onChange={handleLevel}
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
-                            {t("Intermediate")}
+                            "Intermediate"
                         </label>
                     </div>
                     <div className="form-check py-2 my-0">
@@ -254,13 +254,13 @@ export default function Search(props) {
                             onChange={handleLevel}
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
-                            {t("Expert")}
+                            "Expert"
                         </label>
                     </div>
                     <hr />
 
                     <h6 className="mb-lg-2 display-inline-block mt-lg-3 fw-bold">
-                        {t("JobType")}
+                        "JobType"
                     </h6>
                     <div className="form-check py-2 my-0">
                         <input
@@ -270,7 +270,7 @@ export default function Search(props) {
                             id="flexCheckDefault"
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
-                            {t("Hourly")}
+                            "Hourly"
                         </label>
                     </div>
                     <div className="form-check py-2 my-0">
@@ -281,12 +281,12 @@ export default function Search(props) {
                             id="flexCheckDefault"
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
-                            {t("Fixedprice")}
+                            "Fixedprice"
                         </label>
                     </div>
                     <hr />
                     <h6 className="mb-lg-2 display-inline-block mt-lg-3 fw-bold">
-                        {t("NumberofProposals")}
+                        "NumberofProposals"
                     </h6>
                     <div className="form-check py-2 my-0">
                         <input
@@ -296,7 +296,7 @@ export default function Search(props) {
                             id="flexCheckDefault"
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
-                            {t("Lessthan5")}
+                            "Lessthan5"
                         </label>
                     </div>
                     <div className="form-check py-2 my-0">
@@ -307,7 +307,7 @@ export default function Search(props) {
                             id="flexCheckDefault"
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
-                            {t("5to10")}
+                            "5to10"
                         </label>
                     </div>
                     <div className="form-check py-2 my-0">
@@ -318,7 +318,7 @@ export default function Search(props) {
                             id="flexCheckDefault"
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
-                            {t("10to15")}
+                            "10to15"
                         </label>
                     </div>
                     <div className="form-check py-2 my-0">
@@ -329,7 +329,7 @@ export default function Search(props) {
                             id="flexCheckDefault"
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
-                            {t("15to20")}
+                            "15to20"
                         </label>
                     </div>
                     <div className="form-check py-2 my-0">
@@ -340,12 +340,12 @@ export default function Search(props) {
                             id="flexCheckDefault"
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
-                            {t("20to50")}
+                            "20to50"
                         </label>
                     </div>
                     <hr />
                     <h6 className="mb-lg-2 display-inline-block mt-lg-3 fw-bold">
-                        {t("ClientInfo")}
+                        "ClientInfo"
                     </h6>
                     <div className="form-check py-2 my-0">
                         <input
@@ -355,7 +355,7 @@ export default function Search(props) {
                             id="flexCheckDefault"
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
-                            {t("MyPreviousClients")}
+                            "MyPreviousClients"
                         </label>
                     </div>
                     <div className="form-check py-2 my-0">
@@ -366,27 +366,27 @@ export default function Search(props) {
                             id="flexCheckDefault"
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
-                            {t("PaymentVerified")}
+                            "PaymentVerified"
                         </label>
                     </div>
                     <hr />
 
                     <h6 className="mb-lg-2 display-inline-block mt-lg-2 fw-bold">
-                        {t("ClientLocation")}
+                        "ClientLocation"
                     </h6>
                     <div className="input-group rounded-3">
                         <select
                             className="form-select border border-secondary text-dark  btn-outline-light "
                             id="inputGroupSelect01"
                         >
-                            <option selected>{t("SelectClientLocation")}</option>
-                            <option value={1}> {t("Egypt")}</option>
-                            <option value={2}> {t("USA")}</option>
+                            <option selected>SelectClientLocation</option>
+                            <option value={1}> "Egypt</option>
+                            <option value={2}> "USA</option>
                         </select>
                     </div>
 
                     <h6 className="mb-lg-2 display-inline-block mt-lg-3 fw-bold">
-                        {t("ProjectLength")}
+                        "ProjectLength"
                     </h6>
                     <div className="form-check py-2 my-0">
                         <input
@@ -396,7 +396,7 @@ export default function Search(props) {
                             id="flexCheckDefault"
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
-                            {t("Lessthan1month")}
+                            "Lessthan1month"
                         </label>
                     </div>
                     <div className="form-check py-2 my-0">
@@ -407,7 +407,7 @@ export default function Search(props) {
                             id="flexCheckDefault"
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
-                            {t("1to3months")}
+                            "1to3months"
                         </label>
                     </div>
                     <div className="form-check py-2 my-0">
@@ -418,7 +418,7 @@ export default function Search(props) {
                             id="flexCheckDefault"
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
-                            {t("3to6months")}
+                            "3to6months"
                         </label>
                     </div>
                     <div className="form-check py-2 my-0">
@@ -429,7 +429,7 @@ export default function Search(props) {
                             id="flexCheckDefault"
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
-                            {t("Morethan6months")}
+                            "Morethan6months"
                         </label>
                     </div>
                     <hr />
@@ -444,7 +444,7 @@ export default function Search(props) {
                             id="flexCheckDefault"
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
-                            {t("Lessthan30hrsweek")}
+                            "Lessthan30hrsweek"
                         </label>
                     </div>
                     <div className="form-check py-2 my-0">
@@ -455,7 +455,7 @@ export default function Search(props) {
                             id="flexCheckDefault"
                         />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
-                            {t("Morethan30hrsweek")}
+                            "Morethan30hrsweek"
                         </label>
                     </div>
                 </div>
@@ -476,7 +476,7 @@ export default function Search(props) {
                                             className=" list-group-item-action saved-homebage-ul-li-aa active activesidesaved bg-white"
                                             aria-current="true"
                                         >
-                                            {t("SEARCH")}
+                                            "SEARCH"
                                         </a>
                                     </Link>
                                 </li>
@@ -490,7 +490,7 @@ export default function Search(props) {
                                             className=" list-group-item-action saved-homebage-ul-li-aa bg-white"
                                             aria-current="true"
                                         >
-                                            {t("SAVEDJOBS")}({user?.savedJobs?.length})
+                                            "SAVEDJOBS"({user?.savedJobs?.length})
                                         </a>
                                     </Link>
                                 </li>

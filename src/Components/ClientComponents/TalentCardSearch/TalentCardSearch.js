@@ -1,6 +1,6 @@
 
 import React, { useContext, useEffect } from "react";
-import { useTranslation } from "react-i18next";
+
 import ImgWithActiveStatus from "./../../../Components/ClientComponents/ImgWithActiveStatus/ImgWithActiveStatus";
 import { useDispatch, useSelector } from "react-redux";
 import { talentDataAction } from "../../../Store/actions/talentData";

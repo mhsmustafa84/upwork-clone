@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect } from "react";
-import { useTranslation } from "react-i18next";
+
 import MyJobsActiveContractFixed from '../../../Components/TalentComponents/MyJobsActiveContractFixed/MyJobsActiveContractFixed';
 import MyJobsActiveContractHourly from '../../../Components/TalentComponents/MyJobsActiveContractHourly/MyJobsActiveContractHourly';
 import { Link } from "react-router-dom";
@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 
 export default function MyJobs() {
     const user = useSelector((state) => state.talentData);
-    const { t } = useTranslation();
+
     useEffect(() => {
 
     }, [])
@@ -18,9 +18,9 @@ export default function MyJobs() {
                 <div className="container">
                     <div className="row">
                         <div className="col-12 my-5 d-flex">
-                            <h3 style={{ fontWeight: "bold" }}>{t("My jobs")}</h3>
+                            <h3 style={{ fontWeight: "bold" }}>My jobs</h3>
                             <h3 className="ms-auto bold">
-                                {t("Earnings available now")}:
+                                "Earnings available now":
                                 <a href="#">${user?.totalEarnings}</a>
                             </h3>
                         </div>
@@ -30,7 +30,7 @@ export default function MyJobs() {
                   <span className="circle">
                     <i className="fas fa-exclamation dangericon pt-2" />
                   </span>
-                  {t("Currently you have no active jobs")}
+                  "Currently you have no active jobs"
                 </span>
               </div> */}
                             <MyJobsActiveContractFixed />

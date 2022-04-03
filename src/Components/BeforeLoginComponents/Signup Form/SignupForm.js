@@ -3,12 +3,12 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { signUpAction } from '../../../Store/actions/signUp';
-import { useTranslation } from "react-i18next";
+
 
 const EMAIL_REG = /^([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 
 export default function SignupForm() {
-    const { t } = useTranslation();
+
 
     const [emailError, setEmailErorr] = useState("");
     let navigate = useNavigate();
@@ -37,7 +37,7 @@ export default function SignupForm() {
             <div className="shadow-sm p-3 mb-5 bg-white rounded mx-auto mt-5 w-100 border">
                 <h4 data-v-904d5b16 className="text-center m-0">
                     <span style={{ fontFamily: "serif", fontWeight: "bold" }}>
-                        {t("Get your free account")}
+                        "Get your free account"
                     </span>
                 </h4>
                 <form>
@@ -49,7 +49,7 @@ export default function SignupForm() {
                             className="form-control mt-1"
                             id="exampleInputEmail1"
                             aria-describedby="emailHelp"
-                            placeholder={t("Work email address")}
+                            placeholder="Work email address"
                             onInput={getEmail}
                         />
                     </div>
@@ -60,7 +60,7 @@ export default function SignupForm() {
                             type="button"
                             onClick={signUpContinue}
                         >
-                            {t("Continue with Email")}
+                            "Continue with Email"
                         </button>
                     </div>
                 </form>
