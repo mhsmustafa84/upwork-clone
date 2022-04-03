@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom'
-import { BASE_ROUTE } from '../../../constant';
 import { updateJob } from '../../../Network/Network';
 import './PostJobBudget.css'
 
@@ -125,10 +124,10 @@ export default function PostJobBudget({ setBtns, btns }) {
             <section className="bg-white border rounded mt-3">
                 <div className="ps-4 my-3">
                     <button className="btn">
-                        <Link className="btn border text-success me-4 px-5" to={`${BASE_ROUTE}/post-job/visibility`}>{t("Back")}</Link>
+                        <Link className="btn border text-success me-4 px-5" to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/visibility`}>{t("Back")}</Link>
                     </button>
                     <button className={`btn ${job.jobPaymentType === "" || job.jobBudget === "" || job.jobBudget === "0" ? "disabled" : ""}`}>
-                        <Link className="btn bg-upwork px-5" to={`${BASE_ROUTE}/post-job/review`} onClick={addData}>{t("Next")}</Link>
+                        <Link className="btn bg-upwork px-5" to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/review`} onClick={addData}>{t("Next")}</Link>
                     </button>
                 </div>
             </section>

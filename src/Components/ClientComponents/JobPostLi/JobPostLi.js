@@ -3,7 +3,7 @@
 
 import { Link } from "react-router-dom";
 import { db } from "../../../firebase";
-import { BASE_ROUTE } from './../../../constant';
+
 
 export default function JobPostLi({ job, id, index }) {
 
@@ -12,7 +12,7 @@ export default function JobPostLi({ job, id, index }) {
             <div className={`row ps-4 my-2 ${index !== 0 && "border-top pt-4"}`}>
                 <div className="col-lg-5 col-md-6 col-sm-10 col-xs-9">
                     <h4 className="m-0-bottom" id="all-postings-list-opening-title-0">
-                        <Link to={{ pathname: `${BASE_ROUTE}/job-details/${id}`, state: id }}>
+                        <Link to={{ pathname: `${process.env.REACT_APP_BASE_ROUTE}/job-details/${id}`, state: id }}>
                             {job.jobTitle}
                         </Link>
                     </h4>
@@ -50,7 +50,7 @@ export default function JobPostLi({ job, id, index }) {
                     {/* <div className="text-muted">Hired</div> */}
                 </div>
                 <div className="d-block col-sm-2 col-xs-3">
-                    <Link to={{ pathname: `${BASE_ROUTE}/review-proposal/${id}`, state: id }} className="btn bg-upwork">
+                    <Link to={{ pathname: `${process.env.REACT_APP_BASE_ROUTE}/review-proposal/${id}`, state: id }} className="btn bg-upwork">
                         View Proposals
                     </Link>
                 </div>
@@ -65,7 +65,7 @@ export default function JobPostLi({ job, id, index }) {
                     </button>
                     <ul className="dropdown-menu">
                         <li>
-                            <Link className="dropdown-item" to={`${BASE_ROUTE}/review-proposal/${job?.jobID}`}>
+                            <Link className="dropdown-item" to={`${process.env.REACT_APP_BASE_ROUTE}/review-proposal/${job?.jobID}`}>
                                 View Proposals
                             </Link>
                         </li>
@@ -76,7 +76,7 @@ export default function JobPostLi({ job, id, index }) {
                         </li>
 
                         <li>
-                            <Link className="dropdown-item" to={`${BASE_ROUTE}/job-details/${job?.jobID}`}>
+                            <Link className="dropdown-item" to={`${process.env.REACT_APP_BASE_ROUTE}/job-details/${job?.jobID}`}>
                                 View Job posting
                             </Link>
                         </li>

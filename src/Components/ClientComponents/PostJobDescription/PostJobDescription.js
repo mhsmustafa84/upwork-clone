@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { storage } from "../../../firebase";
 import { updateJob } from "../../../Network/Network";
 import "./PostJobDescription.css";
-import { BASE_ROUTE } from './../../../constant';
+
 
 export default function PostJobDescription({ setBtns, btns }) {
     const { t } = useTranslation();
@@ -102,10 +102,10 @@ export default function PostJobDescription({ setBtns, btns }) {
             </div>
             <div className="ps-4 my-3 pt-4 pb-3 pt-3 border-top">
                 <button className="btn">
-                    <Link className="btn border text-success me-4 px-5" to={`${BASE_ROUTE}/post-job/title`}>{t("Back")}</Link>
+                    <Link className="btn border text-success me-4 px-5" to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/title`}>{t("Back")}</Link>
                 </button>
                 <button className={`btn ${job.jobDescription === "" && "disabled"}`}>
-                    <Link className="btn bg-upwork px-5" to={`${BASE_ROUTE}/post-job/details`} onClick={addData}>{t("Next")}</Link>
+                    <Link className="btn bg-upwork px-5" to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/details`} onClick={addData}>{t("Next")}</Link>
                 </button>
             </div>
         </section>

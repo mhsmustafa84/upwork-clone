@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import './PostJobAside.css'
-import { BASE_ROUTE } from './../../../constant';
+
 export default function PostJobAside({ btns }) {
     const { t } = useTranslation();
     return (
@@ -10,7 +10,7 @@ export default function PostJobAside({ btns }) {
                 <li className="py-1 my-2">
                     <button className="btn w-100" disabled={btns.title}>
                         <Link
-                            to={`${BASE_ROUTE}/post-job/title`}
+                            to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/title`}
                             className={`d-flex justify-content-between ${!btns.title && "border-start border-4 border-success"}`}
                         >
                             <span className="text-dark">
@@ -24,7 +24,7 @@ export default function PostJobAside({ btns }) {
                 <li className="py-1 my-2">
                     <button className="btn w-100" disabled={btns.description}>
                         <Link
-                            to={`${BASE_ROUTE}/post-job/description`}
+                            to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/description`}
                             className={`d-flex justify-content-between ${!btns.description && "border-start border-4 border-success"}`}
                         >
                             <span className="text-dark">
@@ -38,7 +38,7 @@ export default function PostJobAside({ btns }) {
                 <li className="py-1 my-2">
                     <button className="btn w-100" disabled={btns.details}>
                         <Link
-                            to={`${BASE_ROUTE}/post-job/details`}
+                            to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/details`}
                             className={`d-flex justify-content-between ${!btns.details && "border-start border-4 border-success"}`}
                         >
                             <span className="text-dark">
@@ -52,7 +52,7 @@ export default function PostJobAside({ btns }) {
                 <li className="py-1 my-2">
                     <button className="btn w-100" disabled={btns.expertise}>
                         <Link
-                            to={`${BASE_ROUTE}/post-job/expertise`}
+                            to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/expertise`}
                             className={`d-flex justify-content-between ${!btns.expertise && "border-start border-4 border-success"}`}
                         >
                             <span className="text-dark">
@@ -66,7 +66,7 @@ export default function PostJobAside({ btns }) {
                 <li className="py-1 my-2">
                     <button className="btn w-100" disabled={btns.visibility}>
                         <Link
-                            to={`${BASE_ROUTE}/post-job/visibility`}
+                            to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/visibility`}
                             className={`d-flex justify-content-between ${!btns.visibility && "border-start border-4 border-success"}`}
                         >
                             <span className="text-dark">
@@ -80,7 +80,7 @@ export default function PostJobAside({ btns }) {
                 <li className="py-1 my-2">
                     <button className="btn w-100" disabled={btns.budget}>
                         <Link
-                            to={`${BASE_ROUTE}/post-job/budget`}
+                            to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/budget`}
                             className={`d-flex justify-content-between ${!btns.budget && "border-start border-4 border-success"}`}
                         >
                             <span className="text-dark">
@@ -94,7 +94,7 @@ export default function PostJobAside({ btns }) {
                 <li className="py-1 my-2">
                     <button className="btn w-100" disabled={btns.review}>
                         <Link
-                            to={`${BASE_ROUTE}/post-job/review`}
+                            to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/review`}
                             className={`d-flex justify-content-between ${!btns.review && "border-start border-4 border-success"}`}
                         >
                             <span className="text-dark">

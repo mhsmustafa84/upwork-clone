@@ -3,22 +3,10 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { BASE_ROUTE } from './../../../../constant';
-
-
 
 export default function Reports() {
 
     const { t } = useTranslation();
-
-    // const [local, setLoc] = useState({});
-
-    // let lang = useSelector(state => state.lang);
-    // const dispatch = useDispatch();
-    // useEffect(() => {
-    //   dispatch(langAction(lang));
-    //   lang === "ar" ? setLoc(language.ar) : setLoc(language.en)
-    // }, [lang]);
 
     return (
         <div className="MyReports">
@@ -48,7 +36,7 @@ export default function Reports() {
                             style={{ lineHeight: "24px", fontSize: "17px", fontWeight: 700 }}
                         >
                             <Link
-                                to={`${BASE_ROUTE}/weeklysummary`}
+                                to={`${process.env.REACT_APP_BASE_ROUTE}/weeklysummary`}
                                 style={{ textDecoration: "none", color: "#38a000" }}
                             >
                                 {t("weekSummary")}

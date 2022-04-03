@@ -5,7 +5,7 @@ import "./PostJobVisibility.css";
 import upwork from "../../../assets/Img/TLpZ1jf.png";
 import { updateJob } from "../../../Network/Network";
 import { useTranslation } from "react-i18next";
-import { BASE_ROUTE } from './../../../constant';
+
 
 export default function PostJobVisibility({ setBtns, btns }) {
     const [job, setJob] = useState({ jobVisibility: "", freelancerNeed: "" });
@@ -119,10 +119,10 @@ export default function PostJobVisibility({ setBtns, btns }) {
             <section className="bg-white border rounded mt-3">
                 <div className="ps-4 my-3">
                     <button className="btn">
-                        <Link className="btn border text-success me-4 px-5" to={`${BASE_ROUTE}/post-job/expertise`}>{t("Back")}</Link>
+                        <Link className="btn border text-success me-4 px-5" to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/expertise`}>{t("Back")}</Link>
                     </button>
                     <button className={`btn ${job.jobVisibility === "" || job.freelancerNeed === "" ? "disabled" : ""}`}>
-                        <Link className="btn bg-upwork px-5" to={`${BASE_ROUTE}/post-job/budget`} onClick={addData}>{t("Next")}</Link>
+                        <Link className="btn bg-upwork px-5" to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/budget`} onClick={addData}>{t("Next")}</Link>
                     </button>
                 </div>
             </section>

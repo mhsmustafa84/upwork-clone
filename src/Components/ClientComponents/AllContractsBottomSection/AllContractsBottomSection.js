@@ -3,7 +3,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { BASE_ROUTE } from './../../../constant';
+
 
 export default function AllContractsBottomSection() {
     const { t } = useTranslation();
@@ -59,7 +59,7 @@ export default function AllContractsBottomSection() {
             </svg>
             <h3>{t("You haven't started any contracts yet.")}</h3>
             <h3>
-                <Link to={`${BASE_ROUTE}/post-job`} className="text-success">
+                <Link to={`${process.env.REACT_APP_BASE_ROUTE}/post-job`} className="text-success">
                     {t("Post a job")}
                 </Link>
                 {t("or")}

@@ -18,7 +18,7 @@ import s1 from "../../../assets/Img/jobslide1.jpg";
 import s2 from "../../../assets/Img/jobslide2.jpg";
 import s3 from "../../../assets/Img/jobslide2.jpg";
 import Loader from "../../SharedComponents/Loader/Loader";
-import { BASE_ROUTE } from './../../../constant';
+
 
 export default function HomeLayout() {
     const { t } = useTranslation();
@@ -54,7 +54,7 @@ export default function HomeLayout() {
                                 </div>
                                 <div className="list-group-item py-lg-4">
                                     <h4 className="d-inline-block">{t("My Postings")}</h4>
-                                    <Link to={`${BASE_ROUTE}/all-job-posts`} className="float-sm-end mt-0">
+                                    <Link to={`${process.env.REACT_APP_BASE_ROUTE}/all-job-posts`} className="float-sm-end mt-0">
                                         {t("All Posts")}
                                     </Link>
                                 </div>
@@ -67,7 +67,7 @@ export default function HomeLayout() {
                                                         className="m-0-bottom"
                                                         id="all-postings-list-opening-title-0"
                                                     >
-                                                        <Link to={`${BASE_ROUTE}/review-proposal/${jobs[0]?.docID}`}>{job?.jobTitle}</Link>
+                                                        <Link to={`${process.env.REACT_APP_BASE_ROUTE}/review-proposal/${jobs[0]?.docID}`}>{job?.jobTitle}</Link>
                                                     </h4>
                                                     <p
                                                         className="m-xs-bottom m-0 text-muted ng-binding"
@@ -115,7 +115,7 @@ export default function HomeLayout() {
                                                     </button>
                                                     <ul className="dropdown-menu">
                                                         <li>
-                                                            <Link className="dropdown-item" to={`${BASE_ROUTE}/review-proposal/${job?.jobID}`}>
+                                                            <Link className="dropdown-item" to={`${process.env.REACT_APP_BASE_ROUTE}/review-proposal/${job?.jobID}`}>
                                                                 View Proposals
                                                             </Link>
                                                         </li>
@@ -126,7 +126,7 @@ export default function HomeLayout() {
                                                         </li>
 
                                                         <li>
-                                                            <Link className="dropdown-item" to={`${BASE_ROUTE}/job-details/${job?.jobID}`}>
+                                                            <Link className="dropdown-item" to={`${process.env.REACT_APP_BASE_ROUTE}/job-details/${job?.jobID}`}>
                                                                 View Job posting
                                                             </Link>
                                                         </li>
@@ -307,7 +307,7 @@ export default function HomeLayout() {
                             </div>
                             <div className="col d-none d-lg-block">
                                 <div className="my-lg-1">
-                                    <Link to={`${BASE_ROUTE}/post-job`} className="btn bg-upwork">
+                                    <Link to={`${process.env.REACT_APP_BASE_ROUTE}/post-job`} className="btn bg-upwork">
                                         {t("Post a job")}
                                     </Link>
                                 </div>

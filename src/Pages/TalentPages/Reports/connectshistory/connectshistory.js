@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import DropDownList from "../../../../Components/TalentComponents/DropDownList Component/dropdown";
 import { Link } from "react-router-dom";
-import { BASE_ROUTE } from './../../../../constant';
+
 export default function ConnectsHistory() {
     const [dropdown, setDropdown] = useState({
         label: "Choose The Connects Types",
@@ -35,7 +35,7 @@ export default function ConnectsHistory() {
                     <div className=" text-end col-sm-5">
                         <Link
                             className="btn bg-upwork"
-                            to={`${BASE_ROUTE}/buyconnects`}
+                            to={`${process.env.REACT_APP_BASE_ROUTE}/buyconnects`}
                             role="button"
                             style={{
                                 backgroundColor: "#008329",

@@ -2,7 +2,7 @@
     "name": "final-project",
     "version": "3.0.0",
     "private": true,
-    "homepage": "http://mhsmustafa84.github.io/front-final-project-reactJS",
+    "homepage": "http://mhsmustafa84.github.io/upwork-clone",
     "dependencies": {
         "@testing-library/jest-dom": "^5.16.3",
         "@testing-library/react": "^13.0.0",

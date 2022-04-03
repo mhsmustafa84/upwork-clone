@@ -2,8 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import img from "../../assets/Img/icon-user.svg";
 import { fbAuth, db } from '../../firebase';
-import { BASE_ROUTE } from './../../constant';
-
 
 export default function NotificationCard({ notification, collectionName, getNotifications }) {
 
@@ -33,7 +31,7 @@ export default function NotificationCard({ notification, collectionName, getNoti
             <p className="col-3">{new Date(data?.time.seconds * 1000).toLocaleString()}</p>
             <p className="col-2">{data?.type}</p>
             <Link style={{ display: "contents" }}
-                to={`${BASE_ROUTE}/${data?.route}`}
+                to={`${process.env.REACT_APP_BASE_ROUTE}/${data?.route}`}
                 onClick={updateShow}
             >
                 <p className="col-5">

@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from "react-i18next";
 import { useSelector } from 'react-redux'
 import Bissell from './../../SVG/Bissell';
-import { BASE_ROUTE } from './../../../constant';
+
 export default function HomeFirstSection() {
     let lang = useSelector(state => state.lang);
     const { t } = useTranslation();
@@ -26,7 +26,7 @@ export default function HomeFirstSection() {
                                 {t("Engagethelargestnetwork")}
                             </p>
                             <div className="my-5">
-                                <Link className="btn py-3 px-4 me-4 fs-btns-cn text-decoration-none" to={`${BASE_ROUTE}/freelance-jobs`}>{t("FindTalent")}</Link>
+                                <Link className="btn py-3 px-4 me-4 fs-btns-cn text-decoration-none" to={`${process.env.REACT_APP_BASE_ROUTE}/freelance-jobs`}>{t("FindTalent")}</Link>
                                 <button className={`btn py-3 px-4 border text-success ${lang === 'ar' && "fs-6"}`}>{t("FindWork")}</button>
                             </div>
                             <ul className="d-flex justify-content-between p-0">

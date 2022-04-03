@@ -28,7 +28,6 @@ import JobAppliedDetails from "../Pages/TalentPages/JobAppliedDetails/JobApplied
 import Contract from "../Pages/TalentPages/Contract/Contract";
 import Offers from "../Pages/TalentPages/Offers/Offers";
 import Notifications from './../Pages//Notifications/Notifications';
-import { BASE_ROUTE } from './../constant';
 
 export default function TalentRoutes() {
     const [arr, setarr] = useState([]);
@@ -42,34 +41,34 @@ export default function TalentRoutes() {
             >
                 <Header />
                 <Routes>
-                    <Route path={`${BASE_ROUTE}/create-profile`} element={<CreateProfile />} />
-                    <Route path={`${BASE_ROUTE}/find-work`} element={<HomeTalent />} />
-                    <Route path={`${BASE_ROUTE}/Search`} element={<Search />}>
+                    <Route path={`${process.env.REACT_APP_BASE_ROUTE}/create-profile`} element={<CreateProfile />} />
+                    <Route path={`${process.env.REACT_APP_BASE_ROUTE}/find-work`} element={<HomeTalent />} />
+                    <Route path={`${process.env.REACT_APP_BASE_ROUTE}/Search`} element={<Search />}>
                         <Route path={":searchValue"} element={<Search />} />
                     </Route>
-                    <Route path={`${BASE_ROUTE}/job/`} element={<JobDetailsTalent />}>
+                    <Route path={`${process.env.REACT_APP_BASE_ROUTE}/job/`} element={<JobDetailsTalent />}>
                         <Route path={":id"} element={<JobDetailsTalent />} />
                     </Route>
-                    <Route path={`${BASE_ROUTE}/job/apply/:id`} element={<SubmitProposal />} />
-                    <Route path={`${BASE_ROUTE}/job/review-proposal/:id`} element={<ReviewProposalsCard />} />
-                    <Route path={`${BASE_ROUTE}/job/applied/:id`} element={<JobAppliedDetails />} />
-                    <Route path={`${BASE_ROUTE}/saved-jobs`} element={<SavedJobs />} />
-                    <Route path={`${BASE_ROUTE}/proposals`} element={<Proposals />} />
-                    <Route path={`${BASE_ROUTE}/profile/:id`} element={<Profile />} />
-                    <Route path={`${BASE_ROUTE}/email-verification`} element={<EmailVerified />} />
-                    <Route path={`${BASE_ROUTE}/sign-up/please-verify`} element={<PleaseVerifiy />} />
-                    <Route path={`${BASE_ROUTE}/my-stats`} element={<MyStats />} />
-                    <Route path={`${BASE_ROUTE}/my-jobs`} element={<MyJobs />} />
-                    <Route path={`${BASE_ROUTE}/all-contract`} element={<AllContracts />} />
-                    <Route path={`${BASE_ROUTE}/offers`} element={<Offers />} />
-                    <Route path={`${BASE_ROUTE}/overview`} element={<OverviewReports />} />
-                    <Route path={`${BASE_ROUTE}/my-reports`} element={<Reports />} />
-                    <Route path={`${BASE_ROUTE}/life-time-billing`} element={<BillingByClients />} />
-                    <Route path={`${BASE_ROUTE}/connects-history`} element={<ConnectsHistory />} />
-                    <Route path={`${BASE_ROUTE}/buyconnects`} element={<BuyConnects />} />
-                    <Route path={`${BASE_ROUTE}/messages`} element={<Messages />} />
-                    <Route path={`${BASE_ROUTE}/contract`} element={<Contract />} />
-                    <Route path={`${BASE_ROUTE}/notifications`} element={<Notifications />} />
+                    <Route path={`${process.env.REACT_APP_BASE_ROUTE}/job/apply/:id`} element={<SubmitProposal />} />
+                    <Route path={`${process.env.REACT_APP_BASE_ROUTE}/job/review-proposal/:id`} element={<ReviewProposalsCard />} />
+                    <Route path={`${process.env.REACT_APP_BASE_ROUTE}/job/applied/:id`} element={<JobAppliedDetails />} />
+                    <Route path={`${process.env.REACT_APP_BASE_ROUTE}/saved-jobs`} element={<SavedJobs />} />
+                    <Route path={`${process.env.REACT_APP_BASE_ROUTE}/proposals`} element={<Proposals />} />
+                    <Route path={`${process.env.REACT_APP_BASE_ROUTE}/profile/:id`} element={<Profile />} />
+                    <Route path={`${process.env.REACT_APP_BASE_ROUTE}/email-verification`} element={<EmailVerified />} />
+                    <Route path={`${process.env.REACT_APP_BASE_ROUTE}/sign-up/please-verify`} element={<PleaseVerifiy />} />
+                    <Route path={`${process.env.REACT_APP_BASE_ROUTE}/my-stats`} element={<MyStats />} />
+                    <Route path={`${process.env.REACT_APP_BASE_ROUTE}/my-jobs`} element={<MyJobs />} />
+                    <Route path={`${process.env.REACT_APP_BASE_ROUTE}/all-contract`} element={<AllContracts />} />
+                    <Route path={`${process.env.REACT_APP_BASE_ROUTE}/offers`} element={<Offers />} />
+                    <Route path={`${process.env.REACT_APP_BASE_ROUTE}/overview`} element={<OverviewReports />} />
+                    <Route path={`${process.env.REACT_APP_BASE_ROUTE}/my-reports`} element={<Reports />} />
+                    <Route path={`${process.env.REACT_APP_BASE_ROUTE}/life-time-billing`} element={<BillingByClients />} />
+                    <Route path={`${process.env.REACT_APP_BASE_ROUTE}/connects-history`} element={<ConnectsHistory />} />
+                    <Route path={`${process.env.REACT_APP_BASE_ROUTE}/buyconnects`} element={<BuyConnects />} />
+                    <Route path={`${process.env.REACT_APP_BASE_ROUTE}/messages`} element={<Messages />} />
+                    <Route path={`${process.env.REACT_APP_BASE_ROUTE}/contract`} element={<Contract />} />
+                    <Route path={`${process.env.REACT_APP_BASE_ROUTE}/notifications`} element={<Notifications />} />
                     <Route path="**" element={<PageNotFound />} />
                 </Routes>
 
