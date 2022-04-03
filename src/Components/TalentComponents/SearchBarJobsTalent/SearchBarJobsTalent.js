@@ -3,7 +3,7 @@
 /* eslint-disable array-callback-return */
 import React, { useContext, useEffect } from "react";
 import './SearchBarJobsTalent.css'
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { SearchContext } from '../../../Context/SearchContext';
 import { updateUserData } from '../../../Network/Network'
@@ -15,7 +15,7 @@ export default function SearchBarJobsTalent(props) {
   const { t } = useTranslation();
   let lang = useSelector(state => state.lang);
   const { arr, setarr, itemSearchList, setitemSearchList, setsearchList } = useContext(SearchContext)
-  const { push } = useHistory();
+  let navigate = useNavigate();
   const user = useSelector((state) => state.talentData);
   const jobs = useSelector((state) => state.jobsData);
   const dispatch = useDispatch();
@@ -38,7 +38,7 @@ export default function SearchBarJobsTalent(props) {
     jobs.map((e) => e.skills?.includes(itemSearchList) && tempArr.push(e))
     console.log(tempArr);
     setsearchList(tempArr)
-    push({ pathname: "/search" })
+    navigate({ pathname: "/search" })
     if (itemSearchList !== "") {
       let arr2 = []
       arr !== null ? arr2 = [itemSearchList, ...arr] :

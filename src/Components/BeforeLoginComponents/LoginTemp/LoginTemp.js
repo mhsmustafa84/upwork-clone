@@ -1,9 +1,9 @@
 /* eslint-disable */
 import { Link } from "react-router-dom";
-import firebaseApp, { auth, googleProvider } from "../../../firebase";
+import { auth, googleProvider } from "../../../firebase";
 import apple from "../../../assets/svg/apple.svg";
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { BASE_ROUTE } from './../../../constant';
 
@@ -12,7 +12,7 @@ export default function LoginTemp() {
     const [emailError, setEmailErorr] = useState("");
     const [PasswordError, setPasswordErrorr] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
-    const { push } = useHistory();
+    let navigate = useNavigate();
 
     const { t } = useTranslation();
 
@@ -54,16 +54,16 @@ export default function LoginTemp() {
     };
 
     const login = (e) => {
-        console.log(user);
+        console.log({ user });
+        console.log({ auth });
         e.preventDefault();
-        auth
-            .signInWithEmailAndPassword(user.email, user.password)
+        auth.signInWithEmailAndPassword(auth, user.email, user.password)
             .then((res) => {
                 if (res.user) {
                     localStorage.setItem("userType", res.user.displayName);
                     res.user.displayName === "talent"
-                        ? push("/find-work")
-                        : push("/home");
+                        ? navigate("/find-work")
+                        : navigate("/home")
                 }
             })
             .catch((error) => {
@@ -74,11 +74,10 @@ export default function LoginTemp() {
     };
 
     const googleLogin = () => {
-        auth
-            .signInWithPopup(googleProvider)
+        auth.signInWithPopup(googleProvider)
             .then((result) => {
                 console.log(result.user.displayName);
-                /** @type {firebaseApp.auth.OAuthCredential} */
+                /** @type {auth.OAuthCredential} */
                 var credential = result.credential;
 
                 // This gives you a Google Access Token. You can use it to access the Google API.
@@ -86,7 +85,7 @@ export default function LoginTemp() {
                 // The signed-in user info.
                 var user = result.user;
                 // ...
-                // push("/find-work");
+                // navigate("/find-work");
             })
             .catch((error) => {
                 console.log(error);

@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ShowMore from 'react-show-more-button/dist/module';
 import { updateUserData } from "../../../Network/Network";
@@ -15,7 +15,7 @@ import Loader from "../../SharedComponents/Loader/Loader";
 export default function FirstSectionProfileTalent() {
 
   const { id } = useParams();
-  const { push, location } = useHistory();
+  const { push, location } = useNavigate();
   const clientRoute = location.pathname.includes("talent-profile");
   const lang = useSelector(state => state.lang);
 
@@ -122,7 +122,7 @@ export default function FirstSectionProfileTalent() {
   };
   const UpdateEditprofileTitleOverView = () => {
     updateUserData("talent", { title: profileTitle, overview: profileOverview });
-    push(`/profile/${id}`)
+    navigate(`/profile/${id}`)
   }
   const UpdateEditPortofolio = () => {
     if (imageItself !== "" && imgTitle !== "") {

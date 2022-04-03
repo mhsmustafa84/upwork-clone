@@ -1,6 +1,6 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
-import HomePage from "../Pages/BeforeLoginPages/HomePage/HomePage";
+import { Route, Routes } from "react-router-dom";
+// import HomePage from "../Pages/BeforeLoginPages/HomePage/HomePage";
 import SignUp from "../Pages/BeforeLoginPages/SignUp/SignUp";
 import Login from "./../Pages/BeforeLoginPages/Login/Login";
 import FindFreelancingJob from "../Pages/BeforeLoginPages/FindFreelancingJob/FindFreelancingJob";
@@ -11,16 +11,15 @@ import { BASE_ROUTE } from "../constant";
 
 export default function BeforeLoginRoutes() {
     return (
-        <>
-            <Switch>
-                <Route path={BASE_ROUTE} exact component={HomePage} />
-                <Route path={`${BASE_ROUTE}/login`} exact component={Login} />
-                <Route path={`${BASE_ROUTE}/sign-up`} exact component={SignUp} />
-                <Route path={`${BASE_ROUTE}/sign-up/details`} exact component={SignupDetails} />
-                <Route path={`${BASE_ROUTE}/freelance-jobs`} exact component={FindFreelancingJob} />
-                <Route path={`${BASE_ROUTE}/dev-it`} exact component={DevelopmentItTalent} />
-                <Route path="**" component={PageNotFoundBeforeLogin} />
-            </Switch>
-        </>
+        <Routes>
+            {/* <Route path={BASE_ROUTE} element={<HomePage />} /> */}
+            <Route path={BASE_ROUTE} element={<Login />} />
+            <Route path={`${BASE_ROUTE}/login`} element={<Login />} />
+            <Route path={`${BASE_ROUTE}/sign-up`} element={<SignUp />} />
+            <Route path={`${BASE_ROUTE}/sign-up/details`} element={<SignupDetails />} />
+            <Route path={`${BASE_ROUTE}/freelance-jobs`} element={<FindFreelancingJob />} />
+            <Route path={`${BASE_ROUTE}/dev-it`} element={<DevelopmentItTalent />} />
+            <Route path="**" element={<PageNotFoundBeforeLogin />} />
+        </Routes>
     );
 }

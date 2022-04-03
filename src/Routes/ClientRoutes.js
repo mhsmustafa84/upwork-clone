@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import AllJobPosts from "../Pages/ClientPages/AllJobPost/AllJobPosts";
 import Jobs from "../Pages/ClientPages/Jobs/Jobs";
 import Header from "./../Components/ClientComponents/Header/Header";
@@ -32,38 +32,27 @@ export default function ClientRoutes() {
         <>
             <SearchContextProvider value={{ talentSearchList, settalentSearchList, talentArr, settalentArr }}>
                 <Header />
-                <Switch>
-                    <Route path={`${BASE_ROUTE}/home`} exact component={Jobs} />
-                    <Route path={`${BASE_ROUTE}/messages`} exact component={Messages} />
-                    <Route path={`${BASE_ROUTE}/all-job-posts`} exact component={AllJobPosts} />
-                    <Route path={`${BASE_ROUTE}/all-contracts`} exact component={AllContract} />
-                    <Route
-                        path={`${BASE_ROUTE}/bring-your-own-talent`}
-                        exact
-                        component={BringYourTalent}
-                    />
-                    <Route
-                        path={`${BASE_ROUTE}/job-details/:id`}
-                        exact
-                        component={JobJobDetailsBeforeProposals}
-                    />
-                    <Route path={`${BASE_ROUTE}/contract`} component={Contract} />
-                    <Route path={`${BASE_ROUTE}/email-verification`} component={EmailVerified} />
-                    <Route path={`${BASE_ROUTE}/sign-up/please-verify`} exact component={PleaseVerifiy} />
-                    <Route path={`${BASE_ROUTE}/post-job`} component={PostJob} />
-                    <Route path={`${BASE_ROUTE}/talent`} component={Talent} />
-                    <Route path={`${BASE_ROUTE}/talent-profile/:id`} exact component={TalentProfile} />
-                    <Route path={`${BASE_ROUTE}/review-proposal/:id`} exact component={ReviewProposals} />
-                    <Route path={`${BASE_ROUTE}/billing-history`} exact component={Reports} />
-                    <Route
-                        path={`${BASE_ROUTE}/transaction-history`}
-                        exact
-                        component={TransactionHistory}
-                    />
-                    <Route path={`${BASE_ROUTE}/create-contract`} component={CreateContract} />
-                    <Route path={`${BASE_ROUTE}/notifications`} exact component={Notifications} />
-                    <Route path="**" component={PageNotFound} />
-                </Switch>
+                <Routes>
+                    <Route path={`${BASE_ROUTE}/home`} element={<Jobs />} />
+                    <Route path={`${BASE_ROUTE}/messages`} element={<Messages />} />
+                    <Route path={`${BASE_ROUTE}/all-job-posts`} element={<AllJobPosts />} />
+                    <Route path={`${BASE_ROUTE}/all-contracts`} element={<AllContract />} />
+                    <Route path={`${BASE_ROUTE}/bring-your-own-talent`} element={<BringYourTalent />} />
+                    <Route path={`${BASE_ROUTE}/job-details/:id`} element={<JobJobDetailsBeforeProposals />} />
+                    <Route path={`${BASE_ROUTE}/contract`} element={<Contract />} />
+                    <Route path={`${BASE_ROUTE}/email-verification`} element={<EmailVerified />} />
+                    <Route path={`${BASE_ROUTE}/sign-up/please-verify`} element={<PleaseVerifiy />} />
+                    <Route path={`${BASE_ROUTE}/post-job`} element={<PostJob />} />
+                    <Route path={`${BASE_ROUTE}/talent`} element={<Talent />} />
+                    <Route path={`${BASE_ROUTE}/talent-profile/:id`} element={<TalentProfile />} />
+                    <Route path={`${BASE_ROUTE}/review-proposal/:id`} element={<ReviewProposals />} />
+                    <Route path={`${BASE_ROUTE}/billing-history`} element={<Reports />} />
+                    <Route path={`${BASE_ROUTE}/transaction-history`} element={<TransactionHistory />} />
+                    <Route path={`${BASE_ROUTE}/create-contract`} element={<CreateContract />} />
+                    <Route path={`${BASE_ROUTE}/notifications`} element={<Notifications />} />
+                    <Route path="**" element={<PageNotFound />} />
+                </Routes>
+
             </SearchContextProvider>
             <Footer />
         </>

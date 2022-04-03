@@ -3,8 +3,8 @@
 
 import React, { useEffect } from "react";
 import HeaderSearchSm from "../../SharedComponents/HeaderSearchSm/HeaderSearchSm";
-import { Link, NavLink, useHistory } from "react-router-dom";
-import firebaseApp from "../../../firebase";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { auth } from "../../../firebase";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { clientDataAction } from "../../../Store/actions/clientData";
@@ -13,25 +13,21 @@ import { BASE_ROUTE } from './../../../constant';
 
 export default function NavSmallScreen() {
     const { t } = useTranslation();
-    const { push } = useHistory();
+    let navigate = useNavigate();
     const user = useSelector((state) => state.clientData);
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(clientDataAction());
     }, []);
     const logout = () => {
-        firebaseApp
-            .auth()
-            .signOut()
-            .then((res) => {
-                console.log(res);
-                push("/login");
-                localStorage.removeItem('userType');
-                window.location.reload();
-            })
-            .catch((error) => {
-                console.log(error.message);
-            });
+        auth.signOut().then((res) => {
+            console.log(res);
+            navigate("/login");
+            localStorage.removeItem('userType');
+            window.location.reload();
+        }).catch((error) => {
+            console.log(error.message);
+        });
     };
 
     return (

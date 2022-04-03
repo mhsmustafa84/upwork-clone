@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Route, Switch } from 'react-router'
+import { Route, Routes } from 'react-router'
 import CreateProfileAside from '../../../Components/TalentComponents/CreateProfileAside/CreateProfileAside'
 import CreateProfileCategory from '../../../Components/TalentComponents/CreateProfileCategory/CreateProfileCategory'
 import CreateProfileEducationAndEmployment from '../../../Components/TalentComponents/CreateProfileEducationAndEmployment/CreateProfileEducationAndEmployment'
@@ -41,41 +41,41 @@ export default function CreateProfile() {
                         </div>
                     }
                     <div className={pathname === "/create-profile/submit" ? "col-lg-12" : "col-lg-9"}>
-                        <Switch>
-                            <Route path="/create-profile" exact>
+                        <Routes>
+                            <Route path="/create-profile">
                                 <CreateProfileGetStart setBtns={setBtns} btns={btns} />
                             </Route>
-                            <Route path="/create-profile/category" exact>
+                            <Route path="/create-profile/category">
                                 <CreateProfileCategory setBtns={setBtns} btns={btns} />
                             </Route>
-                            <Route path="/create-profile/expertise-level" exact>
+                            <Route path="/create-profile/expertise-level">
                                 <CreateProfileExpertiseLevel setBtns={setBtns} btns={btns} />
                             </Route>
-                            <Route path="/create-profile/education-and-employment" exact>
+                            <Route path="/create-profile/education-and-employment">
                                 <CreateProfileEducationAndEmployment setBtns={setBtns} btns={btns} />
                             </Route>
-                            <Route path="/create-profile/language" exact>
+                            <Route path="/create-profile/language">
                                 <CreateProfileLanguage setBtns={setBtns} btns={btns} />
                             </Route>
-                            <Route path="/create-profile/hourly-rate" exact>
+                            <Route path="/create-profile/hourly-rate">
                                 <CreateProfileHourlyRate setBtns={setBtns} btns={btns} />
                             </Route>
-                            <Route path="/create-profile/title-and-overview" exact>
+                            <Route path="/create-profile/title-and-overview">
                                 <CreateProfileTitleAndOverview setBtns={setBtns} btns={btns} />
                             </Route>
-                            <Route path="/create-profile/profile-photo" exact>
+                            <Route path="/create-profile/profile-photo">
                                 <CreateProfilePhoto setBtns={setBtns} btns={btns} />
                             </Route>
-                            <Route path="/create-profile/location" exact>
+                            <Route path="/create-profile/location">
                                 <CreateProfileLocation setBtns={setBtns} btns={btns} />
                             </Route>
-                            <Route path="/create-profile/phone-number" exact>
+                            <Route path="/create-profile/phone-number">
                                 <CreateProfilePhoneNumber setBtns={setBtns} btns={btns} />
                             </Route>
-                            <Route path="/create-profile/submit" exact>
+                            <Route path="/create-profile/submit">
                                 <CreateProfileSubmit />
                             </Route>
-                        </Switch>
+                        </Routes>
                     </div>
                 </div>
             </div>

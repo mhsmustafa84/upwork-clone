@@ -4,7 +4,7 @@
 import React, { useEffect, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { SearchContext } from "../../../Context/SearchContext";
 
 export default function LeftSidebarTalentHome() {
@@ -13,7 +13,7 @@ export default function LeftSidebarTalentHome() {
   const user = useSelector((state) => state.talentData);
   const jobs = useSelector((state) => state.jobsData);
   const { t } = useTranslation();
-  const { push } = useHistory();
+  let navigate = useNavigate();
 
   useEffect(() => {
     user.searchHistory != null ?
@@ -26,7 +26,7 @@ export default function LeftSidebarTalentHome() {
     let tempArr = [];
     jobs.map((e) => e.skills.includes(textSearch) && tempArr.push(e))
     setsearchList(tempArr)
-    push({ pathname: "/search" })
+    navigate({ pathname: "/search" })
   };
 
   const switchJobs = (txt) => {

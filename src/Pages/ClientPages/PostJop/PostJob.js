@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Switch, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import PostJobAside from '../../../Components/ClientComponents/PostJobAside/PostJobAside'
 import PostJobTitle from './../../../Components/ClientComponents/PostJobTitle/PostJobTitle';
 import PostJobDescription from './../../../Components/ClientComponents/PostJobDescription/PostJobDescription';
@@ -37,32 +37,32 @@ export default function PostJob() {
                         <PostJobAside btns={btns} />
                     </div>
                     <div className="col-lg-9">
-                        <Switch>
-                            <Route path="/post-job" exact>
+                        <Routes>
+                            <Route path="/post-job">
                                 <PostJobGetStarted start={start} isStart={isStart} setBtns={setBtns} btns={btns} />
                             </Route>
-                            <Route path="/post-job/title" exact>
+                            <Route path="/post-job/title">
                                 <PostJobTitle setBtns={setBtns} btns={btns} />
                             </Route>
-                            <Route path="/post-job/description" exact>
+                            <Route path="/post-job/description">
                                 <PostJobDescription setBtns={setBtns} btns={btns} />
                             </Route>
-                            <Route path="/post-job/details" exact>
+                            <Route path="/post-job/details">
                                 <PostJobDetails setBtns={setBtns} btns={btns} />
                             </Route>
-                            <Route path="/post-job/expertise" exact>
+                            <Route path="/post-job/expertise">
                                 <PostJobExpertise setBtns={setBtns} btns={btns} />
                             </Route>
-                            <Route path="/post-job/visibility" exact>
+                            <Route path="/post-job/visibility">
                                 <PostJobVisibility setBtns={setBtns} btns={btns} />
                             </Route>
-                            <Route path="/post-job/budget" exact>
+                            <Route path="/post-job/budget">
                                 <PostJobBudget setBtns={setBtns} btns={btns} />
                             </Route>
-                            <Route path="/post-job/review" exact>
+                            <Route path="/post-job/review">
                                 <PostJobReview />
                             </Route>
-                        </Switch>
+                        </Routes>
                     </div>
                 </div>
             </div>

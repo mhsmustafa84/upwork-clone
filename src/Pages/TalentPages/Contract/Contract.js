@@ -1,14 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
-import { Route, Switch, NavLink } from "react-router-dom";
+import { Route, Routes, NavLink } from "react-router-dom";
 import ContractEarnings from '../../../Components/TalentComponents/ContractEarnings/ContractEarnings';
 import ContractFeedback from '../../../Components/TalentComponents/ContractFeedback/ContractFeedback';
 import img from "../../../assets/Img/icon-user.svg";
 import "../../ClientPages/Talent/Talent.css";
 import { db } from "../../../firebase";
 import { useSelector } from "react-redux";
-import firebase from 'firebase/app';
+import { Timestamp } from 'firebase/firestore';
 import StarsRating from "../../../Components/SharedComponents/StarsRating/StarsRating";
 import { BASE_ROUTE } from './../../../constant';
 
@@ -28,7 +28,7 @@ export default function Contract({ location }) {
         db.collection("client")
             .doc(client?.authID)
             .collection("notification").add({
-                time: firebase.firestore.Timestamp.now(),
+                time: Timestamp.now(),
                 message: `the job finished "${job?.jobTitle}" and he asked for payment.`,
                 type: "Payment Request",
                 userID: user.authID,
@@ -50,7 +50,7 @@ export default function Contract({ location }) {
                 db.collection("talent")
                     .doc(user?.authID)
                     .collection("jobProposal")
-                    .doc(res.docs[0]?.id).update({ status: "closed", endContractTime: firebase.firestore.Timestamp.now() })
+                    .doc(res.docs[0]?.id).update({ status: "closed", endContractTime: Timestamp.now() })
             })
 
         db.collection("client")
@@ -61,7 +61,7 @@ export default function Contract({ location }) {
                 db.collection("client")
                     .doc(clientContract?.clientID)
                     .collection("contracts")
-                    .doc(res.docs[0].data().id).update({ endContractTime: firebase.firestore.Timestamp.now() })
+                    .doc(res.docs[0].data().id).update({ endContractTime: Timestamp.now() })
             })
     }
 
@@ -141,14 +141,14 @@ export default function Contract({ location }) {
                             </li>
                         }
                     </ul>
-                    <Switch>
-                        <Route path="/contract" exact>
+                    <Routes>
+                        <Route path="/contract">
                             <ContractEarnings job={job} client={client} clientContract={clientContract} />
                         </Route>
-                        <Route path="/contract/feedback" exact>
+                        <Route path="/contract/feedback">
                             <ContractFeedback job={job} />
                         </Route>
-                    </Switch>
+                    </Routes>
                 </div>
 
             </div>

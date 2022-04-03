@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import firebase from "firebase/app";
+import { Timestamp } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { updateJob } from "../../../Network/Network";
 import "./PostJobReview.css";
@@ -28,7 +28,7 @@ export default function PostJobReview() {
 
     const publishJob = () => {
         updateJob(
-            { postTime: firebase.firestore.Timestamp.now(), status: "public" },
+            { postTime: Timestamp.now(), status: "public" },
             id
         );
         localStorage.removeItem("docID");
