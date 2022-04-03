@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { auth } from "../../../firebase";
+import { fbAuth } from "../../../firebase";
 import SearchBarJobsTalent from "../SearchBarJobsTalent/SearchBarJobsTalent";
 
 
@@ -9,7 +9,7 @@ export default function FindWorkTalentHome() {
     const { t } = useTranslation();
 
     const [verify, setverify] = useState(false);
-    auth.onAuthStateChanged(user => {
+    fbAuth.auth.onAuthStateChanged(user => {
         if (user) {
             var verf = user.emailVerified;
             setverify(verf);

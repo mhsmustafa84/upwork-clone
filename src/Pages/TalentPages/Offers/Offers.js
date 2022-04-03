@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react"
 import Loader from "../../../Components/SharedComponents/Loader/Loader"
-import { auth, db } from "../../../firebase"
+import { fbAuth, db } from "../../../firebase"
 import OfferCard from "./OfferCard";
 
 export default function Offers() {
@@ -15,7 +15,7 @@ export default function Offers() {
 
     const getOffers = () => {
         db.collection("talent")
-            .doc(auth.currentUser.uid)
+            .doc(fbAuth.auth.currentUser.uid)
             .collection("jobProposal")
             .where("status", "==", "offer")
             .onSnapshot(res => {

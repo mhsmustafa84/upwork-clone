@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { auth, storage } from "../../../firebase";
+import { fbAuth, storage } from "../../../firebase";
 import { updateUserData } from "../../../Network/Network";
 
 export default function CreateProfilePhoto({ setBtns, btns }) {
@@ -35,7 +35,7 @@ export default function CreateProfilePhoto({ setBtns, btns }) {
                                     profilePhoto: URL,
                                     profileCompletion: 80,
                                 });
-                            URL && auth.currentUser.updateProfile({ photoURL: URL });
+                            URL && fbAuth.auth.currentUser.updateProfile({ photoURL: URL });
                         });
                 }
             );
@@ -77,7 +77,7 @@ export default function CreateProfilePhoto({ setBtns, btns }) {
                 >
 
                     <i className="fas fa-plus me-3"></i>Add Profile Photo
-        </label>
+                </label>
                 <input
                     id="img"
                     className="d-none"

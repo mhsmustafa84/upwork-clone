@@ -5,7 +5,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { useSelector } from "react-redux";
-import { auth, db, storage } from "../../firebase";
+import { fbAuth, db, storage } from "../../firebase";
 import { Timestamp } from 'firebase/firestore';
 import { subCollection, updateUserData } from "../../Network/Network";
 import { Link } from "react-router-dom";
@@ -33,7 +33,7 @@ export default function SubmitProposal() {
             .get()
             .then((res) => setjob(res.data()));
         db.collection("talent")
-            .doc(auth.currentUser.uid)
+            .doc(fbAuth.auth.currentUser.uid)
             .get()
             .then((res) => setuser(res.data()));
     }, []);
@@ -44,7 +44,7 @@ export default function SubmitProposal() {
                 .collection("job")
                 .doc(id)
                 .collection("proposals")
-                .where("talentId", "==", auth.currentUser.uid)
+                .where("talentId", "==", fbAuth.auth.currentUser.uid)
                 .get()
                 .then((res) =>
                     res.docs.map((e) => {
@@ -60,7 +60,7 @@ export default function SubmitProposal() {
                 );
             await db
                 .collection("talent")
-                .doc(auth.currentUser.uid)
+                .doc(fbAuth.auth.currentUser.uid)
                 .collection("jobProposal")
                 .where("jobId", "==", id)
                 .get()
@@ -69,7 +69,7 @@ export default function SubmitProposal() {
                         talent = e.id;
                         setTalent(talent);
                         db.collection("talent")
-                            .doc(auth.currentUser.uid)
+                            .doc(fbAuth.auth.currentUser.uid)
                             .collection("jobProposal")
                             .doc(talent)
                             .delete();
@@ -132,7 +132,7 @@ export default function SubmitProposal() {
                 endContractTime: "",
                 budget: parseInt(rate)
             },
-            auth.currentUser.uid
+            fbAuth.auth.currentUser.uid
         );
         updateUserData("talent", { connects: user.connects - 2 });
 
@@ -142,7 +142,7 @@ export default function SubmitProposal() {
             "proposals",
             {
                 talentName: user.firstName + " " + user.lastName,
-                talentId: auth.currentUser.uid,
+                talentId: fbAuth.auth.currentUser.uid,
                 coverLetter: proposalData.coverLetter,
                 images: proposalData?.proposalImages,
                 clientId: job.authID,

@@ -4,7 +4,7 @@
 import React, { useEffect } from "react";
 import HeaderSearchSm from "../../SharedComponents/HeaderSearchSm/HeaderSearchSm";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { auth } from "../../../firebase";
+import { fbAuth } from "../../../firebase";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { clientDataAction } from "../../../Store/actions/clientData";
@@ -12,49 +12,49 @@ import img from "../../../assets/Img/icon-user.svg";
 import { BASE_ROUTE } from './../../../constant';
 
 export default function NavSmallScreen() {
-    const { t } = useTranslation();
-    let navigate = useNavigate();
-    const user = useSelector((state) => state.clientData);
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(clientDataAction());
-    }, []);
-    const logout = () => {
-        auth.signOut().then((res) => {
-            console.log(res);
-            navigate("/login");
-            localStorage.removeItem('userType');
-            window.location.reload();
-        }).catch((error) => {
-            console.log(error.message);
-        });
-    };
+  const { t } = useTranslation();
+  let navigate = useNavigate();
+  const user = useSelector((state) => state.clientData);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(clientDataAction());
+  }, []);
+  const logout = () => {
+    fbAuth.auth.signOut().then((res) => {
+      console.log(res);
+      navigate("/login");
+      localStorage.removeItem('userType');
+      window.location.reload();
+    }).catch((error) => {
+      console.log(error.message);
+    });
+  };
 
-    return (
-        <>
-            <div className="collapse d-lg-none" id="navbarNavDropdown">
-                <ul className="navbar-nav">
-                    <li className="mt-3">
-                        <HeaderSearchSm />
-                    </li>
-                    <li className="dropdown px-3">
-                        <a
-                            className="nav-link dropdown-toggle mt-4 pt-4 border-top-cn"
-                            href="#"
-                            id="navbarDropdownMenuLink"
-                            role="button"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                        >
-                            <img style={{ height: "40px", width: "40px" }} className="rounded-circle bg-white" src={user.profilePhoto ? user.profilePhoto : img} alt="" />
-                            <span className="ms-2">{user?.firstName + " " + user?.lastName}</span>
-                        </a>
-                        {/* <ul
+  return (
+    <>
+      <div className="collapse d-lg-none" id="navbarNavDropdown">
+        <ul className="navbar-nav">
+          <li className="mt-3">
+            <HeaderSearchSm />
+          </li>
+          <li className="dropdown px-3">
+            <a
+              className="nav-link dropdown-toggle mt-4 pt-4 border-top-cn"
+              href="#"
+              id="navbarDropdownMenuLink"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img style={{ height: "40px", width: "40px" }} className="rounded-circle bg-white" src={user.profilePhoto ? user.profilePhoto : img} alt="" />
+              <span className="ms-2">{user?.firstName + " " + user?.lastName}</span>
+            </a>
+            {/* <ul
               id="acc-id"
               className="dropdown-menu"
               aria-labelledby="navbarDropdownMenuLink"
             > */}
-                        {/* <li className="px-4 py-3">
+            {/* <li className="px-4 py-3">
                 <div
                   id="acc-btns-id"
                   className="btn-group w-100"
@@ -70,7 +70,7 @@ export default function NavSmallScreen() {
                   </button>
                 </div>
               </li> */}
-                        {/* <li>
+            {/* <li>
                 <Link
                   className="dropdown-item px-4"
                   to="/find-work"
@@ -87,7 +87,7 @@ export default function NavSmallScreen() {
                   </div>
                 </Link>
               </li> */}
-                        {/* <li>
+            {/* <li>
                 <Link className="dropdown-item px-4 mb-1" to="/home">
                   <div className="d-flex align-items-center">
                     <span style={{ marginLeft: "-5px" }}>
@@ -100,80 +100,80 @@ export default function NavSmallScreen() {
                   </div>
                 </Link>
               </li> */}
-                        {/* </ul> */}
-                    </li>
-                    <li className="dropdown px-3">
-                        <a
-                            className="nav-link active dropdown-toggle mt-2 pt-3 border-top-cn"
-                            href="#"
-                            id="navbarDropdownMenuLink"
-                            role="button"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                        >
-                            {t("Jobs")}
-                            <i className="fa fa-sort-down text-white float-end"></i>
-                        </a>
-                        <ul
-                            className="dropdown-menu sub-drop-cn"
-                            aria-labelledby="navbarDropdownMenuLink"
-                        >
-                            <li>
-                                <Link className="dropdown-item" to={`${BASE_ROUTE}/home`}>
-                                    {t("My Jobs")}
-                                </Link>
-                            </li>
-                            <li>
-                                <Link className="dropdown-item" to={`${BASE_ROUTE}/all-job-posts`}>
-                                    {t("All Jobs Posts")}
-                                </Link>
-                            </li>
-                            <li>
-                                <Link className="dropdown-item" to={`${BASE_ROUTE}/all-contracts`}>
-                                    {t("All Contracts")}
-                                </Link>
-                            </li>
-                            {/* <li>
+            {/* </ul> */}
+          </li>
+          <li className="dropdown px-3">
+            <a
+              className="nav-link active dropdown-toggle mt-2 pt-3 border-top-cn"
+              href="#"
+              id="navbarDropdownMenuLink"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              {t("Jobs")}
+              <i className="fa fa-sort-down text-white float-end"></i>
+            </a>
+            <ul
+              className="dropdown-menu sub-drop-cn"
+              aria-labelledby="navbarDropdownMenuLink"
+            >
+              <li>
+                <Link className="dropdown-item" to={`${BASE_ROUTE}/home`}>
+                  {t("My Jobs")}
+                </Link>
+              </li>
+              <li>
+                <Link className="dropdown-item" to={`${BASE_ROUTE}/all-job-posts`}>
+                  {t("All Jobs Posts")}
+                </Link>
+              </li>
+              <li>
+                <Link className="dropdown-item" to={`${BASE_ROUTE}/all-contracts`}>
+                  {t("All Contracts")}
+                </Link>
+              </li>
+              {/* <li>
                 <Link className="dropdown-item" to="/bring-your-own-talent">
                   {t("Bring Your Own Talent")}
                 </Link>
               </li> */}
-                            <li>
-                                <Link className="dropdown-item" to={`${BASE_ROUTE}/post-job`}>
-                                    {t("Post a Job")}
-                                </Link>
-                            </li>
-                        </ul>
-                    </li>
-                    <li className="dropdown px-3">
-                        <a
-                            className="nav-link dropdown-toggle mt-2 pt-3 border-top-cn"
-                            href="#"
-                            id="navbarDropdownMenuLink"
-                            role="button"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                        >
-                            {t("Talent")}
-                            <i className="fa fa-sort-down text-white float-end"></i>
-                        </a>
-                        <ul
-                            className="dropdown-menu sub-drop-cn"
-                            aria-labelledby="navbarDropdownMenuLink"
-                        >
-                            <li>
-                                <Link className="dropdown-item" to={`${BASE_ROUTE}/talent/my-hires`}>
-                                    {t("My Hires")}
-                                </Link>
-                            </li>
-                            <li>
-                                <Link className="dropdown-item" to={`${BASE_ROUTE}/talent/saved-talent`}>
-                                    {t("Saved Talent")}
-                                </Link>
-                            </li>
-                        </ul>
-                    </li>
-                    {/* <li className="dropdown px-3">
+              <li>
+                <Link className="dropdown-item" to={`${BASE_ROUTE}/post-job`}>
+                  {t("Post a Job")}
+                </Link>
+              </li>
+            </ul>
+          </li>
+          <li className="dropdown px-3">
+            <a
+              className="nav-link dropdown-toggle mt-2 pt-3 border-top-cn"
+              href="#"
+              id="navbarDropdownMenuLink"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              {t("Talent")}
+              <i className="fa fa-sort-down text-white float-end"></i>
+            </a>
+            <ul
+              className="dropdown-menu sub-drop-cn"
+              aria-labelledby="navbarDropdownMenuLink"
+            >
+              <li>
+                <Link className="dropdown-item" to={`${BASE_ROUTE}/talent/my-hires`}>
+                  {t("My Hires")}
+                </Link>
+              </li>
+              <li>
+                <Link className="dropdown-item" to={`${BASE_ROUTE}/talent/saved-talent`}>
+                  {t("Saved Talent")}
+                </Link>
+              </li>
+            </ul>
+          </li>
+          {/* <li className="dropdown px-3">
             <a
               className="nav-link dropdown-toggle mt-2 pt-3 border-top-cn"
               href="#"
@@ -265,24 +265,24 @@ export default function NavSmallScreen() {
               </li>
             </ul>
           </li> */}
-                    <li className="nav-item px-3">
-                        <a className="nav-link mt-2 pt-3 border-top-cn" to={`${BASE_ROUTE}/messages`}>
-                            {t("Messages")}
-                        </a>
-                    </li>
-                    {/* <li className="nav-item px-3">
+          <li className="nav-item px-3">
+            <a className="nav-link mt-2 pt-3 border-top-cn" to={`${BASE_ROUTE}/messages`}>
+              {t("Messages")}
+            </a>
+          </li>
+          {/* <li className="nav-item px-3">
             <a className="nav-link mt-2 pt-3 border-top-cn" href="#">
               {t("Help")}
               <i className="fas fa-question float-end"></i>
             </a>
           </li> */}
-                    <li className="nav-item px-3">
-                        <NavLink className="nav-link mt-2 pt-3 border-top-cn" to={`${BASE_ROUTE}/notifications`}>
-                            {t("Notification")}
-                            <i className="far fa-bell float-end"></i>
-                        </NavLink>
-                    </li>
-                    {/* <li className="nav-item px-3">
+          <li className="nav-item px-3">
+            <NavLink className="nav-link mt-2 pt-3 border-top-cn" to={`${BASE_ROUTE}/notifications`}>
+              {t("Notification")}
+              <i className="far fa-bell float-end"></i>
+            </NavLink>
+          </li>
+          {/* <li className="nav-item px-3">
             <a className="nav-link mt-2 pt-3 border-top-cn" href="#">
               {t("Invite a Coworker")}
               <i
@@ -291,7 +291,7 @@ export default function NavSmallScreen() {
               ></i>
             </a>
           </li> */}
-                    {/* <li className="nav-item">
+          {/* <li className="nav-item">
             <a className="dropdown-item mt-2 pt-3 border-top-cn" href="#">
               <span>
                 <i className="fa fa-cog"></i>
@@ -299,16 +299,16 @@ export default function NavSmallScreen() {
               <span className="ps-3">{t("Settings")}</span>
             </a>
           </li> */}
-                    <li className="nav-item pb-2" onClick={logout}>
-                        <a className="dropdown-item mt-2 pt-3 border-top-cn" href="#">
-                            <span>
-                                <i className="fas fa-sign-out-alt"></i>
-                            </span>
-                            <span className="ps-3">{t("Log Out")}</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </>
-    );
+          <li className="nav-item pb-2" onClick={logout}>
+            <a className="dropdown-item mt-2 pt-3 border-top-cn" href="#">
+              <span>
+                <i className="fas fa-sign-out-alt"></i>
+              </span>
+              <span className="ps-3">{t("Log Out")}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </>
+  );
 }

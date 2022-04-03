@@ -1,4 +1,4 @@
-import { auth, db } from "../../firebase";
+import { fbAuth, db } from "../../firebase";
 
 export const talentDataAction = () => (dispatch) => {
     try {

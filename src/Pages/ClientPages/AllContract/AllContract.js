@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { auth, db } from "../../../firebase";
+import { fbAuth, db } from "../../../firebase";
 import OneContract from './OneContract';
 
 
@@ -14,7 +14,7 @@ export default function AllContracts() {
 
   useEffect(() => {
     db.collection("client")
-      .doc(auth.currentUser.uid)
+      .doc(fbAuth.auth.currentUser.uid)
       .collection("contracts")
       .where("talentResponse", "==", "accept")
       .onSnapshot(res => {

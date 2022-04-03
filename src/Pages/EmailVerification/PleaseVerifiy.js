@@ -1,12 +1,12 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
 import verify from "../../assets/svg/verifyEmail.svg";
-import { auth } from '../../firebase';
+import { fbAuth } from '../../firebase';
 
 
 export default function PleaseVerifiy() {
   const handleResend = () => {
-    auth.currentUser.sendEmailVerification();
+    fbAuth.auth.currentUser.sendEmailVerification();
   }
   return (
     <div className="text-center" style={{ margin: "67px 0" }}>

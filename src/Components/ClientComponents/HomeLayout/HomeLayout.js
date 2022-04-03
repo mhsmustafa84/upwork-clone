@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clientDataAction } from "./../../../Store/actions/clientData";
 import { useTranslation } from "react-i18next";
-import { auth, db } from "../../../firebase";
+import { fbAuth, db } from "../../../firebase";
 import { clientJobsAction } from "../../../Store/actions/clientJobAction";
 import "./HomeLayout.css";
 import j1 from "../../../assets/svg/jobs1.svg";
@@ -29,7 +29,7 @@ export default function HomeLayout() {
 
     useEffect(async () => {
         dispatch(clientDataAction());
-        dispatch(clientJobsAction("authID", "==", auth.currentUser.uid));
+        dispatch(clientJobsAction("authID", "==", fbAuth.auth.currentUser.uid));
         await db.collection("job").doc(jobs[0]?.docID).collection("proposals").get().then(res => {
             const length = res.docs.length;
             setProposals(length)

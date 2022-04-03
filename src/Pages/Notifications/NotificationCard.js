@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import img from "../../assets/Img/icon-user.svg";
-import { auth, db } from '../../firebase';
+import { fbAuth, db } from '../../firebase';
 import { BASE_ROUTE } from './../../constant';
 
 
@@ -11,7 +11,7 @@ export default function NotificationCard({ notification, collectionName, getNoti
 
     const remove = () => {
         db.collection(collectionName)
-            .doc(auth.currentUser.uid)
+            .doc(fbAuth.auth.currentUser.uid)
             .collection("notification")
             .doc(docID)
             .delete().then(res => getNotifications())
@@ -19,7 +19,7 @@ export default function NotificationCard({ notification, collectionName, getNoti
 
     const updateShow = () => {
         db.collection(collectionName)
-            .doc(auth.currentUser.uid)
+            .doc(fbAuth.auth.currentUser.uid)
             .collection("notification")
             .doc(docID).update({ isShow: true })
     }

@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import OneContract from "../../../Components/TalentComponents/OneContract/OneContract";
 import { useTranslation } from "react-i18next";
-import { auth, db } from "../../../firebase";
+import { fbAuth, db } from "../../../firebase";
 
 export default function AllContracts() {
 
@@ -12,7 +12,7 @@ export default function AllContracts() {
 
   useEffect(() => {
     db.collection("talent")
-      .doc(auth.currentUser.uid)
+      .doc(fbAuth.auth.currentUser.uid)
       .collection("jobProposal")
       .where("status", "==", "contract")
       .onSnapshot(res => {

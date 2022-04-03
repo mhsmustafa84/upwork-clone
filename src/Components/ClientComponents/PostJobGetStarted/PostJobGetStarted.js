@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import createDocument, { updateJob } from "../../../Network/Network";
-import { auth } from "./../../../firebase";
+import { fbAuth } from "./../../../firebase";
 import { useSelector } from "react-redux";
 import { BASE_ROUTE } from './../../../constant';
 
@@ -19,7 +19,7 @@ export default function PostJobGetStarted({ start, isStart, setBtns, btns }) {
         createDocument("job",
             {
                 jobID: "",
-                authID: auth.currentUser.uid,
+                authID: fbAuth.auth.currentUser.uid,
                 postTime: "",
                 status: "private",
                 hired: 0,

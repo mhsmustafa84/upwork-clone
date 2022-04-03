@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import { auth } from "../firebase";
+import { fbAuth } from "../firebase";
 import BeforeLoginRoutes from "../Routes/BeforeLoginRoutes";
 import ClientRoutes from "../Routes/ClientRoutes";
 import TalentRoutes from "./../Routes/TalentRoutes";
@@ -11,7 +11,8 @@ export default function LayOut() {
     const [usrType, setUsrType] = useState(null);
 
     useEffect(() => {
-        auth.onAuthStateChanged(user => {
+        console.log({ fbAuth });
+        fbAuth.onAuthStateChanged(fbAuth.auth, user => {
             if (user) {
                 setUsr(user);
                 setUsrType(localStorage.getItem('userType') || null);

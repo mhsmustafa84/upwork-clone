@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { Link } from "react-router-dom";
-import { auth, googleProvider } from "../../../firebase";
+import { fbAuth, googleProvider } from "../../../firebase";
 import apple from "../../../assets/svg/apple.svg";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -55,9 +55,9 @@ export default function LoginTemp() {
 
     const login = (e) => {
         console.log({ user });
-        console.log({ auth });
+        console.log({ fbAuth });
         e.preventDefault();
-        auth.signInWithEmailAndPassword(auth, user.email, user.password)
+        fbAuth.signInWithEmailAndPassword(fbAuth.auth, user.email, user.password)
             .then((res) => {
                 if (res.user) {
                     localStorage.setItem("userType", res.user.displayName);
@@ -74,10 +74,10 @@ export default function LoginTemp() {
     };
 
     const googleLogin = () => {
-        auth.signInWithPopup(googleProvider)
+        fbAuth.signInWithPopup(fbAuth.auth, googleProvider)
             .then((result) => {
                 console.log(result.user.displayName);
-                /** @type {auth.OAuthCredential} */
+                /** @type {fbAuth.auth.OAuthCredential} */
                 var credential = result.credential;
 
                 // This gives you a Google Access Token. You can use it to access the Google API.
