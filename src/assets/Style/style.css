@@ -7,70 +7,13 @@
   }
 }
 
-/* @font-face {
-  font-family: myFont;
-  src: url(../fonts/GothamMedium.ttf);
-} */
 [dir="rtl"] * {
-  /* font-family: 'Tajawal', sans-serif; */
-  /* font-size: 14px !important; */
-  /* font-family: 'Lateef', cursive; */
   font-family: "Cairo", sans-serif;
 }
 .container-fluid {
   background: #f1f2f4;
 }
 
-.google-btn {
-  cursor: pointer;
-  width: 66.66%;
-  height: 42px;
-  line-height: 30px;
-  background-color: #4285f4;
-  border-radius: 2px;
-  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
-}
-
-.google-btn .google-icon-wrapper {
-  position: absolute;
-  margin-top: 1.2px;
-  margin-left: 1px;
-  margin-right: 1px;
-  width: 38px;
-  height: 38px;
-  border-radius: 4px;
-  background-color: #fff;
-}
-
-.google-btn .google-icon {
-  position: absolute;
-  margin-top: 11px;
-  margin-left: 11px;
-  width: 17px;
-  height: 17px;
-}
-[dir="rtl"] .google-btn .google-icon {
-  margin-right: 10px;
-}
-.google-btn .btn-text {
-  float: left;
-  margin: 11px 11px 0 0;
-  color: #fff;
-  font-size: 14px;
-  letter-spacing: 0.2px;
-  font-family: "Roboto";
-  text-align: center;
-}
-
-.google-btn:hover {
-  box-shadow: 0 0 6px #4285f4;
-}
-
-.google-btn:active {
-  background: #1669f2;
-}
-
-/*# sourceMappingURL=style.css.map */
 .hitbtn-class {
   height: 40px;
 }
