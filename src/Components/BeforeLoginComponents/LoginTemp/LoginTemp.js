@@ -4,7 +4,7 @@ import { fbAuth, googleProvider } from "../../../firebase";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { BASE_ROUTE } from './../../../constant';
+
 
 export default function LoginTemp() {
     const [user, setUser] = useState({ email: "", password: "" });
@@ -121,7 +121,7 @@ export default function LoginTemp() {
                                         {t("New To Upwork")}
                                     </div>
                                     <div className="d-grid gap-2 col-md-5 col-sm-10 mx-auto mt-3   rounded mb-5">
-                                        <Link className="btn signup" to={`${BASE_ROUTE}/sign-up`}>
+                                        <Link className="btn signup" to={`${process.env.REACT_APP_BASE_ROUTE}/sign-up`}>
                                             {t("Sign Up")}
                                         </Link>
                                     </div>

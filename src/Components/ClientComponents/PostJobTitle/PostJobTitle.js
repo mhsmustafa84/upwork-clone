@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { updateJob } from "../../../Network/Network";
 import "./PostJobTitle.css";
 import { useTranslation } from "react-i18next";
-import { BASE_ROUTE } from './../../../constant';
+
 
 export default function PostJobTitle({ setBtns, btns }) {
     const [job, setJob] = useState({ jobTitle: "", jobCategory: "" });
@@ -96,10 +96,10 @@ export default function PostJobTitle({ setBtns, btns }) {
                 </div>
                 <div className="ps-4 my-3">
                     <button className="btn">
-                        <Link className="btn border text-success me-4 px-5" to={`${BASE_ROUTE}/post-job`}>{t("Back")}</Link>
+                        <Link className="btn border text-success me-4 px-5" to={`${process.env.REACT_APP_BASE_ROUTE}/post-job`}>{t("Back")}</Link>
                     </button>
                     <button className={`btn ${job.jobTitle === "" || job.jobCategory === "" || job.jobCategory === "Select a category" ? "disabled" : ""}`}>
-                        <Link className="btn bg-upwork px-5" to={`${BASE_ROUTE}/post-job/description`} onClick={addData}>{t("Next")}</Link>
+                        <Link className="btn bg-upwork px-5" to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/description`} onClick={addData}>{t("Next")}</Link>
                     </button>
                 </div>
             </section>

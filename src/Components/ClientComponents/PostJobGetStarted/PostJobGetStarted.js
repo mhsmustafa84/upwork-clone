@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import createDocument, { updateJob } from "../../../Network/Network";
 import { fbAuth } from "./../../../firebase";
 import { useSelector } from "react-redux";
-import { BASE_ROUTE } from './../../../constant';
+
 
 export default function PostJobGetStarted({ start, isStart, setBtns, btns }) {
 
@@ -80,10 +80,10 @@ export default function PostJobGetStarted({ start, isStart, setBtns, btns }) {
                         </div>
                         <div className="ps-4 my-3">
                             <button className="btn">
-                                <Link className="btn border text-success me-4 px-5 fw-bold" to={`${BASE_ROUTE}/home`}>{t("Cancel")}</Link>
+                                <Link className="btn border text-success me-4 px-5 fw-bold" to={`${process.env.REACT_APP_BASE_ROUTE}/home`}>{t("Cancel")}</Link>
                             </button>
                             <button className={`btn ${job.jobDuration === "" ? "disabled" : ""}`}>
-                                <Link className="btn bg-upwork px-5" to={`${BASE_ROUTE}/post-job/title`} onClick={addData}>{t("Continue")}</Link>
+                                <Link className="btn bg-upwork px-5" to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/title`} onClick={addData}>{t("Continue")}</Link>
                             </button>
                         </div>
                     </>

@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { BASE_ROUTE } from './../../../constant';
+
 
 export default function JobPostsHeader() {
     return (
@@ -17,7 +17,7 @@ export default function JobPostsHeader() {
 
                 <div className="col-6"></div>
                 <div className="col-2">
-                    <Link to={`${BASE_ROUTE}/post-job`} className="btn bg-upwork">
+                    <Link to={`${process.env.REACT_APP_BASE_ROUTE}/post-job`} className="btn bg-upwork">
                         Post a New Job
                     </Link>
                 </div>

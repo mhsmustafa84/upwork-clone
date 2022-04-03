@@ -7,6 +7,7 @@ import "./App.css";
 
 function App() {
     let lang = useSelector(state => state.lang)
+    console.log(process.env.REACT_APP_BASE_ROUTE);
     return (
         <BrowserRouter>
             <div

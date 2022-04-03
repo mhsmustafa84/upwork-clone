@@ -15,7 +15,7 @@ import Saved from "../../../Components/ClientComponents/SavedComponent/Saved";
 import { useTranslation } from "react-i18next";
 import SearchClient from "../SearchClient/SearchClient";
 import EmptyTalent from "../../../Components/ClientComponents/EmptyTalentComponent/EmptyTalent";
-import { BASE_ROUTE } from './../../../constant';
+
 
 
 export default function Talent() {
@@ -32,7 +32,7 @@ export default function Talent() {
 
     const { pathname } = useLocation();
     let navigate = useNavigate();
-    pathname === `${BASE_ROUTE}/talent` && navigate(`${BASE_ROUTE}/talent/my-hires`);
+    pathname === `${process.env.REACT_APP_BASE_ROUTE}/talent` && navigate(`${process.env.REACT_APP_BASE_ROUTE}/talent/my-hires`);
 
     return (
         <div className="py-5" style={{ backgroundColor: "#f1f2f4" }}>
@@ -44,7 +44,7 @@ export default function Talent() {
                                 className="nav-link"
                                 exact
                                 activeClassName="active"
-                                to={`${BASE_ROUTE}/talent/searchclient`}
+                                to={`${process.env.REACT_APP_BASE_ROUTE}/talent/searchclient`}
                             >
                                 {t("Search")}
                             </NavLink>
@@ -54,7 +54,7 @@ export default function Talent() {
                                 className="nav-link"
                                 exact
                                 activeClassName="active"
-                                to={`${BASE_ROUTE}/talent/my-hires`}
+                                to={`${process.env.REACT_APP_BASE_ROUTE}/talent/my-hires`}
                             >
                                 {t("MyHires")}
                             </NavLink>
@@ -64,7 +64,7 @@ export default function Talent() {
                                 className="nav-link"
                                 exact
                                 activeClassName="active"
-                                to={`${BASE_ROUTE}/talent/saved-talent`}
+                                to={`${process.env.REACT_APP_BASE_ROUTE}/talent/saved-talent`}
                             >
                                 {t("Saved")} ({client?.savedTalent?.length})
                             </NavLink>

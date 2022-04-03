@@ -7,7 +7,7 @@ import { updateJob } from "../../../Network/Network";
 import "./PostJobReview.css";
 import { useTranslation } from "react-i18next";
 import Loader from "../../SharedComponents/Loader/Loader";
-import { BASE_ROUTE } from './../../../constant';
+
 
 export default function PostJobReview() {
 
@@ -47,7 +47,7 @@ export default function PostJobReview() {
                         <section className=" bg-white border rounded mt-3">
                             <div className="ps-4 d-flex border-bottom justify-content-between align-items-center py-4">
                                 <h4>{t("Review and post")}</h4>
-                                <Link className="btn bg-upwork me-4 px-5" to={`${BASE_ROUTE}`} onClick={publishJob}>{t("Post Job Now")}</Link>
+                                <Link className="btn bg-upwork me-4 px-5" to={`${process.env.REACT_APP_BASE_ROUTE}`} onClick={publishJob}>{t("Post Job Now")}</Link>
                             </div>
                             <div className="px-4 mt-4">
                                 <h5>{t("Title")}</h5>
@@ -128,8 +128,8 @@ export default function PostJobReview() {
 
                         <section className="bg-white border rounded mt-4">
                             <div className="ps-4 my-3 py-2">
-                                <Link className="btn bg-upwork me-4 px-5" to={`${BASE_ROUTE}`} onClick={publishJob}>{t("Post Job Now")}</Link>
-                                <Link className="btn border text-success px-5" to={`${BASE_ROUTE}/home`} onClick={deletePost}>{t("Delete & Exit")}</Link>
+                                <Link className="btn bg-upwork me-4 px-5" to={`${process.env.REACT_APP_BASE_ROUTE}`} onClick={publishJob}>{t("Post Job Now")}</Link>
+                                <Link className="btn border text-success px-5" to={`${process.env.REACT_APP_BASE_ROUTE}/home`} onClick={deletePost}>{t("Delete & Exit")}</Link>
                             </div>
                         </section>
                     </>

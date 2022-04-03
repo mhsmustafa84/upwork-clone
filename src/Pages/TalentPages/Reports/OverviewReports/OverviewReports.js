@@ -17,7 +17,6 @@ import WorkinProgress from "../../../../Components/TalentComponents/WorkinProgre
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { inReviewAction } from "../../../../Store/actions/inReviewAction";
-import { BASE_ROUTE } from './../../../../constant';
 
 export default function OverviewReports() {
     const { pathname } = useLocation();
@@ -55,7 +54,7 @@ export default function OverviewReports() {
                             >
                                 <NavLink
                                     id="ex2-tab-1"
-                                    to={`${BASE_ROUTE}/overview/work-in-progress`}
+                                    to={`${process.env.REACT_APP_BASE_ROUTE}/overview/work-in-progress`}
                                     data-mdb-toggle="tab"
                                     role="tab"
                                     aria-controls="ex2-tabs-1"
@@ -88,7 +87,7 @@ export default function OverviewReports() {
                                 <NavLink
                                     id="ex2-tab-1"
                                     data-mdb-toggle="tab"
-                                    to={`${BASE_ROUTE}/overview/in-review`}
+                                    to={`${process.env.REACT_APP_BASE_ROUTE}/overview/in-review`}
                                     role="tab"
                                     style={{ textDecoration: "none" }}
                                 >
@@ -115,7 +114,7 @@ export default function OverviewReports() {
                             <li className="nav-item" role="presentation">
                                 <NavLink
                                     id="ex2-tab-3"
-                                    to={`${BASE_ROUTE}/overview/pending`}
+                                    to={`${process.env.REACT_APP_BASE_ROUTE}/overview/pending`}
                                     data-mdb-toggle="tab"
                                     role="tab"
                                     style={{ textDecoration: "none" }}
@@ -148,7 +147,7 @@ export default function OverviewReports() {
                                 <NavLink
                                     id="ex2-tab-4"
                                     data-mdb-toggle="tab"
-                                    to={`${BASE_ROUTE}/overview/available`}
+                                    to={`${process.env.REACT_APP_BASE_ROUTE}/overview/available`}
                                     role="tab"
                                     style={{ textDecoration: "none" }}
                                 >

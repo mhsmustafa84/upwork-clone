@@ -11,7 +11,6 @@ import { subCollection, updateUserData } from "../../Network/Network";
 import { Link } from "react-router-dom";
 import SubmitProposalFixed from "../../Components/TalentComponents/SubmitProposalFixed/SubmitProposalFixed";
 import SubmitProposalHourly from "../../Components/TalentComponents/SubmitProposalHourly/SubmitProposalHourly";
-import { BASE_ROUTE } from './../../constant';
 
 export default function SubmitProposal() {
     const lang = useSelector(state => state.lang);
@@ -207,7 +206,7 @@ export default function SubmitProposal() {
                                         <div className="mb-3">
                                             <p>{job?.jobDescription}</p>
                                             <Link to={{
-                                                pathname: `${BASE_ROUTE}/job/${id}`,
+                                                pathname: `${process.env.REACT_APP_BASE_ROUTE}/job/${id}`,
                                                 state: `${id}`,
                                             }} className="upw-c-cn" href>
                                                 View job posting

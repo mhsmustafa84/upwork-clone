@@ -14,7 +14,7 @@ import { jobsDataAction } from "../../../Store/actions/jobsData";
 import JobCard from "../../../Components/TalentComponents/SectionCenterTalentHome/JobCard";
 import StarsRating from "../../../Components/SharedComponents/StarsRating/StarsRating";
 import SearchIcon from "../../../Components/SVG/SearchIcon";
-import { BASE_ROUTE } from './../../../constant';
+
 
 export default function Search(props) {
     const { t } = useTranslation();
@@ -470,7 +470,7 @@ export default function Search(props) {
                                     className="list-group-item sidebar-homebage-ul-li bg-white boder border-0"
                                     aria-current="true"
                                 >
-                                    <Link to={`${BASE_ROUTE}/Search`}>
+                                    <Link to={`${process.env.REACT_APP_BASE_ROUTE}/Search`}>
                                         <a
                                             href="#"
                                             className=" list-group-item-action saved-homebage-ul-li-aa active activesidesaved bg-white"
@@ -484,7 +484,7 @@ export default function Search(props) {
                                     className="list-group-item sidebar-homebage-ul-li bg-white boder border-0"
                                     aria-current="true"
                                 >
-                                    <Link to={`${BASE_ROUTE}/saved-jobs`}>
+                                    <Link to={`${process.env.REACT_APP_BASE_ROUTE}/saved-jobs`}>
                                         <a
                                             href="#"
                                             className=" list-group-item-action saved-homebage-ul-li-aa bg-white"

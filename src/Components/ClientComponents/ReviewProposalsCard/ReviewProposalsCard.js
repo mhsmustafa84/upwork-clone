@@ -9,7 +9,7 @@ import img from "../../../assets/Img/icon-user.svg";
 import ReviewProposalsPageHeader from "./../ReviewProposalsPageHeader/ReviewProposalsPageHeader";
 import { Link } from "react-router-dom";
 import Loader from './../../SharedComponents/Loader/Loader';
-import { BASE_ROUTE } from './../../../constant';
+
 
 export default function ReviewProposalsCard() {
 
@@ -72,7 +72,7 @@ export default function ReviewProposalsCard() {
                                     </div>
                                     <div className="col-lg-6 pt-lg-3 ">
                                         <Link
-                                            to={`${BASE_ROUTE}/talent-profile/${talent[index]?.authID}`}
+                                            to={`${process.env.REACT_APP_BASE_ROUTE}/talent-profile/${talent[index]?.authID}`}
                                             id="job-title-home-page "
                                             className="link-dark job-title-hover fw-bold text-success"
                                         >
@@ -119,7 +119,7 @@ export default function ReviewProposalsCard() {
                                     </div>
                                     <div className="col py-3">
                                         <Link
-                                            to={{ pathname: `${BASE_ROUTE}/messages`, state: talent[index] }}
+                                            to={{ pathname: `${process.env.REACT_APP_BASE_ROUTE}/messages`, state: talent[index] }}
                                             className="btn bg-white btn-outline-secondary"
                                             onClick={() => sendMSG(talent[index]?.authID)}
                                         >
@@ -131,7 +131,7 @@ export default function ReviewProposalsCard() {
                                             type="button"
                                             className="btn bg-upwork px-5"
                                             to={{
-                                                pathname: `${BASE_ROUTE}/create-contract`,
+                                                pathname: `${process.env.REACT_APP_BASE_ROUTE}/create-contract`,
                                                 state: { talentID: talent[index]?.authID, jobID: id }
                                             }}
                                         >

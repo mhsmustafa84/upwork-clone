@@ -3,7 +3,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import Logo from '../../SharedComponents/Logo/Logo';
 import { useTranslation } from "react-i18next";
-import { BASE_ROUTE } from './../../../constant';
+
 
 
 export default function LoginHeader() {
@@ -17,8 +17,8 @@ export default function LoginHeader() {
                 <Logo />
                 <div>
                     {
-                        pathname === `${BASE_ROUTE}/sign-up` &&
-                        <p className="text-white">{t("Already have an account")}<Link to={`${BASE_ROUTE}/login`}>{" "}{t("Log In")}</Link></p>
+                        pathname === `${process.env.REACT_APP_BASE_ROUTE}/sign-up` &&
+                        <p className="text-white">{t("Already have an account")}<Link to={`${process.env.REACT_APP_BASE_ROUTE}/login`}>{" "}{t("Log In")}</Link></p>
                     }
                 </div>
             </div>
