@@ -23,7 +23,7 @@ export default function ConnectsAndSubmit() {
 
   useEffect(() => {
     db.collection("talent")
-      .doc(auth.currentUser.uid)
+      .doc(fbAuth.auth.currentUser.uid)
       .collection("jobProposal")
       .where("jobId", "==", id)
       .onSnapshot((res) => {
@@ -64,7 +64,7 @@ export default function ConnectsAndSubmit() {
         .collection("job")
         .doc(id)
         .collection("proposals")
-        .where("talentId", "==", auth.currentUser.uid)
+        .where("talentId", "==", fbAuth.auth.currentUser.uid)
         .get()
         .then((res) =>
           res.docs.map((e) => {
@@ -80,7 +80,7 @@ export default function ConnectsAndSubmit() {
         );
       await db
         .collection("talent")
-        .doc(auth.currentUser.uid)
+        .doc(fbAuth.auth.currentUser.uid)
         .collection("jobProposal")
         .where("jobId", "==", id)
         .get()
@@ -89,7 +89,7 @@ export default function ConnectsAndSubmit() {
             talent = e.id;
             setTalent(talent);
             db.collection("talent")
-              .doc(auth.currentUser.uid)
+              .doc(fbAuth.auth.currentUser.uid)
               .collection("jobProposal")
               .doc(talent)
               .delete();

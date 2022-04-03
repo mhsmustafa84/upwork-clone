@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
-import { auth, db } from '../../../firebase';
+import { fbAuth, db } from '../../../firebase';
 import { subCollection } from '../../../Network/Network';
 import { Timestamp } from 'firebase/firestore';
 
@@ -77,10 +77,10 @@ export default function CreateContract({ location }) {
                 time: Timestamp.now(),
                 message: "New job offer, check it now.",
                 type: "offer",
-                clientID: auth.currentUser.uid,
+                clientID: fbAuth.auth.currentUser.uid,
                 isShow: false,
                 route: "/offers",
-                userID: auth.currentUser.uid,
+                userID: fbAuth.auth.currentUser.uid,
             })
 
         subCollection(
@@ -91,13 +91,13 @@ export default function CreateContract({ location }) {
             jobID: jobID,
             talentID: talentID,
             talentResponse: "",
-            clientID: auth.currentUser.uid,
+            clientID: fbAuth.auth.currentUser.uid,
             dueDate: contract.dueDate,
             jobBudget: contract.jobBudget || job.jobBudget,
             jobPaymentType: contract.jobPaymentType || job.jobPaymentType,
             jobPaymentTypeAr: (contract.jobPaymentType === "Fixed Price" ? "عمل بميزانية ثابتة" : "عمل بالساعة") || job.jobPaymentTypeAr
         },
-            auth.currentUser.uid
+            fbAuth.auth.currentUser.uid
         )
         setContract({ jobPaymentType: "", jobBudget: "", dueDate: "" })
         setTimeout(() => {

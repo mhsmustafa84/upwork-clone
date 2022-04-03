@@ -4,7 +4,7 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { auth, db } from "../../../firebase";
+import { fbAuth, db } from "../../../firebase";
 import img from "../../../assets/Img/icon-user.svg";
 import { useSelector } from "react-redux";
 
@@ -16,7 +16,7 @@ export default function RightSidebarTalentHome({ lang }) {
 
   useEffect(() => {
     db.collection("talent")
-      .doc(auth.currentUser.uid)
+      .doc(fbAuth.auth.currentUser.uid)
       .collection("jobProposal")
       .where("status", "==", "proposal")
       .get()
@@ -38,7 +38,7 @@ export default function RightSidebarTalentHome({ lang }) {
         <h5 className="d-inline ps-1">{`${user.firstName}`}</h5>
       </div>
       <div className="my-lg-1">
-        <Link to={`/profile/${auth.currentUser.uid}`} className="advanced-search-link">
+        <Link to={`/profile/${fbAuth.auth.currentUser.uid}`} className="advanced-search-link">
           <i className="fas fa-eye"> </i> {t("View Profile")}
         </Link>
       </div>

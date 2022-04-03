@@ -1,12 +1,12 @@
 /* eslint-disable jsx-a11y/alt-text */
 import verify from "../../assets/svg/verifyEmail.svg";
-import { auth } from "../../firebase";
+import { fbAuth } from "../../firebase";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
 
 export default function EmailVerified() {
     let navigate = useNavigate();
-    const userr = auth.currentUser;
+    const userr = fbAuth.auth.currentUser;
     userr.reload().then(() => {
         console.log({ emailVerified: userr.emailVerified })
     })

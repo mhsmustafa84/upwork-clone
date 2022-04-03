@@ -5,6 +5,9 @@ import {
     GoogleAuthProvider,
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword,
+    onAuthStateChanged,
+    onIdTokenChanged,
+    signInWithPopup
 } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 import { getFirestore } from "firebase/firestore";
@@ -19,15 +22,23 @@ initializeApp({
     measurementId: "G-8BVMCH1W3X",
 });
 
-let auth = getAuth();
-auth = { ...auth, signInWithEmailAndPassword, createUserWithEmailAndPassword }
+const auth = getAuth();
 const storage = getStorage();
 const db = getFirestore();
 const googleProvider = new GoogleAuthProvider();
 const appleProvider = new OAuthProvider("apple.com");
 
-export {
+const fbAuth = {
     auth,
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
+    onAuthStateChanged,
+    onIdTokenChanged,
+    signInWithPopup
+}
+
+export {
+    fbAuth,
     db,
     storage,
     googleProvider,

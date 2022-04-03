@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import ProposalCard from "../../../Components/TalentComponents/ProposalCard/ProposalCard";
 import { useEffect } from "react";
-import { auth, db } from "../../../firebase";
+import { fbAuth, db } from "../../../firebase";
 
 export default function Proposals() {
 
@@ -13,7 +13,7 @@ export default function Proposals() {
 
   useEffect(async () => {
     await db.collection("talent")
-      .doc(auth.currentUser.uid)
+      .doc(fbAuth.auth.currentUser.uid)
       .collection("jobProposal")
       .get()
       .then(res => {

@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { auth } from "../../../firebase";
+import { fbAuth } from "../../../firebase";
 import { useNavigate } from 'react-router-dom';
 import LanguageList from "../../SharedComponents/LanguageBtn/LanguageList";
 import { useTranslation } from "react-i18next";
@@ -25,7 +25,7 @@ export default function NavLargScreen() {
 
 
   const logout = () => {
-    auth.signOut()
+    fbAuth.auth.signOut()
       .then((res) => {
         console.log(res);
         navigate("/login");
@@ -69,7 +69,7 @@ export default function NavLargScreen() {
                 </Link>
               </li>
               <li>
-                <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to={`/profile/${auth.currentUser?.uid}`}>
+                <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to={`/profile/${fbAuth.auth.currentUser?.uid}`}>
                   {t("Profile")}
                 </Link>
               </li>

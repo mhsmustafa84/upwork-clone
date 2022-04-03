@@ -31,7 +31,7 @@ export default function OverviewReports() {
         dispatch(inReviewAction());
         console.log(inreview);
         // db.collection("talent")
-        //   .doc(auth.currentUser.uid)
+        //   .doc(fbAuth.auth.currentUser.uid)
         //   .collection("jobProposal")
         //   .where("status", "==", "contract").get().then(res => res.docs.map(item => {
 

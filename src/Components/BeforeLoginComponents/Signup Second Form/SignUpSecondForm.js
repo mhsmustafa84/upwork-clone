@@ -2,7 +2,7 @@
 import React, { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { auth } from "../../../firebase";
+import { fbAuth } from "../../../firebase";
 import { createDocumentWithId } from "../../../Network/Network";
 import { useTranslation } from "react-i18next";
 import { Timestamp } from 'firebase/firestore';
@@ -96,7 +96,7 @@ export default function SignUpSecondForm() {
                             usr.userType,
                             {
                                 ...usr,
-                                authID: auth.currentUser.uid,
+                                authID: fbAuth.auth.currentUser.uid,
                                 accepted: false,
                                 totalJobs: 0,
                                 totalEarnings: 0,
@@ -123,21 +123,21 @@ export default function SignUpSecondForm() {
                                 profileCompletion: 0,
                                 savedJobs: []
                             },
-                            auth.currentUser.uid
+                            fbAuth.auth.currentUser.uid
                         );
                     } else if (usr.userType === "client") {
                         createDocumentWithId(
                             usr.userType,
                             {
                                 ...usr,
-                                authID: auth.currentUser.uid,
+                                authID: fbAuth.auth.currentUser.uid,
                                 paymentVerified: false,
                                 review: 0,
                                 spentMoney: 0,
                                 location: country.name,
                                 savedTalent: []
                             },
-                            auth.currentUser.uid
+                            fbAuth.auth.currentUser.uid
                         );
                     }
                     navigate("/sign-up/please-verify");

@@ -5,14 +5,14 @@ import JobPostLi from "./../../../Components/ClientComponents/JobPostLi/JobPostL
 import JobPostsHeader from "../../../Components/ClientComponents/JobPostsHeader/JobPostsHeader";
 import { useDispatch, useSelector } from "react-redux";
 import { clientJobsAction } from "../../../Store/actions/clientJobAction";
-import { auth } from "../../../firebase";
+import { fbAuth } from "../../../firebase";
 import Loader from "../../../Components/SharedComponents/Loader/Loader";
 
 export default function AllJobPosts() {
   const jobs = useSelector((state) => state.clientJobs);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(clientJobsAction("authID", "==", auth.currentUser.uid));
+    dispatch(clientJobsAction("authID", "==", fbAuth.auth.currentUser.uid));
     console.log(jobs);
   }, []);
   return (

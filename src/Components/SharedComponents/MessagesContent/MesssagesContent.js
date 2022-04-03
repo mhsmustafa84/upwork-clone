@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import { auth, db } from "../../../firebase";
+import { fbAuth, db } from "../../../firebase";
 import IncomeMsg from "./IncomeMsg";
 import OutgoingMsg from "./OutgoingMsg";
 import { Timestamp } from 'firebase/firestore';
@@ -33,7 +33,7 @@ export default function MesssagesContent() {
     const sendMsg = () => {
         db.collection("messages")
             .doc("IpWoNPxWvjnEnXymHpY6")
-            .update({ talentAuthID: auth.currentUser?.uid, messages: [...messages, { Msg: message, time: Timestamp.now(), uid: auth.currentUser?.uid }] })
+            .update({ talentAuthID: fbAuth.auth.currentUser?.uid, messages: [...messages, { Msg: message, time: Timestamp.now(), uid: fbAuth.auth.currentUser?.uid }] })
             .then(() => {
                 console.log("sent message")
                 getMsgs();
@@ -48,7 +48,7 @@ export default function MesssagesContent() {
             <div className="mesgs">
                 <div className="msg_history" ref={setEl}>
                     {messages?.map(item =>
-                        item.uid === auth.currentUser.uid ?
+                        item.uid === fbAuth.auth.currentUser.uid ?
                             <OutgoingMsg msg={item} /> :
                             <IncomeMsg msg={item} />
                     )}

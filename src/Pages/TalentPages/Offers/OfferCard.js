@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
-import { auth, db } from '../../../firebase'
+import { fbAuth, db } from '../../../firebase'
 import { Timestamp } from 'firebase/firestore';
 
 export default function OfferCard({ clientID, jobID, getOffers }) {
@@ -31,13 +31,13 @@ export default function OfferCard({ clientID, jobID, getOffers }) {
             .update({ status: "hired" })
 
         db.collection("talent")
-            .doc(auth.currentUser.uid)
+            .doc(fbAuth.auth.currentUser.uid)
             .collection("jobProposal")
             .where("jobId", "==", jobID)
             .get().then(res => {
                 if (res.docs[0].exists) {
                     db.collection("talent")
-                        .doc(auth.currentUser.uid)
+                        .doc(fbAuth.auth.currentUser.uid)
                         .collection("jobProposal")
                         .doc(res.docs[0]?.id)
                         .update({
@@ -63,13 +63,13 @@ export default function OfferCard({ clientID, jobID, getOffers }) {
         console.log(contractId);
 
         db.collection("talent")
-            .doc(auth.currentUser.uid)
+            .doc(fbAuth.auth.currentUser.uid)
             .collection("jobProposal")
             .where("jobId", "==", jobID)
             .get().then(res => {
                 if (res.docs[0].exists) {
                     db.collection("talent")
-                        .doc(auth.currentUser.uid)
+                        .doc(fbAuth.auth.currentUser.uid)
                         .collection("jobProposal")
                         .doc(res.docs[0]?.id).update({ status: "proposal" })
                     getOffers();

@@ -1,4 +1,4 @@
-import { auth, db } from "../firebase";
+import { fbAuth, db } from "../firebase";
 
 // Create New Document - auto id
 const createDocument = (collectionName, data) => {
@@ -29,7 +29,7 @@ export const createDocumentWithId = (collectionName, data, id) => {
 // Update User Data
 export const updateUserData = (collectionName, newData) => {
   db.collection(collectionName)
-    .doc(auth.currentUser.uid)
+    .doc(fbAuth.auth.currentUser.uid)
     .update(newData)
     .then(() => console.log("user data updated"))
     .catch(() => console.log("fail to update user data"));
@@ -99,7 +99,7 @@ export const getJobData = async (jobId) => {
 };
 
 
-export const savedjobs = (text,setText,id,user) => {
+export const savedjobs = (text, setText, id, user) => {
   if (text === "Saved Job") {
     updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
     text = "Unsave Job";
@@ -115,24 +115,23 @@ export const savedjobs = (text,setText,id,user) => {
         setText(text);
         console.log(text);
       }
-     });
+    });
   }
 };
- export const changeSavedJobsText =(text, setText, id,user)=>
- {
-if (user?.savedJobs?.length > 0) {
-  user?.savedJobs?.forEach((item) => {
-    if (item === id) {
-      text = "Unsave Job";
-      setText(text);
-    } else {
-      text = "Saved Job";
-      setText(text);
-    }
-  });
-} else {
-  text = "Saved Job";
-  setText(text);
+export const changeSavedJobsText = (text, setText, id, user) => {
+  if (user?.savedJobs?.length > 0) {
+    user?.savedJobs?.forEach((item) => {
+      if (item === id) {
+        text = "Unsave Job";
+        setText(text);
+      } else {
+        text = "Saved Job";
+        setText(text);
+      }
+    });
+  } else {
+    text = "Saved Job";
+    setText(text);
+  }
 }
- }
 export default createDocument;
