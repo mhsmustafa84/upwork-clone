@@ -6,13 +6,13 @@ import { useNavigate } from "react-router";
 
 export default function EmailVerified() {
     let navigate = useNavigate();
-    const userr = fbAuth.auth.currentUser;
-    userr.reload().then(() => {
-        console.log({ emailVerified: userr.emailVerified })
+    const user = fbAuth.auth.currentUser;
+    user.reload().then(() => {
+        console.log({ emailVerified: user.emailVerified })
     })
 
     useEffect(() => {
-    }, [userr]);
+    }, [user]);
 
 
     return (
@@ -20,8 +20,8 @@ export default function EmailVerified() {
             <img src={verify} style={{ width: "150px" }} />
             <h3 className="my-3">Email is verfied successfully</h3>
             <button className="btn bg-upwork"
-                onClick={() => userr.displayName === "talent" ? navigate("/create-profile") : navigate("/post-job")} >
-                {userr.displayName === "talent" ? "Compelete your profile data" : "Post a job"}
+                onClick={() => user.displayName === "talent" ? navigate("/create-profile") : navigate("/post-job")} >
+                {user.displayName === "talent" ? "Compelete your profile data" : "Post a job"}
             </button>
             <br />
         </div>
