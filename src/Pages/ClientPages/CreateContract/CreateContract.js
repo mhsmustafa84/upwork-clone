@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
-import { useHistory } from 'react-router';
+import { useNavigate } from 'react-router';
 import { auth, db } from '../../../firebase';
 import { subCollection } from '../../../Network/Network';
-import firebase from 'firebase/app';
+import { Timestamp } from 'firebase/firestore';
 
 export default function CreateContract({ location }) {
     const { jobID, talentID } = location.state;
@@ -13,7 +13,7 @@ export default function CreateContract({ location }) {
     const [job, setJob] = useState();
     const [edit, setEdit] = useState({ budget: false, paymentType: false });
     const [done, setDone] = useState(false);
-    const { push } = useHistory();
+    let navigate = useNavigate();
 
     useEffect(() => {
         db.collection("job")
@@ -74,7 +74,7 @@ export default function CreateContract({ location }) {
             .doc(talentID)
             .collection("notification")
             .add({
-                time: firebase.firestore.Timestamp.now(),
+                time: Timestamp.now(),
                 message: "New job offer, check it now.",
                 type: "offer",
                 clientID: auth.currentUser.uid,
@@ -86,7 +86,7 @@ export default function CreateContract({ location }) {
         subCollection(
             "client",
             "contracts", {
-            sentTime: firebase.firestore.Timestamp.now(),
+            sentTime: Timestamp.now(),
             startContractTime: "",
             jobID: jobID,
             talentID: talentID,
@@ -101,7 +101,7 @@ export default function CreateContract({ location }) {
         )
         setContract({ jobPaymentType: "", jobBudget: "", dueDate: "" })
         setTimeout(() => {
-            push("/all-job-posts");
+            navigate("/all-job-posts");
         }, 1000);
     }
 
@@ -124,7 +124,7 @@ export default function CreateContract({ location }) {
                         edit.budget &&
                         <label className="text-center d-block mt-4">
                             Budget:
-                        <input
+                            <input
                                 className="form-control d-inline w-50 my-3 ms-2"
                                 type="text"
                                 name="budget"

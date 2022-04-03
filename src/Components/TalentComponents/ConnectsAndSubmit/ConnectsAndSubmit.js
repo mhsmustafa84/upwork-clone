@@ -4,7 +4,7 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { talentDataAction } from "../../../Store/actions/talentData";
 import { updateUserData } from "../../../Network/Network";
 import { db, auth } from "../../../firebase";
@@ -18,7 +18,7 @@ export default function ConnectsAndSubmit() {
   let [proposal, setProposal] = useState("");
   let [talent, setTalent] = useState("");
   const [jobProposal, setjobProposal] = useState(false);
-  const { push } = useHistory();
+  let navigate = useNavigate();
   const [isliked, setisliked] = useState(false)
 
   useEffect(() => {
@@ -37,26 +37,26 @@ export default function ConnectsAndSubmit() {
   }, [isliked])
   const saveJob = (e) => {
     setisliked(!isliked)
-        if (e.target.className === 'far fa-heart') {
-            updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
-            e.target.className = 'fas fa-heart text-upwork'
+    if (e.target.className === 'far fa-heart') {
+      updateUserData("talent", { savedJobs: [...user?.savedJobs, id] });
+      e.target.className = 'fas fa-heart text-upwork'
 
-        }
-        else {
-            user?.savedJobs?.forEach((item, index) => {
-                if (item === id) {
-                    user?.savedJobs?.splice(index, 1);
-                    updateUserData("talent", { savedJobs: [...user?.savedJobs] });
-                    e.target.className = 'far fa-heart'
-
-                }
-            })
-        }
     }
+    else {
+      user?.savedJobs?.forEach((item, index) => {
+        if (item === id) {
+          user?.savedJobs?.splice(index, 1);
+          updateUserData("talent", { savedJobs: [...user?.savedJobs] });
+          e.target.className = 'far fa-heart'
 
-  
+        }
+      })
+    }
+  }
 
- 
+
+
+
 
   const handlewithdrawProposal = async () => {
     try {
@@ -107,7 +107,7 @@ export default function ConnectsAndSubmit() {
         {!jobProposal ? (
           <button
             className="btn bg-upwork"
-            onClick={(handleRout) => push(`/job/apply/${id}`)}
+            onClick={(handleRout) => navigate(`/job/apply/${id}`)}
             disabled={user.accepted === false || user.connects < 2}
           >
             {t("Submit a proposal")}
@@ -124,10 +124,10 @@ export default function ConnectsAndSubmit() {
         <button
           className="btn btn-light border border-1 my-lg-2"
           type="button"
-          >
+        >
           <i
-          onClick={(e) => saveJob(e)}
-          className={`${user?.savedJobs?.includes(id) ? 'fas fa-heart text-upwork' : 'far fa-heart'}`}
+            onClick={(e) => saveJob(e)}
+            className={`${user?.savedJobs?.includes(id) ? 'fas fa-heart text-upwork' : 'far fa-heart'}`}
             aria-hidden="true"
           />
           {/* {text} */}

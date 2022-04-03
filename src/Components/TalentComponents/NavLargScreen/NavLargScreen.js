@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { auth } from "../../../firebase";
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import LanguageList from "../../SharedComponents/LanguageBtn/LanguageList";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,7 +15,7 @@ export default function NavLargScreen() {
 
   const { pathname } = useLocation();
   const { t } = useTranslation();
-  const { push } = useHistory();
+  let navigate = useNavigate();
   let lang = useSelector(state => state.lang);
   const user = useSelector(state => state.talentData);
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ export default function NavLargScreen() {
     auth.signOut()
       .then((res) => {
         console.log(res);
-        push("/login");
+        navigate("/login");
         window.location.reload();
         localStorage.removeItem('userType');
       }).catch((error) => {

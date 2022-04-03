@@ -3,10 +3,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { useSelector } from "react-redux";
 import { auth, db, storage } from "../../firebase";
-import firebase from 'firebase/app';
+import { Timestamp } from 'firebase/firestore';
 import { subCollection, updateUserData } from "../../Network/Network";
 import { Link } from "react-router-dom";
 import SubmitProposalFixed from "../../Components/TalentComponents/SubmitProposalFixed/SubmitProposalFixed";
@@ -16,7 +16,7 @@ import { BASE_ROUTE } from './../../constant';
 export default function SubmitProposal() {
     const lang = useSelector(state => state.lang);
     const { id } = useParams();
-    const { push } = useHistory();
+    let navigate = useNavigate();
     const [job, setjob] = useState({});
     const [user, setuser] = useState({});
     let [proposal, setProposal] = useState("");
@@ -117,7 +117,7 @@ export default function SubmitProposal() {
         }
     };
     const handleRout = () => {
-        push({ pathname: "/proposals", state: id })
+        navigate({ pathname: "/proposals", state: id })
     }
 
     const handleProposal = () => {
@@ -127,7 +127,7 @@ export default function SubmitProposal() {
             {
                 jobId: id,
                 status: "proposal",
-                proposalTime: firebase.firestore.Timestamp.now(),
+                proposalTime: Timestamp.now(),
                 startContractTime: "",
                 endContractTime: "",
                 budget: parseInt(rate)
@@ -148,7 +148,7 @@ export default function SubmitProposal() {
                 clientId: job.authID,
                 budget: parseInt(rate),
                 jobPaymentType: job.jobPaymentType,
-                proposalTime: firebase.firestore.Timestamp.now(),
+                proposalTime: Timestamp.now(),
             },
             id
         );

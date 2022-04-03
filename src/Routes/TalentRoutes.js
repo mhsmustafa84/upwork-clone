@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Messages from "../Pages/Messages/Messages";
 import Header from "./../Components/TalentComponents/Header/Header";
 import Footer from "./../Components/SharedComponents/Footer/Footer";
@@ -35,59 +35,44 @@ export default function TalentRoutes() {
     const [itemSearchList, setitemSearchList] = useState("");
     const [searchList, setsearchList] = useState([]);
     const [switchJobs, setswitchJobs] = useState("")
-    // const { pathname } = useLocation();
-    // const { push } = useHistory();
-    // pathname ===  && push("/find-work");
     return (
         <>
             <SearchContextProvider
                 value={{ arr, setarr, itemSearchList, setitemSearchList, searchList, setsearchList, switchJobs, setswitchJobs }}
             >
                 <Header />
-                <div>
-                    <Switch>
-                        <Route path={`${BASE_ROUTE}/create-profile`} component={CreateProfile} />
-                        <Route path={`${BASE_ROUTE}/find-work`} exact component={HomeTalent} />
-                        <Route path={`${BASE_ROUTE}/Search/:searchValue`} exact component={Search} />
-                        <Route path={`${BASE_ROUTE}/Search`} exact component={Search} />
-                        <Route path={`${BASE_ROUTE}/job/`} exact component={JobDetailsTalent} />
-                        <Route path={`${BASE_ROUTE}/job/:id`} exact component={JobDetailsTalent} />
-                        <Route path={`${BASE_ROUTE}/job/apply/:id`} exact component={SubmitProposal} />
-                        <Route
-                            path={`${BASE_ROUTE}/job/review-proposal/:id`}
-                            exact
-                            component={ReviewProposalsCard}
-                        />
-                        <Route path={`${BASE_ROUTE}/job/applied/:id`} exact component={JobAppliedDetails} />
-                        <Route path={`${BASE_ROUTE}/saved-jobs`} exact component={SavedJobs} />
-                        <Route path={`${BASE_ROUTE}/proposals`} exact component={Proposals} />
-                        <Route path={`${BASE_ROUTE}/profile/:id`} exact component={Profile} />
-                        <Route path={`${BASE_ROUTE}/email-verification`} component={EmailVerified} />
-                        <Route
-                            path={`${BASE_ROUTE}/sign-up/please-verify`}
-                            exact
-                            component={PleaseVerifiy}
-                        />
-                        <Route path={`${BASE_ROUTE}/my-stats`} exact component={MyStats} />
-                        <Route path={`${BASE_ROUTE}/my-jobs`} exact component={MyJobs} />
-                        <Route path={`${BASE_ROUTE}/all-contract`} exact component={AllContracts} />
-                        <Route path={`${BASE_ROUTE}/offers`} exact component={Offers} />
-                        <Route path={`${BASE_ROUTE}/overview`} component={OverviewReports} />
-                        <Route path={`${BASE_ROUTE}/my-reports`} exact component={Reports} />
-                        <Route path={`${BASE_ROUTE}/life-time-billing`} exact component={BillingByClients} />
-                        <Route path={`${BASE_ROUTE}/connects-history`} exact component={ConnectsHistory} />
-                        <Route path={`${BASE_ROUTE}/buyconnects`} exact component={BuyConnects} />
-                        {/* <Route
-              path="/transaction-history"
-              exact
-              component={TransactionHistory}
-            /> */}
-                        <Route path={`${BASE_ROUTE}/messages`} exact component={Messages} />
-                        <Route path={`${BASE_ROUTE}/contract`} component={Contract} />
-                        <Route path={`${BASE_ROUTE}/notifications`} exact component={Notifications} />
-                        <Route path="**" component={PageNotFound} />
-                    </Switch>
-                </div>
+                <Routes>
+                    <Route path={`${BASE_ROUTE}/create-profile`} element={<CreateProfile />} />
+                    <Route path={`${BASE_ROUTE}/find-work`} element={<HomeTalent />} />
+                    <Route path={`${BASE_ROUTE}/Search`} element={<Search />}>
+                        <Route path={":searchValue"} element={<Search />} />
+                    </Route>
+                    <Route path={`${BASE_ROUTE}/job/`} element={<JobDetailsTalent />}>
+                        <Route path={":id"} element={<JobDetailsTalent />} />
+                    </Route>
+                    <Route path={`${BASE_ROUTE}/job/apply/:id`} element={<SubmitProposal />} />
+                    <Route path={`${BASE_ROUTE}/job/review-proposal/:id`} element={<ReviewProposalsCard />} />
+                    <Route path={`${BASE_ROUTE}/job/applied/:id`} element={<JobAppliedDetails />} />
+                    <Route path={`${BASE_ROUTE}/saved-jobs`} element={<SavedJobs />} />
+                    <Route path={`${BASE_ROUTE}/proposals`} element={<Proposals />} />
+                    <Route path={`${BASE_ROUTE}/profile/:id`} element={<Profile />} />
+                    <Route path={`${BASE_ROUTE}/email-verification`} element={<EmailVerified />} />
+                    <Route path={`${BASE_ROUTE}/sign-up/please-verify`} element={<PleaseVerifiy />} />
+                    <Route path={`${BASE_ROUTE}/my-stats`} element={<MyStats />} />
+                    <Route path={`${BASE_ROUTE}/my-jobs`} element={<MyJobs />} />
+                    <Route path={`${BASE_ROUTE}/all-contract`} element={<AllContracts />} />
+                    <Route path={`${BASE_ROUTE}/offers`} element={<Offers />} />
+                    <Route path={`${BASE_ROUTE}/overview`} element={<OverviewReports />} />
+                    <Route path={`${BASE_ROUTE}/my-reports`} element={<Reports />} />
+                    <Route path={`${BASE_ROUTE}/life-time-billing`} element={<BillingByClients />} />
+                    <Route path={`${BASE_ROUTE}/connects-history`} element={<ConnectsHistory />} />
+                    <Route path={`${BASE_ROUTE}/buyconnects`} element={<BuyConnects />} />
+                    <Route path={`${BASE_ROUTE}/messages`} element={<Messages />} />
+                    <Route path={`${BASE_ROUTE}/contract`} element={<Contract />} />
+                    <Route path={`${BASE_ROUTE}/notifications`} element={<Notifications />} />
+                    <Route path="**" element={<PageNotFound />} />
+                </Routes>
+
             </SearchContextProvider>
             <Footer />
         </>

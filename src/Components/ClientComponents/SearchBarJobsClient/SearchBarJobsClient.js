@@ -1,6 +1,6 @@
-import React, { useContext, useEffect} from "react";
-import  { db } from "../../../firebase";
-import { Link, useHistory } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { db } from "../../../firebase";
+import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { SearchContext } from "../../../Context/SearchContext";
 
@@ -8,40 +8,40 @@ import { SearchContext } from "../../../Context/SearchContext";
 
 export default function SearchBarJobsClient() {
   const { t } = useTranslation();
-  const { push } = useHistory();
-  const { talentSearchList, settalentSearchList, settalentArr,talentArr } = useContext(SearchContext)
+  let navigate = useNavigate();
+  const { talentSearchList, settalentSearchList, settalentArr, talentArr } = useContext(SearchContext)
   const handle = (e) => {
     settalentSearchList(e.target.value)
   }
-useEffect(() => {
+  useEffect(() => {
     settalentArr([])
-}, [talentSearchList])
-const searchDatabase = () => {
-  let tempArr = [];
-db.collection('talent')
-  .where('firstName', '==', talentSearchList)
-  .onSnapshot(
-    jobs => jobs.docs.map(
-      item => {
-        tempArr.push(item.data())
-        if (talentSearchList != "") {
-          settalentArr([...tempArr])
-          push({pathname:"/talent/searchclient"})
-      }
+  }, [talentSearchList])
+  const searchDatabase = () => {
+    let tempArr = [];
+    db.collection('talent')
+      .where('firstName', '==', talentSearchList)
+      .onSnapshot(
+        jobs => jobs.docs.map(
+          item => {
+            tempArr.push(item.data())
+            if (talentSearchList != "") {
+              settalentArr([...tempArr])
+              navigate({ pathname: "/talent/searchclient" })
+            }
 
-  })
+          })
       )
-  if(tempArr.length<=0){
+    if (tempArr.length <= 0) {
       settalentArr(null)
-    push('/talent/searchclient')
+      navigate('/talent/searchclient')
+    }
   }
-}
 
 
   return (
 
     <div>
-    
+
       <div className="col-8 input-group form-outline has-success">
         <input
           id="input"

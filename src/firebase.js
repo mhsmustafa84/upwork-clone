@@ -1,9 +1,15 @@
-import firebase from "firebase/app";
-import "firebase/auth";
-import "firebase/storage";
-import "firebase/firestore";
+import { initializeApp } from "firebase/app";
+import {
+    getAuth,
+    OAuthProvider,
+    GoogleAuthProvider,
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
+} from "firebase/auth";
+import { getStorage } from "firebase/storage";
+import { getFirestore } from "firebase/firestore";
 
-const firebaseApp = firebase.initializeApp({
+initializeApp({
     apiKey: "AIzaSyBYCGYP-tx6DJKgjd4cNPiYoOC3wNk1cwk",
     authDomain: "final-project-react-12190.firebaseapp.com",
     projectId: "final-project-react-12190",
@@ -13,12 +19,17 @@ const firebaseApp = firebase.initializeApp({
     measurementId: "G-8BVMCH1W3X",
 });
 
+let auth = getAuth();
+auth = { ...auth, signInWithEmailAndPassword, createUserWithEmailAndPassword }
+const storage = getStorage();
+const db = getFirestore();
+const googleProvider = new GoogleAuthProvider();
+const appleProvider = new OAuthProvider("apple.com");
 
-const auth = firebaseApp.auth();
-const db = firebaseApp.firestore();
-const storage = firebaseApp.storage();
-const googleProvider = new firebase.auth.GoogleAuthProvider();
-const appleProvider = new firebase.auth.OAuthProvider("apple.com");
-
-export { auth, db, storage, googleProvider, appleProvider };
-export default firebaseApp;
+export {
+    auth,
+    db,
+    storage,
+    googleProvider,
+    appleProvider
+};

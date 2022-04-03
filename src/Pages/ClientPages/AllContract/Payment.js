@@ -1,6 +1,6 @@
 import React from 'react'
 import { db } from '../../../firebase';
-import firebase from 'firebase/app';
+import { Timestamp } from 'firebase/firestore';
 
 export default function Payment({ job, talent, clientContract }) {
     console.log(clientContract);
@@ -10,7 +10,7 @@ export default function Payment({ job, talent, clientContract }) {
         db.collection("talent")
             .doc(talent.authID)
             .collection("notification").add({
-                time: firebase.firestore.Timestamp.now(),
+                time: Timestamp.now(),
                 message: `Your payment request for "${job?.jobTitle}" is approved.`,
                 type: "Payment approved",
                 userID: talent.authID,
@@ -41,7 +41,7 @@ export default function Payment({ job, talent, clientContract }) {
                 db.collection("talent")
                     .doc(talent?.authID)
                     .collection("jobProposal")
-                    .doc(res.docs[0]?.id).update({ status: "closed", endContractTime: firebase.firestore.Timestamp.now() })
+                    .doc(res.docs[0]?.id).update({ status: "closed", endContractTime: Timestamp.now() })
             })
 
         db.collection("client")
@@ -52,7 +52,7 @@ export default function Payment({ job, talent, clientContract }) {
                 db.collection("client")
                     .doc(clientContract?.clientID)
                     .collection("contracts")
-                    .doc(res.docs[0].data().id).update({ endContractTime: firebase.firestore.Timestamp.now() })
+                    .doc(res.docs[0].data().id).update({ endContractTime: Timestamp.now() })
             })
     }
     return (

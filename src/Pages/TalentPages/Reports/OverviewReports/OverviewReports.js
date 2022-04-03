@@ -6,7 +6,8 @@ import {
     Route,
     NavLink,
     useLocation,
-    useHistory,
+    useNavigate,
+    Routes,
 } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Available from "../../../../Components/TalentComponents/Available/Available";
@@ -20,8 +21,8 @@ import { BASE_ROUTE } from './../../../../constant';
 
 export default function OverviewReports() {
     const { pathname } = useLocation();
-    const { push } = useHistory();
-    pathname === "/overview" && push("/overview/work-in-progress");
+    let navigate = useNavigate();
+    pathname === "/overview" && navigate("/overview/work-in-progress");
     const { t } = useTranslation();
     const inreview = useSelector((state) => state.inreview);
     const dispatch = useDispatch();
@@ -178,20 +179,12 @@ export default function OverviewReports() {
                 </div>
             </>
 
-            <switch>
-                <Route path="/overview/work-in-progress" exact>
-                    <WorkinProgress />
-                </Route>
-                <Route path="/overview/in-review" exact>
-                    <InReview />
-                </Route>
-                <Route path="/overview/pending" exact>
-                    <Pending />
-                </Route>
-                <Route path="/overview/available" exact>
-                    <Available />
-                </Route>
-            </switch>
+            <Routes>
+                <Route path="/overview/work-in-progress" element={<WorkinProgress />} />
+                <Route path="/overview/in-review" element={<InReview />} />
+                <Route path="/overview/pending" element={<Pending />} />
+                <Route path="/overview/available" element={<Available />} />
+            </Routes>
         </Router>
     );
 }

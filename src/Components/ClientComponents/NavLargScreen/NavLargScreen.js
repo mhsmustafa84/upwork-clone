@@ -2,8 +2,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, NavLink, useHistory } from "react-router-dom";
-import firebaseApp from "../../../firebase";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { auth } from "../../../firebase";
 import LanguageList from "../../SharedComponents/LanguageBtn/LanguageList";
 import img from "../../../assets/Img/icon-user.svg";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,7 +12,7 @@ import { BASE_ROUTE } from './../../../constant';
 
 export default function NavLargScreen() {
     const { t } = useTranslation();
-    const { push } = useHistory();
+    let navigate = useNavigate();
     const user = useSelector((state) => state.clientData);
     const dispatch = useDispatch();
     useEffect(() => {
@@ -20,18 +20,14 @@ export default function NavLargScreen() {
     }, []);
 
     const logout = () => {
-        firebaseApp
-            .auth()
-            .signOut()
-            .then((res) => {
-                console.log(res);
-                push("/login");
-                window.location.reload();
-                localStorage.removeItem('userType');
-            })
-            .catch((error) => {
-                console.log(error.message);
-            });
+        auth.signOut().then((res) => {
+            console.log(res);
+            navigate("/login");
+            window.location.reload();
+            localStorage.removeItem('userType');
+        }).catch((error) => {
+            console.log(error.message);
+        });
     };
 
     return (

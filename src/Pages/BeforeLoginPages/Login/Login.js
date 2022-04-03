@@ -6,12 +6,12 @@ import SignupFooter from "../../../Components/BeforeLoginComponents/SignupFooter
 import { auth } from "../../../firebase";
 
 export default function Login() {
-  console.log("is ", auth.currentUser);
-  return (
-    <>
-      <LoginHeader />
-      <LoginTemp />
-      <SignupFooter />
-    </>
-  );
+    console.log("currentUser", auth.currentUser);
+    return (
+        <>
+            <LoginHeader />
+            <LoginTemp />
+            <SignupFooter />
+        </>
+    );
 }

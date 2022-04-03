@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import { auth, db } from '../../../firebase'
-import firebase from 'firebase/app';
+import { Timestamp } from 'firebase/firestore';
 
 export default function OfferCard({ clientID, jobID, getOffers }) {
 
@@ -42,7 +42,7 @@ export default function OfferCard({ clientID, jobID, getOffers }) {
                         .doc(res.docs[0]?.id)
                         .update({
                             status: "contract",
-                            startContractTime: firebase.firestore.Timestamp.now()
+                            startContractTime: Timestamp.now()
                         })
                     getOffers();
                 }
@@ -54,7 +54,7 @@ export default function OfferCard({ clientID, jobID, getOffers }) {
             .doc(contractId)
             .update({
                 talentResponse: "accept",
-                startContractTime: firebase.firestore.Timestamp.now()
+                startContractTime: Timestamp.now()
             })
     }
 
