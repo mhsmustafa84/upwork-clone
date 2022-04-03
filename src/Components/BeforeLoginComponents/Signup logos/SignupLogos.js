@@ -4,8 +4,6 @@ import air from "../../../assets/svg/Airbnb_Logo.svg";
 import General from "../../../assets/svg/General_Electric_logo.svg";
 import automattic from "../../../assets/svg/automattic.svg";
 import { useTranslation } from "react-i18next";
-import Bissell from './../../SVG/Bissell';
-import CotyLogo from './../../SVG/CotyLogo';
 
 
 export default function SignupLogos() {
@@ -22,16 +20,9 @@ export default function SignupLogos() {
                         <img src={air} className="" width="113px" alt="" />
                         <img src={General} className="" width="55px" alt="" />
                         <img src={automattic} className="d-none-md" width="200px" alt="" />
-                        <span className="d-none-md" width="80px">
-                            <Bissell />
-                        </span>
-                        <span className="" width="180px">
-                            <CotyLogo />
-                        </span>
                     </div>
                 </div>
             </div>
-
             <div className="container-fluid">
                 <div className="row d-flex justify-content-evenly mb-4">
                     <div className="text-center h6 pb-10 m-0 mb-md-5 mt-5 col-12">

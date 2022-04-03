@@ -7,7 +7,7 @@ import { db } from "../../../firebase";
 export default function MessagesLeftSide({ talentID }) {
     console.log(talentID);
 
-    const [talent, setTalent] = useState({});
+    const [, setTalent] = useState({});
 
     useEffect(() => {
         if (talentID) {
@@ -173,17 +173,17 @@ export default function MessagesLeftSide({ talentID }) {
                                     <li>
                                         <button className="dropdown-item" type="button">
                                             Action
-                                </button>
+                                        </button>
                                     </li>
                                     <li>
                                         <button className="dropdown-item" type="button">
                                             Another action
-                                </button>
+                                        </button>
                                     </li>
                                     <li>
                                         <button className="dropdown-item" type="button">
                                             Something else here
-                            </button>
+                                        </button>
                                     </li>
                                 </ul>
                             </div>
@@ -208,7 +208,7 @@ export default function MessagesLeftSide({ talentID }) {
                                             <span className="msg-uname">Belal Khaled, incen </span>
                                             <span className="topic">
                                                 Design Blog articles in Elementor - Arabic speaker
-                        <br />
+                                                <br />
                                             </span>
                                             <p className="smallmsg">You:ok sir</p>
                                         </div>
@@ -234,7 +234,7 @@ export default function MessagesLeftSide({ talentID }) {
                                             <span className="msg-uname">Belal Khaled, incen </span>
                                             <span className="topic">
                                                 Design Blog articles in Elementor - Arabic speaker
-                        <br />
+                                                <br />
                                             </span>
                                             <p className="smallmsg">You:ok sir</p>
                                         </div>
@@ -246,13 +246,13 @@ export default function MessagesLeftSide({ talentID }) {
                                         <div className="col-3">
                                             <button className="btn btn-circle btn-xl mx-auto border-gray bg-gray">
                                                 B
-                      </button>
+                                            </button>
                                         </div>
                                         <div className="col-9">
                                             <span className="msg-uname">Belal Khaled, incen </span>
                                             <span className="topic">
                                                 Design Blog articles in Elementor - Arabic speaker
-                        <br />
+                                                <br />
                                             </span>
                                             <p className="font-1 pt-2">You:ok sir</p>
                                         </div>
@@ -263,7 +263,7 @@ export default function MessagesLeftSide({ talentID }) {
                                 </li>
                                 <li className="list-group-item d-flex justify-content-between align-items-center">
                                     A third list item
-                  <span className="badge bg-upwork rounded-pill">1</span>
+                                    <span className="badge bg-upwork rounded-pill">1</span>
                                 </li>
                             </ul>
                         </div>
