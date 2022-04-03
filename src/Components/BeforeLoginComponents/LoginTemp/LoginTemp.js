@@ -1,7 +1,6 @@
 /* eslint-disable */
 import { Link } from "react-router-dom";
 import { fbAuth, googleProvider } from "../../../firebase";
-import apple from "../../../assets/svg/apple.svg";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -54,41 +53,19 @@ export default function LoginTemp() {
     };
 
     const login = (e) => {
-        console.log({ user });
-        console.log({ fbAuth });
+        console.log("file: LoginTemp.js => line 58 => login => user", user);
         e.preventDefault();
         fbAuth.signInWithEmailAndPassword(fbAuth.auth, user.email, user.password)
-            .then((res) => {
+            .then(res => {
                 if (res.user) {
                     localStorage.setItem("userType", res.user.displayName);
                     res.user.displayName === "talent"
                         ? navigate("/find-work")
                         : navigate("/home")
                 }
-            })
-            .catch((error) => {
-                setErrorMessage(error.message);
-                console.log(error.message);
-                console.log(error.code);
-            });
-    };
-
-    const googleLogin = () => {
-        fbAuth.signInWithPopup(fbAuth.auth, googleProvider)
-            .then((result) => {
-                console.log(result.user.displayName);
-                /** @type {fbAuth.auth.OAuthCredential} */
-                var credential = result.credential;
-
-                // This gives you a Google Access Token. You can use it to access the Google API.
-                var token = credential.accessToken;
-                // The signed-in user info.
-                var user = result.user;
-                // ...
-                // navigate("/find-work");
-            })
-            .catch((error) => {
-                console.log(error);
+            }).catch(error => {
+                console.log("file: LoginTemp.js => line 69 => login => error =>", error.code);
+                setErrorMessage(error.code);
             });
     };
 
@@ -130,13 +107,6 @@ export default function LoginTemp() {
                                         onInput={getUserData}
                                     />
                                 </div>
-                                {/* <div className="form-group col-8 mx-auto mt-3 d-flex justify-content-between">
-                  <label>
-                    <input type="checkbox" className="me-2" />
-                    {t("Keep me logged in")}
-                  </label>
-                  <Link to="">{t("Forgot password")}</Link>
-                </div> */}
                                 <div className="d-grid gap-2 col-8 mx-auto mt-3 hitbtn-className loginpcolor">
                                     <button
                                         className="btn bg-upwork "
@@ -146,40 +116,6 @@ export default function LoginTemp() {
                                         {t("Log in")}
                                     </button>
                                 </div>
-                                {/* <div className="d-grid gap-2 col-8 mx-auto mt-3">
-                  <Link to="" className="text-center">
-                    {t("Not you")}
-                  </Link>
-                </div> */}
-                                <div className="separator mt-4 col-8 mx-auto">or</div>
-                                <div
-                                    className="google-btn  gap-2 mx-auto mt-3 rounded hitbtn-className col-sm-12"
-                                    style={{ height: "40px" }}
-                                    onClick={googleLogin}
-                                >
-                                    <div
-                                        className="google-icon-wrapper"
-                                        style={{ marginRight: "1px" }}
-                                    >
-                                        <img
-                                            className="google-icon me-2"
-                                            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-                                        />
-                                    </div>
-                                    <div className="text-justify ">
-                                        <p className="text-center text-white pt-2">
-                                            {t("Sign in with google")}
-                                        </p>
-                                    </div>
-                                </div>
-                                {/* <div className="mb-5 d-grid gap-2 col-8 mx-auto mt-3 border border-dark rounded">
-                  <button className="btn bg-light " type="button">
-                    {" "}
-                    <img src={apple} className="apple-icon" />{" "}
-                    {t("sign in with apple")}
-                  </button>
-                </div> */}
-                                <hr />
                                 <div>
                                     <div className="separator mt-4 col-8 mx-auto">
                                         {t("New To Upwork")}
