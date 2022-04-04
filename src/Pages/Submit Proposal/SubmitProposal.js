@@ -13,7 +13,7 @@ import SubmitProposalFixed from "../../Components/TalentComponents/SubmitProposa
 import SubmitProposalHourly from "../../Components/TalentComponents/SubmitProposalHourly/SubmitProposalHourly";
 
 export default function SubmitProposal() {
-    const lang = useSelector(state => state.lang);
+
     const { id } = useParams();
     let navigate = useNavigate();
     const [job, setjob] = useState({});
@@ -195,12 +195,10 @@ export default function SubmitProposal() {
                                         <p className="fw-bold">{job?.jobTitle}</p>
                                         <div className="mb-3">
                                             <span className="bg-cat-cn py-1 px-2 me-3 rounded-pill">
-                                                {lang === "ar" ? job?.jobCategoryAr : job?.jobCategory}
+                                                {job?.jobCategory}
                                             </span>
                                             <span>
-                                                {new Date(
-                                                    job?.postTime?.seconds * 1000
-                                                ).toLocaleString()}
+                                                {new Date(job?.postTime?.seconds * 1000).toLocaleString()}
                                             </span>
                                         </div>
                                         <div className="mb-3">
@@ -221,7 +219,7 @@ export default function SubmitProposal() {
                                             <span className="ps-2">
                                                 <strong>Experience Level</strong>
                                             </span>
-                                            <p className="ps-4">{lang === "ar" ? job?.jobExperienceLevelAr : job?.jobExperienceLevel}</p>
+                                            <p className="ps-4">{job?.jobExperienceLevel}</p>
                                         </div>
                                         <div>
                                             <span>
@@ -230,14 +228,14 @@ export default function SubmitProposal() {
                                             <span className="ps-2">
                                                 <strong>Hours to be determined</strong>
                                             </span>
-                                            <p className="ps-4">{lang === "ar" ? job?.jobPaymentTypeAr : job?.jobPaymentType}</p>
+                                            <p className="ps-4">{job?.jobPaymentType}</p>
                                         </div>
                                         <div>
                                             <span>
                                                 <i className="far fa-calendar-alt" />
                                             </span>
                                             <span className="ps-2">
-                                                <strong>{lang === "ar" ? job?.jobDurationAr : job?.jobDuration}</strong>
+                                                <strong>{job?.jobDuration}</strong>
                                             </span>
                                             <p className="ps-4">Project Length</p>
                                         </div>

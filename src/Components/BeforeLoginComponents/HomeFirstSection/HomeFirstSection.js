@@ -7,37 +7,28 @@ import img3 from '../../../assets/svg/godaddy.d9459f1.svg'
 import img4 from '../../../assets/svg/ge.svg'
 import img6 from '../../../assets/Img/susan-desktop.webp'
 import img7 from '../../../assets/Img/john-desktop.webp'
-import { Link } from 'react-router-dom'
-
-import { useSelector } from 'react-redux'
-import Bissell from './../../SVG/Bissell';
 
 export default function HomeFirstSection() {
-    let lang = useSelector(state => state.lang);
 
     return (
-        <section style={{ marginTop: "10%" }} className="overflow-hidden">
+        <section className="overflow-hidden" style={{ padding: "5% 0 15%" }}>
             <div className="container">
                 <div className="row">
-                    <div className="col-md-6 col-sm-12">
+                    <div className="col-md-6 col-sm-12 mt-5 pt-5">
                         <div>
-                            <p className="my-5 h1">Theworldsworkmarketplace</p>
+                            <p className="my-5 h1">The worlds work marketplace</p>
                             <p className="fs-3 fs-p-cn">
-                                "Engagethelargestnetwork"
+                                Engage the largest network
                             </p>
                             <div className="my-5">
-                                <Link className="btn py-3 px-4 me-4 fs-btns-cn text-decoration-none" to={`${process.env.REACT_APP_BASE_ROUTE}/freelance-jobs`}>FindTalent</Link>
-                                <button className={`btn py-3 px-4 border text-success ${lang === 'ar' && "fs-6"}`}>FindWork</button>
+                                <button className="btn py-3 px-4 me-4 fs-btns-cn text-decoration-none">Find Talent</button>
+                                <button className={`btn py-3 px-4 border text-success`}>Find Work</button>
                             </div>
                             <ul className="d-flex justify-content-between p-0">
                                 <li><img src={img1} width="70" height="26" /></li>
                                 <li><img src={img2} width="70" height="26" /></li>
                                 <li><img src={img3} width="70" height="26" /></li>
                                 <li><img src={img4} width="70" height="26" /></li>
-                                <li><span width="70" height="26">
-                                    <Bissell />
-                                </span></li>
-
                             </ul>
                         </div>
                     </div>

@@ -2,7 +2,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import ShowMore from 'react-show-more-button';
 import { db } from '../../../firebase';
 import { updateUserData } from '../../../Network/Network';
 import { clientDataAction } from '../../../Store/actions/clientData';
@@ -126,12 +125,6 @@ export default function Saved({ talentId, isliked, setisliked }) {
                     </div>
                 </div>
                 <div className="row px-5 mx-5">
-                    <ShowMore className="" maxHeight={100} button={<button id="seemorebutton" classname="advanced-search-link " style={{ color: 'green', position: 'absolute', left: 0 }}>
-                        more
-                    </button>}>
-                        {talentSaved?.overview}
-
-                    </ShowMore>
                     <div className="d-flex justify-content-start">
                         {talentSaved?.skills?.map((e) =>
                             <div className="chip mb-3 ms">

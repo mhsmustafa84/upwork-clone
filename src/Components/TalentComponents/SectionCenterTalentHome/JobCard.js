@@ -1,11 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import { Link } from 'react-router-dom'
-import ShowMore from 'react-show-more-button'
 import StarsRating from '../../SharedComponents/StarsRating/StarsRating'
 import JobProposalsNumber from './JobProposalsNumber'
 
-export default function JobCard({ item, saveJob, user, lang }) {
+export default function JobCard({ item, saveJob, user }) {
     return (
         <div>
             <div className="list-group-item p-4">
@@ -59,30 +58,16 @@ export default function JobCard({ item, saveJob, user, lang }) {
                 <p style={{ fontSize: "0.9em" }}>
                     <span className="text-muted">
                         <span className="fw-bold" id="contract-type">
-                            {lang === "ar" ? item?.jobPaymentTypeAr : item?.jobPaymentType}
+                            {item?.jobPaymentType}
                         </span>
                         <span> - </span>
-                        <span id="experience-level">{lang === "ar" ? item?.jobExperienceLevelAr : item?.jobExperienceLevel}</span>
+                        <span id="experience-level">{item?.jobExperienceLevel}</span>
                         <span> - </span>
                         <span>Est. Budget: </span>
                         <span id="client-budget">${item?.jobBudget}</span> - posted
                         <span id="posting-time"> {new Date(item.postTime.seconds * 1000).toLocaleString()}</span>
                     </span>
                 </p>
-                <ShowMore
-                    maxHeight={100}
-                    button={
-                        <button
-                            id="seemorebutton"
-                            className="advanced-search-link "
-                            style={{ color: "green", position: "absolute", left: 0 }}
-                        >
-                            more
-                        </button>
-                    }
-                >
-                    {item?.jobDescription}
-                </ShowMore>
                 {item?.skills?.map((skill, index) => (
                     <button
                         key={index}

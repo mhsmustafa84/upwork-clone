@@ -11,12 +11,10 @@ import "./HomeTalent.css";
 
 export default function HomeTalent() {
 
-    const lang = useSelector(state => state.lang);
     const user = useSelector(state => state.talentData);
 
-
     return (
-        <div dir={lang === 'ar' ? 'rtl' : 'ltr'} >
+        <div>
             <div className="container-md container-fluid-sm my-lg-4 px-3 pt-1">
                 {
                     user.firstName
@@ -29,7 +27,7 @@ export default function HomeTalent() {
                             <div className="row">
                                 <LeftSidebarTalentHome />
                                 <SectionCenterTalentHome />
-                                <RightSidebarTalentHome lang={lang} />
+                                <RightSidebarTalentHome />
                             </div>
                         </div>
                         : <div className="d-flex justify-content-center align-items-center" style={{ height: "90vh" }}>

@@ -1,10 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 
 import React, { useContext, useEffect } from "react";
 
 import ImgWithActiveStatus from "./../../../Components/ClientComponents/ImgWithActiveStatus/ImgWithActiveStatus";
 import { useDispatch, useSelector } from "react-redux";
 import { talentDataAction } from "../../../Store/actions/talentData";
-import ShowMore from 'react-show-more-button';
 import { SearchContext } from "../../../Context/SearchContext";
 import { updateUserData } from "../../../Network/Network";
 import { clientDataAction } from "../../../Store/actions/clientData";
@@ -14,12 +14,10 @@ import { clientDataAction } from "../../../Store/actions/clientData";
 
 export default function TalentCardSearch() {
     const { talentArr } = useContext(SearchContext)
-    const user = useSelector((state) => state.talentData);
     const client = useSelector((state) => state.clientData);
 
     const dispatch = useDispatch();
     useEffect(() => {
-        //  dispatch(clientDataAction())
         dispatch(talentDataAction())
     }, [client]);
 
@@ -131,12 +129,6 @@ export default function TalentCardSearch() {
                     <div className="col-lg-10 pt-lg-3 mx-3">
 
                     </div>
-                    <ShowMore className="" maxHeight={100} button={<button id="seemorebutton" classname="advanced-search-link " style={{ color: 'green', position: 'absolute', left: 0 }}>
-                        more
-                    </button>}>
-                        {item.overview}
-
-                    </ShowMore>
                     <div className="d-flex justify-content-start">
                         {item.skills?.map((e) =>
                             <div className="chip mb-3 ms">

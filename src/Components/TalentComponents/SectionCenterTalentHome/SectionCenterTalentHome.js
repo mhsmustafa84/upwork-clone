@@ -14,7 +14,7 @@ import "./SectionCenterTalentHome.css";
 export default function SectionCenterTalentHome() {
 
     const jobs = useSelector(state => state.jobsData);
-    const lang = useSelector(state => state.lang);
+
     const [isliked, setisliked] = useState(false)
     const user = useSelector(state => state.talentData);
     const { switchJobs } = useContext(SearchContext);
