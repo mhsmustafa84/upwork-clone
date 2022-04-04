@@ -1,14 +1,14 @@
 import React from "react";
 import LoginHeader from "../../../Components/BeforeLoginComponents/LoginHeader/LoginHeader";
 import SignupFooter from "../../../Components/BeforeLoginComponents/SignupFooter/SignupFooter";
-import SignUpTemp from "../../../Components/BeforeLoginComponents/SignUpTemp/SignUpTemp";
+import SignupForm from './../../../Components/BeforeLoginComponents/Signup Form/SignupForm';
 
 export default function SignUp() {
-  return (
-    <>
-      <LoginHeader />
-      <SignUpTemp />
-      <SignupFooter />
-    </>
-  );
+    return (
+        <>
+            <LoginHeader />
+            <SignupForm />
+            <SignupFooter />
+        </>
+    );
 }

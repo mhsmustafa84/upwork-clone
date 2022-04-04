@@ -65,64 +65,55 @@ export default function LoginTemp() {
     };
 
     return (
-        <div>
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col-sm-12 col-md-5  mx-auto">
-                        <div className="shadow-sm p-5 mb-5 bg-white rounded mx-auto mt-5 w-100  border ">
-                            <h5 data-v-904d5b16 className="text-center m-0">
-                                <span data-v-733406b2 data-v-44072c38>
-                                    "Login and get to work"
-                                </span>
-                            </h5>
-                            <form>
-                                <span className="text-danger text-center">{errorMessage}</span>
-
-                                <div className="form-group col-8 mx-auto mt-3">
-                                    <span className="text-danger">{emailError}</span>
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        className={`form-control shadow-none ${emailError ? "border-danger" : ""
-                                            }`}
-                                        aria-describedby="emailHelp"
-                                        placeholder="User name or Email"
-                                        onInput={getUserData}
-                                    />
-                                </div>
-                                <div className="form-group col-8 mx-auto mt-3">
-                                    <span className="text-danger">{PasswordError}</span>
-                                    <input
-                                        type="password"
-                                        name="password"
-                                        className={`form-control shadow-none ${PasswordError ? "border-danger" : ""
-                                            }`}
-                                        aria-describedby="emailHelp"
-                                        placeholder="Password"
-                                        onInput={getUserData}
-                                    />
-                                </div>
-                                <div className="d-grid gap-2 col-8 mx-auto mt-3 hitbtn-className loginpcolor">
-                                    <button
-                                        className="btn bg-upwork "
-                                        onClick={login}
-                                        disabled={PasswordError != null || emailError != null}
-                                    >
-                                        "Log in"
-                                    </button>
-                                </div>
-                                <div>
-                                    <div className="separator mt-4 col-8 mx-auto">
-                                        "New To Upwork"
-                                    </div>
-                                    <div className="d-grid gap-2 col-md-5 col-sm-10 mx-auto mt-3   rounded mb-5">
-                                        <Link className="btn signup" to={`${process.env.REACT_APP_BASE_ROUTE}/sign-up`}>
-                                            "Sign Up"
-                                        </Link>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+        <div className="container-fluid">
+            <div className="row">
+                <div className="col-sm-12 col-md-5  mx-auto">
+                    <div className="shadow-sm p-5 mb-5 bg-white rounded mx-auto mt-5 w-100  border ">
+                        <h5 className="text-center m-0">
+                            Login and get to work
+                        </h5>
+                        <form>
+                            <span className="text-danger text-center">{errorMessage}</span>
+                            <div className="form-group col-8 mx-auto mt-3">
+                                <span className="text-danger">{emailError}</span>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    className={`form-control shadow-none ${emailError && "border-danger"}`}
+                                    aria-describedby="emailHelp"
+                                    placeholder="User name or Email"
+                                    onInput={getUserData}
+                                />
+                            </div>
+                            <div className="form-group col-8 mx-auto mt-3">
+                                <span className="text-danger">{PasswordError}</span>
+                                <input
+                                    type="password"
+                                    name="password"
+                                    className={`form-control shadow-none ${PasswordError && "border-danger"}`}
+                                    aria-describedby="emailHelp"
+                                    placeholder="Password"
+                                    onInput={getUserData}
+                                />
+                            </div>
+                            <div className="d-grid gap-2 col-8 mx-auto mt-3 hitbtn-className loginpcolor">
+                                <button
+                                    className="btn bg-upwork "
+                                    onClick={login}
+                                    disabled={PasswordError != null || emailError != null}
+                                >
+                                    Log in
+                                </button>
+                            </div>
+                            <div className="separator mt-4 col-8 mx-auto">
+                                New To Upwork?
+                            </div>
+                            <div className="d-grid gap-2 col-md-5 col-sm-10 mx-auto mt-3   rounded mb-5">
+                                <Link className="btn signup" to={`${process.env.REACT_APP_BASE_ROUTE}/sign-up`}>
+                                    Sign Up
+                                </Link>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
