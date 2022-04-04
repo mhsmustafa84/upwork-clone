@@ -2,7 +2,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import ImgWithActiveStatus from "./../../../Components/ClientComponents/ImgWithActiveStatus/ImgWithActiveStatus";
 import { useDispatch, useSelector } from "react-redux";
-import ShowMore from 'react-show-more-button';
 import { SearchContext } from "../../../Context/SearchContext";
 import { updateUserData } from "../../../Network/Network";
 import { clientDataAction } from "../../../Store/actions/clientData";
@@ -145,12 +144,6 @@ export default function TalentCardSearch() {
 
                     </div>
                     <div className="row mx-5 px-5">
-                        <ShowMore className="" maxHeight={100} button={<button id="seemorebutton" classname="advanced-search-link " style={{ color: 'green', position: 'absolute', left: 0 }}>
-                            more
-                        </button>}>
-                            {item.overview}
-
-                        </ShowMore>
                         <div className="d-flex justify-content-start">
                             {item.skills?.map((e) =>
                                 <div className="chip mb-3 ms">

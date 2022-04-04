@@ -14,7 +14,6 @@ export default function NavLargScreen() {
     const { pathname } = useLocation();
 
     let navigate = useNavigate();
-    let lang = useSelector(state => state.lang);
     const user = useSelector(state => state.talentData);
     const dispatch = useDispatch();
     useEffect(() => {
@@ -42,32 +41,31 @@ export default function NavLargScreen() {
                         <NavLink
                             className={
                                 `nav-link
-                ${lang === 'ar' && "fs-6"}
                 ${pathname === "/saved-jobs" || pathname === "/proposals" ? "active" : ""}`
                             }
                             to="/find-work"
                         >
                             "FindWork"
                         </NavLink>
-                        <ul className={`dropdown-menu findWork-cn ${lang === 'ar' && 'text-end'}`} style={{ marginTop: "-8px" }}>
+                        <ul className={`dropdown-menu findWork-cn`} style={{ marginTop: "-8px" }}>
                             <div className="nav-dd-cn"></div>
                             <li>
-                                <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to="/find-work">
+                                <Link className={`dropdown-item  `} to="/find-work">
                                     "FindWork"
                                 </Link>
                             </li>
                             <li>
-                                <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to="/saved-jobs">
+                                <Link className={`dropdown-item  `} to="/saved-jobs">
                                     "Saved Jobs"
                                 </Link>
                             </li>
                             <li>
-                                <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to="/proposals">
+                                <Link className={`dropdown-item  `} to="/proposals">
                                     "Proposals"
                                 </Link>
                             </li>
                             <li>
-                                <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to={`/profile/${fbAuth.auth.currentUser?.uid}`}>
+                                <Link className={`dropdown-item  `} to={`/profile/${fbAuth.auth.currentUser?.uid}`}>
                                     "Profile"
                                 </Link>
                             </li>
@@ -82,76 +80,76 @@ export default function NavLargScreen() {
                         <NavLink
                             className={
                                 `nav-link
-                ${lang === 'ar' && "fs-6"}
+                
                 ${pathname === "/all-contract" || pathname === "/offers" ? "active" : ""}`
                             }
                             to="/my-jobs"
                         >
                             "My Jobs"
                         </NavLink>
-                        <ul className={`dropdown-menu myJobs-cn ${lang === 'ar' && 'text-end'}`} style={{ marginTop: "-8px" }}>
+                        <ul className={`dropdown-menu myJobs-cn`} style={{ marginTop: "-8px" }}>
                             <div className="nav-dd-cn"></div>
                             <li>
-                                <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to="/my-jobs">
+                                <Link className={`dropdown-item  `} to="/my-jobs">
                                     "My Jobs"
                                 </Link>
                             </li>
                             <li>
-                                <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to="/all-contract">
+                                <Link className={`dropdown-item  `} to="/all-contract">
                                     "All Contracts"
                                 </Link>
                             </li>
                             <li>
-                                <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to="/offers">
+                                <Link className={`dropdown-item  `} to="/offers">
                                     "Offerss"
                                 </Link>
                             </li>
                         </ul>
                     </li>
                     <li className="nav-item hov-cn">
-                        <NavLink className={`nav-link reports-cn ${lang === 'ar' && "fs-6"}`} to="/overview">
+                        <NavLink className={`nav-link reports-cn `} to="/overview">
                             "Reports"
                         </NavLink>
-                        <ul className={`dropdown-menu Reports-cn ${lang === 'ar' && 'text-end'}`} style={{ marginTop: "-8px" }}>
+                        <ul className={`dropdown-menu Reports-cn`} style={{ marginTop: "-8px" }}>
                             <div className="nav-dd-cn"></div>
                             <li>
-                                <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to="/overview">
+                                <Link className={`dropdown-item  `} to="/overview">
                                     "Overview"
                                 </Link>
                             </li>
                             {/* <li>
-                <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to="/my-reports">
-                  "My Reports"
-                </Link>
-              </li> */}
+                                <Link className={`dropdown-item  `} to="/my-reports">
+                                    "My Reports"
+                                </Link>
+                            </li> */}
                             <li>
-                                <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to="/life-time-billing">
+                                <Link className={`dropdown-item  `} to="/life-time-billing">
                                     "Lifetime Billings by Client"
                                 </Link>
                             </li>
                             {/* <li>
-                <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to="/connects-history">
-                  "Connects History"
-                </Link>
-              </li> */}
+                                <Link className={`dropdown-item  `} to="/connects-history">
+                                    "Connects History"
+                                </Link>
+                            </li> */}
                             {/* <li>
-                <Link className={`dropdown-item  ${lang === 'ar' && "fs-6"}`} to="/transaction-history">
-                  "Transaction History"
-                </Link>
-              </li> */}
+                                <Link className={`dropdown-item  `} to="/transaction-history">
+                                    "Transaction History"
+                                </Link>
+                            </li> */}
                             {/* <li><a className="dropdown-item" href="#">Certificate of Earnings</a></li> */}
                         </ul>
                     </li>
                     {/* <li className="nav-item me-5">
-            <NavLink className={`nav-link  ${lang === 'ar' && "fs-6"}`} to="/messages">
-              "Messages"
-            </NavLink>
-          </li> */}
+                        <NavLink className={`nav-link  `} to="/messages">
+                            "Messages"
+                        </NavLink>
+                    </li> */}
                     {/* <li className="nav-item">
-            <a className="nav-link" href="#">
-              <i className="fas fa-question fs-5"></i>
-            </a>
-          </li> */}
+                        <a className="nav-link" href="#">
+                            <i className="fas fa-question fs-5"></i>
+                        </a>
+                    </li> */}
                     <li className="nav-item ms-5 me-3">
                         <NavLink className="nav-link" to="/messages">
                             <i
@@ -182,63 +180,47 @@ export default function NavLargScreen() {
                             aria-labelledby="navbarDropdownMenuLink"
                         >
                             <div className="nav-dd-acc-cn"></div>
-                            {/* <li className="px-4 py-3">
-                <div
-                  id="acc-btns-id"
-                  className="btn-group w-100"
-                  role="group"
-                  aria-label="Basic example"
-                >
-                  <button type="button" className={`btn ${lang === 'ar' && "fs-5 "}`}>
-                    "Online"
-                  </button>
-                  <span style={{ padding: "0 1px" }}></span>
-                  <button type="button" className={`btn invisible-cn ${lang === 'ar' && "fs-6"}`} >
-                    "Invisible"
-                  </button>
-                </div>
-              </li> */}
                             <li>
-                                <NavLink className={`dropdown-item px-4 ${lang === 'ar' && "text-end"}`} to="/find-work">
+                                <NavLink className={`dropdown-item px-4`} to="/find-work">
                                     <div className="d-flex align-items-center">
                                         <span style={{ marginLeft: "-5px" }}>
                                             <img style={{ height: "30px", width: "30px" }} className="rounded-circle bg-white" src={user.profilePhoto ? user.profilePhoto : img} alt="" />
                                         </span>
                                         <div className="acc-cn ms-2">
-                                            <p className={`${lang === 'ar' && "fs-6"}`} >{user?.firstName + " " + user?.lastName}</p>
-                                            <p className={`${lang === 'ar' && "fs-6"}`} >Freelancer</p>
+                                            <p className={``} >{user?.firstName + " " + user?.lastName}</p>
+                                            <p className={``} >Freelancer</p>
                                         </div>
                                     </div>
                                 </NavLink>
                             </li>
                             {/* <li>
-                <NavLink
-                  className={`dropdown-item px-4 mb-1 ${lang === 'ar' && "text-end"}`}
-                  to="/home"
-                >
-                  <div className="d-flex align-items-center">
-                    <span style={{ marginLeft: "-5px" }}>
-                      <i className={`fa fa-user-circle fs-3 ${lang === 'ar' && "px-3"}`}></i>
-                    </span>
-                    <div className="acc-cn ms-2">
-                      <p className={`${lang === 'ar' && "fs-6"}`} >Name</p>
-                      <p className={`${lang === 'ar' && "fs-6"}`} >Client</p>
-                    </div>
-                  </div>
-                </NavLink>
-              </li> */}
-                            {/* <li>
-                <Link className={`dropdown-item px-4 ${lang === 'ar' && "fs-6 text-end"}`} to="settings">
-                  <span>
-                    <i className={`fa fa-cog ${lang === 'ar' && "px-3 fs-5"}`}></i>
-                  </span>
-                  <span className="ps-2">Settings</span>
-                </Link>
-              </li> */}
+                                <NavLink
+                                    className={`dropdown-item px-4 mb-1`}
+                                    to="/home"
+                                >
+                                    <div className="d-flex align-items-center">
+                                        <span style={{ marginLeft: "-5px" }}>
+                                            <i className={`fa fa-user-circle fs-3`}></i>
+                                        </span>
+                                        <div className="acc-cn ms-2">
+                                            <p className={``} >Name</p>
+                                            <p className={``} >Client</p>
+                                        </div>
+                                    </div>
+                                </NavLink>
+                            </li>
                             <li>
-                                <button className={`dropdown-item px-4 ${lang === 'ar' && "fs-6 text-end"}`} onClick={logout}>
+                                <Link className={`dropdown-item px-4 `} to="settings">
                                     <span>
-                                        <i className={`fas fa-sign-out-alt ${lang === 'ar' && "px-3 fs-5"}`}></i>
+                                        <i className={`fa fa-cog `}></i>
+                                    </span>
+                                    <span className="ps-2">Settings</span>
+                                </Link>
+                            </li> */}
+                            <li>
+                                <button className={`dropdown-item px-4 `} onClick={logout}>
+                                    <span>
+                                        <i className={`fas fa-sign-out-alt `}></i>
                                     </span>
                                     <span className="ps-2">Log Out</span>
                                 </button>

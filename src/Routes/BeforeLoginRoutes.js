@@ -4,7 +4,6 @@ import { Route, Routes } from "react-router-dom";
 import SignUp from "../Pages/BeforeLoginPages/SignUp/SignUp";
 import Login from "./../Pages/BeforeLoginPages/Login/Login";
 import FindFreelancingJob from "../Pages/BeforeLoginPages/FindFreelancingJob/FindFreelancingJob";
-import DevelopmentItTalent from "../Pages/BeforeLoginPages/FindTalent_Development_It_Talent/DevelopmentItTalent";
 import PageNotFoundBeforeLogin from "./../Pages/PageNotFound/PageNotFoundBeforeLogin";
 import SignupDetails from "../Pages/BeforeLoginPages/SignUp Details/SignupDetails";
 
@@ -17,7 +16,6 @@ export default function BeforeLoginRoutes() {
             <Route path={`${process.env.REACT_APP_BASE_ROUTE}/sign-up`} element={<SignUp />} />
             <Route path={`${process.env.REACT_APP_BASE_ROUTE}/sign-up/details`} element={<SignupDetails />} />
             <Route path={`${process.env.REACT_APP_BASE_ROUTE}/freelance-jobs`} element={<FindFreelancingJob />} />
-            <Route path={`${process.env.REACT_APP_BASE_ROUTE}/dev-it`} element={<DevelopmentItTalent />} />
             <Route path="**" element={<PageNotFoundBeforeLogin />} />
         </Routes>
     );

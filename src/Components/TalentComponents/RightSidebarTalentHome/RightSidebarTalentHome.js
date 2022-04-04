@@ -57,7 +57,7 @@ export default function RightSidebarTalentHome({ lang }) {
             <div className="my-lg-1">
                 <i className="far fa-clock me-2" />
                 <span>
-                    {lang === "ar" ? user?.availability === true ? "متاح" : "غير متاح" : user?.availability === true ? "available" : "not available"}
+                    {user?.availability === true ? "available" : "not available"}
                 </span>
                 <div className="progress" style={{ height: 5, display: "inline" }}>
                     <div

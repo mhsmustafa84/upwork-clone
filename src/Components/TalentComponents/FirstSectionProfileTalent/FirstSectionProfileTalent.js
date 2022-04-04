@@ -4,8 +4,6 @@
 import React, { useEffect, useState } from "react";
 
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-import ShowMore from 'react-show-more-button';
 import { updateUserData } from "../../../Network/Network";
 import { db, storage } from "../../../firebase";
 import img from "../../../assets/Img/icon-user.svg";
@@ -18,7 +16,7 @@ export default function FirstSectionProfileTalent() {
     const location = useLocation();
     const navigate = useNavigate();
     const clientRoute = location.pathname.includes("talent-profile");
-    const lang = useSelector(state => state.lang);
+
 
     const [imgUrl, setimgUrl] = useState(null);
     const [progress, setprogress] = useState(0);
@@ -206,11 +204,11 @@ export default function FirstSectionProfileTalent() {
                                                 user?.employmentHistory?.length === 0
                                                     ? user?.badge?.none
                                                     : user?.employmentHistory?.legnth <= 5
-                                                        ? (lang === "ar" ? user?.badge?.risingTalentAr : user?.badge?.risingTalent)
+                                                        ? (user?.badge?.risingTalent)
                                                         : user?.employmentHistory?.legnth <= 10
-                                                            ? (lang === "ar" ? user?.badge?.topRatedAr : user?.badge?.topRated)
+                                                            ? (user?.badge?.topRated)
                                                             : user?.employmentHistory?.legnth <= 15
-                                                                ? (lang === "ar" ? user?.badge?.expertAr : user?.badge?.expert)
+                                                                ? (user?.badge?.expert)
                                                                 : ""
                                             }
                                         </span>
@@ -249,22 +247,17 @@ export default function FirstSectionProfileTalent() {
                                         "Availability"
                                     </h5>
                                     <h6 >
-                                        {lang === "ar" ? user?.availability === true ? "متاح" : "غير متاح" : user?.availability === true ? "available" : "not available"}
+                                        {user?.availability === true ? "available" : "not available"}
                                     </h6>
-                                    {/* <p>
-                    {lang === "ar" ? user?.availability
-                      ? "متاح لتقديم العروض إليه"
-                      : "غير متاح لمدة 3 أشهر" : user?.availability
-                      ? "As Needed - Open to Offers"
-                      : "not available for 3 months"}
-                  </p> */}
 
 
                                     <h5 className="fw-bold text-muted">Languages</h5>
-                                    <p><span className="text-muted">English": </span> {lang === "ar" ? user.englishProficiencyAr : user.englishProficiency}</p>
-                                    {user?.otherLanguages?.map(langItem => <p>
-                                        {lang === "ar" ? [langItem.languageAr, ' ', ':', ' ', langItem.langProfAr] : [langItem.language, ' ', ':', ' ', langItem.langProf]}
-                                    </p>)}
+                                    <p><span className="text-muted">English": </span> {user.englishProficiency}</p>
+                                    {
+                                        user?.otherLanguages?.map(langItem => <p>
+                                            {[langItem.language, ' ', ':', ' ', langItem.langProf]}
+                                        </p>)
+                                    }
 
 
                                     <h5 className="fw-bold mt-3 text-muted">Education</h5>
@@ -277,14 +270,6 @@ export default function FirstSectionProfileTalent() {
 
                                 <div className="col-6 px-4">
                                     <h4 className="fw-bold"> {user?.title}</h4>
-
-                                    <ShowMore className="mb-0 mt-4" maxHeight={100} button={<button id="seemorebutton" classname="advanced-search-link " style={{ color: 'green', position: 'absolute', left: 0 }}>
-                                        more
-                                    </button>}>
-                                        {user?.overview}
-                                    </ShowMore>
-
-
 
                                     <hr />
 

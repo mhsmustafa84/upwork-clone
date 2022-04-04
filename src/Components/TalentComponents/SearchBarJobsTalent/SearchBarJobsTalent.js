@@ -13,7 +13,7 @@ import { talentDataAction } from "../../../Store/actions/talentData";
 
 export default function SearchBarJobsTalent(props) {
 
-    let lang = useSelector(state => state.lang);
+
     const { arr, setarr, itemSearchList, setitemSearchList, setsearchList } = useContext(SearchContext)
     let navigate = useNavigate();
     const user = useSelector((state) => state.talentData);
@@ -59,7 +59,7 @@ export default function SearchBarJobsTalent(props) {
                     id="input"
                     type="search"
                     style={{ height: "35.5px", borderRadius: 0 }}
-                    className={`form-control text-dark bg-white ${lang === 'ar' ? "rounded-end" : "rounded-start"}`}
+                    className={`form-control text-dark bg-white rounded-start`}
                     placeholder="Search For Jobs"
                 />
                 <Link onClick={searchDatabase}>
@@ -67,7 +67,7 @@ export default function SearchBarJobsTalent(props) {
                         id="search-button"
                         type="button"
                         style={{ borderRadius: 0, fontSize: '10px' }}
-                        className={`btn bg-upwork bg-invert search  ${lang === 'ar' ? "rounded-start" : "rounded-end"}`}
+                        className={`btn bg-upwork bg-invert search rounded-end`}
                     >
 
                         <i className="fas fa-search" style={{ lineHeight: '22px' }} />

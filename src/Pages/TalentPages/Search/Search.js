@@ -18,7 +18,6 @@ import SearchIcon from "../../../Components/SVG/SearchIcon";
 
 export default function Search(props) {
 
-    const lang = useSelector(state => state.lang);
     const user = useSelector((state) => state.talentData);
     const dispatch = useDispatch();
 
@@ -558,12 +557,12 @@ export default function Search(props) {
                                                 <li>
                                                     <a className="dropdown-item" href="#">
                                                         RSS
-                          </a>
+                                                    </a>
                                                 </li>
                                                 <li>
                                                     <a className="dropdown-item" href="#">
                                                         Atom
-                          </a>
+                                                    </a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -581,25 +580,9 @@ export default function Search(props) {
                                         <span> - </span>
                                         <span>Est. Budget: </span>
                                         <span id="client-budget">{item?.jobBudget}</span> - posted
-                    <span id="posting-time"> 4 Hours ago</span>
+                                        <span id="posting-time"> 4 Hours ago</span>
                                     </span>
                                 </p>
-
-                                <ShowMore
-                                    maxHeight={100}
-                                    button={
-                                        <button
-                                            id="seemorebutton"
-                                            classname="advanced-search-link "
-                                            style={{ color: "green", position: "absolute", left: 0 }}
-                                        >
-                                            more
-                    </button>
-                                    }
-                                >
-                                    {item?.jobDescription}
-                                </ShowMore>
-
                                 {item?.skills?.map((skill, index) => (
                                     <button
                                         key={index}
@@ -616,14 +599,14 @@ export default function Search(props) {
                                         <span className="fw-bold ">Less than </span>
                                         <span className="fw-bold " id="proposals-numbers">
                                             5
-                    </span>
+                                        </span>
                                     </span>
                                 </p>
                                 <p style={{ fontSize: "0.85em" }} className="my-lg-1 mb-lg-2">
                                     <span className="fw-bold" style={{ color: "#14bff4" }}>
                                         <i className="fas fa-check-circle primary me-1" />
-                    Payment verified
-                  </span>
+                                        Payment verified
+                                    </span>
                                     <span className="text-muted">
                                         <span className="mx-2">
                                             <i className="fas fa-star" />
@@ -636,12 +619,12 @@ export default function Search(props) {
                                         <span> spent </span>
                                         <span className="fw-bold ">
                                             <i className="fas fa-map-marker-alt ms-2" /> United States
-                    </span>
+                                        </span>
                                     </span>
                                 </p>
                             </div> */}
 
-                            <JobCard item={item} saveJob={saveJob} user={user} lang={lang} star={star} />
+                            <JobCard item={item} saveJob={saveJob} user={user} star={star} />
                         </div>
                     ))}
                 </div>
