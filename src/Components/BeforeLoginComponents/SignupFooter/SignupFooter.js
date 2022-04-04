@@ -1,14 +1,11 @@
 /* eslint-disable */
 import React from "react";
 
-
-
 export default function SignupFooter() {
-
     return (
-        <footer className="text-center">
-            <ul className="list-unstyled text-white">
-                <li>Upwork Global Inc</li>
+        <footer className="text-center text-white">
+            <h4>Upwork Global Inc</h4>
+            <ul className="list-unstyled">
                 <li>
                     <a href="#">About Us</a>
                 </li>
