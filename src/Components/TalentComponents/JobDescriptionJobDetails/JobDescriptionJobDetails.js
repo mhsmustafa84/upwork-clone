@@ -125,6 +125,7 @@ export default function JobDescriptionJobDetails({ job }) {
                         {job?.jobImages?.map((img, index) => (
                             <p><a
                                 target="_blank"
+                                rel="noopener"
                                 href={img}
                                 className=" mx-1"
                                 // style={{ backgroundColor: "#9b9d9f" }}
