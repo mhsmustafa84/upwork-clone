@@ -8,15 +8,38 @@ import PageNotFoundBeforeLogin from "./../Pages/PageNotFound/PageNotFoundBeforeL
 import SignupDetails from "../Pages/BeforeLoginPages/SignUp Details/SignupDetails";
 import HomePage from './../Pages/BeforeLoginPages/HomePage/HomePage';
 
+const routes = [
+    {
+        path: '',
+        element: <HomePage />
+    },
+    {
+        path: '/login',
+        element: <Login />
+    },
+    {
+        path: '/sign-up',
+        element: <SignUp />
+    },
+    {
+        path: '/sign-up/details',
+        element: <SignupDetails />
+    },
+    {
+        path: '/freelance-jobs',
+        element: <FindFreelancingJob />
+    },
+    {
+        path: '**',
+        element: <PageNotFoundBeforeLogin />
+    }
+]
+
 export default function BeforeLoginRoutes() {
+    const baseRoute = process.env.REACT_APP_BASE_ROUTE;
     return (
         <Routes>
-            <Route path={process.env.REACT_APP_BASE_ROUTE} element={<HomePage />} />
-            <Route path={`${process.env.REACT_APP_BASE_ROUTE}/login`} element={<Login />} />
-            <Route path={`${process.env.REACT_APP_BASE_ROUTE}/sign-up`} element={<SignUp />} />
-            <Route path={`${process.env.REACT_APP_BASE_ROUTE}/sign-up/details`} element={<SignupDetails />} />
-            <Route path={`${process.env.REACT_APP_BASE_ROUTE}/freelance-jobs`} element={<FindFreelancingJob />} />
-            <Route path="**" element={<PageNotFoundBeforeLogin />} />
+            {routes.map(route => <Route key={route.path} path={baseRoute + route.path} element={route.element} />)}
         </Routes>
     );
 }
