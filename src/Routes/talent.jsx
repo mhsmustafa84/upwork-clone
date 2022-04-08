@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Messages from "../Pages/Messages/Messages";
-import Header from "./../Components/TalentComponents/Header/Header";
-import Footer from "./../Components/SharedComponents/Footer/Footer";
-import SavedJobs from "./../Pages/TalentPages/SavedJobs/SavedJobs";
-import Proposals from "./../Pages/TalentPages/Proposals/Proposals";
-import Profile from "./../Pages/TalentPages/Profile/Profile";
-import MyStats from "./../Pages/TalentPages/MyStats/MyStats";
-import MyJobs from "./../Pages/TalentPages/MyJobs/MyJobs";
-import AllContracts from "./../Pages/TalentPages/AllContracts/AllContracts";
-import PageNotFound from "./../Pages/PageNotFound/PageNotFound";
+import Header from "../Components/TalentComponents/Header/Header";
+import Footer from "../Components/SharedComponents/Footer/Footer";
+import SavedJobs from "../Pages/TalentPages/SavedJobs/SavedJobs";
+import Proposals from "../Pages/TalentPages/Proposals/Proposals";
+import Profile from "../Pages/TalentPages/Profile/Profile";
+import MyStats from "../Pages/TalentPages/MyStats/MyStats";
+import MyJobs from "../Pages/TalentPages/MyJobs/MyJobs";
+import AllContracts from "../Pages/TalentPages/AllContracts/AllContracts";
+import PageNotFound from "../Pages/PageNotFound/PageNotFound";
 import Reports from "../Pages/TalentPages/Reports/MyReports/MyReports";
 import OverviewReports from "../Pages/TalentPages/Reports/OverviewReports/OverviewReports";
 import BillingByClients from "../Pages/TalentPages/Reports/billingbyclient/billingbyclients";
@@ -19,7 +19,7 @@ import HomeTalent from "../Pages/TalentPages/HomeTalent/HomeTalent";
 import JobDetailsTalent from "../Pages/TalentPages/JobDetailsTalent/JobDetailsTalent";
 import CreateProfile from "../Pages/TalentPages/CreateProfile/CreateProfile";
 import Search from "../Pages/TalentPages/Search/Search";
-import EmailVerified from "./../Pages/EmailVerification/EmailVerified";
+import EmailVerified from "../Pages/EmailVerification/EmailVerified";
 import SubmitProposal from "../Pages/Submit Proposal/SubmitProposal";
 import ReviewProposalsCard from "../Components/ClientComponents/ReviewProposalsCard/ReviewProposalsCard";
 import { SearchContextProvider } from "../Context/SearchContext";
@@ -27,9 +27,9 @@ import PleaseVerifiy from "../Pages/EmailVerification/PleaseVerifiy";
 import JobAppliedDetails from "../Pages/TalentPages/JobAppliedDetails/JobAppliedDetails";
 import Contract from "../Pages/TalentPages/Contract/Contract";
 import Offers from "../Pages/TalentPages/Offers/Offers";
-import Notifications from './../Pages//Notifications/Notifications';
+import Notifications from '../Pages/Notifications/Notifications';
 
-export default function TalentRoutes() {
+export const Talent = () => {
     const [arr, setarr] = useState([]);
     const [itemSearchList, setitemSearchList] = useState("");
     const [searchList, setsearchList] = useState([]);
