@@ -22,9 +22,11 @@ export const Layout = () => {
     if (usr) {
         if (usrType === "talent") {
             return <Talent />
-        } else if (usrType === "client") {
+        }
+        if (usrType === "client") {
             return <Client />
-        } else if (usrType !== null) {
+        }
+        if (usrType !== null) {
             return <Loader />
         }
     } else {
