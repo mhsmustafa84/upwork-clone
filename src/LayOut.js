@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { fbAuth } from "./firebase";
-import BeforeLoginRoutes from "./Routes/unAuth";
+import { UnAuth } from "./Routes/unAuth";
 import ClientRoutes from "./Routes/ClientRoutes";
 import TalentRoutes from "./Routes/TalentRoutes";
 import Loader from "./Components/SharedComponents/Loader/Loader";
@@ -25,12 +25,10 @@ export default function LayOut() {
             return <TalentRoutes />
         } else if (usrType === "client") {
             return <ClientRoutes />
-        } else if (usrType === null) {
-            return <BeforeLoginRoutes />
-        } else {
+        } else if (usrType !== null) {
             return <Loader />
         }
     } else {
-        return <BeforeLoginRoutes />;
+        return <UnAuth />;
     }
 }

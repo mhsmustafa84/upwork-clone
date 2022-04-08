@@ -26,8 +26,9 @@ const routes = [
     }
 ]
 
-export default function BeforeLoginRoutes() {
-    const baseRoute = process.env.REACT_APP_BASE_ROUTE;
+const baseRoute = process.env.REACT_APP_BASE_ROUTE;
+
+export const UnAuth = () => {
     return (
         <Routes>
             {routes.map(route => <Route key={route.path} path={baseRoute + route.path} element={route.element} />)}
