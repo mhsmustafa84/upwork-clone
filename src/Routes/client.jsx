@@ -22,8 +22,8 @@ import CreateContract from "../Pages/ClientPages/CreateContract/CreateContract";
 import Notifications from "../Pages/Notifications/Notifications";
 import Contract from './../Pages/ClientPages/AllContract/Contract';
 
+export const Client = () => {
 
-export default function ClientRoutes() {
     const [talentArr, settalentArr] = useState([]);
     const [talentSearchList, settalentSearchList] = useState("");
 
