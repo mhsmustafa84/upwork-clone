@@ -8,9 +8,7 @@ function App() {
     console.log(process.env.REACT_APP_BASE_ROUTE);
     return (
         <BrowserRouter>
-            <div style={{ fontFamily: "'Cairo', sans-serif !important" }}>
-                <LayOut />
-            </div>
+            <LayOut />
         </BrowserRouter>
     );
 }
