@@ -6,7 +6,6 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clientDataAction } from "./../../../Store/actions/clientData";
-
 import { fbAuth, db } from "../../../firebase";
 import { clientJobsAction } from "../../../Store/actions/clientJobAction";
 import "./HomeLayout.css";
@@ -164,17 +163,14 @@ export default function HomeLayout() {
                                                         "1. Post a job to get free quotes"
                                                     </h4>
                                                     <p className="m-xs-top-bottom">
-
-                                                        "Write a clear, detailed description of your job to share with qualified freelancers. Start receiving proposals in less than 24 hours"
-                                                        )}
-                                                        .
+                                                        Write a clear, detailed description of your job to share with qualified freelancers. Start receiving proposals in less than 24 hours.
                                                     </p>
                                                     <a
                                                         href="https://www.upwork.com/hiring/writing-an-awesome-job-post/"
                                                         target="_blank"
                                                         rel="noreferrer"
                                                     >
-                                                        "View great job post examples"
+                                                        View great job post examples
                                                     </a>
                                                 </div>
                                             </div>
@@ -186,19 +182,17 @@ export default function HomeLayout() {
                                             <div className="col-6">
                                                 <div className="media-body">
                                                     <h4 className="m-0-top-bottom">
-                                                        "2. Evaluate freelancers and hire"
+                                                        2. Evaluate freelancers and hire
                                                     </h4>
                                                     <p className="m-xs-top-bottom">
-
-                                                        "Review proposals or invite qualified freelancers to your project. Quickly chat live or video call with favorites, and offer a contract to the best match."
-                                                        )}
+                                                        "Review proposals or invite qualified freelancers to your project. Quickly chat live or video call with favorites, and offer a contract to the best match.
                                                     </p>
                                                     <a
                                                         href="https://www.upwork.com/hiring/education/how-to-hire-freelancers/"
                                                         target="_blank"
                                                         rel="noreferrer"
                                                     >
-                                                        "Review tips on finding talent"
+                                                        Review tips on finding talent
                                                     </a>
                                                     <br />
                                                     <a
@@ -206,7 +200,7 @@ export default function HomeLayout() {
                                                         target="_blank"
                                                         rel="noreferrer"
                                                     >
-                                                        "Prepare to interview freelancers"
+                                                        Prepare to interview freelancers
                                                     </a>
                                                     <div className="ng-hide">
                                                         <a href="#">Contact your Talent Specialist</a>
@@ -221,7 +215,7 @@ export default function HomeLayout() {
                                             <div className="col-6">
                                                 <div className="media-body">
                                                     <h4 className="m-0-top-bottom">
-                                                        "3. Work together"
+                                                        3. Work together
                                                     </h4>
                                                     <p className="m-xs-top-bottom">
                                                         "Use"{" "}
@@ -230,27 +224,25 @@ export default function HomeLayout() {
                                                             target="_blank"
                                                             rel="noreferrer"
                                                         >
-                                                            "Upwork Messages"
+                                                            Upwork Messages
                                                         </a>{" "}
-
-                                                        "to securely chat, share files, and collaborate on projects. View progress against project goals with the"
-                                                        )}
+                                                        to securely chat, share files, and collaborate on projects. View progress against project goals with the
                                                         <a
                                                             href="https://www.upwork.com/hiring/for-clients/whats-the-work-diary-and-why-to-use-it/"
                                                             target="_blank"
                                                             rel="noreferrer"
                                                         >
                                                             {" "}
-                                                            "Work Diary"
+                                                            Work Diary
                                                         </a>{" "}
-                                                        "tool" .
+                                                        tool .
                                                     </p>
                                                     <a
                                                         href="https://www.upwork.com/i/trust-safety-mission//#/clients"
                                                         target="_blank"
                                                         rel="noreferrer"
                                                     >
-                                                        "See tips for staying safe on Upwork"
+                                                        See tips for staying safe on Upwork
                                                     </a>
                                                 </div>
                                             </div>
@@ -265,24 +257,22 @@ export default function HomeLayout() {
                                                         "4. Pay and invoice through Upwork"
                                                     </h4>
                                                     <p className="m-xs-top-bottom">
-
-                                                        "Get invoices and make payments after reviewing time billed or approving milestones. With"
-                                                        )}
+                                                        Get invoices and make payments after reviewing time billed or approving milestones. With
                                                         <a
                                                             href="https://www.upwork.com/hiring/for-clients/how-to-manage-your-first-project-with-upwork-payment-protection/"
                                                             target="_blank"
                                                             rel="noreferrer"
                                                         >
-                                                            "Upwork Payment Protection"
+                                                            Upwork Payment Protection
                                                         </a>
-                                                        , "only pay for work you authorize" .
+                                                        , only pay for work you authorize.
                                                     </p>
                                                     <a
                                                         href="https://www.upwork.com/i/pricing/"
                                                         target="_blank"
                                                         rel="noreferrer"
                                                     >
-                                                        "Learn about Upwork pricing"
+                                                        Learn about Upwork pricing
                                                     </a>
                                                     <br />
                                                     <a

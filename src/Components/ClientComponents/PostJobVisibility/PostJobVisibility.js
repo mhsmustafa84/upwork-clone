@@ -58,9 +58,7 @@ export default function PostJobVisibility({ setBtns, btns }) {
                             </div>
                             <h6 className="my-3">Anyone</h6>
                             <small className="fw-normal">
-
-                                " Looking for someone relativelyFreelancers and agencies using Upwork and public search engines can find this job."
-                                )}
+                                Looking for someone relativelyFreelancers and agencies using Upwork and public search engines can find this job.
                             </small>
                         </label>
                         <label className="border border-success rounded p-3 text-center w-50 mx-3">
@@ -78,14 +76,14 @@ export default function PostJobVisibility({ setBtns, btns }) {
                             </div>
                             <h6 className="my-3">Only Upwork talent</h6>
                             <small className="fw-normal">
-                                "Only Upwork users can find this job."
+                                Only Upwork users can find this job.
                             </small>
                         </label>
                     </div>
                 </div>
                 <div className="px-4 mt-3">
                     <p className="fw-bold mt-2">
-                        "How many people do you need for this job?"
+                        How many people do you need for this job?
                     </p>
                     <div className="my-4 d-flex" onInput={getData}>
                         <label className="border border-success rounded p-3 text-center w-25">

@@ -83,8 +83,7 @@ export default function PostJobTitle({ setBtns, btns }) {
                 <div className="border-bottom ps-4">
                     <h4>Job Category</h4>
                     <p className="w-75">
-                        "Let's categorize your job, which helps us personalize your job details and match your job to relevant freelancers and agencies."
-                    )}</p>
+                        Let's categorize your job, which helps us personalize your job details and match your job to relevant freelancers and agencies.</p>
                     <select className="form-select form-select-lg mb-3 shadow-none w-50" aria-label=".form-select-lg example" name="JobCategory" onChange={getData}>
                         <option defaultValue value="Select a category">Select a category</option>
                         <option value="Front-End Development">Front-End Development</option>

@@ -9,7 +9,6 @@ import { useSelector } from "react-redux";
 
 export default function PostJobGetStarted({ start, isStart, setBtns, btns }) {
 
-
     const client = useSelector(state => state.clientData)
     const [job, setJob] = useState({ jobDuration: "" });
 

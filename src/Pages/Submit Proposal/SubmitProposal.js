@@ -4,7 +4,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import { useSelector } from "react-redux";
 import { fbAuth, db, storage } from "../../firebase";
 import { Timestamp } from 'firebase/firestore';
 import { subCollection, updateUserData } from "../../Network/Network";

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Logo from "./../../SharedComponents/Logo/Logo";
+import { Logo } from "../../SharedComponents/logo/Logo";
 import HeaderSearchLg from "../../SharedComponents/HeaderSearchLg/HeaderSearchLg";
 import NavLargScreen from './../NavLargScreen/NavLargScreen';
 import NavSmallScreen from './../NavSmallScreen/NavSmallScreen';

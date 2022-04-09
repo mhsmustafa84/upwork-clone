@@ -1,6 +1,6 @@
 
 import React from "react";
-import Logo from "./../../SharedComponents/Logo/Logo";
+import { Logo } from "../../SharedComponents/logo/Logo";
 import "./Header.css";
 import NavLargScreen from "../NavLargScreen/NavLargScreen";
 import { useState } from "react";
