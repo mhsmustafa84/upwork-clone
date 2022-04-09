@@ -28,7 +28,7 @@ export default function Header() {
 
                 {/* Header in large screen */}
                 <div id="nav-lg-id" className="container d-flex justify-content-between align-items-center">
-                    <Logo />
+                    <Logo url={process.env.REACT_APP_BASE_ROUTE} />
                     <HeaderSearchLg />
                     <nav className="navbar navbar-expand-lg navbar-dark bg-transparent py-0">
                         <NavLargScreen />
@@ -50,7 +50,7 @@ export default function Header() {
                                         {showSearchIcon ? <span className="navbar-toggler-icon"></span> : <span><i className="fas fa-times text-white"></i></span>}
                                     </button>
                                 </nav>
-                                <Logo />
+                                <Logo url={process.env.REACT_APP_BASE_ROUTE} />
                             </>
                     }
                     <button id="search-btn-res-id" className="btn d-lg-none shadow-none" onClick={toggleSearchForm}>
