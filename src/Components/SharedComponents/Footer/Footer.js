@@ -1,6 +1,5 @@
 /* eslint-disable */
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Footer.css'
 
 export default function Footer() {
@@ -8,25 +7,25 @@ export default function Footer() {
     return (
         <footer>
             <div className="container">
-                <div className="row social-footer-cn pt-3">
+                <div className="row border-bottom border-secondary pt-3">
                     <div className="col-md-6 col-sm-12">
                         <div className="d-flex">
                             <span className="text-light">Follow us</span>
-                            <ul className="list-unstyled d-flex ms-3">
-                                <li><FontAwesomeIcon icon={faAppleAlt} /></li>
-                                <li><a href="#"><i className="fab fa-linkedin-in"></i></a></li>
-                                <li><a href="#"><i className="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i className="fab fa-youtube"></i></a></li>
-                                <li><a href="#"><i className="fab fa-instagram"></i></a></li>
+                            <ul className="list-unstyled d-flex text-white ms-3">
+                                <li><i className="fab fa-facebook"></i></li>
+                                <li><i className="fab fa-linkedin-in"></i></li>
+                                <li><i className="fab fa-twitter"></i></li>
+                                <li><i className="fab fa-youtube"></i></li>
+                                <li><i className="fab fa-instagram"></i></li>
                             </ul>
                         </div>
                     </div>
                     <div className="col-md-6 col-sm-12">
                         <div className="d-flex justify-content-end">
                             <span className="text-light">Mobile app</span>
-                            <ul className="list-unstyled d-flex ms-3">
-                                <li><a href="#"><i className="fab fa-apple"></i></a></li>
-                                <li><a href="#"><i className="fab fa-google-play"></i></a></li>
+                            <ul className="list-unstyled d-flex text-white ms-3">
+                                <li><i className="fab fa-apple"></i></li>
+                                <li><i className="fab fa-google-play"></i></li>
                             </ul>
                         </div>
                     </div>
