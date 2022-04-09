@@ -1,13 +1,13 @@
 
 import React from "react";
 import { Logo } from "../../SharedComponents/logo/Logo";
-import "./Header.css";
 import NavLargScreen from "../NavLargScreen/NavLargScreen";
 import { useState } from "react";
 import { useEffect } from "react";
 import HeaderSearchSm from "./../../SharedComponents/HeaderSearchSm/HeaderSearchSm";
 import NavSmallScreen from "../NavSmallScreen/NavSmallScreen";
 import HeaderSearchLg from "../HeaderSearchLg/HeaderSearchLg";
+import "./Header.css";
 
 export default function Header() {
     const [showSearch, setShowSearch] = useState(false);
@@ -30,7 +30,7 @@ export default function Header() {
                     id="nav-lg-id"
                     className="container d-flex justify-content-between align-items-center"
                 >
-                    <Logo />
+                    <Logo url={process.env.REACT_APP_BASE_ROUTE} />
                     <HeaderSearchLg />
                     <nav className="navbar navbar-expand-lg navbar-dark bg-transparent py-0 mx-4">
                         <NavLargScreen />
@@ -69,7 +69,7 @@ export default function Header() {
                                     )}
                                 </button>
                             </nav>
-                            <Logo />
+                            <Logo url={process.env.REACT_APP_BASE_ROUTE} />
                         </>
                     )}
                     <button

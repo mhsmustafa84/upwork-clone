@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export const Logo = () => {
+export const Logo = ({ url }) => {
     return (
-        <Link to={process.env.REACT_APP_BASE_ROUTE} className="in-small-screen-cn">
+        <Link to={url} className="in-small-screen-cn">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 102.4 30"
