@@ -25,7 +25,7 @@ export default function Footer() {
                             <span className="text-light">Mobile app</span>
                             <ul className="list-unstyled d-flex text-white ms-3">
                                 <li><i className="fab fa-apple"></i></li>
-                                <li><i className="fab fa-google-play"></i></li>
+                                <li><i className="fab fa-google-play ms-1"></i></li>
                             </ul>
                         </div>
                     </div>
