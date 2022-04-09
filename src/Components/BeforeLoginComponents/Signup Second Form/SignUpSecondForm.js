@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { fbAuth } from "../../../firebase";
 import { createDocumentWithId } from "../../../Network/Network";
-
 import { Timestamp } from 'firebase/firestore';
 import CountrySelect from "react-bootstrap-country-select";
 export default function SignUpSecondForm() {
@@ -37,9 +36,9 @@ export default function SignUpSecondForm() {
                     ...validate,
                     firstName:
                         val === ""
-                            ? t("First name is required")
+                            ? "First name is required"
                             : val.length < 3
-                                ? t("First name must be more than 2")
+                                ? "First name must be more than 2"
                                 : null
                 });
                 break;
@@ -49,9 +48,9 @@ export default function SignUpSecondForm() {
                     ...validate,
                     lastName:
                         val === ""
-                            ? t("Last name is required")
+                            ? "Last name is required"
                             : val.length < 3
-                                ? t("Last name must be more than 2")
+                                ? "Last name must be more than 2"
                                 : null
                 });
                 break;
@@ -61,9 +60,9 @@ export default function SignUpSecondForm() {
                     ...validate,
                     password:
                         val === ""
-                            ? t("This is Required")
+                            ? "This is Required"
                             : val.length < 8
-                                ? t("Password Should be More 8 Character")
+                                ? "Password Should be More 8 Character"
                                 : null
                 });
                 break;

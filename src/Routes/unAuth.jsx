@@ -1,12 +1,12 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { HomePage, Login, SignUp, SignupDetails } from '../Pages/unAuth';
+import { Home, Login, SignUp, SignupDetails } from '../Pages/unAuth';
 import PageNotFoundBeforeLogin from "../Pages/PageNotFound/PageNotFoundBeforeLogin";
 
 const routes = [
     {
         path: '',
-        element: <HomePage />
+        element: <Home />
     },
     {
         path: '/login',

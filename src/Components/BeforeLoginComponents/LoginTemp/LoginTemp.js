@@ -109,7 +109,7 @@ export default function LoginTemp() {
                                 New To Upwork?
                             </div>
                             <div className="d-grid gap-2 col-md-5 col-sm-10 mx-auto mt-3   rounded mb-5">
-                                <Link className="btn signup" to={`${process.env.REACT_APP_BASE_ROUTE}/sign-up`}>
+                                <Link className="btn btn-success signup" to={`${process.env.REACT_APP_BASE_ROUTE}/sign-up`}>
                                     Sign Up
                                 </Link>
                             </div>

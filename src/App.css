@@ -1,8 +1,22 @@
-/* start Global */
+* {
+    font-family: 'cairo';
+    line-height: normal;
+}
 a {
   text-decoration: none;
 }
 ul {
   list-style: none;
 }
-/* --------end Global----------- */
+.upwork-color {
+    color: #14A800;
+}
+.upwork-bg-color {
+    background-color: #14A800;
+}
+.upwork-bg-color:hover {
+    background-color: #3c8224;
+}
+.text-main-color {
+    color: #5e6d55;
+}

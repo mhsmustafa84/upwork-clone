@@ -87,9 +87,7 @@ export default function PostJobExpertise({ setBtns, btns }) {
                             />
                             <h6 className="my-3">Expert</h6>
                             <div>
-
-                                "Looking for comprehensive and deep expertise in this field"
-                                )}
+                                Looking for comprehensive and deep expertise in this field
                             </div>
                         </label>
                     </div>

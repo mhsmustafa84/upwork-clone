@@ -3,11 +3,8 @@ import { Link } from "react-router-dom";
 import { updateJob } from "../../../Network/Network";
 import "./PostJobDetails.css";
 
-
-
 export default function PostJobDetails({ setBtns, btns }) {
     const [job, setJob] = useState({ jobType: "" });
-
 
     const getData = e => {
         setJob({ jobType: e.target.value });

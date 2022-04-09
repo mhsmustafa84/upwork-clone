@@ -4,30 +4,26 @@ import { fbAuth } from "../firebase";
 import { UnAuth, Talent, Client } from ".";
 import Loader from "../Components/SharedComponents/Loader/Loader";
 
+let usrType = null;
+
 export const Layout = () => {
 
-    const [usr, setUsr] = useState(null);
-    const [usrType, setUsrType] = useState(null);
+    const [user, setUser] = useState(null);
 
     useEffect(() => {
         fbAuth.onAuthStateChanged(fbAuth.auth, user => {
             if (user) {
                 console.log('file: layout.jsx => line 15 => useEffect => user', user);
-                setUsr(user);
-                setUsrType(localStorage.getItem('userType') || null);
+                setUser(user);
+                usrType = localStorage.getItem('userType') || null;
             }
         });
     }, []);
 
-    if (usr) {
-        if (usrType === "talent") {
-            return <Talent />
-        } else if (usrType === "client") {
-            return <Client />
-        } else if (usrType !== null) {
-            return <Loader />
-        }
-    } else {
-        return <UnAuth />;
+    if (user) {
+        if (usrType === "talent") return <Talent />;
+        if (usrType === "client") return <Client />;
+        if (usrType !== null) return <Loader />;
     }
+    if (!user) return <UnAuth />;
 }

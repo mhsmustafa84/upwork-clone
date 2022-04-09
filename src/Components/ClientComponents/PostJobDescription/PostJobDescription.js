@@ -1,11 +1,9 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from "react";
-
 import { Link } from "react-router-dom";
 import { storage } from "../../../firebase";
 import { updateJob } from "../../../Network/Network";
 import "./PostJobDescription.css";
-
 
 export default function PostJobDescription({ setBtns, btns }) {
 
