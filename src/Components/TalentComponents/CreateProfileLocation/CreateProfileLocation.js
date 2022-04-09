@@ -95,12 +95,12 @@ export default function CreateProfileLocation({ setBtns, btns }) {
         </button>
         <button className={`btn ${country === "" || country === null || location.city === "" ? "disabled" : ""}`}>
           <Link
-            className="btn bg-upwork px-5"
+            className="btn upwork-bg-color px-5"
             to="/create-profile/phone-number"
             onClick={addData}
           >
             Next
-        </Link>
+          </Link>
         </button>
       </div>
     </section>

@@ -9,9 +9,9 @@ export default function LoginTemp() {
     const [emailError, setEmailErorr] = useState("");
     const [PasswordError, setPasswordErrorr] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
-    let navigate = useNavigate();
+    const navigate = useNavigate();
 
-    const getUserData = (e) => {
+    const getUserData = e => {
         const name = e.target.name;
         const val = e.target.value;
         switch (name) {
@@ -48,7 +48,7 @@ export default function LoginTemp() {
         }
     };
 
-    const login = (e) => {
+    const login = e => {
         console.log("file: LoginTemp.js => line 58 => login => user", user);
         e.preventDefault();
         fbAuth.signInWithEmailAndPassword(fbAuth.auth, user.email, user.password)
@@ -65,27 +65,25 @@ export default function LoginTemp() {
     };
 
     return (
-        <div className="container-fluid">
+        <div className="container">
             <div className="row">
-                <div className="col-sm-12 col-md-5  mx-auto">
-                    <div className="shadow-sm p-5 mb-5 bg-white rounded mx-auto mt-5 w-100  border ">
-                        <h5 className="text-center m-0">
-                            Login and get to work
-                        </h5>
+                <div className="col-sm-12 col-md-6 mx-auto">
+                    <div className="shadow p-5 my-5 rounded mx-auto border">
+                        <h4 className="text-center fw-bold m-0">
+                            Log in to Upwork
+                        </h4>
                         <form>
-                            <span className="text-danger text-center">{errorMessage}</span>
-                            <div className="form-group col-8 mx-auto mt-3">
+                            <div className="form-group col-9 mx-auto mt-4">
                                 <span className="text-danger">{emailError}</span>
                                 <input
                                     type="email"
                                     name="email"
                                     className={`form-control shadow-none ${emailError && "border-danger"}`}
-                                    aria-describedby="emailHelp"
-                                    placeholder="User name or Email"
+                                    placeholder="Email"
                                     onInput={getUserData}
                                 />
                             </div>
-                            <div className="form-group col-8 mx-auto mt-3">
+                            <div className="form-group col-9 mx-auto mt-3">
                                 <span className="text-danger">{PasswordError}</span>
                                 <input
                                     type="password"
@@ -98,13 +96,14 @@ export default function LoginTemp() {
                             </div>
                             <div className="d-grid gap-2 col-8 mx-auto mt-3 hitbtn-className loginpcolor">
                                 <button
-                                    className="btn bg-upwork "
+                                    className="btn upwork-bg-color"
                                     onClick={login}
                                     disabled={PasswordError != null || emailError != null}
                                 >
                                     Log in
                                 </button>
                             </div>
+                            <div className="text-danger text-center">{errorMessage}</div>
                             <div className="separator mt-4 col-8 mx-auto">
                                 New To Upwork?
                             </div>

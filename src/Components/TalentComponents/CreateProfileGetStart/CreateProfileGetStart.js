@@ -19,7 +19,7 @@ export default function CreateProfileGetStart({ setBtns, btns }) {
                     <p>We are currently experiencing a high number of applications. Create a stand-out profile to increase your chances of getting approved!</p>
                 </div>
                 <div className="my-4 text-end">
-                    <Link className="btn bg-upwork" to="/create-profile/category" onClick={() => setBtns({ ...btns, category: false })}>Start My Profile</Link>
+                    <Link className="btn upwork-bg-color" to="/create-profile/category" onClick={() => setBtns({ ...btns, category: false })}>Start My Profile</Link>
                 </div>
             </div>
         </section>

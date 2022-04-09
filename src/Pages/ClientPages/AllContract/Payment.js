@@ -63,7 +63,7 @@ export default function Payment({ job, talent, clientContract }) {
                     <h4>${clientContract?.jobBudget}</h4>
                 </div>
                 <div className="col">
-                    <button className="btn bg-upwork me-2" onClick={pay}>Pay for talent</button>
+                    <button className="btn upwork-bg-color me-2" onClick={pay}>Pay for talent</button>
                     <button className="btn btn-danger ms-2" onClick={end}>End contract</button>
                 </div>
             </div>

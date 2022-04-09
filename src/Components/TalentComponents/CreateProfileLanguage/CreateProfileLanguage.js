@@ -22,7 +22,7 @@ export default function CreateProfileLanguage({ setBtns, btns }) {
   const updateUser = () => {
     updateUserData("talent", {
       englishProficiency: language,
-      englishProficiencyAr: language === "English proficiency" ? "إجادة اللغة الإنجليزية" : language === "Basic" ? "أساسي": language ==="Conversational"? "محادثة":language ==="Fluent"? "فصيح":"اللغة الأم",
+      englishProficiencyAr: language === "English proficiency" ? "إجادة اللغة الإنجليزية" : language === "Basic" ? "أساسي" : language === "Conversational" ? "محادثة" : language === "Fluent" ? "فصيح" : "اللغة الأم",
       otherLanguages: languagesList,
       profileCompletion: 50,
     });
@@ -78,16 +78,16 @@ export default function CreateProfileLanguage({ setBtns, btns }) {
             to="/create-profile/education-and-employment"
           >
             Back
-        </Link>
+          </Link>
         </button>
         <button className={`btn ${language === "" || language === "English proficiency" ? "disabled" : ""}`}>
           <Link
-            className="btn bg-upwork px-5"
+            className="btn upwork-bg-color px-5"
             to="/create-profile/hourly-rate"
             onClick={updateUser}
           >
             Next
-        </Link>
+          </Link>
         </button>
       </div>
     </section>

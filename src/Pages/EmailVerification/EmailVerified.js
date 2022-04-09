@@ -19,7 +19,7 @@ export default function EmailVerified() {
             <img src={verify} style={{ width: "150px" }} />
             <h3 className="my-3">Email is verfied successfully</h3>
             <button
-                className="btn bg-upwork"
+                className="btn upwork-bg-color"
                 onClick={() => user.displayName === "talent" ? navigate("/create-profile") : navigate("/post-job")}
             >
                 {user.displayName === "talent" ? "Compelete your profile data" : "Post a job"}
