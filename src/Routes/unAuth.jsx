@@ -5,7 +5,7 @@ import PageNotFoundBeforeLogin from "../Pages/PageNotFound/PageNotFoundBeforeLog
 
 const routes = [
     {
-        path: '',
+        path: '/',
         element: <Home />
     },
     {
@@ -31,7 +31,7 @@ const baseRoute = process.env.REACT_APP_BASE_ROUTE;
 export const UnAuth = () => {
     return (
         <Routes>
-            {routes.map(route => <Route key={route.path} path={baseRoute + route.path} element={route.element} />)}
+            {routes.map(route => <Route key={route.path} path={`${baseRoute}${route.path}`} element={route.element} />)}
         </Routes>
     );
 }
