@@ -94,7 +94,7 @@ export default function OfferCard({ clientID, jobID, getOffers }) {
                     <p><strong>Contract Payment Type: </strong>{offer?.data?.jobPaymentType}</p>
                     <p><strong>Contract Due Date: </strong>{offer?.data?.dueDate}</p>
                     <button
-                        className="btn upwork-bg-color me-1"
+                        className="btn upw-bg-color me-1"
                         onClick={() => accept(offer?.contractId)}
                     >
                         Accept

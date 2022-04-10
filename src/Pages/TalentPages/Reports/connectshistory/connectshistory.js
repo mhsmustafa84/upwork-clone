@@ -34,7 +34,7 @@ export default function ConnectsHistory() {
                     </div>
                     <div className=" text-end col-sm-5">
                         <Link
-                            className="btn upwork-bg-color"
+                            className="btn upw-bg-color"
                             to={`${process.env.PUBLIC_URL}/buyconnects`}
                             role="button"
                             style={{

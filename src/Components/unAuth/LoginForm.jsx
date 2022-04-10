@@ -97,7 +97,7 @@ export const LoginForm = () => {
                             </div>
                             <div className="w-75 mx-auto mb-4">
                                 <button
-                                    className="btn w-100 upwork-bg-color rounded-pill text-white"
+                                    className="btn w-100 upw-bg-color rounded-pill text-white"
                                     onClick={login}
                                     disabled={PasswordError != null || emailError != null}
                                 >
@@ -110,7 +110,7 @@ export const LoginForm = () => {
                             </p>
                             <div className="mt-4 text-center">
                                 <Link
-                                    className="btn w-50 rounded-pill upwork-color upwork-border-color" to={`${process.env.PUBLIC_URL}/sign-up`}
+                                    className="btn w-50 rounded-pill upw-color upw-border-color" to={`${process.env.PUBLIC_URL}/sign-up`}
                                 >
                                     Sign Up
                                 </Link>

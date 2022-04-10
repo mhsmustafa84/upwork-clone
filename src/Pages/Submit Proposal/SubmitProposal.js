@@ -446,7 +446,7 @@ export default function SubmitProposal() {
                                                 <div class="modal-footer">
                                                     <button
                                                         type="button"
-                                                        class="btn upwork-bg-color-dark rounded border-dark text-white"
+                                                        class="btn upw-bg-color-dark rounded border-dark text-white"
                                                         data-bs-dismiss="modal"
                                                         onClick={handlewithdrawProposal}
                                                     >
@@ -454,7 +454,7 @@ export default function SubmitProposal() {
                                                     </button>
                                                     <button
                                                         onClick={handleRout}
-                                                        className="btn upwork-bg-color"
+                                                        className="btn upw-bg-color"
                                                         type="button"
                                                         data-bs-dismiss="modal"
                                                         aria-label="Close"

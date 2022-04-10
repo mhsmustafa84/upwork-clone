@@ -259,11 +259,11 @@ export default function MessagesLeftSide({ talentID }) {
                                     </div>
                                 </li>
                                 <li className="list-group-item d-flex justify-content-between align-items-center">
-                                    s<span className="badge upwork-bg-color rounded-pill">2</span>
+                                    s<span className="badge upw-bg-color rounded-pill">2</span>
                                 </li>
                                 <li className="list-group-item d-flex justify-content-between align-items-center">
                                     A third list item
-                                    <span className="badge upwork-bg-color rounded-pill">1</span>
+                                    <span className="badge upw-bg-color rounded-pill">1</span>
                                 </li>
                             </ul>
                         </div>

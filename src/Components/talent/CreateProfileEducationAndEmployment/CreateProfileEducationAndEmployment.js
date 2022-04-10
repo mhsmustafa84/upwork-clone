@@ -133,7 +133,7 @@ export default function CreateProfileEducationAndEmployment({ setBtns, btns }) {
         </button>
         <button className={`btn ${user?.education?.school === "" && "disabled"}`}>
           <Link
-            className="btn upwork-bg-color px-5"
+            className="btn upw-bg-color px-5"
             to="/create-profile/language"
             onClick={updateUser}
           >

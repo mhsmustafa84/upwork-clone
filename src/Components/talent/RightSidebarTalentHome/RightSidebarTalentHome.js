@@ -61,7 +61,7 @@ export default function RightSidebarTalentHome({ lang }) {
                 </span>
                 <div className="progress" style={{ height: 5, display: "inline" }}>
                     <div
-                        className="progress-bar upwork-bg-color my-3"
+                        className="progress-bar upw-bg-color my-3"
                         role="progressbar"
                         style={{ width: `${user.profileCompletion}%` }}
                         aria-valuenow={60}

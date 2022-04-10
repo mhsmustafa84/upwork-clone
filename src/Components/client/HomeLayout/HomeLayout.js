@@ -297,7 +297,7 @@ export default function HomeLayout() {
                             </div>
                             <div className="col d-none d-lg-block">
                                 <div className="my-lg-1">
-                                    <Link to={`${process.env.PUBLIC_URL}/post-job`} className="btn upwork-bg-color">
+                                    <Link to={`${process.env.PUBLIC_URL}/post-job`} className="btn upw-bg-color">
                                         "Post a job"
                                     </Link>
                                 </div>
@@ -352,7 +352,7 @@ export default function HomeLayout() {
                                             <p className="card-text">
                                                 "You think you might like help"
                                             </p>
-                                            <a href="#" className="btn upwork-bg-color ">
+                                            <a href="#" className="btn upw-bg-color ">
                                                 "learn More"
                                             </a>
                                         </div>

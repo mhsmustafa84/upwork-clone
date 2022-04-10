@@ -50,7 +50,7 @@ export default function JobPostLi({ job, id, index }) {
                     {/* <div className="text-muted">Hired</div> */}
                 </div>
                 <div className="d-block col-sm-2 col-xs-3">
-                    <Link to={{ pathname: `${process.env.PUBLIC_URL}/review-proposal/${id}`, state: id }} className="btn upwork-bg-color">
+                    <Link to={{ pathname: `${process.env.PUBLIC_URL}/review-proposal/${id}`, state: id }} className="btn upw-bg-color">
                         View Proposals
                     </Link>
                 </div>

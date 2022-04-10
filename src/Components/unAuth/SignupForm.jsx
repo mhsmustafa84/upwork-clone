@@ -53,7 +53,7 @@ export const SignupForm = () => {
                     <div className="d-grid gap-2 col-8 mx-auto mt-3 hitbtn-class  mb-4">
                         <button
                             disabled={emailError != null}
-                            className="btn upwork-bg-color "
+                            className="btn upw-bg-color "
                             type="button"
                             onClick={signUpContinue}
                         >

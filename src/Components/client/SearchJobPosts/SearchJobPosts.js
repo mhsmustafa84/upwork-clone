@@ -16,7 +16,7 @@ export default function SearchJobPosts() {
               placeholder="Search job postings"
             />
             <div className="input-gruop-text">
-              <button type="button" className="btn upwork-bg-color ">
+              <button type="button" className="btn upw-bg-color ">
                 <i className="fas fa-search" />
               </button>
             </div>

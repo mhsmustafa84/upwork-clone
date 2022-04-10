@@ -55,7 +55,7 @@ export default function SearchBarJobsClient() {
           <button
             id="search-button"
             type="button"
-            className="btn upwork-bg-color bg-invert"
+            className="btn upw-bg-color bg-invert"
             onClick={searchDatabase}
           >
             <i className="fas fa-search" />

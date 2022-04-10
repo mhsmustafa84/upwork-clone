@@ -194,7 +194,7 @@ export default function CreateContract({ location }) {
                         </div>
                     }
                     <button
-                        className="btn upwork-bg-color text-white d-block mx-auto w-50 mt-4"
+                        className="btn upw-bg-color text-white d-block mx-auto w-50 mt-4"
                         onClick={startContract}
                         disabled={!contract.dueDate}
                     >

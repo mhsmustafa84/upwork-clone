@@ -5,10 +5,10 @@ import { Footer } from '../../components/shared/footer/Footer';
 
 export const Home = () => {
     return (
-        <div className="bg-white">
+        <>
             <Header />
             <HomeContent />
             <Footer />
-        </div>
+        </>
     )
 }

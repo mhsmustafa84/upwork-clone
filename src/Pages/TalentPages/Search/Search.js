@@ -4,7 +4,6 @@
 
 import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
-
 import { SearchContext } from "../../../Context/SearchContext";
 import SearchBarJobsTalent from "../../../components/talent/SearchBarJobsTalent/SearchBarJobsTalent";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,7 +12,7 @@ import { updateUserData } from "../../../Network/Network";
 import { jobsDataAction } from "../../../Store/actions/jobsData";
 import JobCard from "../../../components/talent/SectionCenterTalentHome/JobCard";
 import StarsRating from "../../../components/shared/StarsRating/StarsRating";
-import SearchIcon from "../../../components/SVG/SearchIcon";
+import SearchIcon from "../../../components/shared/SearchIcon";
 
 
 export default function Search(props) {

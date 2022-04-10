@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { Home, Login, SignUp, SignupDetails } from '../pages/unAuth';
+import { Home, Login, SignUp } from '../pages/unAuth';
 import PageNotFoundBeforeLogin from "../pages/PageNotFound/PageNotFoundBeforeLogin";
 
 const routes = [
@@ -15,10 +15,6 @@ const routes = [
     {
         path: '/sign-up',
         element: () => <SignUp />
-    },
-    {
-        path: '/sign-up/details',
-        element: () => <SignupDetails />
     },
     {
         path: '**',

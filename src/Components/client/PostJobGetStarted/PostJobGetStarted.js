@@ -54,7 +54,7 @@ export default function PostJobGetStarted({ start, isStart, setBtns, btns }) {
                 !start
                     ?
                     <div className="ps-4 my-3">
-                        <button className="btn upwork-bg-color" onClick={createJob}>Get Start</button>
+                        <button className="btn upw-bg-color" onClick={createJob}>Get Start</button>
                     </div>
                     :
                     <>
@@ -82,7 +82,7 @@ export default function PostJobGetStarted({ start, isStart, setBtns, btns }) {
                                 <Link className="btn border text-success me-4 px-5 fw-bold" to={`${process.env.PUBLIC_URL}/home`}>Cancel</Link>
                             </button>
                             <button className={`btn ${job.jobDuration === "" ? "disabled" : ""}`}>
-                                <Link className="btn upwork-bg-color px-5" to={`${process.env.PUBLIC_URL}/post-job/title`} onClick={addData}>Continue</Link>
+                                <Link className="btn upw-bg-color px-5" to={`${process.env.PUBLIC_URL}/post-job/title`} onClick={addData}>Continue</Link>
                             </button>
                         </div>
                     </>

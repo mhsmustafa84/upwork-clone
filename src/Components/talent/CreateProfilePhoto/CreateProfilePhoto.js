@@ -92,7 +92,7 @@ export default function CreateProfilePhoto({ setBtns, btns }) {
                     </Link>
                 </button>
                 <button className={`btn ${progress < 100 && "disabled"}`}>
-                    <Link className="btn upwork-bg-color px-5" to="/create-profile/location" onClick={() => setBtns({ ...btns, location: false })}>
+                    <Link className="btn upw-bg-color px-5" to="/create-profile/location" onClick={() => setBtns({ ...btns, location: false })}>
                         Next
                     </Link>
                 </button>
