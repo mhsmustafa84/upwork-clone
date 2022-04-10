@@ -11,6 +11,10 @@ export const Layout = () => {
     const [user, setUser] = useState(null);
 
     useEffect(() => {
+
+        console.log('file: Layout => PUBLIC_URL', process.env.PUBLIC_URL);
+        console.log('file: Layout => currentUser', fbAuth.auth.currentUser);
+
         fbAuth.onAuthStateChanged(fbAuth.auth, user => {
             if (user) {
                 console.log('file: layout.jsx => line 15 => useEffect => user', user);

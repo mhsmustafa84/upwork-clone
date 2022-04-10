@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
 function App() {
-    console.log('App => PUBLIC_URL', process.env.PUBLIC_URL);
     return (
         <BrowserRouter>
             <Layout />
