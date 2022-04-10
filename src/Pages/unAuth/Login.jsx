@@ -1,6 +1,6 @@
 import React from "react";
 import LoginHeader from "../../Components/BeforeLoginComponents/LoginHeader/LoginHeader";
-import LoginTemp from "../../Components/BeforeLoginComponents/LoginTemp/LoginTemp";
+import { LoginForm } from "../../Components/BeforeLoginComponents/LoginForm";
 import SignupFooter from "../../Components/BeforeLoginComponents/SignupFooter/SignupFooter";
 import { fbAuth } from "../../firebase";
 
@@ -9,7 +9,7 @@ export const Login = () => {
     return (
         <>
             <LoginHeader />
-            <LoginTemp />
+            <LoginForm />
             <SignupFooter />
         </>
     );

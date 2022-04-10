@@ -1,10 +1,10 @@
 /* eslint-disable */
 import { Link } from "react-router-dom";
-import { fbAuth, googleProvider } from "../../../firebase";
+import { fbAuth, googleProvider } from "../../firebase";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function LoginTemp() {
+export const LoginForm = () => {
     const [user, setUser] = useState({ email: "", password: "" });
     const [emailError, setEmailErorr] = useState("");
     const [PasswordError, setPasswordErrorr] = useState("");
