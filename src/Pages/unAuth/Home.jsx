@@ -7,7 +7,9 @@ export const Home = () => {
     return (
         <>
             <Header />
-            <HomeContent />
+            <section className="py-5 my-5">
+                <HomeContent />
+            </section>
             <Footer />
         </>
     )
