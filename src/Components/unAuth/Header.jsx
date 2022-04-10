@@ -6,9 +6,9 @@ import { Logo } from '../shared/Logo';
 export const Header = () => {
 
     return (
-        <header className="py-3 fixed-top bg-white">
-            <div className="container border-bottom">
-                <div className="d-flex justify-content-between align-items-center mb-3">
+        <header className="fixed-top bg-white">
+            <div className="container border-bottom py-3">
+                <div className="d-flex justify-content-between align-items-center">
                     <div className="d-flex ">
                         <div className="d-flex me-5">
                             <Logo url={process.env.PUBLIC_URL} />
