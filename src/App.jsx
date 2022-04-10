@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
 function App() {
-    console.log('App => REACT_APP_BASE_ROUTE', process.env.REACT_APP_BASE_ROUTE);
+    console.log('App => PUBLIC_URL', process.env.PUBLIC_URL);
     return (
         <BrowserRouter>
             <Layout />

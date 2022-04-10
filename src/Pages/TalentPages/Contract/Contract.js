@@ -102,7 +102,7 @@ export default function Contract({ location }) {
                                 className="nav-link"
                                 activeClassName="active"
                                 exact
-                                to={`${process.env.REACT_APP_BASE_ROUTE}/contract`}
+                                to={`${process.env.PUBLIC_URL}/contract`}
                             >
                                 Earnings
                             </NavLink>
@@ -112,7 +112,7 @@ export default function Contract({ location }) {
                                 className="nav-link"
                                 activeClassName="active"
                                 exact
-                                to={`${process.env.REACT_APP_BASE_ROUTE}/contract/feedback`}
+                                to={`${process.env.PUBLIC_URL}/contract/feedback`}
                             >
                                 Feedback
                             </NavLink>

@@ -469,7 +469,7 @@ export default function Search(props) {
                                     className="list-group-item sidebar-homebage-ul-li bg-white boder border-0"
                                     aria-current="true"
                                 >
-                                    <Link to={`${process.env.REACT_APP_BASE_ROUTE}/Search`}>
+                                    <Link to={`${process.env.PUBLIC_URL}/Search`}>
                                         <a
                                             href="#"
                                             className=" list-group-item-action saved-homebage-ul-li-aa active activesidesaved bg-white"
@@ -483,7 +483,7 @@ export default function Search(props) {
                                     className="list-group-item sidebar-homebage-ul-li bg-white boder border-0"
                                     aria-current="true"
                                 >
-                                    <Link to={`${process.env.REACT_APP_BASE_ROUTE}/saved-jobs`}>
+                                    <Link to={`${process.env.PUBLIC_URL}/saved-jobs`}>
                                         <a
                                             href="#"
                                             className=" list-group-item-action saved-homebage-ul-li-aa bg-white"

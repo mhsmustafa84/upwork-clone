@@ -79,10 +79,10 @@ export default function PostJobGetStarted({ start, isStart, setBtns, btns }) {
                         </div>
                         <div className="ps-4 my-3">
                             <button className="btn">
-                                <Link className="btn border text-success me-4 px-5 fw-bold" to={`${process.env.REACT_APP_BASE_ROUTE}/home`}>Cancel</Link>
+                                <Link className="btn border text-success me-4 px-5 fw-bold" to={`${process.env.PUBLIC_URL}/home`}>Cancel</Link>
                             </button>
                             <button className={`btn ${job.jobDuration === "" ? "disabled" : ""}`}>
-                                <Link className="btn upwork-bg-color px-5" to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/title`} onClick={addData}>Continue</Link>
+                                <Link className="btn upwork-bg-color px-5" to={`${process.env.PUBLIC_URL}/post-job/title`} onClick={addData}>Continue</Link>
                             </button>
                         </div>
                     </>

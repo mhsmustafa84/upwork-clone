@@ -30,7 +30,7 @@ export default function Header() {
                     id="nav-lg-id"
                     className="container d-flex justify-content-between align-items-center"
                 >
-                    <Logo url={process.env.REACT_APP_BASE_ROUTE} />
+                    <Logo url={process.env.PUBLIC_URL} />
                     <HeaderSearchLg />
                     <nav className="navbar navbar-expand-lg navbar-dark bg-transparent py-0 mx-4">
                         <NavLargScreen />
@@ -69,7 +69,7 @@ export default function Header() {
                                     )}
                                 </button>
                             </nav>
-                            <Logo url={process.env.REACT_APP_BASE_ROUTE} />
+                            <Logo url={process.env.PUBLIC_URL} />
                         </>
                     )}
                     <button

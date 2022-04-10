@@ -124,10 +124,10 @@ export default function PostJobBudget({ setBtns, btns }) {
             <section className="bg-white border rounded mt-3">
                 <div className="ps-4 my-3">
                     <button className="btn">
-                        <Link className="btn border text-success me-4 px-5" to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/visibility`}>Back</Link>
+                        <Link className="btn border text-success me-4 px-5" to={`${process.env.PUBLIC_URL}/post-job/visibility`}>Back</Link>
                     </button>
                     <button className={`btn ${job.jobPaymentType === "" || job.jobBudget === "" || job.jobBudget === "0" ? "disabled" : ""}`}>
-                        <Link className="btn upwork-bg-color px-5" to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/review`} onClick={addData}>Next</Link>
+                        <Link className="btn upwork-bg-color px-5" to={`${process.env.PUBLIC_URL}/post-job/review`} onClick={addData}>Next</Link>
                     </button>
                 </div>
             </section>

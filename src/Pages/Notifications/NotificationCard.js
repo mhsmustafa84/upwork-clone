@@ -31,7 +31,7 @@ export default function NotificationCard({ notification, collectionName, getNoti
             <p className="col-3">{new Date(data?.time.seconds * 1000).toLocaleString()}</p>
             <p className="col-2">{data?.type}</p>
             <Link style={{ display: "contents" }}
-                to={`${process.env.REACT_APP_BASE_ROUTE}/${data?.route}`}
+                to={`${process.env.PUBLIC_URL}/${data?.route}`}
                 onClick={updateShow}
             >
                 <p className="col-5">

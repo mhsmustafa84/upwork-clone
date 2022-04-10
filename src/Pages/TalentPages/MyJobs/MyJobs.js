@@ -38,7 +38,7 @@ export default function MyJobs() {
                         </div>
                         <div className="col-12 bg-white mb-5  border border-gray rounded d-flex flex-column py-3 justify-content-center align-items-center">
 
-                            <Link to={`${process.env.REACT_APP_BASE_ROUTE}/all-contract`}>
+                            <Link to={`${process.env.PUBLIC_URL}/all-contract`}>
                                 <button className="btn bg-white btn-outline-secondary border border-rounded">
                                     <span className="text-success fw-bold">view All Contracts</span>
                                 </button>
