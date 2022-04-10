@@ -4,7 +4,7 @@ import SignUpSecondForm from "../Signup Second Form/SignUpSecondForm";
 
 export default function SignUpSecondTemp() {
     return (
-        <div className="container-fluid bg-upwork-dark">
+        <div className="container-fluid upwork-bg-color-dark">
             <div className="row">
                 <SignUpSecondForm />
             </div>

@@ -2,7 +2,7 @@
     "name": "upwork-clone",
     "version": "3.0.0",
     "private": true,
-    "homepage": "http://mhsmustafa84.github.io/",
+    "homepage": "http://localhost:3000/upwork-clone",
     "dependencies": {
         "@testing-library/jest-dom": "^5.16.4",
         "@testing-library/react": "^13.0.0",

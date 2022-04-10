@@ -1,3 +1,7 @@
+:root {
+    --upwork-color: #14A800;
+    --upwork-hover-color: #3c8224;
+}
 * {
     font-family: 'cairo';
     line-height: normal;
@@ -9,13 +13,16 @@ ul {
   list-style: none;
 }
 .upwork-color {
-    color: #14A800;
+    color: var(--upwork-color);
 }
 .upwork-bg-color {
-    background-color: #14A800;
+    background-color: var(--upwork-color);
 }
 .upwork-bg-color:hover {
-    background-color: #3c8224;
+    background-color: var(--upwork-hover-color);
+}
+.upwork-border-color {
+    border-color: var(--upwork-color);
 }
 .text-main-color {
     color: #5e6d55;

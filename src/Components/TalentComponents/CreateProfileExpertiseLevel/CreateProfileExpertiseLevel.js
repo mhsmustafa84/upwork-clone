@@ -80,7 +80,7 @@ export default function CreateProfileExpertiseLevel({ setBtns, btns }) {
       <div className="row mx-4 justify-content-start align-items-center">
         <label className="w-50 fw-bold">
           Are you available to work immediately
-            </label>
+        </label>
         <input
           type="checkbox"
           name="availability"
@@ -96,16 +96,16 @@ export default function CreateProfileExpertiseLevel({ setBtns, btns }) {
             to="/create-profile/category"
           >
             Back
-        </Link>
+          </Link>
         </button>
         <button className={`btn ${state.availability === "" || state.expertiseLevel === "" ? "disabled" : ""}`}>
           <Link
-            className="btn bg-upwork px-5"
+            className="btn upwork-bg-color px-5"
             to="/create-profile/education-and-employment"
             onClick={addData}
           >
             Next
-        </Link>
+          </Link>
         </button>
       </div>
     </section>

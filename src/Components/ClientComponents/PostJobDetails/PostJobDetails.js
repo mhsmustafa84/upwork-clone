@@ -60,7 +60,7 @@ export default function PostJobDetails({ setBtns, btns }) {
                         <Link className="btn border text-success me-4 px-5" to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/description`}>Back</Link>
                     </button>
                     <button className={`btn ${job.jobType === "" && "disabled"}`}>
-                        <Link className="btn bg-upwork px-5" to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/expertise`} onClick={addData}>Next</Link>
+                        <Link className="btn upwork-bg-color px-5" to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/expertise`} onClick={addData}>Next</Link>
                     </button>
                 </div>
             </section>

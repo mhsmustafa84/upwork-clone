@@ -67,7 +67,7 @@ export default function SearchBarJobsTalent(props) {
                         id="search-button"
                         type="button"
                         style={{ borderRadius: 0, fontSize: '10px' }}
-                        className={`btn bg-upwork bg-invert search rounded-end`}
+                        className={`btn upwork-bg-color bg-invert search rounded-end`}
                     >
 
                         <i className="fas fa-search" style={{ lineHeight: '22px' }} />

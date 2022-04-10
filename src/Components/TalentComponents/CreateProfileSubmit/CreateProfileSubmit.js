@@ -147,7 +147,7 @@ export default function CreateProfileSubmit() {
                         </div>
                     </div>
                     <div className="my-3 text-start mt-5">
-                        <Link className="btn bg-upwork px-5" to="/find-work">
+                        <Link className="btn upwork-bg-color px-5" to="/find-work">
                             Submit Profile
                         </Link>
                     </div>

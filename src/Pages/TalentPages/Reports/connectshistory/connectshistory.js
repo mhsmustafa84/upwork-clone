@@ -34,7 +34,7 @@ export default function ConnectsHistory() {
                     </div>
                     <div className=" text-end col-sm-5">
                         <Link
-                            className="btn bg-upwork"
+                            className="btn upwork-bg-color"
                             to={`${process.env.REACT_APP_BASE_ROUTE}/buyconnects`}
                             role="button"
                             style={{

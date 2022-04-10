@@ -98,7 +98,7 @@ export default function PostJobTitle({ setBtns, btns }) {
                         <Link className="btn border text-success me-4 px-5" to={`${process.env.REACT_APP_BASE_ROUTE}/post-job`}>Back</Link>
                     </button>
                     <button className={`btn ${job.jobTitle === "" || job.jobCategory === "" || job.jobCategory === "Select a category" ? "disabled" : ""}`}>
-                        <Link className="btn bg-upwork px-5" to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/description`} onClick={addData}>Next</Link>
+                        <Link className="btn upwork-bg-color px-5" to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/description`} onClick={addData}>Next</Link>
                     </button>
                 </div>
             </section>

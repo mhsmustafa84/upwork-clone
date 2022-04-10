@@ -120,7 +120,7 @@ export default function TalentCardSearch() {
                     </div>
 
                     <div className="col py-3">
-                        <button type="button" className="btn bg-upwork px-3">
+                        <button type="button" className="btn upwork-bg-color px-3">
                             invite to job
                         </button>
                     </div>

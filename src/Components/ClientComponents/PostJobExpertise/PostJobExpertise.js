@@ -101,7 +101,7 @@ export default function PostJobExpertise({ setBtns, btns }) {
                             onChange={getData}
                         />
                         <button
-                            className="btn bg-upwork px-5"
+                            className="btn upwork-bg-color px-5"
                             disabled={!inputVal}
                             onClick={addSkills}
                         >
@@ -131,7 +131,7 @@ export default function PostJobExpertise({ setBtns, btns }) {
                         className={`btn ${job.jobExperienceLevel === "" && "disabled"}`}
                     >
                         <Link
-                            className="btn bg-upwork px-5"
+                            className="btn upwork-bg-color px-5"
                             to={`${process.env.REACT_APP_BASE_ROUTE}/post-job/visibility`}
                             onClick={addData}
                         >

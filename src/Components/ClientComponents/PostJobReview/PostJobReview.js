@@ -47,7 +47,7 @@ export default function PostJobReview() {
                         <section className=" bg-white border rounded mt-3">
                             <div className="ps-4 d-flex border-bottom justify-content-between align-items-center py-4">
                                 <h4>Review and post</h4>
-                                <Link className="btn bg-upwork me-4 px-5" to={`${process.env.REACT_APP_BASE_ROUTE}`} onClick={publishJob}>Post Job Now</Link>
+                                <Link className="btn upwork-bg-color me-4 px-5" to={`${process.env.REACT_APP_BASE_ROUTE}`} onClick={publishJob}>Post Job Now</Link>
                             </div>
                             <div className="px-4 mt-4">
                                 <h5>Title</h5>
@@ -128,7 +128,7 @@ export default function PostJobReview() {
 
                         <section className="bg-white border rounded mt-4">
                             <div className="ps-4 my-3 py-2">
-                                <Link className="btn bg-upwork me-4 px-5" to={`${process.env.REACT_APP_BASE_ROUTE}`} onClick={publishJob}>Post Job Now</Link>
+                                <Link className="btn upwork-bg-color me-4 px-5" to={`${process.env.REACT_APP_BASE_ROUTE}`} onClick={publishJob}>Post Job Now</Link>
                                 <Link className="btn border text-success px-5" to={`${process.env.REACT_APP_BASE_ROUTE}/home`} onClick={deletePost}>Delete & Exit</Link>
                             </div>
                         </section>

@@ -45,7 +45,7 @@ export default function CreateProfilePhoneNumber() {
                 </button>
                 <button className={`btn ${!value ? "disabled" : ""}`}>
                     <Link
-                        className="btn bg-upwork px-5"
+                        className="btn upwork-bg-color px-5"
                         to="/create-profile/submit"
                         onClick={getNumber}
                     >
