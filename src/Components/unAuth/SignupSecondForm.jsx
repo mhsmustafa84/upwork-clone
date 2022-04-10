@@ -299,6 +299,7 @@ export const SignupSecondForm = () => {
                                             className="m-1"
                                             href="https://www.upwork.com/legal#terms"
                                             target="_blank"
+                                            rel="noreferrer"
                                         >
                                             "Upwork Terms of Service"
                                         </a>
@@ -307,6 +308,7 @@ export const SignupSecondForm = () => {
                                             className="m-1"
                                             href="https://www.upwork.com/legal#useragreement"
                                             target="_blank"
+                                            rel="noreferrer"
                                         >
                                             "User Agreement"
                                         </a>
@@ -315,6 +317,7 @@ export const SignupSecondForm = () => {
                                             className="m-1"
                                             href="https://www.upwork.com/legal#privacy"
                                             target="_blank"
+                                            rel="noreferrer"
                                         >
                                             "Privacy Policy"
                                         </a>
