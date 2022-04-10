@@ -31,3 +31,10 @@ ul {
 .text-main-color {
     color: #5e6d55;
 }
+.fs-7 {
+    font-size: 13px;
+}
+.form-check-input:checked {
+    background-color: var(--upw-color);
+    border-color: var(--upw-color);
+}
