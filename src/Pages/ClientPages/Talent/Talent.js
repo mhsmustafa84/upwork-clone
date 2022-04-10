@@ -11,11 +11,11 @@ import {
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clientDataAction } from "../../../Store/actions/clientData";
-import MyHires from "../../../Components/ClientComponents/MyHiresComponent/MyHires";
-import Saved from "../../../Components/ClientComponents/SavedComponent/Saved";
+import MyHires from "../../../components/client/MyHiresComponent/MyHires";
+import Saved from "../../../components/client/SavedComponent/Saved";
 
 import SearchClient from "../SearchClient/SearchClient";
-import EmptyTalent from "../../../Components/ClientComponents/EmptyTalentComponent/EmptyTalent";
+import EmptyTalent from "../../../components/client/EmptyTalentComponent/EmptyTalent";
 
 
 

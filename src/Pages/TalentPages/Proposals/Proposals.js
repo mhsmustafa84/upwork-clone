@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState } from "react";
 
-import ProposalCard from "../../../Components/TalentComponents/ProposalCard/ProposalCard";
+import ProposalCard from "../../../components/talent/ProposalCard/ProposalCard";
 import { useEffect } from "react";
 import { fbAuth, db } from "../../../firebase";
 

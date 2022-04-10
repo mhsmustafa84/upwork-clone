@@ -1,5 +1,5 @@
-// import Table from "../../../../Components/TalentComponents/BillingbyclientsTable/billingbyclientstable";
-import CustomButtonwithoutbackground from "../../../../Components/TalentComponents/CustomButtonwithoutbackground/CustomButton";
+// import Table from "../../../../components/talent/BillingbyclientsTable/billingbyclientstable";
+import CustomButtonwithoutbackground from "../../../../components/talent/CustomButtonwithoutbackground/CustomButton";
 export default function BillingByClients() {
   // const [Tablesdata, setTablesdata] = useState({
   //   Dates: [

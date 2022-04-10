@@ -8,8 +8,8 @@ import { fbAuth, db, storage } from "../../firebase";
 import { Timestamp } from 'firebase/firestore';
 import { subCollection, updateUserData } from "../../Network/Network";
 import { Link } from "react-router-dom";
-import SubmitProposalFixed from "../../Components/TalentComponents/SubmitProposalFixed/SubmitProposalFixed";
-import SubmitProposalHourly from "../../Components/TalentComponents/SubmitProposalHourly/SubmitProposalHourly";
+import SubmitProposalFixed from "../../components/talent/SubmitProposalFixed/SubmitProposalFixed";
+import SubmitProposalHourly from "../../components/talent/SubmitProposalHourly/SubmitProposalHourly";
 
 export default function SubmitProposal() {
 

@@ -1,7 +1,7 @@
 /* eslint-disable array-callback-return */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react"
-import Loader from "../../../Components/SharedComponents/Loader/Loader"
+import { Loader } from "../../../components/shared/Loader"
 import { fbAuth, db } from "../../../firebase"
 import OfferCard from "./OfferCard";
 

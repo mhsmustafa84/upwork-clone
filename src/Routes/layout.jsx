@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { fbAuth } from "../firebase";
 import { UnAuth, Talent, Client } from ".";
-import Loader from "../Components/SharedComponents/Loader/Loader";
+import { Loader } from "../components/shared/Loader";
 
 let usrType = null;
 

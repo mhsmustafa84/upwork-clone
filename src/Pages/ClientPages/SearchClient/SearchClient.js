@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from "react";
-import ImgWithActiveStatus from "./../../../Components/ClientComponents/ImgWithActiveStatus/ImgWithActiveStatus";
+import ImgWithActiveStatus from "./../../../components/client/ImgWithActiveStatus/ImgWithActiveStatus";
 import { useDispatch, useSelector } from "react-redux";
 import { SearchContext } from "../../../Context/SearchContext";
 import { updateUserData } from "../../../Network/Network";
 import { clientDataAction } from "../../../Store/actions/clientData";
 import { Link } from "react-router-dom";
-import SearchIcon from "../../../Components/SVG/SearchIcon";
+import SearchIcon from "../../../components/SVG/SearchIcon";
 
 export default function TalentCardSearch() {
     const { talentArr, talentSearchList } = useContext(SearchContext)

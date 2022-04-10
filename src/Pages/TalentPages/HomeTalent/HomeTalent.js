@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import { useSelector } from "react-redux";
-import Loader from "../../../Components/SharedComponents/Loader/Loader";
-import AcceptedAlert from "../../../Components/TalentComponents/AcceptedAlert/AcceptedAlert";
-import FindWorkTalentHome from "../../../Components/TalentComponents/FindWorkTalentHome/FindWorkTalentHome";
-import LeftSidebarTalentHome from "../../../Components/TalentComponents/LeftSidebarTalentHome/LeftSidebarTalentHome";
-import RightSidebarTalentHome from "../../../Components/TalentComponents/RightSidebarTalentHome/RightSidebarTalentHome";
-import SectionCenterTalentHome from "../../../Components/TalentComponents/SectionCenterTalentHome/SectionCenterTalentHome";
+import { Loader } from "../../../components/shared/Loader";
+import AcceptedAlert from "../../../components/talent/AcceptedAlert/AcceptedAlert";
+import FindWorkTalentHome from "../../../components/talent/FindWorkTalentHome/FindWorkTalentHome";
+import LeftSidebarTalentHome from "../../../components/talent/LeftSidebarTalentHome/LeftSidebarTalentHome";
+import RightSidebarTalentHome from "../../../components/talent/RightSidebarTalentHome/RightSidebarTalentHome";
+import SectionCenterTalentHome from "../../../components/talent/SectionCenterTalentHome/SectionCenterTalentHome";
 import "./HomeTalent.css";
 
 export default function HomeTalent() {

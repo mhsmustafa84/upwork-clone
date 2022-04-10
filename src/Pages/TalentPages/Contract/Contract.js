@@ -2,14 +2,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { Route, Routes, NavLink } from "react-router-dom";
-import ContractEarnings from '../../../Components/TalentComponents/ContractEarnings/ContractEarnings';
-import ContractFeedback from '../../../Components/TalentComponents/ContractFeedback/ContractFeedback';
+import ContractEarnings from '../../../components/talent/ContractEarnings/ContractEarnings';
+import ContractFeedback from '../../../components/talent/ContractFeedback/ContractFeedback';
 import img from "../../../assets/Img/icon-user.svg";
 import "../../ClientPages/Talent/Talent.css";
 import { db } from "../../../firebase";
 import { useSelector } from "react-redux";
 import { Timestamp } from 'firebase/firestore';
-import StarsRating from "../../../Components/SharedComponents/StarsRating/StarsRating";
+import StarsRating from "../../../components/shared/StarsRating/StarsRating";
 
 
 export default function Contract({ location }) {

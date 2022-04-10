@@ -1,7 +1,7 @@
 import React from "react";
 import "./Messages.css";
-import MesssagesContent from "../../Components/SharedComponents/MessagesContent/MesssagesContent";
-import MessagesLeftSide from "../../Components/SharedComponents/MesssagesLeftSide/MessagesLeftSide";
+import MesssagesContent from "../../components/shared/MessagesContent/MesssagesContent";
+import MessagesLeftSide from "../../components/shared/MesssagesLeftSide/MessagesLeftSide";
 
 export default function Messages({ location }) {
     console.log(location.state);

@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import { Routes, Route } from 'react-router-dom';
-import PostJobAside from '../../../Components/ClientComponents/PostJobAside/PostJobAside'
-import PostJobTitle from './../../../Components/ClientComponents/PostJobTitle/PostJobTitle';
-import PostJobDescription from './../../../Components/ClientComponents/PostJobDescription/PostJobDescription';
-import PostJobDetails from './../../../Components/ClientComponents/PostJobDetails/PostJobDetails';
-import PostJobExpertise from './../../../Components/ClientComponents/PostJobExpertise/PostJobExpertise';
-import PostJobVisibility from '../../../Components/ClientComponents/PostJobVisibility/PostJobVisibility';
-import PostJobBudget from './../../../Components/ClientComponents/PostJobBudget/PostJobBudget';
-import PostJobReview from './../../../Components/ClientComponents/PostJobReview/PostJobReview';
-import PostJobGetStarted from './../../../Components/ClientComponents/PostJobGetStarted/PostJobGetStarted';
+import PostJobAside from '../../../components/client/PostJobAside/PostJobAside'
+import PostJobTitle from './../../../components/client/PostJobTitle/PostJobTitle';
+import PostJobDescription from './../../../components/client/PostJobDescription/PostJobDescription';
+import PostJobDetails from './../../../components/client/PostJobDetails/PostJobDetails';
+import PostJobExpertise from './../../../components/client/PostJobExpertise/PostJobExpertise';
+import PostJobVisibility from '../../../components/client/PostJobVisibility/PostJobVisibility';
+import PostJobBudget from './../../../components/client/PostJobBudget/PostJobBudget';
+import PostJobReview from './../../../components/client/PostJobReview/PostJobReview';
+import PostJobGetStarted from './../../../components/client/PostJobGetStarted/PostJobGetStarted';
 
 export default function PostJob() {
 

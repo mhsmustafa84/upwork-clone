@@ -1,5 +1,5 @@
 import React from "react";
-import HomeLayout from "../../../Components/ClientComponents/HomeLayout/HomeLayout";
+import HomeLayout from "../../../components/client/HomeLayout/HomeLayout";
 
 export default function Jobs() {
   return (

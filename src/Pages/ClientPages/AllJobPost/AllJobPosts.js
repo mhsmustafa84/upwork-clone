@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
-import JobPostsFilters from "./../../../Components/ClientComponents/JobPostsFilters/JobPostsFilters";
-import JobPostLi from "./../../../Components/ClientComponents/JobPostLi/JobPostLi";
-import JobPostsHeader from "../../../Components/ClientComponents/JobPostsHeader/JobPostsHeader";
+import JobPostsFilters from "./../../../components/client/JobPostsFilters/JobPostsFilters";
+import JobPostLi from "./../../../components/client/JobPostLi/JobPostLi";
+import JobPostsHeader from "../../../components/client/JobPostsHeader/JobPostsHeader";
 import { useDispatch, useSelector } from "react-redux";
 import { clientJobsAction } from "../../../Store/actions/clientJobAction";
 import { fbAuth } from "../../../firebase";
-import Loader from "../../../Components/SharedComponents/Loader/Loader";
+import { Loader } from "../../../components/shared/Loader";
 
 export default function AllJobPosts() {
     const jobs = useSelector((state) => state.clientJobs);

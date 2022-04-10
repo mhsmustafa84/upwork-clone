@@ -1,7 +1,7 @@
 /* eslint-disable array-callback-return */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import OneContract from "../../../Components/TalentComponents/OneContract/OneContract";
+import OneContract from "../../../components/talent/OneContract/OneContract";
 
 import { fbAuth, db } from "../../../firebase";
 

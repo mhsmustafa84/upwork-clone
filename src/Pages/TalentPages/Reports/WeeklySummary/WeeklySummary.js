@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import WeeklySummaryTable from "../../../../Components/TalentComponents/WeeklySummaryTable/WeeklySummarytable";
+import WeeklySummaryTable from "../../../../components/talent/WeeklySummaryTable/WeeklySummarytable";
 
 export default function WeeklySummary() {
   // const [Tablesdata, setTablesdata] = useState({

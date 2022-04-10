@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect } from "react";
 
-import MyJobsActiveContractFixed from '../../../Components/TalentComponents/MyJobsActiveContractFixed/MyJobsActiveContractFixed';
-import MyJobsActiveContractHourly from '../../../Components/TalentComponents/MyJobsActiveContractHourly/MyJobsActiveContractHourly';
+import MyJobsActiveContractFixed from '../../../components/talent/MyJobsActiveContractFixed/MyJobsActiveContractFixed';
+import MyJobsActiveContractHourly from '../../../components/talent/MyJobsActiveContractHourly/MyJobsActiveContractHourly';
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 

@@ -1,26 +1,26 @@
 import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import AllJobPosts from "../Pages/ClientPages/AllJobPost/AllJobPosts";
-import Jobs from "../Pages/ClientPages/Jobs/Jobs";
-import Header from "./../Components/ClientComponents/Header/Header";
-import { Footer } from "../Components/SharedComponents/footer/Footer";
-import Messages from "./../Pages/Messages/Messages";
-import AllContract from "./../Pages/ClientPages/AllContract/AllContract";
-import BringYourTalent from "./../Pages/ClientPages/BringYourTalent/BringYourTalent";
-import PostJob from "./../Pages/ClientPages/PostJop/PostJob";
-import Talent from "./../Pages/ClientPages/Talent/Talent";
-import Reports from "./../Pages/ClientPages/Reports/Reports";
-import PageNotFound from "./../Pages/PageNotFound/PageNotFound";
-import ReviewProposals from "../Pages/ClientPages/ReviewProposals/ReviewProposals";
-import EmailVerified from "./../Pages/EmailVerification/EmailVerified";
-import TransactionHistory from "../Pages/TalentPages/Reports/TransactionHistory/TransactionHistory";
-import TalentProfile from "../Pages/ClientPages/TalentProfile/talentProfile";
-import PleaseVerifiy from "../Pages/EmailVerification/PleaseVerifiy";
+import AllJobPosts from "../pages/ClientPages/AllJobPost/AllJobPosts";
+import Jobs from "../pages/ClientPages/Jobs/Jobs";
+import Header from "./../components/client/Header/Header";
+import { Footer } from "../components/shared/footer/Footer";
+import Messages from "./../pages/Messages/Messages";
+import AllContract from "./../pages/ClientPages/AllContract/AllContract";
+import BringYourTalent from "./../pages/ClientPages/BringYourTalent/BringYourTalent";
+import PostJob from "./../pages/ClientPages/PostJop/PostJob";
+import Talent from "./../pages/ClientPages/Talent/Talent";
+import Reports from "./../pages/ClientPages/Reports/Reports";
+import PageNotFound from "./../pages/PageNotFound/PageNotFound";
+import ReviewProposals from "../pages/ClientPages/ReviewProposals/ReviewProposals";
+import EmailVerified from "./../pages/EmailVerification/EmailVerified";
+import TransactionHistory from "../pages/TalentPages/Reports/TransactionHistory/TransactionHistory";
+import TalentProfile from "../pages/ClientPages/TalentProfile/talentProfile";
+import PleaseVerifiy from "../pages/EmailVerification/PleaseVerifiy";
 import { SearchContextProvider } from "../Context/SearchContext";
-import JobJobDetailsBeforeProposals from "../Pages/ClientPages/JobDetailsBeforeProposols/JobDetailsBeforeProposals";
-import CreateContract from "../Pages/ClientPages/CreateContract/CreateContract";
-import Notifications from "../Pages/Notifications/Notifications";
-import Contract from './../Pages/ClientPages/AllContract/Contract';
+import JobJobDetailsBeforeProposals from "../pages/ClientPages/JobDetailsBeforeProposols/JobDetailsBeforeProposals";
+import CreateContract from "../pages/ClientPages/CreateContract/CreateContract";
+import Notifications from "../pages/Notifications/Notifications";
+import Contract from './../pages/ClientPages/AllContract/Contract';
 
 export const Client = () => {
 

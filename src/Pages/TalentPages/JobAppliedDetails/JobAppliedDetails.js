@@ -3,8 +3,8 @@ import { useParams } from "react-router";
 
 import { useEffect, useState } from "react";
 import { db } from "../../../firebase";
-import JobDescriptionJobDetails from "../../../Components/TalentComponents/JobDescriptionJobDetails/JobDescriptionJobDetails";
-import RightSidebarJobDetails from "../../../Components/TalentComponents/RightSidebarJobDetails/RightSidebarJobDetails";
+import JobDescriptionJobDetails from "../../../components/talent/JobDescriptionJobDetails/JobDescriptionJobDetails";
+import RightSidebarJobDetails from "../../../components/talent/RightSidebarJobDetails/RightSidebarJobDetails";
 
 export default function JobAppliedDetails() {
   const { id } = useParams();
