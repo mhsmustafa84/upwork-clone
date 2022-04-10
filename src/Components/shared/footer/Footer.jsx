@@ -4,7 +4,7 @@ import './Footer.css'
 
 export const Footer = () => {
     return (
-        <footer>
+        <footer className='upw-bg-dark-color'>
             <div className="container">
                 <div className="row border-bottom border-secondary pt-3">
                     <div className="col-md-6 col-sm-12">

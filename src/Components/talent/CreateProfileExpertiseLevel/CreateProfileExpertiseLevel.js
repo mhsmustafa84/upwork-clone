@@ -100,7 +100,7 @@ export default function CreateProfileExpertiseLevel({ setBtns, btns }) {
         </button>
         <button className={`btn ${state.availability === "" || state.expertiseLevel === "" ? "disabled" : ""}`}>
           <Link
-            className="btn upwork-bg-color px-5"
+            className="btn upw-bg-color px-5"
             to="/create-profile/education-and-employment"
             onClick={addData}
           >

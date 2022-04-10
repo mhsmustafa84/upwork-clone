@@ -129,7 +129,7 @@ export default function ReviewProposalsCard() {
                                     <div className="col py-3">
                                         <Link
                                             type="button"
-                                            className="btn upwork-bg-color px-5"
+                                            className="btn upw-bg-color px-5"
                                             to={{
                                                 pathname: `${process.env.PUBLIC_URL}/create-contract`,
                                                 state: { talentID: talent[index]?.authID, jobID: id }

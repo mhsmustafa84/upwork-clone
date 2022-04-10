@@ -17,7 +17,7 @@ export default function JobPostsHeader() {
 
                 <div className="col-6"></div>
                 <div className="col-2">
-                    <Link to={`${process.env.PUBLIC_URL}/post-job`} className="btn upwork-bg-color">
+                    <Link to={`${process.env.PUBLIC_URL}/post-job`} className="btn upw-bg-color">
                         Post a New Job
                     </Link>
                 </div>

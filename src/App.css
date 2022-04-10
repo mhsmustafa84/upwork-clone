@@ -1,6 +1,7 @@
 :root {
-    --upwork-color: #14a800;
-    --upwork-hover-color: #3c8224;
+    --upw-color: #14a800;
+    --upw-hover-color: #3c8224;
+    --upw-dark-color: #1d4354;
 }
 * {
     font-family: cairo;
@@ -12,17 +13,20 @@ a {
 ul {
     list-style: none;
 }
-.upwork-color {
-    color: var(--upwork-color);
+.upw-color {
+    color: var(--upw-color);
 }
-.upwork-bg-color {
-    background-color: var(--upwork-color);
+.upw-bg-color {
+    background-color: var(--upw-color);
 }
-.upwork-bg-color:hover {
-    background-color: var(--upwork-hover-color);
+.upw-bg-dark-color {
+    background-color: var(--upw-dark-color);
 }
-.upwork-border-color {
-    border-color: var(--upwork-color);
+.upw-bg-color:hover {
+    background-color: var(--upw-hover-color);
+}
+.upw-border-color {
+    border-color: var(--upw-color);
 }
 .text-main-color {
     color: #5e6d55;

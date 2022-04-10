@@ -82,7 +82,7 @@ export default function CreateProfileLanguage({ setBtns, btns }) {
         </button>
         <button className={`btn ${language === "" || language === "English proficiency" ? "disabled" : ""}`}>
           <Link
-            className="btn upwork-bg-color px-5"
+            className="btn upw-bg-color px-5"
             to="/create-profile/hourly-rate"
             onClick={updateUser}
           >

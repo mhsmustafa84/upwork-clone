@@ -80,7 +80,7 @@ export default function CreateProfileTitleAndOverview({ setBtns, btns }) {
         </button>
         <button className={`btn ${data.title === "" || data.overview === "" ? "disabled" : ""}`}>
           <Link
-            className="btn upwork-bg-color px-5"
+            className="btn upw-bg-color px-5"
             to="/create-profile/profile-photo"
             onClick={addData}
           >

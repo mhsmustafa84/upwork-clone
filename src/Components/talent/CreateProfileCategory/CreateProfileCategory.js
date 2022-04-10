@@ -61,7 +61,7 @@ export default function CreateProfileCategory({ setBtns, btns }) {
               value={inputVal}
               onChange={skillVal}
             />
-            <button className="btn upwork-bg-color px-5" onClick={addskills} disabled={!inputVal}>
+            <button className="btn upw-bg-color px-5" onClick={addskills} disabled={!inputVal}>
               Add
             </button>
           </div>
@@ -77,7 +77,7 @@ export default function CreateProfileCategory({ setBtns, btns }) {
       <div className="px-4 my-3 pt-4 border-top d-flex justify-content-end">
         <button className={`btn ${cat === "" || cat === "Select a category" ? "disabled" : ""}`}>
           <Link
-            className="btn upwork-bg-color px-5"
+            className="btn upw-bg-color px-5"
             to="/create-profile/expertise-level"
             onClick={addData}
           >

@@ -137,7 +137,7 @@ export default function Saved({ talentId, isliked, setisliked }) {
                 </div>
 
                 {/* <div className="col py-3">
-            <button type="button" className="btn upwork-bg-color px-3">
+            <button type="button" className="btn upw-bg-color px-3">
               invite to job
             </button>
           </div> */}

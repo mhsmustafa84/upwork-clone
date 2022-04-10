@@ -22,7 +22,7 @@ export const Header = () => {
                             Log In
                         </Link>
                         <Link
-                            className="btn upwork-bg-color text-white rounded-pill px-4 py-2 fs-6"
+                            className="btn upw-bg-color text-white rounded-pill px-4 py-2 fs-6"
                             to={`${process.env.PUBLIC_URL}/sign-up`}
                         >
                             Sign Up

@@ -50,7 +50,7 @@ export default function NewLang(props) {
                 <option value="Native">Native</option>
             </select>
             <button
-                className="btn upwork-bg-color px-5"
+                className="btn upw-bg-color px-5"
                 to="/create-profile/hourly-rate"
                 onClick={add}
             >

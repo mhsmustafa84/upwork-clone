@@ -12,7 +12,7 @@ export const HomeContent = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-md-7 col-sm-12 mt-5 pt-4">
-                        <h1 className="upwork-color fw-bold my-5">How work should work</h1>
+                        <h1 className="upw-color fw-bold my-5">How work should work</h1>
                         <p className="fs-3 text-main-color pb-5">
                             Forget the old rules. You can have the best people.
                             Right now. Right here.

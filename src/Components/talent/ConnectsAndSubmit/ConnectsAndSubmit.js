@@ -106,7 +106,7 @@ export default function ConnectsAndSubmit() {
             <div className="d-lg-grid gap-2  mx-auto d-none">
                 {!jobProposal ? (
                     <button
-                        className="btn upwork-bg-color"
+                        className="btn upw-bg-color"
                         onClick={(handleRout) => navigate(`/job/apply/${id}`)}
                         disabled={user.accepted === false || user.connects < 2}
                     >
@@ -114,7 +114,7 @@ export default function ConnectsAndSubmit() {
                     </button>
                 ) : (
                     <button
-                        className="btn upwork-bg-color-dark"
+                        className="btn upw-bg-color-dark"
                         onClick={handlewithdrawProposal}
                     >
                         "Withdraw"
