@@ -6,7 +6,7 @@ import { SearchContext } from "../../../Context/SearchContext";
 import { updateUserData } from "../../../Network/Network";
 import { clientDataAction } from "../../../Store/actions/clientData";
 import { Link } from "react-router-dom";
-import SearchIcon from "../../../components/SVG/SearchIcon";
+import SearchIcon from "../../../components/shared/SearchIcon";
 
 export default function TalentCardSearch() {
     const { talentArr, talentSearchList } = useContext(SearchContext)
