@@ -67,13 +67,13 @@ export default function LoginTemp() {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-sm-12 col-md-6 mx-auto">
+                <div className="col-lg-6 col-md-9 mx-auto">
                     <div className="shadow p-5 my-5 rounded mx-auto border">
                         <h4 className="text-center fw-bold m-0">
                             Log in to Upwork
                         </h4>
                         <form>
-                            <div className="form-group col-9 mx-auto mt-4">
+                            <div className="form-group w-75 mx-auto mt-5">
                                 <span className="text-danger">{emailError}</span>
                                 <input
                                     type="email"
@@ -83,7 +83,7 @@ export default function LoginTemp() {
                                     onInput={getUserData}
                                 />
                             </div>
-                            <div className="form-group col-9 mx-auto mt-3">
+                            <div className="form-group w-75 mx-auto my-4">
                                 <span className="text-danger">{PasswordError}</span>
                                 <input
                                     type="password"
@@ -94,9 +94,9 @@ export default function LoginTemp() {
                                     onInput={getUserData}
                                 />
                             </div>
-                            <div className="d-grid gap-2 col-8 mx-auto mt-3 hitbtn-className loginpcolor">
+                            <div className="w-75 mx-auto mb-4">
                                 <button
-                                    className="btn upwork-bg-color"
+                                    className="btn w-100 upwork-bg-color rounded-pill text-white"
                                     onClick={login}
                                     disabled={PasswordError != null || emailError != null}
                                 >
@@ -104,11 +104,13 @@ export default function LoginTemp() {
                                 </button>
                             </div>
                             <div className="text-danger text-center">{errorMessage}</div>
-                            <div className="separator mt-4 col-8 mx-auto">
-                                New To Upwork?
-                            </div>
-                            <div className="d-grid gap-2 col-md-5 col-sm-10 mx-auto mt-3   rounded mb-5">
-                                <Link className="btn btn-success signup" to={`${process.env.REACT_APP_BASE_ROUTE}/sign-up`}>
+                            <p className="mt-4 text-center text-main-color">
+                                Don't have an Upwork account?
+                            </p>
+                            <div className="mt-4 text-center">
+                                <Link
+                                    className="btn w-50 rounded-pill upwork-color upwork-border-color" to={`${process.env.REACT_APP_BASE_ROUTE}/sign-up`}
+                                >
                                     Sign Up
                                 </Link>
                             </div>

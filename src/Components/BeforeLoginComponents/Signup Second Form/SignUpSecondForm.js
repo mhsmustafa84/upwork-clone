@@ -320,7 +320,7 @@ export default function SignUpSecondForm() {
                         </label>
                     </div>
 
-                    <div className="d-grid gap-2 col-8 mx-auto mt-3 hitbtn-class loginpcolor mb-4" >
+                    <div className="d-grid gap-2 col-8 mx-auto mt-3 hitbtn-class  mb-4" >
                         <button
                             className="btn upwork-bg-color"
                             type="button"
