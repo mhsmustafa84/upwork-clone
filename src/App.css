@@ -22,7 +22,7 @@ ul {
     background-color: var(--upwork-hover-color);
 }
 .upwork-border-color {
-    background-color: var(--upwork-color);
+    border-color: var(--upwork-color);
 }
 .text-main-color {
     color: #5e6d55;
