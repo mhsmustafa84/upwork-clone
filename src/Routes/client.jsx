@@ -6,7 +6,6 @@ import Header from "./../components/client/Header/Header";
 import { Footer } from "../components/shared/footer/Footer";
 import Messages from "./../pages/Messages/Messages";
 import AllContract from "./../pages/ClientPages/AllContract/AllContract";
-import BringYourTalent from "./../pages/ClientPages/BringYourTalent/BringYourTalent";
 import PostJob from "./../pages/ClientPages/PostJop/PostJob";
 import Talent from "./../pages/ClientPages/Talent/Talent";
 import Reports from "./../pages/ClientPages/Reports/Reports";
@@ -36,7 +35,6 @@ export const Client = () => {
                     <Route path={`${process.env.PUBLIC_URL}/messages`} element={<Messages />} />
                     <Route path={`${process.env.PUBLIC_URL}/all-job-posts`} element={<AllJobPosts />} />
                     <Route path={`${process.env.PUBLIC_URL}/all-contracts`} element={<AllContract />} />
-                    <Route path={`${process.env.PUBLIC_URL}/bring-your-own-talent`} element={<BringYourTalent />} />
                     <Route path={`${process.env.PUBLIC_URL}/job-details/:id`} element={<JobJobDetailsBeforeProposals />} />
                     <Route path={`${process.env.PUBLIC_URL}/contract`} element={<Contract />} />
                     <Route path={`${process.env.PUBLIC_URL}/email-verification`} element={<EmailVerified />} />
