@@ -67,57 +67,53 @@ export const LoginForm = () => {
 
     return (
         <div className="container py-5 mt-5">
-            <div className="row">
-                <div className="col-lg-6 col-md-9 mx-auto">
-                    <div className="shadow p-5 my-5 rounded mx-auto border">
-                        <h4 className="text-center fw-bold m-0">
-                            Log in to Upwork
-                        </h4>
-                        <form>
-                            <div className="form-group w-75 mx-auto mt-5">
-                                <span className="text-danger">{emailError}</span>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    className={`form-control shadow-none ${emailError && "border-danger"}`}
-                                    placeholder="Email"
-                                    onInput={getUserData}
-                                />
-                            </div>
-                            <div className="form-group w-75 mx-auto my-4">
-                                <span className="text-danger">{PasswordError}</span>
-                                <input
-                                    type="password"
-                                    name="password"
-                                    className={`form-control shadow-none ${PasswordError && "border-danger"}`}
-                                    aria-describedby="emailHelp"
-                                    placeholder="Password"
-                                    onInput={getUserData}
-                                />
-                            </div>
-                            <div className="w-75 mx-auto mb-4">
-                                <button
-                                    className="btn w-100 upw-bg-color rounded-pill text-white"
-                                    onClick={login}
-                                    disabled={PasswordError != null || emailError != null}
-                                >
-                                    Log in
-                                </button>
-                            </div>
-                            <div className="text-danger text-center">{errorMessage}</div>
-                            <p className="mt-4 text-center text-main-color">
-                                Don't have an Upwork account?
-                            </p>
-                            <div className="mt-4 text-center">
-                                <Link
-                                    className="btn w-50 rounded-pill upw-color upw-border-color" to={`${process.env.PUBLIC_URL}/sign-up`}
-                                >
-                                    Sign Up
-                                </Link>
-                            </div>
-                        </form>
+            <div className="mx-auto w-50 shadow px-3 py-5 rounded border">
+                <h4 className="text-center fw-bold m-0">
+                    Log in to Upwork
+                </h4>
+                <form>
+                    <div className="form-group w-75 mx-auto mt-5">
+                        <span className="text-danger">{emailError}</span>
+                        <input
+                            type="email"
+                            name="email"
+                            className={`form-control shadow-none ${emailError && "border-danger"}`}
+                            placeholder="Email"
+                            onInput={getUserData}
+                        />
                     </div>
-                </div>
+                    <div className="form-group w-75 mx-auto my-4">
+                        <span className="text-danger">{PasswordError}</span>
+                        <input
+                            type="password"
+                            name="password"
+                            className={`form-control shadow-none ${PasswordError && "border-danger"}`}
+                            aria-describedby="emailHelp"
+                            placeholder="Password"
+                            onInput={getUserData}
+                        />
+                    </div>
+                    <div className="w-75 mx-auto mb-4">
+                        <button
+                            className="btn w-100 upw-bg-color rounded-pill text-white"
+                            onClick={login}
+                            disabled={PasswordError != null || emailError != null}
+                        >
+                            Log in
+                        </button>
+                    </div>
+                    <div className="text-danger text-center">{errorMessage}</div>
+                    <p className="mt-5 text-center text-main-color">
+                        Don't have an Upwork account?
+                    </p>
+                    <div className="mt-4 text-center">
+                        <Link
+                            className="btn w-50 rounded-pill upw-color upw-border-color" to={`${process.env.PUBLIC_URL}/sign-up`}
+                        >
+                            Sign Up
+                        </Link>
+                    </div>
+                </form>
             </div>
         </div>
     );
