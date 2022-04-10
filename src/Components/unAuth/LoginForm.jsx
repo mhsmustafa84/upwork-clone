@@ -66,7 +66,7 @@ export const LoginForm = () => {
     };
 
     return (
-        <div className="container">
+        <div className="container py-5 mt-5">
             <div className="row">
                 <div className="col-lg-6 col-md-9 mx-auto">
                     <div className="shadow p-5 my-5 rounded mx-auto border">
