@@ -74,3 +74,10 @@ ul {
     background-color: var(--upw-color);
     border-color: var(--upw-color);
 }
+.form-control:focus,
+.btn-check:focus + .btn,
+.btn:focus {
+    border-color: var(--upw-color);
+    color: var(--upw-color);
+    box-shadow: 0 0 0 0.15rem rgb(20 168 0 / 25%);
+}
