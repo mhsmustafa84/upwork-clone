@@ -1,6 +1,6 @@
 import React from "react";
-import ChangePassword from "../../../Components/ClientComponents/ChangePassword/ChangePassword";
-import Verification from "../../../Components/ClientComponents/Verificationoptions/Verification";
+import ChangePassword from "../../../components/client/ChangePassword/ChangePassword";
+import Verification from "../../../components/client/Verificationoptions/Verification";
 export default function Password() {
   return (
     <>

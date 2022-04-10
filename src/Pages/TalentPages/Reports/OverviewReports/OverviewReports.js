@@ -10,10 +10,10 @@ import {
     Routes,
 } from "react-router-dom";
 
-import Available from "../../../../Components/TalentComponents/Available/Available";
-import InReview from "../../../../Components/TalentComponents/InReviewComponent/InReview";
-import Pending from "../../../../Components/TalentComponents/Pending/pending";
-import WorkinProgress from "../../../../Components/TalentComponents/WorkinProgress/WorkinProgress";
+import Available from "../../../../components/talent/Available/Available";
+import InReview from "../../../../components/talent/InReviewComponent/InReview";
+import Pending from "../../../../components/talent/Pending/pending";
+import WorkinProgress from "../../../../components/talent/WorkinProgress/WorkinProgress";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { inReviewAction } from "../../../../Store/actions/inReviewAction";

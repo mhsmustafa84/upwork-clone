@@ -2,7 +2,7 @@
 /* eslint-disable no-script-url */
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import StarsRating from "../../../Components/SharedComponents/StarsRating/StarsRating";
+import StarsRating from "../../../components/shared/StarsRating/StarsRating";
 import { db } from "../../../firebase";
 
 export default function OneContract({ contract, ind }) {

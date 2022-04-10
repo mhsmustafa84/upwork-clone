@@ -1,8 +1,8 @@
 /* eslint-disable */
-import CustomButtonwithbackground from "../../../../Components/TalentComponents/CustomButtonwithBackground/CustomButton";
-import CustomButtonwithoutbackground from "../../../../Components/TalentComponents/CustomButtonwithoutbackground/CustomButton";
-import Date from "../../../../Components/TalentComponents/DateComponent/Date";
-import Fillter from "../../../../Components/TalentComponents/FilterComponent/filtercomponent";
+import CustomButtonwithbackground from "../../../../components/talent/CustomButtonwithBackground/CustomButton";
+import CustomButtonwithoutbackground from "../../../../components/talent/CustomButtonwithoutbackground/CustomButton";
+import Date from "../../../../components/talent/DateComponent/Date";
+import Fillter from "../../../../components/talent/FilterComponent/filtercomponent";
 
 
 export default function TransactionHistory() {

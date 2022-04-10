@@ -1,15 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
 import { useParams } from "react-router";
-import JobDescriptionJobDetails from "../../../Components/TalentComponents/JobDescriptionJobDetails/JobDescriptionJobDetails";
-import RightSidebarJobDetails from "../../../Components/TalentComponents/RightSidebarJobDetails/RightSidebarJobDetails";
+import JobDescriptionJobDetails from "../../../components/talent/JobDescriptionJobDetails/JobDescriptionJobDetails";
+import RightSidebarJobDetails from "../../../components/talent/RightSidebarJobDetails/RightSidebarJobDetails";
 
 import { useEffect, useState } from "react";
 import { db } from "../../../firebase";
-import Loader from "../../../Components/SharedComponents/Loader/Loader";
+import { Loader } from "../../../components/shared/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { talentDataAction } from "../../../Store/actions/talentData";
-import AcceptedAlert from "../../../Components/TalentComponents/AcceptedAlert/AcceptedAlert";
+import AcceptedAlert from "../../../components/talent/AcceptedAlert/AcceptedAlert";
 
 export default function JobDetailsTalent() {
     const { id } = useParams();

@@ -1,5 +1,5 @@
 import React from "react";
-import CustomButtonwithbackground from "../../../Components/TalentComponents/CustomButtonwithBackground/CustomButton";
+import CustomButtonwithbackground from "../../../components/talent/CustomButtonwithBackground/CustomButton";
 export default function AccountInfo() {
   return (
     <>

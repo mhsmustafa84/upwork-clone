@@ -1,4 +1,4 @@
-import FirstSectionProfileTalent from "./../../../Components/TalentComponents/FirstSectionProfileTalent/FirstSectionProfileTalent";
+import FirstSectionProfileTalent from "./../../../components/talent/FirstSectionProfileTalent/FirstSectionProfileTalent";
 
 export default function Profile() {
 
