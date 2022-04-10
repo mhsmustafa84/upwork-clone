@@ -2,12 +2,12 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { signUpAction } from '../../../Store/actions/signUp';
+import { signUpAction } from '../../Store/actions/signUp';
 import { Link } from 'react-router-dom';
 
 const EMAIL_REG = /^([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 
-export default function SignupForm() {
+export const SignupForm = () => {
 
     const [emailError, setEmailErorr] = useState("");
     let navigate = useNavigate();
