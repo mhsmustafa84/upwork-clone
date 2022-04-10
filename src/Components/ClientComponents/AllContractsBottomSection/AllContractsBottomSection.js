@@ -59,7 +59,7 @@ export default function AllContractsBottomSection() {
             </svg>
             <h3>You haven't started any contracts yet.</h3>
             <h3>
-                <Link to={`${process.env.REACT_APP_BASE_ROUTE}/post-job`} className="text-success">
+                <Link to={`${process.env.PUBLIC_URL}/post-job`} className="text-success">
                     "Post a job"
                 </Link>
                 "or"

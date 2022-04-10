@@ -1,10 +1,11 @@
 /* eslint-disable */
 import { Link } from "react-router-dom";
-import { fbAuth, googleProvider } from "../../firebase";
+import { fbAuth } from "../../firebase";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const LoginForm = () => {
+
     const [user, setUser] = useState({ email: "", password: "" });
     const [emailError, setEmailErorr] = useState("");
     const [PasswordError, setPasswordErrorr] = useState("");
@@ -56,7 +57,7 @@ export const LoginForm = () => {
                 if (res.user) {
                     localStorage.setItem("userType", res.user.displayName);
                     res.user.displayName === "talent"
-                        ? navigate("/find-work")
+                        ? navigate(`${process.env.PUBLIC_URL}/find-work`)
                         : navigate("/home")
                 }
             }).catch(error => {
@@ -109,7 +110,7 @@ export const LoginForm = () => {
                             </p>
                             <div className="mt-4 text-center">
                                 <Link
-                                    className="btn w-50 rounded-pill upwork-color upwork-border-color" to={`${process.env.REACT_APP_BASE_ROUTE}/sign-up`}
+                                    className="btn w-50 rounded-pill upwork-color upwork-border-color" to={`${process.env.PUBLIC_URL}/sign-up`}
                                 >
                                     Sign Up
                                 </Link>

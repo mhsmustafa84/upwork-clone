@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { signUpAction } from '../../../Store/actions/signUp';
 import { Link } from 'react-router-dom';
 
-
 const EMAIL_REG = /^([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 
 export default function SignupForm() {
@@ -64,7 +63,7 @@ export default function SignupForm() {
                 </form>
                 <p className="text-center">
                     Already have an account?
-                    <Link to={`${process.env.REACT_APP_BASE_ROUTE}/login`}> Log In</Link>
+                    <Link to={`${process.env.PUBLIC_URL}/login`}> Log In</Link>
                 </p>
             </div>
         </div>

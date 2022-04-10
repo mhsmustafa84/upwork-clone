@@ -26,7 +26,7 @@ const routes = [
     }
 ]
 
-const baseRoute = process.env.REACT_APP_BASE_ROUTE;
+const baseRoute = process.env.PUBLIC_URL;
 
 export const UnAuth = () => {
     return (

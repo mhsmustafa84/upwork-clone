@@ -203,7 +203,7 @@ export default function SubmitProposal() {
                                         <div className="mb-3">
                                             <p>{job?.jobDescription}</p>
                                             <Link to={{
-                                                pathname: `${process.env.REACT_APP_BASE_ROUTE}/job/${id}`,
+                                                pathname: `${process.env.PUBLIC_URL}/job/${id}`,
                                                 state: `${id}`,
                                             }} className="upw-c-cn" href>
                                                 View job posting

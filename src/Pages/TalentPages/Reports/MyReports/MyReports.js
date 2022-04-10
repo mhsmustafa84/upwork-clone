@@ -36,7 +36,7 @@ export default function Reports() {
                             style={{ lineHeight: "24px", fontSize: "17px", fontWeight: 700 }}
                         >
                             <Link
-                                to={`${process.env.REACT_APP_BASE_ROUTE}/weeklysummary`}
+                                to={`${process.env.PUBLIC_URL}/weeklysummary`}
                                 style={{ textDecoration: "none", color: "#38a000" }}
                             >
                                 "weekSummary"

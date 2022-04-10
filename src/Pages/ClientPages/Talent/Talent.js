@@ -33,7 +33,7 @@ export default function Talent() {
 
     const { pathname } = useLocation();
     let navigate = useNavigate();
-    pathname === `${process.env.REACT_APP_BASE_ROUTE}/talent` && navigate(`${process.env.REACT_APP_BASE_ROUTE}/talent/my-hires`);
+    pathname === `${process.env.PUBLIC_URL}/talent` && navigate(`${process.env.PUBLIC_URL}/talent/my-hires`);
 
     return (
         <div className="py-5" style={{ backgroundColor: "#f1f2f4" }}>
@@ -45,7 +45,7 @@ export default function Talent() {
                                 className="nav-link"
                                 exact
                                 activeClassName="active"
-                                to={`${process.env.REACT_APP_BASE_ROUTE}/talent/searchclient`}
+                                to={`${process.env.PUBLIC_URL}/talent/searchclient`}
                             >
                                 "Search"
                             </NavLink>
@@ -55,7 +55,7 @@ export default function Talent() {
                                 className="nav-link"
                                 exact
                                 activeClassName="active"
-                                to={`${process.env.REACT_APP_BASE_ROUTE}/talent/my-hires`}
+                                to={`${process.env.PUBLIC_URL}/talent/my-hires`}
                             >
                                 "MyHires"
                             </NavLink>
@@ -65,7 +65,7 @@ export default function Talent() {
                                 className="nav-link"
                                 exact
                                 activeClassName="active"
-                                to={`${process.env.REACT_APP_BASE_ROUTE}/talent/saved-talent`}
+                                to={`${process.env.PUBLIC_URL}/talent/saved-talent`}
                             >
                                 "Saved" ({client?.savedTalent?.length})
                             </NavLink>

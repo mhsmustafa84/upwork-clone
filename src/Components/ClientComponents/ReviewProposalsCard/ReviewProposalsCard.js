@@ -72,7 +72,7 @@ export default function ReviewProposalsCard() {
                                     </div>
                                     <div className="col-lg-6 pt-lg-3 ">
                                         <Link
-                                            to={`${process.env.REACT_APP_BASE_ROUTE}/talent-profile/${talent[index]?.authID}`}
+                                            to={`${process.env.PUBLIC_URL}/talent-profile/${talent[index]?.authID}`}
                                             id="job-title-home-page "
                                             className="link-dark job-title-hover fw-bold text-success"
                                         >
@@ -119,7 +119,7 @@ export default function ReviewProposalsCard() {
                                     </div>
                                     <div className="col py-3">
                                         <Link
-                                            to={{ pathname: `${process.env.REACT_APP_BASE_ROUTE}/messages`, state: talent[index] }}
+                                            to={{ pathname: `${process.env.PUBLIC_URL}/messages`, state: talent[index] }}
                                             className="btn bg-white btn-outline-secondary"
                                             onClick={() => sendMSG(talent[index]?.authID)}
                                         >
@@ -131,7 +131,7 @@ export default function ReviewProposalsCard() {
                                             type="button"
                                             className="btn upwork-bg-color px-5"
                                             to={{
-                                                pathname: `${process.env.REACT_APP_BASE_ROUTE}/create-contract`,
+                                                pathname: `${process.env.PUBLIC_URL}/create-contract`,
                                                 state: { talentID: talent[index]?.authID, jobID: id }
                                             }}
                                         >

@@ -54,7 +54,7 @@ export default function OverviewReports() {
                             >
                                 <NavLink
                                     id="ex2-tab-1"
-                                    to={`${process.env.REACT_APP_BASE_ROUTE}/overview/work-in-progress`}
+                                    to={`${process.env.PUBLIC_URL}/overview/work-in-progress`}
                                     data-mdb-toggle="tab"
                                     role="tab"
                                     aria-controls="ex2-tabs-1"
@@ -87,7 +87,7 @@ export default function OverviewReports() {
                                 <NavLink
                                     id="ex2-tab-1"
                                     data-mdb-toggle="tab"
-                                    to={`${process.env.REACT_APP_BASE_ROUTE}/overview/in-review`}
+                                    to={`${process.env.PUBLIC_URL}/overview/in-review`}
                                     role="tab"
                                     style={{ textDecoration: "none" }}
                                 >
@@ -114,7 +114,7 @@ export default function OverviewReports() {
                             <li className="nav-item" role="presentation">
                                 <NavLink
                                     id="ex2-tab-3"
-                                    to={`${process.env.REACT_APP_BASE_ROUTE}/overview/pending`}
+                                    to={`${process.env.PUBLIC_URL}/overview/pending`}
                                     data-mdb-toggle="tab"
                                     role="tab"
                                     style={{ textDecoration: "none" }}
@@ -147,7 +147,7 @@ export default function OverviewReports() {
                                 <NavLink
                                     id="ex2-tab-4"
                                     data-mdb-toggle="tab"
-                                    to={`${process.env.REACT_APP_BASE_ROUTE}/overview/available`}
+                                    to={`${process.env.PUBLIC_URL}/overview/available`}
                                     role="tab"
                                     style={{ textDecoration: "none" }}
                                 >
