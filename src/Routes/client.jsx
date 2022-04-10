@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import AllJobPosts from "../Pages/ClientPages/AllJobPost/AllJobPosts";
 import Jobs from "../Pages/ClientPages/Jobs/Jobs";
 import Header from "./../Components/ClientComponents/Header/Header";
-import Footer from "./../Components/SharedComponents/Footer/Footer";
+import { Footer } from "../Components/SharedComponents/footer/Footer";
 import Messages from "./../Pages/Messages/Messages";
 import AllContract from "./../Pages/ClientPages/AllContract/AllContract";
 import BringYourTalent from "./../Pages/ClientPages/BringYourTalent/BringYourTalent";
