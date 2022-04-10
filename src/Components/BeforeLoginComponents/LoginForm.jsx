@@ -58,7 +58,7 @@ export const LoginForm = () => {
                     localStorage.setItem("userType", res.user.displayName);
                     res.user.displayName === "talent"
                         ? navigate(`${process.env.PUBLIC_URL}/find-work`)
-                        : navigate("/home")
+                        : navigate(`${process.env.PUBLIC_URL}/home`)
                 }
             }).catch(error => {
                 setErrorMessage(error.code);
