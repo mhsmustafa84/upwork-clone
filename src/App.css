@@ -31,15 +31,35 @@ ul {
 .text-main-color {
     color: #5e6d55;
 }
+.w-10 {
+    width: 10%;
+}
+.w-20 {
+    width: 20%;
+}
+.w-30 {
+    width: 30%;
+}
+.w-40 {
+    width: 40%;
+}
+.w-60 {
+    width: 60%;
+}
+.w-70 {
+    width: 70%;
+}
+.w-80 {
+    width: 80%;
+}
+.w-90 {
+    width: 90%;
+}
 .fs-7 {
     font-size: 14px;
 }
 .fs-8 {
     font-size: 12px;
-}
-.form-check-input:checked {
-    background-color: var(--upw-color);
-    border-color: var(--upw-color);
 }
 .z-index-10 {
     z-index: 10;
@@ -49,4 +69,8 @@ ul {
 }
 .z-index-1000 {
     z-index: 1000;
+}
+.form-check-input:checked {
+    background-color: var(--upw-color);
+    border-color: var(--upw-color);
 }
