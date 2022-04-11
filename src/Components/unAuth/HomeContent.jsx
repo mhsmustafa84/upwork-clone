@@ -8,7 +8,7 @@ import img5 from '../../assets/Img/home-up.jpg';
 
 export const HomeContent = () => {
     return (
-        <section className="py-5 my-5">
+        <section className="py-5 my-4">
             <div className="container">
                 <div className="row">
                     <div className="col-md-7 col-sm-12 mt-5 pt-4">
