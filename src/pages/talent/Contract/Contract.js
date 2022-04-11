@@ -5,7 +5,7 @@ import { Route, Routes, NavLink } from "react-router-dom";
 import ContractEarnings from '../../../components/talent/ContractEarnings/ContractEarnings';
 import ContractFeedback from '../../../components/talent/ContractFeedback/ContractFeedback';
 import img from "../../../assets/Img/icon-user.svg";
-import "../../ClientPages/Talent/Talent.css";
+import "../../client/Talent/Talent.css";
 import { db } from "../../../firebase";
 import { useSelector } from "react-redux";
 import { Timestamp } from 'firebase/firestore';
