@@ -28,6 +28,10 @@ ul {
 .upw-border-color {
     border-color: var(--upw-color);
 }
+.upw-btn-outline {
+    border-color: var(--upw-color);
+    color: var(--upw-color);
+}
 .text-main-color {
     color: #5e6d55;
 }
@@ -80,4 +84,9 @@ ul {
     border-color: var(--upw-color);
     color: var(--upw-color);
     box-shadow: 0 0 0 0.15rem rgb(20 168 0 / 25%);
+}
+.btn-check:checked + .upw-btn-outline {
+    color: #fff;
+    background-color: var(--upw-color);
+    border-color: var(--upw-color);
 }
