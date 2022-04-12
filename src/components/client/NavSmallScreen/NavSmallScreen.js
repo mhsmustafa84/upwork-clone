@@ -1,58 +1,66 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable react-hooks/exhaustive-deps */
-
-import React, { useEffect } from "react";
-import HeaderSearchSm from "../../shared/HeaderSearchSm/HeaderSearchSm";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import { fbAuth } from "../../../firebase";
-import { useDispatch, useSelector } from "react-redux";
-import { clientDataAction } from "../../../Store/actions/clientData";
-import img from "../../../assets/Img/icon-user.svg";
+import React, { useEffect } from 'react';
+import HeaderSearchSm from '../../shared/HeaderSearchSm/HeaderSearchSm';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { fbAuth } from '../../../firebase';
+import { useDispatch, useSelector } from 'react-redux';
+import { clientDataAction } from '../../../Store/actions/clientData';
+import img from '../../../assets/Img/icon-user.svg';
 
 export default function NavSmallScreen() {
+    let navigate = useNavigate();
+    const user = useSelector(state => state.clientData);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(clientDataAction());
+    }, []);
+    const logout = () => {
+        fbAuth.auth
+            .signOut()
+            .then(res => {
+                console.log(res);
+                navigate('/login');
+                localStorage.removeItem('userType');
+                window.location.reload();
+            })
+            .catch(error => {
+                console.log(error.message);
+            });
+    };
 
-  let navigate = useNavigate();
-  const user = useSelector((state) => state.clientData);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(clientDataAction());
-  }, []);
-  const logout = () => {
-    fbAuth.auth.signOut().then((res) => {
-      console.log(res);
-      navigate("/login");
-      localStorage.removeItem('userType');
-      window.location.reload();
-    }).catch((error) => {
-      console.log(error.message);
-    });
-  };
-
-  return (
-    <>
-      <div className="collapse d-lg-none" id="navbarNavDropdown">
-        <ul className="navbar-nav">
-          <li className="mt-3">
-            <HeaderSearchSm />
-          </li>
-          <li className="dropdown px-3">
-            <a
-              className="nav-link dropdown-toggle mt-4 pt-4 border-top-cn"
-              href="#"
-              id="navbarDropdownMenuLink"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <img style={{ height: "40px", width: "40px" }} className="rounded-circle bg-white" src={user.profilePhoto ? user.profilePhoto : img} alt="" />
-              <span className="ms-2">{user?.firstName + " " + user?.lastName}</span>
-            </a>
-            {/* <ul
+    return (
+        <>
+            <div className='collapse d-lg-none' id='navbarNavDropdown'>
+                <ul className='navbar-nav'>
+                    <li className='mt-3'>
+                        <HeaderSearchSm />
+                    </li>
+                    <li className='dropdown px-3'>
+                        <a
+                            className='nav-link dropdown-toggle mt-4 pt-4 border-top-cn'
+                            href='/'
+                            id='navbarDropdownMenuLink'
+                            role='button'
+                            data-bs-toggle='dropdown'
+                            aria-expanded='false'
+                        >
+                            <img
+                                style={{ height: '40px', width: '40px' }}
+                                className='rounded-circle bg-white'
+                                src={
+                                    user.profilePhoto ? user.profilePhoto : img
+                                }
+                                alt=''
+                            />
+                            <span className='ms-2'>
+                                {user?.firstName + ' ' + user?.lastName}
+                            </span>
+                        </a>
+                        {/* <ul
               id="acc-id"
               className="dropdown-menu"
               aria-labelledby="navbarDropdownMenuLink"
             > */}
-            {/* <li className="px-4 py-3">
+                        {/* <li className="px-4 py-3">
                 <div
                   id="acc-btns-id"
                   className="btn-group w-100"
@@ -68,7 +76,7 @@ export default function NavSmallScreen() {
                   </button>
                 </div>
               </li> */}
-            {/* <li>
+                        {/* <li>
                 <Link
                   className="dropdown-item px-4"
                   to="/find-work"
@@ -85,7 +93,7 @@ export default function NavSmallScreen() {
                   </div>
                 </Link>
               </li> */}
-            {/* <li>
+                        {/* <li>
                 <Link className="dropdown-item px-4 mb-1" to="/home">
                   <div className="d-flex align-items-center">
                     <span style={{ marginLeft: "-5px" }}>
@@ -98,80 +106,98 @@ export default function NavSmallScreen() {
                   </div>
                 </Link>
               </li> */}
-            {/* </ul> */}
-          </li>
-          <li className="dropdown px-3">
-            <a
-              className="nav-link active dropdown-toggle mt-2 pt-3 border-top-cn"
-              href="#"
-              id="navbarDropdownMenuLink"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              "Jobs"
-              <i className="fa fa-sort-down text-white float-end"></i>
-            </a>
-            <ul
-              className="dropdown-menu sub-drop-cn"
-              aria-labelledby="navbarDropdownMenuLink"
-            >
-              <li>
-                <Link className="dropdown-item" to={`${process.env.PUBLIC_URL}/home`}>
-                  "My Jobs"
-                </Link>
-              </li>
-              <li>
-                <Link className="dropdown-item" to={`${process.env.PUBLIC_URL}/all-job-posts`}>
-                  "All Jobs Posts"
-                </Link>
-              </li>
-              <li>
-                <Link className="dropdown-item" to={`${process.env.PUBLIC_URL}/all-contracts`}>
-                  "All Contracts"
-                </Link>
-              </li>
-              {/* <li>
+                        {/* </ul> */}
+                    </li>
+                    <li className='dropdown px-3'>
+                        <a
+                            className='nav-link active dropdown-toggle mt-2 pt-3 border-top-cn'
+                            href='/'
+                            id='navbarDropdownMenuLink'
+                            role='button'
+                            data-bs-toggle='dropdown'
+                            aria-expanded='false'
+                        >
+                            "Jobs"
+                            <i className='fa fa-sort-down text-white float-end'></i>
+                        </a>
+                        <ul
+                            className='dropdown-menu sub-drop-cn'
+                            aria-labelledby='navbarDropdownMenuLink'
+                        >
+                            <li>
+                                <Link
+                                    className='dropdown-item'
+                                    to={`${process.env.PUBLIC_URL}/home`}
+                                >
+                                    "My Jobs"
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    className='dropdown-item'
+                                    to={`${process.env.PUBLIC_URL}/all-job-posts`}
+                                >
+                                    "All Jobs Posts"
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    className='dropdown-item'
+                                    to={`${process.env.PUBLIC_URL}/all-contracts`}
+                                >
+                                    "All Contracts"
+                                </Link>
+                            </li>
+                            {/* <li>
                 <Link className="dropdown-item" to="/bring-your-own-talent">
                   "Bring Your Own Talent"
                 </Link>
               </li> */}
-              <li>
-                <Link className="dropdown-item" to={`${process.env.PUBLIC_URL}/post-job`}>
-                  "Post a Job"
-                </Link>
-              </li>
-            </ul>
-          </li>
-          <li className="dropdown px-3">
-            <a
-              className="nav-link dropdown-toggle mt-2 pt-3 border-top-cn"
-              href="#"
-              id="navbarDropdownMenuLink"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              "Talent"
-              <i className="fa fa-sort-down text-white float-end"></i>
-            </a>
-            <ul
-              className="dropdown-menu sub-drop-cn"
-              aria-labelledby="navbarDropdownMenuLink"
-            >
-              <li>
-                <Link className="dropdown-item" to={`${process.env.PUBLIC_URL}/talent/my-hires`}>
-                  "My Hires"
-                </Link>
-              </li>
-              <li>
-                <Link className="dropdown-item" to={`${process.env.PUBLIC_URL}/talent/saved-talent`}>
-                  "Saved Talent"
-                </Link>
-              </li>
-            </ul>
-          </li>
-          {/* <li className="dropdown px-3">
+                            <li>
+                                <Link
+                                    className='dropdown-item'
+                                    to={`${process.env.PUBLIC_URL}/post-job`}
+                                >
+                                    "Post a Job"
+                                </Link>
+                            </li>
+                        </ul>
+                    </li>
+                    <li className='dropdown px-3'>
+                        <a
+                            className='nav-link dropdown-toggle mt-2 pt-3 border-top-cn'
+                            href='/'
+                            id='navbarDropdownMenuLink'
+                            role='button'
+                            data-bs-toggle='dropdown'
+                            aria-expanded='false'
+                        >
+                            "Talent"
+                            <i className='fa fa-sort-down text-white float-end'></i>
+                        </a>
+                        <ul
+                            className='dropdown-menu sub-drop-cn'
+                            aria-labelledby='navbarDropdownMenuLink'
+                        >
+                            <li>
+                                <Link
+                                    className='dropdown-item'
+                                    to={`${process.env.PUBLIC_URL}/talent/my-hires`}
+                                >
+                                    "My Hires"
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    className='dropdown-item'
+                                    to={`${process.env.PUBLIC_URL}/talent/saved-talent`}
+                                >
+                                    "Saved Talent"
+                                </Link>
+                            </li>
+                        </ul>
+                    </li>
+                    {/* <li className="dropdown px-3">
             <a
               className="nav-link dropdown-toggle mt-2 pt-3 border-top-cn"
               href="#"
@@ -263,24 +289,30 @@ export default function NavSmallScreen() {
               </li>
             </ul>
           </li> */}
-          <li className="nav-item px-3">
-            <a className="nav-link mt-2 pt-3 border-top-cn" to={`${process.env.PUBLIC_URL}/messages`}>
-              "Messages"
-            </a>
-          </li>
-          {/* <li className="nav-item px-3">
+                    <li className='nav-item px-3'>
+                        <Link
+                            className='nav-link mt-2 pt-3 border-top-cn'
+                            to={`${process.env.PUBLIC_URL}/messages`}
+                        >
+                            "Messages"
+                        </Link>
+                    </li>
+                    {/* <li className="nav-item px-3">
             <a className="nav-link mt-2 pt-3 border-top-cn" href="#">
               "Help"
               <i className="fas fa-question float-end"></i>
             </a>
           </li> */}
-          <li className="nav-item px-3">
-            <NavLink className="nav-link mt-2 pt-3 border-top-cn" to={`${process.env.PUBLIC_URL}/notifications`}>
-              "Notification"
-              <i className="far fa-bell float-end"></i>
-            </NavLink>
-          </li>
-          {/* <li className="nav-item px-3">
+                    <li className='nav-item px-3'>
+                        <NavLink
+                            className='nav-link mt-2 pt-3 border-top-cn'
+                            to={`${process.env.PUBLIC_URL}/notifications`}
+                        >
+                            "Notification"
+                            <i className='far fa-bell float-end'></i>
+                        </NavLink>
+                    </li>
+                    {/* <li className="nav-item px-3">
             <a className="nav-link mt-2 pt-3 border-top-cn" href="#">
               "Invite a Coworker"
               <i
@@ -289,7 +321,7 @@ export default function NavSmallScreen() {
               ></i>
             </a>
           </li> */}
-          {/* <li className="nav-item">
+                    {/* <li className="nav-item">
             <a className="dropdown-item mt-2 pt-3 border-top-cn" href="#">
               <span>
                 <i className="fa fa-cog"></i>
@@ -297,16 +329,19 @@ export default function NavSmallScreen() {
               <span className="ps-3">Settings</span>
             </a>
           </li> */}
-          <li className="nav-item pb-2" onClick={logout}>
-            <a className="dropdown-item mt-2 pt-3 border-top-cn" href="#">
-              <span>
-                <i className="fas fa-sign-out-alt"></i>
-              </span>
-              <span className="ps-3">Log Out</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </>
-  );
+                    <li className='nav-item pb-2' onClick={logout}>
+                        <a
+                            className='dropdown-item mt-2 pt-3 border-top-cn'
+                            href='/'
+                        >
+                            <span>
+                                <i className='fas fa-sign-out-alt'></i>
+                            </span>
+                            <span className='ps-3'>Log Out</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </>
+    );
 }

@@ -1,6 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable array-callback-return */
 import React, { useContext, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'
@@ -49,7 +46,7 @@ export default function HeaderSearchLg() {
                 <div className="dropdown search-type-cn">
                     <a
                         className="nav-link dropdown-toggle"
-                        href="#"
+                        href="/"
                         id="navbarDropdownMenuLink"
                         role="button"
                         data-bs-toggle="dropdown"

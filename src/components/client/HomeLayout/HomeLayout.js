@@ -1,7 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable no-script-url */
-/* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,7 +11,7 @@ import j3 from "../../../assets/svg/jobs3.svg";
 import j4 from "../../../assets/svg/jobs4.svg";
 import s1 from "../../../assets/Img/jobslide1.jpg";
 import s2 from "../../../assets/Img/jobslide2.jpg";
-import s3 from "../../../assets/Img/jobslide2.jpg";
+import s3 from "../../../assets/Img/jobslide3.jpg";
 import { Loader } from "../../shared/Loader";
 
 
@@ -26,13 +22,16 @@ export default function HomeLayout() {
     const dispatch = useDispatch();
     const [, setProposals] = useState(0);
 
-    useEffect(async () => {
-        dispatch(clientDataAction());
-        dispatch(clientJobsAction("authID", "==", fbAuth.auth.currentUser.uid));
-        await db.collection("job").doc(jobs[0]?.docID).collection("proposals").get().then(res => {
-            const length = res.docs.length;
-            setProposals(length)
-        })
+    useEffect(() => {
+        const fun = async () => {
+            dispatch(clientDataAction());
+            dispatch(clientJobsAction("authID", "==", fbAuth.auth.currentUser.uid));
+            await db.collection("job").doc(jobs[0]?.docID).collection("proposals").get().then(res => {
+                const length = res.docs.length;
+                setProposals(length)
+            })
+        }
+        fun();
     }, []);
 
 
@@ -57,7 +56,7 @@ export default function HomeLayout() {
                                         "All Posts"
                                     </Link>
                                 </div>
-                                {jobs ? (
+                                {jobs && (
                                     <div className="list-group-item">
                                         <div>
                                             <div className="row">
@@ -140,7 +139,8 @@ export default function HomeLayout() {
                                             </div>
                                         </div>
                                     </div>
-                                ) : (
+                                )}
+                                {!jobs && (
                                     <div className="list-group-item">
                                         <div className="row align-items-center">
                                             <div className="col-lg-9 p-lg-3">No posts yet</div>
@@ -155,7 +155,7 @@ export default function HomeLayout() {
                                     <ul className="list-group list-group-flush">
                                         <li className="list-group-item d-flex">
                                             <div className="col-4">
-                                                <img src={j1} width="150em" />
+                                                <img src={j1} width="150em" alt='' />
                                             </div>
                                             <div className="col-6">
                                                 <div className="media-body">
@@ -177,7 +177,7 @@ export default function HomeLayout() {
                                         </li>
                                         <li className="list-group-item d-flex">
                                             <div className="col-4">
-                                                <img src={j2} width="150em" />
+                                                <img src={j2} width="150em" alt='' />
                                             </div>
                                             <div className="col-6">
                                                 <div className="media-body">
@@ -203,14 +203,14 @@ export default function HomeLayout() {
                                                         Prepare to interview freelancers
                                                     </a>
                                                     <div className="ng-hide">
-                                                        <a href="#">Contact your Talent Specialist</a>
+                                                        <a href="/">Contact your Talent Specialist</a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </li>
                                         <li className="list-group-item d-flex">
                                             <div className="col-4">
-                                                <img src={j3} width="150em" />
+                                                <img src={j3} width="150em" alt='' />
                                             </div>
                                             <div className="col-6">
                                                 <div className="media-body">
@@ -249,12 +249,12 @@ export default function HomeLayout() {
                                         </li>{" "}
                                         <li className="list-group-item d-flex">
                                             <div className="col-4">
-                                                <img src={j4} width="150em" />
+                                                <img src={j4} width="150em" alt='' />
                                             </div>
                                             <div className="col-6">
                                                 <div className="media-body">
                                                     <h4 className="m-0-top-bottom">
-                                                        "4. Pay and invoice through Upwork"
+                                                        4. Pay and invoice through Upwork
                                                     </h4>
                                                     <p className="m-xs-top-bottom">
                                                         Get invoices and make payments after reviewing time billed or approving milestones. With
@@ -280,7 +280,7 @@ export default function HomeLayout() {
                                                         target="_blank"
                                                         rel="noreferrer"
                                                     >
-                                                        "Determine how much to pay freelancers"
+                                                        Determine how much to pay freelancers
                                                     </a>
                                                 </div>
                                             </div>
@@ -289,8 +289,8 @@ export default function HomeLayout() {
                                     <div className="card-body">
                                         <h4 className="card-link">Question?</h4>
                                         <p>
-                                            "Visit" <a className="card-link">help center</a>{" "}
-                                            "to contact"
+                                            "Visit" <a href='/' className="card-link">help center</a>{" "}
+                                            to contact
                                         </p>
                                     </div>
                                 </div>
@@ -298,7 +298,7 @@ export default function HomeLayout() {
                             <div className="col d-none d-lg-block">
                                 <div className="my-lg-1">
                                     <Link to={`${process.env.PUBLIC_URL}/post-job`} className="btn upw-bg-color">
-                                        "Post a job"
+                                        Post a job
                                     </Link>
                                 </div>
 
@@ -350,10 +350,10 @@ export default function HomeLayout() {
                                         <div className="card-body">
                                             <h5 className="card-title">Web Design</h5>
                                             <p className="card-text">
-                                                "You think you might like help"
+                                                You think you might like help
                                             </p>
-                                            <a href="#" className="btn upw-bg-color ">
-                                                "learn More"
+                                            <a href="/" className="btn upw-bg-color ">
+                                                learn More
                                             </a>
                                         </div>
                                     </div>
