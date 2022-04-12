@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Route, Routes, NavLink } from "react-router-dom";
 import ContractFeedback from '../../../components/talent/ContractFeedback/ContractFeedback';
 import img from "../../../assets/Img/icon-user.svg";
-import "../../ClientPages/Talent/Talent.css";
+import "../../client/Talent/Talent.css";
 import StarsRating from "../../../components/shared/StarsRating/StarsRating";
 import Payment from "./Payment";
 

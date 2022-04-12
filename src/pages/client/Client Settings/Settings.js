@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import Billingpayments from "../Billingpayments/Billingpayments";
 import AccountInfo from "../ContactInfo/ContactInfo";
-import Password from "./../../ClientPages/Password/Password";
+import Password from "./../../client/Password/Password";
 
 export default function Settings() {
   return (
