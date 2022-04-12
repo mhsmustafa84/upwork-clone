@@ -11,7 +11,7 @@ export const Header = () => {
                     <Logo url={process.env.PUBLIC_URL} />
                     <div>
                         <Link
-                            className='btn text-main-color me-2'
+                            className='link-color me-3'
                             to={`${process.env.PUBLIC_URL}/login`}
                         >
                             Log In
