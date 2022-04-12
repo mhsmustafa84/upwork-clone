@@ -108,7 +108,7 @@ export default function PostJobDescription({ setBtns, btns }) {
                     <p className='py-2 text-center mt-2'>
                         <label
                             for='file'
-                            className='upw-c-cn me-1'
+                            className='upw-color me-1'
                             style={{ cursor: 'pointer' }}
                         >
                             upload

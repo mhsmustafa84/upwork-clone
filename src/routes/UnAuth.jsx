@@ -17,7 +17,7 @@ const routes = [
         element: () => <SignUp />,
     },
     {
-        path: '**',
+        path: '*',
         element: () => <NotFound />,
     },
 ];
