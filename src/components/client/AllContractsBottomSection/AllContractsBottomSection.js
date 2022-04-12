@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-no-comment-textnodes */
-/* eslint-disable */
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -60,11 +58,11 @@ export default function AllContractsBottomSection() {
             <h3>You haven't started any contracts yet.</h3>
             <h3>
                 <Link to={`${process.env.PUBLIC_URL}/post-job`} className="text-success">
-                    "Post a job"
+                    Post a job
                 </Link>
-                "or"
-                <a href="#" className="text-success">
-                    "check out who's applied to your existing job posts."
+                or
+                <a href="/" className="text-success">
+                    check out who's applied to your existing job posts.
                 </a>
             </h3>
         </div>

@@ -1,27 +1,28 @@
-/* eslint-disable */
-import React from 'react'
-import { Link } from 'react-router-dom'
-
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function JobPostsHeader() {
     return (
         <div>
-            <div className="row px-5 mt-5">
-                <nav aria-label="breadcrumb" className="col-4">
-                    <ol className="breadcrumb">
-                        <li className="breadcrumb-item">
+            <div className='row px-5 mt-5'>
+                <nav aria-label='breadcrumb' className='col-4'>
+                    <ol className='breadcrumb'>
+                        <li className='breadcrumb-item'>
                             <h2>My Jobs</h2>
                         </li>
                     </ol>
                 </nav>
 
-                <div className="col-6"></div>
-                <div className="col-2">
-                    <Link to={`${process.env.PUBLIC_URL}/post-job`} className="btn upw-bg-color">
+                <div className='col-6'></div>
+                <div className='col-2'>
+                    <Link
+                        to={`${process.env.PUBLIC_URL}/post-job`}
+                        className='btn upw-bg-color'
+                    >
                         Post a New Job
                     </Link>
                 </div>
             </div>
         </div>
-    )
+    );
 }

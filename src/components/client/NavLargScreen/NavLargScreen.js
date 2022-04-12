@@ -1,84 +1,113 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import { fbAuth } from "../../../firebase";
-import img from "../../../assets/Img/icon-user.svg";
-import { useDispatch, useSelector } from "react-redux";
-import { clientDataAction } from "../../../Store/actions/clientData";
-
+import React, { useEffect } from 'react';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { fbAuth } from '../../../firebase';
+import img from '../../../assets/Img/icon-user.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import { clientDataAction } from '../../../Store/actions/clientData';
 
 export default function NavLargScreen() {
+    let navigate = useNavigate();
+    const user = useSelector(state => state.clientData);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(clientDataAction());
+    }, []);
 
-  let navigate = useNavigate();
-  const user = useSelector((state) => state.clientData);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(clientDataAction());
-  }, []);
+    const logout = () => {
+        fbAuth.auth
+            .signOut()
+            .then(res => {
+                console.log(res);
+                navigate('/login');
+                window.location.reload();
+                localStorage.removeItem('userType');
+            })
+            .catch(error => {
+                console.log(error.message);
+            });
+    };
 
-  const logout = () => {
-    fbAuth.auth.signOut().then((res) => {
-      console.log(res);
-      navigate("/login");
-      window.location.reload();
-      localStorage.removeItem('userType');
-    }).catch((error) => {
-      console.log(error.message);
-    });
-  };
-
-  return (
-    <>
-      <div className="navbar-expand" id="navbarNav-id">
-        <ul className="navbar-nav align-items-center">
-          <li className="nav-item hov-cn">
-            <NavLink className="nav-link" to={`${process.env.PUBLIC_URL}/home`}>
-              "Jobs"
-            </NavLink>
-            <ul className="dropdown-menu" style={{ marginTop: "-8px" }}>
-              <div className="nav-dd-cn"></div>
-              <li>
-                <Link className="dropdown-item" to={`${process.env.PUBLIC_URL}/home`}>
-                  "My Jobs"
-                </Link>
-              </li>
-              <li>
-                <Link className="dropdown-item" to={`${process.env.PUBLIC_URL}/all-job-posts`}>
-                  "All Jobs Posts"
-                </Link>
-              </li>
-              <li>
-                <Link className="dropdown-item" to={`${process.env.PUBLIC_URL}/all-contracts`}>
-                  "All Contracts"
-                </Link>
-              </li>
-              <li>
-                <Link className="dropdown-item" to={`${process.env.PUBLIC_URL}/post-job`}>
-                  "Post a Job"
-                </Link>
-              </li>
-            </ul>
-          </li>
-          <li className="nav-item hov-cn ms-3">
-            <NavLink className="nav-link" to={`${process.env.PUBLIC_URL}/talent`}>
-              "Talent"
-            </NavLink>
-            <ul className="dropdown-menu" style={{ marginTop: "-8px" }}>
-              <div className="nav-dd-cn"></div>
-              <li>
-                <Link className="dropdown-item" to={`${process.env.PUBLIC_URL}/talent/my-hires`}>
-                  "My Hires"
-                </Link>
-              </li>
-              <li>
-                <Link className="dropdown-item" to={`${process.env.PUBLIC_URL}/talent/saved-talent`}>
-                  "Saved Talent"
-                </Link>
-              </li>
-            </ul>
-          </li>
-          {/* <li className="nav-item hov-cn">
+    return (
+        <>
+            <div className='navbar-expand' id='navbarNav-id'>
+                <ul className='navbar-nav align-items-center'>
+                    <li className='nav-item hov-cn'>
+                        <NavLink
+                            className='nav-link'
+                            to={`${process.env.PUBLIC_URL}/home`}
+                        >
+                            "Jobs"
+                        </NavLink>
+                        <ul
+                            className='dropdown-menu'
+                            style={{ marginTop: '-8px' }}
+                        >
+                            <div className='nav-dd-cn'></div>
+                            <li>
+                                <Link
+                                    className='dropdown-item'
+                                    to={`${process.env.PUBLIC_URL}/home`}
+                                >
+                                    "My Jobs"
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    className='dropdown-item'
+                                    to={`${process.env.PUBLIC_URL}/all-job-posts`}
+                                >
+                                    "All Jobs Posts"
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    className='dropdown-item'
+                                    to={`${process.env.PUBLIC_URL}/all-contracts`}
+                                >
+                                    "All Contracts"
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    className='dropdown-item'
+                                    to={`${process.env.PUBLIC_URL}/post-job`}
+                                >
+                                    "Post a Job"
+                                </Link>
+                            </li>
+                        </ul>
+                    </li>
+                    <li className='nav-item hov-cn ms-3'>
+                        <NavLink
+                            className='nav-link'
+                            to={`${process.env.PUBLIC_URL}/talent`}
+                        >
+                            "Talent"
+                        </NavLink>
+                        <ul
+                            className='dropdown-menu'
+                            style={{ marginTop: '-8px' }}
+                        >
+                            <div className='nav-dd-cn'></div>
+                            <li>
+                                <Link
+                                    className='dropdown-item'
+                                    to={`${process.env.PUBLIC_URL}/talent/my-hires`}
+                                >
+                                    "My Hires"
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    className='dropdown-item'
+                                    to={`${process.env.PUBLIC_URL}/talent/saved-talent`}
+                                >
+                                    "Saved Talent"
+                                </Link>
+                            </li>
+                        </ul>
+                    </li>
+                    {/* <li className="nav-item hov-cn">
             <NavLink className="nav-link" to="/transaction-history">
               "Reports"
             </NavLink>
@@ -157,52 +186,66 @@ export default function NavLargScreen() {
               </li>
             </ul>
           </li> */}
-          <li className="nav-item ms-5 me-3">
-            <NavLink className="nav-link" to={`${process.env.PUBLIC_URL}/messages`}>
-              <i
-                className="far fa-paper-plane fs-5"
-                style={{ transform: "scaleX(-1)" }}
-              ></i>
-            </NavLink>
-          </li>
-          {/* <li className="nav-item me-5">
+                    <li className='nav-item ms-5 me-3'>
+                        <NavLink
+                            className='nav-link'
+                            to={`${process.env.PUBLIC_URL}/messages`}
+                        >
+                            <i
+                                className='far fa-paper-plane fs-5'
+                                style={{ transform: 'scaleX(-1)' }}
+                            ></i>
+                        </NavLink>
+                    </li>
+                    {/* <li className="nav-item me-5">
             <NavLink className="nav-link" to="/messages">
               "Messages"
             </NavLink>
           </li> */}
-          {/* <li className="nav-item">
+                    {/* <li className="nav-item">
             <a className="nav-link" href="#">
               <i className="fas fa-question fs-5"></i>
             </a>
           </li> */}
-          <li className="nav-item me-3">
-            <NavLink to={`${process.env.PUBLIC_URL}/notifications`} className="nav-link" href="#">
-              <i className="far fa-bell fs-5"></i>
-            </NavLink>
-          </li>
-          {/* <li className="nav-item border-start border-secondary ps-2">
+                    <li className='nav-item me-3'>
+                        <NavLink
+                            to={`${process.env.PUBLIC_URL}/notifications`}
+                            className='nav-link'
+                            href='#'
+                        >
+                            <i className='far fa-bell fs-5'></i>
+                        </NavLink>
+                    </li>
+                    {/* <li className="nav-item border-start border-secondary ps-2">
             <a className="nav-link" href="#">
               <i className="fas fa-user-plus fs-5"></i>
             </a>
           </li> */}
-          <li className="dropdown">
-            <a
-              className="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdownMenuLink"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <img style={{ height: "40px", width: "40px" }} className="rounded-circle bg-white" src={user.profilePhoto ? user.profilePhoto : img} alt="" />
-            </a>
-            <ul
-              id="acc-id"
-              className="dropdown-menu"
-              aria-labelledby="navbarDropdownMenuLink"
-            >
-              <div className="nav-dd-acc-cn"></div>
-              {/* <li className="px-4 py-3">
+                    <li className='dropdown'>
+                        <a
+                            className='nav-link dropdown-toggle'
+                            href='/'
+                            id='navbarDropdownMenuLink'
+                            role='button'
+                            data-bs-toggle='dropdown'
+                            aria-expanded='false'
+                        >
+                            <img
+                                style={{ height: '40px', width: '40px' }}
+                                className='rounded-circle bg-white'
+                                src={
+                                    user.profilePhoto ? user.profilePhoto : img
+                                }
+                                alt=''
+                            />
+                        </a>
+                        <ul
+                            id='acc-id'
+                            className='dropdown-menu'
+                            aria-labelledby='navbarDropdownMenuLink'
+                        >
+                            <div className='nav-dd-acc-cn'></div>
+                            {/* <li className="px-4 py-3">
                 <div
                   id="acc-btns-id"
                   className="btn-group w-100"
@@ -218,23 +261,39 @@ export default function NavLargScreen() {
                   </button>
                 </div>
               </li> */}
-              <li>
-                <NavLink
-                  className="dropdown-item px-4"
-                  to="/find-work"
-                >
-                  <div className="d-flex align-items-center">
-                    <span style={{ marginLeft: "-5px" }}>
-                      <img style={{ height: "30px", width: "30px" }} className="rounded-circle bg-white" src={user.profilePhoto ? user.profilePhoto : img} alt="" />
-                    </span>
-                    <div className="acc-cn ms-2">
-                      <p>{user?.firstName + " " + user?.lastName}</p>
-                      <p>Client</p>
-                    </div>
-                  </div>
-                </NavLink>
-              </li>
-              {/* <li>
+                            <li>
+                                <NavLink
+                                    className='dropdown-item px-4'
+                                    to='/find-work'
+                                >
+                                    <div className='d-flex align-items-center'>
+                                        <span style={{ marginLeft: '-5px' }}>
+                                            <img
+                                                style={{
+                                                    height: '30px',
+                                                    width: '30px',
+                                                }}
+                                                className='rounded-circle bg-white'
+                                                src={
+                                                    user.profilePhoto
+                                                        ? user.profilePhoto
+                                                        : img
+                                                }
+                                                alt=''
+                                            />
+                                        </span>
+                                        <div className='acc-cn ms-2'>
+                                            <p>
+                                                {user?.firstName +
+                                                    ' ' +
+                                                    user?.lastName}
+                                            </p>
+                                            <p>Client</p>
+                                        </div>
+                                    </div>
+                                </NavLink>
+                            </li>
+                            {/* <li>
                 <NavLink className="dropdown-item px-4 mb-1" to="/home">
                   <div className="d-flex align-items-center">
                     <span style={{ marginLeft: "-5px" }}>
@@ -247,7 +306,7 @@ export default function NavLargScreen() {
                   </div>
                 </NavLink>
               </li> */}
-              {/* <li>
+                            {/* <li>
                 <a className="dropdown-item px-4" href="#">
                   <span>
                     <i className="fa fa-cog"></i>
@@ -255,18 +314,18 @@ export default function NavLargScreen() {
                   <span className="ps-2">Settings</span>
                 </a>
               </li> */}
-              <li onClick={logout}>
-                <a className="dropdown-item px-4" href="#">
-                  <span>
-                    <i className="fas fa-sign-out-alt"></i>
-                  </span>
-                  <span className="ps-2">Log Out</span>
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </>
-  );
+                            <li onClick={logout}>
+                                <a className='dropdown-item px-4' href='/'>
+                                    <span>
+                                        <i className='fas fa-sign-out-alt'></i>
+                                    </span>
+                                    <span className='ps-2'>Log Out</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </>
+    );
 }
