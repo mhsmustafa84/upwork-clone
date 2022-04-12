@@ -28,6 +28,10 @@ ul {
 .upw-border-color {
     border-color: var(--upw-color);
 }
+.upw-btn {
+    background-color: var(--upw-color);
+    color: white;
+}
 .upw-btn-outline {
     border-color: var(--upw-color);
     color: var(--upw-color);
