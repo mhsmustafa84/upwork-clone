@@ -1,25 +1,15 @@
 import React from 'react';
-import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
+import img from '../../assets/svg/404.svg';
 
 export const NotFound = () => {
-    const { goBack } = useNavigate();
     return (
-        <div className='container'>
-            <div className='row'>
-                <div className='col-md-11 col-md-offset-1 text-center'>
-                    <h2 className='m-lg-top m-md-bottom text-muted'>
-                        This page doesn't exist.
-                    </h2>
-                    <p className='text-muted m-sm-bottom'>
-                        Please
-                        <button className='btn upw-color p-0' onClick={goBack}>
-                            return
-                        </button>{' '}
-                        to the previous page or visit <a href='/'>Upwork.com</a>
-                    </p>
-                    <small className='text-muted'>Error 404</small>
-                </div>
-            </div>
-        </div>
+        <section className='position-absolute top-50 start-50 translate-middle text-center'>
+            <img src={img} className='w-50' alt='' />
+            <h2 className='text-muted my-5'>This page doesn't exist.</h2>
+            <Link className='btn upw-btn' to={process.env.PUBLIC_URL}>
+                Back to home
+            </Link>
+        </section>
     );
 };
