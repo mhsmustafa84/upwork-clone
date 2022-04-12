@@ -9,7 +9,7 @@ import Profile from '../pages/talent/Profile/Profile';
 import MyStats from '../pages/talent/MyStats/MyStats';
 import MyJobs from '../pages/talent/MyJobs/MyJobs';
 import AllContracts from '../pages/talent/AllContracts/AllContracts';
-import PageNotFound from '../pages/PageNotFound/PageNotFound';
+import PageNotFound from '../pages/shared/PageNotFound';
 import Reports from '../pages/talent/Reports/MyReports/MyReports';
 import OverviewReports from '../pages/talent/Reports/OverviewReports/OverviewReports';
 import BillingByClients from '../pages/talent/Reports/billingbyclient/billingbyclients';

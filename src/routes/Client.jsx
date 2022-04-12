@@ -9,7 +9,7 @@ import AllContract from '../pages/client/AllContract/AllContract';
 import PostJob from '../pages/client/PostJop/PostJob';
 import Talent from '../pages/client/Talent/Talent';
 import Reports from '../pages/client/Reports/Reports';
-import PageNotFound from '../pages/PageNotFound/PageNotFound';
+import PageNotFound from '../pages/shared/PageNotFound';
 import ReviewProposals from '../pages/client/ReviewProposals/ReviewProposals';
 import EmailVerified from '../pages/EmailVerification/EmailVerified';
 import TransactionHistory from '../pages/talent/Reports/TransactionHistory/TransactionHistory';
