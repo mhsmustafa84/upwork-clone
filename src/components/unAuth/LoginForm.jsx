@@ -1,8 +1,7 @@
 /* eslint-disable */
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { fbAuth } from '../../firebase';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 export const LoginForm = () => {
     const [user, setUser] = useState({ email: '', password: '' });
@@ -91,7 +90,6 @@ export const LoginForm = () => {
                             className={`form-control shadow-none ${
                                 PasswordError && 'border-danger'
                             }`}
-                            aria-describedby='emailHelp'
                             placeholder='Password'
                             onInput={getUserData}
                         />
@@ -110,7 +108,7 @@ export const LoginForm = () => {
                     <div className='text-danger text-center'>
                         {errorMessage}
                     </div>
-                    <p className='mt-5 text-center text-main-color'>
+                    <p className='mt-5 text-center text-color'>
                         Don't have an Upwork account?
                     </p>
                     <div className='mt-4 text-center'>
