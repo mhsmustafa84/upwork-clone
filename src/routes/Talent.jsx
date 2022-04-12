@@ -9,7 +9,6 @@ import Profile from '../pages/talent/Profile/Profile';
 import MyStats from '../pages/talent/MyStats/MyStats';
 import MyJobs from '../pages/talent/MyJobs/MyJobs';
 import AllContracts from '../pages/talent/AllContracts/AllContracts';
-import PageNotFound from '../pages/shared/PageNotFound';
 import Reports from '../pages/talent/Reports/MyReports/MyReports';
 import OverviewReports from '../pages/talent/Reports/OverviewReports/OverviewReports';
 import BillingByClients from '../pages/talent/Reports/billingbyclient/billingbyclients';
@@ -28,6 +27,7 @@ import JobAppliedDetails from '../pages/talent/JobAppliedDetails/JobAppliedDetai
 import Contract from '../pages/talent/Contract/Contract';
 import Offers from '../pages/talent/Offers/Offers';
 import Notifications from '../pages/Notifications/Notifications';
+import { NotFound } from '../pages/shared/NotFound';
 
 export const Talent = () => {
     const [arr, setarr] = useState([]);
@@ -150,7 +150,7 @@ export const Talent = () => {
                         path={`${process.env.PUBLIC_URL}/notifications`}
                         element={<Notifications />}
                     />
-                    <Route path='**' element={<PageNotFound />} />
+                    <Route path='**' element={<NotFound />} />
                 </Routes>
             </SearchContextProvider>
             <Footer />

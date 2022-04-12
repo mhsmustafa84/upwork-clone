@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Home, Login, SignUp } from '../pages/unAuth';
-import PageNotFoundBeforeLogin from '../pages/shared/PageNotFoundBeforeLogin';
+import { NotFound } from '../pages/shared/NotFound';
 
 const routes = [
     {
@@ -18,7 +18,7 @@ const routes = [
     },
     {
         path: '**',
-        element: () => <PageNotFoundBeforeLogin />,
+        element: () => <NotFound />,
     },
 ];
 
