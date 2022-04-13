@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router';
 import { fbAuth } from '../../firebase';
 import { createDocumentWithId } from '../../Network/Network';
 import { Timestamp } from 'firebase/firestore';
-import CountrySelect from 'react-bootstrap-country-select';
 import { Link } from 'react-router-dom';
+import CountrySelect from 'react-bootstrap-country-select';
 
 const EMAIL_REG =
     /^([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
@@ -22,7 +22,7 @@ export const SignupForm = () => {
     const [country, setCountry] = useState('');
     let navigate = useNavigate();
 
-    const [usr, setuser] = useState({
+    const [user, setuser] = useState({
         authID: '',
         email: '',
         firstName: '',
@@ -31,62 +31,62 @@ export const SignupForm = () => {
         userType: 'client',
         createdAt: Timestamp.now(),
     });
-    console.log(usr.userType);
+    console.log(user.userType);
 
     const getUserData = e => {
         const val = e.target.value;
         const name = e.target.name;
         switch (name) {
             case 'firstName':
-                setuser({ ...usr, firstName: val });
+                setuser({ ...user, firstName: val });
                 setValidate({
                     ...validate,
                     firstName:
                         val === ''
                             ? 'First name is required'
                             : val.length < 3
-                            ? 'First name must be more than 2'
+                            ? 'First name must be more than 2 letters'
                             : null,
                 });
                 break;
             case 'lastName':
-                setuser({ ...usr, lastName: val });
+                setuser({ ...user, lastName: val });
                 setValidate({
                     ...validate,
                     lastName:
                         val === ''
                             ? 'Last name is required'
                             : val.length < 3
-                            ? 'Last name must be more than 2'
+                            ? 'Last name must be more than 2 letters'
                             : null,
                 });
                 break;
             case 'email':
-                setuser({ ...usr, email: val });
+                setuser({ ...user, email: val });
                 setValidate({
                     ...validate,
                     email:
                         val === ''
-                            ? 'Email required'
+                            ? 'Email is required'
                             : !val.match(EMAIL_REG)
-                            ? 'Please Enter a Valid Email'
+                            ? 'Please enter a valid Email'
                             : null,
                 });
                 break;
             case 'password':
-                setuser({ ...usr, password: val });
+                setuser({ ...user, password: val });
                 setValidate({
                     ...validate,
                     password:
                         val === ''
-                            ? 'This is Required'
+                            ? 'Password is required'
                             : val.length < 8
-                            ? 'Password Should be More 8 Character'
+                            ? 'Password length must be more than 8'
                             : null,
                 });
                 break;
             case 'userType':
-                setuser({ ...usr, userType: val });
+                setuser({ ...user, userType: val });
                 break;
             case 'terms':
                 console.log(terms.current.checked);
@@ -104,19 +104,19 @@ export const SignupForm = () => {
         fbAuth
             .createUserWithEmailAndPassword(
                 fbAuth.auth,
-                usr.email,
-                usr.password
+                user.email,
+                user.password
             )
             .then(res => {
                 if (res.user) {
-                    res.user.updateProfile({ displayName: usr.userType });
+                    res.user.updateProfile({ displayName: user.userType });
                     res.user.sendEmailVerification();
-                    localStorage.setItem('userType', usr.userType);
-                    if (usr.userType === 'talent') {
+                    localStorage.setItem('userType', user.userType);
+                    if (user.userType === 'talent') {
                         createDocumentWithId(
-                            usr.userType,
+                            user.userType,
                             {
-                                ...usr,
+                                ...user,
                                 authID: fbAuth.auth.currentUser.uid,
                                 accepted: false,
                                 totalJobs: 0,
@@ -151,11 +151,11 @@ export const SignupForm = () => {
                             },
                             fbAuth.auth.currentUser.uid
                         );
-                    } else if (usr.userType === 'client') {
+                    } else if (user.userType === 'client') {
                         createDocumentWithId(
-                            usr.userType,
+                            user.userType,
                             {
-                                ...usr,
+                                ...user,
                                 authID: fbAuth.auth.currentUser.uid,
                                 paymentVerified: false,
                                 review: 0,
@@ -178,7 +178,7 @@ export const SignupForm = () => {
 
     return (
         <div className='container py-5 mt-5'>
-            <div className='mx-auto w-60 shadow px-3 py-5 rounded border'>
+            <div className='mx-auto col-md-8 shadow py-5 rounded border'>
                 <h2 className='text-center fw-bold'>
                     Sign up to find work you love
                 </h2>
@@ -187,14 +187,20 @@ export const SignupForm = () => {
                         <input
                             type='text'
                             name='firstName'
-                            className='form-control'
+                            className={`form-control ${
+                                validate.firstName &&
+                                'border-danger shadow-none text-danger'
+                            }`}
                             placeholder='First Name'
                             onInput={getUserData}
                         />
                         <input
                             type='text'
                             name='lastName'
-                            className='form-control'
+                            className={`form-control ${
+                                validate.lastName &&
+                                'border-danger shadow-none text-danger'
+                            }`}
                             placeholder='Last Name'
                             onInput={getUserData}
                         />
@@ -203,7 +209,10 @@ export const SignupForm = () => {
                         <input
                             type='email'
                             name='email'
-                            className='form-control'
+                            className={`form-control ${
+                                validate.email &&
+                                'border-danger shadow-none text-danger'
+                            }`}
                             id='exampleInputEmail1'
                             placeholder='Email'
                             onInput={getUserData}
@@ -213,21 +222,24 @@ export const SignupForm = () => {
                         <input
                             type='password'
                             name='password'
-                            className='form-control'
+                            className={`form-control ${
+                                validate.password &&
+                                'border-danger shadow-none text-danger'
+                            }`}
                             placeholder='Password'
                             onInput={getUserData}
                         />
                     </div>
-                    <div>
+                    <div className='text-center'>
                         <p className='text-danger'>{validate.firstName}</p>
                         <p className='text-danger'>{validate.lastName}</p>
                         <p className='text-danger'>{validate.email}</p>
                         <p className='text-danger'>{validate.password}</p>
                         <p className='text-danger'>{errorMessage}</p>
                     </div>
-                    <h3 className='text-center mt-5 mb-3'>
+                    <h4 className='text-center mt-4 mb-3'>
                         Join as a client or freelancer
-                    </h3>
+                    </h4>
                     <div className='d-flex justify-content-center gap-3'>
                         <div>
                             <input
@@ -240,7 +252,6 @@ export const SignupForm = () => {
                                 onInput={getUserData}
                             />
                             <label
-                                // className='btn upw-border-color upw-color'
                                 className='btn upw-btn-outline'
                                 htmlFor='client'
                             >
@@ -257,7 +268,6 @@ export const SignupForm = () => {
                                 onInput={getUserData}
                             />
                             <label
-                                // className='btn upw-border-color upw-color'
                                 className='btn upw-btn-outline'
                                 htmlFor='talent'
                             >
@@ -265,10 +275,10 @@ export const SignupForm = () => {
                             </label>
                         </div>
                     </div>
-                    <div className={'my-3 text-dark w-75 mx-auto'}>
+                    <div className='w-75 mx-auto my-4'>
                         <CountrySelect value={country} onChange={setCountry} />
                     </div>
-                    <div className='form-check w-75 mx-auto my-4'>
+                    <div className='form-check my-4'>
                         <input
                             ref={terms}
                             name='terms'
@@ -276,7 +286,7 @@ export const SignupForm = () => {
                             type='checkbox'
                             onChange={getUserData}
                         />
-                        <p className='text-main-color fs-7'>
+                        <p className='text-color fs-7'>
                             Yes I understand and agree to the Upwork Terms of
                             Service, including the User Agreement and Privacy
                             Policy
@@ -290,7 +300,7 @@ export const SignupForm = () => {
                                 validate.password != null ||
                                 validate.firstName ||
                                 validate.lastName ||
-                                (usr.userType === 'client' && !country) ||
+                                (user.userType === 'client' && !country) ||
                                 !validate.terms
                             }
                             onClick={signUpComplete}
@@ -301,7 +311,13 @@ export const SignupForm = () => {
                 </form>
                 <p className='text-center'>
                     Already have an account?
-                    <Link to={`${process.env.PUBLIC_URL}/login`}> Log In</Link>
+                    <Link
+                        className='upw-link'
+                        to={`${process.env.PUBLIC_URL}/login`}
+                    >
+                        {' '}
+                        Log In
+                    </Link>
                 </p>
             </div>
         </div>

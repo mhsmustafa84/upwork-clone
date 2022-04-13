@@ -3,13 +3,12 @@ import { Route, Routes } from 'react-router-dom';
 import AllJobPosts from '../pages/client/AllJobPost/AllJobPosts';
 import Jobs from '../pages/client/Jobs/Jobs';
 import Header from '../components/client/Header/Header';
-import { Footer } from '../components/shared/footer/Footer';
+import { Footer } from '../components/shared/Footer';
 import Messages from '../pages/Messages/Messages';
 import AllContract from '../pages/client/AllContract/AllContract';
 import PostJob from '../pages/client/PostJop/PostJob';
 import Talent from '../pages/client/Talent/Talent';
 import Reports from '../pages/client/Reports/Reports';
-import PageNotFound from '../pages/PageNotFound/PageNotFound';
 import ReviewProposals from '../pages/client/ReviewProposals/ReviewProposals';
 import EmailVerified from '../pages/EmailVerification/EmailVerified';
 import TransactionHistory from '../pages/talent/Reports/TransactionHistory/TransactionHistory';
@@ -20,6 +19,7 @@ import JobJobDetailsBeforeProposals from '../pages/client/JobDetailsBeforePropos
 import CreateContract from '../pages/client/CreateContract/CreateContract';
 import Notifications from '../pages/Notifications/Notifications';
 import Contract from '../pages/client/AllContract/Contract';
+import { NotFound } from '../pages/shared/NotFound';
 
 export const Client = () => {
     const [talentArr, settalentArr] = useState([]);
@@ -101,7 +101,7 @@ export const Client = () => {
                         path={`${process.env.PUBLIC_URL}/notifications`}
                         element={<Notifications />}
                     />
-                    <Route path='**' element={<PageNotFound />} />
+                    <Route path='**' element={<NotFound />} />
                 </Routes>
             </SearchContextProvider>
             <Footer />

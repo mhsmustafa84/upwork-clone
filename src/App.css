@@ -1,17 +1,37 @@
 :root {
     --upw-color: #14a800;
     --upw-hover-color: #3c8224;
+    --upw-hover-bg-color: #f2f7f2;
     --upw-dark-color: #1d4354;
+    --text-color: #5e6d55;
+    --link-hover-color: var(--upw-color);
 }
 * {
     font-family: cairo;
     line-height: normal;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    vertical-align: baseline;
 }
 a {
     text-decoration: none;
 }
+ol,
 ul {
     list-style: none;
+    margin: 0;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+    line-height: normal;
 }
 .upw-color {
     color: var(--upw-color);
@@ -28,12 +48,37 @@ ul {
 .upw-border-color {
     border-color: var(--upw-color);
 }
+.upw-btn {
+    background-color: var(--upw-color);
+    color: white;
+}
+.upw-btn:hover {
+    background-color: var(--upw-hover-color);
+    color: white;
+}
+.upw-btn-outline:hover {
+    background-color: var(--upw-hover-bg-color);
+    color: var(--upw-hover-color);
+}
 .upw-btn-outline {
     border-color: var(--upw-color);
     color: var(--upw-color);
 }
-.text-main-color {
-    color: #5e6d55;
+.text-color {
+    color: var(--text-color);
+}
+.upw-link {
+    color: var(--upw-color);
+}
+.upw-link:hover {
+    color: var(--upw-hover-color);
+    text-decoration: underline;
+}
+.link {
+    color: var(--text-color);
+}
+.link:hover {
+    color: var(--link-hover-color);
 }
 .w-10 {
     width: 10%;
@@ -89,4 +134,16 @@ ul {
     color: #fff;
     background-color: var(--upw-color);
     border-color: var(--upw-color);
+}
+
+footer ul li {
+    background-color: #2b5468;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+}
+footer ul li:hover {
+    background-color: #336278;
+    cursor: pointer;
 }
