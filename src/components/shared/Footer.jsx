@@ -1,15 +1,14 @@
 import React from 'react';
-import './Footer.css';
 
 export const Footer = () => {
     return (
-        <footer className='upw-bg-dark-color'>
+        <footer className='upw-bg-dark-color py-3 text-white'>
             <div className='container'>
-                <div className='row border-bottom border-secondary pt-3'>
+                <div className='row gap-md-0 gap-sm-3 border-bottom border-secondary py-3'>
                     <div className='col-md-6 col-sm-12'>
-                        <div className='d-flex'>
-                            <span className='text-light'>Follow us</span>
-                            <ul className='list-unstyled d-flex text-white ms-3'>
+                        <div className='d-flex flex-sm-column flex-md-row'>
+                            <span className='me-md-3'>Follow us:</span>
+                            <ul className='list-unstyled d-flex gap-2'>
                                 <li>
                                     <i className='fab fa-facebook'></i>
                                 </li>
@@ -29,9 +28,9 @@ export const Footer = () => {
                         </div>
                     </div>
                     <div className='col-md-6 col-sm-12'>
-                        <div className='d-flex justify-content-end'>
-                            <span className='text-light'>Mobile app</span>
-                            <ul className='list-unstyled d-flex text-white ms-3'>
+                        <div className='d-flex flex-sm-column flex-md-row justify-content-md-end'>
+                            <span className='me-md-3'>Mobile app:</span>
+                            <ul className='list-unstyled d-flex gap-2 '>
                                 <li>
                                     <i className='fab fa-apple'></i>
                                 </li>
@@ -42,11 +41,9 @@ export const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className='row'>
-                    <p className='text-light text-center mt-4'>
-                        © 2015 - 2022 Upwork® Global Inc.
-                    </p>
-                </div>
+                <p className='text-md-center mt-4'>
+                    © 2015 - 2022 Upwork® Global Inc.
+                </p>
             </div>
         </footer>
     );

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Messages from '../pages/Messages/Messages';
 import Header from '../components/talent/Header/Header';
-import { Footer } from '../components/shared/footer/Footer';
+import { Footer } from '../components/shared/Footer';
 import SavedJobs from '../pages/talent/SavedJobs/SavedJobs';
 import Proposals from '../pages/talent/Proposals/Proposals';
 import Profile from '../pages/talent/Profile/Profile';

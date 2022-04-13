@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import AllJobPosts from '../pages/client/AllJobPost/AllJobPosts';
 import Jobs from '../pages/client/Jobs/Jobs';
 import Header from '../components/client/Header/Header';
-import { Footer } from '../components/shared/footer/Footer';
+import { Footer } from '../components/shared/Footer';
 import Messages from '../pages/Messages/Messages';
 import AllContract from '../pages/client/AllContract/AllContract';
 import PostJob from '../pages/client/PostJop/PostJob';

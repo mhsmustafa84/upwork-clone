@@ -1,7 +1,7 @@
-import React from 'react'
-import { HomeContent } from '../../components/unAuth/HomeContent'
+import React from 'react';
+import { HomeContent } from '../../components/unAuth/HomeContent';
 import { Header } from '../../components/unAuth/Header';
-import { Footer } from '../../components/shared/footer/Footer';
+import { Footer } from '../../components/shared/Footer';
 
 export const Home = () => {
     return (
@@ -10,5 +10,5 @@ export const Home = () => {
             <HomeContent />
             <Footer />
         </>
-    )
-}
+    );
+};
