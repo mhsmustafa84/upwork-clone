@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router';
 import { fbAuth } from '../../firebase';
 import { createDocumentWithId } from '../../Network/Network';
 import { Timestamp } from 'firebase/firestore';
-import CountrySelect from 'react-bootstrap-country-select';
 import { Link } from 'react-router-dom';
+import CountrySelect from 'react-bootstrap-country-select';
 
 const EMAIL_REG =
     /^([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
@@ -237,9 +237,9 @@ export const SignupForm = () => {
                         <p className='text-danger'>{validate.password}</p>
                         <p className='text-danger'>{errorMessage}</p>
                     </div>
-                    <h3 className='text-center mt-4 mb-3'>
+                    <h4 className='text-center mt-4 mb-3'>
                         Join as a client or freelancer
-                    </h3>
+                    </h4>
                     <div className='d-flex justify-content-center gap-3'>
                         <div>
                             <input
@@ -275,10 +275,10 @@ export const SignupForm = () => {
                             </label>
                         </div>
                     </div>
-                    <div className={'my-3 text-dark w-75 mx-auto'}>
+                    <div className='w-75 mx-auto my-4'>
                         <CountrySelect value={country} onChange={setCountry} />
                     </div>
-                    <div className='form-check w-75 mx-auto my-4'>
+                    <div className='form-check my-4'>
                         <input
                             ref={terms}
                             name='terms'
