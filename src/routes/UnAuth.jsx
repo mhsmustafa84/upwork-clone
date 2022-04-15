@@ -6,19 +6,19 @@ import { NotFound } from '../pages/shared/NotFound';
 const routes = [
     {
         path: '/',
-        element: () => <Home />,
+        Component: Home,
     },
     {
         path: '/login',
-        element: () => <Login />,
+        Component: Login,
     },
     {
         path: '/sign-up',
-        element: () => <SignUp />,
+        Component: SignUp,
     },
     {
         path: '*',
-        element: () => <NotFound />,
+        Component: NotFound,
     },
 ];
 
@@ -27,11 +27,11 @@ const baseRoute = process.env.PUBLIC_URL;
 export const UnAuth = () => {
     return (
         <Routes>
-            {routes.map(route => (
+            {routes.map(({ path, Component }) => (
                 <Route
-                    key={route.path}
-                    path={`${baseRoute}${route.path}`}
-                    element={<route.element />}
+                    key={path}
+                    path={`${baseRoute}${path}`}
+                    element={<Component />}
                 />
             ))}
         </Routes>
