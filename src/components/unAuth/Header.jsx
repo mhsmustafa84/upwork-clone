@@ -8,6 +8,12 @@ export const Header = () => {
     const { home, login, signUp } = unAuthRoutes;
     return (
         <header className='fixed-top bg-white'>
+            <div class=' alert alert-danger text-danger'>
+                <div class='container' style={{ fontFamily: 'cascadia code' }}>
+                    console.log( "Currently I am upgrading Firebase version, so
+                    some functionality will not work as expected" );
+                </div>
+            </div>
             <div className='container border-bottom py-3'>
                 <div className='d-flex justify-content-between align-items-center'>
                     <Logo url={home.path} />
