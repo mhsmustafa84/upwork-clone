@@ -1,32 +1,20 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp } from 'firebase/app';
 import {
     getAuth,
-    OAuthProvider,
-    GoogleAuthProvider,
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword,
     onAuthStateChanged,
     onIdTokenChanged,
-    signInWithPopup
-} from "firebase/auth";
-import { getStorage } from "firebase/storage";
-import { getFirestore } from "firebase/firestore";
+} from 'firebase/auth';
+import { getStorage } from 'firebase/storage';
+import { getFirestore } from 'firebase/firestore';
+import { firbaseConfig } from './firebaseConfig';
 
-initializeApp({
-    apiKey: "AIzaSyBYCGYP-tx6DJKgjd4cNPiYoOC3wNk1cwk",
-    authDomain: "final-project-react-12190.firebaseapp.com",
-    projectId: "final-project-react-12190",
-    storageBucket: "final-project-react-12190.appspot.com",
-    messagingSenderId: "1063777536149",
-    appId: "1:1063777536149:web:ac906c833922665c00739c",
-    measurementId: "G-8BVMCH1W3X",
-});
+initializeApp(firbaseConfig);
 
 const auth = getAuth();
 const storage = getStorage();
 const db = getFirestore();
-const googleProvider = new GoogleAuthProvider();
-const appleProvider = new OAuthProvider("apple.com");
 
 const fbAuth = {
     auth,
@@ -34,13 +22,6 @@ const fbAuth = {
     createUserWithEmailAndPassword,
     onAuthStateChanged,
     onIdTokenChanged,
-    signInWithPopup
-}
-
-export {
-    fbAuth,
-    db,
-    storage,
-    googleProvider,
-    appleProvider
 };
+
+export { fbAuth, db, storage };
