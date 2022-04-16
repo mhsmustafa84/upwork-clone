@@ -1,34 +1,34 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { fbAuth } from '../firebase';
 import { UnAuth, Talent, Client } from '.';
 import { Loader } from '../components/shared/Loader';
 
-let usrType = null;
+let userType = null;
 
 export const Layout = () => {
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-        console.log('file: Layout => PUBLIC_URL', process.env.PUBLIC_URL);
-        console.log('file: Layout => currentUser', fbAuth.auth.currentUser);
+        console.log('Layout => PUBLIC_URL', process.env.PUBLIC_URL);
+        console.log('Layout => currentUser', fbAuth.auth.currentUser);
 
-        fbAuth.onAuthStateChanged(fbAuth.auth, user => {
-            if (user) {
-                console.log(
-                    'file: layout.jsx => line 15 => useEffect => user',
-                    user
-                );
+        fbAuth.onAuthStateChanged(fbAuth.auth, usr => {
+            if (usr) {
                 setUser(user);
-                usrType = localStorage.getItem('userType') || null;
+                userType = localStorage.getItem('userType') || null;
             }
         });
     }, []);
 
-    if (user) {
-        if (usrType === 'talent') return <Talent />;
-        if (usrType === 'client') return <Client />;
-        if (usrType !== null) return <Loader />;
-    }
-    if (!user) return <UnAuth />;
+    const LayoutComponent = () => {
+        if (user) {
+            if (userType === 'talent') return <Talent />;
+            if (userType === 'client') return <Client />;
+            if (userType !== null) return <Loader />;
+        }
+        if (!user) return <UnAuth />;
+        return <h1>Layout is not found</h1>;
+    };
+
+    return <LayoutComponent />;
 };
