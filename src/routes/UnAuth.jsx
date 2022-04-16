@@ -1,37 +1,45 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Home, Login, SignUp } from '../pages/unAuth';
 import { NotFound } from '../pages/shared/NotFound';
+import { Home, Login, SignUp } from '../pages/unAuth';
 
-const routes = [
-    {
-        path: '/',
+const baseRoute = process.env.PUBLIC_URL;
+
+export const unAuthRoutes = {
+    home: {
+        path: baseRoute,
         Component: Home,
     },
-    {
-        path: '/login',
+    login: {
+        path: baseRoute + '/login',
         Component: Login,
     },
-    {
-        path: '/sign-up',
+    signUp: {
+        path: baseRoute + '/sign-up',
         Component: SignUp,
     },
-    {
+    notFound: {
         path: '*',
         Component: NotFound,
     },
-];
+};
 
-const baseRoute = process.env.PUBLIC_URL;
+const routes = () => {
+    const arr = [];
+    for (const route in unAuthRoutes) {
+        arr.push(unAuthRoutes[route]);
+    }
+    return arr;
+};
 
 export const UnAuth = () => {
     return (
         <Routes>
-            {routes.map(({ path, Component }) => (
+            {routes().map(route => (
                 <Route
-                    key={path}
-                    path={`${baseRoute}${path}`}
-                    element={<Component />}
+                    key={route.path}
+                    path={route.path}
+                    element={<route.Component />}
                 />
             ))}
         </Routes>
