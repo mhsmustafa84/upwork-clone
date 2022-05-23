@@ -60,6 +60,6 @@
     "devDependencies": {
         "chunks-webpack-plugin": "^7.0.3",
         "gh-pages": "^4.0.0",
-        "nth-check": "^2.0.1"
+        "nth-check": "^2.1.1"
     }
 }
