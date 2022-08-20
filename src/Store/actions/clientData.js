@@ -1,9 +1,9 @@
-import { fbAuth, db } from "../../firebase";
+import { auth, db } from "../../firebase";
 
 export const clientDataAction = () => async (dispatch) => {
     try {
         let res;
-        await db.collection("client").doc(fbAuth.auth?.currentUser?.uid).get()
+        await db.collection("client").doc(auth?.currentUser?.uid).get()
             .then(doc => {
                 res = doc.data();
             });

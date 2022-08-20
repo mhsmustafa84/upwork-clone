@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/anchor-has-content */
 import { useEffect, useState } from "react"
-import { fbAuth, db } from "../../firebase"
+import { auth, db } from "../../firebase"
 import NotificationCard from "./NotificationCard";
 
 export default function Notifications() {
@@ -17,7 +17,7 @@ export default function Notifications() {
     const getNotifications = () => {
         const arr = [];
         db.collection(collectionName)
-            .doc(fbAuth.auth.currentUser.uid)
+            .doc(auth.currentUser.uid)
             .collection("notification")
             .orderBy("time", "desc")
             .get().then(res => {

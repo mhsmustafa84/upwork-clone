@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import img from "../../assets/Img/icon-user.svg";
-import { fbAuth, db } from '../../firebase';
+import img from "../../assets/img/icon-user.svg";
+import { auth, db } from '../../firebase';
+
 
 export default function NotificationCard({ notification, collectionName, getNotifications }) {
 
@@ -9,7 +10,7 @@ export default function NotificationCard({ notification, collectionName, getNoti
 
     const remove = () => {
         db.collection(collectionName)
-            .doc(fbAuth.auth.currentUser.uid)
+            .doc(auth.currentUser.uid)
             .collection("notification")
             .doc(docID)
             .delete().then(res => getNotifications())
@@ -17,7 +18,7 @@ export default function NotificationCard({ notification, collectionName, getNoti
 
     const updateShow = () => {
         db.collection(collectionName)
-            .doc(fbAuth.auth.currentUser.uid)
+            .doc(auth.currentUser.uid)
             .collection("notification")
             .doc(docID).update({ isShow: true })
     }
@@ -31,7 +32,7 @@ export default function NotificationCard({ notification, collectionName, getNoti
             <p className="col-3">{new Date(data?.time.seconds * 1000).toLocaleString()}</p>
             <p className="col-2">{data?.type}</p>
             <Link style={{ display: "contents" }}
-                to={`${process.env.PUBLIC_URL}/${data?.route}`}
+                to={data?.route}
                 onClick={updateShow}
             >
                 <p className="col-5">

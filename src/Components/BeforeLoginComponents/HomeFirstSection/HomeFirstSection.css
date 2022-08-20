@@ -1,0 +1,44 @@
+.fs-h1-cn {
+  font-size: 45px;
+  line-height: 95px;
+  color: #1d4354;
+}
+
+.fs-p-cn {
+  color: #1d4354;
+}
+
+.fs-btns-cn {
+  background-color: #37a000;
+  color: white;
+  box-shadow: none;
+}
+.fs-btns-cn:hover {
+  color: white !important;
+  background-color: #008329;
+}
+
+.fs-btns-cn button:last-child {
+  color: #37a000;
+  box-shadow: none;
+}
+
+.fs-btns-cn button:first-child:hover {
+  background-color: #008329;
+}
+
+.fs-abs-img-cn {
+  left: 40%;
+  top: 65%;
+  padding: 10px;
+  background-color: white;
+}
+[dir="rtl"] .fs-h1-cn {
+  font-weight: bold;
+}
+[dir="rtl"] .fs-abs-img-cn {
+  left: -15%;
+}
+[dir="rtl"] .fs-btns-cn {
+  font-size: 15px;
+}
