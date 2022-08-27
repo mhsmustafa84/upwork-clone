@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/upwork-clone/static/css/main.f237b306.chunk.css",
-    "main.js": "/upwork-clone/static/js/main.0d16c208.chunk.js",
-    "main.js.map": "/upwork-clone/static/js/main.0d16c208.chunk.js.map",
+    "main.js": "/upwork-clone/static/js/main.7bd0bde4.chunk.js",
+    "main.js.map": "/upwork-clone/static/js/main.7bd0bde4.chunk.js.map",
     "runtime-main.js": "/upwork-clone/static/js/runtime-main.fc491e98.js",
     "runtime-main.js.map": "/upwork-clone/static/js/runtime-main.fc491e98.js.map",
     "static/css/2.0b38e3b4.chunk.css": "/upwork-clone/static/css/2.0b38e3b4.chunk.css",
@@ -70,6 +70,6 @@
     "static/css/2.0b38e3b4.chunk.css",
     "static/js/2.2b649b05.chunk.js",
     "static/css/main.f237b306.chunk.css",
-    "static/js/main.0d16c208.chunk.js"
+    "static/js/main.7bd0bde4.chunk.js"
   ]
 }
