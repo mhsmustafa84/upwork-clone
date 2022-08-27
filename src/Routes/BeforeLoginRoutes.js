@@ -12,8 +12,8 @@ export default function BeforeLoginRoutes() {
   return (
     <>
       <Switch>
-        <Route path="/front-final-project" exact component={HomePage} />
         <Route path="/" exact component={HomePage} />
+        <Route path="/upwork-clone" exact component={HomePage} />
         <Route path="/login" exact component={Login} />
         <Route path="/sign-up" exact component={SignUp} />
         <Route path="/sign-up/details" exact component={SignupDetails} />
