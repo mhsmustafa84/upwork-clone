@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "http://mhsmustafa84.github.io/upwork-clone",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.10",
+    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.2",
