@@ -62,6 +62,6 @@
   },
   "devDependencies": {
     "chunks-webpack-plugin": "^7.1.0",
-    "gh-pages": "^4.0.0"
+    "gh-pages": "^5.0.0"
   }
 }
