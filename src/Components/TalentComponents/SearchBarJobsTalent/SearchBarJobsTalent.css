@@ -1,0 +1,28 @@
+.form-control:focus {
+  border-color: #008329;
+  box-shadow: none;
+}
+.form-control::-webkit-input-placeholder {
+  color: #656565;
+  font-size: 13px;
+  font-weight: 100;
+}
+.form-control:-moz-placeholder {
+  font-size: 13px;
+  color: #656565;
+}
+.form-control::-moz-placeholder {
+  font-size: 13px;
+  font-weight: 100;
+  color: #656565;
+}
+.form-control::placeholder {
+  font-size: 13px;
+  font-weight: 100;
+  color: #656565;
+}
+.form-control:-ms-input-placeholder {
+  font-size: 13px;
+  color: #656565;
+  font-weight: 100;
+}

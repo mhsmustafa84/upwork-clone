@@ -1,0 +1,118 @@
+/*  {
+  .container {
+     ;
+  }
+} */
+
+@font-face {
+  font-family: myFont;
+  src: url(../../../assets/Fonts/GothamMedium.ttf);
+}
+
+/* .body {
+    ;
+    font-family: 15em "myFont";
+
+} */
+
+.advanced-search-link {
+  color: #37a000;
+  text-decoration: none;
+}
+
+.advanced-search-link:hover {
+  color: #37a000;
+  text-decoration: underline;
+}
+
+.sidebar-homebage-ul-li {
+  text-decoration: none;
+  border: none;
+  padding: 5px 10px;
+}
+
+.sidebar-homebage-ul-li-a {
+  color: black;
+  text-decoration: unset;
+  border: none;
+}
+
+.sidebar-homebage-ul-li-a:hover {
+  color: black;
+  text-decoration: none;
+  border: none;
+}
+
+.active,
+.sidebar-homebage-ul-li-a:active {
+  color: black;
+  font-size: 0.95rem;
+
+  font-weight: bold;
+}
+
+.activeside:before,
+.sidebar-homebage-ul-li-a:active:before {
+  content: "";
+  width: 4px;
+  height: 100%;
+  background: #37a000;
+
+  /* positioning of line relative to the button */
+  position: absolute;
+  float: left;
+  top: 5px;
+  /* amount of padding top of your button */
+  left: 0;
+}
+
+.hotspot__btn {
+  background-color: #0073d2;
+  border-radius: 50px;
+  border: 0.75px solid #ffffff;
+  box-shadow: 0px 0px 0px 5px #68bbff;
+  outline-style: none;
+  padding: 5px;
+  z-index: 3;
+  margin-left: 8px;
+
+  /* so we can position the line */
+  position: relative;
+  bottom: 5px;
+}
+
+.hotspot__btn:hover {
+  box-shadow: 0px 0px 0px 12px #cfe8fc;
+  transition: box-shadow 0.5s linear;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.job-title-hover:hover {
+  color: #37a000;
+  text-decoration: underline;
+}
+
+#more {
+  display: none;
+}
+
+#seemorebutton {
+  background-color: #fff;
+  border: none;
+
+  display: inline;
+}
+
+.skills {
+  background-color: rgba(238, 238, 238, 0.877);
+  color: rgb(37, 37, 37);
+  border: none;
+}
+
+.skills:hover {
+  background-color: rgba(212, 211, 211, 0.877);
+  color: rgb(37, 37, 37);
+}

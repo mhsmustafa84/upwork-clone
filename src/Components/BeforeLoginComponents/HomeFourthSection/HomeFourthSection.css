@@ -1,0 +1,17 @@
+.fth-div-cn {
+  font-size: 25px;
+  line-height: 45px;
+  color: #1d4354;
+}
+
+.fth-abs-img1-cn {
+  top: 0;
+  left: 15%;
+}
+
+.fth-abs-img2-cn {
+  bottom: 0;
+  right: 4%;
+  padding: 10px;
+  background-color: white;
+}

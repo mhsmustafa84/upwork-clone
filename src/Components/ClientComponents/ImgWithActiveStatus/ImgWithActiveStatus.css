@@ -1,0 +1,22 @@
+.hotspotimg__btn {
+  background-color: #37a000;
+  border-radius: 50px;
+  border: 0.75px solid #ffffff;
+  box-shadow: 0px 0px 0px 5px #d5fdbf;
+  outline-style: none;
+  padding: 5px;
+  z-index: 3;
+
+
+
+
+    /* so we can position the line */
+    position:relative;
+ bottom: 30px;
+    left:50px;
+}
+
+.hotspotimg__btn:hover {
+  box-shadow: 0px 0px 0px 12px #e6fadb;
+  transition: box-shadow 0.5s linear;
+}

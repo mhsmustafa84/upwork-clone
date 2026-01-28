@@ -1,0 +1,19 @@
+#article-ID {
+    background-color: white;
+    box-shadow: 0px 1px 10px #eaeaea;
+    transition-property: transform;
+    transition-duration: 0.5s;
+  }
+
+  #article-ID:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 10px #eaeaea;
+  }
+
+  #article-image-ID {
+    bottom: -24px;
+    left: -85px;
+  }
+
+  
+  

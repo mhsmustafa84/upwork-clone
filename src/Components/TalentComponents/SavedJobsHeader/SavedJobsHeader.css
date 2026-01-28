@@ -1,0 +1,98 @@
+
+
+
+
+
+
+
+.saved-homebage-ul-li-aa {
+    color: black;
+    text-decoration: unset;
+    background-color: #f1f2f4;
+    
+}
+
+.saved-homebage-ul-li-aa:hover {
+    color: black;
+    text-decoration: none;
+    background-color: #f1f2f4;
+    border: none;
+}
+
+.active,
+.saved-homebage-ul-li-aa:active {
+    color: black;
+    font-size: 0.95rem;
+
+    font-weight: bold;
+
+}
+
+.activesidesaved::before,
+.saved-homebage-ul-li-aa:active:before {
+
+    content: '';
+    width: 100%;
+    height: 4px;
+    background: #37a000;
+
+    /* positioning of line relative to the button */
+    position: absolute;
+    float: bottom;
+    top: 30px;
+    /* amount of padding top of your button */
+    left: 5px;
+
+
+}
+
+.hotspot__btn {
+    background-color: #0073d2;
+    border-radius: 50px;
+    border: 0.75px solid #ffffff;
+    box-shadow: 0px 0px 0px 5px #68bbff;
+    outline-style: none;
+    padding: 5px;
+    z-index: 3;
+    margin-left: 8px;
+
+
+
+    /* so we can position the line */
+    position: relative;
+    bottom: 5px;
+}
+
+.hotspot__btn:hover {
+    box-shadow: 0px 0px 0px 12px #cfe8fc;
+    transition: box-shadow 0.5s linear;
+}
+
+
+.job-title-hover:hover {
+    color: #37a000;
+    text-decoration: underline;
+}
+
+#more {
+
+    display: none;
+}
+
+#seemorebutton {
+    background-color: #fff;
+    border: none;
+    display: inline;
+}
+
+.skills {
+    background-color: rgba(238, 238, 238, 0.877);
+    color: rgb(37, 37, 37);
+    border: none;
+}
+
+.skills:hover {
+    background-color: rgba(212, 211, 211, 0.877);
+    color: rgb(37, 37, 37);
+
+}

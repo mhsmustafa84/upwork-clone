@@ -1,0 +1,117 @@
+body{
+  background-color: #F1F2F4;
+
+}
+
+
+.advanced-search-link {
+  color: #000;
+  text-decoration: none;
+
+}
+
+.advanced-search-link:hover {
+  color: #37a000;
+  text-decoration: underline;
+
+}
+
+.sidebar-homebage-ul-li {
+
+  text-decoration: none;
+  background-color: #f9f9f9;
+  border: none;
+  padding: 5px 10px;
+}
+
+
+
+.leftsidebar-homebage-ul-li-aa {
+  color: black;
+  text-decoration: unset;
+  background-color: #f9f9f9;
+  border: none;
+}
+
+.leftsidebar-homebage-ul-li-aa:hover {
+  color: black;
+  text-decoration: none;
+  background-color: #f9f9f9;
+  border: none;
+}
+
+.active,
+.leftsidebar-homebage-ul-li-aa:active {
+  color: black;
+  font-size: 0.95rem;
+
+  font-weight: bold;
+
+}
+
+.activeside:before,
+.leftsidebar-homebage-ul-li-aa:active:before {
+
+  content: '';
+  width: 4px;
+  height: 100%;
+  background: #37a000;
+
+  /* positioning of line relative to the button */
+  position: absolute;
+  float: left;
+  top: 5px;
+  /* amount of padding top of your button */
+  left: 0;
+
+
+}
+
+.hotspot__btn {
+  background-color: #0073d2;
+  border-radius: 50px;
+  border: 0.75px solid #ffffff;
+  box-shadow: 0px 0px 0px 5px #68bbff;
+  outline-style: none;
+  padding: 5px;
+  z-index: 3;
+  margin-left: 8px;
+
+
+
+  /* so we can position the line */
+  position: relative;
+  bottom: 5px;
+}
+
+.hotspot__btn:hover {
+  box-shadow: 0px 0px 0px 12px #cfe8fc;
+  transition: box-shadow 0.5s linear;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.job-title-hover:hover {
+  color: #37a000;
+  text-decoration: underline;
+}
+
+#more {
+
+  display: none;
+}
+
+
+.skills {
+  background-color: #f9f9f9;
+  color: rgb(37, 37, 37);
+  border: none;
+}
+
+.skills:hover {
+  background-color: #f9f9f9;
+  color: rgb(37, 37, 37);
+
+}

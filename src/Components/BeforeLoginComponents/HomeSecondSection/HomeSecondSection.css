@@ -1,0 +1,89 @@
+.scrol-d-icon-cn {
+  color: #37a000;
+}
+
+.ss-p-cn {
+  letter-spacing: 2.8px;
+  color: #656565;
+}
+[dir ="rtl"] .ss-p-cn {
+  letter-spacing: normal;
+}
+.ss-h2-cn {
+  font-size: 60px;
+  line-height: 80px;
+  color: #1d4354;
+}
+[dir ="rtl"] .ss-h2-cn {
+  line-height:  40px;
+}
+
+.ss-p2-cn {
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.ss-box-cn:hover {
+  background-color: #6fda44;
+}
+
+.ss-box-cn:hover h3,
+.ss-box-cn:hover p {
+  color: white;
+}
+
+.ss-box-cn h3 {
+  color: #1d4354;
+}
+
+.ss-box-cn p {
+  color: #656565;
+  margin-top: 25px;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.ss-box-cn div {
+  color: white;
+  background-color: #6fda44;
+  right: 0;
+  bottom: 0;
+}
+
+.ss-box-cn:hover div {
+  color: #6fda44;
+  background-color: white;
+}
+
+.ss-ul-a-cn {
+  font-size: 30px;
+  line-height: 60px;
+  color: #222;
+}
+[dir="rtl"] .ss-ul-a-cn
+{
+  font-size: 40px;
+}
+
+.ss-ul-a-cn:hover {
+  color: #6fda44;
+}
+
+.ss-span-a-cn {
+  opacity: 0.8;
+  color: #1d4354;
+  border: 1px solid #1d4354;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  padding: 10px 15px;
+  border-radius: 25px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.ss-span-a-cn:hover {
+  opacity: 1;
+  color: white;
+  background-color: #1d4354;
+}
